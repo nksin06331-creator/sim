@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RKLB 株価シナリオ試算</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --c-50:#f1f5f9; --c-100:#e2e8f0; --c-200:#cbd5e1; --c-400:#475569; --c-600:#334155; --c-800:#0f172a;
+  --hero-from:#020617; --hero-mid:#0f172a; --hero-to:#1e293b; --hero-accent:#7dd3fc;
+  --amber-50:#fffbeb; --amber-400:#fbbf24; --amber-600:#d97706;
+  --red-50:#fef2f2; --red-400:#f87171; --red-600:#dc2626;
+  --green-50:#f0fdf4; --green-400:#4ade80; --green-600:#16a34a;
+  --blue-50:#eff6ff; --blue-600:#2563eb;
+  --gray-50:#f9fafb; --gray-100:#f3f4f6; --gray-200:#e5e7eb; --gray-300:#d1d5db;
+  --gray-500:#6b7280; --gray-700:#374151; --gray-900:#111827;
+  --font-body:'DM Sans',sans-serif; --font-serif:'Noto Serif JP',serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font-body);background:#f9f9f7;color:var(--gray-900);line-height:1.7;font-size:15px}
+.hero{background:linear-gradient(135deg,var(--hero-from) 0%,var(--hero-mid) 55%,var(--hero-to) 100%);color:#fff;padding:56px 24px 64px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 20% 40%,rgba(255,255,255,.08) 0%,transparent 55%)}
+.hero>*{position:relative;z-index:1}
+.hero-badge{display:inline-block;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);border-radius:999px;padding:4px 16px;font-size:12px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:18px;color:var(--c-200)}
+.hero h1{font-family:var(--font-serif);font-size:clamp(24px,4.5vw,38px);font-weight:700;line-height:1.3;margin-bottom:14px}
+.hero h1 span{color:var(--hero-accent)}
+.hero p{font-size:15px;opacity:.85;max-width:640px;margin:0 auto}
+.container{max-width:880px;margin:0 auto;padding:0 20px}
+.section{padding:48px 0 32px;border-bottom:1px solid var(--gray-200)}
+.section-header{display:flex;align-items:center;gap:14px;margin-bottom:24px}
+.section-icon{width:42px;height:42px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;background:var(--c-50)}
+.section-title{font-family:var(--font-serif);font-size:21px;font-weight:700}
+.section-sub{font-size:13px;color:var(--gray-500);margin-top:2px}
+.lead{font-size:15.5px;color:var(--gray-700);line-height:1.85;margin-bottom:20px}
+strong{font-weight:600}
+.now-card{background:#fff;border:1px solid var(--gray-200);border-radius:14px;padding:22px 24px;margin-top:-32px;position:relative;z-index:5;box-shadow:0 8px 24px rgba(0,0,0,.06);display:flex;flex-wrap:wrap;gap:20px;justify-content:space-between;align-items:center}
+.now-item{text-align:center;flex:1;min-width:110px}
+.now-label{font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--gray-500);margin-bottom:4px;font-weight:600}
+.now-val{font-size:22px;font-weight:700;font-family:var(--font-serif)}
+.now-sub{font-size:11px;color:var(--gray-500);margin-top:2px}
+.scenario-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin:8px 0 4px}
+.sc-card{border-radius:14px;padding:22px;border:1px solid;position:relative;overflow:hidden}
+.sc-bear{background:linear-gradient(160deg,#fef2f2,#fff);border-color:#fecaca}
+.sc-base{background:linear-gradient(160deg,var(--c-50),#fff);border-color:var(--c-200)}
+.sc-bull{background:linear-gradient(160deg,#f0fdf4,#fff);border-color:#bbf7d0}
+.sc-tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:3px 10px;border-radius:999px;margin-bottom:12px}
+.sc-bear .sc-tag{background:var(--red-50);color:var(--red-600)}
+.sc-base .sc-tag{background:var(--c-50);color:var(--c-600)}
+.sc-bull .sc-tag{background:var(--green-50);color:var(--green-600)}
+.sc-price{font-size:36px;font-weight:700;font-family:var(--font-serif);line-height:1}
+.sc-bear .sc-price{color:var(--red-600)}
+.sc-base .sc-price{color:var(--c-600)}
+.sc-bull .sc-price{color:var(--green-600)}
+.sc-delta{font-size:13px;font-weight:600;margin:6px 0 2px}
+.sc-bear .sc-delta{color:var(--red-600)}
+.sc-base .sc-delta{color:var(--c-600)}
+.sc-bull .sc-delta{color:var(--green-600)}
+.sc-prob{font-size:12px;color:var(--gray-500);margin-bottom:14px}
+.sc-desc{font-size:12.5px;color:var(--gray-700);line-height:1.7;border-top:1px solid rgba(0,0,0,.06);padding-top:12px}
+.pos-wrap{background:#fff;border:1px solid var(--gray-200);border-radius:14px;padding:22px 24px;margin:18px 0 4px;box-shadow:0 4px 14px rgba(0,0,0,.04)}
+.pos-head{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+.pos-title{font-family:var(--font-serif);font-size:16px;font-weight:700}
+.pos-zone{font-size:13px;font-weight:700;padding:4px 12px;border-radius:999px}
+.zone-hot{background:var(--red-50);color:var(--red-600)} .zone-high{background:var(--amber-50);color:var(--amber-600)} .zone-fair{background:var(--c-50);color:var(--c-600)} .zone-cheap{background:var(--green-50);color:var(--green-600)}
+.pos-track{position:relative;height:14px;border-radius:999px;margin:30px 0 26px}
+.pos-entry{display:flex;flex-wrap:wrap;gap:24px;font-size:13px;color:var(--gray-700);border-top:1px dashed var(--gray-200);padding-top:14px;margin-top:14px}
+.pos-entry b{font-family:var(--font-serif);font-size:15px;color:var(--gray-900)}
+.pos-entry .pe-note{flex-basis:100%;font-size:12.5px;color:var(--gray-500);line-height:1.7;margin-top:2px}
+.pos-tick{position:absolute;top:-8px;width:2px;height:30px;background:var(--gray-300)}
+.pos-tick span{position:absolute;top:-20px;left:50%;transform:translateX(-50%);font-size:11px;color:var(--gray-500);white-space:nowrap}
+.pos-marker{position:absolute;top:-13px;width:4px;height:40px;background:var(--gray-900);border-radius:2px;box-shadow:0 0 0 4px #fff}
+.pos-marker span{position:absolute;bottom:-34px;left:50%;transform:translateX(-50%);font-size:12px;font-weight:700;color:var(--gray-900);white-space:nowrap}
+.pos-stats{display:flex;flex-wrap:wrap;gap:24px;font-size:13px;color:var(--gray-700);border-top:1px solid var(--gray-100);padding-top:14px}
+.pos-stats b{font-family:var(--font-serif);font-size:16px;color:var(--gray-900)}
+.ev-box{background:linear-gradient(135deg,var(--hero-from),var(--hero-mid));color:#fff;border-radius:14px;padding:24px 26px;margin:24px 0;display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between}
+.ev-main{flex:1;min-width:200px}
+.ev-main .lbl{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--c-200);margin-bottom:6px;font-weight:600}
+.ev-main .val{font-size:34px;font-weight:700;font-family:var(--font-serif)}
+.ev-main .sub{font-size:13px;opacity:.85;margin-top:4px}
+.ev-rr{text-align:right;font-size:13px;opacity:.9;line-height:1.9}
+.ev-rr b{font-size:18px;font-family:var(--font-serif)}
+.table-wrap{overflow-x:auto;background:#fff;border:1px solid var(--gray-200);border-radius:12px;margin:14px 0}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{background:var(--gray-50);padding:11px 14px;text-align:left;font-weight:600;font-size:11.5px;color:var(--gray-500);text-transform:uppercase;letter-spacing:.04em;border-bottom:1px solid var(--gray-200)}
+td{padding:11px 14px;border-bottom:1px solid var(--gray-100);color:var(--gray-700);vertical-align:top}
+tr:last-child td{border-bottom:none}
+tr:hover td{background:var(--gray-50)}
+.td-bear{color:var(--red-600);font-weight:600}
+.td-base{color:var(--c-600);font-weight:600}
+.td-bull{color:var(--green-600);font-weight:600}
+.row-total td{background:var(--c-50);font-weight:700;color:var(--gray-900)}
+.row-total:hover td{background:var(--c-100)}
+.sotp{display:flex;flex-direction:column;gap:10px;margin:14px 0}
+.sotp-row{display:flex;align-items:center;gap:14px;background:#fff;border:1px solid var(--gray-200);border-radius:10px;padding:14px 16px}
+.sotp-icon{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0;background:var(--c-50)}
+.sotp-body{flex:1}
+.sotp-name{font-weight:600;font-size:14px;margin-bottom:2px}
+.sotp-note{font-size:12px;color:var(--gray-500);line-height:1.6}
+.callout{border-radius:10px;padding:14px 16px;margin-top:14px;font-size:13px;line-height:1.75}
+.callout-amber{background:var(--amber-50);border-left:3px solid var(--amber-400);color:var(--gray-700)}
+.callout-primary{background:var(--c-50);border-left:3px solid var(--c-400);color:var(--gray-700)}
+.callout-red{background:var(--red-50);border-left:3px solid var(--red-400);color:var(--gray-700)}
+.callout b{color:var(--gray-900)}
+.cl-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px;display:block}
+.callout-amber .cl-label{color:var(--amber-600)}
+.callout-primary .cl-label{color:var(--c-600)}
+.callout-red .cl-label{color:var(--red-600)}
+ul.lst{margin:10px 0 10px 4px;padding-left:18px}
+ul.lst li{font-size:13.5px;color:var(--gray-700);margin-bottom:7px;line-height:1.7}
+.sc-h{font-family:var(--font-serif);font-size:16px;margin:18px 0 8px}
+.sc-h-bear{color:var(--red-600)} .sc-h-base{color:var(--c-600)} .sc-h-bull{color:var(--green-600)}
+.footer{padding:40px 24px;text-align:center;color:var(--gray-500);font-size:12.5px;border-top:1px solid var(--gray-200);margin-top:24px;line-height:1.8}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-badge">RKLB シナリオ試算 2026年7月版</div>
+  <h1>Rocket Lab（RKLB）<br><span>ベア / ベース / ブル</span> 株価シナリオ</h1>
+  <p>確立事業（打ち上げ・宇宙システム）をSOTPで積み上げ、Neutronを「未実証のオプション価値」、Iridium買収をシナリオ別に織り込んだ教育目的の試算です。現値が何を織り込んでいるかを示すことに徹します。</p>
+</div>
+
+<div class="container">
+
+  <!-- ① 現値スナップショット -->
+  <div class="now-card">
+    <div class="now-item"><div class="now-label">現値</div><div class="now-val">$100.21</div><div class="now-sub">2026-07-05終値近辺</div></div>
+    <div class="now-item"><div class="now-label">時価総額</div><div class="now-val">約$59B</div><div class="now-sub">株数 約590M（希薄化後）</div></div>
+    <div class="now-item"><div class="now-label">52週レンジ</div><div class="now-val">$35–$151</div><div class="now-sub">高値5/27・現値は高値比▲34%</div></div>
+    <div class="now-item"><div class="now-label">PSR（2026E）</div><div class="now-val">約62×</div><div class="now-sub">売上~$0.95B基準／実績は約95×</div></div>
+  </div>
+
+  <!-- ② 3シナリオ結論 -->
+  <section class="section" style="padding-top:36px">
+    <div class="section-header">
+      <div class="section-icon">🎯</div>
+      <div><div class="section-title">3シナリオの結論</div><div class="section-sub">現値$100.21を基準にした理論株価</div></div>
+    </div>
+    <div class="scenario-grid">
+      <div class="sc-card sc-bear">
+        <span class="sc-tag">Bear・弱気</span>
+        <div class="sc-price">$49</div>
+        <div class="sc-delta">▲51%</div>
+        <div class="sc-prob">想定確率 35%</div>
+        <div class="sc-desc">Iridium買収が破談・Neutron初飛行が遅延/不発。「SpaceX代替」プレミアムが収縮し、株価は確立事業＋残存Neutron期待の水準へ回帰。</div>
+      </div>
+      <div class="sc-card sc-base">
+        <span class="sc-tag">Base・中立</span>
+        <div class="sc-price">$95</div>
+        <div class="sc-delta">▲5%</div>
+        <div class="sc-prob">想定確率 45%</div>
+        <div class="sc-desc">買収がmid-2027にクローズ、NeutronがQ4 2026に初飛行成功し商業ランプ開始。宇宙システムの高成長が継続し、現行プレミアムがおおむね正当化される。</div>
+      </div>
+      <div class="sc-card sc-bull">
+        <span class="sc-tag">Bull・強気</span>
+        <div class="sc-price">$174</div>
+        <div class="sc-delta">+74%</div>
+        <div class="sc-prob">想定確率 20%</div>
+        <div class="sc-desc">Neutronが順調にcadenceを上げNSSL Lane 1を獲得、垂直統合の「公開版SpaceX代替」として本格再評価。メガコンステ供給の主要担い手に。</div>
+      </div>
+    </div>
+
+    <!-- 現値ポジショニング -->
+    <div class="pos-wrap">
+      <div class="pos-head">
+        <div class="pos-title">現値ポジショニング — 現値$100.21は帯のどこか</div>
+        <div class="pos-zone zone-high">やや割高〜適正上限</div>
+      </div>
+      <div class="pos-track" style="background:linear-gradient(90deg,#fecaca 0%,var(--c-200) 36.8%,#bbf7d0 100%)">
+        <div class="pos-tick" style="left:0%"><span>Bear $49</span></div>
+        <div class="pos-tick" style="left:36.8%"><span>Base $95</span></div>
+        <div class="pos-tick" style="left:100%"><span>Bull $174</span></div>
+        <div class="pos-marker" style="left:41.0%"><span>現値 $100.21</span></div>
+      </div>
+      <div class="pos-stats">
+        <div>帯内位置：<b>41%</b></div>
+        <div>上値余地：<b style="color:var(--green-600)">+74%</b></div>
+        <div>下値余地：<b style="color:var(--red-600)">▲51%</b></div>
+        <div>上値:下値比：<b>1.4 : 1</b></div>
+      </div>
+      <div class="pos-entry">
+        <div>直近1ヶ月：<b>約▲12〜15%</b></div>
+        <div>次カタリストまで：<b>約13〜25週</b></div>
+        <div class="pe-note"><b>織り込み度チェック：</b>現値は5月末の史上最高値$150前後からの調整局面にある一方、6/29のIridium買収発表を受けた直近約1週間は+20%超で急反発した。すなわち現値は「買収の再評価を織り込んだ後・5月のフロスを剥がした後」の水準。買収はすでにBase前提に含まれ（アナリスト目標も$115〜130へ引き上げ済み）、<b>次の上値には別材料＝NeutronのQ4 2026初飛行成功が必要</b>。次の主要デリスクはNeutron初飛行（Q4 2026・NET／過去に複数回延期）。直近チェックはQ2決算（8月頃・約5週後）。買収クローズはmid-2027（約48週後、株主承認・規制審査あり＝調達/統合トリガー型のリスク）。</div>
+      </div>
+    </div>
+
+    <div class="ev-box">
+      <div class="ev-main">
+        <div class="lbl">確率加重 期待値（補助指標）</div>
+        <div class="val">$94.7</div>
+        <div class="sub">現値$100.21 比 ▲5.5%（Bear35/Base45/Bull20加重）</div>
+      </div>
+      <div class="ev-rr">
+        下値余地（Bear）：<b style="color:#fecaca">▲51%</b><br>
+        上値余地（Bull）：<b style="color:#bbf7d0">+74%</b><br>
+        リスクリワード比：<b>1.4</b>
+      </div>
+    </div>
+    <div class="callout callout-amber">
+      <span class="cl-label">読み方の注意</span>
+      現値はBase（$95）のわずか上に位置し、確率加重期待値は現値をやや下回る。上値:下値比は約1.4:1と上方にやや傾くが、この帯の位置と幅は<b>ほぼ全面的に「Neutron/ビジョン価値」という単一の前提に依存</b>している（時価総額$59Bのうち現在の稼ぐ事業で説明できるのは3〜4割で、残りはNeutronの将来オプション）。前提が変われば帯ごと大きく動く点に留意。
+    </div>
+  </section>
+
+  <!-- ③ 計算ロジック -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-icon">🧮</div>
+      <div><div class="section-title">計算ロジック：SOTP＋オプション価値</div><div class="section-sub">確立事業を積み上げ、未実証のNeutronはオプションとして低掛目で加算</div></div>
+    </div>
+    <p class="lead">RKLBは打ち上げ（Electron/HASTE）・宇宙システム（衛星/部品/SDA）・開発中のNeutron・買収予定のIridiumという性質の異なる要素を持つため、単一倍率では測れない。事業ごとに評価して合算し、<strong>未飛行のNeutronは「将来フランチャイズへのオプション」</strong>として掛目で割り引き、Iridiumはシナリオ別に織り込んだ。最終的に純現金/負債を調整して株数で割る。</p>
+
+    <div class="sotp">
+      <div class="sotp-row">
+        <div class="sotp-icon">🚀</div>
+        <div class="sotp-body">
+          <div class="sotp-name">① Launch Services（Electron/HASTE）</div>
+          <div class="sotp-note">確立した小型打ち上げ・高マージンのサービス収益。2028E売上~$400Mに EV/Sales Bear 5x / Base 7x / Bull 10x。</div>
+        </div>
+      </div>
+      <div class="sotp-row">
+        <div class="sotp-icon">🛰️</div>
+        <div class="sotp-body">
+          <div class="sotp-name">② Space Systems（衛星/部品/SDA）</div>
+          <div class="sotp-note">売上の最大セグメント（Q1'26 $136.7M、+60%級成長）。SDA Tranche II/III（最大$816M）、部品事業。受注残$2.22Bが可視性を支える。倍率を Bear 11x / Base ~14x / Bull ~17x で振る。</div>
+        </div>
+      </div>
+      <div class="sotp-row">
+        <div class="sotp-icon">🌑</div>
+        <div class="sotp-body">
+          <div class="sotp-name">③ Neutron／ビジョン・オプション</div>
+          <div class="sotp-note">中型・部分再使用機。未飛行（Q4 2026 NET）。NSSL Lane 1 IDIQ（$5.6B枠）、メガコンステ供給、5打ち上げ契約が上振れ源。<b>この試算で最大のスイング要因</b>で、掛目と潜在価値を Bear $12B / Base $38B / Bull $78B で振る。</div>
+        </div>
+      </div>
+      <div class="sotp-row">
+        <div class="sotp-icon">📡</div>
+        <div class="sotp-body">
+          <div class="sotp-name">④ Iridium（買収ペンディング）</div>
+          <div class="sotp-note">加入者255万・リカーリング収益。OEBITDA~$490M に EV/OEBITDA Base 10x / Bull 12x。Bearは破談で$0。純負債$1.7Bと$27現金対価は下の純負債側で処理。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>構成要素（EV）</th><th>Bear</th><th>Base</th><th>Bull</th></tr></thead>
+        <tbody>
+          <tr><td>① Launch Services</td><td class="td-bear">$2.0B</td><td class="td-base">$2.8B</td><td class="td-bull">$4.0B</td></tr>
+          <tr><td>② Space Systems</td><td class="td-bear">$13.5B</td><td class="td-base">$16.5B</td><td class="td-bull">$23.0B</td></tr>
+          <tr><td>③ Neutron／ビジョン</td><td class="td-bear">$12.0B</td><td class="td-base">$38.0B</td><td class="td-bull">$78.0B</td></tr>
+          <tr><td>④ Iridium（買収）</td><td class="td-bear">$0（破談）</td><td class="td-base">$4.9B</td><td class="td-bull">$5.9B</td></tr>
+          <tr class="row-total"><td>企業価値（EV）合計</td><td>$27.5B</td><td>$62.2B</td><td>$110.9B</td></tr>
+          <tr><td>± 純現金/純負債</td><td>+$1.44B<br><span style="font-size:11px;color:var(--gray-500)">単独・純現金</span></td><td>▲$3.26B<br><span style="font-size:11px;color:var(--gray-500)">統合・純負債</span></td><td>▲$3.26B<br><span style="font-size:11px;color:var(--gray-500)">統合・純負債</span></td></tr>
+          <tr class="row-total"><td>株主価値 合計</td><td>$28.9B</td><td>$58.9B</td><td>$107.6B</td></tr>
+          <tr><td>希薄化後 株数</td><td>590M<br><span style="font-size:11px;color:var(--gray-500)">単独</span></td><td>620M<br><span style="font-size:11px;color:var(--gray-500)">+新株30M</span></td><td>620M<br><span style="font-size:11px;color:var(--gray-500)">+新株30M</span></td></tr>
+          <tr class="row-total"><td>→ 理論株価</td><td class="td-bear">$49</td><td class="td-base">$95</td><td class="td-bull">$174</td></tr>
+          <tr><td>現値比</td><td class="td-bear">▲51%</td><td class="td-base">▲5%</td><td class="td-bull">+74%</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout callout-primary">
+      <span class="cl-label">希薄化・負債の扱い</span>
+      <b>買収の資金調達を直接内生化：</b>株式対価分（$27/株×約110M）で新株<b>約30M</b>を追加（620M株）、現金対価分は$3.6Bブリッジローンで賄い、Iridiumの純負債$1.7Bを引き継ぐ。統合後の純負債は約▲$3.26B（RKLB現金$1.48B − ブリッジ$3.0B − Iridium純負債$1.7B）。<br><b>転換社債は全シナリオで深くITM：</b>残$37.6M・転換価格$5.13に対し、Bear$49でも大きく上回るため全シナリオで転換扱い（約7.3M株、希薄化は軽微・株数に含む）。当初$300Mのうち大半は既に転換済み。
+    </div>
+    <div class="callout callout-amber">
+      <span class="cl-label">見落としがちな含意：買収は1株当たりでほぼ中立</span>
+      Base前提のままIridium買収<b>のみ</b>が破談した場合の株価は約$99.6と、Base（$95）を<b>上回る</b>。EVに$4.9Bを足す一方で純負債$4.7B（ブリッジ＋引継債務）と新株30Mも背負うため、<b>近い将来の1株当たり利益への寄与はほぼ中立〜わずかに希薄化的</b>。買収の価値は目先の増益ではなく、リカーリングFCFでNeutron開発を内部資金化する「垂直統合」の戦略性にある。現値を支えているのは買収ではなくNeutron/ビジョン・プレミアムである点が要点。
+    </div>
+  </section>
+
+  <!-- ④ 各シナリオの成立条件 -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-icon">📋</div>
+      <div><div class="section-title">各シナリオが成立する条件</div><div class="section-sub">何が起きればどこへ向かうか</div></div>
+    </div>
+    <h3 class="sc-h sc-h-bear">🐻 Bear（$49・確率35%）</h3>
+    <ul class="lst">
+      <li>Iridium買収が株主否決・規制/スペクトラム審査での難航・条件悪化などで<b>破談</b>、または大幅遅延。</li>
+      <li>NeutronのQ4 2026初飛行が<b>さらに延期</b>、あるいは初飛行で異常が発生し、実証時期が2027年後半以降にずれる。</li>
+      <li>「SpaceX代替」ナラティブの後退で<b>マルチプルが収縮</b>（PSR 60倍超→大幅低下）。Nasdaq-100/Russell入れ替えに伴う需給変化も逆風化。</li>
+      <li>Neutron capexが続く中でFCF赤字が長期化し、追加増資（希薄化）観測が強まる。</li>
+    </ul>
+    <h3 class="sc-h sc-h-base">⚖️ Base（$95・確率45%）</h3>
+    <ul class="lst">
+      <li>買収が<b>mid-2027にクローズ</b>。Iridiumのリカーリング~$490M OEBITDAが統合され、資金供給と収益安定性が加わる。</li>
+      <li>NeutronがQ4 2026に<b>初飛行成功</b>、2027年から商業ミッションのランプに入る。</li>
+      <li>Space Systemsが受注残$2.22Bを背景に<b>40〜60%級の成長を継続</b>、SDA案件が進捗。</li>
+      <li>現行のプレミアムが「時間をかけて正当化される」水準で推移（＝現値近辺）。</li>
+    </ul>
+    <h3 class="sc-h sc-h-bull">🚀 Bull（$174・確率20%）</h3>
+    <ul class="lst">
+      <li>Neutronが初飛行後<b>速やかにcadenceを上げ</b>、NSSL Lane 1にオンランプ、国家安全保障の反復受注を獲得。</li>
+      <li>メガコンステ供給の<b>主要担い手</b>となり、打ち上げ＋衛星製造＋運用の垂直統合が機能。</li>
+      <li>Iridiumのスペクトラム/ネットワークとの<b>シナジー</b>（打ち上げ内製化・PNT/通信サービス拡大）が具体化。</li>
+      <li>「公開市場で唯一投資可能なSpaceX代替」として<b>プレミアム倍率が定着</b>。</li>
+    </ul>
+  </section>
+
+  <!-- ⑤ 感応度分析 -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-icon">🎚️</div>
+      <div><div class="section-title">感応度：前提が変わると結論はどう動くか</div><div class="section-sub">この試算の効きどころ</div></div>
+    </div>
+    <p class="lead">結果を最も動かすのは<strong>Neutron/ビジョン価値</strong>で、他の全要素を合わせても及ばない。次いで宇宙システムの倍率。Iridium買収の成否は事業価値には効くが、負債・株数の相殺で1株当たりへの影響は限定的。</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>動かす前提</th><th>変化させると</th><th>Base株価への影響</th></tr></thead>
+        <tbody>
+          <tr><td>Neutron／ビジョン価値</td><td>±$10B（$38B→$28B/$48B）</td><td class="td-base">概ね ±$16</td></tr>
+          <tr><td>Space Systems 倍率</td><td>±3x（on 2028E~$1.2B）</td><td class="td-base">概ね ±$5.8</td></tr>
+          <tr><td>Iridium OEBITDA 倍率</td><td>±2x（8x↔12x）</td><td class="td-base">概ね ±$1.6</td></tr>
+          <tr><td>買収の成否</td><td>Base前提でディールのみ破談</td><td class="td-base">約 +$4.6（純中立〜微プラス）</td></tr>
+          <tr><td>追加希薄化</td><td>統合株数 620M→640M</td><td class="td-base">概ね ▲$3</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout callout-red">
+      <span class="cl-label">最大の不確実性</span>
+      <b>Neutronの実証（Q4 2026 NET・約13〜25週後）</b>。この試算の8割方はNeutronがどれだけ「SpaceX代替」フランチャイズに育つかの期待に由来する。初飛行成功はデリスク型カタリストで帯を上方に引き直す可能性がある一方、延期/異常は帯全体を大きく下方シフトさせうる。過去に推進剤タンク破損等で複数回延期している点に注意。次点の不確実性は買収の規制/株主承認（mid-2027）。
+    </div>
+  </section>
+
+  <!-- ⑥ 使用した前提・数値 -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-icon">📌</div>
+      <div><div class="section-title">使用した主な前提・数値</div><div class="section-sub">出典と概数（バランスシート項目は時点を明記）</div></div>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>項目</th><th>使用値</th><th>備考・時点</th></tr></thead>
+        <tbody>
+          <tr><td>現値</td><td>$100.21</td><td>2026-07-05 終値近辺（Nasdaq: RKLB）</td></tr>
+          <tr><td>52週レンジ</td><td>$35.28 – $151.00</td><td>高値2026-05-27（史上最高値$150.23）</td></tr>
+          <tr><td>時価総額</td><td>約$59B</td><td>$100.21 × 約590M株</td></tr>
+          <tr><td>株数（希薄化後）</td><td>単独~590M／統合~620M</td><td>10-Q 2026-03-31時点 発行済578.9M＋直近。統合は買収新株+約30M</td></tr>
+          <tr><td>現金・有価証券</td><td>$1.48B</td><td>2026-03-31時点。Q1にATMで$450M調達。総流動性は$2B超</td></tr>
+          <tr><td>転換社債</td><td>$37.6M（4.25% due 2029）</td><td>2026-03-31時点。転換価格$5.13→全シナリオ深くITM＝転換扱い（約7.3M株）</td></tr>
+          <tr><td>営業CF / capex（TTM）</td><td>▲$162M ／ ▲$155M</td><td>FCF ▲$316M。Neutron capexピーク局面（黒字化前・バーン局面）</td></tr>
+          <tr><td>Q1 2026 業績</td><td>売上$200.3M（+63.5%）</td><td>Space Systems $136.7M／Launch $63.7M。GAAP粗利38.2%・非GAAP43%。受注残$2.22B</td></tr>
+          <tr><td>Q2 2026 ガイダンス</td><td>売上$225M–$240M</td><td>GAAP粗利33–35%／非GAAP38–40%</td></tr>
+          <tr><td>Neutron 初飛行</td><td>Q4 2026（NET）</td><td>推進剤タンク破損等で複数回延期。初飛行は顧客非搭載</td></tr>
+          <tr><td>Iridium（買収対象）</td><td>FY25売上$871.7M／OEBITDA$495M</td><td>FY26見通しOEBITDA$480–490M。純負債$1.7B（2026-03-31）。加入者255万</td></tr>
+          <tr><td>買収条件</td><td>$54/株（$27現金＋RKLB株）</td><td>2026-06-29発表。EV約$8B。交換比率カラー$67.5–112.5。$3.6Bブリッジ。クローズmid-2027（株主承認・規制審査待ち）</td></tr>
+          <tr><td>アナリスト目標株価</td><td>平均約$114（$76–$150）</td><td>14–15名・強気優勢。参考値として扱い自前試算とは混同しない</td></tr>
+          <tr><td>確率配分</td><td>Bear35 / Base45 / Bull20</td><td>現値が期待を多く織り込むためBearをやや厚めに（仮定）</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+</div>
+
+<div class="footer">
+  <p style="font-weight:600;color:var(--gray-700);margin-bottom:8px">⚠️ 免責事項</p>
+  <p>本資料は情報提供・教育目的のシナリオ試算であり、投資助言ではありません。事業価値・オプション掛目・確率・希薄化率はいずれも公開情報に基づく仮定であり、実際の結果は大きく異なりえます。Rocket Lab（RKLB）は黒字化前・FCF赤字（Neutron capexピーク）でありNeutron実証・大型買収の統合・規制/スペクトラム審査・激しい競争など重大なリスクを抱えます。特に本試算は時価総額の大半を占める「Neutron/ビジョン価値」という単一前提への依存度が極めて高く、前提次第で結論は容易に逆転します。<br>数値は2026年7月時点の概数に基づきます。実際の投資判断はご自身の責任で行ってください。</p>
+</div>
+
+</body>
+</html>

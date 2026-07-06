@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ASPI 株価シナリオ試算</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --c-50:#f0fdfa; --c-100:#ccfbf1; --c-200:#99f6e4; --c-400:#2dd4bf; --c-600:#0d9488; --c-800:#115e59;
+  --hero-from:#0c3a2e; --hero-mid:#065f46; --hero-to:#047857; --hero-accent:#5eead4;
+  --amber-50:#fffbeb; --amber-400:#fbbf24; --amber-600:#d97706;
+  --red-50:#fef2f2; --red-400:#f87171; --red-600:#dc2626;
+  --green-50:#f0fdf4; --green-400:#4ade80; --green-600:#16a34a;
+  --blue-50:#eff6ff; --blue-600:#2563eb;
+  --gray-50:#f9fafb; --gray-100:#f3f4f6; --gray-200:#e5e7eb; --gray-300:#d1d5db;
+  --gray-500:#6b7280; --gray-700:#374151; --gray-900:#111827;
+  --font-body:'DM Sans',sans-serif; --font-serif:'Noto Serif JP',serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font-body);background:#f9f9f7;color:var(--gray-900);line-height:1.7;font-size:15px}
+.hero{background:linear-gradient(135deg,var(--hero-from) 0%,var(--hero-mid) 55%,var(--hero-to) 100%);color:#fff;padding:56px 24px 64px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 20% 40%,rgba(255,255,255,.08) 0%,transparent 55%)}
+.hero>*{position:relative;z-index:1}
+.hero-badge{display:inline-block;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);border-radius:999px;padding:4px 16px;font-size:12px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:18px;color:var(--c-200)}
+.hero h1{font-family:var(--font-serif);font-size:clamp(24px,4.5vw,38px);font-weight:700;line-height:1.3;margin-bottom:14px}
+.hero h1 span{color:var(--hero-accent)}
+.hero p{font-size:15px;opacity:.85;max-width:640px;margin:0 auto}
+.container{max-width:880px;margin:0 auto;padding:0 20px}
+.section{padding:48px 0 32px;border-bottom:1px solid var(--gray-200)}
+.section-header{display:flex;align-items:center;gap:14px;margin-bottom:24px}
+.section-icon{width:42px;height:42px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;background:var(--c-50)}
+.section-title{font-family:var(--font-serif);font-size:21px;font-weight:700}
+.section-sub{font-size:13px;color:var(--gray-500);margin-top:2px}
+.lead{font-size:15.5px;color:var(--gray-700);line-height:1.85;margin-bottom:20px}
+strong{font-weight:600}
+.now-card{background:#fff;border:1px solid var(--gray-200);border-radius:14px;padding:22px 24px;margin-top:-32px;position:relative;z-index:5;box-shadow:0 8px 24px rgba(0,0,0,.06);display:flex;flex-wrap:wrap;gap:20px;justify-content:space-between;align-items:center}
+.now-item{text-align:center;flex:1;min-width:110px}
+.now-label{font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--gray-500);margin-bottom:4px;font-weight:600}
+.now-val{font-size:22px;font-weight:700;font-family:var(--font-serif)}
+.now-sub{font-size:11px;color:var(--gray-500);margin-top:2px}
+.scenario-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin:8px 0 4px}
+.sc-card{border-radius:14px;padding:22px;border:1px solid;position:relative;overflow:hidden}
+.sc-bear{background:linear-gradient(160deg,#fef2f2,#fff);border-color:#fecaca}
+.sc-base{background:linear-gradient(160deg,var(--c-50),#fff);border-color:var(--c-200)}
+.sc-bull{background:linear-gradient(160deg,#f0fdf4,#fff);border-color:#bbf7d0}
+.sc-tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:3px 10px;border-radius:999px;margin-bottom:12px}
+.sc-bear .sc-tag{background:var(--red-50);color:var(--red-600)}
+.sc-base .sc-tag{background:var(--c-50);color:var(--c-600)}
+.sc-bull .sc-tag{background:var(--green-50);color:var(--green-600)}
+.sc-price{font-size:36px;font-weight:700;font-family:var(--font-serif);line-height:1}
+.sc-bear .sc-price{color:var(--red-600)}
+.sc-base .sc-price{color:var(--c-600)}
+.sc-bull .sc-price{color:var(--green-600)}
+.sc-delta{font-size:13px;font-weight:600;margin:6px 0 2px}
+.sc-bear .sc-delta{color:var(--red-600)}
+.sc-base .sc-delta{color:var(--c-600)}
+.sc-bull .sc-delta{color:var(--green-600)}
+.sc-prob{font-size:12px;color:var(--gray-500);margin-bottom:14px}
+.sc-desc{font-size:12.5px;color:var(--gray-700);line-height:1.7;border-top:1px solid rgba(0,0,0,.06);padding-top:12px}
+.ev-box{background:linear-gradient(135deg,var(--hero-from),var(--hero-mid));color:#fff;border-radius:14px;padding:24px 26px;margin:24px 0;display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between}
+.ev-main{flex:1;min-width:200px}
+.ev-main .lbl{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--c-200);margin-bottom:6px;font-weight:600}
+.ev-main .val{font-size:34px;font-weight:700;font-family:var(--font-serif)}
+.ev-main .sub{font-size:13px;opacity:.85;margin-top:4px}
+.ev-rr{text-align:right;font-size:13px;opacity:.9;line-height:1.9}
+.ev-rr b{font-size:18px;font-family:var(--font-serif)}
+.pos-wrap{background:#fff;border:1px solid var(--gray-200);border-radius:14px;padding:22px 24px;margin:18px 0}
+.pos-title{font-size:13px;font-weight:700;color:var(--gray-700);margin-bottom:14px;display:flex;justify-content:space-between;align-items:center}
+.pos-zone-badge{font-size:12px;font-weight:700;padding:4px 12px;border-radius:999px;background:var(--c-50);color:var(--c-800)}
+.pos-track{position:relative;height:14px;border-radius:999px;background:linear-gradient(90deg,var(--red-400),var(--c-400) 50%,var(--green-400));margin:20px 0 8px}
+.pos-marker{position:absolute;top:-9px;width:2px;height:32px;background:var(--gray-900)}
+.pos-marker::after{content:attr(data-label);position:absolute;top:-24px;left:50%;transform:translateX(-50%);font-size:11px;font-weight:700;white-space:nowrap;color:var(--gray-900)}
+.pos-labels{display:flex;justify-content:space-between;font-size:11px;color:var(--gray-500);margin-top:4px}
+.pos-stats{display:flex;gap:20px;margin-top:16px;flex-wrap:wrap}
+.pos-stat{flex:1;min-width:140px;font-size:12.5px;color:var(--gray-700)}
+.pos-stat b{display:block;font-size:18px;font-family:var(--font-serif);color:var(--c-800)}
+.table-wrap{overflow-x:auto;background:#fff;border:1px solid var(--gray-200);border-radius:12px;margin:14px 0}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{background:var(--gray-50);padding:11px 14px;text-align:left;font-weight:600;font-size:11.5px;color:var(--gray-500);text-transform:uppercase;letter-spacing:.04em;border-bottom:1px solid var(--gray-200)}
+td{padding:11px 14px;border-bottom:1px solid var(--gray-100);color:var(--gray-700);vertical-align:top}
+tr:last-child td{border-bottom:none}
+tr:hover td{background:var(--gray-50)}
+.td-bear{color:var(--red-600);font-weight:600}
+.td-base{color:var(--c-600);font-weight:600}
+.td-bull{color:var(--green-600);font-weight:600}
+.row-total td{background:var(--c-50);font-weight:700;color:var(--gray-900)}
+.row-total:hover td{background:var(--c-100)}
+.sotp{display:flex;flex-direction:column;gap:10px;margin:14px 0}
+.sotp-row{display:flex;align-items:center;gap:14px;background:#fff;border:1px solid var(--gray-200);border-radius:10px;padding:14px 16px}
+.sotp-icon{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0;background:var(--c-50)}
+.sotp-body{flex:1}
+.sotp-name{font-weight:600;font-size:14px;margin-bottom:2px}
+.sotp-note{font-size:12px;color:var(--gray-500);line-height:1.6}
+.callout{border-radius:10px;padding:14px 16px;margin-top:14px;font-size:13px;line-height:1.75}
+.callout-amber{background:var(--amber-50);border-left:3px solid var(--amber-400);color:var(--gray-700)}
+.callout-primary{background:var(--c-50);border-left:3px solid var(--c-400);color:var(--gray-700)}
+.callout-red{background:var(--red-50);border-left:3px solid var(--red-400);color:var(--gray-700)}
+.callout b{color:var(--gray-900)}
+.cl-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px;display:block}
+.callout-amber .cl-label{color:var(--amber-600)}
+.callout-primary .cl-label{color:var(--c-600)}
+.callout-red .cl-label{color:var(--red-600)}
+ul.lst{margin:10px 0 10px 4px;padding-left:18px}
+ul.lst li{font-size:13.5px;color:var(--gray-700);margin-bottom:7px;line-height:1.7}
+.sc-h{font-family:var(--font-serif);font-size:16px;margin:18px 0 8px}
+.sc-h-bear{color:var(--red-600)} .sc-h-base{color:var(--c-600)} .sc-h-bull{color:var(--green-600)}
+.footer{padding:40px 24px;text-align:center;color:var(--gray-500);font-size:12.5px;border-top:1px solid var(--gray-200);margin-top:24px;line-height:1.8}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-badge">ASPI シナリオ試算 2026年7月1日版</div>
+  <h1>ASP Isotopes Inc.（ASPI）<br><span>ベア / ベース / ブル</span> 株価シナリオ</h1>
+  <p>同位体濃縮（Si-28・Yb-176等）、核燃料（HALEU/QLE）、ヘリウム・LNG（Renergen/Noble Africa）の3事業をSOTPで積み上げ、
+  ネットキャッシュを調整した教育目的の試算です。NOBA（Noble Africa）とENDRA Life Sciencesの合併という未確定カタリストを、
+  持分89%として保守的に織り込んでいます。</p>
+</div>
+
+<div class="container">
+
+  <div class="now-card">
+    <div class="now-item"><div class="now-label">現値</div><div class="now-val">$6.20</div><div class="now-sub">2026/6/30終値近辺</div></div>
+    <div class="now-item"><div class="now-label">時価総額</div><div class="now-val">約$781M</div><div class="now-sub">発行済株式 125.9M株（26/3/31）</div></div>
+    <div class="now-item"><div class="now-label">52週レンジ</div><div class="now-val">$3.92-$14.49</div><div class="now-sub">高値から-57%の位置</div></div>
+    <div class="now-item"><div class="now-label">P/S（実績）</div><div class="now-val">約22倍</div><div class="now-sub">FY25売上$23.8M基準</div></div>
+  </div>
+
+  <section class="section" style="padding-top:36px">
+    <div class="section-header">
+      <div class="section-icon">🎯</div>
+      <div><div class="section-title">3シナリオの結論</div><div class="section-sub">現値$6.20を基準にした理論株価</div></div>
+    </div>
+    <div class="scenario-grid">
+      <div class="sc-card sc-bear">
+        <span class="sc-tag">Bear・弱気</span>
+        <div class="sc-price">$3.19</div>
+        <div class="sc-delta">現値比 -48.5%</div>
+        <div class="sc-prob">想定確率 30%</div>
+        <div class="sc-desc">Si-28商業出荷とRenergen Phase1が遅延。NOBA/ENDRA合併が破談または大幅減額。追加増資が重石に。</div>
+      </div>
+      <div class="sc-card sc-base">
+        <span class="sc-tag">Base・中立</span>
+        <div class="sc-price">$8.21</div>
+        <div class="sc-delta">現値比 +32.5%</div>
+        <div class="sc-prob">想定確率 45%</div>
+        <div class="sc-desc">ガイダンス通りQ3-Q4 2026にSi-28出荷とヘリウムPhase1商業生産が立ち上がり、NOBA合併もほぼ計画通り完了。</div>
+      </div>
+      <div class="sc-card sc-bull">
+        <span class="sc-tag">Bull・強気</span>
+        <div class="sc-price">$17.96</div>
+        <div class="sc-delta">現値比 +189.6%</div>
+        <div class="sc-prob">想定確率 25%</div>
+        <div class="sc-desc">3事業すべてが前倒しで軌道に乗り、HALEU/QLEの提携が拡大。ヘリウム供給逼迫を追い風にVirginia Gas ProjectのPhase2がDFC/Standard Bank資金で本格始動。</div>
+      </div>
+    </div>
+    <div class="ev-box">
+      <div class="ev-main">
+        <div class="lbl">確率加重 期待値</div>
+        <div class="val">$9.14</div>
+        <div class="sub">現値$6.20 比 +47.5%（Bear30%/Base45%/Bull25%加重）</div>
+      </div>
+      <div class="ev-rr">
+        下値余地（Bear）：<b style="color:#fecaca">-48.5%</b><br>
+        上値余地（Bull）：<b style="color:#bbf7d0">+189.6%</b><br>
+        リスクリワード比：<b>3.91倍</b>
+      </div>
+    </div>
+
+    <div class="pos-wrap">
+      <div class="pos-title">現値ポジショニング（結論の主役）
+        <span class="pos-zone-badge">適正〜やや割安ゾーン</span>
+      </div>
+      <div class="pos-track">
+        <div class="pos-marker" style="left:20.4%" data-label="現値 $6.20"></div>
+      </div>
+      <div class="pos-labels">
+        <span>Bear $3.19（0%）</span>
+        <span>Base $8.21</span>
+        <span>Bull $17.96（100%）</span>
+      </div>
+      <div class="pos-stats">
+        <div class="pos-stat">帯内位置<b>20.4%</b>（Bear下端からの位置）</div>
+        <div class="pos-stat">上値下値比<b>3.91倍</b>（Bull余地 ÷ Bear余地）</div>
+        <div class="pos-stat">判定<b>Bear≤現値&lt;Base</b>＝適正〜やや割安</div>
+      </div>
+    </div>
+
+    <div class="callout callout-amber">
+      <span class="cl-label">読み方の注意</span>
+      現値はBearとBaseの間、Bear寄り約2割の位置にあり、直近の急落（52週高値$14.49から-57%）を経て
+      「過熱」ではなく「適正〜やや割安」ゾーンに位置する、という結論になる。ただしこれはあくまで本試算の前提（特にSi-28・ヘリウム・HALEUの
+      事業価値の置き方）に全面的に依存する。アナリスト・コンセンサス目標株価（平均$12前後、2〜9社）は本試算のBaseより強気であり、
+      市場の一部はより楽観的な前提（HALEU/QLE拡大やヘリウム逼迫プレミアムを厚め）を織り込んでいる可能性がある一方、
+      Morningstar等のクオンツ評価は「割高」「ファンダメンタルズ弱い」とも評しており、見方が分かれている点に留意。
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <div class="section-icon">🧮</div>
+      <div><div class="section-title">計算ロジック：SOTP（部分合計法）</div><div class="section-sub">3つの異質な事業を個別評価し合算する必要があるため</div></div>
+    </div>
+    <p class="lead">ASPIは①同位体濃縮・放射性医薬品、②核燃料（HALEU/Li）、③ヘリウム・LNG（Renergen買収）という
+    性質の異なる3事業を持つ複合企業であり、単一倍率では測れないためSOTPを主手法とした。①は3件の商業契約とIAEA査察済み
+    設備を持ち商業出荷が目前（補助的にEV/Sales的な発想で価値づけ）、②はQLEレベルで$199.9Mの転換社債を調達済みという
+    市場での評価マーカーを参考にオプション価値として、③はRenergen買収時の対価（$92.9M、2026年1月時点）を起点に、
+    掘削前倒し完了・初のテイクオアペイ契約締結等の進捗を反映して増額した。</p>
+
+    <div class="sotp">
+      <div class="sotp-row">
+        <div class="sotp-icon">🔬</div>
+        <div class="sotp-body">
+          <div class="sotp-name">① Specialist Isotopes事業（Si-28・Yb-176・C-14＋PET Labs放射性医薬品）</div>
+          <div class="sotp-note">Bear $190M / Base $470M / Bull $1,020M。Si-28は米国顧客と商業契約3件締結済み、2026年5月に第1〜2セグメント（18段）を再稼働、Q3 2026に商業出荷開始予定。放射性医薬品（PET Labs）はFY25売上$5.7M（+46%YoY）、FY26に倍増目標。</div>
+        </div>
+      </div>
+      <div class="sotp-row">
+        <div class="sotp-icon">☢️</div>
+        <div class="sotp-body">
+          <div class="sotp-name">② Nuclear Fuels事業（QLE：HALEU / Li-6 / Li-7）</div>
+          <div class="sotp-note">Bear $80M / Base $250M / Bull $600M。TerraPowerとの供給・融資契約、欧州原子力技術企業とのHALEU供給MOU（2026年5月）があるが商業収益はまだ僅少。QLEが2025年11月に転換社債（残高$199.9M）を調達済みで、ASPIの残余持分としての評価額。</div>
+        </div>
+      </div>
+      <div class="sotp-row">
+        <div class="sotp-icon">💧</div>
+        <div class="sotp-body">
+          <div class="sotp-name">③ Helium/LNG事業（Noble Africa／Renergen・Virginia Gas Project）※ASPI持分89%で計上</div>
+          <div class="sotp-note">100%ベースでBear $120M / Base $350M / Bull $700M（買収完了2026年1月6日、対価$92.9M起点。掘削完了4カ月前倒し、5年間テイクオアペイ契約締結（>$600/MCF）、Phase1商業生産2026年Q3目標）。NOBA/ENDRA合併完了後はASPI持分約89%となる前提で控除。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>構成要素</th><th>Bear</th><th>Base</th><th>Bull</th></tr></thead>
+        <tbody>
+          <tr><td>① Specialist Isotopes事業</td><td class="td-bear">$190M</td><td class="td-base">$470M</td><td class="td-bull">$1,020M</td></tr>
+          <tr><td>② Nuclear Fuels事業（QLE）</td><td class="td-bear">$80M</td><td class="td-base">$250M</td><td class="td-bull">$600M</td></tr>
+          <tr><td>③ Helium/LNG事業（×89%持分）</td><td class="td-bear">$106.8M</td><td class="td-base">$311.5M</td><td class="td-bull">$623.0M</td></tr>
+          <tr><td>④ ネットキャッシュ</td><td>$85.5M</td><td>$85.5M</td><td>$85.5M</td></tr>
+          <tr class="row-total"><td>株主価値 合計</td><td>$462.3M</td><td>$1,117.0M</td><td>$2,328.5M</td></tr>
+          <tr><td>希薄化後 株数</td><td>144.8M<br><span style="font-size:11px;color:var(--gray-500)">×1.15</span></td><td>136.0M<br><span style="font-size:11px;color:var(--gray-500)">×1.08</span></td><td>129.7M<br><span style="font-size:11px;color:var(--gray-500)">×1.03</span></td></tr>
+          <tr class="row-total"><td>→ 理論株価</td><td class="td-bear">$3.19</td><td class="td-base">$8.21</td><td class="td-bull">$17.96</td></tr>
+          <tr><td>現値比</td><td class="td-bear">-48.5%</td><td class="td-base">+32.5%</td><td class="td-bull">+189.6%</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout callout-primary">
+      <span class="cl-label">希薄化の扱い</span>
+      ASPIは直近の営業CFがマイナスかつ製品売上が僅少（Q1 2026売上$4.18M）という「バーン内生化（6.5節）」の適用ゲートに
+      形式上該当するが、2025年に転換社債・増資で総額$345M超を調達済みで、2026/3/31時点の現金+短期投資は$290.5M。
+      直近カタリスト（Si-28出荷・ヘリウムPhase1・NOBA合併）までのホライズン（Base=2四半期、Bear=4四半期＝遅延、Bull=1四半期）で
+      想定される四半期バーン（Base想定約$25M/四半期、継続事業純損失ベース）を積んでも現金がこれを大きく上回るため、
+      内生化モデルでのGap（強制増資額）は実質ゼロと計算される。よって本モデルでは希薄化を①既知のNOBA/ENDRA持分低下（③に89%として反映）と、
+      ②Phase2ヘリウム開発（DFC最大$500M・Standard Bank $250Mの与信枠だが多くは未実行）に向けた将来の株式調達に対する
+      低めの係数（Bear×1.15〜Bull×1.03）で表現した。QLE発行の転換社債$199.9M（QLE株式に転換、ASPI株には転換されない）は
+      保守的にネットキャッシュから全額控除しており、転換時のQLE持分希薄化は未反映（フォローアップ課題として6章に記載）。
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <div class="section-icon">📋</div>
+      <div><div class="section-title">各シナリオが成立する条件</div><div class="section-sub">何が起きればどこへ向かうか</div></div>
+    </div>
+    <h3 class="sc-h sc-h-bear">🐻 Bear（$3.19・確率30%）</h3>
+    <ul class="lst">
+      <li>Si-28商業出荷がQ3 2026から再度遅延（過去にも1H2025→Q3 2026とスリップした実績あり）</li>
+      <li>Renergen Virginia Gas Project Phase1の商業生産がQ3 2026から後ずれし、営業キャッシュフロー黒字化が2027年以降にずれ込む</li>
+      <li>NOBA/ENDRA合併が破談、または希薄化条件が悪化した形で再交渉される</li>
+      <li>Phase2ヘリウム開発資金（DFC/Standard Bank枠）の実行が滞り、ASPI単体でのつなぎ増資が必要になる</li>
+      <li>QLEのHALEU/Liビジネスが提携止まりで商業契約に発展しない</li>
+    </ul>
+    <h3 class="sc-h sc-h-base">⚖️ Base（$8.21・確率45%）</h3>
+    <ul class="lst">
+      <li>Si-28がガイダンス通りQ3 2026に商業出荷を開始し、既存3契約が順調に消化される</li>
+      <li>Virginia Gas Project Phase1が2026年内に商業生産・キャッシュフロー黒字化を達成</li>
+      <li>NOBA/ENDRA合併がQ3-Q4 2026予定通り完了し、ASPIが約89%の持分を維持</li>
+      <li>Phase2はDFC・Standard Bank資金でFID（最終投資決定）に向け前進するが、着工はまだ先</li>
+    </ul>
+    <h3 class="sc-h sc-h-bull">🚀 Bull（$17.96・確率25%）</h3>
+    <ul class="lst">
+      <li>Si-28・Yb-176・C-14が前倒しで量産軌道に乗り、追加の商業契約（半導体・量子コンピューティング向け）が続く</li>
+      <li>ヘリウム市場のひっ迫（ホルムズ海峡情勢等）を背景に、テイクオアペイ契約が追加で積み上がりPhase2着工が加速</li>
+      <li>QLEのHALEU/Li提携が複数の商業契約に発展し、QLE単独でのIPO/スピンオフ観測が価値を後押し</li>
+      <li>NOBA上場後の市場評価がASPIの残存持分価値を再評価させる</li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <div class="section-icon">🎚️</div>
+      <div><div class="section-title">感応度：前提が変わると結論はどう動くか</div><div class="section-sub">この試算の効きどころ</div></div>
+    </div>
+    <p class="lead">最も結果を動かすのは①同位体事業の評価額（商業出荷実績の有無で大きく変わる）と、②希薄化係数（Phase2の資金調達方法）。
+    次いで③ヘリウム事業の評価と④HALEU/QLE事業の評価が続く。</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>動かす前提</th><th>変化させると</th><th>Base株価への影響</th></tr></thead>
+        <tbody>
+          <tr><td>① Specialist Isotopes事業評価</td><td>±$150M</td><td class="td-base">概ね ±$1.10</td></tr>
+          <tr><td>③ Helium/LNG事業評価（100%ベース）</td><td>±$100M（×89%で反映）</td><td class="td-base">概ね ±$0.65</td></tr>
+          <tr><td>② Nuclear Fuels（QLE）事業評価</td><td>±$100M</td><td class="td-base">概ね ±$0.74</td></tr>
+          <tr><td>希薄化係数</td><td>×1.08 → ×1.20</td><td class="td-base">概ね -$0.82</td></tr>
+          <tr><td>カタリスト時期（ホライズンH）</td><td>Base=2Q → Bearなみ4Qへ遅延</td><td class="td-base">バーン増・調達条件悪化でBear/Base間の帯が下方シフト</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout callout-red">
+      <span class="cl-label">最大の不確実性</span>
+      同位体濃縮事業（①）の評価額の置き方が最大の変数。現時点では実売上がごく僅少（PET Labsを除きほぼゼロ）で、
+      Q3 2026の商業出荷が実際にどの程度の売上・粗利を生むかは未確認。この点はQ3決算（2026年8月14日発表予定）で
+      初めて実績ベースの検証が可能になる。次点はNOBA/ENDRA合併の完了時期・持分比率（現状89%は「予定」であり確定ではない）。
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <div class="section-icon">📌</div>
+      <div><div class="section-title">使用した主な前提・数値</div><div class="section-sub">出典と概数</div></div>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>項目</th><th>使用値</th><th>備考</th></tr></thead>
+        <tbody>
+          <tr><td>現値</td><td>$6.20</td><td>2026/6/30終値近辺（Morningstar/Robinhood等、複数ソース）</td></tr>
+          <tr><td>発行済株式数</td><td>125.9M株</td><td>10-Q（2026/3/31時点）</td></tr>
+          <tr><td>52週レンジ</td><td>$3.92 - $14.49</td><td>複数ソース一致</td></tr>
+          <tr><td>現金+短期投資</td><td>$290.5M（$207.3M+$83.2M）</td><td>10-Q（2026/3/31）</td></tr>
+          <tr><td>転換社債（QLE）</td><td>$199.9M（公正価値）</td><td>10-Q（2026/3/31）。QLE株式に転換、ASPI株には非転換</td></tr>
+          <tr><td>その他長期債務</td><td>約$5.1M</td><td>10-Q（2026/3/31）</td></tr>
+          <tr><td>Renergen買収対価</td><td>$92.9M（新株14.27M株）</td><td>2026年1月6日完了、8-K/A</td></tr>
+          <tr><td>NOBA/ENDRA合併後ASPI持分</td><td>約89%</td><td>2026/6/25 プレスリリース。私募$50M（ASPI約$20M・他約$30M）、完了はQ3-Q4 2026予定（未確定）</td></tr>
+          <tr><td>Si-28再稼働・出荷計画</td><td>第1〜2セグメント再稼働済み、Q3 2026商業出荷予定</td><td>2026/5/26 プレスリリース</td></tr>
+          <tr><td>Renergenヘリウム契約</td><td>5年テイクオアペイ、>$600/MCF、Phase1能力の約15%</td><td>2026/6/23 プレスリリース</td></tr>
+          <tr><td>Q1 2026業績</td><td>売上$4.18M、継続事業純損失$26.7M</td><td>10-Q（2026/3/31）</td></tr>
+          <tr><td>アナリスト目標株価</td><td>平均$9.5〜$13前後（2〜9社によりばらつき）</td><td>複数ソース（本試算のBaseより強気）</td></tr>
+          <tr><td>次回決算</td><td>2026年8月14日予定</td><td>複数ソース</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+</div>
+
+<div class="footer">
+  <p style="font-weight:600;color:var(--gray-700);margin-bottom:8px">⚠️ 免責事項</p>
+  <p>本資料は情報提供・教育目的のシナリオ試算であり、投資助言ではありません。事業価値・確率・希薄化率はいずれも公開情報に基づく仮定であり、実際の結果は大きく異なりえます。ASP Isotopes Inc.は営業赤字が継続する開発段階企業であり、Renergen統合・NOBA合併・QLE転換社債など複雑な資本構成に伴うリスク、南アフリカでの事業運営リスク、規制・IAEA関連リスクを抱えています。<br>数値は2026年7月1日時点の概数に基づきます。実際の投資判断はご自身の責任で行ってください。</p>
+</div>
+
+</body>
+</html>

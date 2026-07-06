@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>285A 株価シナリオ試算</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --c-50:#eff6ff;
+  --c-100:#dbeafe;
+  --c-200:#bfdbfe;
+  --c-400:#3b82f6;
+  --c-600:#2563eb;
+  --c-800:#1e3a8a;
+  --hero-from:#0c1445;
+  --hero-mid:#1e3a8a;
+  --hero-to:#2563eb;
+  --hero-accent:#93c5fd;
+
+  --amber-50:#fffbeb; --amber-400:#fbbf24; --amber-600:#d97706;
+  --red-50:#fef2f2; --red-400:#f87171; --red-600:#dc2626;
+  --green-50:#f0fdf4; --green-400:#4ade80; --green-600:#16a34a;
+  --blue-50:#eff6ff; --blue-600:#2563eb;
+  --gray-50:#f9fafb; --gray-100:#f3f4f6; --gray-200:#e5e7eb; --gray-300:#d1d5db;
+  --gray-500:#6b7280; --gray-700:#374151; --gray-900:#111827;
+  --font-body:'DM Sans',sans-serif; --font-serif:'Noto Serif JP',serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font-body);background:#f9f9f7;color:var(--gray-900);line-height:1.7;font-size:15px}
+
+.hero{background:linear-gradient(135deg,var(--hero-from) 0%,var(--hero-mid) 55%,var(--hero-to) 100%);color:#fff;padding:56px 24px 64px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 20% 40%,rgba(255,255,255,.08) 0%,transparent 55%)}
+.hero>*{position:relative;z-index:1}
+.hero-badge{display:inline-block;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);border-radius:999px;padding:4px 16px;font-size:12px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:18px;color:var(--c-200)}
+.hero h1{font-family:var(--font-serif);font-size:clamp(24px,4.5vw,38px);font-weight:700;line-height:1.3;margin-bottom:14px}
+.hero h1 span{color:var(--hero-accent)}
+.hero p{font-size:15px;opacity:.85;max-width:600px;margin:0 auto}
+
+.container{max-width:880px;margin:0 auto;padding:0 20px}
+.section{padding:48px 0 32px;border-bottom:1px solid var(--gray-200)}
+.section-header{display:flex;align-items:center;gap:14px;margin-bottom:24px}
+.section-icon{width:42px;height:42px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;background:var(--c-50)}
+.section-title{font-family:var(--font-serif);font-size:21px;font-weight:700}
+.section-sub{font-size:13px;color:var(--gray-500);margin-top:2px}
+.lead{font-size:15.5px;color:var(--gray-700);line-height:1.85;margin-bottom:20px}
+strong{font-weight:600}
+
+.now-card{background:#fff;border:1px solid var(--gray-200);border-radius:14px;padding:22px 24px;margin-top:-32px;position:relative;z-index:5;box-shadow:0 8px 24px rgba(0,0,0,.06);display:flex;flex-wrap:wrap;gap:20px;justify-content:space-between;align-items:center}
+.now-item{text-align:center;flex:1;min-width:110px}
+.now-label{font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--gray-500);margin-bottom:4px;font-weight:600}
+.now-val{font-size:22px;font-weight:700;font-family:var(--font-serif)}
+.now-sub{font-size:11px;color:var(--gray-500);margin-top:2px}
+
+.scenario-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin:8px 0 4px}
+.sc-card{border-radius:14px;padding:22px;border:1px solid;position:relative;overflow:hidden}
+.sc-bear{background:linear-gradient(160deg,#fef2f2,#fff);border-color:#fecaca}
+.sc-base{background:linear-gradient(160deg,var(--c-50),#fff);border-color:var(--c-200)}
+.sc-bull{background:linear-gradient(160deg,#f0fdf4,#fff);border-color:#bbf7d0}
+.sc-tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:3px 10px;border-radius:999px;margin-bottom:12px}
+.sc-bear .sc-tag{background:var(--red-50);color:var(--red-600)}
+.sc-base .sc-tag{background:var(--c-50);color:var(--c-600)}
+.sc-bull .sc-tag{background:var(--green-50);color:var(--green-600)}
+.sc-price{font-size:36px;font-weight:700;font-family:var(--font-serif);line-height:1}
+.sc-bear .sc-price{color:var(--red-600)}
+.sc-base .sc-price{color:var(--c-600)}
+.sc-bull .sc-price{color:var(--green-600)}
+.sc-delta{font-size:13px;font-weight:600;margin:6px 0 2px}
+.sc-bear .sc-delta{color:var(--red-600)}
+.sc-base .sc-delta{color:var(--c-600)}
+.sc-bull .sc-delta{color:var(--green-600)}
+.sc-prob{font-size:12px;color:var(--gray-500);margin-bottom:14px}
+.sc-desc{font-size:12.5px;color:var(--gray-700);line-height:1.7;border-top:1px solid rgba(0,0,0,.06);padding-top:12px}
+.pos-wrap{background:#fff;border:1px solid var(--gray-200);border-radius:14px;padding:22px 24px;margin:18px 0 4px;box-shadow:0 4px 14px rgba(0,0,0,.04)}
+.pos-head{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+.pos-title{font-family:var(--font-serif);font-size:16px;font-weight:700}
+.pos-zone{font-size:13px;font-weight:700;padding:4px 12px;border-radius:999px}
+.zone-hot{background:var(--red-50);color:var(--red-600)} .zone-high{background:var(--amber-50);color:var(--amber-600)} .zone-fair{background:var(--c-50);color:var(--c-600)} .zone-cheap{background:var(--green-50);color:var(--green-600)}
+.pos-track{position:relative;height:14px;border-radius:999px;background:linear-gradient(90deg,#fecaca 0%,var(--c-200) 50%,#bbf7d0 100%);margin:30px 0 26px}
+.pos-entry{display:flex;flex-wrap:wrap;gap:24px;font-size:13px;color:var(--gray-700);border-top:1px dashed var(--gray-200);padding-top:14px;margin-top:14px}
+.pos-entry b{font-family:var(--font-serif);font-size:15px;color:var(--gray-900)}
+.pos-entry .pe-note{flex-basis:100%;font-size:12.5px;color:var(--gray-500);line-height:1.7;margin-top:2px}
+.pos-tick{position:absolute;top:-8px;width:2px;height:30px;background:var(--gray-300)}
+.pos-tick span{position:absolute;top:-20px;left:50%;transform:translateX(-50%);font-size:11px;color:var(--gray-500);white-space:nowrap}
+.pos-marker{position:absolute;top:-13px;width:4px;height:40px;background:var(--gray-900);border-radius:2px;box-shadow:0 0 0 4px #fff}
+.pos-marker span{position:absolute;bottom:-34px;left:50%;transform:translateX(-50%);font-size:12px;font-weight:700;color:var(--gray-900);white-space:nowrap}
+.pos-stats{display:flex;flex-wrap:wrap;gap:24px;font-size:13px;color:var(--gray-700);border-top:1px solid var(--gray-100);padding-top:14px}
+.pos-stats b{font-family:var(--font-serif);font-size:16px;color:var(--gray-900)}
+
+.ev-box{background:linear-gradient(135deg,var(--hero-from),var(--hero-mid));color:#fff;border-radius:14px;padding:24px 26px;margin:24px 0;display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between}
+.ev-main{flex:1;min-width:200px}
+.ev-main .lbl{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--c-200);margin-bottom:6px;font-weight:600}
+.ev-main .val{font-size:34px;font-weight:700;font-family:var(--font-serif)}
+.ev-main .sub{font-size:13px;opacity:.85;margin-top:4px}
+.ev-rr{text-align:right;font-size:13px;opacity:.9;line-height:1.9}
+.ev-rr b{font-size:18px;font-family:var(--font-serif)}
+
+.table-wrap{overflow-x:auto;background:#fff;border:1px solid var(--gray-200);border-radius:12px;margin:14px 0}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{background:var(--gray-50);padding:11px 14px;text-align:left;font-weight:600;font-size:11.5px;color:var(--gray-500);text-transform:uppercase;letter-spacing:.04em;border-bottom:1px solid var(--gray-200)}
+td{padding:11px 14px;border-bottom:1px solid var(--gray-100);color:var(--gray-700);vertical-align:top}
+tr:last-child td{border-bottom:none}
+tr:hover td{background:var(--gray-50)}
+.td-bear{color:var(--red-600);font-weight:600}
+.td-base{color:var(--c-600);font-weight:600}
+.td-bull{color:var(--green-600);font-weight:600}
+.row-total td{background:var(--c-50);font-weight:700;color:var(--gray-900)}
+.row-total:hover td{background:var(--c-100)}
+
+.sotp{display:flex;flex-direction:column;gap:10px;margin:14px 0}
+.sotp-row{display:flex;align-items:center;gap:14px;background:#fff;border:1px solid var(--gray-200);border-radius:10px;padding:14px 16px}
+.sotp-icon{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0;background:var(--c-50)}
+.sotp-body{flex:1}
+.sotp-name{font-weight:600;font-size:14px;margin-bottom:2px}
+.sotp-note{font-size:12px;color:var(--gray-500);line-height:1.6}
+
+.callout{border-radius:10px;padding:14px 16px;margin-top:14px;font-size:13px;line-height:1.75}
+.callout-amber{background:var(--amber-50);border-left:3px solid var(--amber-400);color:var(--gray-700)}
+.callout-primary{background:var(--c-50);border-left:3px solid var(--c-400);color:var(--gray-700)}
+.callout-red{background:var(--red-50);border-left:3px solid var(--red-400);color:var(--gray-700)}
+.callout b{color:var(--gray-900)}
+.cl-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px;display:block}
+.callout-amber .cl-label{color:var(--amber-600)}
+.callout-primary .cl-label{color:var(--c-600)}
+.callout-red .cl-label{color:var(--red-600)}
+
+ul.lst{margin:10px 0 10px 4px;padding-left:18px}
+ul.lst li{font-size:13.5px;color:var(--gray-700);margin-bottom:7px;line-height:1.7}
+.sc-h{font-family:var(--font-serif);font-size:16px;margin:18px 0 8px}
+.sc-h-bear{color:var(--red-600)} .sc-h-base{color:var(--c-600)} .sc-h-bull{color:var(--green-600)}
+
+.footer{padding:40px 24px;text-align:center;color:var(--gray-500);font-size:12.5px;border-top:1px solid var(--gray-200);margin-top:24px;line-height:1.8}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-badge">285A シナリオ試算 2026年7月5日版</div>
+  <h1>キオクシアホールディングス（285A）<br><span>ベア / ベース / ブル</span> 株価シナリオ</h1>
+  <p>黒字化した大型メモリ株のため「想定EPS×想定PER」を主手法に、Bearではピーク利益ではなくサイクル正常化EPSへの評価軸切替を織り込んだ教育目的の試算です。</p>
+</div>
+
+<div class="container">
+
+  <!-- ===== ① 現値スナップショット ===== -->
+  <div class="now-card">
+    <div class="now-item"><div class="now-label">現値</div><div class="now-val">¥83,300</div><div class="now-sub">2026/7/3終値（+9.2%）</div></div>
+    <div class="now-item"><div class="now-label">時価総額</div><div class="now-val">約45.0兆円</div><div class="now-sub">約5.40億株（EPS逆算）</div></div>
+    <div class="now-item"><div class="now-label">52週レンジ</div><div class="now-val">2,270〜112,700</div><div class="now-sub">高値6/22・高値比 −26%</div></div>
+    <div class="now-item"><div class="now-label">予想PER</div><div class="now-val">約16倍</div><div class="now-sub">コンセンサスNP2.8兆基準／実績81倍</div></div>
+  </div>
+
+  <!-- ===== ② 3シナリオ結論 ===== -->
+  <section class="section" style="padding-top:36px">
+    <div class="section-header">
+      <div class="section-icon">🎯</div>
+      <div><div class="section-title">3シナリオの結論</div><div class="section-sub">現値¥83,300を基準にした理論株価（12〜18ヶ月視点）</div></div>
+    </div>
+    <div class="scenario-grid">
+      <div class="sc-card sc-bear">
+        <span class="sc-tag">Bear・弱気</span>
+        <div class="sc-price">¥40,000</div>
+        <div class="sc-delta">−52%</div>
+        <div class="sc-prob">想定確率 30%</div>
+        <div class="sc-desc">NAND価格がCY2026内にピークアウト。市場の評価軸がピークEPSからサイクル正常化EPS（約2,000円）×PER20倍へ切替。バーンスタインの弱気目標（¥40,000）と同水準。</div>
+      </div>
+      <div class="sc-card sc-base">
+        <span class="sc-tag">Base・中立</span>
+        <div class="sc-price">¥90,000</div>
+        <div class="sc-delta">+8%</div>
+        <div class="sc-prob">想定確率 45%</div>
+        <div class="sc-desc">Q1ガイダンス（営業利益1.3兆円）達成、下期は単価上昇が鈍化しつつ高水準維持。FY3/27純利益2.7兆円（EPS約5,000円）×PER18倍。</div>
+      </div>
+      <div class="sc-card sc-bull">
+        <span class="sc-tag">Bull・強気</span>
+        <div class="sc-price">¥130,000</div>
+        <div class="sc-delta">+56%</div>
+        <div class="sc-prob">想定確率 25%</div>
+        <div class="sc-desc">会社見通し通り「CY2027も需要＞供給」。FY3/27純利益3.4兆円（EPS約6,300円）×PER21倍。ADS米国上場・株主還元開始も追い風。6月高値112,700円を上回る水準。</div>
+      </div>
+    </div>
+    <!-- 現値ポジショニング -->
+    <div class="pos-wrap">
+      <div class="pos-head">
+        <div class="pos-title">現値ポジショニング — 現値¥83,300は帯のどこか</div>
+        <div class="pos-zone zone-fair">適正〜やや割安</div>
+      </div>
+      <div class="pos-track" style="background:linear-gradient(90deg,#fecaca 0%,var(--c-200) 55.6%,#bbf7d0 100%)">
+        <div class="pos-tick" style="left:0%"><span>Bear ¥40,000</span></div>
+        <div class="pos-tick" style="left:55.6%"><span>Base ¥90,000</span></div>
+        <div class="pos-tick" style="left:100%"><span>Bull ¥130,000</span></div>
+        <div class="pos-marker" style="left:48.1%"><span>現値 ¥83,300</span></div>
+      </div>
+      <div class="pos-stats">
+        <div>帯内位置：<b>48%（Baseのやや下）</b></div>
+        <div>上値余地：<b style="color:var(--green-600)">+56%</b></div>
+        <div>下値余地：<b style="color:var(--red-600)">−52%</b></div>
+        <div>上値:下値比：<b>約1.1 : 1</b></div>
+      </div>
+      <div class="pos-entry">
+        <div>直近20営業日：<b>約+9%（往復±40%）</b></div>
+        <div>次カタリストまで：<b>約4〜5週（FY3/27 Q1決算）</b></div>
+        <div class="pe-note">直近20営業日の騰落は+9%（6/9終値76,450円→7/3終値83,300円）だが、期中に6/22高値112,700円（+47%）→7/3ザラ場安値67,190円（−40%）の激しい往復を含む。急落の起点はキオクシア固有の悪材料ではなく、バーンスタインの「50%下落余地」レポート（6/16）、マイクロン決算警戒（6/23-24）、Meta AIクラウド報道を受けたSOX急落（7/1-2）などセクター要因。現値83,300円は帯内位置48%＝確率加重期待値（¥85,000）とほぼ一致し、「Q1営業利益1.3兆円の達成＋下期の緩やかな鈍化」程度を織り込んだ中立的水準とみられる。6月の高値112,700円はBull帯上限相当まで買われた水準であり、そこへの再上昇には「CY2027も供給不足」の数字での裏付け（Q2ガイダンス・LTA積み増し・ASP上昇継続）という追加材料が必要。逆にQ2ガイダンスで単価鈍化が示唆されればBear側の評価軸切替が始まるため、次回決算はデリスク型だが上下双方向のイベント。</div>
+      </div>
+    </div>
+    <div class="ev-box">
+      <div class="ev-main">
+        <div class="lbl">確率加重 期待値（補助指標）</div>
+        <div class="val">¥85,000</div>
+        <div class="sub">現値¥83,300 比 +2.0%（Bear30/Base45/Bull25加重）</div>
+      </div>
+      <div class="ev-rr">
+        下値余地（Bear）：<b style="color:#fecaca">−52%</b><br>
+        上値余地（Bull）：<b style="color:#bbf7d0">+56%</b><br>
+        リスクリワード比：<b>約1.1 : 1</b>
+      </div>
+    </div>
+    <div class="callout callout-amber">
+      <span class="cl-label">読み方の注意</span>
+      期待値が現値とほぼ一致し上値:下値比も約1:1という構図は、<b>現値が「上下対称の賭け」になっている</b>ことを示す。割高でも割安でもなく、リターンの源泉はシナリオ確率の見立て（特にNAND価格のピーク時期）が市場と異なるかどうかに全面的に依存する。また本銘柄は1日で±10〜15%動く極端な高ボラティリティ銘柄であり、帯内位置は数日で大きく移動しうる点に注意。
+    </div>
+  </section>
+
+  <!-- ===== ③ 計算ロジック ===== -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-icon">🧮</div>
+      <div><div class="section-title">計算ロジック：想定EPS × 想定PER（サイクル正規化クロスチェック付き）</div><div class="section-sub">黒字大型株のためPER法を主手法に。ただしメモリはシクリカルなので、Bearは「どのEPSに倍率を当てるか」自体を切り替える</div></div>
+    </div>
+    <p class="lead">キオクシアは2期連続過去最高益の黒字企業であり、手法マトリクス上はPER法が主手法となる。ただしNANDは典型的な市況産業で、同社自身が2023〜24年に2期連続赤字だった通り、<strong>ピーク利益に通常のPERを当てると「割安の罠」になる</strong>。そこでBase/BullはFY3/27予想EPS×PERで評価し、Bearのみ「市場の評価軸がFY3/28の正常化EPSへ切り替わる」ことを織り込んだ。実績PER81倍とQ1年率換算PER13倍の乖離が示す通り、この銘柄の評価は「どの利益を基準に取るか」で数倍変わる。</p>
+
+    <div class="sotp">
+      <div class="sotp-row">
+        <div class="sotp-icon">💾</div>
+        <div class="sotp-body">
+          <div class="sotp-name">① FY3/27 想定純利益（EPSドライバ）</div>
+          <div class="sotp-note">Q1ガイダンス純利益8,700億円が起点。Bear 2.2兆（下期急減速）/ Base 2.7兆（コンセンサス近傍）/ Bull 3.4兆（Q1×4に近い水準を維持）。株数約5.40億株でEPS換算。</div>
+        </div>
+      </div>
+      <div class="sotp-row">
+        <div class="sotp-icon">📐</div>
+        <div class="sotp-body">
+          <div class="sotp-name">② 想定PER（FY3/28への視線を内包）</div>
+          <div class="sotp-note">Base 18倍（FY3/28横ばい前提）/ Bull 21倍（FY3/28も増益・ADS上場・還元開始プレミアム）。Bearは軸自体を正常化EPS約2,000円×20倍に切替（＝ピークEPS基準では約5倍相当）。</div>
+        </div>
+      </div>
+      <div class="sotp-row">
+        <div class="sotp-icon">🏦</div>
+        <div class="sotp-body">
+          <div class="sotp-name">③ ネット有利子負債（参考）</div>
+          <div class="sotp-note">ネットD/E39%（FY3/26末）→推定純有利子負債0.7兆円前後＝1株約1,300円相当。PER法は純利益ベースで金利負担を反映済みのため別建て控除せず。2026年4〜5月に1,275億円超の繰上返済を実施済みで縮小方向。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>構成要素</th><th>Bear</th><th>Base</th><th>Bull</th></tr></thead>
+        <tbody>
+          <tr><td>評価基準となる利益</td><td class="td-bear">FY3/28正常化<br>純利益 約1.1兆円</td><td class="td-base">FY3/27<br>純利益 2.7兆円</td><td class="td-bull">FY3/27<br>純利益 3.4兆円</td></tr>
+          <tr><td>基準EPS（÷5.40億株）</td><td class="td-bear">約2,000円</td><td class="td-base">約5,000円</td><td class="td-bull">約6,300円</td></tr>
+          <tr><td>想定PER</td><td class="td-bear">20倍<br><span style="font-size:11px;color:var(--gray-500)">正常化EPS基準</span></td><td class="td-base">18倍<br><span style="font-size:11px;color:var(--gray-500)">FY3/28横ばい前提</span></td><td class="td-bull">21倍<br><span style="font-size:11px;color:var(--gray-500)">継続成長プレミアム</span></td></tr>
+          <tr><td>希薄化</td><td>×1.00</td><td>×1.00</td><td>×1.00〜1.02<br><span style="font-size:11px;color:var(--gray-500)">ADS新株発行の可能性</span></td></tr>
+          <tr class="row-total"><td>→ 理論株価</td><td class="td-bear">¥40,000</td><td class="td-base">¥90,000</td><td class="td-bull">¥130,000</td></tr>
+          <tr><td>現値比</td><td class="td-bear">−52%</td><td class="td-base">+8%</td><td class="td-bull">+56%</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout callout-primary">
+      <span class="cl-label">希薄化の扱い</span>
+      黒字・大幅FCF創出（FY3/26 FCF3,950億円）のため増資による希薄化リスクは実質ゼロで、優先株（甲種・乙種）も2025年7月に取得・消却済み。唯一の希薄化候補は<b>ADS米国上場に伴う新株発行</b>（資金調達手段の多様化と会社が明言）で、Bullで係数×1.00〜1.02として軽微に見込んだ。逆に投資家デー以降に自社株買いが始まれば株数は減少方向。
+    </div>
+  </section>
+
+  <!-- ===== ④ 各シナリオの成立条件 ===== -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-icon">📋</div>
+      <div><div class="section-title">各シナリオが成立する条件</div><div class="section-sub">何が起きればどこへ向かうか</div></div>
+    </div>
+    <h3 class="sc-h sc-h-bear">🐻 Bear（¥40,000・確率30%）</h3>
+    <ul class="lst">
+      <li>NAND ASPの上昇がCY2026内にピークアウト。Q2以降のガイダンスで単価鈍化が数字に表れる</li>
+      <li>サムスン・SKハイニックス・マイクロンの増産投資が2027年に供給過剰をもたらし、粗利率が70%→30%台へ正常化（バーンスタインの想定）</li>
+      <li>ハイパースケーラーのAIデータセンター投資が減速（Meta余剰計算資源の外販報道のような「capexピークアウト」シグナルが続く）</li>
+      <li>円高進行（140円方向。為替感応度は1円で四半期営業利益90億円）</li>
+      <li>信用買い・個人短期資金の巻き戻しで、業績と無関係にオーバーシュートする下げが発生</li>
+    </ul>
+    <h3 class="sc-h sc-h-base">⚖️ Base（¥90,000・確率45%）</h3>
+    <ul class="lst">
+      <li>7月末〜8月上旬のQ1決算でガイダンス（売上1.75兆・営業利益1.3兆円）をほぼ達成</li>
+      <li>下期にかけASP上昇は鈍化するが、LTA（長期契約）と前払い契約が下支えし高水準を維持。FY3/27純利益2.7兆円前後（コンセンサス近傍）</li>
+      <li>FY3/28は横ばい〜微減にとどまり、「一気に崩れるサイクル」ではなく「高原状態」が市場に受け入れられる</li>
+      <li>投資家デーで示唆された株主還元（配当・自社株買い）が具体化し、バリュエーションの下値を支える</li>
+    </ul>
+    <h3 class="sc-h sc-h-bull">🚀 Bull（¥130,000・確率25%）</h3>
+    <ul class="lst">
+      <li>会社見通し通り「CY2027も需要が供給を上回る」ことがQ2以降のガイダンス・LTA積み増しで数字として裏付けられる</li>
+      <li>Q1水準（純利益8,700億円/四半期）がほぼ持続し、FY3/27純利益3.4兆円規模へ。第10世代BiCS・332層品の立ち上げも順調</li>
+      <li>ADS米国上場が実現し、グローバル資金の流入・指数組み入れでバリュエーションが切り上がる</li>
+      <li>2026年生産枠「完売」状態が2027年枠にも波及し、前払い契約でキャッシュフローの可視性が向上</li>
+    </ul>
+  </section>
+
+  <!-- ===== ⑤ 感応度分析 ===== -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-icon">🎚️</div>
+      <div><div class="section-title">感応度：前提が変わると結論はどう動くか</div><div class="section-sub">この試算の効きどころ</div></div>
+    </div>
+    <p class="lead">結果を最も動かすのは「NAND価格のピーク時期」で、これはBear（評価軸の切替）とBase/Bull（ピークEPS×PER）のどちらのレジームに入るかを決める。次いでBaseのPER水準、FY3/27純利益、為替の順。</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>動かす前提</th><th>変化させると</th><th>Base株価への影響</th></tr></thead>
+        <tbody>
+          <tr><td>NAND ASPピーク時期</td><td>CY2027以降 → CY2026内へ前倒し</td><td class="td-base">Bearレジームへ移行（¥90,000 → ¥40,000水準）。最大の分岐</td></tr>
+          <tr><td>Base想定PER 18倍</td><td>14倍 ↔ 22倍</td><td class="td-base">¥70,000 ↔ ¥110,000（±¥20,000）</td></tr>
+          <tr><td>FY3/27純利益 2.7兆円</td><td>±0.5兆円</td><td class="td-base">概ね ±¥17,000</td></tr>
+          <tr><td>為替 159円前提</td><td>±10円（1円＝四半期営業利益90億円）</td><td class="td-base">概ね ±¥8,000</td></tr>
+          <tr><td>Bear正常化EPS 2,000円</td><td>±500円（粗利率正常化の深さ）</td><td class="td-base">Bear株価 ±¥10,000 → 期待値 ±¥3,000</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout callout-red">
+      <span class="cl-label">最大の不確実性</span>
+      <b>NAND ASPのピークがCY2026内かCY2027以降か</b>。歴史的にメモリのピーク四半期は事後にしか分からず、SKハイニックスは過去最高益の18ヶ月後に営業赤字へ転落した例がある。判明のカタリストは四半期決算ごとのASPコメントとガイダンス——直近では<b>7月末〜8月上旬のQ1決算で示されるQ2ガイダンス</b>が最初の試金石。マイクロン決算（四半期ごと）も先行指標として機能する。
+    </div>
+  </section>
+
+  <!-- ===== ⑥ 使用した前提・数値 ===== -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-icon">📌</div>
+      <div><div class="section-title">使用した主な前提・数値</div><div class="section-sub">出典と概数</div></div>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>項目</th><th>使用値</th><th>備考</th></tr></thead>
+        <tbody>
+          <tr><td>現値</td><td>¥83,300</td><td>2026/7/3 東証終値（+9.23%）。同日ザラ場は67,190〜84,390円と極端に変動。PTS 83,350円</td></tr>
+          <tr><td>52週レンジ</td><td>¥2,270〜112,700</td><td>上場来高値112,700円は2026/6/22。現値は高値比−26%</td></tr>
+          <tr><td>発行済株式数</td><td>約5.40億株</td><td>FY3/26 EPS1,024.07円と純利益5,544億円から逆算した概数（優先株は2025/7/25に消却済み）</td></tr>
+          <tr><td>時価総額</td><td>約45.0兆円</td><td>現値×株数。6/22には約60兆円（トヨタ超え）に到達していた</td></tr>
+          <tr><td>FY3/26実績</td><td>売上2兆3,376億・営業利益8,704億（IFRS）・純利益5,544億円</td><td>2026/5/15決算短信。Non-GAAP営業利益8,762億円、EBITDA1兆1,879億円、FCF3,950億円</td></tr>
+          <tr><td>FY3/27 Q1ガイダンス</td><td>売上1兆7,500億・営業利益1兆3,000億・純利益8,700億円</td><td>2026/5/15会社公表（Non-GAAP）。営業利益率74%、為替前提159円。通期予想は非開示</td></tr>
+          <tr><td>FY3/27コンセンサス純利益</td><td>約2.8兆円</td><td>報道ベースのアナリスト予想。本試算のBase（2.7兆）はこの近傍、Bull（3.4兆）はQ1年率換算寄り</td></tr>
+          <tr><td>純有利子負債</td><td>約0.7兆円（推定・仮定）</td><td>FY3/26末（2026/3/31時点）ネットD/E39%と推定資本から逆算。2026年4月に1,275億円繰上返済、5月に同契約残額全額返済済み（決算短信後発事象）。転換社債なし</td></tr>
+          <tr><td>配当</td><td>無配（FY3/26実績・FY3/27予想とも0円）</td><td>決算短信。投資家デーで還元方針が議論される可能性が報じられている</td></tr>
+          <tr><td>設備投資</td><td>FY2026 Gross CAPEX 4,500億円計画</td><td>決算説明資料。Nanya Technologyへ782億円出資（2026/4/8、DRAM調達目的）</td></tr>
+          <tr><td>為替感応度</td><td>1円＝四半期売上100億・営業利益90億円</td><td>会社公表（ガイダンス前提159円）</td></tr>
+          <tr><td>アナリスト目標株価</td><td>平均約9.4万〜11.2万円（集計により差）</td><td>買い14・中立1・売り1（6月時点の一集計）。高値20万円/安値4万円。バーンスタインはアンダーパフォーム・目標4万円（6/16、粗利率がFY2028に30%台へ正常化する前提）</td></tr>
+          <tr><td>次の主要カタリスト</td><td>FY3/27 Q1決算：2026年7月末〜8月上旬見込み</td><td>前年Q1決算は8/8開示。ほかにADS米国上場（準備中・時期未定）、マイクロン決算（先行指標）</td></tr>
+          <tr><td>直近20営業日</td><td>約+9%（76,450円→83,300円）</td><td>期中に6/22高値112,700円（+47%）→7/3安値67,190円（−40%）の往復を含む</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+</div>
+
+<div class="footer">
+  <p style="font-weight:600;color:var(--gray-700);margin-bottom:8px">⚠️ 免責事項</p>
+  <p>本資料は情報提供・教育目的のシナリオ試算であり、投資助言ではありません。事業価値・確率・PER水準はいずれも公開情報に基づく仮定であり、実際の結果は大きく異なりえます。キオクシアホールディングスは典型的なシクリカル（市況循環）銘柄であり、2023〜24年に2期連続赤字を計上した直後に過去最高益へ転じた通り、業績と株価の振れ幅が極端に大きく、本試算の帯そのものが短期間で無効になる可能性があります。<br>数値は2026年7月5日時点の概数に基づきます。実際の投資判断はご自身の責任で行ってください。</p>
+</div>
+
+</body>
+</html>
