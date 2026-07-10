@@ -1,0 +1,86 @@
+{
+  "schemaVersion": 1,
+  "ticker": "ASPI",
+  "slug": "aspi",
+  "name": "ASP Isotopes Inc.",
+  "market": "米国株",
+  "sector": "素材・同位体",
+  "status": "published",
+  "isDemo": true,
+  "updated": "2026-07-01",
+  "price": {
+    "current": 6.2,
+    "currency": "USD"
+  },
+  "scenarios": {
+    "bear": 3.19,
+    "base": 8.21,
+    "bull": 17.96
+  },
+  "summary": "同位体濃縮、核燃料、ヘリウム・LNGの3事業をSOTPで積み上げた既存ASPIシナリオを、1銘柄1JSON方式へ試験移行したページです。",
+  "sections": [
+    {
+      "id": "conclusion",
+      "title": "試算の結論",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "既存シナリオページの2026年7月1日時点の前提を移植しています。現値6.20ドルに対し、Bear 3.19ドル、Base 8.21ドル、Bull 17.96ドルという試算です。"
+        },
+        {
+          "type": "bullets",
+          "items": [
+            "Bear：Si-28商業出荷やヘリウム事業が遅延し、追加増資が重石になるケース",
+            "Base：Si-28出荷とヘリウムPhase 1が計画どおり立ち上がるケース",
+            "Bull：3事業が前倒しで進み、HALEU/QLEの提携拡大も評価されるケース"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "valuation",
+      "title": "評価方法",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Specialist Isotopes、Nuclear Fuels、Helium/LNGを個別評価して合算するSOTP（部分合計法）を使用しています。事業の性質が異なるため、単一のPERや売上倍率だけでは評価しない設計です。"
+        }
+      ]
+    },
+    {
+      "id": "purpose",
+      "title": "今回の試験で確認すること",
+      "blocks": [
+        {
+          "type": "bullets",
+          "items": [
+            "ASPIのカードと詳細ページが同じaspi.jsonから表示される",
+            "report.htmlを複製せず、別銘柄でも共通利用できる",
+            "価格を数値として持つため、表示・比較・計算をJavaScript側で統一できる",
+            "本文の表示にtextContentを使い、JSON内の文字列を安全に描画する"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "notice",
+      "title": "注意事項",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "これは構成確認用の試験移行です。数値は既存ページからの移植であり、2026年7月10日現在の最新株価・最新IRへ更新したものではありません。投資判断には使用しないでください。"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "label": "従来のASPIシナリオページ",
+      "url": "../stocks/ASPI/scenario.html"
+    },
+    {
+      "label": "従来のASPI完全入門ガイド",
+      "url": "../stocks/ASPI/index.html"
+    }
+  ]
+}
