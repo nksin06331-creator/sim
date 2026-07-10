@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="JSONで銘柄を追加できる株式分析サイトの試験環境">
+  <title>Stock Scenario Lab | 試験版</title>
+  <link rel="stylesheet" href="./assets/css/site.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="./index.html" aria-label="トップへ">
+      <span class="brand-mark">S</span>
+      <span>Stock Scenario Lab</span>
+    </a>
+    <span class="header-badge">JSON DRIVEN</span>
+  </header>
+
+  <main>
+    <section class="hero">
+      <p class="eyebrow">ASPI / JSON MIGRATION PILOT</p>
+      <h1>銘柄追加を、<br><span>JSONひとつ</span>に。</h1>
+      <p class="hero-copy">現在のStock Scenario Portalを壊さずに、新しい管理方式を試すためのラボです。ASPIの一覧カードと詳細ページは、同じ1つのJSONから作られています。</p>
+      <div class="hero-stats" aria-label="サイトの特徴">
+        <div><strong>1</strong><span>銘柄 = 1 JSON</span></div>
+        <div><strong>0</strong><span>HTMLの追加編集</span></div>
+        <div><strong>AUTO</strong><span>公開前チェック</span></div>
+      </div>
+    </section>
+
+    <section class="catalog" aria-labelledby="catalog-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">PUBLISHED REPORTS</p>
+          <h2 id="catalog-title">銘柄一覧</h2>
+        </div>
+        <label class="search-box">
+          <span class="sr-only">銘柄を検索</span>
+          <input id="stock-search" type="search" placeholder="銘柄名・ティッカーで検索" autocomplete="off">
+        </label>
+      </div>
+
+      <p id="status" class="status" role="status">データを読み込んでいます…</p>
+      <div id="stock-grid" class="stock-grid" aria-live="polite"></div>
+      <noscript><p class="error-panel">このページの表示にはJavaScriptが必要です。</p></noscript>
+    </section>
+  </main>
+
+  <footer>
+    <span>Stock Scenario Lab</span>
+    <span>試験データのため投資判断には使用できません</span>
+  </footer>
+  <script src="./assets/js/portal.js" defer></script>
+</body>
+</html>
