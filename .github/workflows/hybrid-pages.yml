@@ -1,3 +1,4 @@
+# Existing HTML + per-stock meta.json deployment
 name: Build hybrid portal and deploy Pages
 
 on:
