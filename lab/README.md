@@ -1,27 +1,20 @@
-# Stock Scenario Lab
+# Stock Scenario Lab — ハイブリッド方式
 
-現在のStock Scenario Portalを残したまま、ASPIを「1銘柄1JSON」方式へ移した試験エリアです。
+既存の銘柄別HTMLを維持したまま、各銘柄の`meta.json`からポータル一覧を自動生成する試験エリアです。
 
 ## 新しい銘柄の追加
 
-1. `data/stocks/` に `{slug}.json` を追加します。
-2. GitHub DesktopでCommit・Pushします。
-3. GitHub ActionsがJSONを検証し、`data/manifest.json`を生成して公開します。
+次の3ファイルを同じ銘柄フォルダへ入れてPushします。
 
-`index.html`と`report.html`は銘柄追加時に編集しません。
-
-## ローカル確認
-
-ブラウザで直接HTMLを開くのではなく、リポジトリのルートで簡易サーバーを起動します。
-
-```powershell
-py -m http.server 8000
+```text
+stocks/TICKER/
+├─ index.html
+├─ scenario.html
+└─ meta.json
 ```
 
-その後、`http://localhost:8000/` を開きます。
+GitHub Actionsがすべての`meta.json`を検証し、`lab/data/manifest.json`を生成してサイト全体を公開します。ルートの`index.html`や`lab/index.html`を銘柄追加のたびに編集する必要はありません。
 
-## 注意
+## 重要
 
-初回のみ、GitHubの `Settings > Pages > Build and deployment > Source` を `GitHub Actions` に設定してください。
-
-現在入っている `ASPI` は既存ページから構成確認用に移植した値です。最新情報へ再調査したデータではありません。
+`meta.json`の`detailPath`と`scenarioPath`は、実際のHTMLの場所と一致させてください。不正なJSON、重複ticker、存在しないHTMLがある場合は公開処理を停止します。
