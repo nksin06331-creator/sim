@@ -1,0 +1,21 @@
+[
+  {
+    "ticker": "ASPI",
+    "slug": "aspi",
+    "name": "ASP Isotopes Inc.",
+    "market": "米国株",
+    "sector": "素材・同位体",
+    "updated": "2026-07-01",
+    "isDemo": true,
+    "price": {
+      "current": 6.2,
+      "currency": "USD"
+    },
+    "scenarios": {
+      "bear": 3.19,
+      "base": 8.21,
+      "bull": 17.96
+    },
+    "summary": "同位体濃縮、核燃料、ヘリウム・LNGの3事業をSOTPで積み上げた既存ASPIシナリオを、1銘柄1JSON方式へ試験移行したページです。"
+  }
+]
