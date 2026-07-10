@@ -1,12 +1,80 @@
 [
   {
+    "schemaVersion": 1,
+    "ticker": "RDW",
+    "slug": "rdw",
+    "name": "Redwire Corporation",
+    "market": "米国株",
+    "sector": "宇宙・防衛",
+    "method": "SOTP＋オプション価値",
+    "status": "published",
+    "updated": "2026-07-04",
+    "price": {
+      "current": 11.31,
+      "currency": "USD"
+    },
+    "scenarios": {
+      "bear": 4.42,
+      "base": 10.34,
+      "bull": 19.17
+    },
+    "positionPct": 47,
+    "zone": "やや割高〜適正上限",
+    "riskReward": "1.14x",
+    "catalyst": "2026年 / Golden Dome・SHIELD関連の大型防衛案件受注",
+    "summary": "宇宙・防衛事業をSpaceとDefense Techに分けて評価したシナリオ分析。",
+    "tags": [
+      "SOTP＋オプション価値",
+      "宇宙・防衛",
+      "テーマ株"
+    ],
+    "risk": "非常に高い",
+    "detailPath": "stocks/RDW/index.html",
+    "scenarioPath": "stocks/RDW/scenario.html"
+  },
+  {
+    "schemaVersion": 1,
+    "ticker": "IONQ",
+    "slug": "ionq",
+    "name": "IonQ, Inc.",
+    "market": "米国株",
+    "sector": "量子コンピューター",
+    "method": "EV/Sales",
+    "status": "published",
+    "updated": "2026-07-03",
+    "price": {
+      "current": 49.12,
+      "currency": "USD"
+    },
+    "scenarios": {
+      "bear": 16.23,
+      "base": 47.03,
+      "bull": 112.56
+    },
+    "positionPct": 34.1,
+    "zone": "やや割高〜適正上限",
+    "riskReward": "1.93倍",
+    "catalyst": "2026 Q2〜Q3 / SkyWater買収完了と統合進捗",
+    "summary": "量子コンピューティング事業の成長を2029年売上とEV/Sales倍率で評価したシナリオ試算。",
+    "tags": [
+      "EV/Sales",
+      "量子",
+      "高成長型"
+    ],
+    "risk": "高",
+    "detailPath": "stocks/IONQ/index.html",
+    "scenarioPath": "stocks/IONQ/scenario.html"
+  },
+  {
+    "schemaVersion": 1,
     "ticker": "ASPI",
     "slug": "aspi",
     "name": "ASP Isotopes Inc.",
     "market": "米国株",
     "sector": "素材・同位体",
+    "method": "SOTP",
+    "status": "published",
     "updated": "2026-07-01",
-    "isDemo": true,
     "price": {
       "current": 6.2,
       "currency": "USD"
@@ -14,8 +82,53 @@
     "scenarios": {
       "bear": 3.19,
       "base": 8.21,
-      "bull": 17.96
+      "bull": 14.8
     },
-    "summary": "同位体濃縮、核燃料、ヘリウム・LNGの3事業をSOTPで積み上げた既存ASPIシナリオを、1銘柄1JSON方式へ試験移行したページです。"
+    "positionPct": 34,
+    "zone": "適正〜やや割安",
+    "riskReward": "2.86x",
+    "catalyst": "Q3-Q4 2026 / Si-28・ヘリウム商業化",
+    "summary": "同位体濃縮、核燃料、ヘリウム・LNGをSOTPで積み上げたシナリオ試算。",
+    "tags": [
+      "SOTP",
+      "同位体",
+      "カタリスト型"
+    ],
+    "risk": "高",
+    "detailPath": "stocks/ASPI/index.html",
+    "scenarioPath": "stocks/ASPI/scenario.html"
+  },
+  {
+    "schemaVersion": 1,
+    "ticker": "RKLB",
+    "slug": "rklb",
+    "name": "Rocket Lab",
+    "market": "米国株",
+    "sector": "宇宙・防衛",
+    "method": "SOTP＋オプション価値",
+    "status": "published",
+    "updated": "2026-07-01",
+    "price": {
+      "current": 100.21,
+      "currency": "USD"
+    },
+    "scenarios": {
+      "bear": 49,
+      "base": 95,
+      "bull": 174
+    },
+    "positionPct": 41,
+    "zone": "やや割高〜適正上限",
+    "riskReward": "1.4x",
+    "catalyst": "2026 Q4 / Neutron初飛行成功",
+    "summary": "打ち上げ・宇宙システム・Neutron・Iridium買収を評価した宇宙関連シナリオ試算。",
+    "tags": [
+      "SOTP＋オプション価値",
+      "宇宙",
+      "カタリスト型"
+    ],
+    "risk": "非常に高い",
+    "detailPath": "stocks/RKLB/index.html",
+    "scenarioPath": "stocks/RKLB/scenario.html"
   }
 ]
