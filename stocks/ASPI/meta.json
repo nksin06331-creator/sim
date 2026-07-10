@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "ticker": "ASPI",
+  "slug": "aspi",
+  "name": "ASP Isotopes Inc.",
+  "market": "米国株",
+  "sector": "素材・同位体",
+  "method": "SOTP",
+  "status": "published",
+  "updated": "2026-07-01",
+  "price": { "current": 6.2, "currency": "USD" },
+  "scenarios": { "bear": 3.19, "base": 8.21, "bull": 14.8 },
+  "positionPct": 34,
+  "zone": "適正〜やや割安",
+  "riskReward": "2.86x",
+  "catalyst": "Q3-Q4 2026 / Si-28・ヘリウム商業化",
+  "summary": "同位体濃縮、核燃料、ヘリウム・LNGをSOTPで積み上げたシナリオ試算。",
+  "tags": ["SOTP", "同位体", "カタリスト型"],
+  "risk": "高",
+  "detailPath": "stocks/ASPI/index.html",
+  "scenarioPath": "stocks/ASPI/scenario.html"
+}
