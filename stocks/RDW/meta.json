@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "ticker": "RDW",
+  "slug": "rdw",
+  "name": "Redwire Corporation",
+  "market": "米国株",
+  "sector": "宇宙・防衛",
+  "method": "SOTP＋オプション価値",
+  "status": "published",
+  "updated": "2026-07-04",
+  "price": { "current": 11.31, "currency": "USD" },
+  "scenarios": { "bear": 4.42, "base": 10.34, "bull": 19.17 },
+  "positionPct": 47,
+  "zone": "やや割高〜適正上限",
+  "riskReward": "1.14x",
+  "catalyst": "2026年 / Golden Dome・SHIELD関連の大型防衛案件受注",
+  "summary": "宇宙・防衛事業をSpaceとDefense Techに分けて評価したシナリオ分析。",
+  "tags": ["SOTP＋オプション価値", "宇宙・防衛", "テーマ株"],
+  "risk": "非常に高い",
+  "detailPath": "stocks/RDW/index.html",
+  "scenarioPath": "stocks/RDW/scenario.html"
+}
