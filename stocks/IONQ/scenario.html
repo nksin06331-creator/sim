@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -7,30 +6,10 @@
 <title>IONQ 株価シナリオ試算</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-<!--
- ================================================================
-  SCENARIO VALUATION TEMPLATE v1.1
-  ベア/ベース/ブル シナリオ試算の共通デザインシステム。
-  {{プレースホルダ}} を銘柄ごとに置換して使用。
-  カラーは :root の --c-* を業種別に差し替える（下のパレット早見表参照）。
-  シナリオカードの 赤/メイン/緑 は業種に関わらず固定。
- ================================================================
--->
 <style>
 :root{
-  /* ── 業種ごとに差し替える変数（下の早見表参照） ── */
-  --c-50:#eff6ff;      /* 例: #f0fdfa */
-  --c-100:#dbeafe;    /* 例: #ccfbf1 */
-  --c-200:#bfdbfe;    /* 例: #99f6e4 */
-  --c-400:#3b82f6;    /* 例: #2dd4bf メインアクセント */
-  --c-600:#2563eb;    /* 例: #0d9488 テキスト */
-  --c-800:#1e3a8a;    /* 例: #115e59 見出し */
-  --hero-from:#0c1445; /* 例: #0c3a2e */
-  --hero-mid:#1e3a8a;   /* 例: #065f46 */
-  --hero-to:#2563eb;     /* 例: #047857 */
-  --hero-accent:#93c5fd; /* h1スパン色 例: #5eead4 */
- 
-  /* ── 固定システム変数 ── */
+  --c-50:#eff6ff; --c-100:#dbeafe; --c-200:#bfdbfe; --c-400:#3b82f6; --c-600:#2563eb; --c-800:#1e3a8a;
+  --hero-from:#0c1445; --hero-mid:#1e3a8a; --hero-to:#2563eb; --hero-accent:#93c5fd;
   --amber-50:#fffbeb; --amber-400:#fbbf24; --amber-600:#d97706;
   --red-50:#fef2f2; --red-400:#f87171; --red-600:#dc2626;
   --green-50:#f0fdf4; --green-400:#4ade80; --green-600:#16a34a;
@@ -41,7 +20,6 @@
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 body{font-family:var(--font-body);background:#f9f9f7;color:var(--gray-900);line-height:1.7;font-size:15px}
- 
 .hero{background:linear-gradient(135deg,var(--hero-from) 0%,var(--hero-mid) 55%,var(--hero-to) 100%);color:#fff;padding:56px 24px 64px;text-align:center;position:relative;overflow:hidden}
 .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 20% 40%,rgba(255,255,255,.08) 0%,transparent 55%)}
 .hero>*{position:relative;z-index:1}
@@ -49,7 +27,6 @@ body{font-family:var(--font-body);background:#f9f9f7;color:var(--gray-900);line-
 .hero h1{font-family:var(--font-serif);font-size:clamp(24px,4.5vw,38px);font-weight:700;line-height:1.3;margin-bottom:14px}
 .hero h1 span{color:var(--hero-accent)}
 .hero p{font-size:15px;opacity:.85;max-width:600px;margin:0 auto}
- 
 .container{max-width:880px;margin:0 auto;padding:0 20px}
 .section{padding:48px 0 32px;border-bottom:1px solid var(--gray-200)}
 .section-header{display:flex;align-items:center;gap:14px;margin-bottom:24px}
@@ -58,15 +35,11 @@ body{font-family:var(--font-body);background:#f9f9f7;color:var(--gray-900);line-
 .section-sub{font-size:13px;color:var(--gray-500);margin-top:2px}
 .lead{font-size:15.5px;color:var(--gray-700);line-height:1.85;margin-bottom:20px}
 strong{font-weight:600}
- 
-/* 現値スナップショット */
 .now-card{background:#fff;border:1px solid var(--gray-200);border-radius:14px;padding:22px 24px;margin-top:-32px;position:relative;z-index:5;box-shadow:0 8px 24px rgba(0,0,0,.06);display:flex;flex-wrap:wrap;gap:20px;justify-content:space-between;align-items:center}
 .now-item{text-align:center;flex:1;min-width:110px}
 .now-label{font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--gray-500);margin-bottom:4px;font-weight:600}
 .now-val{font-size:22px;font-weight:700;font-family:var(--font-serif)}
 .now-sub{font-size:11px;color:var(--gray-500);margin-top:2px}
- 
-/* シナリオカード（色は固定） */
 .scenario-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin:8px 0 4px}
 .sc-card{border-radius:14px;padding:22px;border:1px solid;position:relative;overflow:hidden}
 .sc-bear{background:linear-gradient(160deg,#fef2f2,#fff);border-color:#fecaca}
@@ -86,21 +59,21 @@ strong{font-weight:600}
 .sc-bull .sc-delta{color:var(--green-600)}
 .sc-prob{font-size:12px;color:var(--gray-500);margin-bottom:14px}
 .sc-desc{font-size:12.5px;color:var(--gray-700);line-height:1.7;border-top:1px solid rgba(0,0,0,.06);padding-top:12px}
-/* 現値ポジショニング・バー（このプロジェクトの主判断指標） */
 .pos-wrap{background:#fff;border:1px solid var(--gray-200);border-radius:14px;padding:22px 24px;margin:18px 0 4px;box-shadow:0 4px 14px rgba(0,0,0,.04)}
 .pos-head{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px;margin-bottom:16px}
 .pos-title{font-family:var(--font-serif);font-size:16px;font-weight:700}
 .pos-zone{font-size:13px;font-weight:700;padding:4px 12px;border-radius:999px}
 .zone-hot{background:var(--red-50);color:var(--red-600)} .zone-high{background:var(--amber-50);color:var(--amber-600)} .zone-fair{background:var(--c-50);color:var(--c-600)} .zone-cheap{background:var(--green-50);color:var(--green-600)}
-.pos-track{position:relative;height:14px;border-radius:999px;background:linear-gradient(90deg,#fecaca 0%,var(--c-200) 50%,#bbf7d0 100%);margin:30px 0 26px}
+.pos-track{position:relative;height:14px;border-radius:999px;margin:30px 0 26px}
+.pos-entry{display:flex;flex-wrap:wrap;gap:24px;font-size:13px;color:var(--gray-700);border-top:1px dashed var(--gray-200);padding-top:14px;margin-top:14px}
+.pos-entry b{font-family:var(--font-serif);font-size:15px;color:var(--gray-900)}
+.pos-entry .pe-note{flex-basis:100%;font-size:12.5px;color:var(--gray-500);line-height:1.7;margin-top:2px}
 .pos-tick{position:absolute;top:-8px;width:2px;height:30px;background:var(--gray-300)}
 .pos-tick span{position:absolute;top:-20px;left:50%;transform:translateX(-50%);font-size:11px;color:var(--gray-500);white-space:nowrap}
 .pos-marker{position:absolute;top:-13px;width:4px;height:40px;background:var(--gray-900);border-radius:2px;box-shadow:0 0 0 4px #fff}
 .pos-marker span{position:absolute;bottom:-34px;left:50%;transform:translateX(-50%);font-size:12px;font-weight:700;color:var(--gray-900);white-space:nowrap}
 .pos-stats{display:flex;flex-wrap:wrap;gap:24px;font-size:13px;color:var(--gray-700);border-top:1px solid var(--gray-100);padding-top:14px}
 .pos-stats b{font-family:var(--font-serif);font-size:16px;color:var(--gray-900)}
- 
-/* 期待値ボックス */
 .ev-box{background:linear-gradient(135deg,var(--hero-from),var(--hero-mid));color:#fff;border-radius:14px;padding:24px 26px;margin:24px 0;display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between}
 .ev-main{flex:1;min-width:200px}
 .ev-main .lbl{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--c-200);margin-bottom:6px;font-weight:600}
@@ -108,8 +81,6 @@ strong{font-weight:600}
 .ev-main .sub{font-size:13px;opacity:.85;margin-top:4px}
 .ev-rr{text-align:right;font-size:13px;opacity:.9;line-height:1.9}
 .ev-rr b{font-size:18px;font-family:var(--font-serif)}
- 
-/* テーブル */
 .table-wrap{overflow-x:auto;background:#fff;border:1px solid var(--gray-200);border-radius:12px;margin:14px 0}
 table{width:100%;border-collapse:collapse;font-size:13px}
 th{background:var(--gray-50);padding:11px 14px;text-align:left;font-weight:600;font-size:11.5px;color:var(--gray-500);text-transform:uppercase;letter-spacing:.04em;border-bottom:1px solid var(--gray-200)}
@@ -121,16 +92,12 @@ tr:hover td{background:var(--gray-50)}
 .td-bull{color:var(--green-600);font-weight:600}
 .row-total td{background:var(--c-50);font-weight:700;color:var(--gray-900)}
 .row-total:hover td{background:var(--c-100)}
- 
-/* 積み上げ行 */
 .sotp{display:flex;flex-direction:column;gap:10px;margin:14px 0}
 .sotp-row{display:flex;align-items:center;gap:14px;background:#fff;border:1px solid var(--gray-200);border-radius:10px;padding:14px 16px}
 .sotp-icon{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0;background:var(--c-50)}
 .sotp-body{flex:1}
 .sotp-name{font-weight:600;font-size:14px;margin-bottom:2px}
 .sotp-note{font-size:12px;color:var(--gray-500);line-height:1.6}
- 
-/* コールアウト */
 .callout{border-radius:10px;padding:14px 16px;margin-top:14px;font-size:13px;line-height:1.75}
 .callout-amber{background:var(--amber-50);border-left:3px solid var(--amber-400);color:var(--gray-700)}
 .callout-primary{background:var(--c-50);border-left:3px solid var(--c-400);color:var(--gray-700)}
@@ -140,270 +107,280 @@ tr:hover td{background:var(--gray-50)}
 .callout-amber .cl-label{color:var(--amber-600)}
 .callout-primary .cl-label{color:var(--c-600)}
 .callout-red .cl-label{color:var(--red-600)}
- 
 ul.lst{margin:10px 0 10px 4px;padding-left:18px}
 ul.lst li{font-size:13.5px;color:var(--gray-700);margin-bottom:7px;line-height:1.7}
 .sc-h{font-family:var(--font-serif);font-size:16px;margin:18px 0 8px}
 .sc-h-bear{color:var(--red-600)} .sc-h-base{color:var(--c-600)} .sc-h-bull{color:var(--green-600)}
- 
+/* 価格導出ブロック */
+.deriv{background:#fff;border:1px solid var(--c-200);border-radius:12px;padding:20px 22px;margin:18px 0 4px;box-shadow:0 4px 14px rgba(37,99,235,.05)}
+.deriv-title{font-family:var(--font-serif);font-size:15px;font-weight:700;margin-bottom:4px}
+.deriv-formula{font-size:13px;background:var(--c-50);border-radius:8px;padding:10px 12px;margin:10px 0 14px;color:var(--gray-700)}
+.deriv-line{font-size:13.5px;line-height:1.55;padding:9px 0;border-top:1px solid var(--gray-100)}
+.deriv-line:first-of-type{border-top:none}
+.deriv-line .tag{font-weight:700;font-family:var(--font-serif)}
+.deriv-line .calc{color:var(--gray-500);font-size:12.5px}
+.deriv-driver{font-size:12.5px;color:var(--gray-600);line-height:1.75;margin-top:12px;background:var(--gray-50);border-radius:8px;padding:11px 13px}
 .footer{padding:40px 24px;text-align:center;color:var(--gray-500);font-size:12.5px;border-top:1px solid var(--gray-200);margin-top:24px;line-height:1.8}
 </style>
 </head>
 <body>
- 
-<!-- ===== HERO =====
-  IONQ IonQ, Inc. 2026年7月3日 EV/Sales倍率法(採用手法) 量子コンピューティングの高成長・赤字投資フェーズ銘柄として、2029年売上×EV/Sales倍率を現在価値に割り引き、SkyWater買収・累計バーン・希薄化を反映した教育目的の試算です。 -->
+
 <div class="hero">
-  <div class="hero-badge">IONQ シナリオ試算 2026年7月3日版</div>
+  <div class="hero-badge">IONQ シナリオ試算 2026/7/10版</div>
   <h1>IonQ, Inc.（IONQ）<br><span>ベア / ベース / ブル</span> 株価シナリオ</h1>
-  <p>量子コンピューティングの高成長・赤字投資フェーズ銘柄として、2029年売上×EV/Sales倍率を現在価値に割り引き、SkyWater買収・累計バーン・希薄化を反映した教育目的の試算です。<!-- 例: 採用手法とその理由を1文。「SOTPに成功確率を組み合わせ、希薄化と持分分離を反映した教育目的の試算です。」 --></p>
+  <p>高成長・黒字化前の量子計算企業として EV/Sales倍率法を採用。価値の大半は「量子の長期商用化に対するオプション価値」であり、それを倍率に織り込んで試算した教育目的の資料です。</p>
 </div>
- 
+
 <div class="container">
- 
-  <!-- ===== ① 現値スナップショット ===== -->
+
+  <!-- ① 現値スナップショット -->
   <div class="now-card">
-    <div class="now-item"><div class="now-label">現値</div><div class="now-val">$49.12</div><div class="now-sub">2026年7月2日終値近辺</div></div>
-    <div class="now-item"><div class="now-label">時価総額</div><div class="now-val">約$18.2B</div><div class="now-sub">発行済み373.2M株ベース</div></div>
-    <div class="now-item"><div class="now-label">52週レンジ</div><div class="now-val">$25.89–$84.64</div><div class="now-sub">52週安値〜高値</div></div>
-    <div class="now-item"><div class="now-label">2026E PS</div><div class="now-val">約68.8x</div><div class="now-sub">時価総額 ÷ 2026E売上中央値$265M</div></div>
+    <div class="now-item"><div class="now-label">現値</div><div class="now-val">$45.01</div><div class="now-sub">2026/7/9終値近辺</div></div>
+    <div class="now-item"><div class="now-label">時価総額</div><div class="now-val">$16.8B</div><div class="now-sub">株数 約373M（26/3末）</div></div>
+    <div class="now-item"><div class="now-label">52週レンジ</div><div class="now-val">$25.89–$84.64</div><div class="now-sub">高値比 −47%</div></div>
+    <div class="now-item"><div class="now-label">EV/売上高(26e)</div><div class="now-val">約52x</div><div class="now-sub">EV≈$13.7B ÷ 売上$265M</div></div>
   </div>
- 
-  <!-- ===== ② 3シナリオ結論 ===== -->
+
+  <!-- ② 3シナリオ結論 -->
   <section class="section" style="padding-top:36px">
     <div class="section-header">
       <div class="section-icon">🎯</div>
-      <div><div class="section-title">3シナリオの結論</div><div class="section-sub">現値$49.12を基準にした理論株価</div></div>
+      <div><div class="section-title">3シナリオの結論</div><div class="section-sub">現値$45.01を基準にした理論株価</div></div>
     </div>
     <div class="scenario-grid">
       <div class="sc-card sc-bear">
         <span class="sc-tag">Bear・弱気</span>
-        <div class="sc-price">$16.23</div>
-        <div class="sc-delta">-66.9%</div>
+        <div class="sc-price">$15.6</div>
+        <div class="sc-delta">−65%</div>
         <div class="sc-prob">想定確率 30%</div>
-        <div class="sc-desc">成長鈍化と倍率収縮を織り込み、2029年売上$600M・15x・割引率18%で評価。</div>
+        <div class="sc-desc">量子商用化が想定より遅延、IBM/Quantinuum等との競争で成長鈍化。市場が売上倍率を「実証待ち」水準まで切り下げる。</div>
       </div>
       <div class="sc-card sc-base">
         <span class="sc-tag">Base・中立</span>
-        <div class="sc-price">$47.03</div>
-        <div class="sc-delta">-4.2%</div>
+        <div class="sc-price">$38.7</div>
+        <div class="sc-delta">−14%</div>
         <div class="sc-prob">想定確率 50%</div>
-        <div class="sc-desc">会社ガイダンスの延長線で高成長が続くが、現在の期待値はかなり織り込まれている想定。</div>
+        <div class="sc-desc">ガイダンス通りの100%級成長を継続、2028年売上$780M。プレミアム倍率は維持するが、バーンと希薄化を織り込むと現値をやや下回る。</div>
       </div>
       <div class="sc-card sc-bull">
         <span class="sc-tag">Bull・強気</span>
-        <div class="sc-price">$112.56</div>
-        <div class="sc-delta">+129.2%</div>
+        <div class="sc-price">$87.6</div>
+        <div class="sc-delta">+95%</div>
         <div class="sc-prob">想定確率 20%</div>
-        <div class="sc-desc">量子計算・量子ネットワーク・防衛/政府案件が加速し、2029年売上$1.8B・35xを許容。</div>
+        <div class="sc-desc">「Broad Quantum Advantage勝者」の地位が固まり、政府・大企業案件が積み上がる。2028年売上$1.25B＋高倍率を市場が付与。</div>
       </div>
     </div>
-    <!-- 現値ポジショニング（主判断指標：現値が帯のどこにあるか） -->
+
+    <!-- 現値ポジショニング -->
     <div class="pos-wrap">
       <div class="pos-head">
-        <div class="pos-title">現値ポジショニング — 現値$49.12は帯のどこか</div>
-        <div class="pos-zone zone-high">やや割高〜適正上限</div><!-- zone-hot/high/fair/cheap と 過熱/やや割高/適正〜割安/割安 -->
+        <div class="pos-title">現値ポジショニング — 現値$45.01は帯のどこか</div>
+        <div class="pos-zone zone-high">やや割高</div>
       </div>
-      <div class="pos-track">
-        <div class="pos-tick" style="left:0%"><span>Bear $16.23</span></div>
-        <div class="pos-tick" style="left:32.0%"><span>Base $47.03</span></div>
-        <div class="pos-tick" style="left:100%"><span>Bull $112.56</span></div>
-        <div class="pos-marker" style="left:34.1%"><span>現値 $49.12</span></div><!-- NOW_POS_PCT=帯内位置%。0未満/100超はクランプ -->
+      <div class="pos-track" style="background:linear-gradient(90deg,#fecaca 0%,var(--c-200) 32.1%,#bbf7d0 100%)">
+        <div class="pos-tick" style="left:0%"><span>Bear $15.6</span></div>
+        <div class="pos-tick" style="left:32.1%"><span>Base $38.7</span></div>
+        <div class="pos-tick" style="left:100%"><span>Bull $87.6</span></div>
+        <div class="pos-marker" style="left:40.8%"><span>現値 $45.01</span></div>
       </div>
       <div class="pos-stats">
-        <div>帯内位置：<b>34.1%</b></div>
-        <div>上値余地：<b style="color:var(--green-600)">+129.2%</b></div>
-        <div>下値余地：<b style="color:var(--red-600)">-66.9%</b></div>
-        <div>上値:下値比：<b>1.93倍</b></div>
+        <div>帯内位置：<b>40.8%</b></div>
+        <div>上値余地：<b style="color:var(--green-600)">+95%</b></div>
+        <div>下値余地：<b style="color:var(--red-600)">−65%</b></div>
+        <div>上値:下値比：<b>1.45</b></div>
+      </div>
+      <!-- エントリーコンテキスト -->
+      <div class="pos-entry">
+        <div>直近20営業日：<b>約 −30%（下落）</b></div>
+        <div>次カタリストまで：<b>約4〜5週（Q2決算・デリスク型）</b></div>
+        <div class="pe-note"><b style="color:var(--gray-900)">経路の注記（これは急騰ではなく調整局面）：</b>現値$45は、5月のQ1決算後に+60%上昇して6月上旬に$70超（$73.65まで）を付けた後、6月に−26%、7月に入りさらに下落した「押し目」局面です。下落の主因は決算後の利益確定、役員クラスの売却クラスター、IBMの競争激化観測、割高感（6月ピークで実績売上の約111倍）。<b style="color:var(--gray-900)">ただし「−30%下げたから割安」ではありません</b>：現値$45は依然として本試算のBase（$38.7）と確率加重期待値（$41.6）を上回っており、帯内位置40.8%＝Base（32.1%）より上、すなわち「やや割高」ゾーンに位置します。押し目でも、ファンダメンタルズ基準ではまだ実行への楽観を織り込んだ水準です。</div>
       </div>
     </div>
-    <!-- 現値>Bull かつ未承認前提のときのみ逆算チェックcalloutを入れる。不要なら空にする -->
+
     <div class="ev-box">
       <div class="ev-main">
         <div class="lbl">確率加重 期待値（補助指標）</div>
-        <div class="val">$50.90</div>
-        <div class="sub">現値$49.12 比 +3.6%（Bear 30% / Base 50% / Bull 20%加重）</div>
+        <div class="val">$41.6</div>
+        <div class="sub">現値$45.01 比 −7.6%（30/50/20加重）</div>
       </div>
       <div class="ev-rr">
-        下値余地（Bear）：<b style="color:#fecaca">-66.9%</b><br>
-        上値余地（Bull）：<b style="color:#bbf7d0">+129.2%</b><br>
-        リスクリワード比：<b>1.93倍</b>
+        下値余地（Bear）：<b style="color:#fecaca">−65%</b><br>
+        上値余地（Bull）：<b style="color:#bbf7d0">+95%</b><br>
+        リスクリワード比：<b>1.45</b>
       </div>
     </div>
     <div class="callout callout-amber">
       <span class="cl-label">読み方の注意</span>
-      現値はBase理論株価を少し上回る一方、Bullまでは大きな距離があります。つまり「期待がかなり入った水準だが、量子コンピューティングの商業化が加速するなら上振れ余地も残る」という位置づけです。確率加重期待値は補助指標で、主判断は現値がBear〜Bull帯の約34%にある点です。<!-- 例: 期待値が現値をやや上回り上値:下値が約3:1という構図は報われ方が非対称であることを示すが、各シナリオの確率と事業価値の前提に全面的に依存する。 -->
+      現値は上値:下値が約1.45:1と上振れがやや大きい一方、確率加重期待値は現値を約8%下回ります。<b>つまり$45は「割安」ではなく、Bull（BQA勝者）シナリオへの期待をすでに一部織り込んだ水準</b>。上振れ$87.6は量子の長期オプションが実を結ぶ前提、下振れ$15.6は商用化が期待外れになる前提であり、いずれも倍率（＝オプション価値の見立て）に全面的に依存します。確率を自分の見立てに差し替えれば結論は容易に反転します。
     </div>
   </section>
- 
-  <!-- ===== ③ 計算ロジック ===== -->
+
+  <!-- ③ 計算ロジック -->
   <section class="section">
     <div class="section-header">
       <div class="section-icon">🧮</div>
-      <div><div class="section-title">計算ロジック：EV/Sales倍率法</div><div class="section-sub">高成長だが赤字投資フェーズであり、利益ではなく将来売上と市場倍率で評価されやすいため。</div></div>
+      <div><div class="section-title">計算ロジック：EV/Sales 倍率法</div><div class="section-sub">高成長・黒字化前テック。将来売上×倍率を現在価値化</div></div>
     </div>
-    <p class="lead">IonQは量子コンピューティング、量子ネットワーク、センシング、セキュリティを含むフルスタック量子プラットフォーム企業です。現時点では営業CFが大きくマイナスで、PERでは実力を測りにくいため、2029年売上をシナリオ別に置き、EV/Sales倍率と割引率で現在価値に戻しました。<!-- なぜこの手法か、何を構成要素に分けたかを2-3文 --></p>
- 
-    <!-- 構成要素の積み上げ（SOTPなら事業、rNPVならパイプライン、EV/SalesやPERなら主要ドライバ） -->
-    <div class="sotp">
-      
-<div class="sotp-row"><div class="sotp-icon">⚛️</div><div class="sotp-body"><div class="sotp-name">① 量子コンピューティング / クラウド / システム販売</div><div class="sotp-note">会社の中核。Q1 2026は売上$64.7M、2026年ガイダンス$260–270Mを起点に、2029年売上をBear $600M / Base $1.1B / Bull $1.8Bで仮定。</div></div></div>
-<div class="sotp-row"><div class="sotp-icon">🛰️</div><div class="sotp-body"><div class="sotp-name">② 量子ネットワーク・センシング・サイバー/政府案件</div><div class="sotp-note">ID Quantique、Capella、Vector Atomicなどの買収領域を含む成長オプション。Baseでは売上成長に内包、Bullではマルチプル拡大で反映。</div></div></div>
-<div class="sotp-row"><div class="sotp-icon">🏭</div><div class="sotp-body"><div class="sotp-name">③ SkyWater買収による製造内製化</div><div class="sotp-note">買収はQ2〜Q3 2026に完了見込みとされるため、現金対価と株式発行を推定で反映。製造能力強化はBullの倍率に反映。</div></div></div>
+    <p class="lead">IonQは2026年売上ガイダンス$260〜270M・調整後EBITDA損失−$310〜330Mの黒字化前企業のため、PERは使えず、市場が実際に用いている<strong>EV/Sales倍率</strong>を主手法に採用しました。2028年予想売上に将来倍率を当て、割引率16%で現在価値化しています。量子は商用化が数年先の長期R&Dであり、その<strong>オプション価値は「高い売上倍率」という形で倍率に内包</strong>させて扱います（純粋なSaaS倍率より高い水準を許容）。</p>
 
-      <!-- 繰り返し:
+    <div class="sotp">
       <div class="sotp-row">
-        <div class="sotp-icon">🔬</div>
+        <div class="sotp-icon">📈</div>
         <div class="sotp-body">
-          <div class="sotp-name">① 構成要素名</div>
-          <div class="sotp-note">Bear $X / Base $Y / Bull $Z。前提の説明。</div>
+          <div class="sotp-name">① 2028年予想売上</div>
+          <div class="sotp-note">Bear $520M / Base $780M / Bull $1,250M。2026年$265M（ガイダンス中央値）を起点に成長率を振る。</div>
         </div>
       </div>
-      -->
+      <div class="sotp-row">
+        <div class="sotp-icon">✖️</div>
+        <div class="sotp-body">
+          <div class="sotp-name">② EV/Sales倍率（2028時点の将来倍率）</div>
+          <div class="sotp-note">Bear 14x / Base 27x / Bull 40x。量子の長期オプション価値を反映した高倍率。Bearは「実証待ち」への切り下げ、Bullは「BQA勝者」プレミアム。</div>
+        </div>
+      </div>
+      <div class="sotp-row">
+        <div class="sotp-icon">💵</div>
+        <div class="sotp-body">
+          <div class="sotp-name">③ ネットキャッシュ（将来バーン控除後）</div>
+          <div class="sotp-note">現金＋投資 $3.09B（26/3末）から2.5年分の累計バーン・capexを差し引く。潤沢なため強制増資（死のスパイラル型希薄化）は発生しない。</div>
+        </div>
+      </div>
     </div>
- 
+
     <div class="table-wrap">
       <table>
         <thead><tr><th>構成要素</th><th>Bear</th><th>Base</th><th>Bull</th></tr></thead>
         <tbody>
-          
-<tr><td>2029年売上</td><td class="td-bear">$600M</td><td class="td-base">$1,100M</td><td class="td-bull">$1,800M</td></tr>
-<tr><td>想定EV/Sales倍率</td><td class="td-bear">15.0x</td><td class="td-base">25.0x</td><td class="td-bull">35.0x</td></tr>
-<tr><td>3年後EV</td><td class="td-bear">$9.0B</td><td class="td-base">$27.5B</td><td class="td-bull">$63.0B</td></tr>
-<tr><td>割引率</td><td class="td-bear">18%</td><td class="td-base">15%</td><td class="td-bull">12%</td></tr>
-<tr><td>現在価値EV</td><td class="td-bear">$5.48B</td><td class="td-base">$18.08B</td><td class="td-bull">$44.84B</td></tr>
-<tr><td>ネットキャッシュ（SkyWater現金対価・累計バーン控除後）</td><td>$1.42B</td><td>$1.67B</td><td>$1.87B</td></tr>
-<tr class="row-total"><td>株主価値 合計</td><td>$6.90B</td><td>$19.75B</td><td>$46.71B</td></tr>
-<tr><td>希薄化後株式数</td><td>425M<br><span style="font-size:11px;color:var(--gray-500)">SBC/買収株式を保守的に反映</span></td><td>420M<br><span style="font-size:11px;color:var(--gray-500)">同上</span></td><td>415M<br><span style="font-size:11px;color:var(--gray-500)">好条件で希薄化軽め</span></td></tr>
-<tr class="row-total"><td>→ 理論株価</td><td class="td-bear">$16.23</td><td class="td-base">$47.03</td><td class="td-bull">$112.56</td></tr>
-<tr><td>現値比</td><td class="td-bear">-66.9%</td><td class="td-base">-4.2%</td><td class="td-bull">+129.2%</td></tr>
-
-          <!-- 例:
-          <tr><td>① 事業本体</td><td class="td-bear">$150M</td><td class="td-base">$450M</td><td class="td-bull">$1,100M</td></tr>
-          <tr><td>② 持分/補助</td><td class="td-bear">$267M</td><td class="td-base">$445M</td><td class="td-bull">$712M</td></tr>
-          <tr><td>③ ネットキャッシュ</td><td>$90M</td><td>$90M</td><td>$90M</td></tr>
-          <tr class="row-total"><td>株主価値 合計</td><td>$507M</td><td>$985M</td><td>$1,902M</td></tr>
-          <tr><td>希薄化後 株数</td><td>144.8M<br><span style="font-size:11px;color:var(--gray-500)">×1.15</span></td><td>136.0M<br><span style="font-size:11px;color:var(--gray-500)">×1.08</span></td><td>132.2M<br><span style="font-size:11px;color:var(--gray-500)">×1.05</span></td></tr>
-          <tr class="row-total"><td>→ 理論株価</td><td class="td-bear">$3.50</td><td class="td-base">$7.24</td><td class="td-bull">$14.39</td></tr>
-          <tr><td>現値比</td><td class="td-bear">-44%</td><td class="td-base">+16%</td><td class="td-bull">+130%</td></tr>
-          -->
+          <tr><td>① 2028E 売上</td><td class="td-bear">$520M</td><td class="td-base">$780M</td><td class="td-bull">$1,250M</td></tr>
+          <tr><td>② EV/Sales倍率(2028)</td><td class="td-bear">14x</td><td class="td-base">27x</td><td class="td-bull">40x</td></tr>
+          <tr><td>将来EV（2028末）</td><td class="td-bear">$7,280M</td><td class="td-base">$21,060M</td><td class="td-bull">$50,000M</td></tr>
+          <tr><td>現在EV（÷1.449）<br><span style="font-size:11px;color:var(--gray-500)">割引率16%・2.5年</span></td><td class="td-bear">$5,023M</td><td class="td-base">$14,532M</td><td class="td-bull">$34,500M</td></tr>
+          <tr><td>③ ＋ネットキャッシュ</td><td>$1,700M</td><td>$1,850M</td><td>$1,950M</td></tr>
+          <tr class="row-total"><td>株主価値 合計</td><td>$6,723M</td><td>$16,382M</td><td>$36,450M</td></tr>
+          <tr><td>希薄化後 株数</td><td>430M<br><span style="font-size:11px;color:var(--gray-500)">SkyWater多め＋SBC</span></td><td>423M</td><td>416M<br><span style="font-size:11px;color:var(--gray-500)">SkyWater少なめ</span></td></tr>
+          <tr class="row-total"><td>→ 理論株価</td><td class="td-bear">$15.64</td><td class="td-base">$38.73</td><td class="td-bull">$87.62</td></tr>
+          <tr><td>現値比</td><td class="td-bear">−65%</td><td class="td-base">−14%</td><td class="td-bull">+95%</td></tr>
         </tbody>
       </table>
     </div>
+
+    <!-- ★ 価格導出ブロック（なぜこの価格か：式に実数を代入） -->
+    <div class="deriv">
+      <div class="deriv-title">価格導出 — なぜこの数字になるか（式に実数を代入）</div>
+      <div class="deriv-formula">
+        共通式：<b>理論株価 =（現在事業価値EV ＋ ネットキャッシュ）÷ 希薄化後株数</b><br>
+        <span style="color:var(--gray-500)">現在事業価値EV ＝ 2028年売上 × EV/Sales倍率 ÷ (1.16)<sup>2.5</sup></span>
+      </div>
+      <div class="deriv-line">
+        <span class="tag td-bear">Bear $15.64</span> ＝（$5,023M ＋ $1,700M）÷ 430M ＝ $6,723M ÷ 430M<br>
+        <span class="calc">└ 事業価値 $5,023M ＝ $520M × 14x ÷ 1.449　／　現値比 −65%</span>
+      </div>
+      <div class="deriv-line">
+        <span class="tag td-base">Base $38.73</span> ＝（$14,532M ＋ $1,850M）÷ 423M ＝ $16,382M ÷ 423M<br>
+        <span class="calc">└ 事業価値 $14,532M ＝ $780M × 27x ÷ 1.449　／　現値比 −14%</span>
+      </div>
+      <div class="deriv-line">
+        <span class="tag td-bull">Bull $87.62</span> ＝（$34,500M ＋ $1,950M）÷ 416M ＝ $36,450M ÷ 416M<br>
+        <span class="calc">└ 事業価値 $34,500M ＝ $1,250M × 40x ÷ 1.449　／　現値比 +95%</span>
+      </div>
+      <div class="deriv-driver">
+        <b>シナリオ間の差の主因：</b>Bear→Bullの株価差 $15.64→$87.62（＋$72）の<b>約97%は「現在事業価値」の差（$5.0B→$34.5B）</b>由来です。これは①2028年売上 $520M→$1,250M と ②EV/Sales倍率 14x→40x の複合で、実質的に<b>「倍率＝量子オプション価値の見立て」が株価を決めている</b>ことを意味します。ネットキャッシュ差（$1.70B→$1.95B）と株数差（430M→416M）の寄与は合わせて数%に過ぎません。したがって本銘柄の判断は、売上予想以上に「どの倍率を許容するか」に帰着します。
+      </div>
+    </div>
+
     <div class="callout callout-primary">
       <span class="cl-label">希薄化の扱い</span>
-      2026年3月31日時点の発行済み株式数373.2M株に、SkyWater買収の株式対価（モデル上は約21M株の推定）、RSU/PSU/制限株などの株式報酬、ITMワラント・オプションを概算で加えました。Series A/B private warrantsは行使価格が$99.88/$155.00のため、Baseでは未反映、Bullでは潜在希薄化リスクとして注意事項に留めています。<!-- 既知の私募/転換社債/ATMの織り込みと、未知の追加調達を係数でどう見たか -->
+      IonQは<b>転換社債を持たず、有利子負債もごく僅少（D/E≈0.01）</b>のため、シナリオ別ITM判定（解説書6.6）は非該当です。希薄化の源泉は(1)株式報酬SBC（四半期$128M規模＝年約11〜12M株）、(2)SkyWater買収の全株式対価（カラー付き：株価が高いほど発行株が少なく4.4%、低いほど多く6.7%）、(3)2025年10月の$93調達に伴うワラント（行使価格は調達価格近辺と推定、現値では大きくOTM。Bull上限でのみ顕在化しうるオーバーハング）。現金$3.09Bが潤沢なため、Bearでも生存目的の安値強制増資は不要と置き、ネットキャッシュは NC＝現金−累計バーン で控除しました。
     </div>
   </section>
- 
-  <!-- ===== ④ 各シナリオの成立条件 ===== -->
+
+  <!-- ④ 各シナリオの成立条件 -->
   <section class="section">
     <div class="section-header">
       <div class="section-icon">📋</div>
       <div><div class="section-title">各シナリオが成立する条件</div><div class="section-sub">何が起きればどこへ向かうか</div></div>
     </div>
-    <h3 class="sc-h sc-h-bear">🐻 Bear（$16.23・確率30%）</h3>
-    <ul class="lst"><li>量子コンピューティングの商業化が想定より遅れ、2029年売上が$600M程度にとどまる。</li><li>高成長テーマ株の倍率が圧縮され、EV/Salesが15x程度まで低下する。</li><li>SkyWater統合や買収領域のコストが先行し、累計バーンが重くなる。</li><li>政府・防衛案件や大型商用案件の収益認識が後ずれする。</li><!-- <li>条件</li> を複数 --></ul>
-    <h3 class="sc-h sc-h-base">⚖️ Base（$47.03・確率50%）</h3>
-    <ul class="lst"><li>2026年ガイダンス$260–270Mを起点に、2029年売上が約$1.1Bまで拡大する。</li><li>量子ネットワーク・センシング・セキュリティ領域が売上ミックスを支え、25x程度の高倍率が維持される。</li><li>現金余力により追加増資リスクは限定的だが、株式報酬と買収対価による希薄化は続く。</li><li>SkyWaterの製造内製化がロードマップの信頼性を高める。</li></ul>
-    <h3 class="sc-h sc-h-bull">🚀 Bull（$112.56・確率20%）</h3>
-    <ul class="lst"><li>256量子ビット級システムや量子ネットワーク案件が大型受注につながり、2029年売上が$1.8B規模へ伸びる。</li><li>防衛・政府・通信・金融などで実用案件が増え、量子リーダー銘柄として35xのプレミアム倍率が許容される。</li><li>SkyWater統合により製造能力・信頼供給網が強化される。</li><li>累計バーンが想定より抑えられ、現金ポジションが競争優位として評価される。</li></ul>
+    <h3 class="sc-h sc-h-bear">🐻 Bear（$15.6・確率30%）</h3>
+    <ul class="lst">
+      <li>フォールトトレラント/大規模化のロードマップ（256量子ビット実証など）が遅延し、「実証はデモ止まり」との見方が広がる。</li>
+      <li>IBM・Quantinuum（2026年6月上場で比較対象が明確化）・Google等との競争で、IonQの技術的優位・受注シェアへの懐疑が強まる。</li>
+      <li>売上成長が減速（2028年$520M＝2026年比約2倍止まり）し、市場がEV/Sales倍率を14x（実証待ち水準）へ切り下げる。</li>
+      <li>量子セクター全体のセンチメント悪化・投機的グロースからの資金流出。</li>
+    </ul>
+    <h3 class="sc-h sc-h-base">⚖️ Base（$38.7・確率50%）</h3>
+    <ul class="lst">
+      <li>2026年ガイダンス（$260〜270M）を達成し、以降も100%級のオーガニック成長を継続（2028年$780M）。</li>
+      <li>RPO $470Mを裏付けに商用・国際・マルチプロダクトの構成が改善。政府案件（DARPA/SDA）が着実に進む。</li>
+      <li>市場はプレミアム倍率27xを維持するが、2.5年分のバーンと希薄化（SBC＋SkyWater）を織り込むと理論株価は現値をやや下回る。</li>
+    </ul>
+    <h3 class="sc-h sc-h-bull">🚀 Bull（$87.6・確率20%）</h3>
+    <ul class="lst">
+      <li>9/8のInvestor Dayなどで「Broad Quantum Advantage勝者」の地位が投資家に浸透し、ナラティブが強化される。</li>
+      <li>政府（2028年「科学的に有意」な量子計算機の配備目標）・大企業の大型案件が積み上がり、2028年売上$1.25Bへ加速。</li>
+      <li>希少性から市場がEV/Sales 40xの高倍率を付与。株高で希薄化は軽く（SkyWaterは4.4%枠）。</li>
+    </ul>
   </section>
- 
-  <!-- ===== ⑤ 感応度分析 ===== -->
+
+  <!-- ⑤ 感応度分析 -->
   <section class="section">
     <div class="section-header">
       <div class="section-icon">🎚️</div>
       <div><div class="section-title">感応度：前提が変わると結論はどう動くか</div><div class="section-sub">この試算の効きどころ</div></div>
     </div>
-    <p class="lead">IONQの理論株価は、ネットキャッシュよりも「2029年売上」と「EV/Sales倍率」に強く反応します。現金は大きいものの、時価総額が大きいため、最終的には商業化スピードと市場が許す倍率がほぼ全てです。<!-- 結果を最も動かす前提を順に挙げる --></p>
+    <p class="lead">結果を最も動かすのは<strong>EV/Sales倍率</strong>と<strong>2028年売上</strong>です（両者は事実上「量子オプション価値の見立て」を表す）。割引率や希薄化の効きは相対的に小さく、株価の帯はほぼ倍率×売上で決まります。</p>
     <div class="table-wrap">
       <table>
         <thead><tr><th>動かす前提</th><th>変化させると</th><th>Base株価への影響</th></tr></thead>
         <tbody>
-          
-<tr><td>2029年売上</td><td>Base $1.1B から ±$200M</td><td class="td-base">概ね ±$7.8</td></tr>
-<tr><td>EV/Sales倍率</td><td>Base 25x から ±5x</td><td class="td-base">概ね ±$8.6</td></tr>
-<tr><td>割引率</td><td>15% → 12% / 18%</td><td class="td-base">+約$3.6 / -約$3.2</td></tr>
-<tr><td>累計FCFバーン</td><td>Base $650M から ±$250M</td><td class="td-base">概ね ±$0.6</td></tr>
-<tr><td>希薄化後株数</td><td>420M → 400M / 440M</td><td class="td-base">+約$2.4 / -約$2.1</td></tr>
-
-          <!-- <tr><td>前提名</td><td>±幅</td><td class="td-base">概ね ±$X</td></tr> -->
+          <tr><td>EV/Sales倍率</td><td>27x ±5x</td><td class="td-base">概ね ±$6.4</td></tr>
+          <tr><td>2028年売上</td><td>$780M ±$150M</td><td class="td-base">概ね ±$6.6</td></tr>
+          <tr><td>希薄化後株数</td><td>423M → 453M（+30M）</td><td class="td-base">▲$2.6</td></tr>
+          <tr><td>割引率</td><td>16% → 14% / 18%</td><td class="td-base">+$1.5 / −$1.4</td></tr>
+          <tr><td>Bull確率</td><td>20% → 30%</td><td class="td-base">期待値 +$4.9</td></tr>
         </tbody>
       </table>
     </div>
     <div class="callout callout-red">
       <span class="cl-label">最大の不確実性</span>
-      最大の不確実性は、2026年ガイダンス後の成長が2027〜2029年にも継続するかです。量子計算そのものの技術進展だけでなく、政府・防衛・通信・製造内製化の案件がどれだけ売上として認識されるかがBaseとBullの分岐点になります。<!-- 最も効く前提と、それが判明するカタリスト時期 -->
+      <b>EV/Sales倍率＝市場が量子の長期オプションにいくら払うか。</b>これは技術ロードマップの信頼性で大きく振れ、直近の判明機会は<b>Q2決算（〜8/12・デリスク型）</b>と<b>9/8のInvestor Day（BQA地位の提示）</b>、さらに<b>2026年末の256量子ビット実証</b>です。売上は達成できても倍率が切り下がれば株価は下方に振れ得る点に注意（6月ピークの実績売上約111倍→現在約52倍の再評価が、まさにその一例）。
     </div>
   </section>
- 
-  <!-- ===== ⑥ 使用した前提・数値 ===== -->
+
+  <!-- ⑥ 使用した前提・数値 -->
   <section class="section">
     <div class="section-header">
       <div class="section-icon">📌</div>
-      <div><div class="section-title">使用した主な前提・数値</div><div class="section-sub">出典と概数</div></div>
+      <div><div class="section-title">使用した主な前提・数値</div><div class="section-sub">出典と概数（バランスシート項目は時点を明記）</div></div>
     </div>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>項目</th><th>使用値</th><th>備考</th></tr></thead>
+        <thead><tr><th>項目</th><th>使用値</th><th>備考・時点</th></tr></thead>
         <tbody>
-          
-<tr><td>現値</td><td>$49.12</td><td>事実：市場データ（2026年7月2日終値近辺、20分遅延データ）。</td></tr>
-<tr><td>52週レンジ</td><td>$25.89–$84.64</td><td>事実：IonQ IR / NYSE / 市場データ。</td></tr>
-<tr><td>時価総額</td><td>約$18.2B</td><td>事実：市場データ。株価変動で日々変わる。</td></tr>
-<tr><td>発行済み株式数</td><td>373.2M株</td><td>事実：2026年3月31日時点Form 10-Q。</td></tr>
-<tr><td>Q1 2026売上</td><td>$64.7M</td><td>事実：会社発表 / 10-Q。</td></tr>
-<tr><td>2026年売上ガイダンス</td><td>$260–270M</td><td>事実：会社プレゼン。高成長継続を前提。</td></tr>
-<tr><td>現金・投資</td><td>$3.09B</td><td>事実：2026年3月31日時点の現金・投資。</td></tr>
-<tr><td>営業CF</td><td>-$151.0M / Q</td><td>事実：Q1 2026営業キャッシュフロー。大型投資・買収統合期で変動が大きい。</td></tr>
-<tr><td>Capex</td><td>-$8.4M / Q</td><td>事実：Q1 2026 property and equipment purchases。</td></tr>
-<tr><td>SkyWater買収</td><td>約$1.8B</td><td>事実/推定：現金＋株式取引。モデル上は現金対価約$770M、株式発行約21M株と仮置き。</td></tr>
-<tr><td>2029年売上</td><td>Bear $600M / Base $1.1B / Bull $1.8B</td><td>仮定：2026年ガイダンスを起点に、商業化・政府案件・買収領域の伸びをシナリオ化。</td></tr>
-<tr><td>EV/Sales倍率</td><td>15x / 25x / 35x</td><td>仮定：量子コンピューティングの高成長・高不確実性を反映。成熟SaaSより高いが、失望時は大きく圧縮される。</td></tr>
-<tr><td>アナリスト目標</td><td>参考：$50〜$55近辺の目標例あり</td><td>参考情報：IBD/Barron's掲載のD.A. Davidson $50、Northland $55など。コンセンサスではなく参考扱い。</td></tr>
-
-          <!-- <tr><td>現値</td><td>$X</td><td>出典・日付</td></tr> -->
+          <tr><td>現値</td><td>$45.01</td><td>2026/7/9 終値近辺（当日レンジ $44.02–$47.95）</td></tr>
+          <tr><td>発行済株式数</td><td>約 373M</td><td>2026/3/31（10-Q）。2/18時点 366.6M（424B7）</td></tr>
+          <tr><td>現金＋投資</td><td>$3.09B</td><td><b>2026/3/31時点</b>：現金$493.5M＋短期投資$1,539.9M＋長期投資$1,058.4M</td></tr>
+          <tr><td>有利子負債／転換社債</td><td>ごく僅少／なし</td><td>D/E≈0.01。CBのITM判定は非該当</td></tr>
+          <tr><td>2026年売上ガイダンス</td><td>$260–270M</td><td>Q1決算(5/6)で上方修正。中央値$265Mを起点採用</td></tr>
+          <tr><td>調整後EBITDA損失(26e)</td><td>−$310〜−330M</td><td>会社ガイダンス。バーン算定の基礎</td></tr>
+          <tr><td>RPO（受注残）</td><td>$470M</td><td>2026/3/31、前年比+554%</td></tr>
+          <tr><td>2028E売上（自前仮定）</td><td>Bear$520/Base$780/Bull$1,250M</td><td>ガイダンスからの外挿。<b>仮定</b></td></tr>
+          <tr><td>EV/Sales倍率(28)（自前仮定）</td><td>Bear14/Base27/Bull40x</td><td>量子オプション価値を内包。<b>仮定</b></td></tr>
+          <tr><td>割引率／ホライズン</td><td>16%／2.5年</td><td>執行リスクを反映。<b>仮定</b></td></tr>
+          <tr><td>SkyWater買収</td><td>全株式・被統合側4.4〜6.7%</td><td>カラー：$60.13超で0.3326株、$37.99未満で0.5265株。完了Q2/Q3</td></tr>
+          <tr><td>アナリスト目標株価</td><td>中央値 約$65–69</td><td>レンジ$35–$100（Rosenblatt最高$100）、13名前後・Strong Buy。参考</td></tr>
+          <tr><td>直近株価推移</td><td>20営業日 約−30%／四半期 +67.6%</td><td>6/2 $71.40→7/2 $49.12（−31.2%）。5月+60%後の調整</td></tr>
+          <tr><td>主要カタリスト</td><td>Q2決算〜8/12、Investor Day 9/8</td><td>256量子ビット実証〜2026末、政府量子計算機目標2028</td></tr>
         </tbody>
       </table>
     </div>
   </section>
- 
+
 </div>
- 
+
 <div class="footer">
   <p style="font-weight:600;color:var(--gray-700);margin-bottom:8px">⚠️ 免責事項</p>
-  <p>本資料は情報提供・教育目的のシナリオ試算であり、投資助言ではありません。事業価値・確率・希薄化率はいずれも公開情報に基づく仮定であり、実際の結果は大きく異なりえます。IonQ, Inc.は量子コンピューティング商業化の時期、買収統合、政府案件の収益認識、株式報酬・ワラントによる希薄化、テーマ株倍率の急変に大きく左右されます。<br>数値は2026年7月3日時点の概数に基づきます。実際の投資判断はご自身の責任で行ってください。</p>
+  <p>本資料は情報提供・教育目的のシナリオ試算であり、投資助言ではありません。事業価値・倍率・確率・希薄化率はいずれも公開情報に基づく仮定であり、実際の結果は大きく異なりえます。IonQは黒字化前・技術実証途上の企業であり、量子計算の商用化時期・競争環境・追加希薄化に極めて大きな不確実性を伴います。<br>数値は2026/7/10時点の概数に基づきます。実際の投資判断はご自身の責任で行ってください。</p>
 </div>
- 
+
 </body>
 </html>
- 
-<!--
-================================================================
-  カラーパレット早見表（:root の --c-* / --hero-* に設定）
-================================================================
- 
-■ バイオ/製薬（rNPV系・深緑 Teal）
-  c-50:#e1f5ee c-100:#c3ebdd c-200:#9FE1CB c-400:#1D9E75 c-600:#0F6E56 c-800:#085041
-  hero-from:#0a2e24 hero-mid:#0F6E56 hero-to:#1D9E75 hero-accent:#5DCAA5
- 
-■ 素材/同位体（SOTP系・シアン ※ASPIと統一）
-  c-50:#f0fdfa c-100:#ccfbf1 c-200:#99f6e4 c-400:#2dd4bf c-600:#0d9488 c-800:#115e59
-  hero-from:#0c3a2e hero-mid:#065f46 hero-to:#047857 hero-accent:#5eead4
- 
-■ 半導体/AI/SaaS（EV/Sales系・青 Blue）
-  c-50:#eff6ff c-100:#dbeafe c-200:#bfdbfe c-400:#3b82f6 c-600:#2563eb c-800:#1e3a8a
-  hero-from:#0c1445 hero-mid:#1e3a8a hero-to:#2563eb hero-accent:#93c5fd
- 
-■ 宇宙/防衛（オプション系・グレー Gray）
-  c-50:#f1f5f9 c-100:#e2e8f0 c-200:#cbd5e1 c-400:#475569 c-600:#334155 c-800:#0f172a
-  hero-from:#020617 hero-mid:#0f172a hero-to:#1e293b hero-accent:#7dd3fc
- 
-■ 金融/フィンテック（PBR系・緑 Green）
-  c-50:#f0fdf4 c-100:#dcfce7 c-200:#bbf7d0 c-400:#22c55e c-600:#16a34a c-800:#14532d
-  hero-from:#052e16 hero-mid:#14532d hero-to:#16a34a hero-accent:#86efac
- 
-================================================================
--->
- 

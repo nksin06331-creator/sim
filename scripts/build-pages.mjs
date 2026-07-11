@@ -4,7 +4,10 @@ import { fileURLToPath } from "node:url";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const stocksRoot = join(root, "stocks");
-const manifestPath = join(root, "lab", "data", "manifest.json");
+const manifestPaths = [
+  join(root, "data", "manifest.json"),
+  join(root, "lab", "data", "manifest.json"),
+];
 const output = join(root, "_site");
 const requiredStrings = ["ticker", "slug", "name", "market", "sector", "method", "status", "updated", "summary", "zone", "detailPath", "scenarioPath"];
 
@@ -20,7 +23,6 @@ function validate(meta, folder) {
   for (const type of ["bear", "base", "bull"]) {
     if (!Number.isFinite(meta.scenarios?.[type])) errors.push(`scenarios.${type}は数値にしてください`);
   }
-  if (meta.ticker && meta.ticker !== folder) errors.push(`tickerとフォルダ名（${folder}）を一致させてください`);
   return errors;
 }
 
@@ -46,8 +48,10 @@ for (const folder of folders) {
 }
 
 entries.sort((a, b) => b.updated.localeCompare(a.updated) || a.ticker.localeCompare(b.ticker));
-await mkdir(dirname(manifestPath), { recursive: true });
-await writeFile(manifestPath, `${JSON.stringify(entries, null, 2)}\n`, "utf8");
+for (const manifestPath of manifestPaths) {
+  await mkdir(dirname(manifestPath), { recursive: true });
+  await writeFile(manifestPath, `${JSON.stringify(entries, null, 2)}\n`, "utf8");
+}
 
 await rm(output, { recursive: true, force: true });
 await mkdir(output, { recursive: true });

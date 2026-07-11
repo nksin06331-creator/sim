@@ -1,0 +1,8 @@
+{
+  "scripts": {
+    "add": "node scripts/add-stock.mjs",
+    "build": "node scripts/build-pages.mjs",
+    "new": "node scripts/new-stock.mjs",
+    "serve": "python3 -m http.server 8000 --bind 127.0.0.1"
+  }
+}

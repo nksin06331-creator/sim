@@ -1,6 +1,8 @@
 const grid = document.querySelector("#stock-grid");
 const status = document.querySelector("#status");
 const search = document.querySelector("#stock-search");
+const manifestUrl = document.body.dataset.manifestUrl || "./data/manifest.json";
+const linkPrefix = document.body.dataset.linkPrefix ?? (location.pathname.includes("/lab/") ? "../" : "");
 let stocks = [];
 
 const formatPrice = (value, currency = "USD") => {
@@ -30,7 +32,7 @@ function scenarioCell(parent, label, value, currency) {
 function actionLink(parent, label, href, primary = false) {
   const link = document.createElement("a");
   link.className = primary ? "card-button primary" : "card-button";
-  link.href = `../${href}`;
+  link.href = `${linkPrefix}${href}`;
   link.textContent = label;
   parent.append(link);
 }
@@ -88,7 +90,7 @@ function render(query = "") {
 
 async function init() {
   try {
-    const response = await fetch("./data/manifest.json", { cache: "no-store" });
+    const response = await fetch(manifestUrl, { cache: "no-store" });
     if (!response.ok) throw new Error(`一覧データを取得できませんでした（${response.status}）`);
     stocks = await response.json();
     render();
