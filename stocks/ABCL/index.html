@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ABCL 完全入門ガイド</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/*
+ ================================================================
+  STOCK GUIDE HTML TEMPLATE v1.0 / ChatGPT index.html output version
+  このCSSはすべての銘柄ガイドで共通使用するデザインシステムです
+  {{COLOR_PRIMARY}} などのプレースホルダーを銘柄ごとに置き換えて使用
+ ================================================================
+*/
+ 
+:root {
+  /* ── 銘柄ごとにカスタマイズする変数 ── */
+  --c-primary-50:  #e1f5ee;   /* 例: #e0f7f4 (薄い背景) */
+  --c-primary-100: #c7eadf;  /* 例: #b2ece5 */
+  --c-primary-200: #9FE1CB;  /* 例: #99f6e4 */
+  --c-primary-400: #1D9E75;  /* 例: #2dd4bf (メインアクセント) */
+  --c-primary-600: #0F6E56;  /* 例: #0d9488 (テキスト・ボーダー) */
+  --c-primary-800: #085041;  /* 例: #115e59 (見出し) */
+ 
+  --c-accent-50:   #faeeda;    /* サブカラー（薄） */
+  --c-accent-400:  #BA7517;   /* サブカラー（メイン） */
+  --c-accent-600:  #633806;   /* サブカラー（テキスト） */
+ 
+  --hero-bg-from:  #0a2e24;       /* ヒーロー背景グラデ開始色 */
+  --hero-bg-mid:   #0F6E56;        /* ヒーロー背景グラデ中間色 */
+  --hero-bg-to:    #1D9E75;         /* ヒーロー背景グラデ終端色 */
+  --hero-badge-color: #9FE1CB;/* バッジ文字色 */
+  --hero-h1-accent:   #5DCAA5; /* h1のスパン文字色 */
+ 
+  /* ── 共通システム変数（変更不要） ── */
+  --amber-50:  #fffbeb; --amber-400: #fbbf24; --amber-600: #d97706; --amber-800: #78350f;
+  --red-50:    #fef2f2; --red-400:   #f87171; --red-600:   #dc2626;
+  --blue-50:   #eff6ff; --blue-400:  #60a5fa; --blue-600:  #2563eb; --blue-800: #1e3a8a;
+  --green-50:  #f0fdf4; --green-400: #4ade80; --green-600: #16a34a;
+  --violet-50: #f5f3ff; --violet-400:#a78bfa; --violet-600:#7c3aed;
+  --gray-50:  #f9fafb; --gray-100: #f3f4f6; --gray-200: #e5e7eb;
+  --gray-300: #d1d5db; --gray-500: #6b7280; --gray-700: #374151; --gray-900: #111827;
+  --font-body: 'DM Sans', sans-serif;
+  --font-serif: 'Noto Serif JP', serif;
+}
+ 
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--font-body); background: #f9f9f7; color: var(--gray-900); line-height: 1.7; font-size: 15px; }
+ 
+/* ── HERO ── */
+.hero {
+  background: linear-gradient(135deg, var(--hero-bg-from) 0%, var(--hero-bg-mid) 55%, var(--hero-bg-to) 100%);
+  color: #fff; padding: 64px 24px 80px; text-align: center; position: relative; overflow: hidden;
+}
+.hero::before {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 15% 40%, rgba(255,255,255,0.08) 0%, transparent 55%),
+              radial-gradient(ellipse at 85% 60%, rgba(255,255,255,0.05) 0%, transparent 50%);
+}
+.hero > * { position: relative; z-index: 1; }
+.hero-badge {
+  display: inline-block; background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 999px; padding: 4px 16px; font-size: 12px; letter-spacing: .1em;
+  text-transform: uppercase; margin-bottom: 20px; color: var(--hero-badge-color);
+}
+.hero h1 { font-family: var(--font-serif); font-size: clamp(26px,5vw,44px); font-weight: 700; line-height: 1.3; margin-bottom: 16px; }
+.hero h1 span { color: var(--hero-h1-accent); }
+.hero p { font-size: 16px; opacity: .85; max-width: 580px; margin: 0 auto 32px; }
+.hero-tags { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+.hero-tag { background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); border-radius: 6px; padding: 4px 12px; font-size: 13px; }
+ 
+/* ── NAVIGATION ── */
+.nav-index { background: #fff; border-bottom: 1px solid var(--gray-200); position: sticky; top: 0; z-index: 100; }
+.nav-inner { max-width: 820px; margin: 0 auto; padding: 0 20px; display: flex; overflow-x: auto; scrollbar-width: none; }
+.nav-inner::-webkit-scrollbar { display: none; }
+.nav-item { flex-shrink: 0; padding: 14px 16px; font-size: 13px; font-weight: 500; color: var(--gray-500); text-decoration: none; border-bottom: 2px solid transparent; transition: color .2s, border-color .2s; white-space: nowrap; }
+.nav-item:hover { color: var(--c-primary-600); border-bottom-color: var(--c-primary-400); }
+ 
+/* ── CONTAINER ── */
+.container { max-width: 820px; margin: 0 auto; padding: 0 20px; }
+ 
+/* ── SECTION ── */
+.section { padding: 56px 0 40px; border-bottom: 1px solid var(--gray-200); opacity: 0; transform: translateY(20px); animation: fadeUp .5s ease forwards; }
+.section:nth-child(1){animation-delay:.05s} .section:nth-child(2){animation-delay:.1s}
+.section:nth-child(3){animation-delay:.15s} .section:nth-child(4){animation-delay:.2s}
+.section:nth-child(5){animation-delay:.25s} .section:nth-child(6){animation-delay:.3s}
+@keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+.section-header { display: flex; align-items: center; gap: 14px; margin-bottom: 28px; }
+.section-icon { width: 42px; height: 42px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; }
+.icon-primary { background: var(--c-primary-50); }
+.icon-accent  { background: var(--c-accent-50); }
+.icon-amber   { background: var(--amber-50); }
+.icon-blue    { background: var(--blue-50); }
+.icon-green   { background: var(--green-50); }
+.icon-violet  { background: var(--violet-50); }
+.section-title { font-family: var(--font-serif); font-size: 22px; font-weight: 700; color: var(--gray-900); }
+.section-sub { font-size: 13px; color: var(--gray-500); margin-top: 2px; }
+ 
+/* ── CARDS ── */
+.card { background: #fff; border: 1px solid var(--gray-200); border-radius: 12px; padding: 20px 22px; margin-bottom: 12px; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 12px; margin-bottom: 12px; }
+.card-sm { background: #fff; border: 1px solid var(--gray-200); border-radius: 10px; padding: 16px 18px; }
+ 
+/* ── TERM ACCORDION ── */
+.term-list { display: flex; flex-direction: column; gap: 8px; }
+.term-item { background: #fff; border: 1px solid var(--gray-200); border-radius: 10px; overflow: hidden; transition: border-color .2s; }
+.term-item:hover { border-color: var(--c-primary-400); }
+.term-header { display: flex; align-items: center; justify-content: space-between; padding: 14px 18px; cursor: pointer; gap: 12px; user-select: none; }
+.term-header::-webkit-details-marker { display: none; }
+.term-name { font-weight: 600; font-size: 15px; color: var(--gray-900); }
+.term-en { font-size: 11px; color: var(--gray-500); margin-left: 8px; font-weight: 400; }
+.term-arrow { font-size: 16px; color: var(--c-primary-400); transition: transform .25s; flex-shrink: 0; }
+.term-item[open] .term-arrow { transform: rotate(180deg); }
+.term-item[open] { border-color: var(--c-primary-400); }
+.term-body { padding: 0 18px 16px; border-top: 1px solid var(--gray-100); }
+.term-body p { font-size: 14px; color: var(--gray-700); line-height: 1.8; margin-bottom: 10px; }
+.term-body p:last-child { margin-bottom: 0; }
+ 
+/* ── CALL-OUT BOXES ── */
+.ex-box        { background: var(--c-primary-50); border-left: 3px solid var(--c-primary-400); border-radius: 0 6px 6px 0; padding: 10px 14px; margin-top: 10px; }
+.ex-box-accent { background: var(--c-accent-50);  border-left: 3px solid var(--c-accent-400);  border-radius: 0 6px 6px 0; padding: 10px 14px; margin-top: 10px; }
+.ex-box-amber  { background: var(--amber-50);  border-left: 3px solid var(--amber-400);  border-radius: 0 6px 6px 0; padding: 10px 14px; margin-top: 10px; }
+.ex-box-red    { background: var(--red-50);    border-left: 3px solid var(--red-400);    border-radius: 0 6px 6px 0; padding: 10px 14px; margin-top: 10px; }
+.ex-label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; margin-bottom: 4px; }
+.ex-label-primary { color: var(--c-primary-600); }
+.ex-label-accent  { color: var(--c-accent-600); }
+.ex-label-amber   { color: var(--amber-600); }
+.ex-label-red     { color: var(--red-600); }
+.ex-text { font-size: 13px; color: var(--gray-700); line-height: 1.7; }
+ 
+/* ── INFO BOXES ── */
+.info-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap: 12px; margin-top: 16px; }
+.info-box { border-radius: 10px; padding: 16px 18px; }
+.info-box-primary { background: var(--c-primary-50); }
+.info-box-accent  { background: var(--c-accent-50); }
+.info-box-amber   { background: var(--amber-50); }
+.info-box-red     { background: var(--red-50); }
+.info-box-blue    { background: var(--blue-50); }
+.info-box-green   { background: var(--green-50); }
+.info-box-gray    { background: var(--gray-100); }
+.info-title { font-weight: 600; font-size: 14px; margin-bottom: 6px; }
+.info-title-primary { color: var(--c-primary-800); }
+.info-title-accent  { color: var(--c-accent-600); }
+.info-title-amber   { color: var(--amber-600); }
+.info-title-red     { color: var(--red-600); }
+.info-title-blue    { color: var(--blue-600); }
+.info-title-green   { color: var(--green-600); }
+.info-title-gray    { color: var(--gray-700); }
+.info-text { font-size: 13px; color: var(--gray-700); line-height: 1.7; }
+ 
+/* ── PHASE FLOW ── */
+.phase-flow { display: flex; flex-direction: column; }
+.phase-row { display: flex; gap: 16px; align-items: flex-start; }
+.phase-line-wrap { display: flex; flex-direction: column; align-items: center; flex-shrink: 0; width: 40px; }
+.phase-dot { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px; flex-shrink: 0; }
+.phase-connector { width: 2px; height: 40px; background: var(--gray-200); }
+.phase-content { padding-top: 8px; padding-bottom: 24px; flex: 1; }
+.phase-label { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: .08em; margin-bottom: 4px; }
+.phase-title { font-weight: 600; font-size: 16px; margin-bottom: 6px; }
+.phase-desc { font-size: 13px; color: var(--gray-500); line-height: 1.7; }
+ 
+/* ── TIMELINE ── */
+.timeline { position: relative; padding-left: 32px; }
+.timeline::before { content: ''; position: absolute; left: 10px; top: 8px; bottom: 0; width: 2px; background: var(--gray-200); }
+.tl-row { position: relative; margin-bottom: 24px; }
+.tl-row::before { content: ''; position: absolute; left: -26px; top: 7px; width: 12px; height: 12px; border-radius: 50%; background: var(--c-primary-400); border: 2px solid #fff; box-shadow: 0 0 0 2px var(--c-primary-400); }
+.tl-date { font-size: 11px; font-weight: 600; color: var(--c-primary-600); text-transform: uppercase; letter-spacing: .06em; margin-bottom: 4px; }
+.tl-title { font-weight: 600; font-size: 15px; margin-bottom: 4px; }
+.tl-desc { font-size: 13px; color: var(--gray-500); line-height: 1.7; }
+ 
+/* ── BADGES ── */
+.badge { display: inline-block; font-size: 11px; padding: 2px 8px; border-radius: 4px; font-weight: 600; }
+.badge-primary { background: var(--c-primary-50); color: var(--c-primary-800); }
+.badge-accent  { background: var(--c-accent-50);  color: var(--c-accent-600); }
+.badge-amber   { background: var(--amber-50);  color: var(--amber-600); }
+.badge-red     { background: var(--red-50);    color: var(--red-600); }
+.badge-blue    { background: var(--blue-50);   color: var(--blue-600); }
+.badge-green   { background: var(--green-50);  color: var(--green-600); }
+.badge-violet  { background: var(--violet-50); color: var(--violet-600); }
+ 
+/* ── COMPARE TABLE ── */
+.compare-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.compare-table th { background: var(--gray-50); padding: 10px 14px; text-align: left; font-weight: 600; font-size: 12px; color: var(--gray-500); text-transform: uppercase; letter-spacing: .05em; border-bottom: 1px solid var(--gray-200); }
+.compare-table td { padding: 11px 14px; border-bottom: 1px solid var(--gray-100); color: var(--gray-700); vertical-align: top; }
+.compare-table tr:last-child td { border-bottom: none; }
+.compare-table tr:hover td { background: var(--gray-50); }
+ 
+/* ── HIGHLIGHT BOX ── */
+.highlight { background: linear-gradient(135deg, var(--hero-bg-from) 0%, var(--hero-bg-mid) 100%); color: #fff; border-radius: 12px; padding: 24px 26px; margin: 24px 0; }
+.highlight h3 { font-family: var(--font-serif); font-size: 18px; margin-bottom: 10px; color: var(--hero-badge-color); }
+.highlight p { font-size: 14px; opacity: .9; line-height: 1.8; }
+ 
+/* ── PRODUCT GRID ── */
+.product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px,1fr)); gap: 12px; margin: 16px 0; }
+.product-box { border-radius: 10px; padding: 16px; text-align: center; border: 1px solid transparent; }
+.product-symbol { font-size: 28px; font-weight: 700; margin-bottom: 4px; font-family: var(--font-serif); }
+.product-name { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; margin-bottom: 6px; }
+.product-use { font-size: 12px; line-height: 1.5; }
+ 
+/* ── MISC ── */
+.lead { font-size: 16px; color: var(--gray-700); line-height: 1.8; margin-bottom: 24px; }
+strong { font-weight: 600; }
+.grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap: 12px; }
+ 
+/* ── FOOTER ── */
+.footer { padding: 48px 24px; text-align: center; color: var(--gray-500); font-size: 13px; border-top: 1px solid var(--gray-200); margin-top: 40px; }
+</style>
+</head>
+<body>
+ 
+<!-- ========================================================
+  HERO SECTION
+  ABCL      : ティッカーシンボル (例: ASPI)
+  AbCellera Biologics: 会社名 (例: ASP Isotopes)
+  抗体創薬・バイオテクノロジー    : 業界 (例: アイソトープ / 量子コンピューター)
+  AI・マイクロ流体・ハイスループット実験を統合し、抗体候補の発見から臨床開発までを高速化するカナダ発の創薬企業。     : 2行キャッチコピー
+  <span class="hero-tag">🧬 抗体創薬</span><span class="hero-tag">🤖 AI・データ科学</span><span class="hero-tag">💊 ABCL635</span><span class="hero-tag">🧪 ABCL575</span><span class="hero-tag">📈 臨床カタリスト</span>   : タグリスト（5個推奨）
+  2026年7月11日        : 更新日
+======================================================== -->
+<div class="hero">
+  <div class="hero-badge">ABCL 完全入門ガイド 2026年7月11日版</div>
+  <h1>抗体創薬・バイオテクノロジー株<br><span>AbCellera Biologics（ABCL）</span>を<br>理解するための全知識</h1>
+  <p>AI・マイクロ流体・ハイスループット実験を統合し、抗体候補の発見から臨床開発までを高速化するカナダ発の創薬企業。</p>
+  <div class="hero-tags">
+    <!-- 例: <span class="hero-tag">⚛️ 同位体とは何か</span> -->
+    <span class="hero-tag">🧬 抗体創薬</span><span class="hero-tag">🤖 AI・データ科学</span><span class="hero-tag">💊 ABCL635</span><span class="hero-tag">🧪 ABCL575</span><span class="hero-tag">📈 臨床カタリスト</span>
+  </div>
+</div>
+ 
+<!-- ========================================================
+  STICKY NAV
+  セクション名は7つ固定。ラベルは業界に合わせて変更可。
+======================================================== -->
+<nav class="nav-index">
+  <div class="nav-inner">
+    <a class="nav-item" href="#sec1">① 会社概要</a>
+    <a class="nav-item" href="#sec2">② 抗体創薬の基本</a>
+    <a class="nav-item" href="#sec3">③ 主要パイプライン</a>
+    <a class="nav-item" href="#sec4">④ 臨床・承認プロセス</a>
+    <a class="nav-item" href="#sec5">⑤ 競合と強み</a>
+    <a class="nav-item" href="#sec6">⑥ 専門用語辞典</a>
+    <a class="nav-item" href="#sec7">⑦ 株価の見方</a>
+  </div>
+</nav>
+ 
+<div class="container">
+ 
+  <!-- SEC1: 会社概要 -->
+  <section class="section" id="sec1">
+    <div class="section-header">
+      <div class="section-icon icon-primary">🏢</div>
+      <div>
+        <div class="section-title">AbCellera Biologicsとはどんな会社？</div>
+        <div class="section-sub">まずは全体像を把握しよう</div>
+      </div>
+    </div>
+
+<div class="card-grid">
+<div class="card-sm"><span class="badge badge-primary">NASDAQ: ABCL</span><h3>何をする会社？</h3><p>抗体医薬の候補を見つけ、最適化し、自社または製薬企業との提携で臨床開発へ進める統合型バイオ企業です。</p></div>
+<div class="card-sm"><h3>直近株価の目安</h3><p><strong>$7.10</strong>（2026年7月8日終値）。52週レンジの参考値は約$2.78〜$8.12です。</p></div>
+<div class="card-sm"><h3>Q1 2026</h3><p>売上<strong>$8.3M</strong>、純損失<strong>$43.2M</strong>。研究開発費は$46.7Mで、臨床パイプラインへの投資が続きます。</p></div>
+<div class="card-sm"><h3>資金力</h3><p>Q1末の現金・現金同等物・有価証券は約<strong>$531M</strong>、未使用政府資金を含む総流動性は約<strong>$655M</strong>。</p></div>
+</div>
+<div class="highlight"><h3>ABCL株の基本ルール</h3><p>現在の売上高だけで評価する銘柄ではありません。株価を大きく動かすのは、ABCL635・ABCL575などの臨床データ、提携案件の進展、資金消費速度、そして将来のロイヤルティ価値です。</p></div>
+
+</section>
+ 
+  <!-- SEC2: 業界基礎知識 -->
+  <section class="section" id="sec2">
+    <div class="section-header">
+      <div class="section-icon icon-violet">🧬</div>
+      <div>
+        <div class="section-title">抗体医薬と創薬プラットフォームをゼロから理解</div>
+        <div class="section-sub">「鍵と鍵穴」の例えで抗体創薬を理解する</div>
+      </div>
+    </div>
+
+<p class="lead">抗体は、病気に関係する特定の標的だけを見つける「超精密な鍵」のようなものです。創薬会社の仕事は、無数の候補から目的の鍵穴に強く、選択的に合う鍵を探すこと。AbCelleraはAI、データ科学、マイクロ流体、実験設備を組み合わせ、この探索を工業化しようとしています。</p>
+<div class="term-list">
+<details class="term-item"><summary class="term-header"><span class="term-name">抗体医薬</span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>病気に関係する分子へ選択的に結合するタンパク質医薬。高い特異性が長所ですが、開発・製造コストや投与方法が課題になります。</p></div></details>
+<details class="term-item"><summary class="term-header"><span class="term-name">創薬プラットフォーム</span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>一つの薬だけでなく、多数の標的に対して候補探索を繰り返せる技術基盤。ABCLの価値は個別候補と、この「創薬工場」の両方にあります。</p></div></details>
+<details class="term-item"><summary class="term-header"><span class="term-name">マイクロ流体</span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>微小な流路で細胞や液体を高速処理する技術。大量の抗体産生細胞を効率的に選別する助けになります。</p></div></details>
+<details class="term-item"><summary class="term-header"><span class="term-name">下流権益</span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>提携先の薬が成功した際のマイルストーンやロイヤルティなど、将来収益を受け取る権利です。Q1 2026末には、進行中と認識する40の提携プログラムと、臨床段階の14分子に下流権益がありました。</p></div></details>
+</div>
+</section>
+ 
+  <!-- SEC3: 主要技術・製品 -->
+  <section class="section" id="sec3">
+    <div class="section-header">
+      <div class="section-icon icon-primary">🔬</div>
+      <div>
+        <div class="section-title">ABCLの主要パイプラインと技術</div>
+        <div class="section-sub">自社開発候補とパートナー案件の二本柱</div>
+      </div>
+    </div>
+
+<div class="product-grid">
+<div class="product-box info-box-primary"><div class="product-symbol">635</div><div class="product-name">ABCL635</div><div class="product-use">NK3Rを標的。更年期の血管運動症状向け。Phase 2。</div></div>
+<div class="product-box info-box-accent"><div class="product-symbol">575</div><div class="product-name">ABCL575</div><div class="product-use">OX40Lを標的。アトピー性皮膚炎など自己免疫疾患。Phase 1。</div></div>
+<div class="product-box info-box-blue"><div class="product-symbol">688</div><div class="product-name">ABCL688</div><div class="product-use">自己免疫領域。IND準備段階。</div></div>
+<div class="product-box info-box-gray"><div class="product-symbol">386</div><div class="product-name">ABCL386</div><div class="product-use">がん領域。IND準備段階。</div></div>
+</div>
+<div class="card"><h3>ABCL635が最重要な理由</h3><p>2026年5月公表のPhase 1中間データでは、良好な忍容性、観察された肝毒性なし、強力かつ持続的な標的関与バイオマーカー低下が報告されました。ただし初期データであり、有効性・安全性の確定には追加試験が必要です。</p></div>
+<div class="card"><h3>提携ポートフォリオ</h3><p>2025年末までの累計で下流権益付きパートナー開始プログラムは104件、累計19分子が臨床入り。自社パイプラインに加え、多数の「成功時に価値が生まれるオプション」を持つ構造です。</p></div>
+
+</section>
+ 
+  <!-- SEC4: 技術詳細・規制プロセス -->
+  <section class="section" id="sec4">
+    <div class="section-header">
+      <div class="section-icon icon-accent">🏛️</div>
+      <div>
+        <div class="section-title">臨床試験・承認までの道のり</div>
+        <div class="section-sub">候補発見から承認まで、どこで価値が生まれ、どこで失敗するか</div>
+      </div>
+    </div>
+
+<div class="term-list">
+<details class="term-item"><summary class="term-header"><span class="term-name">① Discovery / 探索</span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>標的に結合する抗体候補を大量に探索。ABCLの技術基盤が最も直接的に活躍する段階です。</p></div></details>
+<details class="term-item"><summary class="term-header"><span class="term-name">② IND-enabling</span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>人への試験開始申請に必要な毒性、製造、薬理データを整える段階。ここでも候補脱落は起こります。</p></div></details>
+<details class="term-item"><summary class="term-header"><span class="term-name">③ Phase 1</span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>主に安全性、忍容性、薬物動態、初期の薬理作用を確認。ABCL575はこの段階です。</p></div></details>
+<details class="term-item"><summary class="term-header"><span class="term-name">④ Phase 2</span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>患者で有効性のシグナルと適切な用量を検証。ABCL635の今後のデータは企業価値を左右する重要イベントです。</p></div></details>
+<details class="term-item"><summary class="term-header"><span class="term-name">⑤ Phase 3 → 承認</span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>より大規模な比較試験を経て規制当局の審査へ。成功して初めて商業販売が可能になります。</p></div></details>
+</div>
+</section>
+ 
+  <!-- SEC5: 競合比較 / ビジネスモデル詳細 -->
+  <section class="section" id="sec5">
+    <div class="section-header">
+      <div class="section-icon icon-amber">⚔️</div>
+      <div>
+        <div class="section-title">競合比較とABCLの差別化</div>
+        <div class="section-sub">抗体探索、AI創薬、臨床開発を横断して比較</div>
+      </div>
+    </div>
+
+<div class="card" style="overflow-x:auto"><table class="compare-table"><thead><tr><th>企業</th><th>主な特徴</th><th>ABCLとの違い</th></tr></thead><tbody>
+<tr><td>AbCellera</td><td>抗体探索＋自社臨床パイプライン</td><td>提携下流権益と自社薬の両輪</td></tr>
+<tr><td>Schrödinger</td><td>計算化学・物理ベース創薬</td><td>低分子中心の色が強い</td></tr>
+<tr><td>Recursion</td><td>画像・AIによる大規模生物学データ</td><td>モダリティとデータ生成方式が異なる</td></tr>
+<tr><td>Generate Biomedicines</td><td>生成AIによるタンパク質設計</td><td>生成設計への集中度が高い</td></tr>
+<tr><td>Adimab</td><td>抗体発見プラットフォーム</td><td>非上場、提携モデル中心</td></tr>
+<tr><td>Absci</td><td>AI統合型生物製剤創薬</td><td>de novo設計を強く訴求</td></tr>
+</tbody></table></div>
+<div class="highlight"><h3>最大の差別化ポイント</h3><p>単なる「AI創薬ソフト会社」ではなく、実験・データ・抗体探索・開発・製造インフラまで統合し、さらに自社臨床資産と提携先の下流権益を同時に持つ点です。その反面、固定費とR&D費が重く、臨床失敗時の損失も大きくなります。</p></div>
+</section>
+ 
+  <!-- SEC6: 専門用語辞典 -->
+  <section class="section" id="sec6">
+    <div class="section-header">
+      <div class="section-icon icon-primary">📖</div>
+      <div>
+        <div class="section-title">ABCL専門用語 全辞典</div>
+        <div class="section-sub">ニュースに出てくる言葉を一覧で確認</div>
+      </div>
+    </div>
+<div class="term-list"><details class="term-item"><summary class="term-header"><span class="term-name">NK3R</span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>神経内分泌系に関わる受容体。ABCL635の標的で、更年期の血管運動症状との関連が重要。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">OX40L</span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>免疫T細胞の活性化に関係するリガンド。ABCL575が標的とする。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">VMS</span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>血管運動症状。更年期のホットフラッシュや寝汗など。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">バイオマーカー</span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>薬が標的へ作用したことを示す測定指標。臨床的な症状改善そのものとは区別が必要。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">忍容性</span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>患者が副作用を含め治療にどの程度耐えられるか。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">IND</span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>臨床試験開始のため規制当局へ提出する申請。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">マイルストーン</span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>開発・承認・販売などの条件達成時に受け取る一時金。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">ロイヤルティ</span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>提携薬の売上に応じて受け取る収益。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">キャッシュバーン</span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>事業継続で現金が減る速度。赤字バイオでは資金調達リスク判断に重要。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">Phase 2</span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>患者を対象に有効性と用量を本格検証する臨床段階。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">GPCR</span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>細胞膜上の重要な受容体群。創薬標的として巨大だが、抗体開発が難しい対象も多い。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">下流権益</span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>提携プログラム成功時に将来の経済的利益を得る権利。</p></div></details></div>
+</section>
+ 
+  <!-- SEC7: 株価の見方・カタリスト -->
+  <section class="section" id="sec7">
+    <div class="section-header">
+      <div class="section-icon icon-amber">💹</div>
+      <div>
+        <div class="section-title">ABCL株の見方・カタリスト</div>
+        <div class="section-sub">何が株価を動かすのかを理解する</div>
+      </div>
+    </div>
+
+<div class="timeline">
+<div class="tl-row"><div class="tl-date">2026年 中盤</div><div class="tl-title">ABCL575 Phase 1データ</div><div class="tl-desc">安全性・薬理作用の初期評価。自己免疫領域での価値判断材料。</div></div>
+<div class="tl-row"><div class="tl-date">2026年 Q3目安</div><div class="tl-title">ABCL635 Phase 2データ</div><div class="tl-desc">最重要カタリスト。VMS患者で実際の症状改善が確認できるかが焦点。</div></div>
+<div class="tl-row"><div class="tl-date">2026年8月5日予定</div><div class="tl-title">Q2 2026決算</div><div class="tl-desc">資金残高、研究開発費、提携進捗、パイプライン更新を確認。</div></div>
+<div class="tl-row"><div class="tl-date">今後12か月</div><div class="tl-title">ABCL688・ABCL386のIND進展</div><div class="tl-desc">臨床パイプラインの厚みが増えるかに注目。</div></div>
+</div>
+<div class="info-row">
+<div class="info-box info-box-red"><div class="info-title info-title-red">技術リスク</div><div class="info-text">良い抗体を発見しても、患者で十分な有効性を示すとは限らない。</div></div>
+<div class="info-box info-box-amber"><div class="info-title info-title-amber">規制リスク</div><div class="info-text">安全性問題や当局要求で試験遅延・中止の可能性。</div></div>
+<div class="info-box info-box-blue"><div class="info-title info-title-blue">財務リスク</div><div class="info-text">Q1純損失$43.2M。豊富な流動性は強みだが、臨床拡大で資金消費は続く。</div></div>
+<div class="info-box info-box-gray"><div class="info-title info-title-gray">市場リスク</div><div class="info-text">バイオ株特有の高ボラティリティ、競合薬の成功、金利・資金調達環境に左右される。</div></div>
+</div>
+<div class="card" style="overflow-x:auto;margin-top:16px"><table class="compare-table"><thead><tr><th>指標</th><th>最新確認値・参考値</th></tr></thead><tbody>
+<tr><td>株価</td><td>$7.10（2026/7/8終値）</td></tr><tr><td>52週レンジ参考</td><td>$2.78〜$8.12</td></tr>
+<tr><td>Q1 2026売上</td><td>$8.3M</td></tr><tr><td>Q1 2026純損失</td><td>$43.2M</td></tr>
+<tr><td>現金等</td><td>約$531M</td></tr><tr><td>総流動性</td><td>約$655M</td></tr>
+<tr><td>アナリスト目標株価参考</td><td>平均$10.50、高値$13、安値$7（8名集計）</td></tr>
+</tbody></table></div>
+<div class="highlight"><h3>投資家が見るべき一点</h3><p>ABCLは「技術がすごいか」だけではなく、「その技術から生まれた薬が患者で効くか」を証明する段階へ移っています。特にABCL635のPhase 2は、プラットフォーム企業から臨床ステージ企業への評価転換を左右し得るイベントです。</p></div>
+<p class="lead"><strong>データ出典：</strong>AbCellera IR・公式パイプライン、SEC提出資料、2026年Q1決算、公開市場データ。株価は市場変動により変化します。</p>
+
+</section>
+ 
+</div><!-- /container -->
+ 
+<div class="footer">
+  <p style="margin-bottom:8px;font-weight:600;color:var(--gray-700)">⚠️ 免責事項</p>
+  <p>本資料は情報提供・教育目的のみです。投資助言ではありません。抗体創薬・バイオテクノロジー株は高ボラティリティで元本損失リスクがあります。<br>実際の投資判断はご自身の責任で行ってください。データは2026年7月11日時点の公開情報に基づきます。</p>
+</div>
+ 
+<script>
+/* アコーディオン：一度に1つだけ開く */
+document.querySelectorAll('details.term-item').forEach(d => {
+  d.addEventListener('toggle', () => {
+    if (d.open) {
+      document.querySelectorAll('details.term-item').forEach(o => {
+        if (o !== d && o.open) o.removeAttribute('open');
+      });
+    }
+  });
+});
+</script>
+ 
+</body>
+</html>
+ 
+<!--
+================================================================
+  カラーパレット 早見表（:root変数に設定する値の参考）
+================================================================
+ 
+■ バイオテク/製薬（深緑系）
+  primary-50: #e1f5ee  primary-400: #1D9E75  primary-600: #0F6E56  primary-800: #085041
+  accent-50:  #faeeda  accent-400:  #BA7517  accent-600:  #633806
+  hero-from: #0a2e24   hero-mid: #0F6E56   hero-to: #1D9E75
+  badge-color: #9FE1CB  h1-accent: #5DCAA5
+ 
+■ 量子コンピューター（深紫系）
+  primary-50: #eef2ff  primary-400: #6366f1  primary-600: #4338ca  primary-800: #312e81
+  accent-50:  #f5f3ff  accent-400:  #8b5cf6  accent-600:  #7c3aed
+  hero-from: #0f0c29   hero-mid: #302b63   hero-to: #24243e
+  badge-color: #c7d2fe  h1-accent: #a5b4fc
+ 
+■ 同位体/先端素材（シアン/ティール系）
+  primary-50: #f0fdfa  primary-400: #2dd4bf  primary-600: #0d9488  primary-800: #115e59
+  accent-50:  #fff7ed  accent-400:  #fb923c  accent-600:  #ea580c
+  hero-from: #0c3a2e   hero-mid: #065f46   hero-to: #047857
+  badge-color: #99f6e4  h1-accent: #5eead4
+ 
+■ 半導体/AI（深青系）
+  primary-50: #eff6ff  primary-400: #3b82f6  primary-600: #2563eb  primary-800: #1e3a8a
+  accent-50:  #ecfeff  accent-400:  #06b6d4  accent-600:  #0891b2
+  hero-from: #0c1445   hero-mid: #1e3a8a   hero-to: #2563eb
+  badge-color: #bfdbfe  h1-accent: #93c5fd
+ 
+■ エネルギー/原子力（琥珀系）
+  primary-50: #fffbeb  primary-400: #fbbf24  primary-600: #d97706  primary-800: #78350f
+  accent-50:  #fff7ed  accent-400:  #fb923c  accent-600:  #c2410c
+  hero-from: #3b1c02   hero-mid: #78350f   hero-to: #b45309
+  badge-color: #fde68a  h1-accent: #fcd34d
+ 
+■ 防衛/宇宙（ダークグレー系）
+  primary-50: #f1f5f9  primary-400: #475569  primary-600: #334155  primary-800: #0f172a
+  accent-50:  #eff6ff  accent-400:  #3b82f6  accent-600:  #1d4ed8
+  hero-from: #020617   hero-mid: #0f172a   hero-to: #1e293b
+  badge-color: #94a3b8  h1-accent: #7dd3fc
+ 
+================================================================
+-->
+ 
+
+<!-- ChatGPT用ルール: このテンプレートから生成する完成HTMLは、必ず index.html というファイル名で保存・出力する。 -->

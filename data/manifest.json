@@ -1,6 +1,76 @@
 [
   {
     "schemaVersion": 1,
+    "ticker": "SPCX",
+    "slug": "spcx",
+    "name": "SpaceX",
+    "market": "米国株",
+    "sector": "宇宙・衛星通信・AI",
+    "method": "SOTP＋オプション価値",
+    "status": "published",
+    "updated": "2026-07-11",
+    "price": {
+      "current": 145.3,
+      "currency": "USD"
+    },
+    "scenarios": {
+      "bear": 73,
+      "base": 148,
+      "bull": 299
+    },
+    "positionPct": 32,
+    "zone": "Base前提をほぼ織り込み済み",
+    "riskReward": "2.13倍",
+    "catalyst": "初の上場後決算 / Starship進捗 / AI設備投資と段階的ロックアップ解除",
+    "summary": "打上げ、Starlink、Starship、AI基盤を一体化した宇宙・衛星通信企業のSOTPシナリオ評価。",
+    "tags": [
+      "SOTP",
+      "宇宙",
+      "衛星通信",
+      "AI",
+      "IPO"
+    ],
+    "risk": "非常に高い",
+    "detailPath": "stocks/SPCX/index.html",
+    "scenarioPath": "stocks/SPCX/scenario.html"
+  },
+  {
+    "schemaVersion": 1,
+    "ticker": "ABCL",
+    "slug": "abcl",
+    "name": "AbCellera Biologics",
+    "market": "米国株",
+    "sector": "抗体創薬・バイオテクノロジー",
+    "method": "rNPV＋SOTP",
+    "status": "published",
+    "updated": "2026-07-10",
+    "price": {
+      "current": 7.29,
+      "currency": "USD"
+    },
+    "scenarios": {
+      "bear": 4,
+      "base": 8,
+      "bull": 15
+    },
+    "positionPct": 30,
+    "zone": "適正〜慎重寄り（イベント前）",
+    "riskReward": "2.34倍",
+    "catalyst": "2026 Q3 / ABCL635 Phase 2トップライン",
+    "summary": "抗体探索基盤、自社臨床パイプライン、パートナー権益を分けて評価した臨床段階バイオ株のシナリオ試算。",
+    "tags": [
+      "rNPV",
+      "SOTP",
+      "抗体創薬",
+      "バイオ",
+      "臨床カタリスト"
+    ],
+    "risk": "非常に高い",
+    "detailPath": "stocks/ABCL/index.html",
+    "scenarioPath": "stocks/ABCL/scenario.html"
+  },
+  {
+    "schemaVersion": 1,
     "ticker": "IONQ",
     "slug": "ionq",
     "name": "IonQ, Inc.",

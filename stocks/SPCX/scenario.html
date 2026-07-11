@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SPCX シナリオ評価</title>
+<style>
+:root{--navy:#081a35;--blue:#2774ff;--green:#0f9d68;--orange:#e67e22;--red:#d64545;--bg:#f4f7fb;--text:#162033;--muted:#667085;--line:#dfe6ef}
+*{box-sizing:border-box} body{margin:0;background:var(--bg);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans JP",sans-serif;color:var(--text);line-height:1.65}
+.wrap{max-width:1120px;margin:auto;padding:20px} .hero{background:linear-gradient(135deg,#07162e,#12386c);color:#fff;padding:32px;border-radius:22px;box-shadow:0 16px 40px #0a234133}
+.eyebrow{font-size:12px;letter-spacing:.12em;text-transform:uppercase;opacity:.75} h1{font-size:clamp(28px,5vw,48px);margin:.2em 0} h2{margin-top:0;font-size:24px} h3{margin-bottom:8px}
+.grid{display:grid;gap:16px} .g3{grid-template-columns:repeat(3,1fr)} .g2{grid-template-columns:repeat(2,1fr)} .card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px;box-shadow:0 8px 24px #2030500d}
+.hero-grid{display:grid;grid-template-columns:1.3fr .7fr;gap:22px;align-items:end} .price{font-size:44px;font-weight:800} .muted{color:var(--muted)} .hero .muted{color:#c9d6e8}
+.scenario{border-top:5px solid} .bear{border-color:var(--red)} .base{border-color:var(--blue)} .bull{border-color:var(--green)} .scenario .big{font-size:36px;font-weight:800}
+.kpi{font-size:28px;font-weight:800} .tag{display:inline-block;padding:5px 10px;border-radius:999px;background:#e8f0ff;color:#1f5fd0;font-size:13px;font-weight:700}
+.bar{height:14px;background:#e8edf4;border-radius:99px;position:relative;overflow:hidden} .bar span{display:block;height:100%;background:linear-gradient(90deg,var(--red),var(--blue),var(--green));width:32.0%}
+.marker{margin-top:6px;font-weight:700} table{width:100%;border-collapse:collapse} th,td{padding:11px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top} th{background:#f8fafc}
+.badge{font-size:11px;font-weight:800;padding:3px 8px;border-radius:999px} .pass{background:#def7ec;color:#08764c} .warn{background:#fff2d8;color:#9a5a00} .fail{background:#ffe3e3;color:#a42020}
+.callout{border-left:4px solid var(--orange);background:#fff8ee;padding:14px 16px;border-radius:10px} details{background:#fff;border:1px solid var(--line);border-radius:14px;margin:12px 0;padding:0 16px} summary{cursor:pointer;font-weight:800;padding:16px 0}
+ul{padding-left:20px} .footer{font-size:12px;color:var(--muted);padding:24px 0 40px}
+@media(max-width:760px){.g3,.g2,.hero-grid{grid-template-columns:1fr} .wrap{padding:12px} .hero{padding:22px} table{font-size:13px}}
+@media print{body{background:#fff} .card,.hero{box-shadow:none} details{break-inside:avoid}}
+</style>
+</head>
+<body>
+<main class="wrap">
+<section class="hero">
+<div class="hero-grid">
+<div>
+<div class="eyebrow">Premium Scenario Valuation Framework v2.0</div>
+<h1>SpaceX <span style="opacity:.65">SPCX</span></h1>
+<p><strong>現在評価：</strong>現値は独自Baseにほぼ一致。企業の成長余地は大きい一方、Starship・AI・巨額設備投資の成功をすでに相当程度織り込む価格帯です。</p>
+<p class="muted">評価基準日：2026年7月10日終値｜作成日：2026-07-11｜主手法：SOTP＋オプション価値</p>
+</div>
+<div><div class="muted">現在株価</div><div class="price">$145.30</div><div>IPO価格 $135から +7.6%</div></div>
+</div>
+</section>
+
+<section style="margin-top:18px" class="grid g3">
+<div class="card scenario bear"><span class="tag">Bear・弱気</span><div class="big">$73</div><div>確率 30%</div><p>AI投資負担が長期化し、Starship商用化が遅れ、ロックアップ解除で需給が悪化。</p></div>
+<div class="card scenario base"><span class="tag">Base・基本</span><div class="big">$148</div><div>確率 45%</div><p>Starlinkが高成長を維持。StarshipとAIは段階的に価値化するが、追加投資も継続。</p></div>
+<div class="card scenario bull"><span class="tag">Bull・強気</span><div class="big">$299</div><div>確率 25%</div><p>Starship再使用が早期確立し、AIインフラ・衛星通信の両方が巨大事業へ拡大。</p></div>
+</section>
+
+<section style="margin-top:18px" class="grid g2">
+<div class="card"><h2>5秒で結論</h2>
+<div class="grid g2"><div><div class="muted">確率加重期待値</div><div class="kpi">$163</div></div><div><div class="muted">現値比</div><div class="kpi">+12.4%</div></div></div>
+<p><strong>現値ポジショニング：</strong>Bear–Bull帯の 32.0%地点。Baseの直下で、「適正〜慎重寄り」ではなく、実質的には<strong>Base前提をほぼ織り込み済み</strong>です。</p>
+<div class="bar"><span></span></div><div class="marker">Bear $73 ─ 現値 $145.3 ─ Base $148 ─ Bull $299</div>
+<p><strong>市場逆算：</strong>現値は、ネットキャッシュ約$70Bを差し引くと事業価値約$1.96Tを示唆。これは当モデルのBase事業価値$2.00Tとほぼ同水準です。</p>
+</div>
+<div class="card"><h2>エントリーコンテキスト</h2>
+<p>6月12日の上場初日終値付近から約1か月でおおむね1桁台後半の下落。6月末の高値圏からは約15%調整しました。</p>
+<div class="callout"><strong>注意：</strong>IPO後の流通株は総株数の一部に限られます。Q2決算後から始まる段階的ロックアップ解除は、企業価値とは別の需給リスクです。</div>
+<p><strong>次の主要カタリスト：</strong>初の上場後決算、Starship進捗、AI設備投資と顧客契約、段階的ロックアップ解除。</p>
+<p><strong>リスク区分：</strong><span class="badge fail">VERY HIGH</span>　技術実現、設備投資、資金調達、IPO需給、経営者集中。</p>
+</div>
+</section>
+
+<section style="margin-top:18px" class="grid g2">
+<div class="card"><h2>会社の質</h2><ul>
+<li>再使用ロケットとStarlinkの垂直統合は極めて強い競争優位。</li>
+<li>2025年売上は$18.674B、前年比33%増。Adjusted EBITDAは$6.584B。</li>
+<li>ConnectivityはQ1 2026に売上$3.257B、営業利益$1.188Bで収益源。</li>
+<li>IPOで約$85.7Bのグロス資金を調達し、投資余力を大幅に拡大。</li>
+</ul></div>
+<div class="card"><h2>株価評価</h2><ul>
+<li>現値時価総額は約$1.99Tで、2025年売上の100倍超。</li>
+<li>Base価値とほぼ一致し、現値は「安いから成長を待てる」水準ではない。</li>
+<li>上値はStarship・AIの大型オプションに依存し、下値は実績事業だけでは支えにくい。</li>
+<li>アナリスト平均目標は約$220～240と高いが、$75～900まで分散が極端。</li>
+</ul></div>
+</section>
+
+<section style="margin-top:18px" class="card">
+<h2>価格帯別の見方</h2>
+<table><tr><th>価格帯</th><th>市場が主に織り込むもの</th><th>読み方</th></tr>
+<tr><td>$70–100</td><td>Starlink中心、AI・Starship価値を大幅減額</td><td>悲観シナリオ寄り</td></tr>
+<tr><td>$120–160</td><td>Starlink高成長＋Starship/AIの一部成功</td><td>現値・Base帯</td></tr>
+<tr><td>$200–300</td><td>Starship再使用とAI収益化の高確度</td><td>強気前提が必要</td></tr>
+<tr><td>$300超</td><td>軌道AI・超高頻度打上げなど未実証事業の大型成功</td><td>長期オプション価値が主役</td></tr></table>
+</section>
+
+<section style="margin-top:18px" class="card">
+<h2>感応度分析</h2>
+<table><tr><th>主要ドライバ</th><th>弱い場合</th><th>Base</th><th>強い場合</th><th>株価への影響</th></tr>
+<tr><td>2026–30売上成長</td><td>35%</td><td>55%</td><td>75%</td><td>非常に大</td></tr>
+<tr><td>将来EV/Sales・SOTP倍率</td><td>8–12x</td><td>15–20x</td><td>25–35x</td><td>非常に大</td></tr>
+<tr><td>Starship本格稼働</td><td>2030年以降</td><td>2028–29年</td><td>2027–28年</td><td>大</td></tr>
+<tr><td>追加資金調達・株式報酬</td><td>+3.5%</td><td>+2.1%</td><td>+2.1%</td><td>中</td></tr>
+<tr><td>割引率</td><td>16%</td><td>13%</td><td>10%</td><td>大</td></tr></table>
+</section>
+
+<section style="margin-top:18px">
+<details open><summary>評価手法とシナリオ計算</summary>
+<p><strong>選択理由：</strong>SpaceXはConnectivity、Space、AIで収益性・成熟度が大きく異なるため、単一の売上倍率ではなくSOTPを採用。Starship、軌道AIなど未実証の大型機会はオプション価値として低い掛目で別評価しました。</p>
+<table><tr><th></th><th>事業価値（現在価値）</th><th>ネットキャッシュ</th><th>希薄化後株数</th><th>計算株価</th><th>表示株価</th></tr>
+<tr><td>Bear</td><td>$0.98T</td><td>$55B</td><td>14.20B</td><td>$72.9</td><td>$73</td></tr>
+<tr><td>Base</td><td>$2.00T</td><td>$70B</td><td>14.00B</td><td>$147.9</td><td>$148</td></tr>
+<tr><td>Bull</td><td>$4.10T</td><td>$80B</td><td>14.00B</td><td>$298.6</td><td>$299</td></tr></table>
+<p class="muted">ネットキャッシュと将来希薄化はモデル上の仮定。IPO前Q1現金$15.9B、IPOグロス調達約$85.7B、$20Bブリッジローン返済を基礎に、手数料・設備投資・運転資金を調整しています。</p>
+</details>
+
+<details><summary>Bear / Base / Bull の成立条件</summary>
+<h3>Bear</h3><ul><li>AI設備投資が収益化より先行し、FCF赤字が長期化。</li><li>Starship再使用・打上げ頻度の改善が2030年以降へ遅延。</li><li>ロックアップ解除とSBCで流通株が増加し、倍率が急縮小。</li></ul>
+<h3>Base</h3><ul><li>Starlinkが年30～40%成長を維持し、利益率も高水準。</li><li>Starshipは段階的に実用化し、打上げコストを低下。</li><li>AI事業は巨額投資を要するが、地上計算需要から収益化。</li></ul>
+<h3>Bull</h3><ul><li>Starshipの完全再使用が早期に確立。</li><li>衛星通信、AI計算、打上げの複合成長が市場予想を大幅超過。</li><li>追加資金調達の希薄化を上回る企業価値増加。</li></ul>
+</details>
+
+<details><summary>実績・推定・仮定</summary>
+<table><tr><th>項目</th><th>数値</th><th>分類</th><th>基準日・注記</th></tr>
+<tr><td>現値</td><td>$145.30</td><td>事実</td><td>2026-07-10終値</td></tr>
+<tr><td>52週高安</td><td>$135.00–$225.64</td><td>市場データ</td><td>上場後期間のみ</td></tr>
+<tr><td>2025売上</td><td>$18.674B</td><td>事実</td><td>SEC開示</td></tr>
+<tr><td>2025営業損失</td><td>-$2.589B</td><td>事実</td><td>SEC開示</td></tr>
+<tr><td>2025 Adj. EBITDA</td><td>$6.584B</td><td>事実</td><td>会社定義の非GAAP</td></tr>
+<tr><td>Q1 2026売上</td><td>$4.694B</td><td>事実</td><td>SEC開示</td></tr>
+<tr><td>Q1 2026営業損失</td><td>-$1.943B</td><td>事実</td><td>SEC開示</td></tr>
+<tr><td>IPO発行株数</td><td>638.889M</td><td>事実</td><td>グリーンシュー込み</td></tr>
+<tr><td>IPO価格</td><td>$135</td><td>事実</td><td>2026-06-11価格決定</td></tr>
+<tr><td>IPO後総株数</td><td>約13.715B</td><td>推定</td><td>SECのA/B株数＋IPO発行分から算出</td></tr>
+<tr><td>Baseネットキャッシュ</td><td>$70B</td><td>仮定</td><td>IPO資金、債務返済、投資支出を調整</td></tr>
+<tr><td>Base事業価値</td><td>$2.00T</td><td>仮定</td><td>SOTP現在価値</td></tr>
+</table>
+</details>
+
+<details><summary>市場逆算・アナリストとの比較</summary>
+<p>現値時価総額は約$1.99T。Baseネットキャッシュ$70Bを控除したインプライド事業価値は約$1.92Tです。自前Base事業価値$2.00Tにほぼ一致します。</p>
+<p>Wall Streetの平均目標はおおむね$220～240ですが、弱気$75前後から強気$800～900まで幅があります。差の主因は、Starship・軌道AI・将来の資本需要に置く成功確率と評価期間の違いです。</p>
+<p>当モデルのBaseがコンセンサスより低いのは、2025年営業赤字、Q1 2026のAI投資負担、今後の追加資金需要を重く見て、未実証オプション価値を割り引いているためです。</p>
+</details>
+
+<details><summary>未確認事項・主なリスク</summary>
+<ul><li>Cursor買収の最終株式対価・クロージング条件。</li><li>IPO後の正確な完全希薄化株数、全オプション・RSU・転換証券。</li><li>Q2 2026決算日とロックアップ解除の正確な対象株数。</li><li>AI顧客契約の最低購入義務、収益認識、設備稼働率。</li><li>Starshipの商用再使用時期と規制承認。</li></ul>
+</details>
+
+<details><summary>Validation Engine：PASS</summary>
+<table><tr><th>ID</th><th>結果</th><th>内容</th></tr><tr><td>V01</td><td><span class='badge pass'>PASS</span></td><td>確率合計は100%</td></tr><tr><td>V02</td><td><span class='badge pass'>PASS</span></td><td>Bear &lt; Base &lt; Bull</td></tr><tr><td>V03</td><td><span class='badge pass'>PASS</span></td><td>期待値再計算 $163.25</td></tr><tr><td>V04</td><td><span class='badge pass'>PASS</span></td><td>株価変換は表示丸め誤差2%以内</td></tr><tr><td>V05</td><td><span class='badge pass'>PASS</span></td><td>事業価値は現在価値、ネットキャッシュもIPO後推定に統一</td></tr><tr><td>V06</td><td><span class='badge pass'>PASS</span></td><td>重要実績値にSEC/IR/市場データ出典あり</td></tr><tr><td>V07</td><td><span class='badge pass'>PASS</span></td><td>将来値・純現金は仮定として表示</td></tr><tr><td>V08</td><td><span class='badge pass'>PASS</span></td><td>市場逆算は現値から独立計算</td></tr><tr><td>V09</td><td><span class='badge pass'>PASS</span></td><td>SOTPを採用し、セグメント別評価と割引理由を明示</td></tr><tr><td>V10</td><td><span class='badge pass'>PASS</span></td><td>実績値と将来仮定を区別</td></tr><tr><td>V11</td><td><span class='badge pass'>PASS</span></td><td>IPO後株数、SBC・将来調達余地をシナリオ株数に反映</td></tr><tr><td>V12</td><td><span class='badge pass'>PASS</span></td><td>重要な転換社債は確認できず、未確認事項として表示</td></tr><tr><td>V13</td><td><span class='badge pass'>PASS</span></td><td>Cursor買収は株式対価の詳細不足のためBull/Base株数にバッファで反映</td></tr><tr><td>V14</td><td><span class='badge pass'>PASS</span></td><td>異質セグメントに同一倍率を適用せず</td></tr><tr><td>V15</td><td><span class='badge pass'>PASS</span></td><td>Bullほど現金が機械的に増えないよう調達・投資を考慮</td></tr><tr><td>V16</td><td><span class='badge pass'>PASS</span></td><td>端点RRの定義域内</td></tr><tr><td>V17</td><td><span class='badge pass'>PASS</span></td><td>IPO後約1か月の値動きとロックアップを記載</td></tr><tr><td>V18</td><td><span class='badge pass'>PASS</span></td><td>成長率・倍率・資金調達・Starship時期を感応度表示</td></tr><tr><td>V19</td><td><span class='badge pass'>PASS</span></td><td>理論株価は整数丸め</td></tr><tr><td>V20</td><td><span class='badge pass'>PASS</span></td><td>企業の質と株価評価を分離</td></tr><tr><td>V21</td><td><span class='badge pass'>PASS</span></td><td>売買断定なし</td></tr><tr><td>V22</td><td><span class='badge pass'>PASS</span></td><td>自前Baseとアナリスト平均の差を説明</td></tr><tr><td>V23</td><td><span class='badge pass'>PASS</span></td><td>評価基準日・更新日を記録</td></tr></table>
+</details>
+
+<details><summary>出典</summary><ol><li><a href="https://ir.spacex.com/updates/releases-details/2026/Space-Exploration-Technologies-Corp--Announces-Pricing-of-Initial-Public-Offering/default.aspx" target="_blank" rel="noopener">SpaceX IPO pricing release</a></li><li><a href="https://ir.spacex.com/updates/releases-details/2026/Space-Exploration-Technologies-Corp--Announces-Closing-of-Initial-Public-Offering-Including-Full-Exercise-of-Underwriters-Option-to-Purchase-Additional-Shares-2026-RgoR-Y1Vwh/default.aspx" target="_blank" rel="noopener">SpaceX IPO closing release</a></li><li><a href="https://www.sec.gov/Archives/edgar/data/1181412/000162828026040874/spacexukfwp.htm" target="_blank" rel="noopener">SEC UK retail disclosure summary</a></li><li><a href="https://www.sec.gov/Archives/edgar/data/1181412/000162828026039276/spaceexplorationtechnologi.htm" target="_blank" rel="noopener">SEC S-1/A</a></li><li><a href="https://www.investopedia.com/spacex-stock-has-traded-for-a-month-investors-are-waiting-for-the-rocket-ride-to-start-spcx-12016007" target="_blank" rel="noopener">Investopedia market update, July 10, 2026</a></li><li><a href="https://www.marketwatch.com/story/spacexs-two-lead-underwriters-have-a-1-trillion-chasm-between-their-valuations-as-quiet-period-ends-11d8ef35" target="_blank" rel="noopener">MarketWatch analyst target comparison</a></li><li><a href="https://www.reuters.com/science/spacexs-near-term-ai-payoff-seen-tethered-earth-not-outer-space-2026-07-10/" target="_blank" rel="noopener">Reuters AI strategy report</a></li></ol>
+<p class="muted">市場価格は2026年7月10日終値を使用。SEC・会社IRを優先し、ニュースは市場動向・アナリスト比較の補助に使用。</p>
+</details>
+</section>
+
+<div class="footer">
+<p><strong>免責事項：</strong>本資料は教育目的のシナリオ試算であり、投資助言ではありません。将来の株価を保証するものではなく、前提、技術進捗、資金調達、希薄化、市況により結果は大きく変わります。確率加重期待値だけで判断せず、現値ポジショニングと成立条件を確認してください。</p>
+<p>更新履歴：2026-07-11 初版。IPO後株数、2025/Q1 2026実績、7月10日終値、初期アナリスト評価を反映。</p>
+</div>
+</main>
+</body></html>

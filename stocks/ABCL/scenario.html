@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ABCL シナリオ試算 | 2026-07-10</title>
+<style>
+:root{--navy:#07182f;--navy2:#0d2748;--blue:#2563eb;--green:#16875f;--orange:#d97706;--red:#d64045;--ink:#172033;--muted:#667085;--bg:#f3f6fa;--card:#fff;--line:#dfe6ef}
+*{box-sizing:border-box} body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans JP",sans-serif;background:var(--bg);color:var(--ink);line-height:1.65}
+.hero{background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;padding:40px 18px 54px} .wrap{max-width:1080px;margin:auto}
+.eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#9fc4ff} h1{font-size:clamp(30px,6vw,54px);margin:8px 0} .sub{color:#c7d7ec;max-width:760px}
+.hero-grid,.grid2,.grid3{display:grid;gap:14px} .hero-grid{grid-template-columns:repeat(4,1fr);margin-top:26px} .metric{background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.14);padding:16px;border-radius:16px} .metric small{display:block;color:#bcd0e8} .metric b{font-size:27px}
+main{padding:0 16px 50px;margin-top:-28px} .card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px;box-shadow:0 10px 30px rgba(10,32,62,.06);margin-bottom:16px}
+h2{font-size:22px;margin:0 0 14px} h3{margin:4px 0;font-size:28px} h4{margin-bottom:6px} .lead{font-size:19px;font-weight:700}
+.badge{display:inline-block;padding:6px 10px;border-radius:999px;font-size:12px;font-weight:700;background:#fff3d9;color:#995900} .danger{background:#fee8e8;color:#a1262b}
+.grid2{grid-template-columns:1fr 1fr} .grid3{grid-template-columns:repeat(3,1fr)} .scenario{background:#fff;border-radius:16px;padding:18px;border:1px solid var(--line)} .scenario.bear{border-top:5px solid var(--red)} .scenario.base{border-top:5px solid var(--blue)} .scenario.bull{border-top:5px solid var(--green)} .scenario-head{display:flex;justify-content:space-between;align-items:start} .tag{font-size:12px;font-weight:800;color:var(--muted)}
+.band{position:relative;height:22px;border-radius:999px;background:linear-gradient(90deg,#ef9a9a,#f6c76b 38%,#7eb1fa 64%,#69c79f);margin:34px 5px 12px} .marker{position:absolute;left:29.9%;top:-11px;transform:translateX(-50%);width:4px;height:44px;background:#111827;border-radius:4px} .marker:after{content:"現値 $7.29";position:absolute;top:-28px;left:50%;transform:translateX(-50%);white-space:nowrap;background:#111827;color:#fff;padding:3px 7px;border-radius:6px;font-size:11px}
+.scale{display:flex;justify-content:space-between;font-size:12px;color:var(--muted)} table{width:100%;border-collapse:collapse} td,th{border-bottom:1px solid var(--line);padding:9px;text-align:left;font-size:14px} ul{padding-left:20px} .note{background:#fff7e8;border-left:4px solid var(--orange);padding:13px 15px;border-radius:8px} .good{background:#eaf8f2;border-left-color:var(--green)} .bad{background:#feeeee;border-left-color:var(--red)}
+details{border-top:1px solid var(--line);padding:13px 0} summary{cursor:pointer;font-weight:800} .v{padding:3px 7px;border-radius:999px;font-size:11px;font-weight:800} .v.pass{background:#e8f7ef;color:#0f754f} .v.warn{background:#fff1d6;color:#a35e00}
+.kpi{font-size:30px;font-weight:800} .muted{color:var(--muted)} a{color:var(--blue)} footer{font-size:12px;color:var(--muted);padding:20px 0}
+@media(max-width:760px){.hero-grid,.grid2,.grid3{grid-template-columns:1fr 1fr} .hero{padding-top:28px}}
+@media(max-width:520px){.hero-grid,.grid2,.grid3{grid-template-columns:1fr} .metric b{font-size:24px} .card{padding:17px}}
+@media print{body{background:#fff} main{margin-top:0} .card{box-shadow:none;break-inside:avoid} details{display:block}}
+</style>
+</head>
+<body>
+<header class="hero"><div class="wrap">
+<div class="eyebrow">Premium Scenario Valuation Framework v2.0</div>
+<h1>AbCellera <span style="color:#8db9ff">ABCL</span></h1>
+<p class="sub">評価基準日 2026年7月10日｜主手法：rNPV＋SOTP｜臨床段階バイオとして、自社パイプライン・パートナー権益・資産価値を分けて評価。</p>
+<div class="hero-grid">
+<div class="metric"><small>現在株価</small><b>$7.29</b></div>
+<div class="metric"><small>Bear / Base / Bull</small><b>$4 / $8 / $15</b></div>
+<div class="metric"><small>確率加重期待値</small><b>$8.2</b></div>
+<div class="metric"><small>リスク区分</small><b>VERY HIGH</b></div>
+</div></div></header>
+
+<main><div class="wrap">
+<section class="card">
+<span class="badge">適正〜慎重寄り（イベント前）</span>
+<h2 style="margin-top:10px">5秒で結論</h2>
+<p class="lead">現値はBase直下。ただし直近急騰後で、ABCL635の良好なPhase 2結果を先回りしている。</p>
+<div class="band"><span class="marker"></span></div><div class="scale"><span>Bear $4</span><span>Base $8</span><span>Bull $15</span></div>
+<p><b>帯内位置：</b>30%　／　<b>端点リスクリワード：</b>2.34x</p>
+<div class="note"><b>市場逆算：</b>現値の企業価値は約$1.70B。基盤・パートナー・その他資産を約$0.9Bと置くと、ABCL635に約$0.8Bを割り当てている。これは本試算のBaseに近い成功前提。</div>
+<p><b>次の主要カタリスト：</b>ABCL635 Phase 2トップライン（Q3 2026、最大約12週間）</p>
+</section>
+
+<section class="grid3">
+    <article class="scenario bear">
+      <div class="scenario-head"><div><span class="tag">Bear（弱気）</span><h3>$4</h3></div><strong>30%</strong></div>
+      <p>事業価値 $1,000M ＋ ネットキャッシュ $420M ÷ 希薄化後 355M株</p>
+      <table><tbody><tr><td>ABCL635</td><td>$250M</td></tr><tr><td>ABCL575</td><td>$20M</td></tr><tr><td>その他自社パイプライン</td><td>$80M</td></tr><tr><td>パートナー・プラットフォーム</td><td>$450M</td></tr><tr><td>戦略資産・設備</td><td>$200M</td></tr></tbody></table>
+      <h4>成立条件</h4><ul><li>ABCL635 Phase 2で臨床的な差が弱い、または安全性・用量面で追加検証が必要</li><li>パートナー案件の進捗が鈍化し、下流価値の見直しが続く</li><li>年間キャッシュ消費が高止まりし、SBCを含む希薄化が進む</li></ul>
+    </article>
+    <article class="scenario base">
+      <div class="scenario-head"><div><span class="tag">Base（標準）</span><h3>$8</h3></div><strong>50%</strong></div>
+      <p>事業価値 $2,425M ＋ ネットキャッシュ $425M ÷ 希薄化後 350M株</p>
+      <table><tbody><tr><td>ABCL635</td><td>$900M</td></tr><tr><td>ABCL575</td><td>$75M</td></tr><tr><td>その他自社パイプライン</td><td>$300M</td></tr><tr><td>パートナー・プラットフォーム</td><td>$900M</td></tr><tr><td>戦略資産・設備</td><td>$250M</td></tr></tbody></table>
+      <h4>成立条件</h4><ul><li>ABCL635 Phase 2で有効性シグナルを確認し、後期開発へ進める根拠が得られる</li><li>ABCL575は安全性確認まで進み、外部提携または選択肢価値を維持</li><li>豊富な流動性により直近カタリスト前の外部調達を回避</li></ul>
+    </article>
+    <article class="scenario bull">
+      <div class="scenario-head"><div><span class="tag">Bull（強気）</span><h3>$15</h3></div><strong>20%</strong></div>
+      <p>事業価値 $5,000M ＋ ネットキャッシュ $430M ÷ 希薄化後 360M株</p>
+      <table><tbody><tr><td>ABCL635</td><td>$2,400M</td></tr><tr><td>ABCL575</td><td>$250M</td></tr><tr><td>その他自社パイプライン</td><td>$650M</td></tr><tr><td>パートナー・プラットフォーム</td><td>$1,400M</td></tr><tr><td>戦略資産・設備</td><td>$300M</td></tr></tbody></table>
+      <h4>成立条件</h4><ul><li>ABCL635 Phase 2で明確かつ持続的な症状改善と良好な安全性を示す</li><li>月1回投与の差別化が商業価値として認識され、提携または自社開発の確度が上がる</li><li>パートナー由来マイルストーン・ロイヤルティ群にも再評価が波及</li></ul>
+    </article></section>
+
+<section class="grid2">
+<div class="card"><h2>会社の質</h2><p class="kpi">高い技術資産</p><p>抗体探索基盤、臨床製造設備、豊富なパートナー権益を保有。Q1末の現金・有価証券は約$504.7Mで、直近カタリスト前の資金調達リスクは低い。</p></div>
+<div class="card"><h2>株価の評価</h2><p class="kpi">成功を一部織込み</p><p>現値は悲観シナリオではない。ABCL635のPhase 2が「明確に良い」ことをある程度要求しており、企業の魅力と株価余地は分けて考える必要がある。</p></div>
+</section>
+
+<section class="card">
+<h2>エントリーコンテキスト</h2>
+<div class="grid3">
+<div><div class="muted">直近20営業日</div><div class="kpi">+38%</div><p>6月11日終値$5.27から現値$7.29。</p></div>
+<div><div class="muted">起点材料</div><p><b>単一材料ではない</b></p><p>Q3読出し期待、Phase 1データ再評価、直近アナリスト更新が混在。</p></div>
+<div><div class="muted">二重織込み</div><p><b>注意が必要</b></p><p>良好な結果でも、期待を大幅に超えなければ材料出尽くしとなる可能性。</p></div>
+</div>
+</section>
+
+<section class="grid2">
+<div class="card"><h2>良い点</h2><ul><li>約$505Mの現金・有価証券と追加政府資金枠</li><li>ABCL635 Phase 1で標的関与・安全性・月1回投与可能性を確認</li><li>自社パイプラインに加え14の臨床入りパートナー分子</li><li>臨床製造設備・抗体探索基盤を内製化</li></ul></div>
+<div class="card"><h2>気になる点</h2><ul><li>現値企業価値の大部分が将来臨床価値</li><li>ABCL575はPhase 1後の自社継続予定が現時点でない</li><li>79.1M株の潜在希薄化証券が損失EPS計算から除外</li><li>直近急騰によりイベント失敗時の反動が大きい</li></ul></div>
+</section>
+
+<section class="card">
+<h2>感応度分析</h2>
+<table><thead><tr><th>主要ドライバ</th><th>弱気側</th><th>Base</th><th>強気側</th><th>影響</th></tr></thead>
+<tbody>
+<tr><td>ABCL635成功確率（仮定）</td><td>10%</td><td>25%</td><td>45%</td><td>最大</td></tr>
+<tr><td>ABCL635ピーク売上（仮定）</td><td>$0.6B</td><td>$1.4B</td><td>$2.5B</td><td>最大</td></tr>
+<tr><td>Phase 2読出し時期</td><td>2四半期遅延</td><td>Q3 2026</td><td>予定通り＋迅速な次段階</td><td>中〜大</td></tr>
+<tr><td>割引率（仮定）</td><td>18%</td><td>14%</td><td>11%</td><td>中</td></tr>
+<tr><td>希薄化後株式数</td><td>355M</td><td>350M</td><td>360M</td><td>中</td></tr>
+</tbody></table>
+<p class="muted">ABCL635価値は、ピーク売上・成功確率・上市までの時間・利益率をまとめたrNPV仮定。臨床結果により大幅に変動する。</p>
+</section>
+
+<section class="card">
+<h2>次に見るべき項目</h2>
+<ol><li>ABCL635 Phase 2の症状改善幅、用量反応、安全性</li><li>ABCL575 Phase 1トップライン（Q4 2026）</li><li>四半期営業CFと臨床費増加</li><li>パートナー臨床分子14件の進捗</li><li>オプション・RSUの増加</li></ol>
+</section>
+
+<section class="card">
+<h2>詳細分析</h2>
+<details open><summary>評価手法を選んだ理由</summary><p>ABCLは単なる創薬受託企業ではなく、自社臨床パイプライン、パートナー由来のマイルストーン・ロイヤルティ権益、創薬基盤、製造・不動産資産を持つ。したがって、主力候補をrNPV、その他をSOTPで分けて積み上げた。</p></details>
+<details><summary>市場逆算</summary><p>時価総額約$2.21BからQ1末現金・有価証券$504.7Mを差し引くと、単純EVは約$1.70B。基盤・パートナー権益・その他パイプライン・戦略資産を合計約$0.9Bと仮定すると、残差約$0.8BがABCL635に割り当てられる。これはBase rNPV $0.9Bに近く、市場は既に一定のPhase 2成功を見ている。</p></details>
+<details><summary>キャッシュバーンと希薄化</summary><p>Q1 2026の営業CFは-$33.5M、設備投資は$3.8M。Q3読出しまで2四半期、四半期$35M〜45Mの消費を仮定してネットキャッシュを$420M〜$430Mとした。普通株305.4M株に加え、Pre-IPOオプション23.3M株（平均行使$1.10）、2020 Planオプション45.7M株（平均行使$6.54）、RSU 10.1M株を確認。シナリオ株価ごとのITM性を考慮し、FD株式数を350M〜360Mとした。</p></details>
+<details><summary>転換社債・M&A</summary><p>直近10-Qで通常の転換社債は確認されていない。大型M&Aの新規対価も本試算には計上していない。政府拠出金には条件付き返済部分があるため、全額を現金同等物として加算していない。</p></details>
+<details><summary>前提・事実・推定の区別</summary>
+<table><tr><th>区分</th><th>内容</th></tr>
+<tr><td>事実</td><td>株価$7.29、時価総額約$2.21B、現金・有価証券$504.7M、Q1売上$8.3M、営業CF-$33.5M、普通株305.4M、ABCL635 Q3 2026読出し予定。</td></tr>
+<tr><td>推定</td><td>Q3までの現金消費、ITMオプションを含む希薄化後株式数。</td></tr>
+<tr><td>仮定</td><td>各パイプラインのピーク売上、成功確率、割引率、プラットフォーム・パートナー権益価値。</td></tr>
+</table></details>
+<details><summary>Validation Engine結果：WARN 1件 / FAIL 0件</summary>
+<table><thead><tr><th>ID</th><th>判定</th><th>内容</th></tr></thead><tbody><tr><td>V01</td><td><span class='v pass'>PASS</span></td><td>確率合計は100%</td></tr><tr><td>V02</td><td><span class='v pass'>PASS</span></td><td>Bear < Base < Bull</td></tr><tr><td>V03</td><td><span class='v pass'>PASS</span></td><td>確率加重期待値 $8.2 を再計算済み</td></tr><tr><td>V04</td><td><span class='v pass'>PASS</span></td><td>各シナリオの事業価値＋ネットキャッシュを希薄化後株式数で除して確認</td></tr><tr><td>V05</td><td><span class='v pass'>PASS</span></td><td>現金は2026-03-31を起点にQ3読出しまでのバーンを内生化</td></tr><tr><td>V06</td><td><span class='v pass'>PASS</span></td><td>株価・財務・株数・臨床予定に出典あり</td></tr><tr><td>V07</td><td><span class='v pass'>PASS</span></td><td>将来値はすべて仮定と明示</td></tr><tr><td>V08</td><td><span class='v pass'>PASS</span></td><td>市場逆算は現値EVから独立計算</td></tr><tr><td>V09</td><td><span class='v pass'>PASS</span></td><td>主手法はrNPV＋SOTPであり単純倍率依存ではない</td></tr><tr><td>V10</td><td><span class='v pass'>PASS</span></td><td>TTMと予想値を混同せず</td></tr><tr><td>V11</td><td><span class='v pass'>PASS</span></td><td>既存オプション・RSUをシナリオ別FD株式数に反映</td></tr><tr><td>V12</td><td><span class='v pass'>PASS</span></td><td>転換社債は確認されず。株式報酬のITM性を反映</td></tr><tr><td>V13</td><td><span class='v pass'>PASS</span></td><td>大型M&Aの新規反映なし</td></tr><tr><td>V14</td><td><span class='v pass'>PASS</span></td><td>異質事業は個別SOTP</td></tr><tr><td>V15</td><td><span class='v pass'>PASS</span></td><td>金利収入を含む実績CFを参照し、Bullほど機械的に現金増とはしていない</td></tr><tr><td>V16</td><td><span class='v pass'>PASS</span></td><td>現値はBearとBullの帯内のためRRを表示</td></tr><tr><td>V17</td><td><span class='v warn'>WARN</span></td><td>直近20営業日で約+38%。単一の起点材料だけでは説明し切れず、Q3読出し期待の先回りに注意</td></tr><tr><td>V18</td><td><span class='v pass'>PASS</span></td><td>承認確率、ピーク売上、読出し時期、割引率、希薄化を感応度表示</td></tr><tr><td>V19</td><td><span class='v pass'>PASS</span></td><td>理論株価は$0.5～$1刻みに丸め</td></tr><tr><td>V20</td><td><span class='v pass'>PASS</span></td><td>企業の技術力と株価評価を分離</td></tr><tr><td>V21</td><td><span class='v pass'>PASS</span></td><td>売買断定なし</td></tr><tr><td>V22</td><td><span class='v pass'>PASS</span></td><td>Base $8は公開コンセンサス中央値付近～やや下。差異理由を記載</td></tr><tr><td>V23</td><td><span class='v pass'>PASS</span></td><td>基準日・更新日・変更点を記録</td></tr></tbody></table>
+</details>
+<details><summary>出典</summary><ul><li><a href="https://www.google.com/finance/quote/ABCL:NASDAQ" target="_blank" rel="noopener">ABCL株価・時価総額（2026-07-10）</a></li><li><a href="https://www.sec.gov/Archives/edgar/data/1703057/000170305726000028/abcl-20260331.htm" target="_blank" rel="noopener">AbCellera Q1 2026 10-Q</a></li><li><a href="https://investors.abcellera.com/news/news-releases/2026/AbCellera-Reports-Q1-2026-Business-Results--Announces-Positive-Interim-Phase-1-Clinical-Data-for-ABCL635/default.aspx" target="_blank" rel="noopener">AbCellera Q1 2026 Business Results</a></li><li><a href="https://investors.abcellera.com/stock-info/stock-quote/default.aspx" target="_blank" rel="noopener">AbCellera Stock Quote / 52週レンジ</a></li><li><a href="https://finance.yahoo.com/quote/ABCL/history/" target="_blank" rel="noopener">ABCL historical prices</a></li><li><a href="https://www.investing.com/equities/abcellera-biologics-consensus-estimates" target="_blank" rel="noopener">ABCL analyst consensus</a></li></ul></details>
+<details><summary>更新履歴</summary><p>2026-07-10：Q1 2026 10-Q、現値、52週レンジ、Q3 2026カタリスト、直近20営業日騰落を反映。Framework v2.0で新規作成。</p></details>
+</section>
+
+<footer>
+<p><b>免責事項：</b>本資料は教育目的のシナリオ試算であり、投資助言ではありません。将来の臨床結果、資金消費、希薄化、提携条件、市場環境などの前提により結果は大きく変わります。確率加重期待値だけで判断せず、現値ポジショニングとイベント前後の価格変動を併せて確認してください。</p>
+</footer>
+</div></main>
+</body></html>
