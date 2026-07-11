@@ -16,31 +16,41 @@
       <span class="brand-mark">S</span>
       <span>Stock Scenario Portal</span>
     </a>
-    <span class="header-badge">META.JSON MODE</span>
+    <span class="header-badge">Scenario Dashboard</span>
   </header>
 
   <main>
     <section class="hero">
-      <p class="eyebrow">HTML + META.JSON / AUTOMATIC PORTAL</p>
-      <h1>株価の現在地を、<br><span>同じ物差しで見る。</span></h1>
-      <p class="hero-copy">企業ガイドとシナリオ試算HTMLを銘柄フォルダに置き、同じフォルダのmeta.jsonからポータル一覧を自動生成します。銘柄追加のたびにトップページを手編集する必要はありません。</p>
-      <div class="hero-stats" aria-label="運用フロー">
-        <div><strong>3</strong><span>index.html / scenario.html / meta.json</span></div>
-        <div><strong>AUTO</strong><span>一覧カード生成</span></div>
-        <div><strong>CHECK</strong><span>公開前バリデーション</span></div>
+      <div class="hero-main">
+        <p class="eyebrow">Bear / Base / Bull Valuation</p>
+        <h1>株価の現在地を、<br><span>銘柄ごとに比較する。</span></h1>
+        <p class="hero-copy">企業詳細とシナリオ試算をまとめた個人用ポータルです。現在値がBear/Base/Bullのどこにあるか、上値・下値のバランス、次のカタリストを一覧で確認できます。</p>
+      </div>
+      <div class="hero-stats" aria-label="ポータル概要">
+        <div><strong id="hero-total">-</strong><span>公開中の銘柄</span></div>
+        <div><strong id="hero-us">-</strong><span>米国株</span></div>
+        <div><strong id="hero-jp">-</strong><span>日本株</span></div>
       </div>
     </section>
 
     <section class="catalog" aria-labelledby="catalog-title">
       <div class="section-heading">
         <div>
-          <p class="eyebrow">PUBLISHED REPORTS</p>
+          <p class="eyebrow">Published Reports</p>
           <h2 id="catalog-title">銘柄一覧</h2>
         </div>
+      </div>
+
+      <div class="tools-panel" aria-label="銘柄の検索と絞り込み">
         <label class="search-box">
           <span class="sr-only">銘柄を検索</span>
           <input id="stock-search" type="search" placeholder="銘柄名・ティッカー・テーマで検索" autocomplete="off">
         </label>
+        <div class="filter-tabs" id="market-filters" aria-label="市場で絞り込み">
+          <button class="filter-tab active" type="button" data-market="all">すべて</button>
+          <button class="filter-tab" type="button" data-market="米国株">米国株</button>
+          <button class="filter-tab" type="button" data-market="日本株">日本株</button>
+        </div>
       </div>
 
       <p id="status" class="status" role="status">データを読み込んでいます...</p>
