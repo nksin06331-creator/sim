@@ -244,6 +244,19 @@ h2 { margin: 0; font-size: clamp(2rem, 5vw, 3.6rem); letter-spacing: -.04em; }
   border-radius: 6px;
   background: rgba(255,255,255,.026);
 }
+.card-footer small {
+  display: block;
+  color: var(--subtle);
+  font-size: .7rem;
+}
+.card-footer strong {
+  display: block;
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: .8rem;
+  font-weight: 700;
+  line-height: 1.55;
+}
 .card-footer span:last-child { grid-column: 1 / -1; }
 .card-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 18px; }
 .card-button {
