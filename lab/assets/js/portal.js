@@ -1,9 +1,11 @@
 const grid = document.querySelector("#stock-grid");
 const status = document.querySelector("#status");
 const search = document.querySelector("#stock-search");
+const filters = document.querySelector("#market-filters");
 const manifestUrl = document.body.dataset.manifestUrl || "./data/manifest.json";
 const linkPrefix = document.body.dataset.linkPrefix ?? (location.pathname.includes("/lab/") ? "../" : "");
 let stocks = [];
+let activeMarket = "all";
 
 const formatPrice = (value, currency = "USD") => {
   if (!Number.isFinite(value)) return "—";
@@ -20,6 +22,11 @@ const addText = (parent, tag, text, className) => {
   if (className) element.className = className;
   parent.append(element);
   return element;
+};
+
+const setText = (selector, text) => {
+  const element = document.querySelector(selector);
+  if (element) element.textContent = text;
 };
 
 function scenarioCell(parent, label, value, currency) {
@@ -48,9 +55,20 @@ function createCard(stock) {
   addText(top, "span", stock.method, "tag");
   card.append(top);
 
-  addText(card, "h3", stock.ticker, "ticker");
-  addText(card, "p", stock.name, "company");
+  const title = document.createElement("div");
+  title.className = "card-title";
+  addText(title, "h3", stock.ticker, "ticker");
+  addText(title, "p", stock.name, "company");
+  card.append(title);
+
   addText(card, "p", stock.summary, "summary");
+
+  const price = document.createElement("div");
+  price.className = "price-strip";
+  addText(price, "span", "現在値");
+  addText(price, "strong", formatPrice(stock.price.current, stock.price.currency));
+  addText(price, "small", `更新 ${stock.updated}`);
+  card.append(price);
 
   const row = document.createElement("div");
   row.className = "scenario-row";
@@ -59,10 +77,21 @@ function createCard(stock) {
   scenarioCell(row, "Bull", stock.scenarios.bull, stock.price.currency);
   card.append(row);
 
+  const pct = Math.max(0, Math.min(100, Number(stock.positionPct) || 0));
+  const position = document.createElement("div");
+  position.className = "position-block";
+  position.innerHTML = `
+    <div class="position-label"><span>${stock.zone}</span><strong>${pct}%</strong></div>
+    <div class="position-track"><span style="left:${pct}%"></span></div>
+    <div class="position-ends"><span>Bear</span><span>Bull</span></div>
+  `;
+  card.append(position);
+
   const meta = document.createElement("div");
   meta.className = "card-footer";
-  addText(meta, "span", `現在値 ${formatPrice(stock.price.current, stock.price.currency)}`);
-  addText(meta, "span", `${stock.zone} / 更新 ${stock.updated}`);
+  addText(meta, "span", `リスク ${stock.risk}`);
+  addText(meta, "span", `上値下値 ${stock.riskReward}`);
+  addText(meta, "span", stock.catalyst);
   card.append(meta);
 
   const actions = document.createElement("div");
@@ -76,12 +105,14 @@ function createCard(stock) {
 function render(query = "") {
   grid.replaceChildren();
   const normalized = query.trim().toLowerCase();
-  const filtered = stocks.filter((stock) =>
-    [stock.ticker, stock.name, stock.market, stock.sector, stock.method, ...(stock.tags ?? [])]
+  const filtered = stocks.filter((stock) => {
+    const marketOk = activeMarket === "all" || stock.market === activeMarket;
+    const searchOk = [stock.ticker, stock.name, stock.market, stock.sector, stock.method, stock.summary, stock.catalyst, ...(stock.tags ?? [])]
       .join(" ")
       .toLowerCase()
-      .includes(normalized)
-  );
+      .includes(normalized);
+    return marketOk && searchOk;
+  });
   filtered.forEach((stock) => grid.append(createCard(stock)));
   status.textContent = normalized
     ? `${filtered.length}件が一致しました`
@@ -93,6 +124,9 @@ async function init() {
     const response = await fetch(manifestUrl, { cache: "no-store" });
     if (!response.ok) throw new Error(`一覧データを取得できませんでした（${response.status}）`);
     stocks = await response.json();
+    setText("#hero-total", stocks.length);
+    setText("#hero-us", stocks.filter((stock) => stock.market === "米国株").length);
+    setText("#hero-jp", stocks.filter((stock) => stock.market === "日本株").length);
     render();
   } catch (error) {
     status.className = "error-panel";
@@ -101,4 +135,12 @@ async function init() {
 }
 
 search.addEventListener("input", (event) => render(event.target.value));
+filters?.addEventListener("click", (event) => {
+  const button = event.target.closest(".filter-tab");
+  if (!button) return;
+  filters.querySelectorAll(".filter-tab").forEach((tab) => tab.classList.remove("active"));
+  button.classList.add("active");
+  activeMarket = button.dataset.market;
+  render(search.value);
+});
 init();
