@@ -36,6 +36,14 @@ function scenarioCell(parent, label, value, currency) {
   parent.append(cell);
 }
 
+function metaItem(parent, label, value) {
+  if (!value) return;
+  const item = document.createElement("span");
+  addText(item, "small", label);
+  addText(item, "strong", value);
+  parent.append(item);
+}
+
 function actionLink(parent, label, href, primary = false) {
   const link = document.createElement("a");
   link.className = primary ? "card-button primary" : "card-button";
@@ -65,9 +73,9 @@ function createCard(stock) {
 
   const price = document.createElement("div");
   price.className = "price-strip";
-  addText(price, "span", "現在値");
+  addText(price, "span", "更新時株価");
   addText(price, "strong", formatPrice(stock.price.current, stock.price.currency));
-  addText(price, "small", `更新 ${stock.updated}`);
+  addText(price, "small", `${stock.updated}時点`);
   card.append(price);
 
   const row = document.createElement("div");
@@ -77,21 +85,10 @@ function createCard(stock) {
   scenarioCell(row, "Bull", stock.scenarios.bull, stock.price.currency);
   card.append(row);
 
-  const pct = Math.max(0, Math.min(100, Number(stock.positionPct) || 0));
-  const position = document.createElement("div");
-  position.className = "position-block";
-  position.innerHTML = `
-    <div class="position-label"><span>${stock.zone}</span><strong>${pct}%</strong></div>
-    <div class="position-track"><span style="left:${pct}%"></span></div>
-    <div class="position-ends"><span>Bear</span><span>Bull</span></div>
-  `;
-  card.append(position);
-
   const meta = document.createElement("div");
   meta.className = "card-footer";
-  addText(meta, "span", `リスク ${stock.risk}`);
-  addText(meta, "span", `上値下値 ${stock.riskReward}`);
-  addText(meta, "span", stock.catalyst);
+  metaItem(meta, "リスク", stock.risk);
+  metaItem(meta, "注目点", stock.catalyst);
   card.append(meta);
 
   const actions = document.createElement("div");
