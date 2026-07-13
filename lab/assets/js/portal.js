@@ -7,27 +7,11 @@ const linkPrefix = document.body.dataset.linkPrefix ?? (location.pathname.includ
 let stocks = [];
 let activeMarket = "all";
 
-const formatPrice = (value, currency = "USD") => {
-  if (!Number.isFinite(value)) return "—";
-  return new Intl.NumberFormat("ja-JP", {
-    style: "currency",
-    currency,
-    maximumFractionDigits: 2,
-  }).format(value);
-};
-
-const addText = (parent, tag, text, className) => {
-  const element = document.createElement(tag);
-  element.textContent = text;
-  if (className) element.className = className;
-  parent.append(element);
-  return element;
-};
-
-const setText = (selector, text) => {
-  const element = document.querySelector(selector);
-  if (element) element.textContent = text;
-};
+const formatPrice = (value, currency = "USD") => Number.isFinite(value)
+  ? new Intl.NumberFormat("ja-JP", { style: "currency", currency, maximumFractionDigits: 2 }).format(value)
+  : "—";
+const addText = (parent, tag, text, className) => { const el = document.createElement(tag); el.textContent = text; if (className) el.className = className; parent.append(el); return el; };
+const setText = (selector, text) => { const el = document.querySelector(selector); if (el) el.textContent = text; };
 
 function scenarioCell(parent, label, value, currency) {
   const cell = document.createElement("div");
@@ -35,109 +19,54 @@ function scenarioCell(parent, label, value, currency) {
   addText(cell, "strong", formatPrice(value, currency));
   parent.append(cell);
 }
-
-function metaItem(parent, label, value) {
-  if (!value) return;
-  const item = document.createElement("span");
-  addText(item, "small", label);
-  addText(item, "strong", value);
-  parent.append(item);
-}
-
 function actionLink(parent, label, href, primary = false) {
+  if (!href) return;
   const link = document.createElement("a");
   link.className = primary ? "card-button primary" : "card-button";
   link.href = `${linkPrefix}${href}`;
-  link.textContent = label;
+  link.innerHTML = `<span>${label}</span><b aria-hidden="true">↗</b>`;
   parent.append(link);
 }
-
 function createCard(stock) {
   const card = document.createElement("article");
   card.className = "stock-card";
-
-  const top = document.createElement("div");
-  top.className = "card-top";
-  addText(top, "span", stock.market, "tag");
-  addText(top, "span", stock.sector, "tag");
-  addText(top, "span", stock.method, "tag");
-  card.append(top);
-
-  const title = document.createElement("div");
-  title.className = "card-title";
-  addText(title, "h3", stock.ticker, "ticker");
-  addText(title, "p", stock.name, "company");
-  card.append(title);
-
+  const head = document.createElement("div"); head.className = "card-head";
+  const identity = document.createElement("div");
+  addText(identity, "p", stock.ticker, "ticker"); addText(identity, "h3", stock.name, "company");
+  const badge = addText(head, "span", stock.market, "market-badge"); badge.dataset.market = stock.market;
+  head.prepend(identity); card.append(head);
+  const tags = document.createElement("div"); tags.className = "card-tags";
+  [stock.sector, stock.method].filter(Boolean).forEach((tag) => addText(tags, "span", tag)); card.append(tags);
   addText(card, "p", stock.summary, "summary");
-
-  const price = document.createElement("div");
-  price.className = "price-strip";
-  addText(price, "span", "更新時株価");
-  addText(price, "strong", formatPrice(stock.price.current, stock.price.currency));
-  addText(price, "small", `${stock.updated}時点`);
-  card.append(price);
-
-  const row = document.createElement("div");
-  row.className = "scenario-row";
-  scenarioCell(row, "Bear", stock.scenarios.bear, stock.price.currency);
-  scenarioCell(row, "Base", stock.scenarios.base, stock.price.currency);
-  scenarioCell(row, "Bull", stock.scenarios.bull, stock.price.currency);
-  card.append(row);
-
-  const meta = document.createElement("div");
-  meta.className = "card-footer";
-  metaItem(meta, "リスク", stock.risk);
-  metaItem(meta, "注目点", stock.catalyst);
-  card.append(meta);
-
-  const actions = document.createElement("div");
-  actions.className = "card-actions";
-  actionLink(actions, "企業詳細を見る", stock.detailPath);
-  actionLink(actions, "シナリオ試算を見る", stock.scenarioPath, true);
-  card.append(actions);
+  const snapshot = document.createElement("div"); snapshot.className = "snapshot";
+  const price = document.createElement("div"); addText(price, "span", "現在株価"); addText(price, "strong", formatPrice(stock.price?.current, stock.price?.currency)); addText(price, "small", `${stock.updated} 更新`); snapshot.append(price);
+  const risk = document.createElement("div"); addText(risk, "span", "リスク"); const riskValue = addText(risk, "strong", stock.risk || "—"); riskValue.className = /非常|VERY/i.test(stock.risk || "") ? "risk very-high" : /高|HIGH/i.test(stock.risk || "") ? "risk high" : "risk"; snapshot.append(risk); card.append(snapshot);
+  const row = document.createElement("div"); row.className = "scenario-row";
+  scenarioCell(row, "BEAR", stock.scenarios?.bear, stock.price?.currency); scenarioCell(row, "BASE", stock.scenarios?.base, stock.price?.currency); scenarioCell(row, "BULL", stock.scenarios?.bull, stock.price?.currency); card.append(row);
+  if (Number.isFinite(stock.positionPct)) {
+    const position = document.createElement("div"); position.className = "position-block";
+    const label = document.createElement("div"); label.className = "position-label"; addText(label, "span", "シナリオ帯の現在地"); addText(label, "strong", stock.zone || `${stock.positionPct}%`); position.append(label);
+    const track = document.createElement("div"); track.className = "position-track"; const marker = document.createElement("span"); marker.style.left = `${Math.max(0, Math.min(100, stock.positionPct))}%`; track.append(marker); position.append(track);
+    const ends = document.createElement("div"); ends.className = "position-ends"; addText(ends, "span", "BEAR"); addText(ends, "span", "BULL"); position.append(ends); card.append(position);
+  }
+  if (stock.catalyst) { const catalyst = document.createElement("div"); catalyst.className = "catalyst"; addText(catalyst, "span", "NEXT CATALYST"); addText(catalyst, "p", stock.catalyst); card.append(catalyst); }
+  const actions = document.createElement("div"); actions.className = "card-actions";
+  actionLink(actions, "企業を知る", stock.detailPath); actionLink(actions, "株価を考える", stock.scenarioPath, true); card.append(actions);
   return card;
 }
-
 function render(query = "") {
-  grid.replaceChildren();
-  const normalized = query.trim().toLowerCase();
-  const filtered = stocks.filter((stock) => {
-    const marketOk = activeMarket === "all" || stock.market === activeMarket;
-    const searchOk = [stock.ticker, stock.name, stock.market, stock.sector, stock.method, stock.summary, stock.catalyst, ...(stock.tags ?? [])]
-      .join(" ")
-      .toLowerCase()
-      .includes(normalized);
-    return marketOk && searchOk;
-  });
+  grid.replaceChildren(); const normalized = query.trim().toLowerCase();
+  const filtered = stocks.filter((stock) => (activeMarket === "all" || stock.market === activeMarket) && [stock.ticker, stock.name, stock.market, stock.sector, stock.method, stock.summary, stock.catalyst, ...(stock.tags ?? [])].join(" ").toLowerCase().includes(normalized));
   filtered.forEach((stock) => grid.append(createCard(stock)));
-  status.textContent = normalized
-    ? `${filtered.length}件が一致しました`
-    : `${filtered.length}銘柄をmeta.jsonから自動掲載中`;
+  status.textContent = normalized ? `${filtered.length}件が一致しました` : `${filtered.length}銘柄のレポートを公開中`;
 }
-
 async function init() {
   try {
-    const response = await fetch(manifestUrl, { cache: "no-store" });
-    if (!response.ok) throw new Error(`一覧データを取得できませんでした（${response.status}）`);
-    stocks = await response.json();
-    setText("#hero-total", stocks.length);
-    setText("#hero-us", stocks.filter((stock) => stock.market === "米国株").length);
-    setText("#hero-jp", stocks.filter((stock) => stock.market === "日本株").length);
-    render();
-  } catch (error) {
-    status.className = "error-panel";
-    status.textContent = `${error.message}。GitHub Pagesの更新状況を確認してください。`;
-  }
+    const response = await fetch(manifestUrl, { cache: "no-store" }); if (!response.ok) throw new Error(`一覧データを取得できませんでした（${response.status}）`);
+    stocks = (await response.json()).filter((stock) => stock.status !== "draft");
+    setText("#hero-total", stocks.length); setText("#hero-us", stocks.filter((s) => s.market === "米国株").length); setText("#hero-jp", stocks.filter((s) => s.market === "日本株").length); render();
+  } catch (error) { status.className = "error-panel"; status.textContent = `${error.message}。GitHub Pagesの更新状況を確認してください。`; }
 }
-
-search.addEventListener("input", (event) => render(event.target.value));
-filters?.addEventListener("click", (event) => {
-  const button = event.target.closest(".filter-tab");
-  if (!button) return;
-  filters.querySelectorAll(".filter-tab").forEach((tab) => tab.classList.remove("active"));
-  button.classList.add("active");
-  activeMarket = button.dataset.market;
-  render(search.value);
-});
+search?.addEventListener("input", (event) => render(event.target.value));
+filters?.addEventListener("click", (event) => { const button = event.target.closest(".filter-tab"); if (!button) return; filters.querySelectorAll(".filter-tab").forEach((tab) => tab.classList.remove("active")); button.classList.add("active"); activeMarket = button.dataset.market; render(search.value); });
 init();
