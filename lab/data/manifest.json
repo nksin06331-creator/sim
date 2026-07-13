@@ -101,6 +101,39 @@
   },
   {
     "schemaVersion": 1,
+    "ticker": "ASPI",
+    "slug": "aspi",
+    "name": "ASP Isotopes Inc.",
+    "market": "米国株",
+    "sector": "素材・同位体",
+    "method": "SOTP＋カタリスト割引",
+    "status": "published",
+    "updated": "2026-07-13",
+    "price": {
+      "current": 4.83,
+      "currency": "USD"
+    },
+    "scenarios": {
+      "bear": 3,
+      "base": 7,
+      "bull": 12
+    },
+    "positionPct": 20.3,
+    "zone": "慎重寄り",
+    "riskReward": "3.9倍",
+    "catalyst": "Q3-Q4 2026 / Si-28・ヘリウム商業化",
+    "summary": "会社は前進中。",
+    "tags": [
+      "SOTP",
+      "同位体",
+      "カタリスト型"
+    ],
+    "risk": "非常に高い",
+    "detailPath": "stocks/ASPI/index.html",
+    "scenarioPath": "stocks/ASPI/scenario.html"
+  },
+  {
+    "schemaVersion": 1,
     "ticker": "IBM",
     "slug": "ibm",
     "name": "IBM",
@@ -360,41 +393,6 @@
   },
   {
     "schemaVersion": 1,
-    "ticker": "SPCX",
-    "slug": "spcx",
-    "name": "SpaceX",
-    "market": "米国株",
-    "sector": "宇宙・衛星通信・AI",
-    "method": "SOTP＋オプション価値 現在株価 $145.30 IPO価格 $135から +7.6% Bear・弱気 $73 確率 30% AI投資負担が長期化し、Starship商用化が遅れ、ロックアップ解除で需給が悪化",
-    "status": "published",
-    "updated": "2026-07-13",
-    "price": {
-      "current": 145.3,
-      "currency": "USD"
-    },
-    "scenarios": {
-      "bear": 73,
-      "base": 148,
-      "bull": 299
-    },
-    "positionPct": 32,
-    "zone": "現値は独自Baseにほぼ一致",
-    "riskReward": "2.13倍",
-    "catalyst": "初の上場後決算、Starship進捗、AI設備投資と顧客契約、段階的ロックアップ解除",
-    "summary": "確率加重期待値 $163 現値比 +12.4% 現値ポジショニング： Bear–Bull帯の 32.0%地点。",
-    "tags": [
-      "SOTP",
-      "宇宙",
-      "衛星通信",
-      "AI",
-      "IPO"
-    ],
-    "risk": "要確認",
-    "detailPath": "stocks/SPCX/index.html",
-    "scenarioPath": "stocks/SPCX/scenario.html"
-  },
-  {
-    "schemaVersion": 1,
     "ticker": "TSLA",
     "slug": "tsla",
     "name": "Tesla, Inc.",
@@ -427,35 +425,37 @@
   },
   {
     "schemaVersion": 1,
-    "ticker": "ASPI",
-    "slug": "aspi",
-    "name": "ASP Isotopes Inc.",
+    "ticker": "SPCX",
+    "slug": "spcx",
+    "name": "SpaceX",
     "market": "米国株",
-    "sector": "素材・同位体",
-    "method": "SOTP",
+    "sector": "宇宙・衛星通信・AI",
+    "method": "SOTP＋将来価値の現在価値換算",
     "status": "published",
-    "updated": "2026-07-01",
+    "updated": "2026-07-10",
     "price": {
-      "current": 6.2,
+      "current": 145.3,
       "currency": "USD"
     },
     "scenarios": {
-      "bear": 3.19,
-      "base": 8.21,
-      "bull": 14.8
+      "bear": 65,
+      "base": 132,
+      "bull": 242
     },
-    "positionPct": 34,
-    "zone": "適正〜やや割安",
-    "riskReward": "2.86x",
-    "catalyst": "Q3-Q4 2026 / Si-28・ヘリウム商業化",
-    "summary": "同位体濃縮、核燃料、ヘリウム・LNGをSOTPで積み上げたシナリオ試算。",
+    "positionPct": 45,
+    "zone": "BearとBaseの間だがBase超え",
+    "riskReward": "1.20倍",
+    "catalyst": "初の上場後決算、Starship進捗、AI設備投資と顧客契約、段階的ロックアップ解除",
+    "summary": "🟡 会社は別格。",
     "tags": [
       "SOTP",
-      "同位体",
-      "カタリスト型"
+      "宇宙",
+      "衛星通信",
+      "AI",
+      "IPO"
     ],
-    "risk": "高",
-    "detailPath": "stocks/ASPI/index.html",
-    "scenarioPath": "stocks/ASPI/scenario.html"
+    "risk": "非常に高い",
+    "detailPath": "stocks/SPCX/index.html",
+    "scenarioPath": "stocks/SPCX/scenario.html"
   }
 ]

@@ -12,25 +12,20 @@
  ================================================================
   STOCK GUIDE TEMPLATE v3  SiM MARKET LAB ダーク版 / ChatGPT index.html
   ----------------------------------------------------------------
-  ★★ デザインロック（ぶれ防止）★★
-  ・この <style> ブロックとページ骨格は「改変禁止」。1文字も変えない。逐語コピーする。
-  ・色はSiMグリーンで固定。銘柄・業界でアクセント色を変えない。
-  ・差し替えてよいのは {{ }} プレースホルダーの中身（＝テキスト）だけ。
-  ・セクションの数・順番・各コンポーネントの個数（SEC1のcard-smは4枚 等）は固定。
-    追加・削除・並べ替えをしない。
-  ----------------------------------------------------------------
   ブランド：黒背景 × ネオングリーン × 白文字（キーワードだけ緑）。Instagram(sim.marketlab)準拠。
-  設計思想：「表層＝3秒で意味が取れる／深層＝読みたい人だけ開く」の2層構造。
-  ・見出しの重要ワードは <span class="g">…</span> で緑ハイライト。
+  設計思想：「表層＝3秒で意味が取れる／深層＝読みたい人だけ開く」の2層構造（v2から継続）。
+  ・ダークの“シェル”（背景/カード/文字/線）は全銘柄で固定＝ブランド一貫性。
+  ・業界ごとに変えるのは基本アクセント色のみ（デフォルト＝SiMグリーン）。最下部の早見表参照。
+  ・見出しの重要ワードは <span class="g">…</span> で緑ハイライト（インスタと同じ手法）。
  ================================================================
 */
 
 :root {
-  /* ── ブランド・アクセント：SiMグリーンで固定（銘柄・業界で変えない＝デザインぶれ防止） ── */
-  --accent:        #6EE24E;
-  --accent-bright: #8BF56B;
-  --accent-tint:   rgba(110,226,78,.12);
-  --accent-line:   rgba(110,226,78,.38);
+  /* ── ブランド・アクセント（業界で差し替え可。デフォルト＝SiMグリーン） ── */
+  --accent:        #60a5fa;        /* 例: #6EE24E (SiMグリーン) */
+  --accent-bright: #93c5fd; /* 例: #8BF56B (見出し用の明るい方) */
+  --accent-tint:   rgba(96,165,250,.12);   /* 例: rgba(110,226,78,.12) (緑の薄背景) */
+  --accent-line:   rgba(96,165,250,.38);   /* 例: rgba(110,226,78,.38) (緑の枠線) */
 
   /* ── ダークシェル（変更不要・全銘柄共通） ── */
   --bg:        #0a0c0a;
@@ -158,14 +153,6 @@ body { font-family: var(--font-body); background: var(--bg); color: var(--gray-9
 .card-sm .card-title { font-family: var(--font-display); font-weight: 700; font-size: 15px; margin-bottom: 4px; color: var(--accent); }
 .card-sm .card-desc { font-size: 13.5px; color: var(--gray-700); line-height: 1.75; }
 
-/* ── 会社クイックデータ（企業詳細を厚くする一覧） ── */
-.facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(148px,1fr)); gap: 1px; background: var(--gray-200); border: 1px solid var(--gray-200); border-radius: 14px; overflow: hidden; margin: 4px 0 14px; }
-.facts > div { background: var(--surface); padding: 12px 14px; }
-.facts dt { font-size: 11px; color: var(--gray-500); font-weight: 700; margin-bottom: 3px; }
-.facts dd { margin: 0; font-size: 14.5px; color: #fff; font-weight: 700; line-height: 1.5; }
-.block-label { font-family: var(--font-display); font-weight: 900; font-size: 15px; color: #fff; margin: 18px 0 8px; display: flex; align-items: center; gap: 7px; }
-.block-label .g { color: var(--accent); }
-
 /* ── TERM ACCORDION ── */
 .term-list { display: flex; flex-direction: column; gap: 10px; }
 .term-item { background: var(--surface); border: 1px solid var(--gray-200); border-radius: 14px; overflow: hidden; transition: border-color .2s; }
@@ -281,24 +268,24 @@ strong.g { color: var(--accent); }
 
 <!-- ========================================================
   HERO
-  MU Micron Technology 半導体・メモリ AI時代の「記憶」を支える、米国の大手DRAM・NANDメーカー。HBMが成長の主役です。 <span class="hero-tag">AI向けHBM</span><span class="hero-tag">DRAM</span><span class="hero-tag">NAND</span> 2026年7月13日
+  MU Micron Technology 半導体・メモリ AIの頭脳がどれだけ速くても、データを渡すメモリが遅ければ詰まる。MicronはDRAM・NAND・HBMで、その“データ置き場と高速道路”を作る会社。 <span class="hero-tag">🧠 AIメモリ</span><span class="hero-tag">🚀 HBM</span><span class="hero-tag">💾 DRAM・NAND</span><span class="hero-tag">⚠️ 景気循環</span> 2026年7月13日
   ※見出しの重要ワードは <span class="g">…</span> で緑ハイライト
 ======================================================== -->
 <div class="hero">
   <div class="brandmark">S<span class="g">i</span>M &nbsp;MARKET LAB</div>
   <div class="hero-badge">MU 完全入門ガイド ・ 2026年7月13日版</div>
   <h1>Micron Technology（MU）を<br><span class="g">まるっと</span>解説</h1>
-  <p>AI時代の「記憶」を支える、米国の大手DRAM・NANDメーカー。HBMが成長の主役です。</p>
+  <p>AIの頭脳がどれだけ速くても、データを渡すメモリが遅ければ詰まる。MicronはDRAM・NAND・HBMで、その“データ置き場と高速道路”を作る会社。</p>
   <div class="hero-tags">
     <!-- 例: <span class="hero-tag">⚛️ 同位体って何？</span> -->
-    <span class="hero-tag">AI向けHBM</span><span class="hero-tag">DRAM</span><span class="hero-tag">NAND</span>
+    <span class="hero-tag">🧠 AIメモリ</span><span class="hero-tag">🚀 HBM</span><span class="hero-tag">💾 DRAM・NAND</span><span class="hero-tag">⚠️ 景気循環</span>
   </div>
 </div>
 
 <!-- 30秒サマリー：でかい数字カード3〜4枚（上昇は .up / 下落は .down） -->
 <div class="tldr-hero">
   <div class="tldr-hero-inner">
-    <div class="tldr-hero-title">📊 まずは数字でざっくり</div>
+    <div class="tldr-hero-title">🚀 まず数字だけ見てけ</div>
     <div class="stat-strip">
       <!-- 例:
       <div class="stat"><div class="stat-value">$12.34</div><div class="stat-label">現在の株価</div><div class="stat-note">52週 $4〜$18</div></div>
@@ -306,7 +293,10 @@ strong.g { color: var(--accent); }
       <div class="stat"><div class="stat-value">$1.2B</div><div class="stat-label">時価総額</div></div>
       <div class="stat"><div class="stat-value">2027</div><div class="stat-label">黒字化目標</div></div>
       -->
-      <div class="stat"><div class="stat-value">$905.92</div><div class="stat-label">現在株価</div><div class="stat-note">7/13報道値</div></div><div class="stat"><div class="stat-value up">$41.46B</div><div class="stat-label">FQ3売上</div></div><div class="stat"><div class="stat-value up">84.6%</div><div class="stat-label">GAAP粗利率</div></div><div class="stat"><div class="stat-value">$50B</div><div class="stat-label">FQ4売上ガイダンス中心</div></div>
+      <div class="stat"><div class="stat-value">$936.17</div><div class="stat-label">参考株価</div><div class="stat-note">7月13日取得値</div></div>
+<div class="stat"><div class="stat-value">$41.46B</div><div class="stat-label">FY26 Q3 売上</div><div class="stat-note">過去最高</div></div>
+<div class="stat"><div class="stat-value up">$18.3B</div><div class="stat-label">調整後FCF</div><div class="stat-note">FY26 Q3</div></div>
+<div class="stat"><div class="stat-value">$30.2B</div><div class="stat-label">現金等</div><div class="stat-note">四半期末</div></div>
     </div>
   </div>
 </div>
@@ -315,10 +305,10 @@ strong.g { color: var(--accent); }
 <nav class="nav-index">
   <div class="nav-inner">
     <a class="nav-item" href="#sec1">① どんな会社</a>
-    <a class="nav-item" href="#sec2">② メモリ業界</a>
-    <a class="nav-item" href="#sec3">③ 製品とHBM</a>
-    <a class="nav-item" href="#sec4">④ 技術と供給</a>
-    <a class="nav-item" href="#sec5">⑤ 競合比較</a>
+    <a class="nav-item" href="#sec2">② メモリの基本</a>
+    <a class="nav-item" href="#sec3">③ 主力製品</a>
+    <a class="nav-item" href="#sec4">④ HBMの勝負</a>
+    <a class="nav-item" href="#sec5">⑤ ライバル</a>
     <a class="nav-item" href="#sec6">⑥ 用語辞典</a>
     <a class="nav-item" href="#sec7">⑦ 株価の見方</a>
   </div>
@@ -326,7 +316,7 @@ strong.g { color: var(--accent); }
 
 <div class="container">
 
-  <!-- SEC1: 会社概要　⚡3秒まとめ → 会社データ → card-sm 4枚 → どう稼ぐ → highlight「基本ルール」 -->
+  <!-- SEC1: 会社概要　⚡3秒まとめ → card-sm 4枚 → highlight「基本ルール」 -->
   <section class="section" id="sec1">
     <div class="section-header">
       <div class="section-icon">🏢</div><div class="section-num">1</div>
@@ -339,79 +329,72 @@ strong.g { color: var(--accent); }
       <div class="tldr-label">⚡ このセクションの3秒まとめ</div>
       <ul>
         <!-- 例: <li data-emoji="🏭">◯◯を作ってる△△業界の会社</li> -->
-        <li data-emoji="🔥">AI向けHBMが成長の主役</li><li data-emoji="💸">FQ3売上$41.46B、粗利率84.6%</li><li data-emoji="⚠️">最大リスクはメモリ供給増と価格反落</li>
+        <li data-emoji="🏭">米国発の世界的メモリ半導体メーカー。</li><li data-emoji="🔥">AI向けHBMとデータセンター用メモリが成長の中心。</li><li data-emoji="⚠️">ただしメモリ価格は上げ下げが激しい。好況の反動が最大の注意点。</li>
       </ul>
     </div>
-
-    <!-- 会社データ（クイックファクト）：設立/本社/従業員/CEO/上場/売上規模 等。不明は「非開示」 -->
-    <div class="facts">
-      <div><dt>設立</dt><dd>1978年</dd></div><div><dt>本社</dt><dd>米国アイダホ州ボイシ</dd></div><div><dt>CEO</dt><dd>Sanjay Mehrotra</dd></div><div><dt>上場</dt><dd>NASDAQ: MU</dd></div><div><dt>主力</dt><dd>DRAM / NAND / HBM</dd></div><div><dt>FQ3売上</dt><dd>$41.46B</dd></div>
-      <!-- 例:
-      <div><dt>設立</dt><dd>2019年</dd></div>
-      <div><dt>本社</dt><dd>東京</dd></div>
-      <div><dt>従業員数</dt><dd>約12,000人</dd></div>
-      <div><dt>CEO</dt><dd>◯◯ ◯◯</dd></div>
-      <div><dt>上場</dt><dd>東証プライム（285A）</dd></div>
-      <div><dt>売上規模</dt><dd>約2.3兆円</dd></div>
-      -->
-    </div>
-
-    <!-- 4枚カード：何をしてる/主力事業/直近の業績/なぜ注目 -->
     <div class="card-grid">
-      <div class="card-sm"><div class="card-emoji">🧠</div><div class="card-title">何をしてる？</div><div class="card-desc">DRAM、NAND、HBMなどのメモリ半導体を開発・製造。</div></div><div class="card-sm"><div class="card-emoji">🚀</div><div class="card-title">主力事業</div><div class="card-desc">AIサーバー向けHBMとデータセンター用メモリが急成長。</div></div><div class="card-sm"><div class="card-emoji">📈</div><div class="card-title">直近業績</div><div class="card-desc">FQ3売上$41.46B、GAAP EPS $24.67。</div></div><div class="card-sm"><div class="card-emoji">⚠️</div><div class="card-title">なぜ注目？</div><div class="card-desc">AI投資でメモリ需要が急増。ただし供給過剰リスクも大きい。</div></div>
-      <!-- 例: <div class="card-sm"><span class="card-emoji">🏭</span><div class="card-title">何をしてる</div><div class="card-desc">…</div></div> を4枚 -->
-    </div>
-
-    <!-- どうやって稼ぐ？：ビジネスモデルと売上の内訳を平易に -->
-    <div class="block-label">💰 どうやって<span class="g">稼いでる</span>？</div>
-    <ul class="keypoints">
-      Micronの最新公開情報をもとに整理。詳細は各セクションを確認してください。
-      <!-- 例: <li><span class="kp-emoji">🧩</span><span class="kp-text"><b>主力</b>：◯◯を作って△△に売る。売上の約7割。</span></li> を2〜4件（売上構成・主要顧客・課金の仕組み等） -->
-    </ul>
-
-    <!-- 会社の“基本ルール”（この銘柄を見るうえで最初に押さえる勘所） -->
-    <div class="highlight"><h3>ここだけ覚える</h3><p><b>MicronはAIメモリの追い風を受ける一方、メモリ市況の循環性が非常に大きい会社。</b>売上だけでなく、価格・粗利率・供給計画を見るのがコツです。</p></div>
-    <!-- 例: <div class="highlight"><h3>📏 ◯◯株の基本ルール</h3><p>…</p></div> -->
+<div class="card-sm"><div class="card-emoji">🇺🇸</div><div class="card-title">上場情報</div><div class="card-desc">NASDAQ: MU。米国アイダホ州発の半導体メーカー。</div></div>
+<div class="card-sm"><div class="card-emoji">💾</div><div class="card-title">やってること</div><div class="card-desc">DRAM、NAND、HBMなど「記憶する半導体」を作る。</div></div>
+<div class="card-sm"><div class="card-emoji">💸</div><div class="card-title">直近のお金</div><div class="card-desc">FY26 Q3売上は411.46億ドル。調整後FCFは183億ドル。</div></div>
+<div class="card-sm"><div class="card-emoji">🤖</div><div class="card-title">なぜ注目？</div><div class="card-desc">AIサーバー1台あたりの高性能メモリ需要が急増している。</div></div>
+</div><div class="highlight"><h3>🧠 MU株の基本ルール</h3><p><b>AI需要 × メモリ価格 × HBMの競争力</b>を見る銘柄。GPUが売れるだけでなく、Micronが高単価メモリをどれだけ供給できるかが大事。</p></div>
   </section>
 
   <!-- SEC2: 業界の基本　⚡まとめ → lead(比喩) → sowhat → term-list 4〜6 -->
   <section class="section" id="sec2">
     <div class="section-header">
-      <div class="section-icon">Micronの最新公開情報をもとに整理。詳細は各セクションを確認してください。</div><div class="section-num">2</div>
-      <div><div class="section-title">Micronの最新公開情報をもとに整理。詳細は各セクションを確認してください。</div><div class="section-sub">Micronの最新公開情報をもとに整理。詳細は各セクションを確認してください。</div></div>
+      <div class="section-icon">🧠</div><div class="section-num">2</div>
+      <div><div class="section-title">そもそも<span class="g">メモリ半導体</span>って何？</div><div class="section-sub">CPUやGPUの横でデータを覚えて渡す係</div></div>
     </div>
-    <div class="tldr"><div class="tldr-label">⚡ このセクションの3秒まとめ</div><ul><li data-emoji="🔥">AI向けHBMが成長の主役</li><li data-emoji="💸">FQ3売上$41.46B、粗利率84.6%</li><li data-emoji="⚠️">最大リスクはメモリ供給増と価格反落</li></ul></div>
-    Micronの最新公開情報をもとに整理。詳細は各セクションを確認してください。
+    <div class="tldr"><div class="tldr-label">⚡ このセクションの3秒まとめ</div><ul><li data-emoji="🧠">GPUが計算係なら、メモリは必要データをすぐ渡す係。</li><li data-emoji="🚀">AIでは大量データを超高速で動かすHBMが重要。</li><li data-emoji="⚠️">メモリは供給過多になると価格が急落しやすい。</li></ul></div>
+    <p class="lead">AIチップを<span class="g">超速い料理人</span>だと思ってください。材料を運ぶ係が遅ければ、料理人は待つしかない。HBMは材料を一気に運ぶ超高速ベルトコンベアです。</p>
+<div class="sowhat"><p><b>つまり：</b>AI計算が増えるほど、速くて大容量のメモリ価値が上がりやすい。</p></div><div class="term-list"><details class="term-item"><summary class="term-header"><span class="term-name">DRAM<span class="term-en">Dynamic RAM</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>①定義：</b>作業中のデータを一時保存する高速メモリ。<br><b>②なぜ重要：</b>PC・スマホ・サーバー全部に必要。<br><b>③MUでは：</b>売上と利益の大黒柱。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">NAND<span class="term-en">Flash Memory</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>①定義：</b>電源を切ってもデータが残るメモリ。<br><b>②なぜ重要：</b>SSDやスマホ保存領域に使う。<br><b>③MUでは：</b>データセンター向けSSDが成長分野。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">HBM<span class="term-en">High Bandwidth Memory</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>①定義：</b>DRAMを縦に積み、高速で大量データを運ぶメモリ。<br><b>②なぜ重要：</b>AI GPUの性能を引き出す。<br><b>③MUでは：</b>利益成長の中心テーマ。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">メモリサイクル<span class="term-en">Memory Cycle</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>①定義：</b>不足→値上がり→増産→余る→値下がりを繰り返すこと。<br><b>②なぜ重要：</b>利益が大きく上下する。<br><b>③MUでは：</b>株価を見るうえで絶対に外せない。</p></div></details></div>
   </section>
 
   <!-- SEC3: 主要製品・技術　⚡まとめ → product-grid → term-list 3〜5 -->
   <section class="section" id="sec3">
     <div class="section-header">
       <div class="section-icon">🔬</div><div class="section-num">3</div>
-      <div><div class="section-title">Micronの最新公開情報をもとに整理。詳細は各セクションを確認してください。</div><div class="section-sub">Micronの最新公開情報をもとに整理。詳細は各セクションを確認してください。</div></div>
+      <div><div class="section-title">Micronは<span class="g">何を売ってる</span>？</div><div class="section-sub">DRAM・HBM・NANDをざっくり攻略</div></div>
     </div>
-    <div class="tldr"><div class="tldr-label">⚡ このセクションの3秒まとめ</div><ul><li data-emoji="🔥">AI向けHBMが成長の主役</li><li data-emoji="💸">FQ3売上$41.46B、粗利率84.6%</li><li data-emoji="⚠️">最大リスクはメモリ供給増と価格反落</li></ul></div>
-    Micronの最新公開情報をもとに整理。詳細は各セクションを確認してください。
+    <div class="tldr"><div class="tldr-label">⚡ このセクションの3秒まとめ</div><ul><li data-emoji="🚀">HBMはAI GPU向けの高単価・高性能メモリ。</li><li data-emoji="💾">DRAMはサーバー・PC・スマホの作業机。</li><li data-emoji="🗄️">NANDはSSDなどの長期保存庫。</li></ul></div>
+    <div class="product-grid">
+<div class="product-box"><div class="product-symbol">HBM</div><div class="product-name">AI向け高速メモリ</div><div class="product-use">GPUの近くで大量データを高速供給。</div></div>
+<div class="product-box"><div class="product-symbol">DRAM</div><div class="product-name">作業用メモリ</div><div class="product-use">サーバー・PC・スマホの一時記憶。</div></div>
+<div class="product-box"><div class="product-symbol">NAND</div><div class="product-name">保存用メモリ</div><div class="product-use">SSDや端末にデータを保存。</div></div>
+<div class="product-box"><div class="product-symbol">SSD</div><div class="product-name">高速ストレージ</div><div class="product-use">AIデータセンターの大量データを保存。</div></div>
+</div><div class="term-list"><details class="term-item"><summary class="term-header"><span class="term-name">HBM3E / HBM4<span class="term-en">AI Memory Generations</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>世代が進むほど帯域・容量・電力効率が改善。MicronはHBM3EとHBM4の供給拡大が重要。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">データセンターDRAM<span class="term-en">Server DRAM</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>AIサーバーは一般PCより大量のメモリを使う。AI設備投資の恩恵はHBMだけではない。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">Enterprise SSD<span class="term-en">Enterprise Solid State Drive</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>企業サーバー向けSSD。AIデータの保存量増加が追い風。</p></div></details></div>
   </section>
 
   <!-- SEC4: 技術詳細・規制　⚡まとめ → keypoints → term-list 4〜6 -->
   <section class="section" id="sec4">
     <div class="section-header">
       <div class="section-icon">🏛️</div><div class="section-num">4</div>
-      <div><div class="section-title">Micronの最新公開情報をもとに整理。詳細は各セクションを確認してください。</div><div class="section-sub">Micronの最新公開情報をもとに整理。詳細は各セクションを確認してください。</div></div>
+      <div><div class="section-title">AI時代の本丸、<span class="g">HBM</span>は何が難しい？</div><div class="section-sub">速さだけじゃない。積層・歩留まり・認定が勝負</div></div>
     </div>
-    <div class="tldr"><div class="tldr-label">⚡ このセクションの3秒まとめ</div><ul><li data-emoji="🔥">AI向けHBMが成長の主役</li><li data-emoji="💸">FQ3売上$41.46B、粗利率84.6%</li><li data-emoji="⚠️">最大リスクはメモリ供給増と価格反落</li></ul></div>
-    Micronの最新公開情報をもとに整理。詳細は各セクションを確認してください。
+    <div class="tldr"><div class="tldr-label">⚡ このセクションの3秒まとめ</div><ul><li data-emoji="🏗️">HBMはDRAMを縦積みするため製造が難しい。</li><li data-emoji="✅">性能だけでなく顧客の厳しい認定を通る必要がある。</li><li data-emoji="⚠️">歩留まりが悪いと、売れても供給量と利益が伸びにくい。</li></ul></div>
+    <ul class="keypoints">
+<li><span class="kp-emoji">🏗️</span><span class="kp-text"><b>積層：</b>複数のDRAMを縦に重ねて超高速化。</span></li>
+<li><span class="kp-emoji">🎯</span><span class="kp-text"><b>歩留まり：</b>良品率が低いとコストが跳ねる。</span></li>
+<li><span class="kp-emoji">🤝</span><span class="kp-text"><b>顧客認定：</b>AIアクセラレーターとの組み合わせで性能・品質を確認。</span></li>
+</ul><div class="term-list"><details class="term-item"><summary class="term-header"><span class="term-name">TSV<span class="term-en">Through-Silicon Via</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>シリコンを縦に貫く電極。積層したメモリ同士を高速接続する。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">歩留まり<span class="term-en">Yield</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>作ったチップのうち良品になる割合。HBMの利益率を左右する。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">顧客認定<span class="term-en">Qualification</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>顧客側で性能・信頼性を検証する工程。採用まで時間がかかる。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">先端パッケージ<span class="term-en">Advanced Packaging</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>GPUとHBMを近くに配置する高度な実装技術。供給能力がAIチップ全体のボトルネックになりうる。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">設備投資<span class="term-en">Capex</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>工場や製造装置への投資。増やせば供給は伸びるが、将来の供給過多リスクも生む。</p></div></details></div>
   </section>
 
   <!-- SEC5: 競合比較　⚡まとめ → table-wrap>compare-table(自社=me) → highlight「差別化」 -->
   <section class="section" id="sec5">
     <div class="section-header">
       <div class="section-icon">⚔️</div><div class="section-num">5</div>
-      <div><div class="section-title">Micronの最新公開情報をもとに整理。詳細は各セクションを確認してください。</div><div class="section-sub">Micronの最新公開情報をもとに整理。詳細は各セクションを確認してください。</div></div>
+      <div><div class="section-title">Samsung・SK hynixと<span class="g">どう違う</span>？</div><div class="section-sub">世界のメモリ三強を比較</div></div>
     </div>
-    <div class="tldr"><div class="tldr-label">⚡ このセクションの3秒まとめ</div><ul><li data-emoji="🔥">AI向けHBMが成長の主役</li><li data-emoji="💸">FQ3売上$41.46B、粗利率84.6%</li><li data-emoji="⚠️">最大リスクはメモリ供給増と価格反落</li></ul></div>
-    Micronの最新公開情報をもとに整理。詳細は各セクションを確認してください。
+    <div class="tldr"><div class="tldr-label">⚡ このセクションの3秒まとめ</div><ul><li data-emoji="⚔️">世界の大手はSamsung・SK hynix・Micron。</li><li data-emoji="🥇">HBMではSK hynixが強い。Micronは追う側だがAI需要の恩恵は大きい。</li><li data-emoji="🇺🇸">Micronは米国本社の大手メモリメーカーという独自ポジション。</li></ul></div>
+    <div class="table-wrap"><table class="compare-table"><thead><tr><th>会社</th><th>強み</th><th>HBM</th><th>注意点</th></tr></thead><tbody>
+<tr class="me"><td>Micron</td><td>米国系・DRAM/NAND/HBM</td><td>急拡大</td><td>規模は韓国2社より小さい</td></tr>
+<tr><td>SK hynix</td><td>HBMの市場リーダー</td><td>非常に強い</td><td>AI需要への依存度上昇</td></tr>
+<tr><td>Samsung</td><td>巨大な総合半導体企業</td><td>強化中</td><td>幅広い事業の影響</td></tr>
+<tr><td>CXMT</td><td>中国DRAM勢</td><td>限定的</td><td>地政学・輸出規制</td></tr>
+<tr><td>Kioxia</td><td>NANDフラッシュ大手</td><td>なし</td><td>NAND市況への感応度</td></tr>
+</tbody></table></div>
+<div class="highlight"><h3>🔥 最大の差別化</h3><p>Micronは<b>米国本社の大手メモリ専業</b>という希少な立ち位置。AI向けHBM、データセンターDRAM、SSDをまとめて伸ばせるのがポイント。</p></div>
   </section>
 
   <!-- SEC6: 用語辞典　⚡まとめ(特にこの3つ) → term-list 10〜12（①定義→②なぜ重要→③この銘柄では） -->
@@ -420,8 +403,8 @@ strong.g { color: var(--accent); }
       <div class="section-icon">📖</div><div class="section-num">6</div>
       <div><div class="section-title">MUのニュースで出る<span class="g">言葉</span> 全辞典</div><div class="section-sub">分からん単語はここで潰す</div></div>
     </div>
-    <div class="tldr"><div class="tldr-label">⚡ 特にこの3つだけは覚えて</div><ul><li data-emoji="🔥">AI向けHBMが成長の主役</li><li data-emoji="💸">FQ3売上$41.46B、粗利率84.6%</li><li data-emoji="⚠️">最大リスクはメモリ供給増と価格反落</li></ul></div>
-    Micronの最新公開情報をもとに整理。詳細は各セクションを確認してください。
+    <div class="tldr"><div class="tldr-label">⚡ 特にこの3つだけは覚えて</div><ul><li data-emoji="🚀">HBM＝AI GPUに大量データを渡す超高速メモリ。</li><li data-emoji="📈">ASP＝製品1個あたりの平均販売価格。</li><li data-emoji="⚠️">メモリサイクル＝不足と供給過多を繰り返す宿命。</li></ul></div>
+    <div class="term-list"><details class="term-item"><summary class="term-header"><span class="term-name">HBM<span class="term-en">High Bandwidth Memory</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>①定義：</b>超高速・広帯域メモリ。<br><b>②なぜ重要：</b>AI計算の待ち時間を減らす。<br><b>③この銘柄では：</b>成長の中心。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">DRAM<span class="term-en">Dynamic RAM</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>①定義：</b>高速な一時記憶。<br><b>②なぜ重要：</b>ほぼ全コンピューターに必要。<br><b>③この銘柄では：</b>主力製品。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">NAND<span class="term-en">NAND Flash</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>①定義：</b>データ保存用半導体。<br><b>②なぜ重要：</b>SSDやスマホに必要。<br><b>③この銘柄では：</b>もう一つの柱。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">ASP<span class="term-en">Average Selling Price</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>①定義：</b>平均販売価格。<br><b>②なぜ重要：</b>上がると売上・利益が伸びやすい。<br><b>③この銘柄では：</b>決算の重要チェック項目。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">Bit Shipment<span class="term-en">出荷ビット量</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>①定義：</b>出荷したメモリ容量。<br><b>②なぜ重要：</b>数量成長を示す。<br><b>③この銘柄では：</b>ASPとセットで見る。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">Gross Margin<span class="term-en">粗利益率</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>①定義：</b>売上から製造原価を引いた利益率。<br><b>②なぜ重要：</b>価格決定力を映す。<br><b>③この銘柄では：</b>サイクルの強さが出やすい。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">Free Cash Flow<span class="term-en">FCF</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>①定義：</b>事業で稼いだ現金から設備投資などを引いた残り。<br><b>②なぜ重要：</b>本当の現金創出力。<br><b>③この銘柄では：</b>大型投資を支える力を見る。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">Capex<span class="term-en">設備投資</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>①定義：</b>工場・装置への投資。<br><b>②なぜ重要：</b>将来供給を決める。<br><b>③この銘柄では：</b>成長と供給過多の両面がある。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">HBM4<span class="term-en">Next-gen HBM</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>①定義：</b>次世代HBM。<br><b>②なぜ重要：</b>次世代AI基盤の性能に直結。<br><b>③この銘柄では：</b>競争力確認の重要製品。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">歩留まり<span class="term-en">Yield</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>①定義：</b>良品率。<br><b>②なぜ重要：</b>製造コストを左右。<br><b>③この銘柄では：</b>HBM増産のカギ。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">メモリサイクル<span class="term-en">Memory Cycle</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>①定義：</b>不足と余剰の循環。<br><b>②なぜ重要：</b>価格と利益が激変する。<br><b>③この銘柄では：</b>最大級の株価要因。</p></div></details></div>
   </section>
 
   <!-- SEC7: 株価の見方　⚡まとめ → timeline(signal+rating) → リスク4分類 info-row → highlight → 数字まとめ table -->
@@ -430,8 +413,29 @@ strong.g { color: var(--accent); }
       <div class="section-icon">💹</div><div class="section-num">7</div>
       <div><div class="section-title">何がMU株を<span class="g">動かす</span>？</div><div class="section-sub">上がる理由・下がる理由を一目で</div></div>
     </div>
-    <div class="tldr"><div class="tldr-label">⚡ 株価のツボ 3秒まとめ</div><ul><li data-emoji="🔥">AI向けHBMが成長の主役</li><li data-emoji="💸">FQ3売上$41.46B、粗利率84.6%</li><li data-emoji="⚠️">最大リスクはメモリ供給増と価格反落</li></ul></div>
-    Micronの最新公開情報をもとに整理。詳細は各セクションを確認してください。
+    <div class="tldr"><div class="tldr-label">⚡ 株価のツボ 3秒まとめ</div><ul><li data-emoji="🟢">HBM・データセンター需要と価格上昇は追い風。</li><li data-emoji="🟡">次世代HBMの顧客認定と量産進捗を確認。</li><li data-emoji="🔴">大型増産が将来の供給過多につながると逆風。</li></ul></div>
+    <div class="timeline">
+<div class="tl-row"><div class="tl-date">2026年 夏〜秋</div><div class="tl-title"><span class="signal bull">🟢 強気材料</span> FY26 Q4決算・次期見通し <span class="rating">★★★★★</span></div><div class="tl-desc">過去最高Q3の後も売上・利益・FCFが伸びるか。</div></div>
+<div class="tl-row"><div class="tl-date">2026年 下期</div><div class="tl-title"><span class="signal bull">🟢 強気材料</span> HBM3E/HBM4供給拡大 <span class="rating">★★★★★</span></div><div class="tl-desc">AI顧客向け数量と利益率の伸びを確認。</div></div>
+<div class="tl-row"><div class="tl-date">2026〜2027年</div><div class="tl-title"><span class="signal neutral">🟡 要確認</span> 長期顧客契約の効果 <span class="rating">★★★★<span class="off">★</span></span></div><div class="tl-desc">価格・数量の予測可能性が本当に高まるか。</div></div>
+<div class="tl-row"><div class="tl-date">2027年</div><div class="tl-title"><span class="signal bull">🟢 強気材料</span> HBM供給予約の実現 <span class="rating">★★★★★</span></div><div class="tl-desc">会社説明ではHBM3E/HBM4需要が強く、供給能力が重要。</div></div>
+<div class="tl-row"><div class="tl-date">2027〜2028年</div><div class="tl-title"><span class="signal bear">🔴 最大注意</span> 供給過多リスク <span class="rating">★★★★★</span></div><div class="tl-desc">各社の巨大設備投資が需要を超えると価格下落につながる。</div></div>
+<div class="tl-row"><div class="tl-date">継続監視</div><div class="tl-title"><span class="signal neutral">🟡 要確認</span> AI設備投資の持続性 <span class="rating">★★★★★</span></div><div class="tl-desc">クラウド大手のAI投資減速はメモリ需要に波及しうる。</div></div>
+</div>
+<div class="info-row">
+<div class="info-box info-box-blue"><div class="info-title info-title-blue">🔧 技術リスク</div><div class="info-text">HBM4の性能、歩留まり、量産立ち上げで競合に遅れる可能性。</div></div>
+<div class="info-box info-box-amber"><div class="info-title info-title-amber">🏛️ 規制リスク</div><div class="info-text">米中摩擦や輸出規制が販売先・装置調達に影響する可能性。</div></div>
+<div class="info-box info-box-red"><div class="info-title info-title-red">💸 財務リスク</div><div class="info-text">巨額設備投資後に市況が悪化するとFCFが急減しうる。</div></div>
+<div class="info-box info-box-gray"><div class="info-title info-title-gray">📉 市場リスク</div><div class="info-text">メモリ価格下落、AI投資減速、競合増産が最大の注意点。</div></div>
+</div>
+<div class="highlight"><h3>⚠️ 投資家向け注意点</h3><p>今のMicronは記録的な業績でも、株価は<b>「次の不足がいつまで続くか」</b>を先に織り込みます。良い決算だけでなく、価格・供給・設備投資の先行きを見るのがコツ。</p></div>
+<div class="table-wrap"><table class="compare-table"><thead><tr><th>数字</th><th>最新確認値</th><th>意味</th></tr></thead><tbody>
+<tr><td>FY26 Q3売上</td><td>$41.46B</td><td>過去最高</td></tr>
+<tr><td>調整後FCF</td><td>$18.3B</td><td>強い現金創出</td></tr>
+<tr><td>現金等</td><td>$30.2B</td><td>投資余力</td></tr>
+<tr><td>Q3設備投資</td><td>$7.1B</td><td>需要対応へ大型投資</td></tr>
+<tr><td>参考株価</td><td>$936.17</td><td>2026年7月13日取得値</td></tr>
+</tbody></table></div>
   </section>
 
 </div><!-- /container -->
@@ -460,10 +464,21 @@ document.querySelectorAll('details.term-item').forEach(d => {
 
 <!--
 ================================================================
-  デザインロック（重要）
-  ・アクセント色はSiMグリーンで固定。銘柄・業界で変えない。
-  ・以前あった「業界別カラー早見表」は廃止（色を変えると銘柄ごとに見た目がぶれるため）。
-  ・この <style> と骨格は改変禁止。{{ }} の中身だけ差し替える。
+  アクセント色 早見表（ダークシェルは固定。以下の4変数だけ差し替え）
+  デフォルトは SiMグリーン。業界で変えたいときだけ下の値を使う。
+================================================================
+■ SiMグリーン（デフォルト・推奨）
+  --accent:#6EE24E  --accent-bright:#8BF56B  --accent-tint:rgba(110,226,78,.12)  --accent-line:rgba(110,226,78,.38)
+■ 量子コンピューター（紫）
+  --accent:#a78bfa  --accent-bright:#c4b5fd  --accent-tint:rgba(167,139,250,.12)  --accent-line:rgba(167,139,250,.38)
+■ 同位体/先端素材（シアン）
+  --accent:#2dd4bf  --accent-bright:#5eead4  --accent-tint:rgba(45,212,191,.12)   --accent-line:rgba(45,212,191,.38)
+■ 半導体/AI（青）
+  --accent:#60a5fa  --accent-bright:#93c5fd  --accent-tint:rgba(96,165,250,.12)   --accent-line:rgba(96,165,250,.38)
+■ エネルギー/原子力（琥珀）
+  --accent:#fbbf24  --accent-bright:#fcd34d  --accent-tint:rgba(251,191,36,.12)   --accent-line:rgba(251,191,36,.38)
+■ 防衛/宇宙（アイスブルー）
+  --accent:#7dd3fc  --accent-bright:#bae6fd  --accent-tint:rgba(125,211,252,.12)  --accent-line:rgba(125,211,252,.38)
 ================================================================
   ChatGPT用ルール: 完成HTMLは必ず index.html というファイル名で保存・出力する。
 ================================================================
