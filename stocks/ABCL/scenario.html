@@ -1,128 +1,239 @@
 <!doctype html>
 <html lang="ja">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>ABCL シナリオ試算 | 2026-07-13</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AbCellera Biologics（ABCL）｜ドパガキ株価シナリオ</title>
+
 <style>
-:root{--navy:#07182f;--navy2:#0d2748;--blue:#2563eb;--green:#16875f;--orange:#d97706;--red:#d64045;--ink:#172033;--muted:#667085;--bg:#f3f6fa;--card:#fff;--line:#dfe6ef}
-*{box-sizing:border-box} body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans JP",sans-serif;background:var(--bg);color:var(--ink);line-height:1.65}
-.hero{background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;padding:40px 18px 54px} .wrap{max-width:1080px;margin:auto}
-.eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#9fc4ff} h1{font-size:clamp(30px,6vw,54px);margin:8px 0} .sub{color:#c7d7ec;max-width:760px}
-.hero-grid,.grid2,.grid3{display:grid;gap:14px} .hero-grid{grid-template-columns:repeat(4,1fr);margin-top:26px} .metric{background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.14);padding:16px;border-radius:16px} .metric small{display:block;color:#bcd0e8} .metric b{font-size:27px}
-main{padding:0 16px 50px;margin-top:-28px} .card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px;box-shadow:0 10px 30px rgba(10,32,62,.06);margin-bottom:16px}
-h2{font-size:22px;margin:0 0 14px} h3{margin:4px 0;font-size:28px} h4{margin-bottom:6px} .lead{font-size:19px;font-weight:700}
-.badge{display:inline-block;padding:6px 10px;border-radius:999px;font-size:12px;font-weight:700;background:#fff3d9;color:#995900} .danger{background:#fee8e8;color:#a1262b}
-.grid2{grid-template-columns:1fr 1fr} .grid3{grid-template-columns:repeat(3,1fr)} .scenario{background:#fff;border-radius:16px;padding:18px;border:1px solid var(--line)} .scenario.bear{border-top:5px solid var(--red)} .scenario.base{border-top:5px solid var(--blue)} .scenario.bull{border-top:5px solid var(--green)} .scenario-head{display:flex;justify-content:space-between;align-items:start} .tag{font-size:12px;font-weight:800;color:var(--muted)}
-.band{position:relative;height:22px;border-radius:999px;background:linear-gradient(90deg,#ef9a9a,#f6c76b 38%,#7eb1fa 64%,#69c79f);margin:34px 5px 12px} .marker{position:absolute;left:29.9%;top:-11px;transform:translateX(-50%);width:4px;height:44px;background:#111827;border-radius:4px} .marker:after{content:"現値 $7.29";position:absolute;top:-28px;left:50%;transform:translateX(-50%);white-space:nowrap;background:#111827;color:#fff;padding:3px 7px;border-radius:6px;font-size:11px}
-.scale{display:flex;justify-content:space-between;font-size:12px;color:var(--muted)} table{width:100%;border-collapse:collapse} td,th{border-bottom:1px solid var(--line);padding:9px;text-align:left;font-size:14px} ul{padding-left:20px} .note{background:#fff7e8;border-left:4px solid var(--orange);padding:13px 15px;border-radius:8px} .good{background:#eaf8f2;border-left-color:var(--green)} .bad{background:#feeeee;border-left-color:var(--red)}
-details{border-top:1px solid var(--line);padding:13px 0} summary{cursor:pointer;font-weight:800} .v{padding:3px 7px;border-radius:999px;font-size:11px;font-weight:800} .v.pass{background:#e8f7ef;color:#0f754f} .v.warn{background:#fff1d6;color:#a35e00}
-.kpi{font-size:30px;font-weight:800} .muted{color:var(--muted)} a{color:var(--blue)} footer{font-size:12px;color:var(--muted);padding:20px 0}
-@media(max-width:760px){.hero-grid,.grid2,.grid3{grid-template-columns:1fr 1fr} .hero{padding-top:28px}}
-@media(max-width:520px){.hero-grid,.grid2,.grid3{grid-template-columns:1fr} .metric b{font-size:24px} .card{padding:17px}}
-@media print{body{background:#fff} main{margin-top:0} .card{box-shadow:none;break-inside:avoid} details{display:block}}
+:root{--bg:#0b0b10;--panel:#171720;--panel2:#20202b;--ink:#f7f7fb;--muted:#aaaabd;--line:#343445;--lime:#caff00;--pink:#ff4ecd;--cyan:#48e7ff;--orange:#ff9c2b;--red:#ff5d68;--green:#56f39a;--purple:#845cff;--shadow:0 18px 55px rgba(0,0,0,.35)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 8% 4%,rgba(132,92,255,.2),transparent 30rem),radial-gradient(circle at 92% 12%,rgba(255,78,205,.14),transparent 26rem),linear-gradient(180deg,#08080c,#111119 48%,#0b0b10);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans JP",sans-serif;line-height:1.65;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.15;background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:28px 28px;mask-image:linear-gradient(#000,transparent 72%)}
+a{color:var(--cyan)}.wrap{max-width:1120px;margin:auto;padding:0 18px}.hero{position:relative;color:#fff;padding:34px 0 42px;border-bottom:1px solid rgba(255,255,255,.08)}.hero:after{content:"DOPAGAKI";position:absolute;right:-20px;top:12px;font-size:clamp(56px,14vw,170px);font-weight:1000;letter-spacing:-.08em;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.08);transform:rotate(4deg);pointer-events:none}
+.eyebrow{display:inline-flex;align-items:center;gap:7px;padding:7px 12px;border:1px solid rgba(202,255,0,.45);border-radius:999px;font-size:11px;letter-spacing:.12em;color:var(--lime);background:rgba(202,255,0,.08);font-weight:900}.eyebrow:before{content:"●";font-size:8px}
+h1{position:relative;z-index:1;font-size:clamp(36px,7vw,72px);line-height:.98;letter-spacing:-.055em;margin:18px 0 10px;font-weight:1000;max-width:900px}h1 small{display:inline-block;font-size:.31em;padding:7px 11px;border-radius:10px;background:var(--lime);color:#0b0b10;vertical-align:middle;letter-spacing:0;transform:rotate(-2deg)}.sub{color:#c1c1d2;position:relative;z-index:1}
+.verdict{position:relative;z-index:1;display:grid;grid-template-columns:1.55fr .45fr;gap:16px;margin-top:24px}.verdict-main,.score{border:1px solid rgba(255,255,255,.1);border-radius:26px;padding:24px;box-shadow:var(--shadow)}.verdict-main{background:linear-gradient(135deg,rgba(132,92,255,.27),rgba(255,78,205,.12)),var(--panel)}.score{background:var(--lime);color:#0b0b10;transform:rotate(1deg);display:flex;flex-direction:column;justify-content:center}.status{font-size:clamp(25px,4vw,40px);line-height:1.15;font-weight:1000;letter-spacing:-.04em;margin-top:10px}.score b{font-size:58px;line-height:1;display:block}.score small{color:#202014;font-weight:800}
+.kpis{position:relative;z-index:1;display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:16px}.kpi{min-height:126px;background:rgba(23,23,32,.94);border:1px solid var(--line);border-radius:20px;padding:18px;position:relative;overflow:hidden}.kpi:after{content:"";position:absolute;width:72px;height:72px;border-radius:50%;right:-25px;bottom:-30px;background:var(--purple);opacity:.2}.kpi:nth-child(2):after{background:var(--cyan)}.kpi:nth-child(3):after{background:var(--pink)}.kpi:nth-child(4):after{background:var(--red)}.kpi span{font-size:11px;color:var(--muted);font-weight:800}.kpi b{font-size:clamp(22px,3vw,31px);display:block;margin-top:6px;letter-spacing:-.04em}.kpi small{color:#cfcfe0}
+main{padding:22px 0 70px}section{margin:18px 0}.card{background:linear-gradient(180deg,rgba(31,31,43,.98),rgba(20,20,28,.98));border:1px solid var(--line);box-shadow:var(--shadow);border-radius:26px;padding:24px;position:relative;overflow:hidden}.card:before{content:"";position:absolute;width:130px;height:130px;border-radius:50%;right:-70px;top:-75px;background:var(--purple);filter:blur(10px);opacity:.13}
+h2{position:relative;z-index:1;font-size:clamp(23px,3vw,32px);line-height:1.15;letter-spacing:-.04em;margin:0 0 9px;font-weight:1000}h2:before{content:"#";color:var(--lime);margin-right:7px}h3{margin:0 0 8px;font-size:19px}.lead{color:var(--muted);margin-top:0}.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}.scenarios{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.scenario{border-radius:22px;padding:19px;border:1px solid var(--line);background:#111119;position:relative;overflow:hidden;min-height:335px}.scenario:after{position:absolute;right:-5px;top:-12px;font-weight:1000;font-size:68px;opacity:.07;line-height:1}.scenario.bear:after{content:"B";color:var(--red)}.scenario.base:after{content:"A";color:var(--cyan)}.scenario.bull:after{content:"↑";color:var(--lime)}.scenario-head{display:flex;justify-content:space-between;gap:10px;font-weight:900}.scenario-head b{padding:4px 9px;border-radius:999px;color:#0a0a0d;background:#fff}.scenario-price{font-size:clamp(32px,4vw,44px);font-weight:1000;letter-spacing:-.055em;margin:14px 0 0}.scenario.bear{border-top:6px solid var(--red)}.scenario.base{border-top:6px solid var(--cyan);box-shadow:0 0 0 1px rgba(72,231,255,.15),0 16px 40px rgba(72,231,255,.08)}.scenario.bull{border-top:6px solid var(--lime)}
+.small{font-size:13px;color:var(--muted)}dl{margin:16px 0 0}dl div{display:flex;justify-content:space-between;border-top:1px dashed var(--line);padding:8px 0;gap:12px}dt{color:var(--muted)}dd{margin:0;font-weight:800}
+.position{margin-top:20px}.position-line{height:20px;border-radius:999px;background:linear-gradient(90deg,var(--red),var(--orange),var(--cyan),var(--lime));position:relative;box-shadow:inset 0 0 0 2px rgba(255,255,255,.12)}.pin{position:absolute;top:-9px;width:8px;height:38px;background:#fff;border:2px solid #050508;border-radius:6px;left:36.1%;box-shadow:0 4px 14px rgba(0,0,0,.55)}.position-labels{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);margin-top:7px;gap:7px}.pill{display:inline-block;padding:6px 11px;border-radius:999px;background:var(--pink);color:#fff;font-weight:1000;font-size:11px;transform:rotate(-1deg)}
+.zone,.signal{border-top:1px solid var(--line);padding:14px 0}.zone div,.signal div{display:flex;justify-content:space-between;gap:12px}.zone span{color:var(--lime);letter-spacing:.1em}.zone p,.signal p{margin:4px 0;color:var(--muted);font-size:14px}.up{color:var(--green);font-weight:900}.down{color:var(--red);font-weight:900}.flat{color:var(--orange);font-weight:900}
+ul.clean{padding:0;margin:12px 0;list-style:none}ul.clean li{margin:10px 0;padding:12px 14px 12px 42px;background:#111119;border:1px solid var(--line);border-radius:15px;position:relative}ul.clean li:before{content:"✓";position:absolute;left:14px;top:11px;color:var(--lime);font-weight:1000}.grid-2 .card:nth-child(2) ul.clean li:before{content:"!";color:var(--red)}
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:14px}.meter,.track{background:#0d0d13;border:1px solid #2d2d3b;border-radius:999px;overflow:hidden}.meter{height:14px}.meter i{display:block;height:100%;background:linear-gradient(90deg,var(--purple),var(--pink));border-radius:999px}.dist-row{display:grid;grid-template-columns:120px 1fr 52px;gap:10px;align-items:center;margin:12px 0}.track{height:12px}.track i{display:block;height:100%;background:linear-gradient(90deg,var(--cyan),var(--lime));border-radius:999px}
+.table-wrap{overflow:auto;border:1px solid var(--line);border-radius:18px;background:#111119}table{border-collapse:collapse;width:100%;min-width:760px}th,td{border-bottom:1px solid var(--line);padding:12px;text-align:right}th:first-child,td:first-child{text-align:left}th{font-size:11px;color:var(--lime);background:#0f0f16;position:sticky;top:0}
+details{border:1px solid var(--line);background:#111119;border-radius:16px;padding:0;margin:10px 0;overflow:hidden}summary{font-weight:900;cursor:pointer;padding:15px 16px;list-style:none}summary::-webkit-details-marker{display:none}summary:after{content:"＋";float:right;color:var(--lime);font-size:20px;line-height:1}details[open] summary:after{content:"−"}details>p,details>ul{padding:0 16px 16px;margin:0;color:#c4c4d2}
+.notice{border:1px solid rgba(255,156,43,.45);border-left:6px solid var(--orange);background:linear-gradient(90deg,rgba(255,156,43,.12),rgba(255,156,43,.03));padding:15px 16px;border-radius:16px}footer{color:var(--muted);font-size:12px;margin-top:28px;padding:20px 0 0;border-top:1px solid var(--line)}
+@media(max-width:800px){.verdict,.grid-2,.compare{grid-template-columns:1fr}.kpis{grid-template-columns:1fr 1fr}.scenarios{grid-template-columns:1fr}.hero{padding-top:24px}.score{transform:none}.scenario{min-height:auto}}
+@media(max-width:520px){.wrap{padding:0 13px}.kpis{grid-template-columns:1fr 1fr;gap:9px}.kpi{padding:15px;min-height:112px}.kpi b{font-size:21px}.card{padding:18px;border-radius:22px}.dist-row{grid-template-columns:90px 1fr 46px;font-size:12px}.position-labels{font-size:9px}h1{font-size:42px}}
+@media print{body{background:#fff;color:#111}body:before,.hero:after{display:none}.hero,.card,.kpi,.scenario,details,.table-wrap{background:#fff!important;color:#111!important;box-shadow:none!important}.hero{border-bottom:2px solid #111}.sub,.lead,.small,.zone p,.signal p,footer{color:#555!important}.card,.kpi,.scenario,details{break-inside:avoid}}
 </style>
+
 </head>
 <body>
-<header class="hero"><div class="wrap">
-<div class="eyebrow">Premium Scenario Valuation Framework v2.0</div>
-<h1>AbCellera <span style="color:#8db9ff">ABCL</span></h1>
-<p class="sub">評価基準日 2026年7月13日｜主手法：rNPV＋SOTP｜臨床段階バイオとして、自社パイプライン・パートナー権益・資産価値を分けて評価。</p>
-<div class="hero-grid">
-<div class="metric"><small>現在株価</small><b>$7.29</b><small>2026年7月10日終値</small></div>
-<div class="metric"><small>Bear / Base / Bull</small><b>$4 / $8 / $15</b></div>
-<div class="metric"><small>確率加重期待値</small><b>$8.2</b></div>
-<div class="metric"><small>リスク区分</small><b>VERY HIGH</b></div>
-</div></div></header>
+<!-- ================================================================
+  DOPAGAKI STOCK LAB / SCENARIO TEMPLATE
+  ・CSSと各セクション構成はキオクシア版と同一（サイト掲載の見た目を維持）。
+  ・{{ }} を report_data の値で置換して使う。数値・確率・結論は改変しない。
+  ・ファイル名は銘柄名（例: 285A.html / IONQ.html）。
+================================================================ -->
+<header class="hero">
+<div class="wrap">
+  <div class="eyebrow">DOPAGAKI STOCK LAB / SCENARIO CHECK</div>
+  <h1>AbCellera Biologics <small>ABCL</small></h1>
+  <div class="sub">NASDAQ｜評価基準日 2026年7月13日｜使用手法 SOTP＋簡易rNPV</div>
+  <div class="verdict">
+    <div class="verdict-main">
+      <span class="pill">まず結論だけ</span>
+      <!-- decision.status＋一言結論（絵文字は先頭1個まで、45文字目安） -->
+      <div class="status">期待は乗った。次は治験データで答え合わせ</div>
+      <!-- 現値ポジショニングと市場逆算を1〜2文で -->
+      <p>現値$6.80はBear〜Bull帯の約28%。Base $8.00より下です。</p>
+      <p class="sub">ただしQ3のABCL635結果前で、安さよりイベントリスクを優先して見る局面です。</p>
+    </div>
+    <!-- 総合スコアは“補助指標”。売買判断そのものではない旨を必ず添える -->
+    <div class="score"><small>総合スコア（補助指標）</small><b>58</b><small>/ 100　売買判断そのものではありません</small></div>
+  </div>
+  <div class="kpis">
+    <div class="kpi"><span>現在株価</span><b>$6.80</b><small>7月10日終値。7月13日取引時間中も$6.80付近</small></div>
+    <div class="kpi"><span>Base価値（標準ケース）</span><b>$8.00</b><small>+17.6%</small></div>
+    <div class="kpi"><span>確率加重期待値</span><b>$8.50</b><small>+25.4%（補助値）</small></div>
+    <div class="kpi"><span>リスク区分</span><b>高い</b><small>Phase 2結果で価値が大きく動く</small></div>
+  </div>
 
-<main><div class="wrap">
-<section class="card">
-<span class="badge">適正〜慎重寄り（イベント前）</span>
-<h2 style="margin-top:10px">5秒で結論</h2>
-<p class="lead">現値はBase直下。ただし直近急騰後で、ABCL635の良好なPhase 2結果を先回りしている。</p>
-<div class="band"><span class="marker"></span></div><div class="scale"><span>Bear $4</span><span>Base $8</span><span>Bull $15</span></div>
-<p><b>帯内位置：</b>30%　／　<b>端点リスクリワード：</b>2.34x</p>
-<div class="note"><b>市場逆算：</b>現値の企業価値は約$1.70B。基盤・パートナー・その他資産を約$0.9Bと置くと、ABCL635に約$0.8Bを割り当てている。これは本試算のBaseに近い成功前提。</div>
-<p><b>次の主要カタリスト：</b>ABCL635 Phase 2トップライン（Q3 2026、最大約12週間）</p>
+<div style="position:relative;z-index:1;margin-top:14px;display:inline-flex;gap:8px;flex-wrap:wrap">
+<span style="background:#caff00;color:#0b0b10;padding:5px 9px;border-radius:8px;font-size:11px;font-weight:1000;transform:rotate(-1deg)">初心者でも読める</span>
+<span style="background:#48e7ff;color:#0b0b10;padding:5px 9px;border-radius:8px;font-size:11px;font-weight:1000;transform:rotate(1deg)">数字はガチ</span>
+<span style="background:#ff4ecd;color:#fff;padding:5px 9px;border-radius:8px;font-size:11px;font-weight:1000;transform:rotate(-1deg)">煽りだけはしない</span>
+</div>
+
+</div>
+</header>
+
+<!-- Validation：WARNがあれば下の注意帯を残す（なければ丸ごと削除）。FAIL時は完成版にしない。 -->
+<div class="wrap"><div class="notice" style="margin-top:14px"><b>注意：</b>直近20営業日の正確な起点終値は未確認。79.1百万株の潜在株式は全量行使ではなく、シナリオ別に希薄化を仮定しています。</div></div>
+<!-- 例（WARN時）:
+<div class="wrap"><div class="notice" style="margin-top:14px"><b>注意：</b></div></div>
+-->
+
+<nav style="position:sticky;top:0;z-index:50;background:rgba(9,9,13,.86);backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.08)">
+<div class="wrap" style="display:flex;gap:8px;overflow:auto;padding-top:10px;padding-bottom:10px">
+<a href="#snapshot" style="white-space:nowrap;text-decoration:none;background:#1b1b25;border:1px solid #343445;color:#fff;padding:7px 11px;border-radius:999px;font-size:12px;font-weight:900">結論</a>
+<a href="#scenarios" style="white-space:nowrap;text-decoration:none;background:#1b1b25;border:1px solid #343445;color:#fff;padding:7px 11px;border-radius:999px;font-size:12px;font-weight:900">3シナリオ</a>
+<a href="#logic" style="white-space:nowrap;text-decoration:none;background:#1b1b25;border:1px solid #343445;color:#fff;padding:7px 11px;border-radius:999px;font-size:12px;font-weight:900">計算</a>
+<a href="#sensitivity" style="white-space:nowrap;text-decoration:none;background:#1b1b25;border:1px solid #343445;color:#fff;padding:7px 11px;border-radius:999px;font-size:12px;font-weight:900">感応度</a>
+<a href="#assumptions" style="white-space:nowrap;text-decoration:none;background:#1b1b25;border:1px solid #343445;color:#fff;padding:7px 11px;border-radius:999px;font-size:12px;font-weight:900">前提</a>
+</div></nav>
+
+<main class="wrap">
+
+<!-- Layer2-1：いまどこ？（現値ポジショニング＋市場逆算） -->
+<section class="card" id="snapshot">
+  <h2>いまの株価、どこにいる？</h2>
+  <p class="lead">6月のJazz提携と7月のアナリスト評価で期待が上昇。7月7日に52週高値$8.44を付けた後、$6.80へ反落しました。</p>
+  <div class="grid-2">
+    <div>
+      <h3>現値ポジショニング</h3>
+      <p>Bear〜Bull帯の <b>27.5%</b> 地点。判定は <b>適正〜慎重寄り</b>。ただし大型データ直前のため、帯内位置だけで判断しません。</p>
+      <!-- pin の left:% を band_position_pct に合わせる -->
+      <div class="position"><div class="position-line"><i class="pin" style="left:27.5%"></i></div><div class="position-labels"><span>Bear $3.50</span><span>Base $8.00</span><span>Bull $15.50</span></div></div>
+      <p>上値下値比：<b>2.64倍</b>　確率加重期待値：<b>$8.50</b></p>
+    </div>
+    <div>
+      <h3>市場期待と独自見解</h3>
+      <div class="compare">
+        <div><b>市場期待 68/100</b><div class="meter"><i style="width:68%"></i></div></div>
+        <div><b>本試算 58/100</b><div class="meter"><i style="width:58%"></i></div></div>
+      </div>
+      <!-- market_reverse.conclusion：現値が自分のどの前提に相当するか -->
+      <p>現値EVは約$1.56B。プラットフォーム等を$0.70Bと置くと、残り$0.86Bを自社パイプラインへ織り込んでいます。ABCL635単独に直すと承認確率約19%相当です（仮定）。</p>
+    </div>
+  </div>
 </section>
 
-<section class="grid3">
+<!-- Layer1/2：3シナリオ。dl の項目は使用手法に合わせて変える（rNPV/SOTP/EV-Sales/PER等） -->
+<section class="card" id="scenarios">
+  <h2>未来はこの3パターン</h2>
+  <p class="lead">自社パイプライン、提携プラットフォーム、ネットキャッシュを別々に積み上げました。</p>
+  <div class="scenarios">
     <article class="scenario bear">
-      <div class="scenario-head"><div><span class="tag">Bear（弱気）</span><h3>$4</h3></div><strong>30%</strong></div>
-      <p>事業価値 $1,000M ＋ ネットキャッシュ $420M ÷ 希薄化後 355M株</p>
-      <table><tbody><tr><td>ABCL635</td><td>$250M</td></tr><tr><td>ABCL575</td><td>$20M</td></tr><tr><td>その他自社パイプライン</td><td>$80M</td></tr><tr><td>パートナー・プラットフォーム</td><td>$450M</td></tr><tr><td>戦略資産・設備</td><td>$200M</td></tr></tbody></table>
-      <h4>成立条件</h4><ul><li>ABCL635 Phase 2で臨床的な差が弱い、または安全性・用量面で追加検証が必要</li><li>パートナー案件の進捗が鈍化し、下流価値の見直しが続く</li><li>年間キャッシュ消費が高止まりし、SBCを含む希薄化が進む</li></ul>
+      <div class="scenario-head"><span>Bear（悲観ケース）</span><b>30%</b></div>
+      <div class="scenario-price">$3.50</div>
+      <div class="small">現値比 -48.5%</div>
+      <dl><div><dt>事業価値</dt><dd>$0.80B</dd></div><div><dt>ネットキャッシュ</dt><dd>$0.40B</dd></div><div><dt>希薄化後株数</dt><dd>325M</dd></div><div><dt>成立条件</dt><dd>635失敗・遅延</dd></div></dl>
+      <!-- 例: <div><dt>事業価値</dt><dd>25.9兆円</dd></div> を手法に応じて数行 -->
     </article>
     <article class="scenario base">
-      <div class="scenario-head"><div><span class="tag">Base（標準）</span><h3>$8</h3></div><strong>50%</strong></div>
-      <p>事業価値 $2,425M ＋ ネットキャッシュ $425M ÷ 希薄化後 350M株</p>
-      <table><tbody><tr><td>ABCL635</td><td>$900M</td></tr><tr><td>ABCL575</td><td>$75M</td></tr><tr><td>その他自社パイプライン</td><td>$300M</td></tr><tr><td>パートナー・プラットフォーム</td><td>$900M</td></tr><tr><td>戦略資産・設備</td><td>$250M</td></tr></tbody></table>
-      <h4>成立条件</h4><ul><li>ABCL635 Phase 2で有効性シグナルを確認し、後期開発へ進める根拠が得られる</li><li>ABCL575は安全性確認まで進み、外部提携または選択肢価値を維持</li><li>豊富な流動性により直近カタリスト前の外部調達を回避</li></ul>
+      <div class="scenario-head"><span>Base（標準ケース）</span><b>45%</b></div>
+      <div class="scenario-price">$8.00</div>
+      <div class="small">現値比 +17.6%</div>
+      <dl><div><dt>事業価値</dt><dd>$2.10B</dd></div><div><dt>ネットキャッシュ</dt><dd>$0.44B</dd></div><div><dt>希薄化後株数</dt><dd>318M</dd></div><div><dt>成立条件</dt><dd>635でPoC</dd></div></dl>
     </article>
     <article class="scenario bull">
-      <div class="scenario-head"><div><span class="tag">Bull（強気）</span><h3>$15</h3></div><strong>20%</strong></div>
-      <p>事業価値 $5,000M ＋ ネットキャッシュ $430M ÷ 希薄化後 360M株</p>
-      <table><tbody><tr><td>ABCL635</td><td>$2,400M</td></tr><tr><td>ABCL575</td><td>$250M</td></tr><tr><td>その他自社パイプライン</td><td>$650M</td></tr><tr><td>パートナー・プラットフォーム</td><td>$1,400M</td></tr><tr><td>戦略資産・設備</td><td>$300M</td></tr></tbody></table>
-      <h4>成立条件</h4><ul><li>ABCL635 Phase 2で明確かつ持続的な症状改善と良好な安全性を示す</li><li>月1回投与の差別化が商業価値として認識され、提携または自社開発の確度が上がる</li><li>パートナー由来マイルストーン・ロイヤルティ群にも再評価が波及</li></ul>
-    </article></section>
-
-<section class="grid2">
-<div class="card"><h2>会社の質</h2><p class="kpi">高い技術資産</p><p>抗体探索基盤、臨床製造設備、豊富なパートナー権益を保有。Q1末の現金・有価証券は約$504.7Mで、直近カタリスト前の資金調達リスクは低い。</p></div>
-<div class="card"><h2>株価の評価</h2><p class="kpi">成功を一部織込み</p><p>現値は悲観シナリオではない。ABCL635のPhase 2が「明確に良い」ことをある程度要求しており、企業の魅力と株価余地は分けて考える必要がある。</p></div>
+      <div class="scenario-head"><span>Bull（強気ケース）</span><b>25%</b></div>
+      <div class="scenario-price">$15.50</div>
+      <div class="small">現値比 +127.9%</div>
+      <dl><div><dt>事業価値</dt><dd>$4.60B</dd></div><div><dt>ネットキャッシュ</dt><dd>$0.38B</dd></div><div><dt>希薄化後株数</dt><dd>320M</dd></div><div><dt>成立条件</dt><dd>635強データ</dd></div></dl>
+    </article></div>
 </section>
 
+<!-- Layer2：価格別アクションマップ ＋ 株価を動かす材料 -->
+<section class="grid-2">
+  <div class="card">
+    <h2>この値段ならどう見る？</h2>
+    <!-- 4〜5帯。「買い/売り」は断定しない。星は割安度の目安 -->
+    <div class="zone"><div><b>$3.50未満</b><span>★★★★★</span></div><p>ABCL635失敗と資金消費を強く織り込む帯。</p></div><div class="zone"><div><b>$3.50〜$8.00</b><span>★★★☆☆</span></div><p>悲観から基本シナリオ。治験の質を確認。</p></div><div class="zone"><div><b>$8.00〜$15.50</b><span>★★☆☆☆</span></div><p>成功期待が大きい帯。効果量と安全性が必要。</p></div><div class="zone"><div><b>$15.50超</b><span>★☆☆☆☆</span></div><p>複数資産の成功まで先取りする水準。</p></div>
+    <!-- 例: <div class="zone"><div><b>48,000円未満</b><span>★★★★★</span></div><p>悲観ケース以下。下方リスクを相当織り込む</p></div> -->
+  </div>
+  <div class="card">
+    <h2>株価を動かす4つ</h2>
+    <!-- 各材料に up=追い風 / down=注意 / flat を付ける -->
+    <div class="signal"><div><b>ABCL635 Phase 1/2</b><span class="up">最重要</span></div><p>Q3 2026トップライン予定。</p></div><div class="signal"><div><b>ABCL575 Phase 1</b><span class="up">追い風候補</span></div><p>H2 2026トップライン目標。</p></div><div class="signal"><div><b>Jazz提携の実行</b><span class="up">追い風</span></div><p>$56M前払＋3件目開始時$28M。</p></div><div class="signal"><div><b>現金消費・SBC</b><span class="down">注意</span></div><p>Q1純損失$43.2M。潜在株式79.1M。</p></div>
+    <!-- 例: <div class="signal"><div><b>AI向けSSD需要</b><span class="up">追い風</span></div><p>…</p></div> -->
+  </div>
+</section>
+
+<!-- Layer2：良い点 / 気になる点（対比） -->
+<section class="grid-2">
+  <div class="card">
+    <h2>ここは普通に強い</h2>
+    <ul class="clean"><li>Q1時点で現金・有価証券$504.7M。さらにJazz前払金が加わる。</li><li>ABCL635は月1回投与を支える約24日の半減期。</li><li>14の提携由来臨床分子に下流権益を保有。</li><li>製造設備まで内製化し、抗体開発を一気通貫にした。</li></ul>
+    <!-- 例: <li>FY2025売上2.34兆円で過去最高。</li> を3〜5件 -->
+  </div>
+  <div class="card">
+    <h2>ここで事故るかも</h2>
+    <ul class="clean"><li>ABCL635の価値がQ3データへ集中。失敗時の下落余地が大きい。</li><li>Q1売上$8.3Mに対し営業費用$65.8M。まだ赤字構造。</li><li>パートナー案件の進捗は見えにくく、40件へ減少。</li><li>79.1M株の潜在株式があり、長期では希薄化に注意。</li></ul>
+    <!-- 2つ目のカードのliは自動で赤「!」になる -->
+  </div>
+</section>
+
+<!-- Layer3：計算ロジック -->
+<section class="card" id="logic">
+  <h2>数字の作り方</h2>
+  <p class="lead">理論株価 ＝（提携プラットフォーム価値＋各パイプラインrNPV＋ネットキャッシュ）÷ 希薄化後株式数</p>
+  <div class="table-wrap"><table>
+  <thead><tr><th>ケース</th><th>Platform等</th><th>ABCL635</th><th>他パイプライン</th><th>事業価値</th><th>Cash</th><th>株数</th><th>株価</th></tr></thead>
+  <tbody><tr><td>Bear</td><td>$0.55B</td><td>$0.05B</td><td>$0.20B</td><td>$0.80B</td><td>$0.40B</td><td>325M</td><td>$3.69→$3.50</td></tr><tr><td>Base</td><td>$0.75B</td><td>$0.90B</td><td>$0.45B</td><td>$2.10B</td><td>$0.44B</td><td>318M</td><td>$7.99→$8.00</td></tr><tr><td>Bull</td><td>$1.10B</td><td>$2.50B</td><td>$1.00B</td><td>$4.60B</td><td>$0.38B</td><td>320M</td><td>$15.56→$15.50</td></tr></tbody>
+  </table></div>
+  <!-- 現値に合わせた逆算ではない旨、未開示前提の注意など -->
+  <p class="notice"><b>重要：</b>これは公開情報を使った仮定モデルです。現値に理論値を合わせていません。政府資金$124Mは会社現金ではないためネットキャッシュに全額加えていません。</p>
+</section>
+
+<!-- Layer3：成立条件 -->
+<section class="card" id="conditions">
+  <h2>この未来になる条件</h2>
+  <details><summary>Bear：$3.50 / 確率30%</summary><p>ABCL635が有効性不足、安全性懸念、または大幅遅延。提携価値も縮小し、SBCと追加資金需要が重くなる。</p></details><details open><summary>Base：$8.00 / 確率45%</summary><p>ABCL635が概念実証に成功。ただし効果量は競争力の確認が必要。ABCL575と提携案件は段階的に進む。</p></details><details><summary>Bull：$15.50 / 確率25%</summary><p>ABCL635が明確な効果と良好な安全性を示す。月1回投与の差別化が支持され、575や提携にも再評価が広がる。</p></details>
+  <!-- 例: <details open><summary>Base：$8.00 / 確率45%</summary><p>…</p></details> を3つ -->
+</section>
+
+<!-- Layer3：感応度 ＋ 分布（モンテカルロは実施時のみ） -->
+<section class="grid-2" id="sensitivity">
+  <div class="card">
+    <h2>数字がズレるとどうなる？</h2>
+    <div class="table-wrap"><table>
+      <thead><tr><th>ABCL635 PoS</th><th>Platform $0.6B</th><th>$0.8B</th><th>$1.0B</th></tr></thead>
+      <tbody><tr><td>10%</td><td>$4.50</td><td>$5.00</td><td>$5.50</td></tr><tr><td>20%</td><td>$7.50</td><td>$8.00</td><td>$8.50</td></tr><tr><td>35%</td><td>$12.50</td><td>$13.00</td><td>$13.50</td></tr></tbody>
+    </table></div>
+    <p class="small">仮定。最も効くのはABCL635の成功確率。次がプラットフォーム残存価値と希薄化です。データが1四半期遅れると割引と追加バーンで約$0.3〜$0.6下押し。</p>
+  </div>
+  <div class="card">
+    <h2>どの価格に行きやすい？</h2>
+    <p class="lead">Bear/Base/Bullの離散シナリオ分布です。モンテカルロではありません。</p>
+    <div class="dist-row"><span>$5未満</span><div class="track"><i style="width:30%"></i></div><b>30%</b></div><div class="dist-row"><span>$5〜$10</span><div class="track"><i style="width:45%"></i></div><b>45%</b></div><div class="dist-row"><span>$10超</span><div class="track"><i style="width:25%"></i></div><b>25%</b></div>
+    <!-- 例: <div class="dist-row"><span>5万円未満</span><div class="track"><i style="width:7.6%"></i></div><b>7.6%</b></div> -->
+    <p>中央値はBaseの$8.00。二峰性が強く、平均値だけではリスクを表せません。</p>
+  </div>
+</section>
+
+<!-- 次の決算/イベントで見る場所（watch_items） -->
 <section class="card">
-<h2>エントリーコンテキスト</h2>
-<div class="grid3">
-<div><div class="muted">直近20営業日</div><div class="kpi">+38%</div><p>6月11日終値$5.27から現値$7.29。</p></div>
-<div><div class="muted">起点材料</div><p><b>単一材料ではない</b></p><p>Q3読出し期待、Phase 1データ再評価、直近アナリスト更新が混在。</p></div>
-<div><div class="muted">二重織込み</div><p><b>注意が必要</b></p><p>良好な結果でも、期待を大幅に超えなければ材料出尽くしとなる可能性。</p></div>
-</div>
+  <h2>次の決算で見る場所</h2>
+  <div class="signal"><div><b>2026年8月5日 Q2決算</b></div><p>Jazz前払金の認識、現金残高、四半期バーンを確認。</p></div><div class="signal"><div><b>Q3 2026 ABCL635トップライン</b></div><p>VMS頻度・重症度、安全性、用量反応、月1回投与の持続性。</p></div><div class="signal"><div><b>H2 2026 ABCL575 Phase 1</b></div><p>安全性、PK、半減期。長期投与間隔の根拠を確認。</p></div>
+  <!-- 例: <div class="signal"><div><b>2026年7月31日の1Q決算</b></div><p>…</p></div> -->
 </section>
 
-<section class="grid2">
-<div class="card"><h2>良い点</h2><ul><li>約$505Mの現金・有価証券と追加政府資金枠</li><li>ABCL635 Phase 1で標的関与・安全性・月1回投与可能性を確認</li><li>自社パイプラインに加え14の臨床入りパートナー分子</li><li>臨床製造設備・抗体探索基盤を内製化</li></ul></div>
-<div class="card"><h2>気になる点</h2><ul><li>現値企業価値の大部分が将来臨床価値</li><li>ABCL575はPhase 1後の自社継続予定が現時点でない</li><li>79.1M株の潜在希薄化証券が損失EPS計算から除外</li><li>直近急騰によりイベント失敗時の反動が大きい</li></ul></div>
+<!-- 前提表（事実/市場データ/推定/仮定を分類明記） -->
+<section class="card" id="assumptions">
+  <h2>使った数字と前提</h2>
+  <div class="table-wrap"><table>
+  <thead><tr><th>項目</th><th>値</th><th>分類</th><th>注記</th></tr></thead>
+  <tbody><tr><td>株価</td><td>$6.80</td><td>市場データ</td><td>2026-07-10終値</td></tr><tr><td>現金・有価証券</td><td>$504.7M</td><td>実績</td><td>2026-03-31</td></tr><tr><td>発行済株式</td><td>303.95M</td><td>実績</td><td>2026-03-31</td></tr><tr><td>潜在株式</td><td>79.14M</td><td>実績</td><td>赤字EPSでは反希薄化</td></tr><tr><td>Jazz前払金</td><td>$56M</td><td>契約</td><td>税・認識時期は未調整</td></tr><tr><td>Base希薄化後株数</td><td>318M</td><td>仮定</td><td>RSU等を部分反映</td></tr><tr><td>Base事業価値</td><td>$2.10B</td><td>モデル値</td><td>SOTP＋rNPV</td></tr></tbody>
+  </table></div>
 </section>
 
+<!-- Layer3：ガチ勢向け深掘り（details折りたたみ） -->
 <section class="card">
-<h2>感応度分析</h2>
-<table><thead><tr><th>主要ドライバ</th><th>弱気側</th><th>Base</th><th>強気側</th><th>影響</th></tr></thead>
-<tbody>
-<tr><td>ABCL635成功確率（仮定）</td><td>10%</td><td>25%</td><td>45%</td><td>最大</td></tr>
-<tr><td>ABCL635ピーク売上（仮定）</td><td>$0.6B</td><td>$1.4B</td><td>$2.5B</td><td>最大</td></tr>
-<tr><td>Phase 2読出し時期</td><td>2四半期遅延</td><td>Q3 2026</td><td>予定通り＋迅速な次段階</td><td>中〜大</td></tr>
-<tr><td>割引率（仮定）</td><td>18%</td><td>14%</td><td>11%</td><td>中</td></tr>
-<tr><td>希薄化後株式数</td><td>355M</td><td>350M</td><td>360M</td><td>中</td></tr>
-</tbody></table>
-<p class="muted">ABCL635価値は、ピーク売上・成功確率・上市までの時間・利益率をまとめたrNPV仮定。臨床結果により大幅に変動する。</p>
+  <h2>ガチ勢向けの深掘り</h2>
+  <details><summary>手法を選んだ理由</summary><p>臨床段階の自社薬はrNPV、提携プラットフォームと下流権益はSOTPが適切。売上倍率だけでは大型前払金と治験価値を表しにくい。</p></details><details><summary>市場逆算</summary><p>時価総額約$2.07B−調整ネットキャッシュ約$0.51B＝EV約$1.56B。Platform等$0.70B、他パイプライン$0.30Bと置くとABCL635残差は$0.56B。ピーク売上$1.5B、係数2.5倍、残開発費$0.15Bの仮定ではPoS約19%。</p></details><details><summary>キャッシュバーンと希薄化</summary><p>Q1純損失$43.2M、営業CFは運転資本で変動。利息等収入$3.6Mをバーン評価に含めた。現金は厚いが、潜在株式79.1Mの全量を機械的に加えず、各ケース318〜325Mを採用。</p></details><details><summary>転換社債・M&A</summary><p>重大な転換社債は確認できず。評価期間に反映すべき大型M&Aも確認できない。政府拠出は繰延政府拠出であり、自由に使える現金とは分離。</p></details><details><summary>同業・倍率の確認</summary><p>創薬プラットフォーム企業はRecursion、Schrödinger、Absci等。ただし臨床資産、現金、契約条件が違うため単純EV/Sales比較は補助扱い。BaseのPlatform等$0.75Bは現値逆算$0.70Bと独立に設定。</p></details><details><summary>Validation Engine：WARN</summary><p>V01〜V10、V12〜V16、V18〜V23はPASS。V11は潜在株式が多く行使条件が複雑なためWARN。V17は20営業日起点終値が未確認のためWARN。FAILは0件。</p></details><details><summary>更新履歴</summary><p>2026-07-13作成。Q1 2026、ABCL635 Phase 1中間データ、Jazz提携、7月10日株価を反映。</p></details><details><summary>主要出典</summary><p><a href="https://www.sec.gov/Archives/edgar/data/1703057/000170305726000028/abcl-20260331.htm" target="_blank" rel="noopener">SEC Q1 2026 10-Q</a> / <a href="https://investors.abcellera.com/news/news-releases/2026/AbCellera-Reports-Q1-2026-Business-Results--Announces-Positive-Interim-Phase-1-Clinical-Data-for-ABCL635/default.aspx" target="_blank" rel="noopener">Q1 2026決算・ABCL635中間データ</a> / <a href="https://investors.abcellera.com/news/news-releases/2026/Jazz-Pharmaceuticals-and-AbCellera-Announce-Collaboration-to-Discover-Next-Generation-T-cell-Engaging-Multispecific-Antibodies/default.aspx" target="_blank" rel="noopener">Jazz提携</a> / <a href="https://investors.abcellera.com/news/news-releases/2026/AbCellera-Announces-First-Patients-Dosed-in-Phase-2-Portion-of-its-Phase-12-Clinical-Trial-of-ABCL635-for-the-Treatment-of-Vasomotor-Symptoms-Due-to-Menopause/default.aspx" target="_blank" rel="noopener">ABCL635 Phase 2開始</a> / <a href="https://s21.q4cdn.com/223776925/files/doc_presentations/2026/Jan/14/Corporate-Overview-January-14-2026.pdf" target="_blank" rel="noopener">2026 Corporate Overview</a></p></details>
+  <!-- 手法選定理由 / 市場逆算 / 倍率トラジェクトリ / 同業比較 / キャッシュバーン・希薄化 /
+       転換社債 / M&A / モンテカルロ・ベイズ（実施時）/ 前提と未確認事項 / 更新履歴 / 主要出典 を
+       それぞれ <details><summary>…</summary><p>…</p></details> で。出典はリンクの箇条書き -->
 </section>
 
-<section class="card">
-<h2>次に見るべき項目</h2>
-<ol><li>ABCL635 Phase 2の症状改善幅、用量反応、安全性</li><li>ABCL575 Phase 1トップライン（Q4 2026）</li><li>四半期営業CFと臨床費増加</li><li>パートナー臨床分子14件の進捗</li><li>オプション・RSUの増加</li></ol>
+<section class="card notice">
+  <h3>免責</h3><p>本資料は公開情報に基づく教育目的の試算で、投資助言ではありません。臨床試験は失敗・遅延する可能性があり、株価はモデル値から大きく外れます。</p>
 </section>
-
-<section class="card">
-<h2>詳細分析</h2>
-<details open><summary>評価手法を選んだ理由</summary><p>ABCLは単なる創薬受託企業ではなく、自社臨床パイプライン、パートナー由来のマイルストーン・ロイヤルティ権益、創薬基盤、製造・不動産資産を持つ。したがって、主力候補をrNPV、その他をSOTPで分けて積み上げた。</p></details>
-<details><summary>市場逆算</summary><p>時価総額約$2.21BからQ1末現金・有価証券$504.7Mを差し引くと、単純EVは約$1.70B。基盤・パートナー権益・その他パイプライン・戦略資産を合計約$0.9Bと仮定すると、残差約$0.8BがABCL635に割り当てられる。これはBase rNPV $0.9Bに近く、市場は既に一定のPhase 2成功を見ている。</p></details>
-<details><summary>キャッシュバーンと希薄化</summary><p>Q1 2026の営業CFは-$33.5M、設備投資は$3.8M。Q3読出しまで2四半期、四半期$35M〜45Mの消費を仮定してネットキャッシュを$420M〜$430Mとした。普通株305.4M株に加え、Pre-IPOオプション23.3M株（平均行使$1.10）、2020 Planオプション45.7M株（平均行使$6.54）、RSU 10.1M株を確認。シナリオ株価ごとのITM性を考慮し、FD株式数を350M〜360Mとした。</p></details>
-<details><summary>転換社債・M&A</summary><p>直近10-Qで通常の転換社債は確認されていない。大型M&Aの新規対価も本試算には計上していない。政府拠出金には条件付き返済部分があるため、全額を現金同等物として加算していない。</p></details>
-<details><summary>前提・事実・推定の区別</summary>
-<table><tr><th>区分</th><th>内容</th></tr>
-<tr><td>事実</td><td>株価$7.29、時価総額約$2.21B、現金・有価証券$504.7M、Q1売上$8.3M、営業CF-$33.5M、普通株305.4M、ABCL635 Q3 2026読出し予定。</td></tr>
-<tr><td>推定</td><td>Q3までの現金消費、ITMオプションを含む希薄化後株式数。</td></tr>
-<tr><td>仮定</td><td>各パイプラインのピーク売上、成功確率、割引率、プラットフォーム・パートナー権益価値。</td></tr>
-</table></details>
-<details><summary>Validation Engine結果：WARN 1件 / FAIL 0件</summary>
-<table><thead><tr><th>ID</th><th>判定</th><th>内容</th></tr></thead><tbody><tr><td>V01</td><td><span class='v pass'>PASS</span></td><td>確率合計は100%</td></tr><tr><td>V02</td><td><span class='v pass'>PASS</span></td><td>Bear < Base < Bull</td></tr><tr><td>V03</td><td><span class='v pass'>PASS</span></td><td>確率加重期待値 $8.2 を再計算済み</td></tr><tr><td>V04</td><td><span class='v pass'>PASS</span></td><td>各シナリオの事業価値＋ネットキャッシュを希薄化後株式数で除して確認</td></tr><tr><td>V05</td><td><span class='v pass'>PASS</span></td><td>現金は2026-03-31を起点にQ3読出しまでのバーンを内生化</td></tr><tr><td>V06</td><td><span class='v pass'>PASS</span></td><td>株価・財務・株数・臨床予定に出典あり</td></tr><tr><td>V07</td><td><span class='v pass'>PASS</span></td><td>将来値はすべて仮定と明示</td></tr><tr><td>V08</td><td><span class='v pass'>PASS</span></td><td>市場逆算は現値EVから独立計算</td></tr><tr><td>V09</td><td><span class='v pass'>PASS</span></td><td>主手法はrNPV＋SOTPであり単純倍率依存ではない</td></tr><tr><td>V10</td><td><span class='v pass'>PASS</span></td><td>TTMと予想値を混同せず</td></tr><tr><td>V11</td><td><span class='v pass'>PASS</span></td><td>既存オプション・RSUをシナリオ別FD株式数に反映</td></tr><tr><td>V12</td><td><span class='v pass'>PASS</span></td><td>転換社債は確認されず。株式報酬のITM性を反映</td></tr><tr><td>V13</td><td><span class='v pass'>PASS</span></td><td>大型M&Aの新規反映なし</td></tr><tr><td>V14</td><td><span class='v pass'>PASS</span></td><td>異質事業は個別SOTP</td></tr><tr><td>V15</td><td><span class='v pass'>PASS</span></td><td>金利収入を含む実績CFを参照し、Bullほど機械的に現金増とはしていない</td></tr><tr><td>V16</td><td><span class='v pass'>PASS</span></td><td>現値はBearとBullの帯内のためRRを表示</td></tr><tr><td>V17</td><td><span class='v warn'>WARN</span></td><td>直近20営業日で約+38%。単一の起点材料だけでは説明し切れず、Q3読出し期待の先回りに注意</td></tr><tr><td>V18</td><td><span class='v pass'>PASS</span></td><td>承認確率、ピーク売上、読出し時期、割引率、希薄化を感応度表示</td></tr><tr><td>V19</td><td><span class='v pass'>PASS</span></td><td>理論株価は$0.5～$1刻みに丸め</td></tr><tr><td>V20</td><td><span class='v pass'>PASS</span></td><td>企業の技術力と株価評価を分離</td></tr><tr><td>V21</td><td><span class='v pass'>PASS</span></td><td>売買断定なし</td></tr><tr><td>V22</td><td><span class='v pass'>PASS</span></td><td>Base $8は公開コンセンサス中央値付近～やや下。差異理由を記載</td></tr><tr><td>V23</td><td><span class='v pass'>PASS</span></td><td>基準日・更新日・変更点を記録</td></tr></tbody></table>
-</details>
-<details><summary>出典</summary><ul><li><a href="https://www.google.com/finance/quote/ABCL:NASDAQ" target="_blank" rel="noopener">ABCL株価・時価総額（2026-07-10終値）</a></li><li><a href="https://www.sec.gov/Archives/edgar/data/1703057/000170305726000028/abcl-20260331.htm" target="_blank" rel="noopener">AbCellera Q1 2026 10-Q</a></li><li><a href="https://investors.abcellera.com/news/news-releases/2026/AbCellera-Reports-Q1-2026-Business-Results--Announces-Positive-Interim-Phase-1-Clinical-Data-for-ABCL635/default.aspx" target="_blank" rel="noopener">AbCellera Q1 2026 Business Results</a></li><li><a href="https://investors.abcellera.com/stock-info/stock-quote/default.aspx" target="_blank" rel="noopener">AbCellera Stock Quote / 52週レンジ</a></li><li><a href="https://finance.yahoo.com/quote/ABCL/history/" target="_blank" rel="noopener">ABCL historical prices</a></li><li><a href="https://www.investing.com/equities/abcellera-biologics-consensus-estimates" target="_blank" rel="noopener">ABCL analyst consensus</a></li></ul></details>
-<details><summary>更新履歴</summary><p>2026-07-13：評価基準日を更新。米国市場の直近確定値として2026-07-10終値、Q1 2026 10-Q、52週レンジ、Q3 2026カタリスト、直近20営業日騰落を反映。</p></details>
-</section>
-
-<footer>
-<p><b>免責事項：</b>本資料は教育目的のシナリオ試算であり、投資助言ではありません。将来の臨床結果、資金消費、希薄化、提携条件、市場環境などの前提により結果は大きく変わります。確率加重期待値だけで判断せず、現値ポジショニングとイベント前後の価格変動を併せて確認してください。</p>
-</footer>
-</div></main>
+<footer>DOPAGAKI STOCK LAB｜最終更新 2026-07-13｜数値は米ドル。</footer>
+</main>
 </body></html>

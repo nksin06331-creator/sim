@@ -5,23 +5,23 @@
   "name": "AbCellera Biologics",
   "market": "米国株",
   "sector": "抗体創薬・バイオテクノロジー",
-  "method": "rNPV＋SOTP",
+  "method": "SOTP＋簡易rNPV",
   "status": "published",
   "updated": "2026-07-13",
   "price": {
-    "current": 7.29,
+    "current": 6.8,
     "currency": "USD"
   },
   "scenarios": {
-    "bear": 4,
+    "bear": 3.5,
     "base": 8,
-    "bull": 15
+    "bull": 15.5
   },
-  "positionPct": 30,
-  "zone": "適正〜慎重寄り（イベント前）",
-  "riskReward": "2.34x",
+  "positionPct": 27.5,
+  "zone": "適正〜慎重寄り",
+  "riskReward": "2.64倍",
   "catalyst": "要確認",
-  "summary": "現値はBase直下。",
+  "summary": "期待は乗った。",
   "tags": [
     "rNPV",
     "SOTP",
@@ -29,7 +29,7 @@
     "バイオ",
     "臨床カタリスト"
   ],
-  "risk": "要確認",
+  "risk": "高い",
   "detailPath": "stocks/ABCL/index.html",
   "scenarioPath": "stocks/ABCL/scenario.html"
 }

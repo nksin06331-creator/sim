@@ -21,12 +21,12 @@
   "zone": "適正上限～強気寄り",
   "riskReward": "0.79",
   "catalyst": "要確認",
-  "summary": "現値はBaseを約23%上回り、会社予想EPS 8.3円に対して約236倍のPER水準です。",
+  "summary": "期待先行。",
   "tags": [
     "PER＋売上進捗シナリオ",
     "モバイルDX・業務端末"
   ],
-  "risk": "高",
+  "risk": "非常に高い",
   "detailPath": "stocks/アスタリスク/index.html",
   "scenarioPath": "stocks/アスタリスク/scenario.html"
 }
