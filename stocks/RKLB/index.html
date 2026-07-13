@@ -3,791 +3,468 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>RKLB（Rocket Lab）完全入門ガイド</title>
+<title>RKLB 完全入門ガイド</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@700;900&family=Noto+Sans+JP:wght@400;500;700;900&family=DM+Sans:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
+/*
+ ================================================================
+  STOCK GUIDE TEMPLATE v3  SiM MARKET LAB ダーク版 / ChatGPT index.html
+  ----------------------------------------------------------------
+  ★★ デザインロック（ぶれ防止）★★
+  ・この <style> ブロックとページ骨格は「改変禁止」。1文字も変えない。逐語コピーする。
+  ・色はSiMグリーンで固定。銘柄・業界でアクセント色を変えない。
+  ・差し替えてよいのは {{ }} プレースホルダーの中身（＝テキスト）だけ。
+  ・セクションの数・順番・各コンポーネントの個数（SEC1のcard-smは4枚 等）は固定。
+    追加・削除・並べ替えをしない。
+  ----------------------------------------------------------------
+  ブランド：黒背景 × ネオングリーン × 白文字（キーワードだけ緑）。Instagram(sim.marketlab)準拠。
+  設計思想：「表層＝3秒で意味が取れる／深層＝読みたい人だけ開く」の2層構造。
+  ・見出しの重要ワードは <span class="g">…</span> で緑ハイライト。
+ ================================================================
+*/
+
 :root {
-  --c-primary-50:  #f1f5f9;
-  --c-primary-100: #e2e8f0;
-  --c-primary-200: #cbd5e1;
-  --c-primary-400: #64748b;
-  --c-primary-600: #334155;
-  --c-primary-800: #0f172a;
+  /* ── ブランド・アクセント：SiMグリーンで固定（銘柄・業界で変えない＝デザインぶれ防止） ── */
+  --accent:        #6EE24E;
+  --accent-bright: #8BF56B;
+  --accent-tint:   rgba(110,226,78,.12);
+  --accent-line:   rgba(110,226,78,.38);
 
-  --c-accent-50:   #eff6ff;
-  --c-accent-400:  #3b82f6;
-  --c-accent-600:  #1d4ed8;
+  /* ── ダークシェル（変更不要・全銘柄共通） ── */
+  --bg:        #0a0c0a;
+  --surface:   #141815;   /* カード面 */
+  --surface-2: #1b201c;   /* 少し明るい面 */
 
-  --hero-bg-from:  #020617;
-  --hero-bg-mid:   #0f172a;
-  --hero-bg-to:    #1e293b;
-  --hero-badge-color: #7dd3fc;
-  --hero-h1-accent:   #7dd3fc;
+  /* レガシー変数マッピング（本文markupが参照。名前は据え置き、意味をダーク用に再定義） */
+  --c-primary-50:  var(--accent-tint);        --c-primary-100: rgba(110,226,78,.18);
+  --c-primary-200: rgba(110,226,78,.55);      --c-primary-400: var(--accent);
+  --c-primary-600: var(--accent);             --c-primary-800: var(--accent-bright);
+  --c-accent-50:   var(--accent-tint);        --c-accent-400:  var(--accent);   --c-accent-600: var(--accent-bright);
 
-  --amber-50:  #fffbeb; --amber-400: #fbbf24; --amber-600: #d97706; --amber-800: #78350f;
-  --red-50:    #fef2f2; --red-400:   #f87171; --red-600:   #dc2626;
-  --blue-50:   #eff6ff; --blue-400:  #60a5fa; --blue-600:  #2563eb; --blue-800: #1e3a8a;
-  --green-50:  #f0fdf4; --green-400: #4ade80; --green-600: #16a34a;
-  --violet-50: #f5f3ff; --violet-400:#a78bfa; --violet-600:#7c3aed;
-  --gray-50:  #f9fafb; --gray-100: #f3f4f6; --gray-200: #e5e7eb;
-  --gray-300: #d1d5db; --gray-500: #6b7280; --gray-700: #374151; --gray-900: #111827;
-  --font-body: 'DM Sans', sans-serif;
-  --font-serif: 'Noto Serif JP', serif;
+  /* システム色（ダーク版：薄背景は半透明の暗色、文字は明るい色に反転） */
+  --amber-50:  rgba(251,191,36,.13); --amber-400: #fbbf24; --amber-600: #fcd34d; --amber-800: #fde68a;
+  --red-50:    rgba(248,113,113,.13); --red-400:  #f87171; --red-600:   #fca5a5;
+  --blue-50:   rgba(96,165,250,.13); --blue-400:  #60a5fa; --blue-600:  #93c5fd; --blue-800: #bfdbfe;
+  --green-50:  rgba(110,226,78,.13); --green-400: #6EE24E; --green-600: #8bf56b;
+  --violet-50: rgba(167,139,250,.13); --violet-400:#a78bfa; --violet-600:#c4b5fd;
+  --gray-50:  #15191b;               --gray-100: rgba(255,255,255,.06);
+  --gray-200: rgba(255,255,255,.09); --gray-300: #3f463f;
+  --gray-500: #8a948a;               --gray-700: #c3ccc3; --gray-900: #f1f5f1;
+
+  --font-display: 'Zen Kaku Gothic New', 'Noto Sans JP', sans-serif;
+  --font-body:    'Noto Sans JP', 'DM Sans', sans-serif;
+  --font-num:     'DM Sans', 'Noto Sans JP', sans-serif;
+  --radius: 16px;
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: var(--font-body); background: #f9f9f7; color: var(--gray-900); line-height: 1.7; font-size: 15px; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-body); background: var(--bg); color: var(--gray-900); line-height: 1.85; font-size: 16px; -webkit-text-size-adjust: 100%; }
+.g { color: var(--accent); }               /* 緑キーワード */
 
-/* ── HERO ── */
+/* 読了プログレスバー */
+.progress-bar { position: fixed; top: 0; left: 0; height: 4px; width: 0%; z-index: 200; background: var(--accent); box-shadow: 0 0 12px var(--accent); transition: width .1s linear; }
+
+/* ── HERO（黒＋緑グロー＋ハーフトーン・ドット） ── */
 .hero {
-  background: linear-gradient(135deg, var(--hero-bg-from) 0%, var(--hero-bg-mid) 55%, var(--hero-bg-to) 100%);
-  color: #fff; padding: 64px 24px 80px; text-align: center; position: relative; overflow: hidden;
+  background: radial-gradient(120% 90% at 50% -10%, #12251a 0%, #0b0f0c 45%, var(--bg) 75%);
+  color: #fff; padding: 58px 22px 66px; text-align: center; position: relative; overflow: hidden;
 }
-.hero::before {
-  content: ''; position: absolute; inset: 0;
-  background: radial-gradient(ellipse at 15% 40%, rgba(125,211,252,0.12) 0%, transparent 55%),
-              radial-gradient(ellipse at 85% 60%, rgba(59,130,246,0.08) 0%, transparent 50%),
-              radial-gradient(1px 1px at 20% 30%, rgba(255,255,255,0.8), transparent),
-              radial-gradient(1px 1px at 70% 20%, rgba(255,255,255,0.6), transparent),
-              radial-gradient(1px 1px at 40% 70%, rgba(255,255,255,0.7), transparent),
-              radial-gradient(1px 1px at 90% 45%, rgba(255,255,255,0.5), transparent),
-              radial-gradient(1px 1px at 55% 15%, rgba(255,255,255,0.6), transparent);
+.hero::before { content:''; position:absolute; inset:0;
+  background-image: radial-gradient(var(--accent) 1px, transparent 1.6px);
+  background-size: 15px 15px; opacity: .10;
+  -webkit-mask-image: radial-gradient(ellipse at 50% 120%, #000 0%, transparent 60%);
+          mask-image: radial-gradient(ellipse at 50% 120%, #000 0%, transparent 60%);
 }
 .hero > * { position: relative; z-index: 1; }
-.hero-badge {
-  display: inline-block; background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3);
-  border-radius: 999px; padding: 4px 16px; font-size: 12px; letter-spacing: .1em;
-  text-transform: uppercase; margin-bottom: 20px; color: var(--hero-badge-color);
-}
-.hero h1 { font-family: var(--font-serif); font-size: clamp(26px,5vw,44px); font-weight: 700; line-height: 1.3; margin-bottom: 16px; }
-.hero h1 span { color: var(--hero-h1-accent); }
-.hero p { font-size: 16px; opacity: .85; max-width: 580px; margin: 0 auto 32px; }
+.brandmark { font-family: var(--font-num); font-weight: 700; letter-spacing: .18em; font-size: 13px; color: var(--gray-500); margin-bottom: 18px; }
+.brandmark b { color: #fff; font-weight: 700; }
+.brandmark .g { color: var(--accent); }
+.hero-badge { display: inline-block; background: rgba(110,226,78,.10); border: 1px solid var(--accent-line); border-radius: 999px; padding: 6px 18px; font-size: 12px; letter-spacing: .06em; font-weight: 700; margin-bottom: 18px; color: var(--accent); }
+.hero h1 { font-family: var(--font-display); font-size: clamp(30px,7.5vw,50px); font-weight: 900; line-height: 1.3; margin-bottom: 14px; letter-spacing: .01em; }
+.hero h1 .g { color: var(--accent); }
+.hero p { font-size: 15.5px; color: #c3ccc3; max-width: 560px; margin: 0 auto 26px; line-height: 1.85; }
 .hero-tags { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
-.hero-tag { background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); border-radius: 6px; padding: 4px 12px; font-size: 13px; }
+.hero-tag { background: rgba(255,255,255,.04); border: 1px solid var(--gray-200); border-radius: 999px; padding: 6px 14px; font-size: 13px; font-weight: 500; color: #d8ded8; }
 
-/* ── NAVIGATION ── */
-.nav-index { background: #fff; border-bottom: 1px solid var(--gray-200); position: sticky; top: 0; z-index: 100; }
-.nav-inner { max-width: 820px; margin: 0 auto; padding: 0 20px; display: flex; overflow-x: auto; scrollbar-width: none; }
+/* ── 30秒サマリー（でかい数字カード） ── */
+.tldr-hero { max-width: 820px; margin: -30px auto 0; padding: 0 16px; position: relative; z-index: 5; }
+.tldr-hero-inner { background: var(--surface); border: 1px solid var(--gray-200); border-radius: var(--radius); padding: 20px 20px 8px; box-shadow: 0 16px 40px rgba(0,0,0,.5); }
+.tldr-hero-title { font-family: var(--font-display); font-weight: 900; font-size: 17px; color: #fff; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+.stat-strip { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px,1fr)); gap: 10px; margin-bottom: 14px; }
+.stat { background: var(--gray-50); border: 1px solid var(--gray-200); border-radius: 12px; padding: 14px 12px; text-align: center; }
+.stat-value { font-family: var(--font-num); font-weight: 700; font-size: clamp(24px,6vw,32px); line-height: 1.1; color: #fff; }
+.stat-value.up   { color: var(--accent); }
+.stat-value.down { color: var(--red-400); }
+.stat-label { font-size: 12px; color: var(--gray-500); margin-top: 4px; font-weight: 500; }
+.stat-note  { font-size: 11px; color: var(--gray-500); margin-top: 2px; }
+
+/* ── NAV ── */
+.nav-index { background: rgba(10,12,10,.82); backdrop-filter: blur(10px); border-bottom: 1px solid var(--gray-200); position: sticky; top: 0; z-index: 100; }
+.nav-inner { max-width: 820px; margin: 0 auto; padding: 0 16px; display: flex; overflow-x: auto; scrollbar-width: none; }
 .nav-inner::-webkit-scrollbar { display: none; }
-.nav-item { flex-shrink: 0; padding: 14px 16px; font-size: 13px; font-weight: 500; color: var(--gray-500); text-decoration: none; border-bottom: 2px solid transparent; transition: color .2s, border-color .2s; white-space: nowrap; }
-.nav-item:hover { color: var(--c-accent-600); border-bottom-color: var(--c-accent-400); }
+.nav-item { flex-shrink: 0; padding: 14px 14px; font-size: 13px; font-weight: 700; color: var(--gray-500); text-decoration: none; border-bottom: 3px solid transparent; transition: color .2s, border-color .2s; white-space: nowrap; }
+.nav-item:hover { color: var(--accent); border-bottom-color: var(--accent); }
 
-/* ── CONTAINER ── */
-.container { max-width: 820px; margin: 0 auto; padding: 0 20px; }
+.container { max-width: 820px; margin: 0 auto; padding: 0 16px; }
 
 /* ── SECTION ── */
-.section { padding: 56px 0 40px; border-bottom: 1px solid var(--gray-200); opacity: 0; transform: translateY(20px); animation: fadeUp .5s ease forwards; }
-.section:nth-child(1){animation-delay:.05s} .section:nth-child(2){animation-delay:.1s}
-.section:nth-child(3){animation-delay:.15s} .section:nth-child(4){animation-delay:.2s}
-.section:nth-child(5){animation-delay:.25s} .section:nth-child(6){animation-delay:.3s}
+.section { padding: 46px 0 34px; border-bottom: 1px solid var(--gray-200); opacity: 0; transform: translateY(16px); animation: fadeUp .5s ease forwards; }
 @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
-@media (prefers-reduced-motion: reduce) { .section { animation: none; opacity: 1; transform: none; } }
-.section-header { display: flex; align-items: center; gap: 14px; margin-bottom: 28px; }
-.section-icon { width: 42px; height: 42px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; }
-.icon-primary { background: var(--c-primary-100); }
-.icon-accent  { background: var(--c-accent-50); }
-.icon-amber   { background: var(--amber-50); }
-.icon-blue    { background: var(--blue-50); }
-.icon-green   { background: var(--green-50); }
-.icon-violet  { background: var(--violet-50); }
-.section-title { font-family: var(--font-serif); font-size: 22px; font-weight: 700; color: var(--gray-900); }
-.section-sub { font-size: 13px; color: var(--gray-500); margin-top: 2px; }
+.section-header { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
+.section-icon { width: 46px; height: 46px; border-radius: 50%; background: var(--surface-2); border: 1px solid var(--gray-200); display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0; }
+.section-num { width: 30px; height: 30px; border-radius: 50%; background: var(--accent); color: #06210a; font-family: var(--font-num); font-weight: 700; font-size: 15px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.section-title { font-family: var(--font-display); font-size: clamp(21px,5.4vw,27px); font-weight: 900; color: #fff; line-height: 1.32; position: relative; display: inline-block; padding-bottom: 9px; }
+.section-title::after { content: ''; position: absolute; left: 0; bottom: 0; width: 40px; height: 3px; background: var(--accent); border-radius: 3px; }
+.section-title .g { color: var(--accent); }
+.section-sub { font-size: 13px; color: var(--gray-500); margin-top: 6px; font-weight: 500; }
+
+/* ── ⚡3秒まとめ ── */
+.tldr { background: var(--accent-tint); border: 1px solid var(--accent-line); border-radius: var(--radius); padding: 18px 20px; margin-bottom: 22px; }
+.tldr-label { display: inline-flex; align-items: center; gap: 6px; font-family: var(--font-display); font-weight: 900; font-size: 14px; color: var(--accent); margin-bottom: 10px; }
+.tldr ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.tldr li { font-size: 15.5px; font-weight: 500; color: #eef2ee; line-height: 1.7; padding-left: 30px; position: relative; }
+.tldr li::before { content: attr(data-emoji); position: absolute; left: 0; top: 0; font-size: 18px; }
+
+/* ── 👉つまり ── */
+.sowhat { background: var(--surface); border: 1.5px dashed var(--accent); border-radius: 14px; padding: 12px 16px 12px 46px; margin: 14px 0; position: relative; }
+.sowhat::before { content: '👉'; position: absolute; left: 14px; top: 11px; font-size: 20px; }
+.sowhat b { color: var(--accent); }
+.sowhat p { font-size: 14.5px; color: var(--gray-700); line-height: 1.8; }
+
+/* ── シグナル判定ピル ── */
+.signal { display: inline-flex; align-items: center; gap: 5px; font-weight: 700; font-size: 12.5px; padding: 4px 12px; border-radius: 999px; white-space: nowrap; }
+.signal.bull    { background: var(--green-50); color: var(--accent); }
+.signal.neutral { background: var(--amber-50); color: var(--amber-600); }
+.signal.bear    { background: var(--red-50);   color: var(--red-600); }
+
+/* ── ★重要度 ── */
+.rating { font-family: var(--font-num); letter-spacing: 1px; color: var(--accent); font-size: 14px; }
+.rating .off { color: var(--gray-300); }
+
+/* ── 絵文字箇条書き ── */
+.keypoints { list-style: none; display: flex; flex-direction: column; gap: 12px; margin: 8px 0; }
+.keypoints li { display: flex; gap: 12px; align-items: flex-start; font-size: 15px; line-height: 1.7; color: #e4e9e4; }
+.keypoints .kp-emoji { font-size: 22px; flex-shrink: 0; line-height: 1.4; }
+.keypoints .kp-text b { color: var(--accent); }
 
 /* ── CARDS ── */
-.card { background: #fff; border: 1px solid var(--gray-200); border-radius: 12px; padding: 20px 22px; margin-bottom: 12px; }
+.card { background: var(--surface); border: 1px solid var(--gray-200); border-radius: 14px; padding: 18px 20px; margin-bottom: 12px; }
 .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 12px; margin-bottom: 12px; }
-.card-sm { background: #fff; border: 1px solid var(--gray-200); border-radius: 10px; padding: 16px 18px; }
-.card-sm .cs-label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; color: var(--c-accent-600); margin-bottom: 6px; }
-.card-sm .cs-value { font-size: 16px; font-weight: 600; color: var(--gray-900); margin-bottom: 4px; }
-.card-sm .cs-desc { font-size: 13px; color: var(--gray-500); line-height: 1.6; }
+.card-sm { background: var(--surface); border: 1px solid var(--gray-200); border-radius: 14px; padding: 16px 18px; }
+.card-sm .card-emoji { font-size: 22px; display: inline-flex; width: 40px; height: 40px; border-radius: 50%; background: var(--surface-2); border: 1px solid var(--gray-200); align-items: center; justify-content: center; margin-bottom: 8px; }
+.card-sm .card-title { font-family: var(--font-display); font-weight: 700; font-size: 15px; margin-bottom: 4px; color: var(--accent); }
+.card-sm .card-desc { font-size: 13.5px; color: var(--gray-700); line-height: 1.75; }
+
+/* ── 会社クイックデータ（企業詳細を厚くする一覧） ── */
+.facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(148px,1fr)); gap: 1px; background: var(--gray-200); border: 1px solid var(--gray-200); border-radius: 14px; overflow: hidden; margin: 4px 0 14px; }
+.facts > div { background: var(--surface); padding: 12px 14px; }
+.facts dt { font-size: 11px; color: var(--gray-500); font-weight: 700; margin-bottom: 3px; }
+.facts dd { margin: 0; font-size: 14.5px; color: #fff; font-weight: 700; line-height: 1.5; }
+.block-label { font-family: var(--font-display); font-weight: 900; font-size: 15px; color: #fff; margin: 18px 0 8px; display: flex; align-items: center; gap: 7px; }
+.block-label .g { color: var(--accent); }
 
 /* ── TERM ACCORDION ── */
-.term-list { display: flex; flex-direction: column; gap: 8px; }
-.term-item { background: #fff; border: 1px solid var(--gray-200); border-radius: 10px; overflow: hidden; transition: border-color .2s; }
-.term-item:hover { border-color: var(--c-accent-400); }
-.term-header { display: flex; align-items: center; justify-content: space-between; padding: 14px 18px; cursor: pointer; gap: 12px; user-select: none; }
+.term-list { display: flex; flex-direction: column; gap: 10px; }
+.term-item { background: var(--surface); border: 1px solid var(--gray-200); border-radius: 14px; overflow: hidden; transition: border-color .2s; }
+.term-item:hover { border-color: var(--accent); }
+.term-header { display: flex; align-items: center; justify-content: space-between; padding: 16px 18px; cursor: pointer; gap: 12px; user-select: none; min-height: 56px; }
 .term-header::-webkit-details-marker { display: none; }
-.term-name { font-weight: 600; font-size: 15px; color: var(--gray-900); }
+.term-name { font-family: var(--font-display); font-weight: 700; font-size: 15.5px; color: #fff; }
 .term-en { font-size: 11px; color: var(--gray-500); margin-left: 8px; font-weight: 400; }
-.term-arrow { font-size: 16px; color: var(--c-accent-400); transition: transform .25s; flex-shrink: 0; }
+.term-arrow { font-size: 20px; color: var(--accent); transition: transform .25s; flex-shrink: 0; }
 .term-item[open] .term-arrow { transform: rotate(180deg); }
-.term-item[open] { border-color: var(--c-accent-400); }
-.term-body { padding: 0 18px 16px; border-top: 1px solid var(--gray-100); }
-.term-body p { font-size: 14px; color: var(--gray-700); line-height: 1.8; margin-bottom: 10px; }
-.term-body p:last-child { margin-bottom: 0; }
+.term-item[open] { border-color: var(--accent); }
+.term-body { padding: 2px 18px 18px; border-top: 1px solid var(--gray-100); }
+.term-body p { font-size: 14.5px; color: var(--gray-700); line-height: 1.85; margin: 10px 0 0; }
+.term-body b { color: var(--accent); }
 
-/* ── CALL-OUT BOXES ── */
-.ex-box        { background: var(--c-accent-50); border-left: 3px solid var(--c-accent-400); border-radius: 0 6px 6px 0; padding: 10px 14px; margin-top: 10px; }
-.ex-box-amber  { background: var(--amber-50);  border-left: 3px solid var(--amber-400);  border-radius: 0 6px 6px 0; padding: 10px 14px; margin-top: 10px; }
-.ex-box-red    { background: var(--red-50);    border-left: 3px solid var(--red-400);    border-radius: 0 6px 6px 0; padding: 10px 14px; margin-top: 10px; }
-.ex-label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; margin-bottom: 4px; }
-.ex-label-accent  { color: var(--c-accent-600); }
-.ex-label-amber   { color: var(--amber-600); }
-.ex-label-red     { color: var(--red-600); }
-.ex-text { font-size: 13px; color: var(--gray-700); line-height: 1.7; }
+/* ── CALL-OUT ── */
+.ex-box, .ex-box-accent, .ex-box-amber, .ex-box-red { border-radius: 0 8px 8px 0; padding: 12px 16px; margin-top: 12px; }
+.ex-box        { background: var(--accent-tint); border-left: 4px solid var(--accent); }
+.ex-box-accent { background: var(--accent-tint); border-left: 4px solid var(--accent); }
+.ex-box-amber  { background: var(--amber-50);  border-left: 4px solid var(--amber-400); }
+.ex-box-red    { background: var(--red-50);    border-left: 4px solid var(--red-400); }
+.ex-label { font-size: 11px; font-weight: 700; letter-spacing: .04em; margin-bottom: 4px; }
+.ex-label-primary, .ex-label-accent { color: var(--accent); }
+.ex-label-amber { color: var(--amber-600); }
+.ex-label-red { color: var(--red-600); }
+.ex-text { font-size: 13.5px; color: var(--gray-700); line-height: 1.75; }
 
-/* ── INFO BOXES ── */
+/* ── INFO BOXES（リスク4分類） ── */
 .info-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap: 12px; margin-top: 16px; }
-.info-box { border-radius: 10px; padding: 16px 18px; }
-.info-box-accent  { background: var(--c-accent-50); }
+.info-box { border-radius: 14px; padding: 16px 18px; border: 1px solid var(--gray-200); }
+.info-box-primary { background: var(--accent-tint); }
+.info-box-accent  { background: var(--accent-tint); }
 .info-box-amber   { background: var(--amber-50); }
 .info-box-red     { background: var(--red-50); }
 .info-box-blue    { background: var(--blue-50); }
 .info-box-green   { background: var(--green-50); }
-.info-box-gray    { background: var(--gray-100); }
-.info-title { font-weight: 600; font-size: 14px; margin-bottom: 6px; }
-.info-title-accent  { color: var(--c-accent-600); }
-.info-title-amber   { color: var(--amber-600); }
-.info-title-red     { color: var(--red-600); }
-.info-title-blue    { color: var(--blue-600); }
-.info-title-green   { color: var(--green-600); }
-.info-title-gray    { color: var(--gray-700); }
-.info-text { font-size: 13px; color: var(--gray-700); line-height: 1.7; }
-
-/* ── PHASE FLOW ── */
-.phase-flow { display: flex; flex-direction: column; }
-.phase-row { display: flex; gap: 16px; align-items: flex-start; }
-.phase-line-wrap { display: flex; flex-direction: column; align-items: center; flex-shrink: 0; width: 40px; }
-.phase-dot { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px; flex-shrink: 0; background: var(--c-primary-800); color: #fff; }
-.phase-connector { width: 2px; height: 40px; background: var(--gray-200); }
-.phase-content { padding-top: 8px; padding-bottom: 24px; flex: 1; }
-.phase-label { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: .08em; margin-bottom: 4px; color: var(--c-accent-600); }
-.phase-title { font-weight: 600; font-size: 16px; margin-bottom: 6px; }
-.phase-desc { font-size: 13px; color: var(--gray-500); line-height: 1.7; }
+.info-box-gray    { background: var(--surface-2); }
+.info-title { font-family: var(--font-display); font-weight: 700; font-size: 14px; margin-bottom: 6px; display: flex; align-items: center; gap: 6px; }
+.info-title-primary, .info-title-accent, .info-title-green { color: var(--accent); }
+.info-title-amber { color: var(--amber-600); }
+.info-title-red { color: var(--red-600); }
+.info-title-blue { color: var(--blue-600); }
+.info-title-gray { color: #d8ded8; }
+.info-text { font-size: 13.5px; color: var(--gray-700); line-height: 1.75; }
 
 /* ── TIMELINE ── */
-.timeline { position: relative; padding-left: 32px; }
-.timeline::before { content: ''; position: absolute; left: 10px; top: 8px; bottom: 0; width: 2px; background: var(--gray-200); }
-.tl-row { position: relative; margin-bottom: 24px; }
-.tl-row::before { content: ''; position: absolute; left: -26px; top: 7px; width: 12px; height: 12px; border-radius: 50%; background: var(--c-accent-400); border: 2px solid #fff; box-shadow: 0 0 0 2px var(--c-accent-400); }
-.tl-date { font-size: 11px; font-weight: 600; color: var(--c-accent-600); text-transform: uppercase; letter-spacing: .06em; margin-bottom: 4px; }
-.tl-title { font-weight: 600; font-size: 15px; margin-bottom: 4px; }
-.tl-desc { font-size: 13px; color: var(--gray-500); line-height: 1.7; }
+.timeline { position: relative; padding-left: 30px; }
+.timeline::before { content: ''; position: absolute; left: 9px; top: 8px; bottom: 6px; width: 3px; background: rgba(110,226,78,.25); border-radius: 3px; }
+.tl-row { position: relative; margin-bottom: 22px; }
+.tl-row::before { content: ''; position: absolute; left: -25px; top: 5px; width: 14px; height: 14px; border-radius: 50%; background: var(--accent); border: 3px solid var(--bg); box-shadow: 0 0 0 2px var(--accent); }
+.tl-date { font-family: var(--font-num); font-size: 12px; font-weight: 700; color: var(--accent); letter-spacing: .04em; margin-bottom: 3px; }
+.tl-title { font-family: var(--font-display); font-weight: 700; font-size: 15.5px; color: #fff; margin-bottom: 3px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.tl-desc { font-size: 13.5px; color: var(--gray-500); line-height: 1.75; }
 
 /* ── BADGES ── */
-.badge { display: inline-block; font-size: 11px; padding: 2px 8px; border-radius: 4px; font-weight: 600; }
-.badge-primary { background: var(--c-primary-100); color: var(--c-primary-800); }
-.badge-accent  { background: var(--c-accent-50);  color: var(--c-accent-600); }
+.badge { display: inline-block; font-size: 11px; padding: 3px 9px; border-radius: 6px; font-weight: 700; }
+.badge-primary { background: var(--accent-tint); color: var(--accent); }
+.badge-accent  { background: var(--accent-tint); color: var(--accent); }
 .badge-amber   { background: var(--amber-50);  color: var(--amber-600); }
 .badge-red     { background: var(--red-50);    color: var(--red-600); }
 .badge-blue    { background: var(--blue-50);   color: var(--blue-600); }
-.badge-green   { background: var(--green-50);  color: var(--green-600); }
+.badge-green   { background: var(--green-50);  color: var(--accent); }
+.badge-violet  { background: var(--violet-50); color: var(--violet-600); }
 
 /* ── COMPARE TABLE ── */
-.table-wrap { overflow-x: auto; border: 1px solid var(--gray-200); border-radius: 12px; }
-.compare-table { width: 100%; border-collapse: collapse; font-size: 13px; min-width: 560px; }
-.compare-table th { background: var(--gray-50); padding: 10px 14px; text-align: left; font-weight: 600; font-size: 12px; color: var(--gray-500); text-transform: uppercase; letter-spacing: .05em; border-bottom: 1px solid var(--gray-200); }
-.compare-table td { padding: 11px 14px; border-bottom: 1px solid var(--gray-100); color: var(--gray-700); vertical-align: top; }
+.table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; border: 1px solid var(--gray-200); border-radius: 14px; margin: 12px 0; }
+.compare-table { width: 100%; border-collapse: collapse; font-size: 13.5px; min-width: 480px; }
+.compare-table th { background: var(--gray-50); padding: 12px 14px; text-align: left; font-weight: 700; font-size: 12px; color: var(--gray-500); letter-spacing: .03em; border-bottom: 1px solid var(--gray-200); white-space: nowrap; }
+.compare-table td { padding: 12px 14px; border-bottom: 1px solid var(--gray-100); color: var(--gray-700); vertical-align: top; }
 .compare-table tr:last-child td { border-bottom: none; }
-.compare-table tr:hover td { background: var(--gray-50); }
-.compare-table .row-hl td { background: var(--c-accent-50); font-weight: 600; color: var(--c-primary-800); }
-.compare-table .row-hl:hover td { background: var(--c-accent-50); }
+.compare-table tr:hover td { background: rgba(255,255,255,.02); }
+.compare-table .me { background: var(--accent-tint); font-weight: 700; color: var(--accent); }
 
-/* ── HIGHLIGHT BOX ── */
-.highlight { background: linear-gradient(135deg, var(--hero-bg-from) 0%, var(--hero-bg-mid) 100%); color: #fff; border-radius: 12px; padding: 24px 26px; margin: 24px 0; position: relative; overflow: hidden; }
-.highlight::after { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 90% 10%, rgba(125,211,252,0.15) 0%, transparent 50%); pointer-events: none; }
-.highlight > * { position: relative; z-index: 1; }
-.highlight h3 { font-family: var(--font-serif); font-size: 18px; margin-bottom: 10px; color: var(--hero-badge-color); }
-.highlight p { font-size: 14px; opacity: .9; line-height: 1.8; }
-.highlight p + p { margin-top: 10px; }
+/* ── HIGHLIGHT（インスタの“まとめ”枠：ダーク＋緑ボーダー） ── */
+.highlight { background: var(--surface); border: 1.5px solid var(--accent-line); border-radius: var(--radius); padding: 22px 24px; margin: 22px 0; position: relative; overflow: hidden; }
+.highlight::before { content:''; position:absolute; right:-30px; bottom:-30px; width:160px; height:160px;
+  background-image: radial-gradient(var(--accent) 1px, transparent 1.5px); background-size: 13px 13px; opacity:.12; }
+.highlight h3 { font-family: var(--font-display); font-size: 19px; font-weight: 900; margin-bottom: 10px; color: var(--accent); display: flex; align-items: center; gap: 8px; position: relative; }
+.highlight p { font-size: 14.5px; color: #d8ded8; line-height: 1.85; position: relative; }
+.highlight b { color: var(--accent); }
 
 /* ── PRODUCT GRID ── */
-.product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px,1fr)); gap: 12px; margin: 16px 0; }
-.product-box { border-radius: 10px; padding: 18px 16px; text-align: center; border: 1px solid var(--gray-200); background: #fff; }
-.product-symbol { font-size: 26px; font-weight: 700; margin-bottom: 6px; font-family: var(--font-serif); color: var(--c-primary-800); }
-.product-name { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; margin-bottom: 8px; color: var(--c-accent-600); }
-.product-use { font-size: 12px; line-height: 1.6; color: var(--gray-600); }
+.product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px,1fr)); gap: 12px; margin: 16px 0; }
+.product-box { border-radius: 14px; padding: 18px 14px; text-align: center; border: 1px solid var(--gray-200); background: var(--surface); }
+.product-symbol { font-family: var(--font-num); font-size: 30px; font-weight: 700; margin-bottom: 4px; color: var(--accent); }
+.product-name { font-size: 11px; font-weight: 700; letter-spacing: .04em; margin-bottom: 6px; color: #fff; }
+.product-use { font-size: 12px; line-height: 1.55; color: var(--gray-700); }
 
 /* ── MISC ── */
-.lead { font-size: 16px; color: var(--gray-700); line-height: 1.8; margin-bottom: 24px; }
-strong { font-weight: 600; }
+.lead { font-size: 16.5px; color: #dbe1db; line-height: 1.9; margin-bottom: 20px; font-weight: 500; }
+.lead .g { color: var(--accent); }
+strong { font-weight: 700; color: #fff; }
+strong.g { color: var(--accent); }
 .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap: 12px; }
-h4.sub-h { font-family: var(--font-serif); font-size: 16px; margin: 24px 0 12px; color: var(--c-primary-800); }
 
 /* ── FOOTER ── */
-.footer { padding: 48px 24px; text-align: center; color: var(--gray-500); font-size: 13px; border-top: 1px solid var(--gray-200); margin-top: 40px; }
+.footer { padding: 40px 22px; text-align: center; color: var(--gray-500); font-size: 13px; border-top: 1px solid var(--gray-200); margin-top: 32px; }
+.footer .brandmark { margin-bottom: 14px; }
+
+@media (max-width: 480px){
+  .section-icon { width: 40px; height: 40px; font-size: 20px; }
+  .stat-strip { grid-template-columns: repeat(2,1fr); }
+}
+@media (prefers-reduced-motion: reduce){
+  .section { animation: none; opacity: 1; transform: none; }
+  html { scroll-behavior: auto; }
+}
 </style>
 </head>
 <body>
 
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- ========================================================
+  HERO
+  RKLB Rocket Lab 宇宙・航空宇宙 小型ロケットElectronだけじゃない。衛星部品から宇宙機、そして大型ロケットNeutronまで、自前でつなげる宇宙インフラ企業。 <span class="hero-tag">🚀 Electron</span><span class="hero-tag">🛰️ Space Systems</span><span class="hero-tag">🔥 Neutron</span> 2026年7月13日
+  ※見出しの重要ワードは <span class="g">…</span> で緑ハイライト
+======================================================== -->
 <div class="hero">
-  <div class="hero-badge">RKLB 完全入門ガイド 2026年7月版</div>
-  <h1>宇宙・防衛株<br><span>Rocket Lab（RKLB）</span>を<br>理解するための全知識</h1>
-  <p>小型ロケットの成功企業から、SpaceXに挑む「垂直統合型の宇宙総合企業」へ。ロケット・衛星・通信を一気通貫でつなぐ巨大な賭けを、投資も宇宙も知らない人向けにゼロから解説します。</p>
+  <div class="brandmark">S<span class="g">i</span>M &nbsp;MARKET LAB</div>
+  <div class="hero-badge">RKLB 完全入門ガイド ・ 2026年7月13日版</div>
+  <h1>Rocket Lab（RKLB）を<br><span class="g">まるっと</span>解説</h1>
+  <p>小型ロケットElectronだけじゃない。衛星部品から宇宙機、そして大型ロケットNeutronまで、自前でつなげる宇宙インフラ企業。</p>
   <div class="hero-tags">
-    <span class="hero-tag">🚀 ロケットとは何か</span>
-    <span class="hero-tag">🛰️ 衛星ビジネス</span>
-    <span class="hero-tag">♻️ 再使用ロケット</span>
-    <span class="hero-tag">📡 Iridium買収</span>
-    <span class="hero-tag">💹 赤字でも急騰の理由</span>
+    <!-- 例: <span class="hero-tag">⚛️ 同位体って何？</span> -->
+    <span class="hero-tag">🚀 Electron</span><span class="hero-tag">🛰️ Space Systems</span><span class="hero-tag">🔥 Neutron</span>
   </div>
 </div>
 
+<!-- 30秒サマリー：でかい数字カード3〜4枚（上昇は .up / 下落は .down） -->
+<div class="tldr-hero">
+  <div class="tldr-hero-inner">
+    <div class="tldr-hero-title">📊 まずは数字でざっくり</div>
+    <div class="stat-strip">
+      <!-- 例:
+      <div class="stat"><div class="stat-value">$12.34</div><div class="stat-label">現在の株価</div><div class="stat-note">52週 $4〜$18</div></div>
+      <div class="stat"><div class="stat-value up">+180%</div><div class="stat-label">直近1年</div></div>
+      <div class="stat"><div class="stat-value">$1.2B</div><div class="stat-label">時価総額</div></div>
+      <div class="stat"><div class="stat-value">2027</div><div class="stat-label">黒字化目標</div></div>
+      -->
+      <div class="stat"><div class="stat-value">$80.40</div><div class="stat-label">現在株価</div><div class="stat-note">7/13取得時点</div></div><div class="stat"><div class="stat-value up">$200.3M</div><div class="stat-label">Q1 2026売上</div></div><div class="stat"><div class="stat-value">$2.2B</div><div class="stat-label">バックログ</div></div><div class="stat"><div class="stat-value">Q4 2026</div><div class="stat-label">Neutron目標</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- STICKY NAV -->
 <nav class="nav-index">
   <div class="nav-inner">
-    <a class="nav-item" href="#sec1">① 会社概要</a>
-    <a class="nav-item" href="#sec2">② 宇宙ビジネスの基本</a>
-    <a class="nav-item" href="#sec3">③ ロケットと製品</a>
-    <a class="nav-item" href="#sec4">④ 技術と再使用の仕組み</a>
+    <a class="nav-item" href="#sec1">① どんな会社</a>
+    <a class="nav-item" href="#sec2">② 宇宙ビジネス</a>
+    <a class="nav-item" href="#sec3">③ 製品と技術</a>
+    <a class="nav-item" href="#sec4">④ Neutron</a>
     <a class="nav-item" href="#sec5">⑤ 競合比較</a>
-    <a class="nav-item" href="#sec6">⑥ 専門用語辞典</a>
+    <a class="nav-item" href="#sec6">⑥ 用語辞典</a>
     <a class="nav-item" href="#sec7">⑦ 株価の見方</a>
   </div>
 </nav>
 
 <div class="container">
 
-  <!-- ════════════ SEC1: 会社概要 ════════════ -->
+  <!-- SEC1: 会社概要　⚡3秒まとめ → 会社データ → card-sm 4枚 → どう稼ぐ → highlight「基本ルール」 -->
   <section class="section" id="sec1">
     <div class="section-header">
-      <div class="section-icon icon-primary">🏢</div>
+      <div class="section-icon">🏢</div><div class="section-num">1</div>
       <div>
-        <div class="section-title">Rocket Labとはどんな会社？</div>
-        <div class="section-sub">まずは全体像を30秒で把握しよう</div>
+        <div class="section-title">Rocket Labって<span class="g">どんな会社</span>？</div>
+        <div class="section-sub">まず全体像を3秒で</div>
       </div>
     </div>
+    <div class="tldr">
+      <div class="tldr-label">⚡ このセクションの3秒まとめ</div>
+      <ul>
+        <!-- 例: <li data-emoji="🏭">◯◯を作ってる△△業界の会社</li> -->
+        <li data-emoji="🚀">ロケット打上げと宇宙システムを両方やる会社。</li><li data-emoji="💸">Q1 2026売上は$200.3M。前年同期比63.5%増。</li><li data-emoji="🔥">最大の勝負は中型ロケットNeutron。</li>
+      </ul>
+    </div>
 
-    <p class="lead">Rocket Lab（ロケットラボ）は、<strong>ロケットで衛星を宇宙に打ち上げ、さらに衛星そのものを製造する「宇宙の総合建設会社」</strong>です。ニュージーランド出身の起業家ピーター・ベック氏が2006年に創業し、現在は米カリフォルニア州ロングビーチに本社を置きます。「打ち上げ屋さん」から出発し、いまや衛星の設計・製造・部品・運用までを手がける垂直統合企業へと変貌を遂げつつあります。</p>
+    <!-- 会社データ（クイックファクト）：設立/本社/従業員/CEO/上場/売上規模 等。不明は「非開示」 -->
+    <div class="facts">
+      <div><dt>設立</dt><dd>2006年</dd></div><div><dt>創業者・CEO</dt><dd>Peter Beck</dd></div><div><dt>本社</dt><dd>Long Beach, CA</dd></div><div><dt>上場</dt><dd>NASDAQ: RKLB</dd></div><div><dt>従業員</dt><dd>約3,000人</dd></div><div><dt>Q1 2026売上</dt><dd>$200.3M</dd></div>
+      <!-- 例:
+      <div><dt>設立</dt><dd>2019年</dd></div>
+      <div><dt>本社</dt><dd>東京</dd></div>
+      <div><dt>従業員数</dt><dd>約12,000人</dd></div>
+      <div><dt>CEO</dt><dd>◯◯ ◯◯</dd></div>
+      <div><dt>上場</dt><dd>東証プライム（285A）</dd></div>
+      <div><dt>売上規模</dt><dd>約2.3兆円</dd></div>
+      -->
+    </div>
 
+    <!-- 4枚カード：何をしてる/主力事業/直近の業績/なぜ注目 -->
     <div class="card-grid">
-      <div class="card-sm">
-        <div class="cs-label">何をしている会社？</div>
-        <div class="cs-value">ロケット打ち上げ＋衛星製造</div>
-        <div class="cs-desc">小型ロケット「Electron」で世界2位の打ち上げ頻度。加えて衛星本体・部品も作る「宇宙のワンストップ企業」を目指す。</div>
-      </div>
-      <div class="card-sm">
-        <div class="cs-label">上場先</div>
-        <div class="cs-value">NASDAQ：RKLB</div>
-        <div class="cs-desc">2026年6月からハイテク優良株の指数「ナスダック100」にも採用された注目銘柄。</div>
-      </div>
-      <div class="card-sm">
-        <div class="cs-label">黒字？赤字？</div>
-        <div class="cs-value">まだ赤字（成長投資期）</div>
-        <div class="cs-desc">売上は急拡大中だが最終損益は赤字。黒字化は2027年頃と見込まれている。</div>
-      </div>
-      <div class="card-sm">
-        <div class="cs-label">なぜ注目？</div>
-        <div class="cs-value">「打倒SpaceX」の本命候補</div>
-        <div class="cs-desc">大型ロケット「Neutron」の初打ち上げと、8,000億円規模のIridium買収で事業が一段と拡大する局面。</div>
-      </div>
+      <div class="card-sm"><span class="card-emoji">🚀</span><div class="card-title">何をしてる</div><div class="card-desc">小型ロケットElectronで衛星を打ち上げる。</div></div><div class="card-sm"><span class="card-emoji">🛰️</span><div class="card-title">主力事業</div><div class="card-desc">衛星部品・宇宙機・ソーラーなどSpace Systemsが大きな柱。</div></div><div class="card-sm"><span class="card-emoji">📈</span><div class="card-title">直近の業績</div><div class="card-desc">Q1 2026売上$200.3M、粗利率38.2%、バックログ$2.2B。</div></div><div class="card-sm"><span class="card-emoji">🔥</span><div class="card-title">なぜ注目</div><div class="card-desc">Neutron成功なら、より大きな衛星市場へ進める。</div></div>
+      <!-- 例: <div class="card-sm"><span class="card-emoji">🏭</span><div class="card-title">何をしてる</div><div class="card-desc">…</div></div> を4枚 -->
     </div>
 
-    <div class="highlight">
-      <h3>宇宙・防衛株の基本ルール</h3>
-      <p>宇宙株は「<strong>まだ利益が出ていない会社に、将来の夢を織り込んで買う</strong>」タイプの銘柄が多いのが特徴です。株価は今の利益ではなく、「数年後にどれだけ売上を伸ばし、黒字化できるか」という期待で動きます。</p>
-      <p>そのため、①ロケットの打ち上げ成功／失敗、②大型契約の獲得、③新型機の開発進捗、といった「イベント（＝カタリスト）」で株価が大きく跳ねたり急落したりします。業績の数字そのものより、こうした節目のニュースが株価の主役になりやすい、と覚えておくと理解が進みます。</p>
-    </div>
+    <!-- どうやって稼ぐ？：ビジネスモデルと売上の内訳を平易に -->
+    <div class="block-label">💰 どうやって<span class="g">稼いでる</span>？</div>
+    <ul class="keypoints">
+      <li><span class="kp-emoji">🚀</span><span class="kp-text"><b>Launch Services</b>：Electronで衛星を軌道へ運び、打上げ代を得る。</span></li><li><span class="kp-emoji">🛰️</span><span class="kp-text"><b>Space Systems</b>：衛星本体、部品、ソーラー、分離機構などを販売。</span></li><li><span class="kp-emoji">🏛️</span><span class="kp-text"><b>政府案件</b>：米国防・宇宙機関向けの大型契約が成長源。</span></li>
+      <!-- 例: <li><span class="kp-emoji">🧩</span><span class="kp-text"><b>主力</b>：◯◯を作って△△に売る。売上の約7割。</span></li> を2〜4件（売上構成・主要顧客・課金の仕組み等） -->
+    </ul>
+
+    <!-- 会社の“基本ルール”（この銘柄を見るうえで最初に押さえる勘所） -->
+    <div class="highlight"><h3>📏 RKLB株の基本ルール</h3><p><b>今の利益より、数年先の規模を先に買う株。</b> だからNeutronの遅延や成長鈍化にとても敏感。</p></div>
+    <!-- 例: <div class="highlight"><h3>📏 ◯◯株の基本ルール</h3><p>…</p></div> -->
   </section>
 
-  <!-- ════════════ SEC2: 宇宙ビジネスの基本 ════════════ -->
+  <!-- SEC2: 業界の基本　⚡まとめ → lead(比喩) → sowhat → term-list 4〜6 -->
   <section class="section" id="sec2">
     <div class="section-header">
-      <div class="section-icon icon-violet">🛰️</div>
-      <div>
-        <div class="section-title">宇宙ビジネスの基本原理</div>
-        <div class="section-sub">ロケットと衛星でどうやってお金を稼ぐのか</div>
-      </div>
+      <div class="section-icon">🌌</div><div class="section-num">2</div>
+      <div><div class="section-title">宇宙ビジネスは<span class="g">どう儲かる</span>？</div><div class="section-sub">打上げだけ見ていると半分しか分からない</div></div>
     </div>
-
-    <div class="card">
-      <p style="font-size:14px;color:var(--gray-700);line-height:1.9;">
-      宇宙ビジネスは、意外と身近な「<strong>宅配便</strong>」に例えると理解しやすいです。ロケット会社は、荷物（＝衛星）を「宇宙という届け先」まで運ぶ<strong>運送業者</strong>。荷物を運ぶトラックがロケット、荷物そのものが衛星、そして荷物を出す顧客が政府や通信会社です。<br><br>
-      Rocket Labがすごいのは、この宅配便で「トラック（ロケット）を持っている」だけでなく、「<strong>運ぶ荷物（衛星）も自社で作れる</strong>」点。さらにIridium買収で「衛星が届いた後の通信サービス」まで手に入れようとしています。つまり<strong>運送・製造・サービスの三役を一社でこなす</strong>のが狙いです。
-      </p>
-    </div>
-
-    <h4 class="sub-h">🚀 ロケットが荷物（衛星）を宇宙に届けるまでの4ステップ</h4>
-    <div class="phase-flow">
-      <div class="phase-row">
-        <div class="phase-line-wrap"><div class="phase-dot">1</div><div class="phase-connector"></div></div>
-        <div class="phase-content">
-          <div class="phase-label">打ち上げ</div>
-          <div class="phase-title">ロケットで大気圏を突破する</div>
-          <div class="phase-desc">燃料を燃やして猛烈な推力を生み、重力に逆らって上昇。第1段エンジンで大気圏の外へ荷物を持ち上げる。ここが最も燃料を使い、最も失敗が起きやすい難所。</div>
-        </div>
-      </div>
-      <div class="phase-row">
-        <div class="phase-line-wrap"><div class="phase-dot">2</div><div class="phase-connector"></div></div>
-        <div class="phase-content">
-          <div class="phase-label">段の切り離し</div>
-          <div class="phase-title">使い終わったタンクを捨てて身軽になる</div>
-          <div class="phase-desc">ロケットは複数の「段」に分かれており、燃料を使い切った下段を切り離す。空になったタンクを持ち続けると重すぎるため。ここで捨てる部分を「再利用」できるかがコスト勝負の分かれ目。</div>
-        </div>
-      </div>
-      <div class="phase-row">
-        <div class="phase-line-wrap"><div class="phase-dot">3</div><div class="phase-connector"></div></div>
-        <div class="phase-content">
-          <div class="phase-label">軌道投入</div>
-          <div class="phase-title">正しい「宇宙の高速道路」に乗せる</div>
-          <div class="phase-desc">衛星を狙った高度・速度の「軌道」に正確に放出する。少しでもズレると衛星が使い物にならないため、繊細な制御が必要。ここまで来て初めて打ち上げ成功。</div>
-        </div>
-      </div>
-      <div class="phase-row">
-        <div class="phase-line-wrap"><div class="phase-dot">4</div></div>
-        <div class="phase-content">
-          <div class="phase-label">運用</div>
-          <div class="phase-title">衛星が仕事を始める</div>
-          <div class="phase-desc">軌道上の衛星が通信・観測・測位などのサービスを開始。Rocket Labはこの「運用サービス」領域までIridium買収で広げようとしている。</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="term-list" style="margin-top:24px;">
-      <details class="term-item">
-        <summary class="term-header"><span><span class="term-name">軌道（オービット）</span><span class="term-en">Orbit</span></span><span class="term-arrow">▾</span></summary>
-        <div class="term-body">
-          <p>衛星が地球の周りをぐるぐる回る「通り道」のこと。ボールを速く投げると遠くまで飛ぶように、十分な速度で横向きに放り出すと、地球に落ちずに周回し続けます。これが軌道です。</p>
-          <p>低い軌道（LEO・高度数百km）は通信の遅延が少なく打ち上げも安い一方、たくさんの衛星が必要。Rocket Labが狙う主戦場もこのLEO（低軌道）です。</p>
-        </div>
-      </details>
-      <details class="term-item">
-        <summary class="term-header"><span><span class="term-name">ペイロード</span><span class="term-en">Payload</span></span><span class="term-arrow">▾</span></summary>
-        <div class="term-body">
-          <p>ロケットが運ぶ「荷物」＝衛星や貨物のこと。宅配便でいう荷物そのもの。ロケットの実力は「どれだけ重いペイロードを、どの軌道まで運べるか」で測られます。</p>
-          <p>Rocket Labの小型機Electronは約300kg、開発中の大型機Neutronは約13,000kg（Electronの約43倍）を低軌道に運べる設計です。</p>
-        </div>
-      </details>
-      <details class="term-item">
-        <summary class="term-header"><span><span class="term-name">再使用ロケット</span><span class="term-en">Reusable Rocket</span></span><span class="term-arrow">▾</span></summary>
-        <div class="term-body">
-          <p>一度打ち上げたロケットの一部（主に第1段）を回収して、整備し直し、もう一度飛ばす仕組み。飛行機のように「使い捨てず何度も使う」ことで、1回あたりのコストを大きく下げられます。</p>
-          <p>これを最初に実用化したのがSpaceXのFalcon 9。Rocket Labの新型Neutronも第1段の再使用を前提に設計されており、コスト競争力の要になります。</p>
-        </div>
-      </details>
-      <details class="term-item">
-        <summary class="term-header"><span><span class="term-name">コンステレーション</span><span class="term-en">Constellation</span></span><span class="term-arrow">▾</span></summary>
-        <div class="term-body">
-          <p>多数の衛星を「群れ」として連携させ、地球全体をカバーする仕組み。1機では地球の一部しか見えませんが、数十〜数千機を配置すれば地球のどこでも通信・観測が可能になります。</p>
-          <p>Starlink（SpaceX）やIridiumが代表例。コンステレーションには大量の打ち上げが必要なため、ロケット会社にとって最大の「お得意様市場」です。</p>
-        </div>
-      </details>
-      <details class="term-item">
-        <summary class="term-header"><span><span class="term-name">垂直統合</span><span class="term-en">Vertical Integration</span></span><span class="term-arrow">▾</span></summary>
-        <div class="term-body">
-          <p>部品調達から製造、最終サービスまでを「自社で一貫して手がける」経営スタイル。外注に頼らないぶんコストを抑えられ、品質やスケジュールもコントロールしやすくなります。</p>
-          <p>Rocket Labはロケット（打ち上げ）＋衛星（製造）＋通信（Iridium）と、宇宙のバリューチェーン全体を自社で押さえる「垂直統合の宇宙企業」を明確な戦略に掲げています。</p>
-        </div>
-      </details>
-    </div>
+    <div class="tldr"><div class="tldr-label">⚡ このセクションの3秒まとめ</div><ul><li data-emoji="🚀">打上げは入口。衛星本体や部品でも稼ぐ。</li><li data-emoji="💸">契約は長期・大型化しやすい。</li><li data-emoji="⚠️">失敗や遅延のダメージも大きい。</li></ul></div>
+    <p class="lead">宇宙会社は「宅配便＋自動車部品メーカー」を一緒にやるイメージ。ロケットで運び、衛星の中身も売る。</p><div class="sowhat"><p><b>つまり：</b>RKLBはElectronだけの会社ではない。Space Systemsの伸びが会社の土台。</p></div><div class="term-list"><details class="term-item"><summary class="term-header"><span class="term-name">打上げサービス<span class="term-en">Launch Services</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>衛星を軌道まで運ぶ仕事。成功率、打上げ頻度、価格が重要。RKLBではElectronが主役。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">宇宙システム<span class="term-en">Space Systems</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>衛星本体や部品を売る事業。RKLBでは売上の大きな柱。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">バックログ<span class="term-en">Backlog</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>まだ売上になっていない受注残。Q1 2026末は約$2.2B。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">垂直統合<span class="term-en">Vertical Integration</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>部品から打上げまで自社で持つ考え方。コストと納期を制御しやすい。</p></div></details></div>
   </section>
 
-  <!-- ════════════ SEC3: ロケットと製品 ════════════ -->
+  <!-- SEC3: 主要製品・技術　⚡まとめ → product-grid → term-list 3〜5 -->
   <section class="section" id="sec3">
     <div class="section-header">
-      <div class="section-icon icon-accent">🚀</div>
-      <div>
-        <div class="section-title">Rocket Labの主力ロケット・製品</div>
-        <div class="section-sub">この会社が持つ「武器」を具体的に知る</div>
-      </div>
+      <div class="section-icon">🔬</div><div class="section-num">3</div>
+      <div><div class="section-title">Rocket Labの<span class="g">主役たち</span></div><div class="section-sub">Electronだけ覚えて終わりはもったいない</div></div>
     </div>
-
-    <p class="lead">Rocket Labの事業は大きく2つの部門に分かれます。ロケットで打ち上げを請け負う<strong>「Launch Services（打ち上げ）」</strong>と、衛星本体や部品を作る<strong>「Space Systems（宇宙システム）」</strong>です。意外にも、今や売上の約2/3は打ち上げではなく衛星製造側から生まれています。</p>
-
-    <div class="product-grid">
-      <div class="product-box">
-        <div class="product-symbol">Electron</div>
-        <div class="product-name">小型ロケット</div>
-        <div class="product-use">主力の稼ぎ頭。87回超の打ち上げ実績、成功率96%超。世界で3番目に多く飛ぶ軌道ロケット。約300kgを低軌道へ。</div>
-      </div>
-      <div class="product-box">
-        <div class="product-symbol">Neutron</div>
-        <div class="product-name">大型ロケット（開発中）</div>
-        <div class="product-use">最大の切り札。約13,000kgを低軌道へ運ぶ再使用ロケット。SpaceXのFalcon 9に真っ向勝負を挑む。2026年後半に初打ち上げ予定。</div>
-      </div>
-      <div class="product-box">
-        <div class="product-symbol">HASTE</div>
-        <div class="product-name">極超音速試験機</div>
-        <div class="product-use">Electronを改造した弾道飛行版。米国防総省の極超音速兵器テストに使われ、防衛収入を稼ぐ。</div>
-      </div>
-      <div class="product-box">
-        <div class="product-symbol">Photon</div>
-        <div class="product-name">衛星バス（土台）</div>
-        <div class="product-use">衛星の「本体フレーム」にあたる製品。顧客はここに自社の機器を載せるだけで衛星を完成できる。</div>
-      </div>
-    </div>
-
-    <div class="term-list" style="margin-top:24px;">
-      <details class="term-item">
-        <summary class="term-header"><span><span class="term-name">Electron（エレクトロン）</span><span class="term-en">主力の小型ロケット</span></span><span class="term-arrow">▾</span></summary>
-        <div class="term-body">
-          <p>Rocket Labの看板ロケット。全長約18mと小柄で、小型衛星を1機〜数機だけ、狙った軌道にピンポイントで届けるのが得意です。「相乗りバス」ではなく「専用タクシー」のように、顧客の希望する軌道に直接運べるのが強み。</p>
-          <p>2025年だけで21回打ち上げるなど高い頻度で飛んでおり、累計成功率は96%超。この「実績」がNeutronへの信頼にもつながっています。</p>
-        </div>
-      </details>
-      <details class="term-item">
-        <summary class="term-header"><span><span class="term-name">Neutron（ニュートロン）</span><span class="term-en">次世代の大型再使用ロケット</span></span><span class="term-arrow">▾</span></summary>
-        <div class="term-body">
-          <p>会社の将来を左右する最重要プロジェクト。全長約43m、低軌道に約13,000kg（Electronの43倍）を運べる中型・部分再使用ロケットです。第1段はドローン船「Return on Investment（投資回収）」号に着陸させて回収・再使用する設計。</p>
-          <p>これまでSpaceXのFalcon 9しか対応できなかった「中型の衛星群・大型政府ペイロード」という新市場に参入できるため、1回あたりの売上単価もElectronより大幅に高くなります。<strong>「Neutronの初打ち上げ成功」がRKLB株の最大の再評価イベント</strong>と位置づけられています。</p>
-        </div>
-      </details>
-      <details class="term-item">
-        <summary class="term-header"><span><span class="term-name">Space Systems部門</span><span class="term-en">衛星製造・部品事業</span></span><span class="term-arrow">▾</span></summary>
-        <div class="term-body">
-          <p>衛星本体、太陽電池、姿勢制御装置、レーザー通信機器などを設計・製造する部門。Mynaric（レーザー通信）やMotiv Space Systems（火星ロボット技術）などの買収で能力を強化してきました。</p>
-          <p>打ち上げは1回ごとの単発売上ですが、衛星製造は大型で継続的な契約になりやすく、実は現在この部門が売上の約2/3を占める「隠れた主力」です。</p>
-        </div>
-      </details>
-      <details class="term-item">
-        <summary class="term-header"><span><span class="term-name">SDA向けミサイル警戒衛星契約</span><span class="term-en">防衛の大型案件</span></span><span class="term-arrow">▾</span></summary>
-        <div class="term-body">
-          <p>米宇宙開発庁（SDA）から受注した、最大8.16億ドル規模の18機のミサイル警戒衛星を製造する契約。同社にとって過去最大級の受注で、防衛分野での信頼を示す象徴的な案件です。</p>
-          <p>このほか、DoD（国防総省）との1.9億ドルの極超音速試験契約、Anduril社との3,000万ドルの契約なども獲得しており、「宇宙防衛企業」としての性格を強めています。</p>
-        </div>
-      </details>
-    </div>
+    <div class="tldr"><div class="tldr-label">⚡ このセクションの3秒まとめ</div><ul><li data-emoji="🚀">Electronは実績ある小型ロケット。</li><li data-emoji="🔥">Neutronは次の成長エンジン候補。</li><li data-emoji="🛰️">衛星部品と宇宙機が安定した売上の柱。</li></ul></div>
+    <div class="product-grid"><div class="product-box"><div class="product-symbol">E</div><div class="product-name">Electron</div><div class="product-use">小型衛星打上げ</div></div><div class="product-box"><div class="product-symbol">N</div><div class="product-name">Neutron</div><div class="product-use">中型・再使用ロケット</div></div><div class="product-box"><div class="product-symbol">P</div><div class="product-name">Photon</div><div class="product-use">宇宙機プラットフォーム</div></div></div><div class="term-list"><details class="term-item"><summary class="term-header"><span class="term-name">Electron<span class="term-en">Small launch vehicle</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>小型衛星向けロケット。Rocket Labの実績とブランドを作った存在。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">Neutron<span class="term-en">Medium-lift rocket</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>より大きな衛星やコンステレーション向け。成功すれば市場規模が大きく広がる。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">Photon<span class="term-en">Spacecraft platform</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>衛星バス・宇宙機プラットフォーム。打上げ後の宇宙ミッションまで担当できる。</p></div></details></div>
   </section>
 
-  <!-- ════════════ SEC4: 技術と再使用の仕組み ════════════ -->
+  <!-- SEC4: 技術詳細・規制　⚡まとめ → keypoints → term-list 4〜6 -->
   <section class="section" id="sec4">
     <div class="section-header">
-      <div class="section-icon icon-blue">⚙️</div>
-      <div>
-        <div class="section-title">再使用ロケットの技術と、なぜ難しいのか</div>
-        <div class="section-sub">「打ち上げ」の裏側にある技術的な壁</div>
-      </div>
+      <div class="section-icon">🏛️</div><div class="section-num">4</div>
+      <div><div class="section-title">最大の勝負、<span class="g">Neutron</span></div><div class="section-sub">ここが株価の最大スイッチ</div></div>
     </div>
-
-    <p class="lead">宇宙株を理解するうえで避けて通れないのが「なぜロケット開発はこんなに遅れるのか」という問題です。Neutronも当初2024〜2025年予定だった初打ち上げが2026年後半にずれ込んでいます。その背景には、再使用ロケット特有の技術的な難しさがあります。</p>
-
-    <div class="info-row">
-      <div class="info-box info-box-blue">
-        <div class="info-title info-title-blue">🔥 エンジンの信頼性</div>
-        <div class="info-text">Neutronは自社開発の「Archimedes（アルキメデス）」エンジンを第1段に9基使用。1基でも異常があれば失敗につながるため、地上での燃焼試験を徹底的に繰り返す必要がある。</div>
-      </div>
-      <div class="info-box info-box-blue">
-        <div class="info-title info-title-blue">♻️ 着陸・回収の制御</div>
-        <div class="info-text">打ち上げた第1段を、海上のドローン船にピタリと軟着陸させる技術。逆噴射で減速しながら姿勢を保つ極めて高度な制御が必要で、SpaceXも成功まで何度も失敗した領域。</div>
-      </div>
-    </div>
-
-    <div class="term-list" style="margin-top:24px;">
-      <details class="term-item">
-        <summary class="term-header"><span><span class="term-name">Archimedesエンジン</span><span class="term-en">Neutron用の新型エンジン</span></span><span class="term-arrow">▾</span></summary>
-        <div class="term-body">
-          <p>Neutron専用に自社開発した液体燃料エンジン。燃料には液化メタン（CH4）と液体酸素を使います。メタンは扱いやすく再使用にも向くため、次世代ロケットで主流になりつつある燃料です。</p>
-          <p>第1段に9基、第2段に真空用の1基を搭載。このエンジンの完成度がNeutron全体のスケジュールを左右するため、投資家は「エンジン燃焼試験の進捗」を注視しています。</p>
-        </div>
-      </details>
-      <details class="term-item">
-        <summary class="term-header"><span><span class="term-name">Hungry Hippo フェアリング</span><span class="term-en">独自の再使用の仕組み</span></span><span class="term-arrow">▾</span></summary>
-        <div class="term-body">
-          <p>Neutronの目玉となる独自設計。ロケット先端の「フェアリング（衛星を守るカバー）」が第1段と一体化しており、パカッと開いて衛星を出したあと再び閉じる、まるでカバの口のような構造です。</p>
-          <p>これにより、通常は使い捨てになるフェアリングと第1段を「まとめて回収」できます。他社にはない再使用アプローチで、コスト削減の鍵とされています。</p>
-        </div>
-      </details>
-      <details class="term-item">
-        <summary class="term-header"><span><span class="term-name">打ち上げ成功率</span><span class="term-en">Success Rate</span></span><span class="term-arrow">▾</span></summary>
-        <div class="term-body">
-          <p>打ち上げたロケットが、狙い通り衛星を軌道に届けられた割合。宇宙ビジネスでは「信頼性」そのものであり、顧客が発注先を選ぶ最重要指標です。</p>
-          <p>Electronは累計96%超という高い成功率を積み上げており、これがRocket Labの最大の資産の一つ。逆に一度の失敗が信頼を大きく傷つけ、株価急落につながるリスクもあります。</p>
-        </div>
-      </details>
-      <details class="term-item">
-        <summary class="term-header"><span><span class="term-name">Launch Complex（射場）</span><span class="term-en">打ち上げ施設</span></span><span class="term-arrow">▾</span></summary>
-        <div class="term-body">
-          <p>ロケットを打ち上げる専用の発射場。Rocket LabはニュージーランドのLC-1と、米バージニア州ワロップス島のLC-3を保有。Neutronはこの米国内のLC-3から飛ばす予定です。</p>
-          <p>米国内に自前の射場を持つことは、機密性の高い米政府・防衛案件を受注するうえで重要。国家安全保障がらみの打ち上げは国内施設が求められるためです。</p>
-        </div>
-      </details>
-      <details class="term-item">
-        <summary class="term-header"><span><span class="term-name">バックログ（受注残）</span><span class="term-en">Backlog</span></span><span class="term-arrow">▾</span></summary>
-        <div class="term-body">
-          <p>すでに契約済みだが、まだ実行・売上計上されていない仕事の総額。将来の売上の「予約」にあたり、企業の成長の可視性を示します。</p>
-          <p>Rocket Labのバックログは2026年Q1時点で過去最高の約22億ドル。打ち上げマニフェスト（予定表）も70機超に達しており、「仕事が先まで埋まっている」ことが投資家の安心材料になっています。</p>
-        </div>
-      </details>
-    </div>
+    <div class="tldr"><div class="tldr-label">⚡ このセクションの3秒まとめ</div><ul><li data-emoji="🔥">会社目標はQ4 2026の初打上げ。</li><li data-emoji="⚠️">過去に遅延があり、日程は最重要監視項目。</li><li data-emoji="🚀">成功しても量産・再使用・採算化は次の壁。</li></ul></div>
+    <ul class="keypoints"><li><span class="kp-emoji">🗓️</span><span class="kp-text"><b>時期</b>：会社はQ4 2026を目標。</span></li><li><span class="kp-emoji">🧪</span><span class="kp-text"><b>技術</b>：エンジン、タンク、統合試験、射場準備が全部必要。</span></li><li><span class="kp-emoji">💰</span><span class="kp-text"><b>採算</b>：初飛行成功だけでなく、頻度と再使用が重要。</span></li></ul><div class="term-list"><details class="term-item"><summary class="term-header"><span class="term-name">Archimedes<span class="term-en">Rocket engine</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>Neutron用エンジン。推進系の進捗は初打上げ時期を左右する。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">再使用<span class="term-en">Reusability</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>ロケットの一部を再利用してコストを下げる考え方。Neutronの経済性に重要。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">初打上げ<span class="term-en">Maiden flight</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>最初の飛行。成功しても商用運用の完成ではない。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">打上げ頻度<span class="term-en">Cadence</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>年間何回飛ばせるか。固定費を吸収し、利益率を上げる鍵。</p></div></details></div>
   </section>
 
-  <!-- ════════════ SEC5: 競合比較 ════════════ -->
+  <!-- SEC5: 競合比較　⚡まとめ → table-wrap>compare-table(自社=me) → highlight「差別化」 -->
   <section class="section" id="sec5">
     <div class="section-header">
-      <div class="section-icon icon-amber">⚔️</div>
-      <div>
-        <div class="section-title">競合比較：宇宙業界の勢力図</div>
-        <div class="section-sub">巨人SpaceXとの距離感を正しくつかむ</div>
-      </div>
+      <div class="section-icon">⚔️</div><div class="section-num">5</div>
+      <div><div class="section-title">ライバルと比べて<span class="g">何が違う</span>？</div><div class="section-sub">宇宙会社は同じようで役割が違う</div></div>
     </div>
-
-    <p class="lead">宇宙の打ち上げ市場は、圧倒的王者SpaceXが君臨する構図です。Rocket Labは「SpaceXに次ぐ2番手」の位置づけで、Neutronによってその差を縮めようとしています。主要プレーヤーを整理すると次の通りです。</p>
-
-    <div class="table-wrap">
-      <table class="compare-table">
-        <thead>
-          <tr><th>企業</th><th>主なロケット/事業</th><th>強み</th><th>弱み・課題</th><th>上場区分</th></tr>
-        </thead>
-        <tbody>
-          <tr class="row-hl">
-            <td>Rocket Lab</td>
-            <td>Electron（小型）／Neutron（中型・開発中）＋衛星製造</td>
-            <td>実績豊富な小型機、垂直統合戦略、防衛契約</td>
-            <td>まだ赤字、Neutronが未実証</td>
-            <td>NASDAQ：RKLB</td>
-          </tr>
-          <tr>
-            <td>SpaceX</td>
-            <td>Falcon 9（再使用）／Starship／Starlink</td>
-            <td>圧倒的な打ち上げ頻度とコスト、通信で巨額収益</td>
-            <td>非常に高いバリュエーション、創業者依存</td>
-            <td>IPO準備中（SPCX）</td>
-          </tr>
-          <tr>
-            <td>Firefly Aerospace</td>
-            <td>Alpha（小型）／月着陸船</td>
-            <td>民間初の完全な月面着陸に成功、急成長</td>
-            <td>商用化でRKLBに遅れ、赤字幅が大きい</td>
-            <td>NASDAQ：FLY</td>
-          </tr>
-          <tr>
-            <td>ULA</td>
-            <td>Vulcan／Atlas（大型・使い捨て中心）</td>
-            <td>140回超の実績、政府案件で信頼厚い</td>
-            <td>再使用で出遅れ、コスト高</td>
-            <td>Boeing/Lockheed合弁</td>
-          </tr>
-          <tr>
-            <td>Blue Origin</td>
-            <td>New Glenn（大型）／New Shepard</td>
-            <td>Amazon創業者ベゾス氏の潤沢な資金</td>
-            <td>2026年5月に地上試験で爆発、開発遅延</td>
-            <td>未上場</td>
-          </tr>
-          <tr>
-            <td>Arianespace</td>
-            <td>Ariane 6（大型・欧州）</td>
-            <td>欧州政府の安定需要</td>
-            <td>コスト競争力に課題</td>
-            <td>Airbus傘下</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="highlight">
-      <h3>Rocket Labの最大の差別化ポイント</h3>
-      <p>Rocket Labの強みは、単なる「ロケット会社」ではなく<strong>ロケット・衛星製造・（買収予定の）衛星通信までを一社で垂直統合しようとしている</strong>点にあります。多くの競合が「打ち上げだけ」「衛星だけ」に特化するなか、Rocket Labは宇宙のバリューチェーン全体を押さえにいっています。</p>
-      <p>さらにIridium買収で狙うのは、SpaceXのStarlink（高速ブロードバンド）とは真っ向勝負しない「<strong>低帯域・ミッションクリティカル通信</strong>」というニッチ市場。船舶・航空・軍事など「絶対につながる必要がある」領域で、SpaceXと棲み分けながら安定した継続収益を得る戦略です。</p>
-    </div>
+    <div class="tldr"><div class="tldr-label">⚡ このセクションの3秒まとめ</div><ul><li data-emoji="🚀">SpaceXは規模で圧倒的。</li><li data-emoji="🛰️">RKLBは小型打上げ＋宇宙システムの組み合わせ。</li><li data-emoji="🔥">Neutron成功で競争範囲が一気に広がる。</li></ul></div>
+    <div class="table-wrap"><table class="compare-table"><thead><tr><th>会社</th><th>主な強み</th><th>RKLBとの違い</th></tr></thead><tbody><tr class="me"><td>Rocket Lab</td><td>Electron＋宇宙システム</td><td>自社</td></tr><tr><td>SpaceX</td><td>大型打上げ・Starlink</td><td>規模が圧倒的</td></tr><tr><td>Firefly</td><td>打上げ・月面</td><td>月面輸送も展開</td></tr><tr><td>Intuitive Machines</td><td>月面サービス</td><td>月ミッション中心</td></tr><tr><td>AST SpaceMobile</td><td>衛星通信</td><td>通信サービス中心</td></tr></tbody></table></div><div class="highlight"><h3>⚔️ 最大の差別化</h3><p><b>打上げだけでなく、衛星の中身まで売れること。</b> 顧客との接点が増え、1案件あたりの価値を広げやすい。</p></div>
   </section>
 
-  <!-- ════════════ SEC6: 専門用語辞典 ════════════ -->
+  <!-- SEC6: 用語辞典　⚡まとめ(特にこの3つ) → term-list 10〜12（①定義→②なぜ重要→③この銘柄では） -->
   <section class="section" id="sec6">
     <div class="section-header">
-      <div class="section-icon icon-primary">📖</div>
-      <div>
-        <div class="section-title">RKLB専門用語 全辞典</div>
-        <div class="section-sub">ニュースに出てくる言葉を一覧で確認</div>
-      </div>
+      <div class="section-icon">📖</div><div class="section-num">6</div>
+      <div><div class="section-title">RKLBのニュースで出る<span class="g">言葉</span> 全辞典</div><div class="section-sub">分からん単語はここで潰す</div></div>
     </div>
-
-    <div class="term-list">
-      <details class="term-item">
-        <summary class="term-header"><span><span class="term-name">Iridium（イリジウム）</span><span class="term-en">買収対象の衛星通信企業</span></span><span class="term-arrow">▾</span></summary>
-        <div class="term-body">
-          <p>66機の低軌道衛星で地球全体をカバーする、老舗の衛星通信会社（NASDAQ：IRDM）。衛星電話やIoT通信、位置・時刻情報（PNT）サービスを提供し、船舶・航空・軍事などで使われています。</p>
-          <p><strong>なぜ重要か：</strong>Rocket Labが約80億ドルで買収を発表した相手。Iridiumは2025年に売上約8.7億ドル・OEBITDA約4.95億ドル（利益率57%）を稼ぐ「既に黒字で継続収益がある会社」。赤字のRocket Labにとって、財務体質を一気に改善する狙いがあります。</p>
-          <div class="ex-box"><div class="ex-label ex-label-accent">RKLBの文脈</div><div class="ex-text">買収は2027年半ばの完了予定。1株54ドル（現金27ドル＋RKLB株式）で、この発表後にRKLB株もIRDM株も急騰した。</div></div>
-        </div>
-      </details>
-      <details class="term-item">
-        <summary class="term-header"><span><span class="term-name">スペクトラム（周波数帯）</span><span class="term-en">Spectrum / L-Band</span></span><span class="term-arrow">▾</span></summary>
-        <div class="term-body">
-          <p>電波の「使える帯域」のこと。通信事業には国から割り当てられた周波数が不可欠で、簡単には手に入らない貴重な資産です。IridiumはL-Bandという、悪天候でも安定してつながる帯域を保有しています。</p>
-          <p><strong>なぜ重要か：</strong>Rocket LabがIridium買収で得る最大の「見えない資産」の一つ。自前で通信サービスを展開する土台になります。</p>
-        </div>
-      </details>
-      <details class="term-item">
-        <summary class="term-header"><span><span class="term-name">PNT</span><span class="term-en">測位・航法・時刻</span></span><span class="term-arrow">▾</span></summary>
-        <div class="term-body">
-          <p>Position（位置）、Navigation（航法）、Timing（時刻）の頭文字。GPSに代表される「今どこにいるか・正確な時刻はいつか」を知らせる技術です。金融取引から軍事作戦まで、現代インフラの土台になっています。</p>
-          <p><strong>なぜ重要か：</strong>GPSが妨害される戦場などでも使える「代替PNT」は防衛上の需要が高く、Iridium買収でRocket Labが狙う成長領域です。</p>
-        </div>
-      </details>
-      <details class="term-item">
-        <summary class="term-header"><span><span class="term-name">LEO（低軌道）</span><span class="term-en">Low Earth Orbit</span></span><span class="term-arrow">▾</span></summary>
-        <div class="term-body">
-          <p>高度およそ数百km（〜2,000km）の、地球にいちばん近い宇宙の軌道。通信の遅延が小さく打ち上げコストも安いため、StarlinkやIridiumなど現代の衛星ビジネスの主戦場です。</p>
-          <p><strong>なぜ重要か：</strong>Rocket Labのロケットが狙う主要な届け先。ElectronもNeutronもこのLEO市場向けに最適化されています。</p>
-        </div>
-      </details>
-      <details class="term-item">
-        <summary class="term-header"><span><span class="term-name">極超音速（ハイパーソニック）</span><span class="term-en">Hypersonic</span></span><span class="term-arrow">▾</span></summary>
-        <div class="term-body">
-          <p>音速の5倍（マッハ5）以上の超高速のこと。極超音速ミサイルは迎撃が難しく、近年の防衛技術で最重要テーマの一つになっています。</p>
-          <p><strong>なぜ重要か：</strong>Rocket LabはElectron派生の「HASTE」で、この極超音速兵器の飛行試験を安価に提供。国防総省やAnduril社から契約を獲得しており、防衛収入の柱になりつつあります。</p>
-        </div>
-      </details>
-      <details class="term-item">
-        <summary class="term-header"><span><span class="term-name">時価総額</span><span class="term-en">Market Cap</span></span><span class="term-arrow">▾</span></summary>
-        <div class="term-body">
-          <p>会社全体の株式市場での価値。「株価 × 発行済み株式数」で計算します。会社の「規模」を測る最も基本的な物差しです。</p>
-          <p><strong>なぜ重要か：</strong>RKLBの時価総額は約600億ドル（発行株式数 約5.98億株）。売上が年10億ドル未満の会社としては非常に大きく、「将来の期待」が株価に厚く織り込まれていることを意味します。</p>
-        </div>
-      </details>
-      <details class="term-item">
-        <summary class="term-header"><span><span class="term-name">P/S（株価売上高倍率）</span><span class="term-en">Price to Sales</span></span><span class="term-arrow">▾</span></summary>
-        <div class="term-body">
-          <p>時価総額が年間売上の何倍かを示す指標。赤字でまだ利益（PER）が計算できない成長企業の「割高・割安」を測るのに使われます。数字が大きいほど、売上に対して株価が高い＝期待が大きい状態です。</p>
-          <p><strong>なぜ重要か：</strong>RKLBのP/Sは約33倍とされ、SpaceX（約115倍）より低く、Firefly（約26倍）より高い水準。宇宙株の中での相対的な位置づけを見るのに便利です。</p>
-        </div>
-      </details>
-      <details class="term-item">
-        <summary class="term-header"><span><span class="term-name">キャッシュバーン</span><span class="term-en">Cash Burn</span></span><span class="term-arrow">▾</span></summary>
-        <div class="term-body">
-          <p>赤字企業が事業運営で「毎期どれだけ手元資金を減らしているか」。ロケット開発のような巨額投資が必要な事業では、この現金の消費ペースが会社の生命線になります。</p>
-          <p><strong>なぜ重要か：</strong>Rocket Labは2026年Q1の営業キャッシュ流出が約5,030万ドル。ただし約20億ドルの潤沢な流動性を確保しており、当面の資金繰りに余裕があることが安心材料とされています。</p>
-        </div>
-      </details>
-      <details class="term-item">
-        <summary class="term-header"><span><span class="term-name">ATM（増資）</span><span class="term-en">At-The-Market Offering</span></span><span class="term-arrow">▾</span></summary>
-        <div class="term-body">
-          <p>企業が市場でこまめに新株を売って資金を調達する手法。まとまった大型増資より株価への影響を抑えつつ、機動的に現金を確保できます。</p>
-          <p><strong>なぜ重要か：</strong>Rocket LabはATMを活用して約20億ドルの流動性を積み上げ、成長投資やM&A（Iridium買収）の原資にしています。一方で新株発行は既存株主の持ち分が薄まる「希薄化」の側面もあります。</p>
-        </div>
-      </details>
-      <details class="term-item">
-        <summary class="term-header"><span><span class="term-name">希薄化</span><span class="term-en">Dilution</span></span><span class="term-arrow">▾</span></summary>
-        <div class="term-body">
-          <p>新株が発行されることで、1株あたりの価値や既存株主の持ち分割合が薄まること。ピザを同じ大きさのまま切る枚数だけ増やすイメージです。</p>
-          <p><strong>なぜ重要か：</strong>Iridium買収は現金だけでなく「RKLB株式」も対価に使うため、株式が新たに発行されて希薄化が起きます。買収による事業拡大メリットと、この希薄化コストのバランスが投資家の論点です。</p>
-        </div>
-      </details>
-      <details class="term-item">
-        <summary class="term-header"><span><span class="term-name">目標株価</span><span class="term-en">Price Target</span></span><span class="term-arrow">▾</span></summary>
-        <div class="term-body">
-          <p>証券会社のアナリストが「今後12ヶ月でこのくらいの株価が妥当」と予想する数字。あくまで一つの見方であり、当たる保証はありません。</p>
-          <p><strong>なぜ重要か：</strong>RKLBには複数のアナリストがBofA 115ドル、Needham・Craig-Hallum 120ドル、Roth 130ドルなどの目標株価を提示。強気予想が集まりつつありますが、現在株価との差（上値余地）は各社で異なります。</p>
-        </div>
-      </details>
-      <details class="term-item">
-        <summary class="term-header"><span><span class="term-name">ナスダック100</span><span class="term-en">Nasdaq-100 Index</span></span><span class="term-arrow">▾</span></summary>
-        <div class="term-body">
-          <p>ナスダック市場を代表する時価総額上位100社で構成される株価指数。ハイテク優良株の代表格が並びます。</p>
-          <p><strong>なぜ重要か：</strong>RKLBは2026年6月にこの指数へ採用されました。指数に連動する投資信託・ETFが自動的にRKLB株を買うため、需要が底上げされ、知名度も高まる効果があります。</p>
-        </div>
-      </details>
-    </div>
+    <div class="tldr"><div class="tldr-label">⚡ 特にこの3つだけは覚えて</div><ul><li data-emoji="🔥">Neutron＝次の大型成長候補。</li><li data-emoji="💸">Backlog＝将来売上の候補。</li><li data-emoji="⚠️">Dilution＝1株あたり価値を薄める株数増加。</li></ul></div>
+    <div class="term-list"><details class="term-item"><summary class="term-header"><span class="term-name">Neutron<span class="term-en">Medium-lift rocket</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>①中型ロケット。②市場拡大の鍵。③RKLBでは最大の将来カタリスト。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">Electron<span class="term-en">Small launch vehicle</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>①小型ロケット。②実績の証明。③RKLBの打上げ基盤。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">Backlog<span class="term-en">受注残</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>①未売上の契約残。②将来売上の可視性。③Q1 2026末は約$2.2B。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">Space Systems<span class="term-en">宇宙システム</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>①衛星・部品事業。②売上の土台。③RKLBの大きな柱。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">Gross Margin<span class="term-en">粗利率</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>①売上から直接原価を引いた率。②採算を見る。③Q1 2026は38.2%。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">Adjusted EBITDA<span class="term-en">調整後EBITDA</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>①本業の収益力を見る補助指標。②赤字改善を見る。③Q1 2026は-$11.8M。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">Dilution<span class="term-en">希薄化</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>①株数が増えること。②1株価値に影響。③ATM・SBC・転換を監視。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">ATM<span class="term-en">At-the-market offering</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>①市場で少しずつ株を売る資金調達。②希薄化要因。③2026年の資金調達枠を監視。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">Convertible Notes<span class="term-en">転換社債</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>①株に変わる可能性がある社債。②負債と希薄化の両面。③残存額と条件確認が必要。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">SOTP<span class="term-en">Sum of the Parts</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>①事業別に価値を足す評価法。②複合企業向き。③RKLBでは既存事業とNeutronを分けて見る。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">Cadence<span class="term-en">打上げ頻度</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>①年間打上げ回数。②固定費吸収に重要。③ElectronとNeutronの採算を左右。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">Option Value<span class="term-en">オプション価値</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>①まだ確実でない将来機会の価値。②期待先行株で重要。③Neutron評価に大きく影響。</p></div></details></div>
   </section>
 
-  <!-- ════════════ SEC7: 株価の見方・カタリスト ════════════ -->
+  <!-- SEC7: 株価の見方　⚡まとめ → timeline(signal+rating) → リスク4分類 info-row → highlight → 数字まとめ table -->
   <section class="section" id="sec7">
     <div class="section-header">
-      <div class="section-icon icon-amber">💹</div>
-      <div>
-        <div class="section-title">RKLB株の見方・カタリスト</div>
-        <div class="section-sub">何が株価を動かすのかを理解する</div>
-      </div>
+      <div class="section-icon">💹</div><div class="section-num">7</div>
+      <div><div class="section-title">何がRKLB株を<span class="g">動かす</span>？</div><div class="section-sub">上がる理由・下がる理由を一目で</div></div>
     </div>
-
-    <p class="lead">RKLBの株価は過去1年で35ドル台から一時151ドルまで、約4倍に急騰しました。宇宙ブームとNeutronへの期待、そしてIridium買収がこの上昇を後押ししています。ここでは、今後の株価を左右する「カタリスト（材料）」とリスクを整理します。</p>
-
-    <h4 class="sub-h">📅 今後12ヶ月の主要カタリスト</h4>
-    <div class="timeline">
-      <div class="tl-row">
-        <div class="tl-date">2026年 Q3（8月頃）</div>
-        <div class="tl-title">第2四半期決算の発表</div>
-        <div class="tl-desc">会社ガイダンスは売上2.25〜2.40億ドル。ここを上回れるか、Space Systems部門の伸びが続くかが焦点。</div>
-      </div>
-      <div class="tl-row">
-        <div class="tl-date">2026年 後半（Q4想定）</div>
-        <div class="tl-title">★ Neutron 初打ち上げ（最大の山場）</div>
-        <div class="tl-desc">会社の将来を占う最重要イベント。成功すれば株価の大きな再評価につながり得る一方、初回は再使用（回収）の実証は含まれず、失敗・延期のリスクも大きい。</div>
-      </div>
-      <div class="tl-row">
-        <div class="tl-date">2026年 通年</div>
-        <div class="tl-title">Electronの打ち上げ頻度・新規契約</div>
-        <div class="tl-desc">既存の稼ぎ頭が高い頻度で飛び続けられるか。新規受注の積み上げがバックログ（約22億ドル）をさらに伸ばせるかが安定材料。</div>
-      </div>
-      <div class="tl-row">
-        <div class="tl-date">2026〜2027年</div>
-        <div class="tl-title">防衛・政府契約の追加獲得</div>
-        <div class="tl-desc">SDA衛星、極超音速試験など防衛案件の追加受注。国防予算の追い風を受けやすい領域。</div>
-      </div>
-      <div class="tl-row">
-        <div class="tl-date">2027年 半ば（予定）</div>
-        <div class="tl-title">Iridium買収の完了</div>
-        <div class="tl-desc">株主承認・規制当局の承認を経て完了予定。無事クロージングすれば、黒字の継続収益が加わり財務プロフィールが一変する。逆に破談・条件変更は失望材料に。</div>
-      </div>
-      <div class="tl-row">
-        <div class="tl-date">2027年 見込み</div>
-        <div class="tl-title">黒字化（ブレークイーブン）の達成</div>
-        <div class="tl-desc">市場は2027年頃のEBITDA・純利益の黒字転換を期待。この節目を予定通り迎えられるかが中期の評価を決める。</div>
-      </div>
-      <div class="tl-row">
-        <div class="tl-date">時期未定（外部要因）</div>
-        <div class="tl-title">SpaceXのIPO</div>
-        <div class="tl-desc">巨大IPOが実現すると、宇宙セクターへの資金が一時的にそちらへ流れ、RKLBを含む既存宇宙株が売られる（資金分散）局面もあり得る。</div>
-      </div>
-    </div>
-
-    <h4 class="sub-h">⚠️ 4つのリスク分類</h4>
-    <div class="info-row">
-      <div class="info-box info-box-blue">
-        <div class="info-title info-title-blue">🔧 技術リスク</div>
-        <div class="info-text">Neutronの開発は当初予定から遅延を重ねている。初打ち上げの失敗や、さらなる延期は株価の大きな下押し要因。ロケット事業は本質的に「爆発・失敗」のリスクを常に抱える。</div>
-      </div>
-      <div class="info-box info-box-amber">
-        <div class="info-title info-title-amber">🏛️ 規制リスク</div>
-        <div class="info-text">Iridium買収には株主・規制当局の承認が必要で、完了は2027年半ばの予定。承認が遅れたり条件が変わると計画が狂う。通信・防衛は規制の影響を受けやすい領域。</div>
-      </div>
-      <div class="info-box info-box-red">
-        <div class="info-title info-title-red">💰 財務リスク</div>
-        <div class="info-text">依然として赤字で、黒字化は2027年見込み。巨額のNeutron開発費とIridium買収による株式希薄化が重なる。手元流動性は厚いが、資金調達環境の悪化には注意。</div>
-      </div>
-      <div class="info-box info-box-gray">
-        <div class="info-title info-title-gray">📉 市場リスク</div>
-        <div class="info-text">P/S約33倍という高いバリュエーションゆえ、期待が剥落すると急落しやすい。ベータ値も高くボラティリティが大きい。SpaceX IPOや同業の事故で、セクター全体が売られることもある。</div>
-      </div>
-    </div>
-
-    <div class="highlight">
-      <h3>テーマ相場と「Neutronに賭ける」という意味</h3>
-      <p>RKLBは典型的な「<strong>テーマ株</strong>」です。宇宙ブーム、SpaceX IPO期待、防衛需要といったテーマが盛り上がると資金が一気に流入し、冷めると急落します。株価は業績そのものより、こうした<strong>ムードとカタリストで大きく振れる</strong>点を理解しておくことが重要です。</p>
-      <p>特にNeutronのような大型イベントでは「<strong>噂で買って事実で売る（buy the rumor, sell the news）</strong>」という値動きが起こりがちです。期待で株価が上がりきったあと、実際の打ち上げ成功後にむしろ材料出尽くしで下落する、というパターンには注意が必要です。RKLBを見るということは、赤字を許容しつつ「Neutronの成功とIridium統合という壮大な計画が数年かけて実現するか」に賭ける、長期・高リスクの投資テーマだと言えます。</p>
-    </div>
-
-    <h4 class="sub-h">📊 数字まとめ（2026年7月時点）</h4>
-    <div class="table-wrap">
-      <table class="compare-table">
-        <tbody>
-          <tr><th style="width:40%;">項目</th><th>内容</th></tr>
-          <tr><td>ティッカー / 取引所</td><td>RKLB / NASDAQ（ナスダック100構成銘柄）</td></tr>
-          <tr><td>株価（2026/7/5時点）</td><td>約 100ドル</td></tr>
-          <tr><td>52週レンジ</td><td>約 35ドル 〜 151ドル（ボラティリティ大）</td></tr>
-          <tr><td>時価総額</td><td>約 600億ドル（約5.98億株）</td></tr>
-          <tr><td>直近四半期売上（Q1 2026）</td><td>2.003億ドル（前年同期比 +63.5%）</td></tr>
-          <tr><td>Q2 2026 ガイダンス</td><td>2.25〜2.40億ドル</td></tr>
-          <tr><td>バックログ（受注残）</td><td>約 22億ドル（過去最高）</td></tr>
-          <tr><td>手元流動性</td><td>約 20億ドル超</td></tr>
-          <tr><td>四半期EPS（Q1 2026）</td><td>−0.07ドル（前年 −0.12ドルから改善、まだ赤字）</td></tr>
-          <tr><td>アナリスト目標株価</td><td>約 115〜150ドル（強気が中心）</td></tr>
-          <tr><td>主なカタリスト</td><td>Neutron初打ち上げ（2026後半）、Iridium買収完了（2027半ば）</td></tr>
-        </tbody>
-      </table>
-    </div>
+    <div class="tldr"><div class="tldr-label">⚡ 株価のツボ 3秒まとめ</div><ul><li data-emoji="🔥">最大材料はNeutron。</li><li data-emoji="📊">Q2決算では成長率・粗利・現金・株数を見る。</li><li data-emoji="⚠️">高い期待が入るため、良い会社＝安い株ではない。</li></ul></div>
+    <div class="timeline"><div class="tl-row"><div class="tl-date">次回決算</div><div class="tl-title">Q2 2026決算 <span class="signal neutral">要確認</span><span class="rating">★★★★★</span></div><div class="tl-desc">売上、粗利、バックログ、現金、株数。</div></div><div class="tl-row"><div class="tl-date">Q4 2026目標</div><div class="tl-title">Neutron初打上げ <span class="signal bull">最大材料</span><span class="rating">★★★★★</span></div><div class="tl-desc">日程、試験、射場準備を追う。</div></div><div class="tl-row"><div class="tl-date">2026-2029</div><div class="tl-title">複数年打上げ契約 <span class="signal bull">追い風</span><span class="rating">★★★★<span class="off">★</span></span></div><div class="tl-desc">5回のNeutronと3回のElectronを含む契約。</div></div></div><div class="info-row"><div class="info-box info-box-red"><div class="info-title info-title-red">⚙️ 技術</div><div class="info-text">Neutronの遅延・試験失敗。</div></div><div class="info-box info-box-amber"><div class="info-title info-title-amber">🏛️ 規制</div><div class="info-text">打上げ許認可・政府予算。</div></div><div class="info-box info-box-blue"><div class="info-title info-title-blue">💸 財務</div><div class="info-text">赤字、M&A、希薄化。</div></div><div class="info-box info-box-gray"><div class="info-title info-title-gray">📉 市場</div><div class="info-text">高倍率縮小と金利。</div></div></div><div class="highlight"><h3>⚠️ 投資家向け注意点</h3><p><b>会社の強さと株価の安さは別。</b> 現値はかなりの将来成功を先に織り込んでいる可能性がある。</p></div><div class="table-wrap"><table class="compare-table"><thead><tr><th>数字</th><th>値</th><th>時点</th></tr></thead><tbody><tr><td>株価</td><td>$80.40</td><td>2026-07-13取得時点</td></tr><tr><td>Q1売上</td><td>$200.3M</td><td>Q1 2026</td></tr><tr><td>粗利率</td><td>38.2%</td><td>Q1 2026</td></tr><tr><td>純損失</td><td>$45.0M</td><td>Q1 2026</td></tr><tr><td>バックログ</td><td>$2.2B</td><td>Q1 2026末</td></tr></tbody></table></div>
   </section>
 
 </div><!-- /container -->
 
 <div class="footer">
-  <p style="margin-bottom:8px;font-weight:600;color:var(--gray-700)">⚠️ 免責事項</p>
-  <p>本資料は情報提供・教育目的のみです。投資助言ではありません。宇宙・防衛株は高ボラティリティで元本損失リスクがあります。<br>実際の投資判断はご自身の責任で行ってください。データは2026年7月時点の公開情報に基づき、最新の状況とは異なる場合があります。</p>
+  <div class="brandmark">S<span class="g">i</span>M &nbsp;MARKET LAB</div>
+  <p style="margin-bottom:8px;font-weight:700;color:#d8ded8">⚠️ 免責事項</p>
+  <p>本資料は情報提供・教育目的のみです。投資助言ではありません。宇宙・航空宇宙株は値動きが激しく、元本を失うリスクがあります。<br>投資判断はご自身の責任で。データは2026年7月13日時点の公開情報に基づきます。</p>
 </div>
 
 <script>
-/* アコーディオン：一度に1つだけ開く */
 document.querySelectorAll('details.term-item').forEach(d => {
   d.addEventListener('toggle', () => {
-    if (d.open) {
-      document.querySelectorAll('details.term-item').forEach(o => {
-        if (o !== d && o.open) o.removeAttribute('open');
-      });
-    }
+    if (d.open) document.querySelectorAll('details.term-item').forEach(o => { if (o !== d && o.open) o.removeAttribute('open'); });
   });
 });
+(function(){
+  var bar = document.getElementById('progressBar');
+  function u(){ var h=document.documentElement; var s=h.scrollTop/(h.scrollHeight-h.clientHeight); bar.style.width=Math.min(100,Math.max(0,s*100))+'%'; }
+  document.addEventListener('scroll', u, {passive:true}); window.addEventListener('resize', u); u();
+})();
 </script>
 
 </body>
 </html>
+
+<!--
+================================================================
+  デザインロック（重要）
+  ・アクセント色はSiMグリーンで固定。銘柄・業界で変えない。
+  ・以前あった「業界別カラー早見表」は廃止（色を変えると銘柄ごとに見た目がぶれるため）。
+  ・この <style> と骨格は改変禁止。{{ }} の中身だけ差し替える。
+================================================================
+  ChatGPT用ルール: 完成HTMLは必ず index.html というファイル名で保存・出力する。
+================================================================
+-->

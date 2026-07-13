@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "ticker": "IOT",
+  "slug": "iot",
+  "name": "Samsara",
+  "market": "米国株",
+  "sector": "Connected Operations / IoTソフトウェア",
+  "method": "EV/Sales（将来売上倍率）",
+  "status": "published",
+  "updated": "2026-07-13",
+  "price": {
+    "current": 36.72,
+    "currency": "USD"
+  },
+  "scenarios": {
+    "bear": 27,
+    "base": 44,
+    "bull": 68
+  },
+  "positionPct": 23.7,
+  "zone": "適正〜慎重寄り",
+  "riskReward": "3.2倍",
+  "catalyst": "要確認",
+  "summary": "成長は強い。",
+  "tags": [
+    "EV/Sales（将来売上倍率）",
+    "Connected Operations / IoTソフトウェア"
+  ],
+  "risk": "高",
+  "detailPath": "stocks/IOT/index.html",
+  "scenarioPath": "stocks/IOT/scenario.html"
+}

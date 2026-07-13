@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "ticker": "NVDA",
+  "slug": "nvda",
+  "name": "NVIDIA",
+  "market": "米国株",
+  "sector": "AI半導体・アクセラレーテッドコンピューティング",
+  "method": "PER / 感応度分析",
+  "status": "published",
+  "updated": "2026-07-13",
+  "price": {
+    "current": 202.78,
+    "currency": "USD"
+  },
+  "scenarios": {
+    "bear": 160,
+    "base": 230,
+    "bull": 300
+  },
+  "positionPct": 30.6,
+  "zone": "適正〜慎重寄り",
+  "riskReward": "2.27",
+  "catalyst": "要確認",
+  "summary": "会社は圧倒的。",
+  "tags": [
+    "PER / 感応度分析",
+    "AI半導体・アクセラレーテッドコンピューティング"
+  ],
+  "risk": "中",
+  "detailPath": "stocks/NVDA/index.html",
+  "scenarioPath": "stocks/NVDA/scenario.html"
+}

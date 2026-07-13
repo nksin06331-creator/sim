@@ -5,18 +5,29 @@
   "name": "キオクシアホールディングス",
   "market": "日本株",
   "sector": "半導体・AI",
-  "method": "PER",
+  "method": "フォワードEV/Sales＋平準化利益クロスチェック",
   "status": "published",
-  "updated": "2026-07-05",
-  "price": { "current": 83300, "currency": "JPY" },
-  "scenarios": { "bear": 40000, "base": 90000, "bull": 130000 },
-  "positionPct": 48,
-  "zone": "適正〜やや割安",
-  "riskReward": "1.1x",
+  "updated": "2026-07-13",
+  "price": {
+    "current": 67100,
+    "currency": "JPY"
+  },
+  "scenarios": {
+    "bear": 28000,
+    "base": 54000,
+    "bull": 90000
+  },
+  "positionPct": 63.1,
+  "zone": "Base超え・強気寄り",
+  "riskReward": "0.59倍",
   "catalyst": "2026 Q1決算 / FY3/27 Q1決算・Q2ガイダンス",
-  "summary": "NANDメモリ市況を前提に、想定EPS×PER法で黒字化後の適正株価を3シナリオで試算したシクリカル銘柄の評価。",
-  "tags": ["PER", "半導体", "黒字成熟型"],
-  "risk": "中",
+  "summary": "⚠️ 業績は爆発中。",
+  "tags": [
+    "PER",
+    "半導体",
+    "黒字成熟型"
+  ],
+  "risk": "非常に高い",
   "detailPath": "stocks/キオクシア/index.html",
   "scenarioPath": "stocks/キオクシア/scenario.html"
 }

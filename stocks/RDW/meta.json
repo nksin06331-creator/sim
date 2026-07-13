@@ -5,17 +5,28 @@
   "name": "Redwire Corporation",
   "market": "米国株",
   "sector": "宇宙・防衛",
-  "method": "SOTP＋オプション価値",
+  "method": "将来EV/Sales",
   "status": "published",
-  "updated": "2026-07-04",
-  "price": { "current": 11.31, "currency": "USD" },
-  "scenarios": { "bear": 4.42, "base": 10.34, "bull": 19.17 },
+  "updated": "2026-07-13",
+  "price": {
+    "current": 10.18,
+    "currency": "USD"
+  },
+  "scenarios": {
+    "bear": 4.1,
+    "base": 9.8,
+    "bull": 19.9
+  },
   "positionPct": 47,
-  "zone": "やや割高〜適正上限",
+  "zone": "Base近辺 会社の成長余地は大きい",
   "riskReward": "1.14x",
-  "catalyst": "2026年 / Golden Dome・SHIELD関連の大型防衛案件受注",
-  "summary": "宇宙・防衛事業をSpaceとDefense Techに分けて評価したシナリオ分析。",
-  "tags": ["SOTP＋オプション価値", "宇宙・防衛", "テーマ株"],
+  "catalyst": "要確認",
+  "summary": "Bear（弱気）30% $4.1 統合停滞、低成長、倍率縮小。",
+  "tags": [
+    "SOTP＋オプション価値",
+    "宇宙・防衛",
+    "テーマ株"
+  ],
   "risk": "非常に高い",
   "detailPath": "stocks/RDW/index.html",
   "scenarioPath": "stocks/RDW/scenario.html"

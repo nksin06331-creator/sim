@@ -7,16 +7,29 @@
   "sector": "抗体創薬・バイオテクノロジー",
   "method": "rNPV＋SOTP",
   "status": "published",
-  "updated": "2026-07-10",
-  "price": { "current": 7.29, "currency": "USD" },
-  "scenarios": { "bear": 4, "base": 8, "bull": 15 },
+  "updated": "2026-07-13",
+  "price": {
+    "current": 7.29,
+    "currency": "USD"
+  },
+  "scenarios": {
+    "bear": 4,
+    "base": 8,
+    "bull": 15
+  },
   "positionPct": 30,
   "zone": "適正〜慎重寄り（イベント前）",
-  "riskReward": "2.34倍",
-  "catalyst": "2026 Q3 / ABCL635 Phase 2トップライン",
-  "summary": "抗体探索基盤、自社臨床パイプライン、パートナー権益を分けて評価した臨床段階バイオ株のシナリオ試算。",
-  "tags": ["rNPV", "SOTP", "抗体創薬", "バイオ", "臨床カタリスト"],
-  "risk": "非常に高い",
+  "riskReward": "2.34x",
+  "catalyst": "要確認",
+  "summary": "現値はBase直下。",
+  "tags": [
+    "rNPV",
+    "SOTP",
+    "抗体創薬",
+    "バイオ",
+    "臨床カタリスト"
+  ],
+  "risk": "要確認",
   "detailPath": "stocks/ABCL/index.html",
   "scenarioPath": "stocks/ABCL/scenario.html"
 }

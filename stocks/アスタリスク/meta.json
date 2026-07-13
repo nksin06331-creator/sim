@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "ticker": "6522",
+  "slug": "6522",
+  "name": "株式会社アスタリスク",
+  "market": "日本株",
+  "sector": "モバイルDX・業務端末",
+  "method": "PER＋売上進捗シナリオ",
+  "status": "published",
+  "updated": "2026-07-13",
+  "price": {
+    "current": 1961,
+    "currency": "JPY"
+  },
+  "scenarios": {
+    "bear": 900,
+    "base": 1600,
+    "bull": 2800
+  },
+  "positionPct": 55.8,
+  "zone": "適正上限～強気寄り",
+  "riskReward": "0.79",
+  "catalyst": "要確認",
+  "summary": "現値はBaseを約23%上回り、会社予想EPS 8.3円に対して約236倍のPER水準です。",
+  "tags": [
+    "PER＋売上進捗シナリオ",
+    "モバイルDX・業務端末"
+  ],
+  "risk": "高",
+  "detailPath": "stocks/アスタリスク/index.html",
+  "scenarioPath": "stocks/アスタリスク/scenario.html"
+}

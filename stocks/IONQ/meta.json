@@ -5,17 +5,28 @@
   "name": "IonQ, Inc.",
   "market": "米国株",
   "sector": "量子コンピューター",
-  "method": "EV/Sales",
+  "method": "EV/Sales＋SkyWater SOTP",
   "status": "published",
-  "updated": "2026-07-10",
-  "price": { "current": 45.01, "currency": "USD" },
-  "scenarios": { "bear": 15.64, "base": 38.73, "bull": 87.62 },
-  "positionPct": 40.8,
-  "zone": "やや割高〜適正上限",
-  "riskReward": "1.45倍",
+  "updated": "2026-07-13",
+  "price": {
+    "current": 42.86,
+    "currency": "USD"
+  },
+  "scenarios": {
+    "bear": 24,
+    "base": 45,
+    "bull": 76
+  },
+  "positionPct": 36,
+  "zone": "適正〜慎重寄り",
+  "riskReward": "1.76倍",
   "catalyst": "2026 Q2〜Q3 / SkyWater買収完了と統合進捗",
-  "summary": "2028年売上とEV/Sales倍率、SkyWater買収による希薄化を織り込んだ量子コンピューティング株のシナリオ試算。",
-  "tags": ["EV/Sales", "量子", "高成長型"],
+  "summary": "期待先行。",
+  "tags": [
+    "EV/Sales",
+    "量子",
+    "高成長型"
+  ],
   "risk": "高",
   "detailPath": "stocks/IONQ/index.html",
   "scenarioPath": "stocks/IONQ/scenario.html"

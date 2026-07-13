@@ -7,16 +7,27 @@
   "sector": "宇宙・防衛",
   "method": "SOTP＋オプション価値",
   "status": "published",
-  "updated": "2026-07-01",
-  "price": { "current": 100.21, "currency": "USD" },
-  "scenarios": { "bear": 49, "base": 95, "bull": 174 },
-  "positionPct": 41,
-  "zone": "やや割高〜適正上限",
-  "riskReward": "1.4x",
+  "updated": "2026-07-13",
+  "price": {
+    "current": 80.4,
+    "currency": "USD"
+  },
+  "scenarios": {
+    "bear": 45,
+    "base": 85,
+    "bull": 145
+  },
+  "positionPct": 35.4,
+  "zone": "Base付近",
+  "riskReward": "1.82",
   "catalyst": "2026 Q4 / Neutron初飛行成功",
-  "summary": "打ち上げ・宇宙システム・Neutron・Iridium買収を評価した宇宙関連シナリオ試算。",
-  "tags": ["SOTP＋オプション価値", "宇宙", "カタリスト型"],
-  "risk": "非常に高い",
+  "summary": "会社は強い。",
+  "tags": [
+    "SOTP＋オプション価値",
+    "宇宙",
+    "カタリスト型"
+  ],
+  "risk": "高",
   "detailPath": "stocks/RKLB/index.html",
   "scenarioPath": "stocks/RKLB/scenario.html"
 }

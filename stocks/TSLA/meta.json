@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "ticker": "TSLA",
+  "slug": "tsla",
+  "name": "Tesla, Inc.",
+  "market": "米国株",
+  "sector": "EV・エネルギー・AI/自動運転",
+  "method": "SOTP（自動車＋エネルギー＋AI/自動運転オプション）",
+  "status": "published",
+  "updated": "2026-07-13",
+  "price": {
+    "current": 403.79,
+    "currency": "USD"
+  },
+  "scenarios": {
+    "bear": 250,
+    "base": 400,
+    "bull": 600
+  },
+  "positionPct": 43.9,
+  "zone": "Base付近",
+  "riskReward": "1.28",
+  "catalyst": "要確認",
+  "summary": "期待はかなり高い。",
+  "tags": [
+    "SOTP（自動車＋エネルギー＋AI/自動運転オプション）",
+    "EV・エネルギー・AI/自動運転"
+  ],
+  "risk": "高",
+  "detailPath": "stocks/TSLA/index.html",
+  "scenarioPath": "stocks/TSLA/scenario.html"
+}

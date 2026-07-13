@@ -1,386 +1,239 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>IONQ 株価シナリオ試算</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>IonQ（IONQ）｜ドパガキ株価シナリオ</title>
+
 <style>
-:root{
-  --c-50:#eff6ff; --c-100:#dbeafe; --c-200:#bfdbfe; --c-400:#3b82f6; --c-600:#2563eb; --c-800:#1e3a8a;
-  --hero-from:#0c1445; --hero-mid:#1e3a8a; --hero-to:#2563eb; --hero-accent:#93c5fd;
-  --amber-50:#fffbeb; --amber-400:#fbbf24; --amber-600:#d97706;
-  --red-50:#fef2f2; --red-400:#f87171; --red-600:#dc2626;
-  --green-50:#f0fdf4; --green-400:#4ade80; --green-600:#16a34a;
-  --blue-50:#eff6ff; --blue-600:#2563eb;
-  --gray-50:#f9fafb; --gray-100:#f3f4f6; --gray-200:#e5e7eb; --gray-300:#d1d5db;
-  --gray-500:#6b7280; --gray-700:#374151; --gray-900:#111827;
-  --font-body:'DM Sans',sans-serif; --font-serif:'Noto Serif JP',serif;
-}
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-body{font-family:var(--font-body);background:#f9f9f7;color:var(--gray-900);line-height:1.7;font-size:15px}
-.hero{background:linear-gradient(135deg,var(--hero-from) 0%,var(--hero-mid) 55%,var(--hero-to) 100%);color:#fff;padding:56px 24px 64px;text-align:center;position:relative;overflow:hidden}
-.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 20% 40%,rgba(255,255,255,.08) 0%,transparent 55%)}
-.hero>*{position:relative;z-index:1}
-.hero-badge{display:inline-block;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);border-radius:999px;padding:4px 16px;font-size:12px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:18px;color:var(--c-200)}
-.hero h1{font-family:var(--font-serif);font-size:clamp(24px,4.5vw,38px);font-weight:700;line-height:1.3;margin-bottom:14px}
-.hero h1 span{color:var(--hero-accent)}
-.hero p{font-size:15px;opacity:.85;max-width:600px;margin:0 auto}
-.container{max-width:880px;margin:0 auto;padding:0 20px}
-.section{padding:48px 0 32px;border-bottom:1px solid var(--gray-200)}
-.section-header{display:flex;align-items:center;gap:14px;margin-bottom:24px}
-.section-icon{width:42px;height:42px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;background:var(--c-50)}
-.section-title{font-family:var(--font-serif);font-size:21px;font-weight:700}
-.section-sub{font-size:13px;color:var(--gray-500);margin-top:2px}
-.lead{font-size:15.5px;color:var(--gray-700);line-height:1.85;margin-bottom:20px}
-strong{font-weight:600}
-.now-card{background:#fff;border:1px solid var(--gray-200);border-radius:14px;padding:22px 24px;margin-top:-32px;position:relative;z-index:5;box-shadow:0 8px 24px rgba(0,0,0,.06);display:flex;flex-wrap:wrap;gap:20px;justify-content:space-between;align-items:center}
-.now-item{text-align:center;flex:1;min-width:110px}
-.now-label{font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--gray-500);margin-bottom:4px;font-weight:600}
-.now-val{font-size:22px;font-weight:700;font-family:var(--font-serif)}
-.now-sub{font-size:11px;color:var(--gray-500);margin-top:2px}
-.scenario-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin:8px 0 4px}
-.sc-card{border-radius:14px;padding:22px;border:1px solid;position:relative;overflow:hidden}
-.sc-bear{background:linear-gradient(160deg,#fef2f2,#fff);border-color:#fecaca}
-.sc-base{background:linear-gradient(160deg,var(--c-50),#fff);border-color:var(--c-200)}
-.sc-bull{background:linear-gradient(160deg,#f0fdf4,#fff);border-color:#bbf7d0}
-.sc-tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:3px 10px;border-radius:999px;margin-bottom:12px}
-.sc-bear .sc-tag{background:var(--red-50);color:var(--red-600)}
-.sc-base .sc-tag{background:var(--c-50);color:var(--c-600)}
-.sc-bull .sc-tag{background:var(--green-50);color:var(--green-600)}
-.sc-price{font-size:36px;font-weight:700;font-family:var(--font-serif);line-height:1}
-.sc-bear .sc-price{color:var(--red-600)}
-.sc-base .sc-price{color:var(--c-600)}
-.sc-bull .sc-price{color:var(--green-600)}
-.sc-delta{font-size:13px;font-weight:600;margin:6px 0 2px}
-.sc-bear .sc-delta{color:var(--red-600)}
-.sc-base .sc-delta{color:var(--c-600)}
-.sc-bull .sc-delta{color:var(--green-600)}
-.sc-prob{font-size:12px;color:var(--gray-500);margin-bottom:14px}
-.sc-desc{font-size:12.5px;color:var(--gray-700);line-height:1.7;border-top:1px solid rgba(0,0,0,.06);padding-top:12px}
-.pos-wrap{background:#fff;border:1px solid var(--gray-200);border-radius:14px;padding:22px 24px;margin:18px 0 4px;box-shadow:0 4px 14px rgba(0,0,0,.04)}
-.pos-head{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px;margin-bottom:16px}
-.pos-title{font-family:var(--font-serif);font-size:16px;font-weight:700}
-.pos-zone{font-size:13px;font-weight:700;padding:4px 12px;border-radius:999px}
-.zone-hot{background:var(--red-50);color:var(--red-600)} .zone-high{background:var(--amber-50);color:var(--amber-600)} .zone-fair{background:var(--c-50);color:var(--c-600)} .zone-cheap{background:var(--green-50);color:var(--green-600)}
-.pos-track{position:relative;height:14px;border-radius:999px;margin:30px 0 26px}
-.pos-entry{display:flex;flex-wrap:wrap;gap:24px;font-size:13px;color:var(--gray-700);border-top:1px dashed var(--gray-200);padding-top:14px;margin-top:14px}
-.pos-entry b{font-family:var(--font-serif);font-size:15px;color:var(--gray-900)}
-.pos-entry .pe-note{flex-basis:100%;font-size:12.5px;color:var(--gray-500);line-height:1.7;margin-top:2px}
-.pos-tick{position:absolute;top:-8px;width:2px;height:30px;background:var(--gray-300)}
-.pos-tick span{position:absolute;top:-20px;left:50%;transform:translateX(-50%);font-size:11px;color:var(--gray-500);white-space:nowrap}
-.pos-marker{position:absolute;top:-13px;width:4px;height:40px;background:var(--gray-900);border-radius:2px;box-shadow:0 0 0 4px #fff}
-.pos-marker span{position:absolute;bottom:-34px;left:50%;transform:translateX(-50%);font-size:12px;font-weight:700;color:var(--gray-900);white-space:nowrap}
-.pos-stats{display:flex;flex-wrap:wrap;gap:24px;font-size:13px;color:var(--gray-700);border-top:1px solid var(--gray-100);padding-top:14px}
-.pos-stats b{font-family:var(--font-serif);font-size:16px;color:var(--gray-900)}
-.ev-box{background:linear-gradient(135deg,var(--hero-from),var(--hero-mid));color:#fff;border-radius:14px;padding:24px 26px;margin:24px 0;display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between}
-.ev-main{flex:1;min-width:200px}
-.ev-main .lbl{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--c-200);margin-bottom:6px;font-weight:600}
-.ev-main .val{font-size:34px;font-weight:700;font-family:var(--font-serif)}
-.ev-main .sub{font-size:13px;opacity:.85;margin-top:4px}
-.ev-rr{text-align:right;font-size:13px;opacity:.9;line-height:1.9}
-.ev-rr b{font-size:18px;font-family:var(--font-serif)}
-.table-wrap{overflow-x:auto;background:#fff;border:1px solid var(--gray-200);border-radius:12px;margin:14px 0}
-table{width:100%;border-collapse:collapse;font-size:13px}
-th{background:var(--gray-50);padding:11px 14px;text-align:left;font-weight:600;font-size:11.5px;color:var(--gray-500);text-transform:uppercase;letter-spacing:.04em;border-bottom:1px solid var(--gray-200)}
-td{padding:11px 14px;border-bottom:1px solid var(--gray-100);color:var(--gray-700);vertical-align:top}
-tr:last-child td{border-bottom:none}
-tr:hover td{background:var(--gray-50)}
-.td-bear{color:var(--red-600);font-weight:600}
-.td-base{color:var(--c-600);font-weight:600}
-.td-bull{color:var(--green-600);font-weight:600}
-.row-total td{background:var(--c-50);font-weight:700;color:var(--gray-900)}
-.row-total:hover td{background:var(--c-100)}
-.sotp{display:flex;flex-direction:column;gap:10px;margin:14px 0}
-.sotp-row{display:flex;align-items:center;gap:14px;background:#fff;border:1px solid var(--gray-200);border-radius:10px;padding:14px 16px}
-.sotp-icon{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0;background:var(--c-50)}
-.sotp-body{flex:1}
-.sotp-name{font-weight:600;font-size:14px;margin-bottom:2px}
-.sotp-note{font-size:12px;color:var(--gray-500);line-height:1.6}
-.callout{border-radius:10px;padding:14px 16px;margin-top:14px;font-size:13px;line-height:1.75}
-.callout-amber{background:var(--amber-50);border-left:3px solid var(--amber-400);color:var(--gray-700)}
-.callout-primary{background:var(--c-50);border-left:3px solid var(--c-400);color:var(--gray-700)}
-.callout-red{background:var(--red-50);border-left:3px solid var(--red-400);color:var(--gray-700)}
-.callout b{color:var(--gray-900)}
-.cl-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px;display:block}
-.callout-amber .cl-label{color:var(--amber-600)}
-.callout-primary .cl-label{color:var(--c-600)}
-.callout-red .cl-label{color:var(--red-600)}
-ul.lst{margin:10px 0 10px 4px;padding-left:18px}
-ul.lst li{font-size:13.5px;color:var(--gray-700);margin-bottom:7px;line-height:1.7}
-.sc-h{font-family:var(--font-serif);font-size:16px;margin:18px 0 8px}
-.sc-h-bear{color:var(--red-600)} .sc-h-base{color:var(--c-600)} .sc-h-bull{color:var(--green-600)}
-/* 価格導出ブロック */
-.deriv{background:#fff;border:1px solid var(--c-200);border-radius:12px;padding:20px 22px;margin:18px 0 4px;box-shadow:0 4px 14px rgba(37,99,235,.05)}
-.deriv-title{font-family:var(--font-serif);font-size:15px;font-weight:700;margin-bottom:4px}
-.deriv-formula{font-size:13px;background:var(--c-50);border-radius:8px;padding:10px 12px;margin:10px 0 14px;color:var(--gray-700)}
-.deriv-line{font-size:13.5px;line-height:1.55;padding:9px 0;border-top:1px solid var(--gray-100)}
-.deriv-line:first-of-type{border-top:none}
-.deriv-line .tag{font-weight:700;font-family:var(--font-serif)}
-.deriv-line .calc{color:var(--gray-500);font-size:12.5px}
-.deriv-driver{font-size:12.5px;color:var(--gray-600);line-height:1.75;margin-top:12px;background:var(--gray-50);border-radius:8px;padding:11px 13px}
-.footer{padding:40px 24px;text-align:center;color:var(--gray-500);font-size:12.5px;border-top:1px solid var(--gray-200);margin-top:24px;line-height:1.8}
+:root{--bg:#0b0b10;--panel:#171720;--panel2:#20202b;--ink:#f7f7fb;--muted:#aaaabd;--line:#343445;--lime:#caff00;--pink:#ff4ecd;--cyan:#48e7ff;--orange:#ff9c2b;--red:#ff5d68;--green:#56f39a;--purple:#845cff;--shadow:0 18px 55px rgba(0,0,0,.35)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 8% 4%,rgba(132,92,255,.2),transparent 30rem),radial-gradient(circle at 92% 12%,rgba(255,78,205,.14),transparent 26rem),linear-gradient(180deg,#08080c,#111119 48%,#0b0b10);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans JP",sans-serif;line-height:1.65;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.15;background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:28px 28px;mask-image:linear-gradient(#000,transparent 72%)}
+a{color:var(--cyan)}.wrap{max-width:1120px;margin:auto;padding:0 18px}.hero{position:relative;color:#fff;padding:34px 0 42px;border-bottom:1px solid rgba(255,255,255,.08)}.hero:after{content:"DOPAGAKI";position:absolute;right:-20px;top:12px;font-size:clamp(56px,14vw,170px);font-weight:1000;letter-spacing:-.08em;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.08);transform:rotate(4deg);pointer-events:none}
+.eyebrow{display:inline-flex;align-items:center;gap:7px;padding:7px 12px;border:1px solid rgba(202,255,0,.45);border-radius:999px;font-size:11px;letter-spacing:.12em;color:var(--lime);background:rgba(202,255,0,.08);font-weight:900}.eyebrow:before{content:"●";font-size:8px}
+h1{position:relative;z-index:1;font-size:clamp(36px,7vw,72px);line-height:.98;letter-spacing:-.055em;margin:18px 0 10px;font-weight:1000;max-width:900px}h1 small{display:inline-block;font-size:.31em;padding:7px 11px;border-radius:10px;background:var(--lime);color:#0b0b10;vertical-align:middle;letter-spacing:0;transform:rotate(-2deg)}.sub{color:#c1c1d2;position:relative;z-index:1}
+.verdict{position:relative;z-index:1;display:grid;grid-template-columns:1.55fr .45fr;gap:16px;margin-top:24px}.verdict-main,.score{border:1px solid rgba(255,255,255,.1);border-radius:26px;padding:24px;box-shadow:var(--shadow)}.verdict-main{background:linear-gradient(135deg,rgba(132,92,255,.27),rgba(255,78,205,.12)),var(--panel)}.score{background:var(--lime);color:#0b0b10;transform:rotate(1deg);display:flex;flex-direction:column;justify-content:center}.status{font-size:clamp(25px,4vw,40px);line-height:1.15;font-weight:1000;letter-spacing:-.04em;margin-top:10px}.score b{font-size:58px;line-height:1;display:block}.score small{color:#202014;font-weight:800}
+.kpis{position:relative;z-index:1;display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:16px}.kpi{min-height:126px;background:rgba(23,23,32,.94);border:1px solid var(--line);border-radius:20px;padding:18px;position:relative;overflow:hidden}.kpi:after{content:"";position:absolute;width:72px;height:72px;border-radius:50%;right:-25px;bottom:-30px;background:var(--purple);opacity:.2}.kpi:nth-child(2):after{background:var(--cyan)}.kpi:nth-child(3):after{background:var(--pink)}.kpi:nth-child(4):after{background:var(--red)}.kpi span{font-size:11px;color:var(--muted);font-weight:800}.kpi b{font-size:clamp(22px,3vw,31px);display:block;margin-top:6px;letter-spacing:-.04em}.kpi small{color:#cfcfe0}
+main{padding:22px 0 70px}section{margin:18px 0}.card{background:linear-gradient(180deg,rgba(31,31,43,.98),rgba(20,20,28,.98));border:1px solid var(--line);box-shadow:var(--shadow);border-radius:26px;padding:24px;position:relative;overflow:hidden}.card:before{content:"";position:absolute;width:130px;height:130px;border-radius:50%;right:-70px;top:-75px;background:var(--purple);filter:blur(10px);opacity:.13}
+h2{position:relative;z-index:1;font-size:clamp(23px,3vw,32px);line-height:1.15;letter-spacing:-.04em;margin:0 0 9px;font-weight:1000}h2:before{content:"#";color:var(--lime);margin-right:7px}h3{margin:0 0 8px;font-size:19px}.lead{color:var(--muted);margin-top:0}.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}.scenarios{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.scenario{border-radius:22px;padding:19px;border:1px solid var(--line);background:#111119;position:relative;overflow:hidden;min-height:335px}.scenario:after{position:absolute;right:-5px;top:-12px;font-weight:1000;font-size:68px;opacity:.07;line-height:1}.scenario.bear:after{content:"B";color:var(--red)}.scenario.base:after{content:"A";color:var(--cyan)}.scenario.bull:after{content:"↑";color:var(--lime)}.scenario-head{display:flex;justify-content:space-between;gap:10px;font-weight:900}.scenario-head b{padding:4px 9px;border-radius:999px;color:#0a0a0d;background:#fff}.scenario-price{font-size:clamp(32px,4vw,44px);font-weight:1000;letter-spacing:-.055em;margin:14px 0 0}.scenario.bear{border-top:6px solid var(--red)}.scenario.base{border-top:6px solid var(--cyan);box-shadow:0 0 0 1px rgba(72,231,255,.15),0 16px 40px rgba(72,231,255,.08)}.scenario.bull{border-top:6px solid var(--lime)}
+.small{font-size:13px;color:var(--muted)}dl{margin:16px 0 0}dl div{display:flex;justify-content:space-between;border-top:1px dashed var(--line);padding:8px 0;gap:12px}dt{color:var(--muted)}dd{margin:0;font-weight:800}
+.position{margin-top:20px}.position-line{height:20px;border-radius:999px;background:linear-gradient(90deg,var(--red),var(--orange),var(--cyan),var(--lime));position:relative;box-shadow:inset 0 0 0 2px rgba(255,255,255,.12)}.pin{position:absolute;top:-9px;width:8px;height:38px;background:#fff;border:2px solid #050508;border-radius:6px;left:36.1%;box-shadow:0 4px 14px rgba(0,0,0,.55)}.position-labels{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);margin-top:7px;gap:7px}.pill{display:inline-block;padding:6px 11px;border-radius:999px;background:var(--pink);color:#fff;font-weight:1000;font-size:11px;transform:rotate(-1deg)}
+.zone,.signal{border-top:1px solid var(--line);padding:14px 0}.zone div,.signal div{display:flex;justify-content:space-between;gap:12px}.zone span{color:var(--lime);letter-spacing:.1em}.zone p,.signal p{margin:4px 0;color:var(--muted);font-size:14px}.up{color:var(--green);font-weight:900}.down{color:var(--red);font-weight:900}.flat{color:var(--orange);font-weight:900}
+ul.clean{padding:0;margin:12px 0;list-style:none}ul.clean li{margin:10px 0;padding:12px 14px 12px 42px;background:#111119;border:1px solid var(--line);border-radius:15px;position:relative}ul.clean li:before{content:"✓";position:absolute;left:14px;top:11px;color:var(--lime);font-weight:1000}.grid-2 .card:nth-child(2) ul.clean li:before{content:"!";color:var(--red)}
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:14px}.meter,.track{background:#0d0d13;border:1px solid #2d2d3b;border-radius:999px;overflow:hidden}.meter{height:14px}.meter i{display:block;height:100%;background:linear-gradient(90deg,var(--purple),var(--pink));border-radius:999px}.dist-row{display:grid;grid-template-columns:120px 1fr 52px;gap:10px;align-items:center;margin:12px 0}.track{height:12px}.track i{display:block;height:100%;background:linear-gradient(90deg,var(--cyan),var(--lime));border-radius:999px}
+.table-wrap{overflow:auto;border:1px solid var(--line);border-radius:18px;background:#111119}table{border-collapse:collapse;width:100%;min-width:760px}th,td{border-bottom:1px solid var(--line);padding:12px;text-align:right}th:first-child,td:first-child{text-align:left}th{font-size:11px;color:var(--lime);background:#0f0f16;position:sticky;top:0}
+details{border:1px solid var(--line);background:#111119;border-radius:16px;padding:0;margin:10px 0;overflow:hidden}summary{font-weight:900;cursor:pointer;padding:15px 16px;list-style:none}summary::-webkit-details-marker{display:none}summary:after{content:"＋";float:right;color:var(--lime);font-size:20px;line-height:1}details[open] summary:after{content:"−"}details>p,details>ul{padding:0 16px 16px;margin:0;color:#c4c4d2}
+.notice{border:1px solid rgba(255,156,43,.45);border-left:6px solid var(--orange);background:linear-gradient(90deg,rgba(255,156,43,.12),rgba(255,156,43,.03));padding:15px 16px;border-radius:16px}footer{color:var(--muted);font-size:12px;margin-top:28px;padding:20px 0 0;border-top:1px solid var(--line)}
+@media(max-width:800px){.verdict,.grid-2,.compare{grid-template-columns:1fr}.kpis{grid-template-columns:1fr 1fr}.scenarios{grid-template-columns:1fr}.hero{padding-top:24px}.score{transform:none}.scenario{min-height:auto}}
+@media(max-width:520px){.wrap{padding:0 13px}.kpis{grid-template-columns:1fr 1fr;gap:9px}.kpi{padding:15px;min-height:112px}.kpi b{font-size:21px}.card{padding:18px;border-radius:22px}.dist-row{grid-template-columns:90px 1fr 46px;font-size:12px}.position-labels{font-size:9px}h1{font-size:42px}}
+@media print{body{background:#fff;color:#111}body:before,.hero:after{display:none}.hero,.card,.kpi,.scenario,details,.table-wrap{background:#fff!important;color:#111!important;box-shadow:none!important}.hero{border-bottom:2px solid #111}.sub,.lead,.small,.zone p,.signal p,footer{color:#555!important}.card,.kpi,.scenario,details{break-inside:avoid}}
 </style>
+
 </head>
 <body>
-
-<div class="hero">
-  <div class="hero-badge">IONQ シナリオ試算 2026/7/10版</div>
-  <h1>IonQ, Inc.（IONQ）<br><span>ベア / ベース / ブル</span> 株価シナリオ</h1>
-  <p>高成長・黒字化前の量子計算企業として EV/Sales倍率法を採用。価値の大半は「量子の長期商用化に対するオプション価値」であり、それを倍率に織り込んで試算した教育目的の資料です。</p>
-</div>
-
-<div class="container">
-
-  <!-- ① 現値スナップショット -->
-  <div class="now-card">
-    <div class="now-item"><div class="now-label">現値</div><div class="now-val">$45.01</div><div class="now-sub">2026/7/9終値近辺</div></div>
-    <div class="now-item"><div class="now-label">時価総額</div><div class="now-val">$16.8B</div><div class="now-sub">株数 約373M（26/3末）</div></div>
-    <div class="now-item"><div class="now-label">52週レンジ</div><div class="now-val">$25.89–$84.64</div><div class="now-sub">高値比 −47%</div></div>
-    <div class="now-item"><div class="now-label">EV/売上高(26e)</div><div class="now-val">約52x</div><div class="now-sub">EV≈$13.7B ÷ 売上$265M</div></div>
+<!-- ================================================================
+  DOPAGAKI STOCK LAB / SCENARIO TEMPLATE
+  ・CSSと各セクション構成はキオクシア版と同一（サイト掲載の見た目を維持）。
+  ・{{ }} を report_data の値で置換して使う。数値・確率・結論は改変しない。
+  ・ファイル名は銘柄名（例: 285A.html / IONQ.html）。
+================================================================ -->
+<header class="hero">
+<div class="wrap">
+  <div class="eyebrow">DOPAGAKI STOCK LAB / SCENARIO CHECK</div>
+  <h1>IonQ <small>IONQ</small></h1>
+  <div class="sub">NYSE｜評価基準日 2026年7月13日｜使用手法 EV/Sales＋SkyWater SOTP</div>
+  <div class="verdict">
+    <div class="verdict-main">
+      <span class="pill">まず結論だけ</span>
+      <!-- decision.status＋一言結論（絵文字は先頭1個まで、45文字目安） -->
+      <div class="status">期待先行。成長確認待ち</div>
+      <!-- 現値ポジショニングと市場逆算を1〜2文で -->
+      <p>現値はBear〜Bull帯の36%地点。Baseをやや下回る。</p>
+      <p class="sub">ただし2026年売上見通しに対し約51倍のEV/Sales。安さより実行力の確認が先。</p>
+    </div>
+    <!-- 総合スコアは“補助指標”。売買判断そのものではない旨を必ず添える -->
+    <div class="score"><small>総合スコア（補助指標）</small><b>54</b><small>/ 100　売買判断そのものではありません</small></div>
+  </div>
+  <div class="kpis">
+    <div class="kpi"><span>現在株価</span><b>$42.86</b><small>7月13日取得値</small></div>
+    <div class="kpi"><span>Base価値（標準ケース）</span><b>$45</b><small>+5%</small></div>
+    <div class="kpi"><span>確率加重期待値</span><b>$47.5</b><small>+11%（補助指標）</small></div>
+    <div class="kpi"><span>リスク区分</span><b>高</b><small>技術・倍率・M&A希薄化</small></div>
   </div>
 
-  <!-- ② 3シナリオ結論 -->
-  <section class="section" style="padding-top:36px">
-    <div class="section-header">
-      <div class="section-icon">🎯</div>
-      <div><div class="section-title">3シナリオの結論</div><div class="section-sub">現値$45.01を基準にした理論株価</div></div>
-    </div>
-    <div class="scenario-grid">
-      <div class="sc-card sc-bear">
-        <span class="sc-tag">Bear・弱気</span>
-        <div class="sc-price">$15.6</div>
-        <div class="sc-delta">−65%</div>
-        <div class="sc-prob">想定確率 30%</div>
-        <div class="sc-desc">量子商用化が想定より遅延、IBM/Quantinuum等との競争で成長鈍化。市場が売上倍率を「実証待ち」水準まで切り下げる。</div>
-      </div>
-      <div class="sc-card sc-base">
-        <span class="sc-tag">Base・中立</span>
-        <div class="sc-price">$38.7</div>
-        <div class="sc-delta">−14%</div>
-        <div class="sc-prob">想定確率 50%</div>
-        <div class="sc-desc">ガイダンス通りの100%級成長を継続、2028年売上$780M。プレミアム倍率は維持するが、バーンと希薄化を織り込むと現値をやや下回る。</div>
-      </div>
-      <div class="sc-card sc-bull">
-        <span class="sc-tag">Bull・強気</span>
-        <div class="sc-price">$87.6</div>
-        <div class="sc-delta">+95%</div>
-        <div class="sc-prob">想定確率 20%</div>
-        <div class="sc-desc">「Broad Quantum Advantage勝者」の地位が固まり、政府・大企業案件が積み上がる。2028年売上$1.25B＋高倍率を市場が付与。</div>
-      </div>
-    </div>
-
-    <!-- 現値ポジショニング -->
-    <div class="pos-wrap">
-      <div class="pos-head">
-        <div class="pos-title">現値ポジショニング — 現値$45.01は帯のどこか</div>
-        <div class="pos-zone zone-high">やや割高</div>
-      </div>
-      <div class="pos-track" style="background:linear-gradient(90deg,#fecaca 0%,var(--c-200) 32.1%,#bbf7d0 100%)">
-        <div class="pos-tick" style="left:0%"><span>Bear $15.6</span></div>
-        <div class="pos-tick" style="left:32.1%"><span>Base $38.7</span></div>
-        <div class="pos-tick" style="left:100%"><span>Bull $87.6</span></div>
-        <div class="pos-marker" style="left:40.8%"><span>現値 $45.01</span></div>
-      </div>
-      <div class="pos-stats">
-        <div>帯内位置：<b>40.8%</b></div>
-        <div>上値余地：<b style="color:var(--green-600)">+95%</b></div>
-        <div>下値余地：<b style="color:var(--red-600)">−65%</b></div>
-        <div>上値:下値比：<b>1.45</b></div>
-      </div>
-      <!-- エントリーコンテキスト -->
-      <div class="pos-entry">
-        <div>直近20営業日：<b>約 −30%（下落）</b></div>
-        <div>次カタリストまで：<b>約4〜5週（Q2決算・デリスク型）</b></div>
-        <div class="pe-note"><b style="color:var(--gray-900)">経路の注記（これは急騰ではなく調整局面）：</b>現値$45は、5月のQ1決算後に+60%上昇して6月上旬に$70超（$73.65まで）を付けた後、6月に−26%、7月に入りさらに下落した「押し目」局面です。下落の主因は決算後の利益確定、役員クラスの売却クラスター、IBMの競争激化観測、割高感（6月ピークで実績売上の約111倍）。<b style="color:var(--gray-900)">ただし「−30%下げたから割安」ではありません</b>：現値$45は依然として本試算のBase（$38.7）と確率加重期待値（$41.6）を上回っており、帯内位置40.8%＝Base（32.1%）より上、すなわち「やや割高」ゾーンに位置します。押し目でも、ファンダメンタルズ基準ではまだ実行への楽観を織り込んだ水準です。</div>
-      </div>
-    </div>
-
-    <div class="ev-box">
-      <div class="ev-main">
-        <div class="lbl">確率加重 期待値（補助指標）</div>
-        <div class="val">$41.6</div>
-        <div class="sub">現値$45.01 比 −7.6%（30/50/20加重）</div>
-      </div>
-      <div class="ev-rr">
-        下値余地（Bear）：<b style="color:#fecaca">−65%</b><br>
-        上値余地（Bull）：<b style="color:#bbf7d0">+95%</b><br>
-        リスクリワード比：<b>1.45</b>
-      </div>
-    </div>
-    <div class="callout callout-amber">
-      <span class="cl-label">読み方の注意</span>
-      現値は上値:下値が約1.45:1と上振れがやや大きい一方、確率加重期待値は現値を約8%下回ります。<b>つまり$45は「割安」ではなく、Bull（BQA勝者）シナリオへの期待をすでに一部織り込んだ水準</b>。上振れ$87.6は量子の長期オプションが実を結ぶ前提、下振れ$15.6は商用化が期待外れになる前提であり、いずれも倍率（＝オプション価値の見立て）に全面的に依存します。確率を自分の見立てに差し替えれば結論は容易に反転します。
-    </div>
-  </section>
-
-  <!-- ③ 計算ロジック -->
-  <section class="section">
-    <div class="section-header">
-      <div class="section-icon">🧮</div>
-      <div><div class="section-title">計算ロジック：EV/Sales 倍率法</div><div class="section-sub">高成長・黒字化前テック。将来売上×倍率を現在価値化</div></div>
-    </div>
-    <p class="lead">IonQは2026年売上ガイダンス$260〜270M・調整後EBITDA損失−$310〜330Mの黒字化前企業のため、PERは使えず、市場が実際に用いている<strong>EV/Sales倍率</strong>を主手法に採用しました。2028年予想売上に将来倍率を当て、割引率16%で現在価値化しています。量子は商用化が数年先の長期R&Dであり、その<strong>オプション価値は「高い売上倍率」という形で倍率に内包</strong>させて扱います（純粋なSaaS倍率より高い水準を許容）。</p>
-
-    <div class="sotp">
-      <div class="sotp-row">
-        <div class="sotp-icon">📈</div>
-        <div class="sotp-body">
-          <div class="sotp-name">① 2028年予想売上</div>
-          <div class="sotp-note">Bear $520M / Base $780M / Bull $1,250M。2026年$265M（ガイダンス中央値）を起点に成長率を振る。</div>
-        </div>
-      </div>
-      <div class="sotp-row">
-        <div class="sotp-icon">✖️</div>
-        <div class="sotp-body">
-          <div class="sotp-name">② EV/Sales倍率（2028時点の将来倍率）</div>
-          <div class="sotp-note">Bear 14x / Base 27x / Bull 40x。量子の長期オプション価値を反映した高倍率。Bearは「実証待ち」への切り下げ、Bullは「BQA勝者」プレミアム。</div>
-        </div>
-      </div>
-      <div class="sotp-row">
-        <div class="sotp-icon">💵</div>
-        <div class="sotp-body">
-          <div class="sotp-name">③ ネットキャッシュ（将来バーン控除後）</div>
-          <div class="sotp-note">現金＋投資 $3.09B（26/3末）から2.5年分の累計バーン・capexを差し引く。潤沢なため強制増資（死のスパイラル型希薄化）は発生しない。</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="table-wrap">
-      <table>
-        <thead><tr><th>構成要素</th><th>Bear</th><th>Base</th><th>Bull</th></tr></thead>
-        <tbody>
-          <tr><td>① 2028E 売上</td><td class="td-bear">$520M</td><td class="td-base">$780M</td><td class="td-bull">$1,250M</td></tr>
-          <tr><td>② EV/Sales倍率(2028)</td><td class="td-bear">14x</td><td class="td-base">27x</td><td class="td-bull">40x</td></tr>
-          <tr><td>将来EV（2028末）</td><td class="td-bear">$7,280M</td><td class="td-base">$21,060M</td><td class="td-bull">$50,000M</td></tr>
-          <tr><td>現在EV（÷1.449）<br><span style="font-size:11px;color:var(--gray-500)">割引率16%・2.5年</span></td><td class="td-bear">$5,023M</td><td class="td-base">$14,532M</td><td class="td-bull">$34,500M</td></tr>
-          <tr><td>③ ＋ネットキャッシュ</td><td>$1,700M</td><td>$1,850M</td><td>$1,950M</td></tr>
-          <tr class="row-total"><td>株主価値 合計</td><td>$6,723M</td><td>$16,382M</td><td>$36,450M</td></tr>
-          <tr><td>希薄化後 株数</td><td>430M<br><span style="font-size:11px;color:var(--gray-500)">SkyWater多め＋SBC</span></td><td>423M</td><td>416M<br><span style="font-size:11px;color:var(--gray-500)">SkyWater少なめ</span></td></tr>
-          <tr class="row-total"><td>→ 理論株価</td><td class="td-bear">$15.64</td><td class="td-base">$38.73</td><td class="td-bull">$87.62</td></tr>
-          <tr><td>現値比</td><td class="td-bear">−65%</td><td class="td-base">−14%</td><td class="td-bull">+95%</td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <!-- ★ 価格導出ブロック（なぜこの価格か：式に実数を代入） -->
-    <div class="deriv">
-      <div class="deriv-title">価格導出 — なぜこの数字になるか（式に実数を代入）</div>
-      <div class="deriv-formula">
-        共通式：<b>理論株価 =（現在事業価値EV ＋ ネットキャッシュ）÷ 希薄化後株数</b><br>
-        <span style="color:var(--gray-500)">現在事業価値EV ＝ 2028年売上 × EV/Sales倍率 ÷ (1.16)<sup>2.5</sup></span>
-      </div>
-      <div class="deriv-line">
-        <span class="tag td-bear">Bear $15.64</span> ＝（$5,023M ＋ $1,700M）÷ 430M ＝ $6,723M ÷ 430M<br>
-        <span class="calc">└ 事業価値 $5,023M ＝ $520M × 14x ÷ 1.449　／　現値比 −65%</span>
-      </div>
-      <div class="deriv-line">
-        <span class="tag td-base">Base $38.73</span> ＝（$14,532M ＋ $1,850M）÷ 423M ＝ $16,382M ÷ 423M<br>
-        <span class="calc">└ 事業価値 $14,532M ＝ $780M × 27x ÷ 1.449　／　現値比 −14%</span>
-      </div>
-      <div class="deriv-line">
-        <span class="tag td-bull">Bull $87.62</span> ＝（$34,500M ＋ $1,950M）÷ 416M ＝ $36,450M ÷ 416M<br>
-        <span class="calc">└ 事業価値 $34,500M ＝ $1,250M × 40x ÷ 1.449　／　現値比 +95%</span>
-      </div>
-      <div class="deriv-driver">
-        <b>シナリオ間の差の主因：</b>Bear→Bullの株価差 $15.64→$87.62（＋$72）の<b>約97%は「現在事業価値」の差（$5.0B→$34.5B）</b>由来です。これは①2028年売上 $520M→$1,250M と ②EV/Sales倍率 14x→40x の複合で、実質的に<b>「倍率＝量子オプション価値の見立て」が株価を決めている</b>ことを意味します。ネットキャッシュ差（$1.70B→$1.95B）と株数差（430M→416M）の寄与は合わせて数%に過ぎません。したがって本銘柄の判断は、売上予想以上に「どの倍率を許容するか」に帰着します。
-      </div>
-    </div>
-
-    <div class="callout callout-primary">
-      <span class="cl-label">希薄化の扱い</span>
-      IonQは<b>転換社債を持たず、有利子負債もごく僅少（D/E≈0.01）</b>のため、シナリオ別ITM判定（解説書6.6）は非該当です。希薄化の源泉は(1)株式報酬SBC（四半期$128M規模＝年約11〜12M株）、(2)SkyWater買収の全株式対価（カラー付き：株価が高いほど発行株が少なく4.4%、低いほど多く6.7%）、(3)2025年10月の$93調達に伴うワラント（行使価格は調達価格近辺と推定、現値では大きくOTM。Bull上限でのみ顕在化しうるオーバーハング）。現金$3.09Bが潤沢なため、Bearでも生存目的の安値強制増資は不要と置き、ネットキャッシュは NC＝現金−累計バーン で控除しました。
-    </div>
-  </section>
-
-  <!-- ④ 各シナリオの成立条件 -->
-  <section class="section">
-    <div class="section-header">
-      <div class="section-icon">📋</div>
-      <div><div class="section-title">各シナリオが成立する条件</div><div class="section-sub">何が起きればどこへ向かうか</div></div>
-    </div>
-    <h3 class="sc-h sc-h-bear">🐻 Bear（$15.6・確率30%）</h3>
-    <ul class="lst">
-      <li>フォールトトレラント/大規模化のロードマップ（256量子ビット実証など）が遅延し、「実証はデモ止まり」との見方が広がる。</li>
-      <li>IBM・Quantinuum（2026年6月上場で比較対象が明確化）・Google等との競争で、IonQの技術的優位・受注シェアへの懐疑が強まる。</li>
-      <li>売上成長が減速（2028年$520M＝2026年比約2倍止まり）し、市場がEV/Sales倍率を14x（実証待ち水準）へ切り下げる。</li>
-      <li>量子セクター全体のセンチメント悪化・投機的グロースからの資金流出。</li>
-    </ul>
-    <h3 class="sc-h sc-h-base">⚖️ Base（$38.7・確率50%）</h3>
-    <ul class="lst">
-      <li>2026年ガイダンス（$260〜270M）を達成し、以降も100%級のオーガニック成長を継続（2028年$780M）。</li>
-      <li>RPO $470Mを裏付けに商用・国際・マルチプロダクトの構成が改善。政府案件（DARPA/SDA）が着実に進む。</li>
-      <li>市場はプレミアム倍率27xを維持するが、2.5年分のバーンと希薄化（SBC＋SkyWater）を織り込むと理論株価は現値をやや下回る。</li>
-    </ul>
-    <h3 class="sc-h sc-h-bull">🚀 Bull（$87.6・確率20%）</h3>
-    <ul class="lst">
-      <li>9/8のInvestor Dayなどで「Broad Quantum Advantage勝者」の地位が投資家に浸透し、ナラティブが強化される。</li>
-      <li>政府（2028年「科学的に有意」な量子計算機の配備目標）・大企業の大型案件が積み上がり、2028年売上$1.25Bへ加速。</li>
-      <li>希少性から市場がEV/Sales 40xの高倍率を付与。株高で希薄化は軽く（SkyWaterは4.4%枠）。</li>
-    </ul>
-  </section>
-
-  <!-- ⑤ 感応度分析 -->
-  <section class="section">
-    <div class="section-header">
-      <div class="section-icon">🎚️</div>
-      <div><div class="section-title">感応度：前提が変わると結論はどう動くか</div><div class="section-sub">この試算の効きどころ</div></div>
-    </div>
-    <p class="lead">結果を最も動かすのは<strong>EV/Sales倍率</strong>と<strong>2028年売上</strong>です（両者は事実上「量子オプション価値の見立て」を表す）。割引率や希薄化の効きは相対的に小さく、株価の帯はほぼ倍率×売上で決まります。</p>
-    <div class="table-wrap">
-      <table>
-        <thead><tr><th>動かす前提</th><th>変化させると</th><th>Base株価への影響</th></tr></thead>
-        <tbody>
-          <tr><td>EV/Sales倍率</td><td>27x ±5x</td><td class="td-base">概ね ±$6.4</td></tr>
-          <tr><td>2028年売上</td><td>$780M ±$150M</td><td class="td-base">概ね ±$6.6</td></tr>
-          <tr><td>希薄化後株数</td><td>423M → 453M（+30M）</td><td class="td-base">▲$2.6</td></tr>
-          <tr><td>割引率</td><td>16% → 14% / 18%</td><td class="td-base">+$1.5 / −$1.4</td></tr>
-          <tr><td>Bull確率</td><td>20% → 30%</td><td class="td-base">期待値 +$4.9</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="callout callout-red">
-      <span class="cl-label">最大の不確実性</span>
-      <b>EV/Sales倍率＝市場が量子の長期オプションにいくら払うか。</b>これは技術ロードマップの信頼性で大きく振れ、直近の判明機会は<b>Q2決算（〜8/12・デリスク型）</b>と<b>9/8のInvestor Day（BQA地位の提示）</b>、さらに<b>2026年末の256量子ビット実証</b>です。売上は達成できても倍率が切り下がれば株価は下方に振れ得る点に注意（6月ピークの実績売上約111倍→現在約52倍の再評価が、まさにその一例）。
-    </div>
-  </section>
-
-  <!-- ⑥ 使用した前提・数値 -->
-  <section class="section">
-    <div class="section-header">
-      <div class="section-icon">📌</div>
-      <div><div class="section-title">使用した主な前提・数値</div><div class="section-sub">出典と概数（バランスシート項目は時点を明記）</div></div>
-    </div>
-    <div class="table-wrap">
-      <table>
-        <thead><tr><th>項目</th><th>使用値</th><th>備考・時点</th></tr></thead>
-        <tbody>
-          <tr><td>現値</td><td>$45.01</td><td>2026/7/9 終値近辺（当日レンジ $44.02–$47.95）</td></tr>
-          <tr><td>発行済株式数</td><td>約 373M</td><td>2026/3/31（10-Q）。2/18時点 366.6M（424B7）</td></tr>
-          <tr><td>現金＋投資</td><td>$3.09B</td><td><b>2026/3/31時点</b>：現金$493.5M＋短期投資$1,539.9M＋長期投資$1,058.4M</td></tr>
-          <tr><td>有利子負債／転換社債</td><td>ごく僅少／なし</td><td>D/E≈0.01。CBのITM判定は非該当</td></tr>
-          <tr><td>2026年売上ガイダンス</td><td>$260–270M</td><td>Q1決算(5/6)で上方修正。中央値$265Mを起点採用</td></tr>
-          <tr><td>調整後EBITDA損失(26e)</td><td>−$310〜−330M</td><td>会社ガイダンス。バーン算定の基礎</td></tr>
-          <tr><td>RPO（受注残）</td><td>$470M</td><td>2026/3/31、前年比+554%</td></tr>
-          <tr><td>2028E売上（自前仮定）</td><td>Bear$520/Base$780/Bull$1,250M</td><td>ガイダンスからの外挿。<b>仮定</b></td></tr>
-          <tr><td>EV/Sales倍率(28)（自前仮定）</td><td>Bear14/Base27/Bull40x</td><td>量子オプション価値を内包。<b>仮定</b></td></tr>
-          <tr><td>割引率／ホライズン</td><td>16%／2.5年</td><td>執行リスクを反映。<b>仮定</b></td></tr>
-          <tr><td>SkyWater買収</td><td>全株式・被統合側4.4〜6.7%</td><td>カラー：$60.13超で0.3326株、$37.99未満で0.5265株。完了Q2/Q3</td></tr>
-          <tr><td>アナリスト目標株価</td><td>中央値 約$65–69</td><td>レンジ$35–$100（Rosenblatt最高$100）、13名前後・Strong Buy。参考</td></tr>
-          <tr><td>直近株価推移</td><td>20営業日 約−30%／四半期 +67.6%</td><td>6/2 $71.40→7/2 $49.12（−31.2%）。5月+60%後の調整</td></tr>
-          <tr><td>主要カタリスト</td><td>Q2決算〜8/12、Investor Day 9/8</td><td>256量子ビット実証〜2026末、政府量子計算機目標2028</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
-
+<div style="position:relative;z-index:1;margin-top:14px;display:inline-flex;gap:8px;flex-wrap:wrap">
+<span style="background:#caff00;color:#0b0b10;padding:5px 9px;border-radius:8px;font-size:11px;font-weight:1000;transform:rotate(-1deg)">初心者でも読める</span>
+<span style="background:#48e7ff;color:#0b0b10;padding:5px 9px;border-radius:8px;font-size:11px;font-weight:1000;transform:rotate(1deg)">数字はガチ</span>
+<span style="background:#ff4ecd;color:#fff;padding:5px 9px;border-radius:8px;font-size:11px;font-weight:1000;transform:rotate(-1deg)">煽りだけはしない</span>
 </div>
 
-<div class="footer">
-  <p style="font-weight:600;color:var(--gray-700);margin-bottom:8px">⚠️ 免責事項</p>
-  <p>本資料は情報提供・教育目的のシナリオ試算であり、投資助言ではありません。事業価値・倍率・確率・希薄化率はいずれも公開情報に基づく仮定であり、実際の結果は大きく異なりえます。IonQは黒字化前・技術実証途上の企業であり、量子計算の商用化時期・競争環境・追加希薄化に極めて大きな不確実性を伴います。<br>数値は2026/7/10時点の概数に基づきます。実際の投資判断はご自身の責任で行ってください。</p>
 </div>
+</header>
 
-</body>
-</html>
+<!-- Validation：WARNがあれば下の注意帯を残す（なければ丸ごと削除）。FAIL時は完成版にしない。 -->
+<div class="wrap"><div class="notice" style="margin-top:14px"><b>注意：</b>SkyWater買収の最終株式数と直近20営業日騰落率は変動中。評価はWARNです。</div></div>
+<!-- 例（WARN時）:
+<div class="wrap"><div class="notice" style="margin-top:14px"><b>注意：</b>—</div></div>
+-->
+
+<nav style="position:sticky;top:0;z-index:50;background:rgba(9,9,13,.86);backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.08)">
+<div class="wrap" style="display:flex;gap:8px;overflow:auto;padding-top:10px;padding-bottom:10px">
+<a href="#snapshot" style="white-space:nowrap;text-decoration:none;background:#1b1b25;border:1px solid #343445;color:#fff;padding:7px 11px;border-radius:999px;font-size:12px;font-weight:900">結論</a>
+<a href="#scenarios" style="white-space:nowrap;text-decoration:none;background:#1b1b25;border:1px solid #343445;color:#fff;padding:7px 11px;border-radius:999px;font-size:12px;font-weight:900">3シナリオ</a>
+<a href="#logic" style="white-space:nowrap;text-decoration:none;background:#1b1b25;border:1px solid #343445;color:#fff;padding:7px 11px;border-radius:999px;font-size:12px;font-weight:900">計算</a>
+<a href="#sensitivity" style="white-space:nowrap;text-decoration:none;background:#1b1b25;border:1px solid #343445;color:#fff;padding:7px 11px;border-radius:999px;font-size:12px;font-weight:900">感応度</a>
+<a href="#assumptions" style="white-space:nowrap;text-decoration:none;background:#1b1b25;border:1px solid #343445;color:#fff;padding:7px 11px;border-radius:999px;font-size:12px;font-weight:900">前提</a>
+</div></nav>
+
+<main class="wrap">
+
+<!-- Layer2-1：いまどこ？（現値ポジショニング＋市場逆算） -->
+<section class="card" id="snapshot">
+  <h2>いまの株価、どこにいる？</h2>
+  <p class="lead">会社は急成長中。ただし市場は2026年売上の約51倍を先に評価している。</p>
+  <div class="grid-2">
+    <div>
+      <h3>現値ポジショニング</h3>
+      <p>Bear〜Bull帯の <b>36%</b> 地点。判定は <b>適正〜慎重寄り</b>。Base未満でも倍率は高い。帯内位置だけで割安とは言えない。</p>
+      <!-- pin の left:% を band_position_pct に合わせる -->
+      <div class="position"><div class="position-line"><i class="pin" style="left:36%"></i></div><div class="position-labels"><span>Bear $24</span><span>Base $45</span><span>Bull $76</span></div></div>
+      <p>上値下値比：<b>1.76倍</b>　確率加重期待値：<b>$47.5</b></p>
+    </div>
+    <div>
+      <h3>市場期待と独自見解</h3>
+      <div class="compare">
+        <div><b>市場期待 72/100</b><div class="meter"><i style="width:72%"></i></div></div>
+        <div><b>本試算 54/100</b><div class="meter"><i style="width:54%"></i></div></div>
+      </div>
+      <!-- market_reverse.conclusion：現値が自分のどの前提に相当するか -->
+      <p>現値の企業価値は約$13.6B。2026年売上中央値$265Mの約51倍を織り込む。Base売上に高倍率を乗せた水準。</p>
+    </div>
+  </div>
+</section>
+
+<!-- Layer1/2：3シナリオ。dl の項目は使用手法に合わせて変える（rNPV/SOTP/EV-Sales/PER等） -->
+<section class="card" id="scenarios">
+  <h2>未来はこの3パターン</h2>
+  <p class="lead">2028年の統合売上、倍率、買収後株数を変えた3ケース。すべてモデル仮定。</p>
+  <div class="scenarios">
+    <article class="scenario bear">
+      <div class="scenario-head"><span>Bear（悲観ケース）</span><b>25%</b></div>
+      <div class="scenario-price">$24</div>
+      <div class="small">現値比 -44%</div>
+      <dl><div><dt>2028売上（仮定）</dt><dd>$0.65B</dd></div><div><dt>EV/Sales（仮定）</dt><dd>12倍</dd></div><div><dt>現在価値EV</dt><dd>$5.6B</dd></div><div><dt>ネット現金</dt><dd>$2.0B</dd></div><div><dt>希薄化後株数</dt><dd>317M</dd></div></dl>
+      <!-- 例: <div><dt>事業価値</dt><dd>25.9兆円</dd></div> を手法に応じて数行 -->
+    </article>
+    <article class="scenario base">
+      <div class="scenario-head"><span>Base（標準ケース）</span><b>50%</b></div>
+      <div class="scenario-price">$45</div>
+      <div class="small">現値比 +5%</div>
+      <dl><div><dt>2028売上（仮定）</dt><dd>$0.90B</dd></div><div><dt>EV/Sales（仮定）</dt><dd>20倍</dd></div><div><dt>現在価値EV</dt><dd>$13.0B</dd></div><div><dt>ネット現金</dt><dd>$1.8B</dd></div><div><dt>希薄化後株数</dt><dd>329M</dd></div></dl>
+    </article>
+    <article class="scenario bull">
+      <div class="scenario-head"><span>Bull（強気ケース）</span><b>25%</b></div>
+      <div class="scenario-price">$76</div>
+      <div class="small">現値比 +77%</div>
+      <dl><div><dt>2028売上（仮定）</dt><dd>$1.20B</dd></div><div><dt>EV/Sales（仮定）</dt><dd>30倍</dd></div><div><dt>現在価値EV</dt><dd>$25.9B</dd></div><div><dt>ネット現金</dt><dd>$1.5B</dd></div><div><dt>希薄化後株数</dt><dd>361M</dd></div></dl>
+    </article></div>
+</section>
+
+<!-- Layer2：価格別アクションマップ ＋ 株価を動かす材料 -->
+<section class="grid-2">
+  <div class="card">
+    <h2>この値段ならどう見る？</h2>
+    <!-- 4〜5帯。「買い/売り」は断定しない。星は割安度の目安 -->
+    <div class="zone"><div><b>$24未満</b><span>★★★★★</span></div><p>悲観ケース以下。資金・技術悪化の有無を確認。</p></div><div class="zone"><div><b>$24〜$45</b><span>★★★☆☆</span></div><p>慎重〜標準前提の間。</p></div><div class="zone"><div><b>$45〜$76</b><span>★★☆☆☆</span></div><p>強い成長と高倍率を織り込む。</p></div><div class="zone"><div><b>$76超</b><span>★☆☆☆☆</span></div><p>Bull超。追加材料が必要。</p></div>
+    <!-- 例: <div class="zone"><div><b>48,000円未満</b><span>★★★★★</span></div><p>悲観ケース以下。下方リスクを相当織り込む</p></div> -->
+  </div>
+  <div class="card">
+    <h2>株価を動かす4つ</h2>
+    <!-- 各材料に up=追い風 / down=注意 / flat を付ける -->
+    <div class="signal"><div><b>Q2売上</b><span class="up">追い風候補</span></div><p>$65M〜$68M達成を確認。</p></div><div class="signal"><div><b>256量子ビット</b><span class="up">重要</span></div><p>統合テストと納入。</p></div><div class="signal"><div><b>SkyWater買収</b><span class="flat">両面</span></div><p>製造内製化と希薄化。</p></div><div class="signal"><div><b>評価倍率</b><span class="down">注意</span></div><p>金利・量子テーマ失速で縮小。</p></div>
+    <!-- 例: <div class="signal"><div><b>AI向けSSD需要</b><span class="up">追い風</span></div><p>…</p></div> -->
+  </div>
+</section>
+
+<!-- Layer2：良い点 / 気になる点（対比） -->
+<section class="grid-2">
+  <div class="card">
+    <h2>ここは普通に強い</h2>
+    <ul class="clean"><li>Q1売上$64.7M、前年比+755%。</li><li>RPOは$470Mへ増加。</li><li>現金・投資$3.1Bで開発余力。</li><li>計算・通信・センサーへ多角化。</li></ul>
+    <!-- 例: <li>FY2025売上2.34兆円で過去最高。</li> を3〜5件 -->
+  </div>
+  <div class="card">
+    <h2>ここで事故るかも</h2>
+    <ul class="clean"><li>2026年調整後EBITDA赤字は$310M〜$330M。</li><li>現値は2026売上の約51倍EV。</li><li>SkyWater買収で現金流出と新株。</li><li>SBCと買収統合が株数を押し上げる。</li></ul>
+    <!-- 2つ目のカードのliは自動で赤「!」になる -->
+  </div>
+</section>
+
+<!-- Layer3：計算ロジック -->
+<section class="card" id="logic">
+  <h2>数字の作り方</h2>
+  <p class="lead">理論株価＝（2028年統合売上×EV/Sales÷1.18²＋ネット現金）÷希薄化後株数</p>
+  <div class="table-wrap"><table>
+  <thead><tr><th>ケース</th><th>売上</th><th>倍率</th><th>現在価値EV</th><th>現金</th><th>株数</th><th>株価</th></tr></thead>
+  <tbody><tr><td>Bear</td><td>$0.65B</td><td>12x</td><td>$5.6B</td><td>$2.0B</td><td>317M</td><td>$24</td></tr><tr><td>Base</td><td>$0.90B</td><td>20x</td><td>$13.0B</td><td>$1.8B</td><td>329M</td><td>$45</td></tr><tr><td>Bull</td><td>$1.20B</td><td>30x</td><td>$25.9B</td><td>$1.5B</td><td>361M</td><td>$76</td></tr></tbody>
+  </table></div>
+  <!-- 現値に合わせた逆算ではない旨、未開示前提の注意など -->
+  <p class="notice"><b>重要：</b>売上・倍率・将来株数は仮定。現値に合わせてBaseを調整していない。SkyWaterは統合売上と買収後現金・株数に反映。</p>
+</section>
+
+<!-- Layer3：成立条件 -->
+<section class="card" id="conditions">
+  <h2>この未来になる条件</h2>
+  <details open><summary>Base：$45 / 確率50%</summary><p>2028年統合売上$0.90B、20倍維持。Tempo納入と買収統合が概ね計画通り。</p></details><details><summary>Bear：$24 / 確率25%</summary><p>売上$0.65B、倍率12倍。遅延・費用増・追加希薄化が重なる。</p></details><details><summary>Bull：$76 / 確率25%</summary><p>売上$1.20B、倍率30倍。256量子ビットと大型契約が順調。</p></details>
+  <!-- 例: <details open><summary>Base：$45 / 確率50%</summary><p>…</p></details> を3つ -->
+</section>
+
+<!-- Layer3：感応度 ＋ 分布（モンテカルロは実施時のみ） -->
+<section class="grid-2" id="sensitivity">
+  <div class="card">
+    <h2>数字がズレるとどうなる？</h2>
+    <div class="table-wrap"><table>
+      <thead><tr><th>2028売上＼倍率</th><th>15x</th><th>20x</th><th>25x</th></tr></thead>
+      <tbody><tr><td>$0.70B</td><td>$29</td><td>$37</td><td>$44</td></tr><tr><td>$0.90B</td><td>$35</td><td>$45</td><td>$55</td></tr><tr><td>$1.10B</td><td>$42</td><td>$54</td><td>$66</td></tr></tbody>
+    </table></div>
+    <p class="small">割引率18%、ネット現金$1.8B、株数329Mの仮定。時期が1年遅れると価値は低下。</p>
+  </div>
+  <div class="card">
+    <h2>どの価格に行きやすい？</h2>
+    <p class="lead">3シナリオ確率をそのまま帯に表示。予言ではない。</p>
+    <div class="dist-row"><span>$30未満</span><div class="track"><i style="width:25%"></i></div><b>25%</b></div><div class="dist-row"><span>$30〜$60</span><div class="track"><i style="width:50%"></i></div><b>50%</b></div><div class="dist-row"><span>$60超</span><div class="track"><i style="width:25%"></i></div><b>25%</b></div>
+    <!-- 例: <div class="dist-row"><span>5万円未満</span><div class="track"><i style="width:7.6%"></i></div><b>7.6%</b></div> -->
+    <p>中央値はBaseの$45。上方・下方とも前提依存が大きい。</p>
+  </div>
+</section>
+
+<!-- 次の決算/イベントで見る場所（watch_items） -->
+<section class="card">
+  <h2>次の決算で見る場所</h2>
+  <div class="signal"><div><b>Q2 2026決算</b></div><p>売上$65M〜$68M、通期$260M〜$270Mの維持。</p></div><div class="signal"><div><b>SkyWaterクロージング</b></div><p>完了時期、現金対価、発行株数、統合ガイダンス。</p></div><div class="signal"><div><b>Tempo・256量子ビット</b></div><p>性能、顧客受入れ、納入時期。</p></div><div class="signal"><div><b>現金と株数</b></div><p>営業赤字、SBC、買収後の希薄化。</p></div>
+  <!-- 例: <div class="signal"><div><b>2026年7月31日の1Q決算</b></div><p>…</p></div> -->
+</section>
+
+<!-- 前提表（事実/市場データ/推定/仮定を分類明記） -->
+<section class="card" id="assumptions">
+  <h2>使った数字と前提</h2>
+  <div class="table-wrap"><table>
+  <thead><tr><th>項目</th><th>値</th><th>分類</th><th>注記</th></tr></thead>
+  <tbody><tr><td>現値</td><td>$42.86</td><td>市場データ</td><td>2026-07-13</td></tr><tr><td>Q1売上</td><td>$64.7M</td><td>実績</td><td>会社発表</td></tr><tr><td>2026売上</td><td>$260M〜$270M</td><td>会社予想</td><td>SkyWater未反映</td></tr><tr><td>現金・投資</td><td>$3.1B</td><td>実績</td><td>2026-03-31</td></tr><tr><td>割引率</td><td>18%</td><td>仮定</td><td>高リスク成長株</td></tr><tr><td>確率</td><td>25/50/25%</td><td>仮定</td><td>合計100%</td></tr></tbody>
+  </table></div>
+</section>
+
+<!-- Layer3：ガチ勢向け深掘り（details折りたたみ） -->
+<section class="card">
+  <h2>ガチ勢向けの深掘り</h2>
+  <details><summary>手法と市場逆算</summary><p>赤字高成長のためEV/Salesを主手法に採用。現値EV約$13.6B÷2026売上中央値$265M＝約51倍。</p></details><details><summary>倍率根拠</summary><p>同業も赤字で方式差が大きい。Bear 12倍、Base 20倍、Bull 30倍は現在の約51倍から成長に伴う低下を前提。</p></details><details><summary>キャッシュ・希薄化・M&A</summary><p>SkyWaterは1株$15現金＋$20相当IONQ株。現金控除、統合売上、新株を3点セットでモデル化。最終値はクロージング時に変動。</p></details><details><summary>Validation Engine</summary><p>WARN。V01〜V04計算一致。V11/V13は買収最終株数未確定、V17は20営業日データ精度に注意。FAILなし。</p></details><details><summary>主要出典</summary><p><a href="https://investors.ionq.com/news/news-details/2026/IonQ-Announces-First-Quarter-2026-Financial-Results/default.aspx">IonQ Q1 2026</a><br><a href="https://investors.ionq.com/news/news-details/2026/IonQ-to-Acquire-SkyWater-Technology-Creating-the-Only-Vertically-Integrated-Full-Stack-Quantum-Platform-Company/default.aspx">SkyWater買収発表</a><br><a href="https://www.ionq.com/company">会社概要</a></p></details><details><summary>更新履歴</summary><p>2026-07-13作成。Q1実績、通期ガイダンス、SkyWater買収を反映。</p></details>
+  <!-- 手法選定理由 / 市場逆算 / 倍率トラジェクトリ / 同業比較 / キャッシュバーン・希薄化 /
+       転換社債 / M&A / モンテカルロ・ベイズ（実施時）/ 前提と未確認事項 / 更新履歴 / 主要出典 を
+       それぞれ <details><summary>…</summary><p>…</p></details> で。出典はリンクの箇条書き -->
+</section>
+
+<section class="card notice">
+  <h3>免責</h3><p>本資料は情報提供・教育目的で、投資助言ではありません。将来価格は仮定に基づく試算で、実現を保証しません。</p>
+</section>
+<footer>DOPAGAKI STOCK LAB｜最終更新 2026-07-13｜Validation: WARN</footer>
+</main>
+</body></html>

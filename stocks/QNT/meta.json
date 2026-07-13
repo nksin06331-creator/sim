@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "ticker": "QNT",
+  "slug": "qnt",
+  "name": "Quantinuum",
+  "market": "米国株",
+  "sector": "量子コンピューター",
+  "method": "SOTP＋オプション価値",
+  "status": "published",
+  "updated": "2026-07-13",
+  "price": {
+    "current": 70.69,
+    "currency": "USD"
+  },
+  "scenarios": {
+    "bear": 45,
+    "base": 80,
+    "bull": 126
+  },
+  "positionPct": 31.7,
+  "zone": "Bear〜Base帯",
+  "riskReward": "2.15倍",
+  "catalyst": "要確認",
+  "summary": "技術は強い。",
+  "tags": [
+    "SOTP＋オプション価値",
+    "量子コンピューター"
+  ],
+  "risk": "非常に高い",
+  "detailPath": "stocks/QNT/index.html",
+  "scenarioPath": "stocks/QNT/scenario.html"
+}

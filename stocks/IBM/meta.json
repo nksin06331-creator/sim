@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "ticker": "IBM",
+  "slug": "ibm",
+  "name": "IBM",
+  "market": "米国株",
+  "sector": "エンタープライズIT・ソフトウェア",
+  "method": "2027E EPS × PER",
+  "status": "published",
+  "updated": "2026-07-13",
+  "price": {
+    "current": 287.56,
+    "currency": "USD"
+  },
+  "scenarios": {
+    "bear": 198,
+    "base": 275,
+    "bull": 363
+  },
+  "positionPct": 54.3,
+  "zone": "Base超え・強気寄り",
+  "riskReward": "0.84倍",
+  "catalyst": "要確認",
+  "summary": "会社は強い。",
+  "tags": [
+    "2027E EPS × PER",
+    "エンタープライズIT・ソフトウェア"
+  ],
+  "risk": "中",
+  "detailPath": "stocks/IBM/index.html",
+  "scenarioPath": "stocks/IBM/scenario.html"
+}

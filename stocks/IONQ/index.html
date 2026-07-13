@@ -5,54 +5,466 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>IONQ 完全入門ガイド</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@700;900&family=Noto+Sans+JP:wght@400;500;700;900&family=DM+Sans:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--c-primary-50:#eef2ff;--c-primary-100:#e0e7ff;--c-primary-200:#c7d2fe;--c-primary-400:#6366f1;--c-primary-600:#4338ca;--c-primary-800:#312e81;--c-accent-50:#f5f3ff;--c-accent-400:#8b5cf6;--c-accent-600:#7c3aed;--hero-bg-from:#0f0c29;--hero-bg-mid:#302b63;--hero-bg-to:#24243e;--hero-badge-color:#c7d2fe;--hero-h1-accent:#a5b4fc;--amber-50:#fffbeb;--amber-400:#fbbf24;--amber-600:#d97706;--red-50:#fef2f2;--red-400:#f87171;--red-600:#dc2626;--blue-50:#eff6ff;--blue-400:#60a5fa;--blue-600:#2563eb;--green-50:#f0fdf4;--green-400:#4ade80;--green-600:#16a34a;--gray-50:#f9fafb;--gray-100:#f3f4f6;--gray-200:#e5e7eb;--gray-500:#6b7280;--gray-700:#374151;--gray-900:#111827;--font-body:'DM Sans',sans-serif;--font-serif:'Noto Serif JP',serif}*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}body{font-family:var(--font-body);background:#f9f9f7;color:var(--gray-900);line-height:1.75;font-size:15px}.hero{background:linear-gradient(135deg,var(--hero-bg-from) 0%,var(--hero-bg-mid) 55%,var(--hero-bg-to) 100%);color:#fff;padding:64px 24px 80px;text-align:center;position:relative;overflow:hidden}.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 15% 40%,rgba(255,255,255,.08) 0%,transparent 55%),radial-gradient(ellipse at 85% 60%,rgba(255,255,255,.05) 0%,transparent 50%)}.hero>*{position:relative;z-index:1}.hero-badge{display:inline-block;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);border-radius:999px;padding:4px 16px;font-size:12px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:20px;color:var(--hero-badge-color)}.hero h1{font-family:var(--font-serif);font-size:clamp(26px,5vw,44px);font-weight:700;line-height:1.3;margin-bottom:16px}.hero h1 span{color:var(--hero-h1-accent)}.hero p{font-size:16px;opacity:.88;max-width:680px;margin:0 auto 32px}.hero-tags{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}.hero-tag{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:6px;padding:4px 12px;font-size:13px}.nav-index{background:#fff;border-bottom:1px solid var(--gray-200);position:sticky;top:0;z-index:100}.nav-inner{max-width:920px;margin:0 auto;padding:0 20px;display:flex;overflow-x:auto;scrollbar-width:none}.nav-item{flex-shrink:0;padding:14px 16px;font-size:13px;font-weight:500;color:var(--gray-500);text-decoration:none;border-bottom:2px solid transparent;white-space:nowrap}.nav-item:hover{color:var(--c-primary-600);border-bottom-color:var(--c-primary-400)}.container{max-width:920px;margin:0 auto;padding:0 20px}.section{padding:56px 0 40px;border-bottom:1px solid var(--gray-200)}.section-header{display:flex;align-items:center;gap:14px;margin-bottom:28px}.section-icon{width:42px;height:42px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}.icon-primary{background:var(--c-primary-50)}.icon-accent{background:var(--c-accent-50)}.icon-amber{background:var(--amber-50)}.section-title{font-family:var(--font-serif);font-size:22px;font-weight:700;color:var(--gray-900)}.section-sub{font-size:13px;color:var(--gray-500);margin-top:2px}.card{background:#fff;border:1px solid var(--gray-200);border-radius:12px;padding:20px 22px;margin-bottom:12px}.card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-bottom:12px}.card-sm{background:#fff;border:1px solid var(--gray-200);border-radius:10px;padding:16px 18px}.term-list{display:flex;flex-direction:column;gap:8px}.term-item{background:#fff;border:1px solid var(--gray-200);border-radius:10px;overflow:hidden}.term-header{display:flex;align-items:center;justify-content:space-between;padding:14px 18px;cursor:pointer;gap:12px;user-select:none}.term-header::-webkit-details-marker{display:none}.term-name{font-weight:600;font-size:15px;color:var(--gray-900)}.term-en{font-size:11px;color:var(--gray-500);margin-left:8px;font-weight:400}.term-arrow{font-size:16px;color:var(--c-primary-400);transition:transform .25s;flex-shrink:0}.term-item[open] .term-arrow{transform:rotate(180deg)}.term-item[open]{border-color:var(--c-primary-400)}.term-body{padding:0 18px 16px;border-top:1px solid var(--gray-100)}.term-body p{font-size:14px;color:var(--gray-700);line-height:1.8;margin-bottom:10px}.ex-box{background:var(--c-primary-50);border-left:3px solid var(--c-primary-400);border-radius:0 6px 6px 0;padding:10px 14px;margin-top:10px}.ex-box-amber{background:var(--amber-50);border-left:3px solid var(--amber-400);border-radius:0 6px 6px 0;padding:10px 14px;margin-top:10px}.ex-label{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px}.ex-label-primary{color:var(--c-primary-600)}.ex-label-amber{color:var(--amber-600)}.ex-text{font-size:13px;color:var(--gray-700);line-height:1.7}.info-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:16px}.info-box{border-radius:10px;padding:16px 18px}.info-box-primary{background:var(--c-primary-50)}.info-box-amber{background:var(--amber-50)}.info-box-red{background:var(--red-50)}.info-box-blue{background:var(--blue-50)}.info-title{font-weight:600;font-size:14px;margin-bottom:6px}.info-title-primary{color:var(--c-primary-800)}.info-title-amber{color:var(--amber-600)}.info-title-red{color:var(--red-600)}.info-title-blue{color:var(--blue-600)}.info-text{font-size:13px;color:var(--gray-700);line-height:1.7}.phase-flow{display:flex;flex-direction:column}.phase-row{display:flex;gap:16px;align-items:flex-start}.phase-line-wrap{display:flex;flex-direction:column;align-items:center;flex-shrink:0;width:40px}.phase-dot{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;background:var(--c-primary-50);color:var(--c-primary-800)}.phase-connector{width:2px;height:40px;background:var(--gray-200)}.phase-content{padding-top:8px;padding-bottom:24px;flex:1}.phase-label{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px;color:var(--c-primary-600)}.phase-title{font-weight:600;font-size:16px;margin-bottom:6px}.phase-desc{font-size:13px;color:var(--gray-500);line-height:1.7}.timeline{position:relative;padding-left:32px}.timeline::before{content:'';position:absolute;left:10px;top:8px;bottom:0;width:2px;background:var(--gray-200)}.tl-row{position:relative;margin-bottom:24px}.tl-row::before{content:'';position:absolute;left:-26px;top:7px;width:12px;height:12px;border-radius:50%;background:var(--c-primary-400);border:2px solid #fff;box-shadow:0 0 0 2px var(--c-primary-400)}.tl-date{font-size:11px;font-weight:600;color:var(--c-primary-600);text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px}.tl-title{font-weight:600;font-size:15px;margin-bottom:4px}.tl-desc{font-size:13px;color:var(--gray-500);line-height:1.7}.compare-table{width:100%;border-collapse:collapse;font-size:13px}.compare-table th{background:var(--gray-50);padding:10px 14px;text-align:left;font-weight:600;font-size:12px;color:var(--gray-500);text-transform:uppercase;letter-spacing:.05em;border-bottom:1px solid var(--gray-200)}.compare-table td{padding:11px 14px;border-bottom:1px solid var(--gray-100);color:var(--gray-700);vertical-align:top}.highlight{background:linear-gradient(135deg,var(--hero-bg-from) 0%,var(--hero-bg-mid) 100%);color:#fff;border-radius:12px;padding:24px 26px;margin:24px 0}.highlight h3{font-family:var(--font-serif);font-size:18px;margin-bottom:10px;color:var(--hero-badge-color)}.highlight p{font-size:14px;opacity:.9;line-height:1.8}.product-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin:16px 0}.product-box{border-radius:10px;padding:16px;text-align:center;border:1px solid var(--gray-200);background:#fff}.product-symbol{font-size:28px;font-weight:700;margin-bottom:4px;font-family:var(--font-serif);color:var(--c-primary-600)}.product-name{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px}.product-use{font-size:12px;line-height:1.5;color:var(--gray-700)}.lead{font-size:16px;color:var(--gray-700);line-height:1.8;margin-bottom:24px}strong{font-weight:600}.footer{padding:48px 24px;text-align:center;color:var(--gray-500);font-size:13px;border-top:1px solid var(--gray-200);margin-top:40px}.source-list{font-size:12px;color:var(--gray-500);line-height:1.8}.source-list a{color:var(--c-primary-600)}
+/*
+ ================================================================
+  STOCK GUIDE TEMPLATE v3  SiM MARKET LAB ダーク版 / ChatGPT index.html
+  ----------------------------------------------------------------
+  ★★ デザインロック（ぶれ防止）★★
+  ・この <style> ブロックとページ骨格は「改変禁止」。1文字も変えない。逐語コピーする。
+  ・色はSiMグリーンで固定。銘柄・業界でアクセント色を変えない。
+  ・差し替えてよいのは {{ }} プレースホルダーの中身（＝テキスト）だけ。
+  ・セクションの数・順番・各コンポーネントの個数（SEC1のcard-smは4枚 等）は固定。
+    追加・削除・並べ替えをしない。
+  ----------------------------------------------------------------
+  ブランド：黒背景 × ネオングリーン × 白文字（キーワードだけ緑）。Instagram(sim.marketlab)準拠。
+  設計思想：「表層＝3秒で意味が取れる／深層＝読みたい人だけ開く」の2層構造。
+  ・見出しの重要ワードは <span class="g">…</span> で緑ハイライト。
+ ================================================================
+*/
+
+:root {
+  /* ── ブランド・アクセント：SiMグリーンで固定（銘柄・業界で変えない＝デザインぶれ防止） ── */
+  --accent:        #6EE24E;
+  --accent-bright: #8BF56B;
+  --accent-tint:   rgba(110,226,78,.12);
+  --accent-line:   rgba(110,226,78,.38);
+
+  /* ── ダークシェル（変更不要・全銘柄共通） ── */
+  --bg:        #0a0c0a;
+  --surface:   #141815;   /* カード面 */
+  --surface-2: #1b201c;   /* 少し明るい面 */
+
+  /* レガシー変数マッピング（本文markupが参照。名前は据え置き、意味をダーク用に再定義） */
+  --c-primary-50:  var(--accent-tint);        --c-primary-100: rgba(110,226,78,.18);
+  --c-primary-200: rgba(110,226,78,.55);      --c-primary-400: var(--accent);
+  --c-primary-600: var(--accent);             --c-primary-800: var(--accent-bright);
+  --c-accent-50:   var(--accent-tint);        --c-accent-400:  var(--accent);   --c-accent-600: var(--accent-bright);
+
+  /* システム色（ダーク版：薄背景は半透明の暗色、文字は明るい色に反転） */
+  --amber-50:  rgba(251,191,36,.13); --amber-400: #fbbf24; --amber-600: #fcd34d; --amber-800: #fde68a;
+  --red-50:    rgba(248,113,113,.13); --red-400:  #f87171; --red-600:   #fca5a5;
+  --blue-50:   rgba(96,165,250,.13); --blue-400:  #60a5fa; --blue-600:  #93c5fd; --blue-800: #bfdbfe;
+  --green-50:  rgba(110,226,78,.13); --green-400: #6EE24E; --green-600: #8bf56b;
+  --violet-50: rgba(167,139,250,.13); --violet-400:#a78bfa; --violet-600:#c4b5fd;
+  --gray-50:  #15191b;               --gray-100: rgba(255,255,255,.06);
+  --gray-200: rgba(255,255,255,.09); --gray-300: #3f463f;
+  --gray-500: #8a948a;               --gray-700: #c3ccc3; --gray-900: #f1f5f1;
+
+  --font-display: 'Zen Kaku Gothic New', 'Noto Sans JP', sans-serif;
+  --font-body:    'Noto Sans JP', 'DM Sans', sans-serif;
+  --font-num:     'DM Sans', 'Noto Sans JP', sans-serif;
+  --radius: 16px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-body); background: var(--bg); color: var(--gray-900); line-height: 1.85; font-size: 16px; -webkit-text-size-adjust: 100%; }
+.g { color: var(--accent); }               /* 緑キーワード */
+
+/* 読了プログレスバー */
+.progress-bar { position: fixed; top: 0; left: 0; height: 4px; width: 0%; z-index: 200; background: var(--accent); box-shadow: 0 0 12px var(--accent); transition: width .1s linear; }
+
+/* ── HERO（黒＋緑グロー＋ハーフトーン・ドット） ── */
+.hero {
+  background: radial-gradient(120% 90% at 50% -10%, #12251a 0%, #0b0f0c 45%, var(--bg) 75%);
+  color: #fff; padding: 58px 22px 66px; text-align: center; position: relative; overflow: hidden;
+}
+.hero::before { content:''; position:absolute; inset:0;
+  background-image: radial-gradient(var(--accent) 1px, transparent 1.6px);
+  background-size: 15px 15px; opacity: .10;
+  -webkit-mask-image: radial-gradient(ellipse at 50% 120%, #000 0%, transparent 60%);
+          mask-image: radial-gradient(ellipse at 50% 120%, #000 0%, transparent 60%);
+}
+.hero > * { position: relative; z-index: 1; }
+.brandmark { font-family: var(--font-num); font-weight: 700; letter-spacing: .18em; font-size: 13px; color: var(--gray-500); margin-bottom: 18px; }
+.brandmark b { color: #fff; font-weight: 700; }
+.brandmark .g { color: var(--accent); }
+.hero-badge { display: inline-block; background: rgba(110,226,78,.10); border: 1px solid var(--accent-line); border-radius: 999px; padding: 6px 18px; font-size: 12px; letter-spacing: .06em; font-weight: 700; margin-bottom: 18px; color: var(--accent); }
+.hero h1 { font-family: var(--font-display); font-size: clamp(30px,7.5vw,50px); font-weight: 900; line-height: 1.3; margin-bottom: 14px; letter-spacing: .01em; }
+.hero h1 .g { color: var(--accent); }
+.hero p { font-size: 15.5px; color: #c3ccc3; max-width: 560px; margin: 0 auto 26px; line-height: 1.85; }
+.hero-tags { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+.hero-tag { background: rgba(255,255,255,.04); border: 1px solid var(--gray-200); border-radius: 999px; padding: 6px 14px; font-size: 13px; font-weight: 500; color: #d8ded8; }
+
+/* ── 30秒サマリー（でかい数字カード） ── */
+.tldr-hero { max-width: 820px; margin: -30px auto 0; padding: 0 16px; position: relative; z-index: 5; }
+.tldr-hero-inner { background: var(--surface); border: 1px solid var(--gray-200); border-radius: var(--radius); padding: 20px 20px 8px; box-shadow: 0 16px 40px rgba(0,0,0,.5); }
+.tldr-hero-title { font-family: var(--font-display); font-weight: 900; font-size: 17px; color: #fff; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+.stat-strip { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px,1fr)); gap: 10px; margin-bottom: 14px; }
+.stat { background: var(--gray-50); border: 1px solid var(--gray-200); border-radius: 12px; padding: 14px 12px; text-align: center; }
+.stat-value { font-family: var(--font-num); font-weight: 700; font-size: clamp(24px,6vw,32px); line-height: 1.1; color: #fff; }
+.stat-value.up   { color: var(--accent); }
+.stat-value.down { color: var(--red-400); }
+.stat-label { font-size: 12px; color: var(--gray-500); margin-top: 4px; font-weight: 500; }
+.stat-note  { font-size: 11px; color: var(--gray-500); margin-top: 2px; }
+
+/* ── NAV ── */
+.nav-index { background: rgba(10,12,10,.82); backdrop-filter: blur(10px); border-bottom: 1px solid var(--gray-200); position: sticky; top: 0; z-index: 100; }
+.nav-inner { max-width: 820px; margin: 0 auto; padding: 0 16px; display: flex; overflow-x: auto; scrollbar-width: none; }
+.nav-inner::-webkit-scrollbar { display: none; }
+.nav-item { flex-shrink: 0; padding: 14px 14px; font-size: 13px; font-weight: 700; color: var(--gray-500); text-decoration: none; border-bottom: 3px solid transparent; transition: color .2s, border-color .2s; white-space: nowrap; }
+.nav-item:hover { color: var(--accent); border-bottom-color: var(--accent); }
+
+.container { max-width: 820px; margin: 0 auto; padding: 0 16px; }
+
+/* ── SECTION ── */
+.section { padding: 46px 0 34px; border-bottom: 1px solid var(--gray-200); opacity: 0; transform: translateY(16px); animation: fadeUp .5s ease forwards; }
+@keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+.section-header { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
+.section-icon { width: 46px; height: 46px; border-radius: 50%; background: var(--surface-2); border: 1px solid var(--gray-200); display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0; }
+.section-num { width: 30px; height: 30px; border-radius: 50%; background: var(--accent); color: #06210a; font-family: var(--font-num); font-weight: 700; font-size: 15px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.section-title { font-family: var(--font-display); font-size: clamp(21px,5.4vw,27px); font-weight: 900; color: #fff; line-height: 1.32; position: relative; display: inline-block; padding-bottom: 9px; }
+.section-title::after { content: ''; position: absolute; left: 0; bottom: 0; width: 40px; height: 3px; background: var(--accent); border-radius: 3px; }
+.section-title .g { color: var(--accent); }
+.section-sub { font-size: 13px; color: var(--gray-500); margin-top: 6px; font-weight: 500; }
+
+/* ── ⚡3秒まとめ ── */
+.tldr { background: var(--accent-tint); border: 1px solid var(--accent-line); border-radius: var(--radius); padding: 18px 20px; margin-bottom: 22px; }
+.tldr-label { display: inline-flex; align-items: center; gap: 6px; font-family: var(--font-display); font-weight: 900; font-size: 14px; color: var(--accent); margin-bottom: 10px; }
+.tldr ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.tldr li { font-size: 15.5px; font-weight: 500; color: #eef2ee; line-height: 1.7; padding-left: 30px; position: relative; }
+.tldr li::before { content: attr(data-emoji); position: absolute; left: 0; top: 0; font-size: 18px; }
+
+/* ── 👉つまり ── */
+.sowhat { background: var(--surface); border: 1.5px dashed var(--accent); border-radius: 14px; padding: 12px 16px 12px 46px; margin: 14px 0; position: relative; }
+.sowhat::before { content: '👉'; position: absolute; left: 14px; top: 11px; font-size: 20px; }
+.sowhat b { color: var(--accent); }
+.sowhat p { font-size: 14.5px; color: var(--gray-700); line-height: 1.8; }
+
+/* ── シグナル判定ピル ── */
+.signal { display: inline-flex; align-items: center; gap: 5px; font-weight: 700; font-size: 12.5px; padding: 4px 12px; border-radius: 999px; white-space: nowrap; }
+.signal.bull    { background: var(--green-50); color: var(--accent); }
+.signal.neutral { background: var(--amber-50); color: var(--amber-600); }
+.signal.bear    { background: var(--red-50);   color: var(--red-600); }
+
+/* ── ★重要度 ── */
+.rating { font-family: var(--font-num); letter-spacing: 1px; color: var(--accent); font-size: 14px; }
+.rating .off { color: var(--gray-300); }
+
+/* ── 絵文字箇条書き ── */
+.keypoints { list-style: none; display: flex; flex-direction: column; gap: 12px; margin: 8px 0; }
+.keypoints li { display: flex; gap: 12px; align-items: flex-start; font-size: 15px; line-height: 1.7; color: #e4e9e4; }
+.keypoints .kp-emoji { font-size: 22px; flex-shrink: 0; line-height: 1.4; }
+.keypoints .kp-text b { color: var(--accent); }
+
+/* ── CARDS ── */
+.card { background: var(--surface); border: 1px solid var(--gray-200); border-radius: 14px; padding: 18px 20px; margin-bottom: 12px; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 12px; margin-bottom: 12px; }
+.card-sm { background: var(--surface); border: 1px solid var(--gray-200); border-radius: 14px; padding: 16px 18px; }
+.card-sm .card-emoji { font-size: 22px; display: inline-flex; width: 40px; height: 40px; border-radius: 50%; background: var(--surface-2); border: 1px solid var(--gray-200); align-items: center; justify-content: center; margin-bottom: 8px; }
+.card-sm .card-title { font-family: var(--font-display); font-weight: 700; font-size: 15px; margin-bottom: 4px; color: var(--accent); }
+.card-sm .card-desc { font-size: 13.5px; color: var(--gray-700); line-height: 1.75; }
+
+/* ── 会社クイックデータ（企業詳細を厚くする一覧） ── */
+.facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(148px,1fr)); gap: 1px; background: var(--gray-200); border: 1px solid var(--gray-200); border-radius: 14px; overflow: hidden; margin: 4px 0 14px; }
+.facts > div { background: var(--surface); padding: 12px 14px; }
+.facts dt { font-size: 11px; color: var(--gray-500); font-weight: 700; margin-bottom: 3px; }
+.facts dd { margin: 0; font-size: 14.5px; color: #fff; font-weight: 700; line-height: 1.5; }
+.block-label { font-family: var(--font-display); font-weight: 900; font-size: 15px; color: #fff; margin: 18px 0 8px; display: flex; align-items: center; gap: 7px; }
+.block-label .g { color: var(--accent); }
+
+/* ── TERM ACCORDION ── */
+.term-list { display: flex; flex-direction: column; gap: 10px; }
+.term-item { background: var(--surface); border: 1px solid var(--gray-200); border-radius: 14px; overflow: hidden; transition: border-color .2s; }
+.term-item:hover { border-color: var(--accent); }
+.term-header { display: flex; align-items: center; justify-content: space-between; padding: 16px 18px; cursor: pointer; gap: 12px; user-select: none; min-height: 56px; }
+.term-header::-webkit-details-marker { display: none; }
+.term-name { font-family: var(--font-display); font-weight: 700; font-size: 15.5px; color: #fff; }
+.term-en { font-size: 11px; color: var(--gray-500); margin-left: 8px; font-weight: 400; }
+.term-arrow { font-size: 20px; color: var(--accent); transition: transform .25s; flex-shrink: 0; }
+.term-item[open] .term-arrow { transform: rotate(180deg); }
+.term-item[open] { border-color: var(--accent); }
+.term-body { padding: 2px 18px 18px; border-top: 1px solid var(--gray-100); }
+.term-body p { font-size: 14.5px; color: var(--gray-700); line-height: 1.85; margin: 10px 0 0; }
+.term-body b { color: var(--accent); }
+
+/* ── CALL-OUT ── */
+.ex-box, .ex-box-accent, .ex-box-amber, .ex-box-red { border-radius: 0 8px 8px 0; padding: 12px 16px; margin-top: 12px; }
+.ex-box        { background: var(--accent-tint); border-left: 4px solid var(--accent); }
+.ex-box-accent { background: var(--accent-tint); border-left: 4px solid var(--accent); }
+.ex-box-amber  { background: var(--amber-50);  border-left: 4px solid var(--amber-400); }
+.ex-box-red    { background: var(--red-50);    border-left: 4px solid var(--red-400); }
+.ex-label { font-size: 11px; font-weight: 700; letter-spacing: .04em; margin-bottom: 4px; }
+.ex-label-primary, .ex-label-accent { color: var(--accent); }
+.ex-label-amber { color: var(--amber-600); }
+.ex-label-red { color: var(--red-600); }
+.ex-text { font-size: 13.5px; color: var(--gray-700); line-height: 1.75; }
+
+/* ── INFO BOXES（リスク4分類） ── */
+.info-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap: 12px; margin-top: 16px; }
+.info-box { border-radius: 14px; padding: 16px 18px; border: 1px solid var(--gray-200); }
+.info-box-primary { background: var(--accent-tint); }
+.info-box-accent  { background: var(--accent-tint); }
+.info-box-amber   { background: var(--amber-50); }
+.info-box-red     { background: var(--red-50); }
+.info-box-blue    { background: var(--blue-50); }
+.info-box-green   { background: var(--green-50); }
+.info-box-gray    { background: var(--surface-2); }
+.info-title { font-family: var(--font-display); font-weight: 700; font-size: 14px; margin-bottom: 6px; display: flex; align-items: center; gap: 6px; }
+.info-title-primary, .info-title-accent, .info-title-green { color: var(--accent); }
+.info-title-amber { color: var(--amber-600); }
+.info-title-red { color: var(--red-600); }
+.info-title-blue { color: var(--blue-600); }
+.info-title-gray { color: #d8ded8; }
+.info-text { font-size: 13.5px; color: var(--gray-700); line-height: 1.75; }
+
+/* ── TIMELINE ── */
+.timeline { position: relative; padding-left: 30px; }
+.timeline::before { content: ''; position: absolute; left: 9px; top: 8px; bottom: 6px; width: 3px; background: rgba(110,226,78,.25); border-radius: 3px; }
+.tl-row { position: relative; margin-bottom: 22px; }
+.tl-row::before { content: ''; position: absolute; left: -25px; top: 5px; width: 14px; height: 14px; border-radius: 50%; background: var(--accent); border: 3px solid var(--bg); box-shadow: 0 0 0 2px var(--accent); }
+.tl-date { font-family: var(--font-num); font-size: 12px; font-weight: 700; color: var(--accent); letter-spacing: .04em; margin-bottom: 3px; }
+.tl-title { font-family: var(--font-display); font-weight: 700; font-size: 15.5px; color: #fff; margin-bottom: 3px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.tl-desc { font-size: 13.5px; color: var(--gray-500); line-height: 1.75; }
+
+/* ── BADGES ── */
+.badge { display: inline-block; font-size: 11px; padding: 3px 9px; border-radius: 6px; font-weight: 700; }
+.badge-primary { background: var(--accent-tint); color: var(--accent); }
+.badge-accent  { background: var(--accent-tint); color: var(--accent); }
+.badge-amber   { background: var(--amber-50);  color: var(--amber-600); }
+.badge-red     { background: var(--red-50);    color: var(--red-600); }
+.badge-blue    { background: var(--blue-50);   color: var(--blue-600); }
+.badge-green   { background: var(--green-50);  color: var(--accent); }
+.badge-violet  { background: var(--violet-50); color: var(--violet-600); }
+
+/* ── COMPARE TABLE ── */
+.table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; border: 1px solid var(--gray-200); border-radius: 14px; margin: 12px 0; }
+.compare-table { width: 100%; border-collapse: collapse; font-size: 13.5px; min-width: 480px; }
+.compare-table th { background: var(--gray-50); padding: 12px 14px; text-align: left; font-weight: 700; font-size: 12px; color: var(--gray-500); letter-spacing: .03em; border-bottom: 1px solid var(--gray-200); white-space: nowrap; }
+.compare-table td { padding: 12px 14px; border-bottom: 1px solid var(--gray-100); color: var(--gray-700); vertical-align: top; }
+.compare-table tr:last-child td { border-bottom: none; }
+.compare-table tr:hover td { background: rgba(255,255,255,.02); }
+.compare-table .me { background: var(--accent-tint); font-weight: 700; color: var(--accent); }
+
+/* ── HIGHLIGHT（インスタの“まとめ”枠：ダーク＋緑ボーダー） ── */
+.highlight { background: var(--surface); border: 1.5px solid var(--accent-line); border-radius: var(--radius); padding: 22px 24px; margin: 22px 0; position: relative; overflow: hidden; }
+.highlight::before { content:''; position:absolute; right:-30px; bottom:-30px; width:160px; height:160px;
+  background-image: radial-gradient(var(--accent) 1px, transparent 1.5px); background-size: 13px 13px; opacity:.12; }
+.highlight h3 { font-family: var(--font-display); font-size: 19px; font-weight: 900; margin-bottom: 10px; color: var(--accent); display: flex; align-items: center; gap: 8px; position: relative; }
+.highlight p { font-size: 14.5px; color: #d8ded8; line-height: 1.85; position: relative; }
+.highlight b { color: var(--accent); }
+
+/* ── PRODUCT GRID ── */
+.product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px,1fr)); gap: 12px; margin: 16px 0; }
+.product-box { border-radius: 14px; padding: 18px 14px; text-align: center; border: 1px solid var(--gray-200); background: var(--surface); }
+.product-symbol { font-family: var(--font-num); font-size: 30px; font-weight: 700; margin-bottom: 4px; color: var(--accent); }
+.product-name { font-size: 11px; font-weight: 700; letter-spacing: .04em; margin-bottom: 6px; color: #fff; }
+.product-use { font-size: 12px; line-height: 1.55; color: var(--gray-700); }
+
+/* ── MISC ── */
+.lead { font-size: 16.5px; color: #dbe1db; line-height: 1.9; margin-bottom: 20px; font-weight: 500; }
+.lead .g { color: var(--accent); }
+strong { font-weight: 700; color: #fff; }
+strong.g { color: var(--accent); }
+.grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap: 12px; }
+
+/* ── FOOTER ── */
+.footer { padding: 40px 22px; text-align: center; color: var(--gray-500); font-size: 13px; border-top: 1px solid var(--gray-200); margin-top: 32px; }
+.footer .brandmark { margin-bottom: 14px; }
+
+@media (max-width: 480px){
+  .section-icon { width: 40px; height: 40px; font-size: 20px; }
+  .stat-strip { grid-template-columns: repeat(2,1fr); }
+}
+@media (prefers-reduced-motion: reduce){
+  .section { animation: none; opacity: 1; transform: none; }
+  html { scroll-behavior: auto; }
+}
 </style>
 </head>
 <body>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- ========================================================
+  HERO
+  IONQ IonQ 量子コンピューティング 量子コンピューターだけじゃない。通信・センサー・宇宙まで広げる「量子の総合商社」を超やさしく理解。 <span class="hero-tag">⚛️ イオントラップ</span><span class="hero-tag">🌐 量子ネットワーク</span><span class="hero-tag">🏭 SkyWater買収</span> 2026年7月13日
+  ※見出しの重要ワードは <span class="g">…</span> で緑ハイライト
+======================================================== -->
 <div class="hero">
-  <div class="hero-badge">IONQ 完全入門ガイド 2026年7月4日版</div>
-  <h1>量子コンピューター株<br><span>IonQ（IONQ）</span>を<br>理解するための全知識</h1>
-  <p>IonQは「量子コンピューターを売る会社」から、量子計算・量子ネットワーク・量子セキュリティ・量子センサーまで持つ“量子プラットフォーム企業”へ広げている銘柄です。</p>
-  <div class="hero-tags"><span class="hero-tag">⚛️ トラップドイオン方式</span><span class="hero-tag">🧠 量子計算</span><span class="hero-tag">🔐 量子セキュリティ</span><span class="hero-tag">🛰️ 防衛・宇宙案件</span><span class="hero-tag">💹 高成長・高リスク</span></div>
+  <div class="brandmark">S<span class="g">i</span>M &nbsp;MARKET LAB</div>
+  <div class="hero-badge">IONQ 完全入門ガイド ・ 2026年7月13日版</div>
+  <h1>IonQ（IONQ）を<br><span class="g">まるっと</span>解説</h1>
+  <p>量子コンピューターだけじゃない。通信・センサー・宇宙まで広げる「量子の総合商社」を超やさしく理解。</p>
+  <div class="hero-tags">
+    <!-- 例: <span class="hero-tag">⚛️ 同位体って何？</span> -->
+    <span class="hero-tag">⚛️ イオントラップ</span><span class="hero-tag">🌐 量子ネットワーク</span><span class="hero-tag">🏭 SkyWater買収</span>
+  </div>
 </div>
-<nav class="nav-index"><div class="nav-inner"><a class="nav-item" href="#sec1">① 会社概要</a><a class="nav-item" href="#sec2">② 量子の基本</a><a class="nav-item" href="#sec3">③ 製品・技術</a><a class="nav-item" href="#sec4">④ 技術詳細</a><a class="nav-item" href="#sec5">⑤ 競合比較</a><a class="nav-item" href="#sec6">⑥ 専門用語</a><a class="nav-item" href="#sec7">⑦ 株価の見方</a></div></nav>
+
+<!-- 30秒サマリー：でかい数字カード3〜4枚（上昇は .up / 下落は .down） -->
+<div class="tldr-hero">
+  <div class="tldr-hero-inner">
+    <div class="tldr-hero-title">📊 まずは数字でざっくり</div>
+    <div class="stat-strip">
+      <!-- 例:
+      <div class="stat"><div class="stat-value">$12.34</div><div class="stat-label">現在の株価</div><div class="stat-note">52週 $4〜$18</div></div>
+      <div class="stat"><div class="stat-value up">+180%</div><div class="stat-label">直近1年</div></div>
+      <div class="stat"><div class="stat-value">$1.2B</div><div class="stat-label">時価総額</div></div>
+      <div class="stat"><div class="stat-value">2027</div><div class="stat-label">黒字化目標</div></div>
+      -->
+      <div class="stat"><div class="stat-value">$42.86</div><div class="stat-label">現在株価</div><div class="stat-note">7月13日取得</div></div><div class="stat"><div class="stat-value">$15.9B</div><div class="stat-label">時価総額</div><div class="stat-note">市場データ</div></div><div class="stat"><div class="stat-value">$64.7M</div><div class="stat-label">Q1売上</div><div class="stat-note">前年比+755%</div></div><div class="stat"><div class="stat-value">$3.1B</div><div class="stat-label">現金・投資</div><div class="stat-note">2026年3月末</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- STICKY NAV -->
+<nav class="nav-index">
+  <div class="nav-inner">
+    <a class="nav-item" href="#sec1">① どんな会社</a>
+    <a class="nav-item" href="#sec2">② 量子の基本</a>
+    <a class="nav-item" href="#sec3">③ 製品と技術</a>
+    <a class="nav-item" href="#sec4">④ 実用化の壁</a>
+    <a class="nav-item" href="#sec5">⑤ 競合比較</a>
+    <a class="nav-item" href="#sec6">⑥ 用語辞典</a>
+    <a class="nav-item" href="#sec7">⑦ 株価の見方</a>
+  </div>
+</nav>
+
 <div class="container">
-<section class="section" id="sec1"><div class="section-header"><div class="section-icon icon-primary">🏢</div><div><div class="section-title">IonQとはどんな会社？</div><div class="section-sub">まずは全体像を把握しよう</div></div></div>
-<p class="lead">IonQは米国メリーランド州カレッジパーク発の量子コンピューター企業です。NYSE上場のティッカーはIONQ。従来の半導体チップだけで計算するコンピューターではなく、イオンを電磁場で閉じ込めて量子ビットとして扱う「トラップドイオン方式」を中核にしています。</p>
-<div class="card-grid"><div class="card-sm"><strong>何をしている会社？</strong><br>量子コンピューター本体、クラウドアクセス、量子ネットワーク、量子セキュリティ、量子センサーを商用化しようとしている会社。</div><div class="card-sm"><strong>上場情報</strong><br>NYSE上場。ティッカーはIONQ。2026年7月2日時点の株価は49.12ドル、時価総額は約182.3億ドル。</div><div class="card-sm"><strong>黒字赤字？</strong><br>Q1 2026は会計上の純利益805.4百万ドル・GAAP EPS 2.19ドル。ただし調整後EBITDAは96.8百万ドルの赤字で、事業投資はまだ重い。</div><div class="card-sm"><strong>なぜ注目？</strong><br>Q1 2026売上が64.7百万ドル、前年比755%増。RPOも470百万ドルまで拡大し、商用案件が増えている。</div></div>
-<div class="highlight"><h3>IONQ株の基本ルール</h3><p>IONQは「今の利益」よりも「量子コンピューターが本当に商用化されるか」に株価が反応しやすい銘柄です。売上成長、受注残、政府・防衛契約、技術ロードマップ、買収統合の進捗がセットで見られます。テーマ性が強いので、良いニュースでは急騰しやすく、期待が剥がれると大きく下げやすい点に注意です。</p></div>
-</section>
-<section class="section" id="sec2"><div class="section-header"><div class="section-icon icon-accent">⚛️</div><div><div class="section-title">量子コンピューターの基本原理</div><div class="section-sub">投資知識ゼロ・理系知識ゼロでもわかる入り口</div></div></div>
-<div class="card"><p>普通のPCは0か1のビットで計算します。電気のスイッチでいえば「消えている」か「点いている」かです。量子コンピューターは量子ビットを使い、0と1の状態を重ね合わせたように扱えます。たとえるなら、コインを机に置いた表・裏ではなく、回転中のコインのように複数の可能性を同時に持つイメージです。</p><p>ただし、量子はとても繊細です。少しでも外から邪魔が入ると状態が壊れます。だから量子コンピューター投資では「量子ビット数」だけでなく「エラーの少なさ」「安定時間」「複数量子ビットを正確につなぐ力」が重要になります。</p></div>
-<div class="phase-flow"><div class="phase-row"><div class="phase-line-wrap"><div class="phase-dot">1</div><div class="phase-connector"></div></div><div class="phase-content"><div class="phase-label">Qubit</div><div class="phase-title">量子ビットを作る</div><div class="phase-desc">IonQはイオンを電磁場で捕まえ、レーザーで操作します。イオンは自然界の原子そのものなので、同じ品質の量子ビットを作りやすいと言われます。</div></div></div><div class="phase-row"><div class="phase-line-wrap"><div class="phase-dot">2</div><div class="phase-connector"></div></div><div class="phase-content"><div class="phase-label">Gate</div><div class="phase-title">量子ゲートで計算する</div><div class="phase-desc">普通のPCの論理回路のように、量子ビットに操作を加えて計算します。操作の正確さが低いと、答えがノイズまみれになります。</div></div></div><div class="phase-row"><div class="phase-line-wrap"><div class="phase-dot">3</div><div class="phase-connector"></div></div><div class="phase-content"><div class="phase-label">Error</div><div class="phase-title">エラーを抑える</div><div class="phase-desc">量子計算ではエラー訂正が本丸です。小さな実験機から、実用的なフォールトトレラント機へ進めるかが勝負です。</div></div></div><div class="phase-row"><div class="phase-line-wrap"><div class="phase-dot">4</div></div><div class="phase-content"><div class="phase-label">Business</div><div class="phase-title">顧客に使わせる</div><div class="phase-desc">クラウド経由、本体販売、共同研究、政府契約、セキュリティ製品などで売上化します。</div></div></div></div>
-<div class="term-list"><details class="term-item"><summary class="term-header"><span><span class="term-name">重ね合わせ</span><span class="term-en">Superposition</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>量子ビットが0と1の可能性を同時に持つ状態。大量の候補を一気に試す魔法ではありませんが、特定の問題で普通の計算機と違う探索ができます。</p></div></details><details class="term-item"><summary class="term-header"><span><span class="term-name">量子もつれ</span><span class="term-en">Entanglement</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>離れた量子ビット同士が強く関係し合う状態。量子ネットワークや分散型量子コンピューターの土台になります。</p></div></details><details class="term-item"><summary class="term-header"><span><span class="term-name">デコヒーレンス</span><span class="term-en">Decoherence</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>外部環境の影響で量子状態が壊れること。回転中のコインを手で触って止めてしまうようなものです。</p></div></details><details class="term-item"><summary class="term-header"><span><span class="term-name">トラップドイオン</span><span class="term-en">Trapped Ion</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>電磁場でイオンを空中に閉じ込め、レーザーで制御する方式。IonQの中核技術です。</p></div></details></div>
-</section>
-<section class="section" id="sec3"><div class="section-header"><div class="section-icon icon-primary">🔬</div><div><div class="section-title">IonQの主要製品・技術</div><div class="section-sub">単なる量子計算会社から量子プラットフォームへ</div></div></div>
-<p class="lead">IonQの見方で大事なのは、量子コンピューター本体だけを見ないことです。2026年時点では、量子計算、量子ネットワーク、量子セキュリティ、量子センサー、防衛・宇宙向けシステムまで広げています。</p>
-<div class="product-grid"><div class="product-box"><div class="product-symbol">AQ</div><div class="product-name">Algorithmic Qubits</div><div class="product-use">実用計算に近い性能指標。単なる物理量子ビット数より重要。</div></div><div class="product-box"><div class="product-symbol">256</div><div class="product-name">Chip-based System</div><div class="product-use">Q1 2026に初の第6世代チップベース256量子ビットシステムを販売。</div></div><div class="product-box"><div class="product-symbol">Net</div><div class="product-name">Quantum Network</div><div class="product-use">量子メモリノード、量子インターネット、分散型量子計算の基盤。</div></div><div class="product-box"><div class="product-symbol">QKD</div><div class="product-name">Quantum Security</div><div class="product-use">ID Quantique買収などで量子安全暗号・通信分野を拡張。</div></div></div>
-<div class="term-list"><details class="term-item"><summary class="term-header"><span><span class="term-name">Forte / Tempo 系列</span><span class="term-en">Quantum Computer Line</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>IonQの量子コンピューター製品ライン。Tempoはより高性能な世代として注目されています。投資家は「予約・販売・導入の進捗」を確認します。</p></div></details><details class="term-item"><summary class="term-header"><span><span class="term-name">Oxford Ionics買収</span><span class="term-en">Acquisition</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>チップ上で高精度なイオントラップを実現する技術を取り込む狙い。IonQが“巨大な実験装置”から“製造できる量子チップ”へ進むための一手です。</p></div></details><details class="term-item"><summary class="term-header"><span><span class="term-name">SkyWater買収予定</span><span class="term-en">Manufacturing</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>米国の半導体ファウンドリを取り込み、量子プロセッサ製造を内製化しようとする動き。完了すればサプライチェーンと量産能力の強化につながります。</p></div></details><details class="term-item"><summary class="term-header"><span><span class="term-name">量子セキュリティ</span><span class="term-en">Quantum-safe Security</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>量子コンピューター時代には現在の暗号が破られる可能性があります。その前に安全な通信・暗号インフラを提供する事業です。</p></div></details></div>
-</section>
-<section class="section" id="sec4"><div class="section-header"><div class="section-icon icon-accent">⚙️</div><div><div class="section-title">技術詳細・規制・承認プロセス</div><div class="section-sub">何が難しく、何が進捗として評価されるか</div></div></div>
-<div class="term-list"><details class="term-item"><summary class="term-header"><span><span class="term-name">フォールトトレラント量子計算</span><span class="term-en">Fault-tolerant QC</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>エラーが起きても正しい計算を続けられる量子コンピューター。実用化の本命です。IonQは2026年に詳細なアーキテクチャ・ブループリントを発表し、透明性を強調しています。</p><div class="ex-box"><div class="ex-label ex-label-primary">投資家目線</div><div class="ex-text">「量子ビット数が増えた」だけでなく、エラー訂正の道筋が具体化しているかが重要です。</div></div></div></details><details class="term-item"><summary class="term-header"><span><span class="term-name">物理量子ビットと論理量子ビット</span><span class="term-en">Physical / Logical</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>物理量子ビットは実際の部品、論理量子ビットはエラー訂正を通じて安定化した“使える量子ビット”です。実用化では論理量子ビット数が重視されます。</p></div></details><details class="term-item"><summary class="term-header"><span><span class="term-name">量子インターコネクト</span><span class="term-en">Quantum Interconnect</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>複数の量子コンピューターや量子メモリをつなぐ技術。大型機1台を巨大化するだけでなく、複数装置をネットワーク化する道です。</p></div></details><details class="term-item"><summary class="term-header"><span><span class="term-name">政府・防衛案件</span><span class="term-en">DARPA / SDA / MDA</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>量子通信、宇宙通信、暗号、防衛用途は政府予算と結びつきやすい分野です。一方で契約獲得から売上認識まで時間がかかることがあります。</p></div></details><details class="term-item"><summary class="term-header"><span><span class="term-name">製造スケール</span><span class="term-en">Manufacturing Scale</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>研究室で1台作ることと、顧客に何台も納入することは別物です。SkyWater買収はこの量産・供給網リスクを減らす狙いがあります。</p></div></details></div>
-</section>
-<section class="section" id="sec5"><div class="section-header"><div class="section-icon icon-amber">⚔️</div><div><div class="section-title">競合比較と立ち位置</div><div class="section-sub">量子コンピューター業界で何が違うのか</div></div></div>
-<div class="card"><table class="compare-table"><tr><th>企業</th><th>主な方式/戦略</th><th>強み</th><th>弱み・注意点</th></tr><tr><td>IonQ</td><td>トラップドイオン、量子平台化</td><td>ピュアプレイ、商用売上の伸び、政府案件、M&Aで領域拡張</td><td>高評価、調整後赤字、買収統合リスク</td></tr><tr><td>IBM</td><td>超伝導量子、クラウド</td><td>研究蓄積、企業顧客、ロードマップ</td><td>巨大企業内の一事業で、量子だけの純粋投資ではない</td></tr><tr><td>Google</td><td>超伝導量子</td><td>基礎研究力、資金力</td><td>上場株としてはAlphabet全体への投資になる</td></tr><tr><td>Microsoft</td><td>Azure Quantum、トポロジカル量子</td><td>クラウド・企業販売力</td><td>量子事業単体の業績は見えにくい</td></tr><tr><td>Quantinuum</td><td>トラップドイオン、フルスタック</td><td>Honeywell由来の技術、商用顧客</td><td>IPO後の評価変動、商用化リスク</td></tr><tr><td>Rigetti</td><td>超伝導量子</td><td>量子専業、クラウド提供</td><td>資金力・規模で大手と差</td></tr><tr><td>D-Wave</td><td>量子アニーリング</td><td>最適化問題で商用訴求</td><td>汎用ゲート型とは用途が違う</td></tr></table></div>
-<div class="highlight"><h3>IonQの最大の差別化ポイント</h3><p>IonQは「トラップドイオンの高精度」という技術の見せ方に加え、買収と政府・商用契約で“量子プラットフォーム”に広げている点が特徴です。量子計算だけに一点賭けするより、量子通信・暗号・センサーまで含めて収益機会を増やす戦略です。</p></div>
-</section>
-<section class="section" id="sec6"><div class="section-header"><div class="section-icon icon-primary">📖</div><div><div class="section-title">IONQ専門用語 全辞典</div><div class="section-sub">ニュースに出てくる言葉を一覧で確認</div></div></div>
-<div class="term-list"><details class="term-item"><summary class="term-header"><span><span class="term-name">AQ</span><span class="term-en">Algorithmic Qubits</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>実際にアルゴリズムを走らせる力を表すIonQ系の性能指標。物理量子ビット数だけでは性能を判断できないため重要です。</p><div class="ex-box"><div class="ex-label ex-label-primary">IONQ文脈</div><div class="ex-text">IonQの性能説明で頻出。投資家向け資料ではロードマップの中核指標になります。</div></div></div></details><details class="term-item"><summary class="term-header"><span><span class="term-name">RPO</span><span class="term-en">Remaining Performance Obligations</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>まだ売上として認識していない契約残。受注残に近い見方ができます。Q1 2026では470百万ドルまで拡大しました。</p></div></details><details class="term-item"><summary class="term-header"><span><span class="term-name">キャッシュバーン</span><span class="term-en">Cash Burn</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>事業を続けるために現金が減るスピード。IonQは現金等が大きい一方、R&DとM&Aで支出も大きいです。</p></div></details><details class="term-item"><summary class="term-header"><span><span class="term-name">P/S</span><span class="term-en">Price to Sales</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>時価総額を売上で割る指標。まだ利益が安定しない成長企業ではPERより見られます。IONQは売上に対して時価総額が大きく、期待先行の評価です。</p></div></details><details class="term-item"><summary class="term-header"><span><span class="term-name">調整後EBITDA</span><span class="term-en">Adjusted EBITDA</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>一時的要因などを除いた事業収益力の目安。Q1 2026では調整後EBITDA赤字が96.8百万ドルでした。</p></div></details><details class="term-item"><summary class="term-header"><span><span class="term-name">QKD</span><span class="term-en">Quantum Key Distribution</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>量子の性質を使って暗号鍵を安全に配る技術。盗聴が検知しやすいとされ、金融・政府・通信で期待されます。</p></div></details><details class="term-item"><summary class="term-header"><span><span class="term-name">ポスト量子暗号</span><span class="term-en">Post-Quantum Cryptography</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>量子コンピューターでも破られにくい暗号方式。IonQのセキュリティ領域拡大で重要なテーマです。</p></div></details><details class="term-item"><summary class="term-header"><span><span class="term-name">DARPA</span><span class="term-en">Defense Advanced Research Projects Agency</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>米国防総省系の研究機関。IonQが選定されたプログラムは、量子インターコネクトや将来の軍事・防衛用途の期待材料になります。</p></div></details><details class="term-item"><summary class="term-header"><span><span class="term-name">SDA / MDA</span><span class="term-en">Space / Missile Defense</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>宇宙開発庁・ミサイル防衛庁関連。量子通信や高安全性通信が防衛分野で使われる可能性があります。</p></div></details><details class="term-item"><summary class="term-header"><span><span class="term-name">NISQ</span><span class="term-en">Noisy Intermediate-Scale Quantum</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>まだノイズが多く、完全なエラー訂正ができない中規模量子コンピューターの時代。現在の多くの量子企業はこの段階から実用化へ進もうとしています。</p></div></details><details class="term-item"><summary class="term-header"><span><span class="term-name">ファウンドリ</span><span class="term-en">Foundry</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>半導体などを製造する工場・受託製造企業。SkyWater買収が完了すればIonQの量子チップ製造基盤になります。</p></div></details><details class="term-item"><summary class="term-header"><span><span class="term-name">テーマ相場</span><span class="term-en">Theme-driven Market</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>AIや量子のように、将来期待で株価が大きく動く相場。業績より先に期待が膨らむため、急騰急落が起きやすいです。</p></div></details></div>
-</section>
-<section class="section" id="sec7"><div class="section-header"><div class="section-icon icon-amber">💹</div><div><div class="section-title">IONQ株の見方・カタリスト</div><div class="section-sub">何が株価を動かすのかを理解する</div></div></div>
-<div class="timeline"><div class="tl-row"><div class="tl-date">2026 Q2〜Q3</div><div class="tl-title">SkyWater買収の完了可否</div><div class="tl-desc">Reutersによると完了予定は2026年第2〜第3四半期。内製製造・供給網強化の節目。</div></div><div class="tl-row"><div class="tl-date">2026 Q2決算</div><div class="tl-title">売上65〜68百万ドルガイダンスの達成</div><div class="tl-desc">Q1発表時に会社はQ2売上65〜68百万ドルを示しました。達成・上振れ・下振れが短期株価に影響。</div></div><div class="tl-row"><div class="tl-date">2026通期</div><div class="tl-title">売上260〜270百万ドルレンジ</div><div class="tl-desc">会社は2026年通期売上見通しを260〜270百万ドルへ引き上げました。高成長の継続確認が重要。</div></div><div class="tl-row"><div class="tl-date">2026年内</div><div class="tl-title">256量子ビットシステムの統合テスト進捗</div><div class="tl-desc">チップサンプルから統合システムテストへ進むと説明。技術ロードマップの信頼性に関わります。</div></div><div class="tl-row"><div class="tl-date">2026年内</div><div class="tl-title">政府・防衛・宇宙契約の追加</div><div class="tl-desc">DARPA、SDA、MDAなどの契約・選定がテーマ株としての材料になります。</div></div><div class="tl-row"><div class="tl-date">2026〜2027</div><div class="tl-title">量子セキュリティ製品の商用展開</div><div class="tl-desc">Clavis XG Multiplexなど、量子安全通信の販売拡大が量子計算以外の収益源として見られます。</div></div><div class="tl-row"><div class="tl-date">2028以降</div><div class="tl-title">200,000量子ビット級チップのテスト計画</div><div class="tl-desc">SkyWater買収により、計画中の次世代チップテストを早める狙い。長期ロードマップの核心です。</div></div></div>
-<div class="info-row"><div class="info-box info-box-primary"><div class="info-title info-title-primary">技術リスク</div><div class="info-text">量子エラー訂正・量産化・実用アプリが想定より難しい可能性。</div></div><div class="info-box info-box-amber"><div class="info-title info-title-amber">財務リスク</div><div class="info-text">現金は厚いが、R&D・買収・人員拡大で赤字が続く可能性。</div></div><div class="info-box info-box-red"><div class="info-title info-title-red">バリュエーションリスク</div><div class="info-text">売上に対する時価総額が大きく、期待が下がると株価が大きく調整しやすい。</div></div><div class="info-box info-box-blue"><div class="info-title info-title-blue">市場リスク</div><div class="info-text">量子テーマ全体の資金流入・流出、金利、AI/半導体相場の雰囲気にも影響される。</div></div></div>
-<div class="highlight"><h3>テーマ相場・投資家への注意点</h3><p>IONQは「夢があるから買われる」局面と「まだ利益が出ていないから売られる」局面が交互に来やすい銘柄です。短期売買ではニュース反応、長期投資では技術ロードマップ・受注残・現金残高・希薄化リスクを必ずセットで確認してください。</p></div>
-<div class="card"><table class="compare-table"><tr><th>項目</th><th>数値・状況</th><th>見方</th></tr><tr><td>株価</td><td>49.12ドル（2026年7月2日）</td><td>短期では量子テーマ・決算・M&A進捗に反応</td></tr><tr><td>52週高値/安値</td><td>84.64ドル / 25.89ドル</td><td>非常に値動きが大きい</td></tr><tr><td>時価総額</td><td>約182.3億ドル</td><td>将来期待込みの評価</td></tr><tr><td>Q1 2026売上</td><td>64.7百万ドル、前年比755%増</td><td>成長率は非常に高い</td></tr><tr><td>現金・投資</td><td>31億ドル（2026年3月31日）</td><td>研究開発と買収を進める資金余力</td></tr><tr><td>RPO</td><td>470百万ドル、前年比554%増</td><td>将来売上の見通し材料</td></tr><tr><td>2026年売上見通し</td><td>260〜270百万ドル</td><td>ガイダンス達成が重要</td></tr><tr><td>アナリスト目標株価</td><td>平均68〜70ドル前後、レンジは35〜100ドル付近</td><td>強気だが予想幅が広い</td></tr></table></div>
-<div class="card"><p style="font-weight:600;margin-bottom:8px">参考ソース</p><p class="source-list">IonQ Q1 2026決算発表、IonQ IR株価情報、ReutersのSkyWater買収報道、Investing.comおよびMarketBeatのアナリストコンセンサス、IonQ Newsページを参照。データは2026年7月4日時点で取得した公開情報ベース。</p></div>
-</section>
+
+  <!-- SEC1: 会社概要　⚡3秒まとめ → 会社データ → card-sm 4枚 → どう稼ぐ → highlight「基本ルール」 -->
+  <section class="section" id="sec1">
+    <div class="section-header">
+      <div class="section-icon">🏢</div><div class="section-num">1</div>
+      <div>
+        <div class="section-title">IonQって<span class="g">どんな会社</span>？</div>
+        <div class="section-sub">まず全体像を3秒で</div>
+      </div>
+    </div>
+    <div class="tldr">
+      <div class="tldr-label">⚡ このセクションの3秒まとめ</div>
+      <ul>
+        <!-- 例: <li data-emoji="🏭">◯◯を作ってる△△業界の会社</li> -->
+        <li data-emoji="⚛️">原子を使う「イオントラップ方式」の量子企業</li><li data-emoji="💰">Q1売上は急増。ただし本業はまだ大幅赤字</li><li data-emoji="🏭">SkyWater買収で半導体製造まで内製化を狙う</li>
+      </ul>
+    </div>
+
+    <!-- 会社データ（クイックファクト）：設立/本社/従業員/CEO/上場/売上規模 等。不明は「非開示」 -->
+    <div class="facts">
+      <div><dt>設立</dt><dd>2015年</dd></div><div><dt>本社</dt><dd>米国メリーランド州</dd></div><div><dt>従業員</dt><dd>1,300人超</dd></div><div><dt>CEO</dt><dd>Niccolo de Masi</dd></div><div><dt>上場</dt><dd>NYSE（IONQ）</dd></div><div><dt>2026年売上見通し</dt><dd>$260M〜$270M</dd></div>
+      <!-- 例:
+      <div><dt>設立</dt><dd>2019年</dd></div>
+      <div><dt>本社</dt><dd>東京</dd></div>
+      <div><dt>従業員数</dt><dd>約12,000人</dd></div>
+      <div><dt>CEO</dt><dd>◯◯ ◯◯</dd></div>
+      <div><dt>上場</dt><dd>東証プライム（285A）</dd></div>
+      <div><dt>売上規模</dt><dd>約2.3兆円</dd></div>
+      -->
+    </div>
+
+    <!-- 4枚カード：何をしてる/主力事業/直近の業績/なぜ注目 -->
+    <div class="card-grid">
+      <div class="card-sm"><span class="card-emoji">⚛️</span><div class="card-title">何をしてる</div><div class="card-desc">量子計算機を作り、クラウドや専用機で提供。</div></div><div class="card-sm"><span class="card-emoji">🌐</span><div class="card-title">主力事業</div><div class="card-desc">計算に加え、量子通信・センサー・安全保障へ拡大。</div></div><div class="card-sm"><span class="card-emoji">📈</span><div class="card-title">直近の業績</div><div class="card-desc">Q1売上$64.7M。RPOは$470Mまで増加。</div></div><div class="card-sm"><span class="card-emoji">🏭</span><div class="card-title">なぜ注目</div><div class="card-desc">256量子ビット機とSkyWater垂直統合が焦点。</div></div>
+      <!-- 例: <div class="card-sm"><span class="card-emoji">🏭</span><div class="card-title">何をしてる</div><div class="card-desc">…</div></div> を4枚 -->
+    </div>
+
+    <!-- どうやって稼ぐ？：ビジネスモデルと売上の内訳を平易に -->
+    <div class="block-label">💰 どうやって<span class="g">稼いでる</span>？</div>
+    <ul class="keypoints">
+      <li><span class="kp-emoji">☁️</span><span class="kp-text"><b>クラウド利用</b>：AWSなど経由で計算時間を販売。</span></li><li><span class="kp-emoji">🖥️</span><span class="kp-text"><b>システム販売</b>：企業・大学・政府へ量子機を納入。</span></li><li><span class="kp-emoji">🛡️</span><span class="kp-text"><b>政府案件</b>：通信・宇宙・防衛の契約を獲得。</span></li>
+      <!-- 例: <li><span class="kp-emoji">🧩</span><span class="kp-text"><b>主力</b>：◯◯を作って△△に売る。売上の約7割。</span></li> を2〜4件（売上構成・主要顧客・課金の仕組み等） -->
+    </ul>
+
+    <!-- 会社の“基本ルール”（この銘柄を見るうえで最初に押さえる勘所） -->
+    <div class="highlight"><h3>📏 IONQ株の基本ルール</h3><p>今の利益より、数年後の売上と技術達成を先に評価される株。ロードマップ遅延と倍率低下が同時に来ると値動きは大きい。</p></div>
+    <!-- 例: <div class="highlight"><h3>📏 ◯◯株の基本ルール</h3><p>…</p></div> -->
+  </section>
+
+  <!-- SEC2: 業界の基本　⚡まとめ → lead(比喩) → sowhat → term-list 4〜6 -->
+  <section class="section" id="sec2">
+    <div class="section-header">
+      <div class="section-icon">⚛️</div><div class="section-num">2</div>
+      <div><div class="section-title">そもそも<span class="g">量子計算</span>って何？</div><div class="section-sub">0と1を重ねて計算する別タイプのコンピューター</div></div>
+    </div>
+    <div class="tldr"><div class="tldr-label">⚡ このセクションの3秒まとめ</div><ul><li data-emoji="🧠">普通のPCの完全上位互換ではない</li><li data-emoji="🧪">創薬・材料・最適化など特定問題が狙い</li><li data-emoji="⚠️">誤り訂正と大型化が最大の壁</li></ul></div>
+    <p class="lead">普通のPCが一手ずつ迷路を解くなら、量子は複数ルートを波のように扱う。</p><div class="sowhat">👉つまり、何でも速い魔法のPCではない。向く問題だけ桁違いを狙う。</div><div class="term-list"><details class="term-item"><summary>量子ビット</summary><div class="term-body"><b>量子版のビット。</b> 0と1の重ね合わせを使う。IONQは原子そのものを利用。</div></details><details class="term-item"><summary>重ね合わせ</summary><div class="term-body">複数の状態を同時に扱う性質。計算の候補を効率よく表現できる。</div></details><details class="term-item"><summary>もつれ</summary><div class="term-body">離れた量子ビットが強く関係する現象。量子通信にも重要。</div></details><details class="term-item"><summary>誤り訂正</summary><div class="term-body">ノイズで壊れる計算を直す仕組み。実用化の中心課題。</div></details></div>
+  </section>
+
+  <!-- SEC3: 主要製品・技術　⚡まとめ → product-grid → term-list 3〜5 -->
+  <section class="section" id="sec3">
+    <div class="section-header">
+      <div class="section-icon">🔬</div><div class="section-num">3</div>
+      <div><div class="section-title">IONQの<span class="g">主力製品</span></div><div class="section-sub">計算・通信・センサーの3本柱</div></div>
+    </div>
+    <div class="tldr"><div class="tldr-label">⚡ このセクションの3秒まとめ</div><ul><li data-emoji="🖥️">Forte・Tempoが計算機の中心</li><li data-emoji="🌐">複数機をつなぐ量子ネットを開発</li><li data-emoji="🛰️">買収で光通信とセンシングを追加</li></ul></div>
+    <div class="product-grid"><div class="product"><h3>Tempo</h3><p>次世代の企業向け量子システム。256物理量子ビット機の販売を発表。</p></div><div class="product"><h3>Quantum Networking</h3><p>量子メモリや光通信で離れた計算機を接続。</p></div><div class="product"><h3>Quantum Sensing</h3><p>原子時計・測位・地球観測へ用途を拡張。</p></div></div><div class="term-list"><details class="term-item"><summary>Forte</summary><div class="term-body">現行世代のイオントラップ量子計算機。クラウドでも利用可能。</div></details><details class="term-item"><summary>Tempo</summary><div class="term-body">商用規模を狙う次世代機。出荷と性能確認が重要。</div></details><details class="term-item"><summary>量子ネットワーク</summary><div class="term-body">量子状態を離れた場所で共有する通信網。分散計算の土台。</div></details></div>
+  </section>
+
+  <!-- SEC4: 技術詳細・規制　⚡まとめ → keypoints → term-list 4〜6 -->
+  <section class="section" id="sec4">
+    <div class="section-header">
+      <div class="section-icon">🏛️</div><div class="section-num">4</div>
+      <div><div class="section-title">実用化までの<span class="g">4つの壁</span></div><div class="section-sub">ロードマップは「予定」であって保証ではない</div></div>
+    </div>
+    <div class="tldr"><div class="tldr-label">⚡ このセクションの3秒まとめ</div><ul><li data-emoji="🎯">量子ビット数だけでなく精度が重要</li><li data-emoji="🧯">エラー訂正には大量の物理量子ビットが必要</li><li data-emoji="🏛️">政府案件は追い風だが審査も厳しい</li></ul></div>
+    <ul class="keypoints"><li><span class="kp-emoji">🎯</span><span class="kp-text"><b>精度</b>：ゲート操作の失敗を減らす。</span></li><li><span class="kp-emoji">🏗️</span><span class="kp-text"><b>量産</b>：同じ品質のチップを大量に作る。</span></li><li><span class="kp-emoji">🧩</span><span class="kp-text"><b>誤り訂正</b>：論理量子ビットを安定動作させる。</span></li></ul><div class="term-list"><details class="term-item"><summary>物理量子ビット</summary><div class="term-body">実際の装置にある量子ビット。数が多いだけでは不十分。</div></details><details class="term-item"><summary>論理量子ビット</summary><div class="term-body">誤り訂正後の使える量子ビット。投資家が見る本丸。</div></details><details class="term-item"><summary>忠実度</summary><div class="term-body">操作が正しくできる割合。高いほどエラーが少ない。</div></details><details class="term-item"><summary>垂直統合</summary><div class="term-body">設計から製造まで自社側で持つこと。SkyWater買収の狙い。</div></details></div>
+  </section>
+
+  <!-- SEC5: 競合比較　⚡まとめ → table-wrap>compare-table(自社=me) → highlight「差別化」 -->
+  <section class="section" id="sec5">
+    <div class="section-header">
+      <div class="section-icon">⚔️</div><div class="section-num">5</div>
+      <div><div class="section-title">ライバルと<span class="g">ガチ比較</span></div><div class="section-sub">方式が違うので、量子ビット数だけの比較は危険</div></div>
+    </div>
+    <div class="tldr"><div class="tldr-label">⚡ このセクションの3秒まとめ</div><ul><li data-emoji="⚔️">IBM・Googleは超伝導、Quantinuumは同じイオン方式</li><li data-emoji="🌐">IONQは通信・センシングまで広い</li><li data-emoji="💸">市場評価は競合より高くなりやすい</li></ul></div>
+    <div class="table-wrap"><table class="compare-table"><thead><tr><th>企業</th><th>主方式</th><th>強み</th></tr></thead><tbody><tr class="me"><td>IonQ</td><td>イオントラップ</td><td>高精度・ネットワーク</td></tr><tr><td>Quantinuum</td><td>イオントラップ</td><td>統合ソフト</td></tr><tr><td>IBM</td><td>超伝導</td><td>大規模開発基盤</td></tr><tr><td>Google</td><td>超伝導</td><td>誤り訂正研究</td></tr><tr><td>Rigetti</td><td>超伝導</td><td>自社ファブ</td></tr><tr><td>D-Wave</td><td>アニーリング</td><td>最適化用途</td></tr></tbody></table></div><div class="highlight"><h3>最大の<span class="g">差別化</span></h3><p>高いゲート精度に加え、計算・通信・センシングをまとめる戦略。ただし買収統合の難易度も上がる。</p></div>
+  </section>
+
+  <!-- SEC6: 用語辞典　⚡まとめ(特にこの3つ) → term-list 10〜12（①定義→②なぜ重要→③この銘柄では） -->
+  <section class="section" id="sec6">
+    <div class="section-header">
+      <div class="section-icon">📖</div><div class="section-num">6</div>
+      <div><div class="section-title">IONQのニュースで出る<span class="g">言葉</span> 全辞典</div><div class="section-sub">分からん単語はここで潰す</div></div>
+    </div>
+    <div class="tldr"><div class="tldr-label">⚡ 特にこの3つだけは覚えて</div><ul><li data-emoji="🎯">忠実度＝操作の正確さ</li><li data-emoji="🧩">論理量子ビット＝実用上使える単位</li><li data-emoji="📦">RPO＝契約済みの将来売上候補</li></ul></div>
+    <div class="term-list"><details class="term-item"><summary>イオントラップ</summary><div class="term-body"><b>電気で原子を捕まえる方式。精度が強み。</b> IONQの技術進捗や評価倍率を見る時に重要。</div></details><details class="term-item"><summary>AQ</summary><div class="term-body"><b>アルゴリズム量子ビット。総合性能を表すIONQ独自指標。</b> IONQの技術進捗や評価倍率を見る時に重要。</div></details><details class="term-item"><summary>忠実度</summary><div class="term-body"><b>操作の成功率。誤り訂正コストを左右。</b> IONQの技術進捗や評価倍率を見る時に重要。</div></details><details class="term-item"><summary>物理量子ビット</summary><div class="term-body"><b>装置上の生の量子ビット。</b> IONQの技術進捗や評価倍率を見る時に重要。</div></details><details class="term-item"><summary>論理量子ビット</summary><div class="term-body"><b>誤り訂正された量子ビット。</b> IONQの技術進捗や評価倍率を見る時に重要。</div></details><details class="term-item"><summary>フォールトトレラント</summary><div class="term-body"><b>故障があっても計算を続ける設計。</b> IONQの技術進捗や評価倍率を見る時に重要。</div></details><details class="term-item"><summary>RPO</summary><div class="term-body"><b>未消化の契約額。売上の先行指標。</b> IONQの技術進捗や評価倍率を見る時に重要。</div></details><details class="term-item"><summary>バックログ</summary><div class="term-body"><b>受注残。売上化の時期に差がある。</b> IONQの技術進捗や評価倍率を見る時に重要。</div></details><details class="term-item"><summary>量子優位性</summary><div class="term-body"><b>古典計算より量子が実用面で勝つ状態。</b> IONQの技術進捗や評価倍率を見る時に重要。</div></details><details class="term-item"><summary>SBC</summary><div class="term-body"><b>株式報酬。株数増加の原因になる。</b> IONQの技術進捗や評価倍率を見る時に重要。</div></details><details class="term-item"><summary>EV/Sales</summary><div class="term-body"><b>企業価値を売上で割る倍率。赤字成長株で使う。</b> IONQの技術進捗や評価倍率を見る時に重要。</div></details><details class="term-item"><summary>SkyWater</summary><div class="term-body"><b>買収予定の米国半導体ファウンドリ。</b> IONQの技術進捗や評価倍率を見る時に重要。</div></details></div>
+  </section>
+
+  <!-- SEC7: 株価の見方　⚡まとめ → timeline(signal+rating) → リスク4分類 info-row → highlight → 数字まとめ table -->
+  <section class="section" id="sec7">
+    <div class="section-header">
+      <div class="section-icon">💹</div><div class="section-num">7</div>
+      <div><div class="section-title">何がIONQ株を<span class="g">動かす</span>？</div><div class="section-sub">上がる理由・下がる理由を一目で</div></div>
+    </div>
+    <div class="tldr"><div class="tldr-label">⚡ 株価のツボ 3秒まとめ</div><ul><li data-emoji="🟢">次の決算と256量子ビット機の進捗が重要</li><li data-emoji="🟡">SkyWater買収は成長と希薄化の両面あり</li><li data-emoji="🔴">売上倍率が高く、失望時の下落幅も大きい</li></ul></div>
+    <div class="timeline"><div class="tl-item"><div class="tl-title"><span class="signal bull">🟢</span>Q2 2026決算 <span class="rating">★★★★★</span></div><p>売上$65M〜$68M目標と通期ガイダンスを確認。</p></div><div class="tl-item"><div class="tl-title"><span class="signal neutral">🟡</span>SkyWater買収完了 <span class="rating">★★★★★</span></div><p>Q2〜Q3予定。現金対価と新株発行を伴う。</p></div><div class="tl-item"><div class="tl-title"><span class="signal bull">🟢</span>256量子ビット機 <span class="rating">★★★★★</span></div><p>統合テスト、納入、性能データが焦点。</p></div><div class="tl-item"><div class="tl-title"><span class="signal neutral">🟡</span>政府・防衛契約 <span class="rating">★★★★<span class="off">★</span></span></div><p>契約額だけでなく売上化を確認。</p></div><div class="tl-item"><div class="tl-title"><span class="signal bear">🔴</span>現金消費とSBC <span class="rating">★★★★<span class="off">★</span></span></div><p>Adjusted EBITDA赤字と株式報酬を監視。</p></div><div class="tl-item"><div class="tl-title"><span class="signal neutral">🟡</span>2028年ロードマップ <span class="rating">★★★<span class="off">★★</span></span></div><p>20万量子ビット計画の中間工程を確認。</p></div></div><div class="info-box"><div class="info-row"><b>技術</b><span>性能・量産・誤り訂正の遅延</span></div><div class="info-row"><b>規制</b><span>輸出管理・政府審査</span></div><div class="info-row"><b>財務</b><span>赤字・SBC・買収希薄化</span></div><div class="info-row"><b>市場</b><span>高倍率の縮小</span></div></div><div class="highlight"><h3>投資家向け注意点</h3><p>会社の成長と、今の株価が安いかは別問題。決算ごとに売上・RPO・現金・株数をセットで見る。</p></div><div class="table-wrap"><table class="compare-table"><tbody><tr><th>現在株価</th><td>$42.86</td></tr><tr><th>時価総額</th><td>$15.9B</td></tr><tr><th>2026売上見通し</th><td>$260M〜$270M</td></tr><tr><th>現金・投資</th><td>$3.1B</td></tr></tbody></table></div>
+  </section>
+
+</div><!-- /container -->
+
+<div class="footer">
+  <div class="brandmark">S<span class="g">i</span>M &nbsp;MARKET LAB</div>
+  <p style="margin-bottom:8px;font-weight:700;color:#d8ded8">⚠️ 免責事項</p>
+  <p>本資料は情報提供・教育目的のみです。投資助言ではありません。量子コンピューティング株は値動きが激しく、元本を失うリスクがあります。<br>投資判断はご自身の責任で。データは2026年7月13日時点の公開情報に基づきます。</p>
 </div>
-<div class="footer"><p style="margin-bottom:8px;font-weight:600;color:var(--gray-700)">⚠️ 免責事項</p><p>本資料は情報提供・教育目的のみです。投資助言ではありません。量子コンピューター株は高ボラティリティで元本損失リスクがあります。<br>実際の投資判断はご自身の責任で行ってください。データは2026年7月4日時点の公開情報に基づきます。</p></div>
-<script>document.querySelectorAll('details.term-item').forEach(d=>{d.addEventListener('toggle',()=>{if(d.open){document.querySelectorAll('details.term-item').forEach(o=>{if(o!==d&&o.open)o.removeAttribute('open')})}})});</script>
+
+<script>
+document.querySelectorAll('details.term-item').forEach(d => {
+  d.addEventListener('toggle', () => {
+    if (d.open) document.querySelectorAll('details.term-item').forEach(o => { if (o !== d && o.open) o.removeAttribute('open'); });
+  });
+});
+(function(){
+  var bar = document.getElementById('progressBar');
+  function u(){ var h=document.documentElement; var s=h.scrollTop/(h.scrollHeight-h.clientHeight); bar.style.width=Math.min(100,Math.max(0,s*100))+'%'; }
+  document.addEventListener('scroll', u, {passive:true}); window.addEventListener('resize', u); u();
+})();
+</script>
+
 </body>
 </html>
+
+<!--
+================================================================
+  デザインロック（重要）
+  ・アクセント色はSiMグリーンで固定。銘柄・業界で変えない。
+  ・以前あった「業界別カラー早見表」は廃止（色を変えると銘柄ごとに見た目がぶれるため）。
+  ・この <style> と骨格は改変禁止。{{ }} の中身だけ差し替える。
+================================================================
+  ChatGPT用ルール: 完成HTMLは必ず index.html というファイル名で保存・出力する。
+================================================================
+-->

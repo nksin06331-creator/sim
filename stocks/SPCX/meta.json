@@ -5,18 +5,31 @@
   "name": "SpaceX",
   "market": "米国株",
   "sector": "宇宙・衛星通信・AI",
-  "method": "SOTP＋オプション価値",
+  "method": "SOTP＋オプション価値 現在株価 $145.30 IPO価格 $135から +7.6% Bear・弱気 $73 確率 30% AI投資負担が長期化し、Starship商用化が遅れ、ロックアップ解除で需給が悪化",
   "status": "published",
-  "updated": "2026-07-11",
-  "price": { "current": 145.30, "currency": "USD" },
-  "scenarios": { "bear": 73, "base": 148, "bull": 299 },
-  "positionPct": 32.0,
-  "zone": "Base前提をほぼ織り込み済み",
+  "updated": "2026-07-13",
+  "price": {
+    "current": 145.3,
+    "currency": "USD"
+  },
+  "scenarios": {
+    "bear": 73,
+    "base": 148,
+    "bull": 299
+  },
+  "positionPct": 32,
+  "zone": "現値は独自Baseにほぼ一致",
   "riskReward": "2.13倍",
-  "catalyst": "初の上場後決算 / Starship進捗 / AI設備投資と段階的ロックアップ解除",
-  "summary": "打上げ、Starlink、Starship、AI基盤を一体化した宇宙・衛星通信企業のSOTPシナリオ評価。",
-  "tags": ["SOTP", "宇宙", "衛星通信", "AI", "IPO"],
-  "risk": "非常に高い",
+  "catalyst": "初の上場後決算、Starship進捗、AI設備投資と顧客契約、段階的ロックアップ解除",
+  "summary": "確率加重期待値 $163 現値比 +12.4% 現値ポジショニング： Bear–Bull帯の 32.0%地点。",
+  "tags": [
+    "SOTP",
+    "宇宙",
+    "衛星通信",
+    "AI",
+    "IPO"
+  ],
+  "risk": "要確認",
   "detailPath": "stocks/SPCX/index.html",
   "scenarioPath": "stocks/SPCX/scenario.html"
 }

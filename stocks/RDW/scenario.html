@@ -1,22 +1,133 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>RDW 株価シナリオ試算</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>RDW Scenario Valuation | 2026-07-13</title>
 <style>
-:root{--c-50:#f1f5f9;--c-100:#e2e8f0;--c-200:#cbd5e1;--c-400:#475569;--c-600:#334155;--c-800:#0f172a;--hero-from:#020617;--hero-mid:#0f172a;--hero-to:#1e293b;--hero-accent:#7dd3fc;--amber-50:#fffbeb;--amber-400:#fbbf24;--amber-600:#d97706;--red-50:#fef2f2;--red-400:#f87171;--red-600:#dc2626;--green-50:#f0fdf4;--green-400:#4ade80;--green-600:#16a34a;--gray-50:#f9fafb;--gray-100:#f3f4f6;--gray-200:#e5e7eb;--gray-300:#d1d5db;--gray-500:#6b7280;--gray-700:#374151;--gray-900:#111827;--font-body:'DM Sans',sans-serif;--font-serif:'Noto Serif JP',serif}*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}body{font-family:var(--font-body);background:#f9f9f7;color:var(--gray-900);line-height:1.7;font-size:15px}.hero{background:linear-gradient(135deg,var(--hero-from) 0%,var(--hero-mid) 55%,var(--hero-to) 100%);color:#fff;padding:56px 24px 64px;text-align:center;position:relative;overflow:hidden}.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 20% 40%,rgba(255,255,255,.08) 0%,transparent 55%)}.hero>*{position:relative;z-index:1}.hero-badge{display:inline-block;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);border-radius:999px;padding:4px 16px;font-size:12px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:18px;color:var(--c-200)}.hero h1{font-family:var(--font-serif);font-size:clamp(24px,4.5vw,38px);font-weight:700;line-height:1.3;margin-bottom:14px}.hero h1 span{color:var(--hero-accent)}.hero p{font-size:15px;opacity:.85;max-width:680px;margin:0 auto}.container{max-width:880px;margin:0 auto;padding:0 20px}.section{padding:48px 0 32px;border-bottom:1px solid var(--gray-200)}.section-header{display:flex;align-items:center;gap:14px;margin-bottom:24px}.section-icon{width:42px;height:42px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;background:var(--c-50)}.section-title{font-family:var(--font-serif);font-size:21px;font-weight:700}.section-sub{font-size:13px;color:var(--gray-500);margin-top:2px}.lead{font-size:15.5px;color:var(--gray-700);line-height:1.85;margin-bottom:20px}.now-card{background:#fff;border:1px solid var(--gray-200);border-radius:14px;padding:22px 24px;margin-top:-32px;position:relative;z-index:5;box-shadow:0 8px 24px rgba(0,0,0,.06);display:flex;flex-wrap:wrap;gap:20px;justify-content:space-between;align-items:center}.now-item{text-align:center;flex:1;min-width:110px}.now-label{font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--gray-500);margin-bottom:4px;font-weight:600}.now-val{font-size:22px;font-weight:700;font-family:var(--font-serif)}.now-sub{font-size:11px;color:var(--gray-500);margin-top:2px}.scenario-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin:8px 0 4px}.sc-card{border-radius:14px;padding:22px;border:1px solid;position:relative;overflow:hidden}.sc-bear{background:linear-gradient(160deg,#fef2f2,#fff);border-color:#fecaca}.sc-base{background:linear-gradient(160deg,var(--c-50),#fff);border-color:var(--c-200)}.sc-bull{background:linear-gradient(160deg,#f0fdf4,#fff);border-color:#bbf7d0}.sc-tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:3px 10px;border-radius:999px;margin-bottom:12px}.sc-bear .sc-tag{background:var(--red-50);color:var(--red-600)}.sc-base .sc-tag{background:var(--c-50);color:var(--c-600)}.sc-bull .sc-tag{background:var(--green-50);color:var(--green-600)}.sc-price{font-size:36px;font-weight:700;font-family:var(--font-serif);line-height:1}.sc-bear .sc-price{color:var(--red-600)}.sc-base .sc-price{color:var(--c-600)}.sc-bull .sc-price{color:var(--green-600)}.sc-delta{font-size:13px;font-weight:600;margin:6px 0 2px}.sc-bear .sc-delta{color:var(--red-600)}.sc-base .sc-delta{color:var(--c-600)}.sc-bull .sc-delta{color:var(--green-600)}.sc-prob{font-size:12px;color:var(--gray-500);margin-bottom:14px}.sc-desc{font-size:12.5px;color:var(--gray-700);line-height:1.7;border-top:1px solid rgba(0,0,0,.06);padding-top:12px}.pos-wrap{background:#fff;border:1px solid var(--gray-200);border-radius:14px;padding:22px 24px;margin:18px 0 4px;box-shadow:0 4px 14px rgba(0,0,0,.04)}.pos-head{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px;margin-bottom:16px}.pos-title{font-family:var(--font-serif);font-size:16px;font-weight:700}.pos-zone{font-size:13px;font-weight:700;padding:4px 12px;border-radius:999px}.zone-high{background:var(--amber-50);color:var(--amber-600)}.pos-track{position:relative;height:14px;border-radius:999px;background:linear-gradient(90deg,#fecaca 0%,var(--c-200) 50%,#bbf7d0 100%);margin:30px 0 26px}.pos-tick{position:absolute;top:-8px;width:2px;height:30px;background:var(--gray-300)}.pos-tick span{position:absolute;top:-20px;left:50%;transform:translateX(-50%);font-size:11px;color:var(--gray-500);white-space:nowrap}.pos-marker{position:absolute;top:-13px;width:4px;height:40px;background:var(--gray-900);border-radius:2px;box-shadow:0 0 0 4px #fff}.pos-marker span{position:absolute;bottom:-34px;left:50%;transform:translateX(-50%);font-size:12px;font-weight:700;color:var(--gray-900);white-space:nowrap}.pos-stats{display:flex;flex-wrap:wrap;gap:24px;font-size:13px;color:var(--gray-700);border-top:1px solid var(--gray-100);padding-top:14px}.pos-stats b{font-family:var(--font-serif);font-size:16px;color:var(--gray-900)}.ev-box{background:linear-gradient(135deg,var(--hero-from),var(--hero-mid));color:#fff;border-radius:14px;padding:24px 26px;margin:24px 0;display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between}.ev-main{flex:1;min-width:200px}.ev-main .lbl{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--c-200);margin-bottom:6px;font-weight:600}.ev-main .val{font-size:34px;font-weight:700;font-family:var(--font-serif)}.ev-main .sub{font-size:13px;opacity:.85;margin-top:4px}.ev-rr{text-align:right;font-size:13px;opacity:.9;line-height:1.9}.ev-rr b{font-size:18px;font-family:var(--font-serif)}.table-wrap{overflow-x:auto;background:#fff;border:1px solid var(--gray-200);border-radius:12px;margin:14px 0}table{width:100%;border-collapse:collapse;font-size:13px}th{background:var(--gray-50);padding:11px 14px;text-align:left;font-weight:600;font-size:11.5px;color:var(--gray-500);text-transform:uppercase;letter-spacing:.04em;border-bottom:1px solid var(--gray-200)}td{padding:11px 14px;border-bottom:1px solid var(--gray-100);color:var(--gray-700);vertical-align:top}tr:last-child td{border-bottom:none}tr:hover td{background:var(--gray-50)}.td-bear{color:var(--red-600);font-weight:600}.td-base{color:var(--c-600);font-weight:600}.td-bull{color:var(--green-600);font-weight:600}.row-total td{background:var(--c-50);font-weight:700;color:var(--gray-900)}.sotp{display:flex;flex-direction:column;gap:10px;margin:14px 0}.sotp-row{display:flex;align-items:center;gap:14px;background:#fff;border:1px solid var(--gray-200);border-radius:10px;padding:14px 16px}.sotp-icon{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0;background:var(--c-50)}.sotp-body{flex:1}.sotp-name{font-weight:600;font-size:14px;margin-bottom:2px}.sotp-note{font-size:12px;color:var(--gray-500);line-height:1.6}.callout{border-radius:10px;padding:14px 16px;margin-top:14px;font-size:13px;line-height:1.75}.callout-amber{background:var(--amber-50);border-left:3px solid var(--amber-400);color:var(--gray-700)}.callout-primary{background:var(--c-50);border-left:3px solid var(--c-400);color:var(--gray-700)}.callout-red{background:var(--red-50);border-left:3px solid var(--red-400);color:var(--gray-700)}.cl-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px;display:block}ul.lst{margin:10px 0 10px 4px;padding-left:18px}ul.lst li{font-size:13.5px;color:var(--gray-700);margin-bottom:7px;line-height:1.7}.sc-h{font-family:var(--font-serif);font-size:16px;margin:18px 0 8px}.sc-h-bear{color:var(--red-600)}.sc-h-base{color:var(--c-600)}.sc-h-bull{color:var(--green-600)}.footer{padding:40px 24px;text-align:center;color:var(--gray-500);font-size:12.5px;border-top:1px solid var(--gray-200);margin-top:24px;line-height:1.8}
-</style>
-</head>
+:root{--navy:#0b1730;--blue:#2878ff;--green:#16875d;--orange:#d97706;--red:#c63d3d;--bg:#f4f7fb;--text:#172033;--muted:#667085;--card:#fff;}
+*{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans JP",sans-serif;line-height:1.65}
+.wrap{max-width:1050px;margin:auto;padding:18px} .hero{background:linear-gradient(135deg,#09152d,#142a52);color:white;padding:34px 0}
+.eyebrow{font-size:12px;letter-spacing:.12em;color:#9fc1ff;font-weight:800} h1{margin:.2rem 0;font-size:clamp(30px,7vw,58px);line-height:1.05}
+.hero-grid,.grid3,.grid2{display:grid;gap:14px} .hero-grid{grid-template-columns:1.5fr 1fr;margin-top:22px} .grid3{grid-template-columns:repeat(3,1fr)} .grid2{grid-template-columns:repeat(2,1fr)}
+.card{background:white;border:1px solid #e4e9f2;border-radius:18px;padding:20px;box-shadow:0 8px 24px rgba(20,35,60,.05);margin:14px 0}
+.kpi{font-size:34px;font-weight:850;letter-spacing:-.04em} .muted{color:var(--muted)} .pill{display:inline-block;padding:5px 10px;border-radius:999px;font-size:12px;font-weight:800;background:#eaf1ff;color:#1d5fd0}
+.scenario{border-top:5px solid} .bear{border-color:var(--red)} .base{border-color:var(--blue)} .bull{border-color:var(--green)} .price{font-size:32px;font-weight:900}
+.bar{height:14px;background:#e8edf5;border-radius:99px;overflow:hidden} .fill{height:100%;background:linear-gradient(90deg,#c63d3d,#2878ff,#16875d);width:38.4%}
+table{width:100%;border-collapse:collapse;font-size:14px} th,td{padding:10px;border-bottom:1px solid #e8edf3;text-align:left;vertical-align:top} th{color:#475467}
+.notice{border-left:4px solid var(--orange);background:#fff8eb;padding:14px;border-radius:10px} details{background:white;border:1px solid #e4e9f2;border-radius:14px;padding:14px 16px;margin:10px 0} summary{cursor:pointer;font-weight:800}
+.good{color:var(--green)} .bad{color:var(--red)} .section-title{font-size:25px;margin:34px 0 10px} a{color:#1d5fd0;word-break:break-all}
+.footer{font-size:12px;color:#667085;padding:28px 0 50px}
+@media(max-width:760px){.hero-grid,.grid3,.grid2{grid-template-columns:1fr} .wrap{padding:14px} .card{padding:16px} table{font-size:12px}}
+@media print{body{background:white} .card{box-shadow:none}}
+</style></head>
 <body>
-<div class="hero"><div class="hero-badge">RDW シナリオ試算 2026-07-04版</div><h1>Redwire Corporation（RDW）<br><span>ベア / ベース / ブル</span> 株価シナリオ</h1><p>宇宙・防衛・長期R&D銘柄として、Space事業とDefense Tech事業を分けるSOTPに、Golden Dome / SHIELD等の大型防衛案件をオプション価値として加えた教育目的の試算です。</p></div>
-<div class="container">
-<div class="now-card"><div class="now-item"><div class="now-label">現値</div><div class="now-val">$11.31</div><div class="now-sub">2026-07-04取得値</div></div><div class="now-item"><div class="now-label">時価総額</div><div class="now-val">$2.70B</div><div class="now-sub">株数 約238.8M</div></div><div class="now-item"><div class="now-label">52週レンジ</div><div class="now-val">$4.87–26.64</div><div class="now-sub">高値から大きく調整</div></div><div class="now-item"><div class="now-label">売上倍率</div><div class="now-val">約5.7x</div><div class="now-sub">FY26売上ガイダンス中央値対比</div></div></div>
-<section class="section" style="padding-top:36px"><div class="section-header"><div class="section-icon">🎯</div><div><div class="section-title">3シナリオの結論</div><div class="section-sub">現値$11.31を基準にした理論株価</div></div></div><div class="scenario-grid"><div class="sc-card sc-bear"><span class="sc-tag">Bear・弱気</span><div class="sc-price">$4.42</div><div class="sc-delta">-60.9%</div><div class="sc-prob">想定確率 30%</div><div class="sc-desc">Space成長が鈍化、Defense Techの高倍率評価が剥落。大型防衛案件は受注確度が低く、追加希薄化も重めに見る。</div></div><div class="sc-card sc-base"><span class="sc-tag">Base・中立</span><div class="sc-price">$10.34</div><div class="sc-delta">-8.6%</div><div class="sc-prob">想定確率 50%</div><div class="sc-desc">FY26ガイダンス達成、バックログ消化、Defense Tech統合が進む。ただし現値はBaseをやや上回る水準。</div></div><div class="sc-card sc-bull"><span class="sc-tag">Bull・強気</span><div class="sc-price">$19.17</div><div class="sc-delta">+69.5%</div><div class="sc-prob">想定確率 20%</div><div class="sc-desc">Defense Techが高成長を維持し、Golden Dome / SHIELD関連の期待が実受注に近づく。倍率プレミアム維持。</div></div></div><div class="pos-wrap"><div class="pos-head"><div class="pos-title">現値ポジショニング — 現値$11.31は帯のどこか</div><div class="pos-zone zone-high">やや割高〜適正上限</div></div><div class="pos-track"><div class="pos-tick" style="left:0%"><span>Bear $4.42</span></div><div class="pos-tick" style="left:40.1%"><span>Base $10.34</span></div><div class="pos-tick" style="left:100%"><span>Bull $19.17</span></div><div class="pos-marker" style="left:46.7%"><span>現値 $11.31</span></div></div><div class="pos-stats"><div>帯内位置：<b>46.7%</b></div><div>上値余地：<b style="color:var(--green-600)">+69.5%</b></div><div>下値余地：<b style="color:var(--red-600)">-60.9%</b></div><div>上値:下値比：<b>1.14x</b></div></div></div><div class="ev-box"><div class="ev-main"><div class="lbl">確率加重 期待値（補助指標）</div><div class="val">$10.33</div><div class="sub">現値$11.31 比 -8.6%（30% / 50% / 20%加重）</div></div><div class="ev-rr">下値余地（Bear）：<b style="color:#fecaca">-60.9%</b><br>上値余地（Bull）：<b style="color:#bbf7d0">+69.5%</b><br>リスクリワード比：<b>1.14x</b></div></div><div class="callout callout-amber"><span class="cl-label">読み方の注意</span>この試算では現値はBaseを少し上回り、Bullまでは余地がある一方で、Bearまでの距離も大きい。したがって結論の主役は「期待値」ではなく、現値がシナリオ帯のほぼ中央やや上にあるというポジショニングです。</div></section>
-<section class="section"><div class="section-header"><div class="section-icon">🧮</div><div><div class="section-title">計算ロジック：SOTP＋オプション価値</div><div class="section-sub">宇宙・防衛・長期R&D銘柄として評価</div></div></div><p class="lead">RDWはSpaceとDefense Techの2セグメントを持ち、Defense TechはEdge Autonomy取得後の成長期待と大型防衛案件のオプション性が大きい。そのため単純なPERではなく、各セグメントの売上・バックログ・受注オプションを分けて評価しました。</p><div class="sotp"><div class="sotp-row"><div class="sotp-icon">🛰️</div><div class="sotp-body"><div class="sotp-name">① Space事業</div><div class="sotp-note">宇宙インフラ、微小重力、衛星関連。Bear $560M / Base $990M / Bull $1,720M。</div></div></div><div class="sotp-row"><div class="sotp-icon">🛡️</div><div class="sotp-body"><div class="sotp-name">② Defense Tech事業</div><div class="sotp-note">無人機、光学センサー、ISR関連。Bear $500M / Base $1,350M / Bull $2,450M。</div></div></div><div class="sotp-row"><div class="sotp-icon">✨</div><div class="sotp-body"><div class="sotp-name">③ 大型防衛案件オプション</div><div class="sotp-note">SHIELD / Golden Dome関連期待を、未確定のため低掛目で反映。Bear $0M / Base $150M / Bull $400M。</div></div></div></div><div class="table-wrap"><table><thead><tr><th>構成要素</th><th>Bear</th><th>Base</th><th>Bull</th></tr></thead><tbody><tr><td>Space事業価値</td><td class="td-bear">$560M</td><td class="td-base">$990M</td><td class="td-bull">$1,720M</td></tr><tr><td>Defense Tech事業価値</td><td class="td-bear">$500M</td><td class="td-base">$1,350M</td><td class="td-bull">$2,450M</td></tr><tr><td>大型防衛案件オプション</td><td class="td-bear">$0M</td><td class="td-base">$150M</td><td class="td-bull">$400M</td></tr><tr><td>ネットキャッシュ</td><td>$54M</td><td>$54M</td><td>$54M</td></tr><tr class="row-total"><td>株主価値 合計</td><td>$1,114M</td><td>$2,544M</td><td>$4,624M</td></tr><tr><td>希薄化後株数</td><td>252.0M<br><span style="font-size:11px;color:var(--gray-500)">×1.055</span></td><td>246.0M<br><span style="font-size:11px;color:var(--gray-500)">×1.030</span></td><td>241.2M<br><span style="font-size:11px;color:var(--gray-500)">×1.010</span></td></tr><tr class="row-total"><td>→ 理論株価</td><td class="td-bear">$4.42</td><td class="td-base">$10.34</td><td class="td-bull">$19.17</td></tr><tr><td>現値比</td><td class="td-bear">-60.9%</td><td class="td-base">-8.6%</td><td class="td-bull">+69.5%</td></tr></tbody></table></div><div class="callout callout-primary"><span class="cl-label">希薄化の扱い</span>RDWはプレ収益バイオ型ではなく、売上を持つ宇宙・防衛複合事業のため、バーン内生化ではなく通常の希薄化係数で処理。Bearほど資本市場依存・株式報酬・追加調達リスクを重く見ました。</div></section>
-<section class="section"><div class="section-header"><div class="section-icon">📋</div><div><div class="section-title">各シナリオが成立する条件</div><div class="section-sub">何が起きればどこへ向かうか</div></div></div><h3 class="sc-h sc-h-bear">🐻 Bear（$4.42・確率30%）</h3><ul class="lst"><li>FY26売上ガイダンス下限未達、またはバックログ消化の遅延。</li><li>Defense Tech統合コスト・株式報酬・R&D費が重く、Adjusted EBITDA改善が鈍る。</li><li>大型防衛プログラム参加が実収益に結びつかず、期待倍率が剥落。</li><li>株価低迷局面で追加調達や株式報酬による希薄化が重くなる。</li></ul><h3 class="sc-h sc-h-base">⚖️ Base（$10.34・確率50%）</h3><ul class="lst"><li>FY26売上$450M〜$500Mレンジの中央値付近を達成。</li><li>Spaceは安定成長、Defense TechはEdge Autonomy取得効果を徐々に反映。</li><li>バックログは高水準を維持するが、Golden Dome / SHIELDはまだ本格収益化前。</li><li>時価総額は売上倍率5倍台前後で落ち着く。</li></ul><h3 class="sc-h sc-h-bull">🚀 Bull（$19.17・確率20%）</h3><ul class="lst"><li>Defense Techの売上成長とマージン改善が同時に進む。</li><li>Golden Dome / SHIELD関連の大型受注期待が、実際の契約・発注に近づく。</li><li>Space事業のバックログ消化が順調で、EAC調整リスクが後退。</li><li>宇宙・防衛テーマ株として高いEV/Sales倍率が維持される。</li></ul></section>
-<section class="section"><div class="section-header"><div class="section-icon">🎚️</div><div><div class="section-title">感応度：前提が変わると結論はどう動くか</div><div class="section-sub">この試算の効きどころ</div></div></div><p class="lead">RDWの理論株価を最も動かすのは、Defense Techの売上倍率と、大型防衛案件をどの程度オプション価値として認めるかです。</p><div class="table-wrap"><table><thead><tr><th>動かす前提</th><th>変化させると</th><th>Base株価への影響</th></tr></thead><tbody><tr><td>Defense Tech倍率</td><td>5.0x → 4.0x / 6.0x</td><td class="td-base">約 ±$1.10</td></tr><tr><td>Space倍率</td><td>3.0x → 2.5x / 3.5x</td><td class="td-base">約 ±$0.67</td></tr><tr><td>大型防衛案件オプション</td><td>$150M → $0M / $300M</td><td class="td-base">約 ±$0.61</td></tr><tr><td>希薄化後株数</td><td>Base 246M → 260M</td><td class="td-base">約 -$0.56</td></tr><tr><td>ネットキャッシュ</td><td>±$50M</td><td class="td-base">約 ±$0.20</td></tr></tbody></table></div><div class="callout callout-red"><span class="cl-label">最大の不確実性</span>最大の不確実性は、Defense Techの成長が「一過性の買収効果」なのか「防衛需要に乗った継続成長」なのかです。次回以降の決算でセグメント売上・Adjusted EBITDA・バックログの質を確認する必要があります。</div></section>
-<section class="section"><div class="section-header"><div class="section-icon">📌</div><div><div class="section-title">使用した主な前提・数値</div><div class="section-sub">出典と概数</div></div></div><div class="table-wrap"><table><thead><tr><th>項目</th><th>使用値</th><th>分類・備考</th></tr></thead><tbody><tr><td>現値</td><td>$11.31</td><td>事実：Investing.com / 2026-07-04取得</td></tr><tr><td>52週レンジ</td><td>$4.87〜$26.64</td><td>事実：MarketWatch / Investing.com</td></tr><tr><td>時価総額・株数</td><td>$2.70B / 238.83M株</td><td>事実：MarketWatch</td></tr><tr><td>Q1 2026売上</td><td>$96.97M、前年比+58%</td><td>事実：10-Q</td></tr><tr><td>粗利率</td><td>27%</td><td>事実：10-Q。Q1 2025の15%から改善</td></tr><tr><td>FY26売上ガイダンス</td><td>$450M〜$500M</td><td>推定参照：決算関連報道・会社コメント</td></tr><tr><td>現金</td><td>$144.5M</td><td>事実：10-Q、2026-03-31</td></tr><tr><td>総債務</td><td>$90.3M</td><td>事実：10-Q、2026-03-31</td></tr><tr><td>ネットキャッシュ</td><td>$54.2M</td><td>計算：現金 − 総債務</td></tr><tr><td>営業CF</td><td>-$6.7M</td><td>事実：10-Q、Q1 2026</td></tr><tr><td>契約バックログ</td><td>$498.1M</td><td>事実：会社リリース・10-Q</td></tr><tr><td>アナリスト目標株価</td><td>平均 約$15.44、レンジ $6〜$24</td><td>参考：MarketBeat。自前試算とは前提が異なる</td></tr><tr><td>Space / Defense Tech倍率</td><td>Bear 2.0x/2.5x、Base 3.0x/5.0x、Bull 4.0x/7.0x</td><td>仮定：成長率・粗利改善・防衛テーマ性を反映</td></tr></tbody></table></div></section>
-</div><div class="footer"><p style="font-weight:600;color:var(--gray-700);margin-bottom:8px">⚠️ 免責事項</p><p>本資料は情報提供・教育目的のシナリオ試算であり、投資助言ではありません。事業価値・倍率・希薄化率はいずれも公開情報に基づく仮定であり、実際の結果は大きく異なりえます。Redwire Corporationは宇宙・防衛需要、政府予算、契約遅延、EAC調整、買収統合、株式報酬・希薄化の影響を受けます。数値は2026-07-04時点の概数に基づきます。実際の投資判断はご自身の責任で行ってください。</p></div></body></html>
+<header class="hero"><div class="wrap">
+<div class="eyebrow">PREMIUM SCENARIO VALUATION v2.0 · NYSE: RDW</div>
+<h1>Redwire Corporation</h1>
+<p>評価基準日 2026-07-13 ｜ 現値 $10.18（2026-07-10終値）</p>
+<div class="hero-grid">
+<div><span class="pill">現在評価：Base近辺</span><h2>会社の成長余地は大きい。一方、現値はすでに独自Baseをわずかに上回り、次の上振れには「防衛事業の高成長＋利益率改善」の実証が必要。</h2></div>
+<div class="card" style="color:#172033;margin:0"><div class="muted">現値ポジショニング</div><div class="kpi">38%</div><div>Bear–Bull帯の中央よりやや上</div></div>
+</div></div></header>
+
+<main class="wrap">
+<section>
+<h2 class="section-title">1. 5秒で結論</h2>
+<div class="grid3">
+<div class="card scenario bear"><b>Bear（弱気）30%</b><div class="price">$4.1</div><p>統合停滞、低成長、倍率縮小。</p></div>
+<div class="card scenario base"><b>Base（基本）50%</b><div class="price">$9.8</div><p>売上拡大と粗利改善が進むが、赤字・希薄化リスクは残る。</p></div>
+<div class="card scenario bull"><b>Bull（強気）20%</b><div class="price">$19.9</div><p>Defense Techが牽引し、受注残の売上化と利益率改善が加速。</p></div>
+</div>
+<div class="grid2">
+<div class="card"><div class="muted">確率加重期待値</div><div class="kpi">$10.1</div><p>現値比 -0.7%。ただし単独の売買判断には使わない。</p></div>
+<div class="card"><div class="muted">市場逆算</div><div class="kpi">約3.3×</div><p>2028年売上をBaseの$800Mと置くと、現値は概ね「2028年EV/Sales 約3.3倍」を織り込む水準。</p></div>
+</div>
+<div class="card">
+<b>帯内位置 38% ｜ 端点RR 1.60x</b>
+<div class="bar"><div class="fill"></div></div>
+<p class="muted">Bear $4.1 ← 現値 $10.18 → Bull $19.9。上方確率加重寄与 $1.95、下方確率加重寄与 $1.82。</p>
+</div>
+<div class="notice"><b>リスク区分：VERY HIGH</b> — 2026年Q1は売上$97.0M、粗利率26.6%まで改善した一方、調整後EBITDAは-$9.2M。Edge Autonomy統合、政府契約の売上化、追加希薄化、優先株、倍率変動が主要リスク。</div>
+</section>
+
+<section>
+<h2 class="section-title">2. 5分で納得</h2>
+<div class="grid2">
+<div class="card"><h3>会社の質</h3><p><b class="good">強み：</b>宇宙＋防衛の複合ポートフォリオ。Q1 2026の受注残は$498.1M、Book-to-Billは1.92倍。Defense TechはQ1売上$44.3M、セグメント調整後EBITDA $5.4M。</p></div>
+<div class="card"><h3>株価評価</h3><p><b>中立寄り：</b>現値は独自Base $9.8を約4%上回る。Bull余地はあるが、そのためには2028年売上$1.05Bと5.0倍の将来EV/Salesという強い仮定が必要。</p></div>
+</div>
+<div class="card"><h3>エントリーコンテキスト</h3><p>52週レンジは$4.87–$26.64。6月には宇宙株全体のバリュエーション調整が強まり、RDWも大幅下落。7月10日終値$10.18は52週高値から約62%下。したがって「高値から大きく下げた＝割安」とはせず、現在の事業価値と将来倍率から独立評価した。</p></div>
+<div class="grid2">
+<div class="card"><h3 class="good">良い点</h3><ul><li>Q1売上は前年比+57.9%</li><li>粗利率26.6%へ改善</li><li>受注残$498.1M、Q1 Book-to-Bill 1.92x</li><li>Defense Techの収益貢献が明確化</li></ul></div>
+<div class="card"><h3 class="bad">気になる点</h3><ul><li>Q1調整後EBITDA -$9.2M</li><li>Edge Autonomy買収後の統合実行リスク</li><li>普通株数は2025年末191.9M→2026年3月末198.9M</li><li>転換優先株の清算優先額$136.7M</li></ul></div>
+</div>
+<div class="card"><h3>次に見るべき項目</h3><ol><li>2026年売上ガイダンス$450–500Mの達成度</li><li>Defense Techの受注・利益率とSpace部門の採算改善</li><li>営業CF・FCFの改善継続</li><li>普通株発行、SBC、転換優先株による希薄化</li></ol></div>
+</section>
+
+<section>
+<h2 class="section-title">3. 詳細分析</h2>
+<details open><summary>評価手法を選んだ理由</summary><p>RDWは宇宙インフラとDefense Techを持つ複合型の宇宙・防衛企業で、利益がまだ安定していない。主手法は「将来EV/Sales」を用い、Edge Autonomy買収後の統合企業全体を評価。Defense TechとSpaceの性質差はシナリオ倍率の幅と感応度で反映した。成熟PERは現時点で不適切。</p></details>
+
+<details open><summary>シナリオ計算</summary>
+<table><tr><th></th><th>Bear</th><th>Base</th><th>Bull</th></tr>
+<tr><td>2028年売上（仮定）</td><td>$600M</td><td>$800M</td><td>$1,050M</td></tr>
+<tr><td>2028 EV/Sales（仮定）</td><td>2.2x</td><td>3.5x</td><td>5.0x</td></tr>
+<tr><td>割引率（仮定）</td><td>16%</td><td>14%</td><td>12%</td></tr>
+<tr><td>現在価値EV</td><td>$981M</td><td>$2,155M</td><td>$4,185M</td></tr>
+<tr><td>ネットキャッシュ調整</td><td colspan="3">-$79.7M（現金$145.2M − 有利子負債$88.2M − 転換優先株清算優先額$136.7M）</td></tr>
+<tr><td>希薄化後株数（仮定）</td><td>220M</td><td>212M</td><td>206M</td></tr>
+<tr><td>株主価値</td><td>$901M</td><td>$2,075M</td><td>$4,106M</td></tr>
+<tr><td>理論株価</td><td>$4.1</td><td>$9.8</td><td>$19.9</td></tr>
+</table>
+<p class="muted">式：現在価値EV = 2028年売上 × EV/Sales ÷ (1+割引率)^2。理論株価 = (現在価値EV + ネットキャッシュ調整) ÷ 希薄化後株式数。</p></details>
+
+<details><summary>各シナリオの成立条件</summary>
+<h4>Bear</h4><p>2026ガイダンス下限付近、受注残の売上化遅延、Space採算改善の遅れ、追加株式発行。市場が高成長プレミアムを縮小。</p>
+<h4>Base</h4><p>2026売上$450–500Mを概ね達成し、その後もDefense Tech主導で成長。粗利率改善は続くが、FCF黒字化には時間を要する。</p>
+<h4>Bull</h4><p>大型防衛案件の具体的売上化、Edge Autonomy統合成功、Space部門採算改善。2028年売上$1B超が視野に入り、高倍率を維持。</p></details>
+
+<details><summary>市場逆算</summary><p>現値$10.18、Base希薄化後株数212M、ネットキャッシュ調整-$79.7Mから逆算すると、株主価値は約$2.16B、必要EVは約$2.24B。2028年売上$800Mを14%で2年割り引く前提では、現値が織り込む2028 EV/Salesは約3.6倍。つまり現値は、Base売上前提に対してBase倍率3.5倍をほぼ織り込んでいる。</p></details>
+
+<details><summary>キャッシュ、負債、希薄化</summary><p>2026年3月31日時点で現金・現金同等物・制限付現金は$145.2M、短期 debt $4.8M、長期 debt $83.4M。普通株発行済みは198.9M株。転換優先株は帳簿価額$77.0M、清算優先額$136.7M。Q1には普通株発行で$65.3Mの資金流入があり、希薄化は現実の重要論点。本モデルはBear 220M、Base 212M、Bull 206Mを仮定した。</p></details>
+
+<details><summary>感応度分析</summary>
+<table><tr><th>主要ドライバ</th><th>弱い場合</th><th>中心</th><th>強い場合</th></tr>
+<tr><td>2028売上</td><td>$600M</td><td>$800M</td><td>$1,050M</td></tr>
+<tr><td>将来EV/Sales</td><td>2.2x</td><td>3.5x</td><td>5.0x</td></tr>
+<tr><td>割引率</td><td>16%</td><td>14%</td><td>12%</td></tr>
+<tr><td>希薄化後株数</td><td>220M</td><td>212M</td><td>206M</td></tr>
+</table>
+<p>最も効くのは「将来売上×倍率」。Baseで売上が±10%動けば、他条件一定で株価は概ね±$1.0動く。倍率が3.5xから3.0xへ低下すると、理論株価は大きく低下するため、成長率だけでなく市場が許容する倍率の持続性が重要。</p></details>
+
+<details><summary>前提・数値一覧（事実 / 推定 / 仮定）</summary>
+<table><tr><th>項目</th><th>値</th><th>分類</th></tr>
+<tr><td>現値</td><td>$10.18（7/10終値）</td><td>事実</td></tr>
+<tr><td>52週高安</td><td>$4.87 / $26.64</td><td>事実</td></tr>
+<tr><td>Q1 2026売上</td><td>$97.0M</td><td>事実</td></tr>
+<tr><td>Q1粗利率</td><td>26.6%</td><td>事実</td></tr>
+<tr><td>FY2026売上ガイダンス</td><td>$450–500M</td><td>会社予想</td></tr>
+<tr><td>受注残</td><td>$498.1M</td><td>事実</td></tr>
+<tr><td>2028売上</td><td>$600M / $800M / $1,050M</td><td>仮定</td></tr>
+<tr><td>EV/Sales</td><td>2.2x / 3.5x / 5.0x</td><td>仮定</td></tr>
+<tr><td>割引率</td><td>16% / 14% / 12%</td><td>仮定</td></tr>
+</table></details>
+
+<details><summary>Validation Engine 結果</summary>
+<p><b>STATUS: WARN</b> ｜ FAIL 0 ｜ WARN 2</p>
+<ul><li>V09 WARN：将来EV/Sales倍率は成長率・事業構成・現値逆算で検証したが、同一時点の厳密な同業2–3社フォワード倍率比較は未実施。</li><li>V12 WARN：転換優先株はシナリオ別の厳密な転換条件解析ではなく、保守的に全シナリオで清算優先額を控除。</li></ul>
+<p>V01確率合計100%、V02 Bear&lt;Base&lt;Bull、V03期待値再計算、V04株価変換、V05時点整合、V06出典、V07仮定ラベル、V08市場逆算独立性、V11希薄化、V16 RR定義域、V18感応度、V19偽精度、V20会社と株価の分離、V21売買断定を確認。</p></details>
+
+<details><summary>主要出典</summary>
+<ul>
+<li>SEC / Redwire Q1 2026 earnings release: <a href="https://www.sec.gov/Archives/edgar/data/1819810/000181981026000060/exhibit991redwire03312026e.htm">SEC Exhibit 99.1</a></li>
+<li>Redwire Investor Relations: <a href="https://ir.redwirespace.com/financial-information/financial-results">Financial Results</a></li>
+<li>Yahoo! Finance Japan RDW quote: <a href="https://finance.yahoo.co.jp/quote/RDW">RDW market price</a></li>
+<li>Investing.com RDW quote: <a href="https://jp.investing.com/equities/redwire">RDW price / 52-week range</a></li>
+</ul></details>
+</section>
+
+<div class="footer">
+<b>免責事項：</b>本資料は教育目的のシナリオ試算であり、投資助言ではありません。将来の株価を保証・予言するものではなく、前提、倍率、割引率、希薄化、事業進捗、市場環境により結果は大きく変化します。最終的な投資判断はご自身の責任で行ってください。<br>
+最終更新：2026-07-13 ｜ Framework v2.0 ｜ 主手法：将来EV/Sales
+</div>
+</main></body></html>

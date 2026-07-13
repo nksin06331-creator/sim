@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "ticker": "MU",
+  "slug": "mu",
+  "name": "Micron Technology",
+  "market": "米国株",
+  "sector": "半導体・メモリ",
+  "method": "PER / PEG（景気循環調整）",
+  "status": "published",
+  "updated": "2026-07-13",
+  "price": {
+    "current": 905.92,
+    "currency": "USD"
+  },
+  "scenarios": {
+    "bear": 665,
+    "base": 1035,
+    "bull": 1485
+  },
+  "positionPct": 34,
+  "zone": "Base未満・慎重寄り",
+  "riskReward": "1.43倍",
+  "catalyst": "要確認",
+  "summary": "好業績は本物。",
+  "tags": [
+    "PER / PEG（景気循環調整）",
+    "半導体・メモリ"
+  ],
+  "risk": "高",
+  "detailPath": "stocks/MU/index.html",
+  "scenarioPath": "stocks/MU/scenario.html"
+}

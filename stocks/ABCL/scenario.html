@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>ABCL シナリオ試算 | 2026-07-10</title>
+<title>ABCL シナリオ試算 | 2026-07-13</title>
 <style>
 :root{--navy:#07182f;--navy2:#0d2748;--blue:#2563eb;--green:#16875f;--orange:#d97706;--red:#d64045;--ink:#172033;--muted:#667085;--bg:#f3f6fa;--card:#fff;--line:#dfe6ef}
 *{box-sizing:border-box} body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans JP",sans-serif;background:var(--bg);color:var(--ink);line-height:1.65}
@@ -26,9 +26,9 @@ details{border-top:1px solid var(--line);padding:13px 0} summary{cursor:pointer;
 <header class="hero"><div class="wrap">
 <div class="eyebrow">Premium Scenario Valuation Framework v2.0</div>
 <h1>AbCellera <span style="color:#8db9ff">ABCL</span></h1>
-<p class="sub">評価基準日 2026年7月10日｜主手法：rNPV＋SOTP｜臨床段階バイオとして、自社パイプライン・パートナー権益・資産価値を分けて評価。</p>
+<p class="sub">評価基準日 2026年7月13日｜主手法：rNPV＋SOTP｜臨床段階バイオとして、自社パイプライン・パートナー権益・資産価値を分けて評価。</p>
 <div class="hero-grid">
-<div class="metric"><small>現在株価</small><b>$7.29</b></div>
+<div class="metric"><small>現在株価</small><b>$7.29</b><small>2026年7月10日終値</small></div>
 <div class="metric"><small>Bear / Base / Bull</small><b>$4 / $8 / $15</b></div>
 <div class="metric"><small>確率加重期待値</small><b>$8.2</b></div>
 <div class="metric"><small>リスク区分</small><b>VERY HIGH</b></div>
@@ -117,8 +117,8 @@ details{border-top:1px solid var(--line);padding:13px 0} summary{cursor:pointer;
 <details><summary>Validation Engine結果：WARN 1件 / FAIL 0件</summary>
 <table><thead><tr><th>ID</th><th>判定</th><th>内容</th></tr></thead><tbody><tr><td>V01</td><td><span class='v pass'>PASS</span></td><td>確率合計は100%</td></tr><tr><td>V02</td><td><span class='v pass'>PASS</span></td><td>Bear < Base < Bull</td></tr><tr><td>V03</td><td><span class='v pass'>PASS</span></td><td>確率加重期待値 $8.2 を再計算済み</td></tr><tr><td>V04</td><td><span class='v pass'>PASS</span></td><td>各シナリオの事業価値＋ネットキャッシュを希薄化後株式数で除して確認</td></tr><tr><td>V05</td><td><span class='v pass'>PASS</span></td><td>現金は2026-03-31を起点にQ3読出しまでのバーンを内生化</td></tr><tr><td>V06</td><td><span class='v pass'>PASS</span></td><td>株価・財務・株数・臨床予定に出典あり</td></tr><tr><td>V07</td><td><span class='v pass'>PASS</span></td><td>将来値はすべて仮定と明示</td></tr><tr><td>V08</td><td><span class='v pass'>PASS</span></td><td>市場逆算は現値EVから独立計算</td></tr><tr><td>V09</td><td><span class='v pass'>PASS</span></td><td>主手法はrNPV＋SOTPであり単純倍率依存ではない</td></tr><tr><td>V10</td><td><span class='v pass'>PASS</span></td><td>TTMと予想値を混同せず</td></tr><tr><td>V11</td><td><span class='v pass'>PASS</span></td><td>既存オプション・RSUをシナリオ別FD株式数に反映</td></tr><tr><td>V12</td><td><span class='v pass'>PASS</span></td><td>転換社債は確認されず。株式報酬のITM性を反映</td></tr><tr><td>V13</td><td><span class='v pass'>PASS</span></td><td>大型M&Aの新規反映なし</td></tr><tr><td>V14</td><td><span class='v pass'>PASS</span></td><td>異質事業は個別SOTP</td></tr><tr><td>V15</td><td><span class='v pass'>PASS</span></td><td>金利収入を含む実績CFを参照し、Bullほど機械的に現金増とはしていない</td></tr><tr><td>V16</td><td><span class='v pass'>PASS</span></td><td>現値はBearとBullの帯内のためRRを表示</td></tr><tr><td>V17</td><td><span class='v warn'>WARN</span></td><td>直近20営業日で約+38%。単一の起点材料だけでは説明し切れず、Q3読出し期待の先回りに注意</td></tr><tr><td>V18</td><td><span class='v pass'>PASS</span></td><td>承認確率、ピーク売上、読出し時期、割引率、希薄化を感応度表示</td></tr><tr><td>V19</td><td><span class='v pass'>PASS</span></td><td>理論株価は$0.5～$1刻みに丸め</td></tr><tr><td>V20</td><td><span class='v pass'>PASS</span></td><td>企業の技術力と株価評価を分離</td></tr><tr><td>V21</td><td><span class='v pass'>PASS</span></td><td>売買断定なし</td></tr><tr><td>V22</td><td><span class='v pass'>PASS</span></td><td>Base $8は公開コンセンサス中央値付近～やや下。差異理由を記載</td></tr><tr><td>V23</td><td><span class='v pass'>PASS</span></td><td>基準日・更新日・変更点を記録</td></tr></tbody></table>
 </details>
-<details><summary>出典</summary><ul><li><a href="https://www.google.com/finance/quote/ABCL:NASDAQ" target="_blank" rel="noopener">ABCL株価・時価総額（2026-07-10）</a></li><li><a href="https://www.sec.gov/Archives/edgar/data/1703057/000170305726000028/abcl-20260331.htm" target="_blank" rel="noopener">AbCellera Q1 2026 10-Q</a></li><li><a href="https://investors.abcellera.com/news/news-releases/2026/AbCellera-Reports-Q1-2026-Business-Results--Announces-Positive-Interim-Phase-1-Clinical-Data-for-ABCL635/default.aspx" target="_blank" rel="noopener">AbCellera Q1 2026 Business Results</a></li><li><a href="https://investors.abcellera.com/stock-info/stock-quote/default.aspx" target="_blank" rel="noopener">AbCellera Stock Quote / 52週レンジ</a></li><li><a href="https://finance.yahoo.com/quote/ABCL/history/" target="_blank" rel="noopener">ABCL historical prices</a></li><li><a href="https://www.investing.com/equities/abcellera-biologics-consensus-estimates" target="_blank" rel="noopener">ABCL analyst consensus</a></li></ul></details>
-<details><summary>更新履歴</summary><p>2026-07-10：Q1 2026 10-Q、現値、52週レンジ、Q3 2026カタリスト、直近20営業日騰落を反映。Framework v2.0で新規作成。</p></details>
+<details><summary>出典</summary><ul><li><a href="https://www.google.com/finance/quote/ABCL:NASDAQ" target="_blank" rel="noopener">ABCL株価・時価総額（2026-07-10終値）</a></li><li><a href="https://www.sec.gov/Archives/edgar/data/1703057/000170305726000028/abcl-20260331.htm" target="_blank" rel="noopener">AbCellera Q1 2026 10-Q</a></li><li><a href="https://investors.abcellera.com/news/news-releases/2026/AbCellera-Reports-Q1-2026-Business-Results--Announces-Positive-Interim-Phase-1-Clinical-Data-for-ABCL635/default.aspx" target="_blank" rel="noopener">AbCellera Q1 2026 Business Results</a></li><li><a href="https://investors.abcellera.com/stock-info/stock-quote/default.aspx" target="_blank" rel="noopener">AbCellera Stock Quote / 52週レンジ</a></li><li><a href="https://finance.yahoo.com/quote/ABCL/history/" target="_blank" rel="noopener">ABCL historical prices</a></li><li><a href="https://www.investing.com/equities/abcellera-biologics-consensus-estimates" target="_blank" rel="noopener">ABCL analyst consensus</a></li></ul></details>
+<details><summary>更新履歴</summary><p>2026-07-13：評価基準日を更新。米国市場の直近確定値として2026-07-10終値、Q1 2026 10-Q、52週レンジ、Q3 2026カタリスト、直近20営業日騰落を反映。</p></details>
 </section>
 
 <footer>
