@@ -3,48 +3,57 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="米国株・日本株の企業詳細とBear / Base / Bullシナリオ資料をまとめた分析ポータル">
-  <meta property="og:title" content="Stock Scenario Portal">
-  <meta property="og:description" content="銘柄別HTMLとmeta.jsonで運用するシナリオ試算ポータル">
+  <meta name="description" content="企業を知る。株価を考える。SiM MARKET LABの銘柄リサーチアーカイブ。">
+  <meta name="theme-color" content="#080a08">
+  <meta property="og:title" content="SiM MARKET LAB">
+  <meta property="og:description" content="企業完全入門ガイドとBear / Base / Bullシナリオを、銘柄ごとに整理したリサーチポータル。">
   <meta property="og:type" content="website">
-  <title>Stock Scenario Portal</title>
+  <title>SiM MARKET LAB｜Stock Research</title>
   <link rel="stylesheet" href="./lab/assets/css/site.css">
 </head>
 <body data-manifest-url="./data/manifest.json" data-link-prefix="">
   <header class="site-header">
-    <a class="brand" href="./index.html" aria-label="トップへ">
-      <span class="brand-mark">S</span>
-      <span>Stock Scenario Portal</span>
+    <a class="brand" href="./index.html" aria-label="SiM MARKET LAB トップへ">
+      <span class="brand-word">S<span>i</span>M</span>
+      <span class="brand-sub">MARKET LAB</span>
     </a>
-    <span class="header-badge">Scenario Dashboard</span>
+    <span class="header-badge"><i></i> RESEARCH ARCHIVE</span>
   </header>
 
   <main>
     <section class="hero">
       <div class="hero-main">
-        <p class="eyebrow">Company Reports / Scenario Archive</p>
-        <h1>更新時点の株価と、<br><span>銘柄資料を確認。</span></h1>
-        <p class="hero-copy">企業詳細とシナリオ試算をまとめた個人用ポータルです。日々変動するリアルタイム株価ではなく、各資料を更新した時点の株価として表示します。</p>
+        <p class="eyebrow">STOCK RESEARCH, MADE SIMPLE.</p>
+        <h1>会社を知る。<br>株価を<span>考える。</span></h1>
+        <p class="hero-copy">難しい企業情報は、短く・わかりやすく。<br>株価はBear / Base / Bullの3シナリオで冷静に見る。</p>
+        <a class="hero-cta" href="#reports">銘柄を探す <span aria-hidden="true">↓</span></a>
       </div>
-      <div class="hero-stats" aria-label="ポータル概要">
-        <div><strong id="hero-total">-</strong><span>公開中の銘柄</span></div>
-        <div><strong id="hero-us">-</strong><span>米国株</span></div>
-        <div><strong id="hero-jp">-</strong><span>日本株</span></div>
+      <div class="hero-dashboard" aria-label="公開状況">
+        <p>RESEARCH STATUS</p>
+        <div class="hero-total"><strong id="hero-total">—</strong><span>銘柄を公開中</span></div>
+        <div class="hero-markets">
+          <div><strong id="hero-us">—</strong><span>米国株</span></div>
+          <div><strong id="hero-jp">—</strong><span>日本株</span></div>
+        </div>
+        <small>各価格はレポート更新日時点です</small>
       </div>
     </section>
 
-    <section class="catalog" aria-labelledby="catalog-title">
-      <div class="section-heading">
-        <div>
-          <p class="eyebrow">Published Reports</p>
-          <h2 id="catalog-title">銘柄一覧</h2>
-        </div>
-      </div>
+    <section class="guide-strip" aria-label="2種類の資料">
+      <article><span>01</span><div><strong>企業完全入門</strong><p>何の会社で、なぜ注目されているか。</p></div></article>
+      <article><span>02</span><div><strong>シナリオ評価</strong><p>今の株価が何を織り込んでいるか。</p></div></article>
+    </section>
 
+    <section class="catalog" id="reports" aria-labelledby="catalog-title">
+      <div class="section-heading">
+        <div><p class="eyebrow">PUBLISHED REPORTS</p><h2 id="catalog-title">銘柄を<span>選ぶ</span></h2></div>
+        <p>企業名・ティッカー・テーマから検索できます。</p>
+      </div>
       <div class="tools-panel" aria-label="銘柄の検索と絞り込み">
         <label class="search-box">
+          <span class="search-icon" aria-hidden="true"></span>
           <span class="sr-only">銘柄を検索</span>
-          <input id="stock-search" type="search" placeholder="銘柄名・ティッカー・テーマで検索" autocomplete="off">
+          <input id="stock-search" type="search" placeholder="例：IONQ、宇宙、半導体" autocomplete="off">
         </label>
         <div class="filter-tabs" id="market-filters" aria-label="市場で絞り込み">
           <button class="filter-tab active" type="button" data-market="all">すべて</button>
@@ -52,17 +61,13 @@
           <button class="filter-tab" type="button" data-market="日本株">日本株</button>
         </div>
       </div>
-
       <p id="status" class="status" role="status">データを読み込んでいます...</p>
       <div id="stock-grid" class="stock-grid" aria-live="polite"></div>
       <noscript><p class="error-panel">このページの表示にはJavaScriptが必要です。</p></noscript>
     </section>
   </main>
 
-  <footer>
-    <span>Stock Scenario Portal</span>
-    <span>掲載内容は投資助言ではありません</span>
-  </footer>
+  <footer><a class="brand footer-brand" href="./index.html"><span class="brand-word">S<span>i</span>M</span><span class="brand-sub">MARKET LAB</span></a><p>数字を煽らず、前提を読む。<br>掲載内容は投資助言ではありません。</p></footer>
   <script src="./lab/assets/js/portal.js" defer></script>
 </body>
 </html>
