@@ -74,6 +74,10 @@ function stripTags(html) {
     .trim();
 }
 
+function trimTrailingWhitespace(content) {
+  return content.replace(/[ \t]+$/gm, "");
+}
+
 function decodeEntities(value) {
   return value
     .replace(/&nbsp;/g, " ")
@@ -290,8 +294,8 @@ async function main() {
     console.log(`  meta: ${plan.meta.ticker}, ${plan.meta.updated}, price=${plan.meta.price.current}, scenarios=${plan.meta.scenarios.bear}/${plan.meta.scenarios.base}/${plan.meta.scenarios.bull}`);
     if (!apply) continue;
     await mkdir(plan.targetDir, { recursive: true });
-    if (!plan.reuseDetail) await copyFile(join(sourceRoot, plan.folder, plan.detail), join(plan.targetDir, "index.html"));
-    await copyFile(join(sourceRoot, plan.folder, plan.scenario), join(plan.targetDir, "scenario.html"));
+    if (!plan.reuseDetail) await writeFile(join(plan.targetDir, "index.html"), trimTrailingWhitespace(plan.detailHtml), "utf8");
+    await writeFile(join(plan.targetDir, "scenario.html"), trimTrailingWhitespace(plan.scenarioHtml), "utf8");
     await writeFile(plan.metaPath, `${JSON.stringify(plan.meta, null, 2)}\n`, "utf8");
   }
 

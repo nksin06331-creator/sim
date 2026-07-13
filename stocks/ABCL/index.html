@@ -14,7 +14,7 @@
   {{COLOR_PRIMARY}} などのプレースホルダーを銘柄ごとに置き換えて使用
  ================================================================
 */
- 
+
 :root {
   /* ── 銘柄ごとにカスタマイズする変数 ── */
   --c-primary-50:  #e1f5ee;   /* 例: #e0f7f4 (薄い背景) */
@@ -23,17 +23,17 @@
   --c-primary-400: #1D9E75;  /* 例: #2dd4bf (メインアクセント) */
   --c-primary-600: #0F6E56;  /* 例: #0d9488 (テキスト・ボーダー) */
   --c-primary-800: #085041;  /* 例: #115e59 (見出し) */
- 
+
   --c-accent-50:   #faeeda;    /* サブカラー（薄） */
   --c-accent-400:  #BA7517;   /* サブカラー（メイン） */
   --c-accent-600:  #633806;   /* サブカラー（テキスト） */
- 
+
   --hero-bg-from:  #0a2e24;       /* ヒーロー背景グラデ開始色 */
   --hero-bg-mid:   #0F6E56;        /* ヒーロー背景グラデ中間色 */
   --hero-bg-to:    #1D9E75;         /* ヒーロー背景グラデ終端色 */
   --hero-badge-color: #9FE1CB;/* バッジ文字色 */
   --hero-h1-accent:   #5DCAA5; /* h1のスパン文字色 */
- 
+
   /* ── 共通システム変数（変更不要） ── */
   --amber-50:  #fffbeb; --amber-400: #fbbf24; --amber-600: #d97706; --amber-800: #78350f;
   --red-50:    #fef2f2; --red-400:   #f87171; --red-600:   #dc2626;
@@ -45,10 +45,10 @@
   --font-body: 'DM Sans', sans-serif;
   --font-serif: 'Noto Serif JP', serif;
 }
- 
+
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: var(--font-body); background: #f9f9f7; color: var(--gray-900); line-height: 1.7; font-size: 15px; }
- 
+
 /* ── HERO ── */
 .hero {
   background: linear-gradient(135deg, var(--hero-bg-from) 0%, var(--hero-bg-mid) 55%, var(--hero-bg-to) 100%);
@@ -70,17 +70,17 @@ body { font-family: var(--font-body); background: #f9f9f7; color: var(--gray-900
 .hero p { font-size: 16px; opacity: .85; max-width: 580px; margin: 0 auto 32px; }
 .hero-tags { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
 .hero-tag { background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); border-radius: 6px; padding: 4px 12px; font-size: 13px; }
- 
+
 /* ── NAVIGATION ── */
 .nav-index { background: #fff; border-bottom: 1px solid var(--gray-200); position: sticky; top: 0; z-index: 100; }
 .nav-inner { max-width: 820px; margin: 0 auto; padding: 0 20px; display: flex; overflow-x: auto; scrollbar-width: none; }
 .nav-inner::-webkit-scrollbar { display: none; }
 .nav-item { flex-shrink: 0; padding: 14px 16px; font-size: 13px; font-weight: 500; color: var(--gray-500); text-decoration: none; border-bottom: 2px solid transparent; transition: color .2s, border-color .2s; white-space: nowrap; }
 .nav-item:hover { color: var(--c-primary-600); border-bottom-color: var(--c-primary-400); }
- 
+
 /* ── CONTAINER ── */
 .container { max-width: 820px; margin: 0 auto; padding: 0 20px; }
- 
+
 /* ── SECTION ── */
 .section { padding: 56px 0 40px; border-bottom: 1px solid var(--gray-200); opacity: 0; transform: translateY(20px); animation: fadeUp .5s ease forwards; }
 .section:nth-child(1){animation-delay:.05s} .section:nth-child(2){animation-delay:.1s}
@@ -97,12 +97,12 @@ body { font-family: var(--font-body); background: #f9f9f7; color: var(--gray-900
 .icon-violet  { background: var(--violet-50); }
 .section-title { font-family: var(--font-serif); font-size: 22px; font-weight: 700; color: var(--gray-900); }
 .section-sub { font-size: 13px; color: var(--gray-500); margin-top: 2px; }
- 
+
 /* ── CARDS ── */
 .card { background: #fff; border: 1px solid var(--gray-200); border-radius: 12px; padding: 20px 22px; margin-bottom: 12px; }
 .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 12px; margin-bottom: 12px; }
 .card-sm { background: #fff; border: 1px solid var(--gray-200); border-radius: 10px; padding: 16px 18px; }
- 
+
 /* ── TERM ACCORDION ── */
 .term-list { display: flex; flex-direction: column; gap: 8px; }
 .term-item { background: #fff; border: 1px solid var(--gray-200); border-radius: 10px; overflow: hidden; transition: border-color .2s; }
@@ -117,7 +117,7 @@ body { font-family: var(--font-body); background: #f9f9f7; color: var(--gray-900
 .term-body { padding: 0 18px 16px; border-top: 1px solid var(--gray-100); }
 .term-body p { font-size: 14px; color: var(--gray-700); line-height: 1.8; margin-bottom: 10px; }
 .term-body p:last-child { margin-bottom: 0; }
- 
+
 /* ── CALL-OUT BOXES ── */
 .ex-box        { background: var(--c-primary-50); border-left: 3px solid var(--c-primary-400); border-radius: 0 6px 6px 0; padding: 10px 14px; margin-top: 10px; }
 .ex-box-accent { background: var(--c-accent-50);  border-left: 3px solid var(--c-accent-400);  border-radius: 0 6px 6px 0; padding: 10px 14px; margin-top: 10px; }
@@ -129,7 +129,7 @@ body { font-family: var(--font-body); background: #f9f9f7; color: var(--gray-900
 .ex-label-amber   { color: var(--amber-600); }
 .ex-label-red     { color: var(--red-600); }
 .ex-text { font-size: 13px; color: var(--gray-700); line-height: 1.7; }
- 
+
 /* ── INFO BOXES ── */
 .info-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap: 12px; margin-top: 16px; }
 .info-box { border-radius: 10px; padding: 16px 18px; }
@@ -149,7 +149,7 @@ body { font-family: var(--font-body); background: #f9f9f7; color: var(--gray-900
 .info-title-green   { color: var(--green-600); }
 .info-title-gray    { color: var(--gray-700); }
 .info-text { font-size: 13px; color: var(--gray-700); line-height: 1.7; }
- 
+
 /* ── PHASE FLOW ── */
 .phase-flow { display: flex; flex-direction: column; }
 .phase-row { display: flex; gap: 16px; align-items: flex-start; }
@@ -160,7 +160,7 @@ body { font-family: var(--font-body); background: #f9f9f7; color: var(--gray-900
 .phase-label { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: .08em; margin-bottom: 4px; }
 .phase-title { font-weight: 600; font-size: 16px; margin-bottom: 6px; }
 .phase-desc { font-size: 13px; color: var(--gray-500); line-height: 1.7; }
- 
+
 /* ── TIMELINE ── */
 .timeline { position: relative; padding-left: 32px; }
 .timeline::before { content: ''; position: absolute; left: 10px; top: 8px; bottom: 0; width: 2px; background: var(--gray-200); }
@@ -169,7 +169,7 @@ body { font-family: var(--font-body); background: #f9f9f7; color: var(--gray-900
 .tl-date { font-size: 11px; font-weight: 600; color: var(--c-primary-600); text-transform: uppercase; letter-spacing: .06em; margin-bottom: 4px; }
 .tl-title { font-weight: 600; font-size: 15px; margin-bottom: 4px; }
 .tl-desc { font-size: 13px; color: var(--gray-500); line-height: 1.7; }
- 
+
 /* ── BADGES ── */
 .badge { display: inline-block; font-size: 11px; padding: 2px 8px; border-radius: 4px; font-weight: 600; }
 .badge-primary { background: var(--c-primary-50); color: var(--c-primary-800); }
@@ -179,37 +179,37 @@ body { font-family: var(--font-body); background: #f9f9f7; color: var(--gray-900
 .badge-blue    { background: var(--blue-50);   color: var(--blue-600); }
 .badge-green   { background: var(--green-50);  color: var(--green-600); }
 .badge-violet  { background: var(--violet-50); color: var(--violet-600); }
- 
+
 /* ── COMPARE TABLE ── */
 .compare-table { width: 100%; border-collapse: collapse; font-size: 13px; }
 .compare-table th { background: var(--gray-50); padding: 10px 14px; text-align: left; font-weight: 600; font-size: 12px; color: var(--gray-500); text-transform: uppercase; letter-spacing: .05em; border-bottom: 1px solid var(--gray-200); }
 .compare-table td { padding: 11px 14px; border-bottom: 1px solid var(--gray-100); color: var(--gray-700); vertical-align: top; }
 .compare-table tr:last-child td { border-bottom: none; }
 .compare-table tr:hover td { background: var(--gray-50); }
- 
+
 /* ── HIGHLIGHT BOX ── */
 .highlight { background: linear-gradient(135deg, var(--hero-bg-from) 0%, var(--hero-bg-mid) 100%); color: #fff; border-radius: 12px; padding: 24px 26px; margin: 24px 0; }
 .highlight h3 { font-family: var(--font-serif); font-size: 18px; margin-bottom: 10px; color: var(--hero-badge-color); }
 .highlight p { font-size: 14px; opacity: .9; line-height: 1.8; }
- 
+
 /* ── PRODUCT GRID ── */
 .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px,1fr)); gap: 12px; margin: 16px 0; }
 .product-box { border-radius: 10px; padding: 16px; text-align: center; border: 1px solid transparent; }
 .product-symbol { font-size: 28px; font-weight: 700; margin-bottom: 4px; font-family: var(--font-serif); }
 .product-name { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; margin-bottom: 6px; }
 .product-use { font-size: 12px; line-height: 1.5; }
- 
+
 /* ── MISC ── */
 .lead { font-size: 16px; color: var(--gray-700); line-height: 1.8; margin-bottom: 24px; }
 strong { font-weight: 600; }
 .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap: 12px; }
- 
+
 /* ── FOOTER ── */
 .footer { padding: 48px 24px; text-align: center; color: var(--gray-500); font-size: 13px; border-top: 1px solid var(--gray-200); margin-top: 40px; }
 </style>
 </head>
 <body>
- 
+
 <!-- ========================================================
   HERO SECTION
   ABCL      : ティッカーシンボル (例: ASPI)
@@ -228,7 +228,7 @@ strong { font-weight: 600; }
     <span class="hero-tag">🧬 抗体創薬</span><span class="hero-tag">🤖 AI・データ科学</span><span class="hero-tag">💊 ABCL635</span><span class="hero-tag">🧪 ABCL575</span><span class="hero-tag">📈 臨床カタリスト</span>
   </div>
 </div>
- 
+
 <!-- ========================================================
   STICKY NAV
   セクション名は7つ固定。ラベルは業界に合わせて変更可。
@@ -244,9 +244,9 @@ strong { font-weight: 600; }
     <a class="nav-item" href="#sec7">⑦ 株価の見方</a>
   </div>
 </nav>
- 
+
 <div class="container">
- 
+
   <!-- SEC1: 会社概要 -->
   <section class="section" id="sec1">
     <div class="section-header">
@@ -266,7 +266,7 @@ strong { font-weight: 600; }
 <div class="highlight"><h3>ABCL株の基本ルール</h3><p>現在の売上高だけで評価する銘柄ではありません。株価を大きく動かすのは、ABCL635・ABCL575などの臨床データ、提携案件の進展、資金消費速度、そして将来のロイヤルティ価値です。</p></div>
 
 </section>
- 
+
   <!-- SEC2: 業界基礎知識 -->
   <section class="section" id="sec2">
     <div class="section-header">
@@ -285,7 +285,7 @@ strong { font-weight: 600; }
 <details class="term-item"><summary class="term-header"><span class="term-name">下流権益</span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>提携先の薬が成功した際のマイルストーンやロイヤルティなど、将来収益を受け取る権利です。Q1 2026末には、進行中と認識する40の提携プログラムと、臨床段階の14分子に下流権益がありました。</p></div></details>
 </div>
 </section>
- 
+
   <!-- SEC3: 主要技術・製品 -->
   <section class="section" id="sec3">
     <div class="section-header">
@@ -306,7 +306,7 @@ strong { font-weight: 600; }
 <div class="card"><h3>提携ポートフォリオ</h3><p>2025年末までの累計で下流権益付きパートナー開始プログラムは104件、累計19分子が臨床入り。自社パイプラインに加え、多数の「成功時に価値が生まれるオプション」を持つ構造です。</p></div>
 
 </section>
- 
+
   <!-- SEC4: 技術詳細・規制プロセス -->
   <section class="section" id="sec4">
     <div class="section-header">
@@ -325,7 +325,7 @@ strong { font-weight: 600; }
 <details class="term-item"><summary class="term-header"><span class="term-name">⑤ Phase 3 → 承認</span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>より大規模な比較試験を経て規制当局の審査へ。成功して初めて商業販売が可能になります。</p></div></details>
 </div>
 </section>
- 
+
   <!-- SEC5: 競合比較 / ビジネスモデル詳細 -->
   <section class="section" id="sec5">
     <div class="section-header">
@@ -346,7 +346,7 @@ strong { font-weight: 600; }
 </tbody></table></div>
 <div class="highlight"><h3>最大の差別化ポイント</h3><p>単なる「AI創薬ソフト会社」ではなく、実験・データ・抗体探索・開発・製造インフラまで統合し、さらに自社臨床資産と提携先の下流権益を同時に持つ点です。その反面、固定費とR&D費が重く、臨床失敗時の損失も大きくなります。</p></div>
 </section>
- 
+
   <!-- SEC6: 専門用語辞典 -->
   <section class="section" id="sec6">
     <div class="section-header">
@@ -358,7 +358,7 @@ strong { font-weight: 600; }
     </div>
 <div class="term-list"><details class="term-item"><summary class="term-header"><span class="term-name">NK3R</span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>神経内分泌系に関わる受容体。ABCL635の標的で、更年期の血管運動症状との関連が重要。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">OX40L</span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>免疫T細胞の活性化に関係するリガンド。ABCL575が標的とする。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">VMS</span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>血管運動症状。更年期のホットフラッシュや寝汗など。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">バイオマーカー</span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>薬が標的へ作用したことを示す測定指標。臨床的な症状改善そのものとは区別が必要。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">忍容性</span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>患者が副作用を含め治療にどの程度耐えられるか。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">IND</span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>臨床試験開始のため規制当局へ提出する申請。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">マイルストーン</span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>開発・承認・販売などの条件達成時に受け取る一時金。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">ロイヤルティ</span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>提携薬の売上に応じて受け取る収益。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">キャッシュバーン</span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>事業継続で現金が減る速度。赤字バイオでは資金調達リスク判断に重要。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">Phase 2</span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>患者を対象に有効性と用量を本格検証する臨床段階。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">GPCR</span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>細胞膜上の重要な受容体群。創薬標的として巨大だが、抗体開発が難しい対象も多い。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">下流権益</span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>提携プログラム成功時に将来の経済的利益を得る権利。</p></div></details></div>
 </section>
- 
+
   <!-- SEC7: 株価の見方・カタリスト -->
   <section class="section" id="sec7">
     <div class="section-header">
@@ -391,14 +391,14 @@ strong { font-weight: 600; }
 <p class="lead"><strong>データ出典：</strong>AbCellera IR・公式パイプライン、SEC提出資料、2026年Q1決算、公開市場データ。株価は市場変動により変化します。</p>
 
 </section>
- 
+
 </div><!-- /container -->
- 
+
 <div class="footer">
   <p style="margin-bottom:8px;font-weight:600;color:var(--gray-700)">⚠️ 免責事項</p>
   <p>本資料は情報提供・教育目的のみです。投資助言ではありません。抗体創薬・バイオテクノロジー株は高ボラティリティで元本損失リスクがあります。<br>実際の投資判断はご自身の責任で行ってください。データは2026年7月13日時点の公開情報に基づきます。</p>
 </div>
- 
+
 <script>
 /* アコーディオン：一度に1つだけ開く */
 document.querySelectorAll('details.term-item').forEach(d => {
@@ -411,53 +411,53 @@ document.querySelectorAll('details.term-item').forEach(d => {
   });
 });
 </script>
- 
+
 </body>
 </html>
- 
+
 <!--
 ================================================================
   カラーパレット 早見表（:root変数に設定する値の参考）
 ================================================================
- 
+
 ■ バイオテク/製薬（深緑系）
   primary-50: #e1f5ee  primary-400: #1D9E75  primary-600: #0F6E56  primary-800: #085041
   accent-50:  #faeeda  accent-400:  #BA7517  accent-600:  #633806
   hero-from: #0a2e24   hero-mid: #0F6E56   hero-to: #1D9E75
   badge-color: #9FE1CB  h1-accent: #5DCAA5
- 
+
 ■ 量子コンピューター（深紫系）
   primary-50: #eef2ff  primary-400: #6366f1  primary-600: #4338ca  primary-800: #312e81
   accent-50:  #f5f3ff  accent-400:  #8b5cf6  accent-600:  #7c3aed
   hero-from: #0f0c29   hero-mid: #302b63   hero-to: #24243e
   badge-color: #c7d2fe  h1-accent: #a5b4fc
- 
+
 ■ 同位体/先端素材（シアン/ティール系）
   primary-50: #f0fdfa  primary-400: #2dd4bf  primary-600: #0d9488  primary-800: #115e59
   accent-50:  #fff7ed  accent-400:  #fb923c  accent-600:  #ea580c
   hero-from: #0c3a2e   hero-mid: #065f46   hero-to: #047857
   badge-color: #99f6e4  h1-accent: #5eead4
- 
+
 ■ 半導体/AI（深青系）
   primary-50: #eff6ff  primary-400: #3b82f6  primary-600: #2563eb  primary-800: #1e3a8a
   accent-50:  #ecfeff  accent-400:  #06b6d4  accent-600:  #0891b2
   hero-from: #0c1445   hero-mid: #1e3a8a   hero-to: #2563eb
   badge-color: #bfdbfe  h1-accent: #93c5fd
- 
+
 ■ エネルギー/原子力（琥珀系）
   primary-50: #fffbeb  primary-400: #fbbf24  primary-600: #d97706  primary-800: #78350f
   accent-50:  #fff7ed  accent-400:  #fb923c  accent-600:  #c2410c
   hero-from: #3b1c02   hero-mid: #78350f   hero-to: #b45309
   badge-color: #fde68a  h1-accent: #fcd34d
- 
+
 ■ 防衛/宇宙（ダークグレー系）
   primary-50: #f1f5f9  primary-400: #475569  primary-600: #334155  primary-800: #0f172a
   accent-50:  #eff6ff  accent-400:  #3b82f6  accent-600:  #1d4ed8
   hero-from: #020617   hero-mid: #0f172a   hero-to: #1e293b
   badge-color: #94a3b8  h1-accent: #7dd3fc
- 
+
 ================================================================
 -->
- 
+
 
 <!-- ChatGPT用ルール: このテンプレートから生成する完成HTMLは、必ず index.html というファイル名で保存・出力する。 -->

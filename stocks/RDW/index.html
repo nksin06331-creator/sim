@@ -1,268 +1,470 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>RDW 完全入門ガイド</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@700;900&family=Noto+Sans+JP:wght@400;500;700;900&family=DM+Sans:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
 /*
  ================================================================
-  STOCK GUIDE HTML TEMPLATE v1.0 / ChatGPT index.html output version
-  このCSSはすべての銘柄ガイドで共通使用するデザインシステムです
-  {{COLOR_PRIMARY}} などのプレースホルダーを銘柄ごとに置き換えて使用
+  STOCK GUIDE TEMPLATE v3  SiM MARKET LAB ダーク版 / ChatGPT index.html
+  ----------------------------------------------------------------
+  ★★ デザインロック（ぶれ防止）★★
+  ・この <style> ブロックとページ骨格は「改変禁止」。1文字も変えない。逐語コピーする。
+  ・色はSiMグリーンで固定。銘柄・業界でアクセント色を変えない。
+  ・差し替えてよいのは {{ }} プレースホルダーの中身（＝テキスト）だけ。
+  ・セクションの数・順番・各コンポーネントの個数（SEC1のcard-smは4枚 等）は固定。
+    追加・削除・並べ替えをしない。
+  ----------------------------------------------------------------
+  ブランド：黒背景 × ネオングリーン × 白文字（キーワードだけ緑）。Instagram(sim.marketlab)準拠。
+  設計思想：「表層＝3秒で意味が取れる／深層＝読みたい人だけ開く」の2層構造。
+  ・見出しの重要ワードは <span class="g">…</span> で緑ハイライト。
  ================================================================
 */
- 
+
 :root {
-  /* ── 銘柄ごとにカスタマイズする変数 ── */
-  --c-primary-50:  #f1f5f9;   /* 例: #e0f7f4 (薄い背景) */
-  --c-primary-100: #e2e8f0;  /* 例: #b2ece5 */
-  --c-primary-200: #cbd5e1;  /* 例: #99f6e4 */
-  --c-primary-400: #475569;  /* 例: #2dd4bf (メインアクセント) */
-  --c-primary-600: #334155;  /* 例: #0d9488 (テキスト・ボーダー) */
-  --c-primary-800: #0f172a;  /* 例: #115e59 (見出し) */
- 
-  --c-accent-50:   #eff6ff;    /* サブカラー（薄） */
-  --c-accent-400:  #3b82f6;   /* サブカラー（メイン） */
-  --c-accent-600:  #1d4ed8;   /* サブカラー（テキスト） */
- 
-  --hero-bg-from:  #020617;       /* ヒーロー背景グラデ開始色 */
-  --hero-bg-mid:   #0f172a;        /* ヒーロー背景グラデ中間色 */
-  --hero-bg-to:    #1e293b;         /* ヒーロー背景グラデ終端色 */
-  --hero-badge-color: #94a3b8;/* バッジ文字色 */
-  --hero-h1-accent:   #7dd3fc; /* h1のスパン文字色 */
- 
-  /* ── 共通システム変数（変更不要） ── */
-  --amber-50:  #fffbeb; --amber-400: #fbbf24; --amber-600: #d97706; --amber-800: #78350f;
-  --red-50:    #fef2f2; --red-400:   #f87171; --red-600:   #dc2626;
-  --blue-50:   #eff6ff; --blue-400:  #60a5fa; --blue-600:  #2563eb; --blue-800: #1e3a8a;
-  --green-50:  #f0fdf4; --green-400: #4ade80; --green-600: #16a34a;
-  --violet-50: #f5f3ff; --violet-400:#a78bfa; --violet-600:#7c3aed;
-  --gray-50:  #f9fafb; --gray-100: #f3f4f6; --gray-200: #e5e7eb;
-  --gray-300: #d1d5db; --gray-500: #6b7280; --gray-700: #374151; --gray-900: #111827;
-  --font-body: 'DM Sans', sans-serif;
-  --font-serif: 'Noto Serif JP', serif;
+  /* ── ブランド・アクセント：SiMグリーンで固定（銘柄・業界で変えない＝デザインぶれ防止） ── */
+  --accent:        #6EE24E;
+  --accent-bright: #8BF56B;
+  --accent-tint:   rgba(110,226,78,.12);
+  --accent-line:   rgba(110,226,78,.38);
+
+  /* ── ダークシェル（変更不要・全銘柄共通） ── */
+  --bg:        #0a0c0a;
+  --surface:   #141815;   /* カード面 */
+  --surface-2: #1b201c;   /* 少し明るい面 */
+
+  /* レガシー変数マッピング（本文markupが参照。名前は据え置き、意味をダーク用に再定義） */
+  --c-primary-50:  var(--accent-tint);        --c-primary-100: rgba(110,226,78,.18);
+  --c-primary-200: rgba(110,226,78,.55);      --c-primary-400: var(--accent);
+  --c-primary-600: var(--accent);             --c-primary-800: var(--accent-bright);
+  --c-accent-50:   var(--accent-tint);        --c-accent-400:  var(--accent);   --c-accent-600: var(--accent-bright);
+
+  /* システム色（ダーク版：薄背景は半透明の暗色、文字は明るい色に反転） */
+  --amber-50:  rgba(251,191,36,.13); --amber-400: #fbbf24; --amber-600: #fcd34d; --amber-800: #fde68a;
+  --red-50:    rgba(248,113,113,.13); --red-400:  #f87171; --red-600:   #fca5a5;
+  --blue-50:   rgba(96,165,250,.13); --blue-400:  #60a5fa; --blue-600:  #93c5fd; --blue-800: #bfdbfe;
+  --green-50:  rgba(110,226,78,.13); --green-400: #6EE24E; --green-600: #8bf56b;
+  --violet-50: rgba(167,139,250,.13); --violet-400:#a78bfa; --violet-600:#c4b5fd;
+  --gray-50:  #15191b;               --gray-100: rgba(255,255,255,.06);
+  --gray-200: rgba(255,255,255,.09); --gray-300: #3f463f;
+  --gray-500: #8a948a;               --gray-700: #c3ccc3; --gray-900: #f1f5f1;
+
+  --font-display: 'Zen Kaku Gothic New', 'Noto Sans JP', sans-serif;
+  --font-body:    'Noto Sans JP', 'DM Sans', sans-serif;
+  --font-num:     'DM Sans', 'Noto Sans JP', sans-serif;
+  --radius: 16px;
 }
- 
+
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: var(--font-body); background: #f9f9f7; color: var(--gray-900); line-height: 1.7; font-size: 15px; }
- 
-/* ── HERO ── */
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-body); background: var(--bg); color: var(--gray-900); line-height: 1.85; font-size: 16px; -webkit-text-size-adjust: 100%; }
+.g { color: var(--accent); }               /* 緑キーワード */
+
+/* 読了プログレスバー */
+.progress-bar { position: fixed; top: 0; left: 0; height: 4px; width: 0%; z-index: 200; background: var(--accent); box-shadow: 0 0 12px var(--accent); transition: width .1s linear; }
+
+/* ── HERO（黒＋緑グロー＋ハーフトーン・ドット） ── */
 .hero {
-  background: linear-gradient(135deg, var(--hero-bg-from) 0%, var(--hero-bg-mid) 55%, var(--hero-bg-to) 100%);
-  color: #fff; padding: 64px 24px 80px; text-align: center; position: relative; overflow: hidden;
+  background: radial-gradient(120% 90% at 50% -10%, #12251a 0%, #0b0f0c 45%, var(--bg) 75%);
+  color: #fff; padding: 58px 22px 66px; text-align: center; position: relative; overflow: hidden;
 }
-.hero::before {
-  content: ''; position: absolute; inset: 0;
-  background: radial-gradient(ellipse at 15% 40%, rgba(255,255,255,0.08) 0%, transparent 55%),
-              radial-gradient(ellipse at 85% 60%, rgba(255,255,255,0.05) 0%, transparent 50%);
+.hero::before { content:''; position:absolute; inset:0;
+  background-image: radial-gradient(var(--accent) 1px, transparent 1.6px);
+  background-size: 15px 15px; opacity: .10;
+  -webkit-mask-image: radial-gradient(ellipse at 50% 120%, #000 0%, transparent 60%);
+          mask-image: radial-gradient(ellipse at 50% 120%, #000 0%, transparent 60%);
 }
 .hero > * { position: relative; z-index: 1; }
-.hero-badge {
-  display: inline-block; background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3);
-  border-radius: 999px; padding: 4px 16px; font-size: 12px; letter-spacing: .1em;
-  text-transform: uppercase; margin-bottom: 20px; color: var(--hero-badge-color);
-}
-.hero h1 { font-family: var(--font-serif); font-size: clamp(26px,5vw,44px); font-weight: 700; line-height: 1.3; margin-bottom: 16px; }
-.hero h1 span { color: var(--hero-h1-accent); }
-.hero p { font-size: 16px; opacity: .85; max-width: 580px; margin: 0 auto 32px; }
+.brandmark { font-family: var(--font-num); font-weight: 700; letter-spacing: .18em; font-size: 13px; color: var(--gray-500); margin-bottom: 18px; }
+.brandmark b { color: #fff; font-weight: 700; }
+.brandmark .g { color: var(--accent); }
+.hero-badge { display: inline-block; background: rgba(110,226,78,.10); border: 1px solid var(--accent-line); border-radius: 999px; padding: 6px 18px; font-size: 12px; letter-spacing: .06em; font-weight: 700; margin-bottom: 18px; color: var(--accent); }
+.hero h1 { font-family: var(--font-display); font-size: clamp(30px,7.5vw,50px); font-weight: 900; line-height: 1.3; margin-bottom: 14px; letter-spacing: .01em; }
+.hero h1 .g { color: var(--accent); }
+.hero p { font-size: 15.5px; color: #c3ccc3; max-width: 560px; margin: 0 auto 26px; line-height: 1.85; }
 .hero-tags { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
-.hero-tag { background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); border-radius: 6px; padding: 4px 12px; font-size: 13px; }
- 
-/* ── NAVIGATION ── */
-.nav-index { background: #fff; border-bottom: 1px solid var(--gray-200); position: sticky; top: 0; z-index: 100; }
-.nav-inner { max-width: 820px; margin: 0 auto; padding: 0 20px; display: flex; overflow-x: auto; scrollbar-width: none; }
+.hero-tag { background: rgba(255,255,255,.04); border: 1px solid var(--gray-200); border-radius: 999px; padding: 6px 14px; font-size: 13px; font-weight: 500; color: #d8ded8; }
+
+/* ── 30秒サマリー（でかい数字カード） ── */
+.tldr-hero { max-width: 820px; margin: -30px auto 0; padding: 0 16px; position: relative; z-index: 5; }
+.tldr-hero-inner { background: var(--surface); border: 1px solid var(--gray-200); border-radius: var(--radius); padding: 20px 20px 8px; box-shadow: 0 16px 40px rgba(0,0,0,.5); }
+.tldr-hero-title { font-family: var(--font-display); font-weight: 900; font-size: 17px; color: #fff; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+.stat-strip { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px,1fr)); gap: 10px; margin-bottom: 14px; }
+.stat { background: var(--gray-50); border: 1px solid var(--gray-200); border-radius: 12px; padding: 14px 12px; text-align: center; }
+.stat-value { font-family: var(--font-num); font-weight: 700; font-size: clamp(24px,6vw,32px); line-height: 1.1; color: #fff; }
+.stat-value.up   { color: var(--accent); }
+.stat-value.down { color: var(--red-400); }
+.stat-label { font-size: 12px; color: var(--gray-500); margin-top: 4px; font-weight: 500; }
+.stat-note  { font-size: 11px; color: var(--gray-500); margin-top: 2px; }
+
+/* ── NAV ── */
+.nav-index { background: rgba(10,12,10,.82); backdrop-filter: blur(10px); border-bottom: 1px solid var(--gray-200); position: sticky; top: 0; z-index: 100; }
+.nav-inner { max-width: 820px; margin: 0 auto; padding: 0 16px; display: flex; overflow-x: auto; scrollbar-width: none; }
 .nav-inner::-webkit-scrollbar { display: none; }
-.nav-item { flex-shrink: 0; padding: 14px 16px; font-size: 13px; font-weight: 500; color: var(--gray-500); text-decoration: none; border-bottom: 2px solid transparent; transition: color .2s, border-color .2s; white-space: nowrap; }
-.nav-item:hover { color: var(--c-primary-600); border-bottom-color: var(--c-primary-400); }
- 
-/* ── CONTAINER ── */
-.container { max-width: 820px; margin: 0 auto; padding: 0 20px; }
- 
+.nav-item { flex-shrink: 0; padding: 14px 14px; font-size: 13px; font-weight: 700; color: var(--gray-500); text-decoration: none; border-bottom: 3px solid transparent; transition: color .2s, border-color .2s; white-space: nowrap; }
+.nav-item:hover { color: var(--accent); border-bottom-color: var(--accent); }
+
+.container { max-width: 820px; margin: 0 auto; padding: 0 16px; }
+
 /* ── SECTION ── */
-.section { padding: 56px 0 40px; border-bottom: 1px solid var(--gray-200); opacity: 0; transform: translateY(20px); animation: fadeUp .5s ease forwards; }
-.section:nth-child(1){animation-delay:.05s} .section:nth-child(2){animation-delay:.1s}
-.section:nth-child(3){animation-delay:.15s} .section:nth-child(4){animation-delay:.2s}
-.section:nth-child(5){animation-delay:.25s} .section:nth-child(6){animation-delay:.3s}
+.section { padding: 46px 0 34px; border-bottom: 1px solid var(--gray-200); opacity: 0; transform: translateY(16px); animation: fadeUp .5s ease forwards; }
 @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
-.section-header { display: flex; align-items: center; gap: 14px; margin-bottom: 28px; }
-.section-icon { width: 42px; height: 42px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; }
-.icon-primary { background: var(--c-primary-50); }
-.icon-accent  { background: var(--c-accent-50); }
-.icon-amber   { background: var(--amber-50); }
-.icon-blue    { background: var(--blue-50); }
-.icon-green   { background: var(--green-50); }
-.icon-violet  { background: var(--violet-50); }
-.section-title { font-family: var(--font-serif); font-size: 22px; font-weight: 700; color: var(--gray-900); }
-.section-sub { font-size: 13px; color: var(--gray-500); margin-top: 2px; }
- 
+.section-header { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
+.section-icon { width: 46px; height: 46px; border-radius: 50%; background: var(--surface-2); border: 1px solid var(--gray-200); display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0; }
+.section-num { width: 30px; height: 30px; border-radius: 50%; background: var(--accent); color: #06210a; font-family: var(--font-num); font-weight: 700; font-size: 15px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.section-title { font-family: var(--font-display); font-size: clamp(21px,5.4vw,27px); font-weight: 900; color: #fff; line-height: 1.32; position: relative; display: inline-block; padding-bottom: 9px; }
+.section-title::after { content: ''; position: absolute; left: 0; bottom: 0; width: 40px; height: 3px; background: var(--accent); border-radius: 3px; }
+.section-title .g { color: var(--accent); }
+.section-sub { font-size: 13px; color: var(--gray-500); margin-top: 6px; font-weight: 500; }
+
+/* ── ⚡3秒まとめ ── */
+.tldr { background: var(--accent-tint); border: 1px solid var(--accent-line); border-radius: var(--radius); padding: 18px 20px; margin-bottom: 22px; }
+.tldr-label { display: inline-flex; align-items: center; gap: 6px; font-family: var(--font-display); font-weight: 900; font-size: 14px; color: var(--accent); margin-bottom: 10px; }
+.tldr ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.tldr li { font-size: 15.5px; font-weight: 500; color: #eef2ee; line-height: 1.7; padding-left: 30px; position: relative; }
+.tldr li::before { content: attr(data-emoji); position: absolute; left: 0; top: 0; font-size: 18px; }
+
+/* ── 👉つまり ── */
+.sowhat { background: var(--surface); border: 1.5px dashed var(--accent); border-radius: 14px; padding: 12px 16px 12px 46px; margin: 14px 0; position: relative; }
+.sowhat::before { content: '👉'; position: absolute; left: 14px; top: 11px; font-size: 20px; }
+.sowhat b { color: var(--accent); }
+.sowhat p { font-size: 14.5px; color: var(--gray-700); line-height: 1.8; }
+
+/* ── シグナル判定ピル ── */
+.signal { display: inline-flex; align-items: center; gap: 5px; font-weight: 700; font-size: 12.5px; padding: 4px 12px; border-radius: 999px; white-space: nowrap; }
+.signal.bull    { background: var(--green-50); color: var(--accent); }
+.signal.neutral { background: var(--amber-50); color: var(--amber-600); }
+.signal.bear    { background: var(--red-50);   color: var(--red-600); }
+
+/* ── ★重要度 ── */
+.rating { font-family: var(--font-num); letter-spacing: 1px; color: var(--accent); font-size: 14px; }
+.rating .off { color: var(--gray-300); }
+
+/* ── 絵文字箇条書き ── */
+.keypoints { list-style: none; display: flex; flex-direction: column; gap: 12px; margin: 8px 0; }
+.keypoints li { display: flex; gap: 12px; align-items: flex-start; font-size: 15px; line-height: 1.7; color: #e4e9e4; }
+.keypoints .kp-emoji { font-size: 22px; flex-shrink: 0; line-height: 1.4; }
+.keypoints .kp-text b { color: var(--accent); }
+
 /* ── CARDS ── */
-.card { background: #fff; border: 1px solid var(--gray-200); border-radius: 12px; padding: 20px 22px; margin-bottom: 12px; }
+.card { background: var(--surface); border: 1px solid var(--gray-200); border-radius: 14px; padding: 18px 20px; margin-bottom: 12px; }
 .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 12px; margin-bottom: 12px; }
-.card-sm { background: #fff; border: 1px solid var(--gray-200); border-radius: 10px; padding: 16px 18px; }
- 
+.card-sm { background: var(--surface); border: 1px solid var(--gray-200); border-radius: 14px; padding: 16px 18px; }
+.card-sm .card-emoji { font-size: 22px; display: inline-flex; width: 40px; height: 40px; border-radius: 50%; background: var(--surface-2); border: 1px solid var(--gray-200); align-items: center; justify-content: center; margin-bottom: 8px; }
+.card-sm .card-title { font-family: var(--font-display); font-weight: 700; font-size: 15px; margin-bottom: 4px; color: var(--accent); }
+.card-sm .card-desc { font-size: 13.5px; color: var(--gray-700); line-height: 1.75; }
+
+/* ── 会社クイックデータ（企業詳細を厚くする一覧） ── */
+.facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(148px,1fr)); gap: 1px; background: var(--gray-200); border: 1px solid var(--gray-200); border-radius: 14px; overflow: hidden; margin: 4px 0 14px; }
+.facts > div { background: var(--surface); padding: 12px 14px; }
+.facts dt { font-size: 11px; color: var(--gray-500); font-weight: 700; margin-bottom: 3px; }
+.facts dd { margin: 0; font-size: 14.5px; color: #fff; font-weight: 700; line-height: 1.5; }
+.block-label { font-family: var(--font-display); font-weight: 900; font-size: 15px; color: #fff; margin: 18px 0 8px; display: flex; align-items: center; gap: 7px; }
+.block-label .g { color: var(--accent); }
+
 /* ── TERM ACCORDION ── */
-.term-list { display: flex; flex-direction: column; gap: 8px; }
-.term-item { background: #fff; border: 1px solid var(--gray-200); border-radius: 10px; overflow: hidden; transition: border-color .2s; }
-.term-item:hover { border-color: var(--c-primary-400); }
-.term-header { display: flex; align-items: center; justify-content: space-between; padding: 14px 18px; cursor: pointer; gap: 12px; user-select: none; }
+.term-list { display: flex; flex-direction: column; gap: 10px; }
+.term-item { background: var(--surface); border: 1px solid var(--gray-200); border-radius: 14px; overflow: hidden; transition: border-color .2s; }
+.term-item:hover { border-color: var(--accent); }
+.term-header { display: flex; align-items: center; justify-content: space-between; padding: 16px 18px; cursor: pointer; gap: 12px; user-select: none; min-height: 56px; }
 .term-header::-webkit-details-marker { display: none; }
-.term-name { font-weight: 600; font-size: 15px; color: var(--gray-900); }
+.term-name { font-family: var(--font-display); font-weight: 700; font-size: 15.5px; color: #fff; }
 .term-en { font-size: 11px; color: var(--gray-500); margin-left: 8px; font-weight: 400; }
-.term-arrow { font-size: 16px; color: var(--c-primary-400); transition: transform .25s; flex-shrink: 0; }
+.term-arrow { font-size: 20px; color: var(--accent); transition: transform .25s; flex-shrink: 0; }
 .term-item[open] .term-arrow { transform: rotate(180deg); }
-.term-item[open] { border-color: var(--c-primary-400); }
-.term-body { padding: 0 18px 16px; border-top: 1px solid var(--gray-100); }
-.term-body p { font-size: 14px; color: var(--gray-700); line-height: 1.8; margin-bottom: 10px; }
-.term-body p:last-child { margin-bottom: 0; }
- 
-/* ── CALL-OUT BOXES ── */
-.ex-box        { background: var(--c-primary-50); border-left: 3px solid var(--c-primary-400); border-radius: 0 6px 6px 0; padding: 10px 14px; margin-top: 10px; }
-.ex-box-accent { background: var(--c-accent-50);  border-left: 3px solid var(--c-accent-400);  border-radius: 0 6px 6px 0; padding: 10px 14px; margin-top: 10px; }
-.ex-box-amber  { background: var(--amber-50);  border-left: 3px solid var(--amber-400);  border-radius: 0 6px 6px 0; padding: 10px 14px; margin-top: 10px; }
-.ex-box-red    { background: var(--red-50);    border-left: 3px solid var(--red-400);    border-radius: 0 6px 6px 0; padding: 10px 14px; margin-top: 10px; }
-.ex-label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; margin-bottom: 4px; }
-.ex-label-primary { color: var(--c-primary-600); }
-.ex-label-accent  { color: var(--c-accent-600); }
-.ex-label-amber   { color: var(--amber-600); }
-.ex-label-red     { color: var(--red-600); }
-.ex-text { font-size: 13px; color: var(--gray-700); line-height: 1.7; }
- 
-/* ── INFO BOXES ── */
+.term-item[open] { border-color: var(--accent); }
+.term-body { padding: 2px 18px 18px; border-top: 1px solid var(--gray-100); }
+.term-body p { font-size: 14.5px; color: var(--gray-700); line-height: 1.85; margin: 10px 0 0; }
+.term-body b { color: var(--accent); }
+
+/* ── CALL-OUT ── */
+.ex-box, .ex-box-accent, .ex-box-amber, .ex-box-red { border-radius: 0 8px 8px 0; padding: 12px 16px; margin-top: 12px; }
+.ex-box        { background: var(--accent-tint); border-left: 4px solid var(--accent); }
+.ex-box-accent { background: var(--accent-tint); border-left: 4px solid var(--accent); }
+.ex-box-amber  { background: var(--amber-50);  border-left: 4px solid var(--amber-400); }
+.ex-box-red    { background: var(--red-50);    border-left: 4px solid var(--red-400); }
+.ex-label { font-size: 11px; font-weight: 700; letter-spacing: .04em; margin-bottom: 4px; }
+.ex-label-primary, .ex-label-accent { color: var(--accent); }
+.ex-label-amber { color: var(--amber-600); }
+.ex-label-red { color: var(--red-600); }
+.ex-text { font-size: 13.5px; color: var(--gray-700); line-height: 1.75; }
+
+/* ── INFO BOXES（リスク4分類） ── */
 .info-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap: 12px; margin-top: 16px; }
-.info-box { border-radius: 10px; padding: 16px 18px; }
-.info-box-primary { background: var(--c-primary-50); }
-.info-box-accent  { background: var(--c-accent-50); }
+.info-box { border-radius: 14px; padding: 16px 18px; border: 1px solid var(--gray-200); }
+.info-box-primary { background: var(--accent-tint); }
+.info-box-accent  { background: var(--accent-tint); }
 .info-box-amber   { background: var(--amber-50); }
 .info-box-red     { background: var(--red-50); }
 .info-box-blue    { background: var(--blue-50); }
 .info-box-green   { background: var(--green-50); }
-.info-box-gray    { background: var(--gray-100); }
-.info-title { font-weight: 600; font-size: 14px; margin-bottom: 6px; }
-.info-title-primary { color: var(--c-primary-800); }
-.info-title-accent  { color: var(--c-accent-600); }
-.info-title-amber   { color: var(--amber-600); }
-.info-title-red     { color: var(--red-600); }
-.info-title-blue    { color: var(--blue-600); }
-.info-title-green   { color: var(--green-600); }
-.info-title-gray    { color: var(--gray-700); }
-.info-text { font-size: 13px; color: var(--gray-700); line-height: 1.7; }
- 
-/* ── PHASE FLOW ── */
-.phase-flow { display: flex; flex-direction: column; }
-.phase-row { display: flex; gap: 16px; align-items: flex-start; }
-.phase-line-wrap { display: flex; flex-direction: column; align-items: center; flex-shrink: 0; width: 40px; }
-.phase-dot { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px; flex-shrink: 0; }
-.phase-connector { width: 2px; height: 40px; background: var(--gray-200); }
-.phase-content { padding-top: 8px; padding-bottom: 24px; flex: 1; }
-.phase-label { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: .08em; margin-bottom: 4px; }
-.phase-title { font-weight: 600; font-size: 16px; margin-bottom: 6px; }
-.phase-desc { font-size: 13px; color: var(--gray-500); line-height: 1.7; }
- 
+.info-box-gray    { background: var(--surface-2); }
+.info-title { font-family: var(--font-display); font-weight: 700; font-size: 14px; margin-bottom: 6px; display: flex; align-items: center; gap: 6px; }
+.info-title-primary, .info-title-accent, .info-title-green { color: var(--accent); }
+.info-title-amber { color: var(--amber-600); }
+.info-title-red { color: var(--red-600); }
+.info-title-blue { color: var(--blue-600); }
+.info-title-gray { color: #d8ded8; }
+.info-text { font-size: 13.5px; color: var(--gray-700); line-height: 1.75; }
+
 /* ── TIMELINE ── */
-.timeline { position: relative; padding-left: 32px; }
-.timeline::before { content: ''; position: absolute; left: 10px; top: 8px; bottom: 0; width: 2px; background: var(--gray-200); }
-.tl-row { position: relative; margin-bottom: 24px; }
-.tl-row::before { content: ''; position: absolute; left: -26px; top: 7px; width: 12px; height: 12px; border-radius: 50%; background: var(--c-primary-400); border: 2px solid #fff; box-shadow: 0 0 0 2px var(--c-primary-400); }
-.tl-date { font-size: 11px; font-weight: 600; color: var(--c-primary-600); text-transform: uppercase; letter-spacing: .06em; margin-bottom: 4px; }
-.tl-title { font-weight: 600; font-size: 15px; margin-bottom: 4px; }
-.tl-desc { font-size: 13px; color: var(--gray-500); line-height: 1.7; }
- 
+.timeline { position: relative; padding-left: 30px; }
+.timeline::before { content: ''; position: absolute; left: 9px; top: 8px; bottom: 6px; width: 3px; background: rgba(110,226,78,.25); border-radius: 3px; }
+.tl-row { position: relative; margin-bottom: 22px; }
+.tl-row::before { content: ''; position: absolute; left: -25px; top: 5px; width: 14px; height: 14px; border-radius: 50%; background: var(--accent); border: 3px solid var(--bg); box-shadow: 0 0 0 2px var(--accent); }
+.tl-date { font-family: var(--font-num); font-size: 12px; font-weight: 700; color: var(--accent); letter-spacing: .04em; margin-bottom: 3px; }
+.tl-title { font-family: var(--font-display); font-weight: 700; font-size: 15.5px; color: #fff; margin-bottom: 3px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.tl-desc { font-size: 13.5px; color: var(--gray-500); line-height: 1.75; }
+
 /* ── BADGES ── */
-.badge { display: inline-block; font-size: 11px; padding: 2px 8px; border-radius: 4px; font-weight: 600; }
-.badge-primary { background: var(--c-primary-50); color: var(--c-primary-800); }
-.badge-accent  { background: var(--c-accent-50);  color: var(--c-accent-600); }
+.badge { display: inline-block; font-size: 11px; padding: 3px 9px; border-radius: 6px; font-weight: 700; }
+.badge-primary { background: var(--accent-tint); color: var(--accent); }
+.badge-accent  { background: var(--accent-tint); color: var(--accent); }
 .badge-amber   { background: var(--amber-50);  color: var(--amber-600); }
 .badge-red     { background: var(--red-50);    color: var(--red-600); }
 .badge-blue    { background: var(--blue-50);   color: var(--blue-600); }
-.badge-green   { background: var(--green-50);  color: var(--green-600); }
+.badge-green   { background: var(--green-50);  color: var(--accent); }
 .badge-violet  { background: var(--violet-50); color: var(--violet-600); }
- 
+
 /* ── COMPARE TABLE ── */
-.compare-table { width: 100%; border-collapse: collapse; font-size: 13px; }
-.compare-table th { background: var(--gray-50); padding: 10px 14px; text-align: left; font-weight: 600; font-size: 12px; color: var(--gray-500); text-transform: uppercase; letter-spacing: .05em; border-bottom: 1px solid var(--gray-200); }
-.compare-table td { padding: 11px 14px; border-bottom: 1px solid var(--gray-100); color: var(--gray-700); vertical-align: top; }
+.table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; border: 1px solid var(--gray-200); border-radius: 14px; margin: 12px 0; }
+.compare-table { width: 100%; border-collapse: collapse; font-size: 13.5px; min-width: 480px; }
+.compare-table th { background: var(--gray-50); padding: 12px 14px; text-align: left; font-weight: 700; font-size: 12px; color: var(--gray-500); letter-spacing: .03em; border-bottom: 1px solid var(--gray-200); white-space: nowrap; }
+.compare-table td { padding: 12px 14px; border-bottom: 1px solid var(--gray-100); color: var(--gray-700); vertical-align: top; }
 .compare-table tr:last-child td { border-bottom: none; }
-.compare-table tr:hover td { background: var(--gray-50); }
- 
-/* ── HIGHLIGHT BOX ── */
-.highlight { background: linear-gradient(135deg, var(--hero-bg-from) 0%, var(--hero-bg-mid) 100%); color: #fff; border-radius: 12px; padding: 24px 26px; margin: 24px 0; }
-.highlight h3 { font-family: var(--font-serif); font-size: 18px; margin-bottom: 10px; color: var(--hero-badge-color); }
-.highlight p { font-size: 14px; opacity: .9; line-height: 1.8; }
- 
+.compare-table tr:hover td { background: rgba(255,255,255,.02); }
+.compare-table .me { background: var(--accent-tint); font-weight: 700; color: var(--accent); }
+
+/* ── HIGHLIGHT（インスタの“まとめ”枠：ダーク＋緑ボーダー） ── */
+.highlight { background: var(--surface); border: 1.5px solid var(--accent-line); border-radius: var(--radius); padding: 22px 24px; margin: 22px 0; position: relative; overflow: hidden; }
+.highlight::before { content:''; position:absolute; right:-30px; bottom:-30px; width:160px; height:160px;
+  background-image: radial-gradient(var(--accent) 1px, transparent 1.5px); background-size: 13px 13px; opacity:.12; }
+.highlight h3 { font-family: var(--font-display); font-size: 19px; font-weight: 900; margin-bottom: 10px; color: var(--accent); display: flex; align-items: center; gap: 8px; position: relative; }
+.highlight p { font-size: 14.5px; color: #d8ded8; line-height: 1.85; position: relative; }
+.highlight b { color: var(--accent); }
+
 /* ── PRODUCT GRID ── */
-.product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px,1fr)); gap: 12px; margin: 16px 0; }
-.product-box { border-radius: 10px; padding: 16px; text-align: center; border: 1px solid transparent; }
-.product-symbol { font-size: 28px; font-weight: 700; margin-bottom: 4px; font-family: var(--font-serif); }
-.product-name { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; margin-bottom: 6px; }
-.product-use { font-size: 12px; line-height: 1.5; }
- 
+.product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px,1fr)); gap: 12px; margin: 16px 0; }
+.product-box { border-radius: 14px; padding: 18px 14px; text-align: center; border: 1px solid var(--gray-200); background: var(--surface); }
+.product-symbol { font-family: var(--font-num); font-size: 30px; font-weight: 700; margin-bottom: 4px; color: var(--accent); }
+.product-name { font-size: 11px; font-weight: 700; letter-spacing: .04em; margin-bottom: 6px; color: #fff; }
+.product-use { font-size: 12px; line-height: 1.55; color: var(--gray-700); }
+
 /* ── MISC ── */
-.lead { font-size: 16px; color: var(--gray-700); line-height: 1.8; margin-bottom: 24px; }
-strong { font-weight: 600; }
+.lead { font-size: 16.5px; color: #dbe1db; line-height: 1.9; margin-bottom: 20px; font-weight: 500; }
+.lead .g { color: var(--accent); }
+strong { font-weight: 700; color: #fff; }
+strong.g { color: var(--accent); }
 .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap: 12px; }
- 
+
 /* ── FOOTER ── */
-.footer { padding: 48px 24px; text-align: center; color: var(--gray-500); font-size: 13px; border-top: 1px solid var(--gray-200); margin-top: 40px; }
+.footer { padding: 40px 22px; text-align: center; color: var(--gray-500); font-size: 13px; border-top: 1px solid var(--gray-200); margin-top: 32px; }
+.footer .brandmark { margin-bottom: 14px; }
+
+@media (max-width: 480px){
+  .section-icon { width: 40px; height: 40px; font-size: 20px; }
+  .stat-strip { grid-template-columns: repeat(2,1fr); }
+}
+@media (prefers-reduced-motion: reduce){
+  .section { animation: none; opacity: 1; transform: none; }
+  html { scroll-behavior: auto; }
+}
 </style>
-<style>.source-list a{color:var(--c-primary-600);word-break:break-all} .mini{font-size:12px;color:var(--gray-500)} .kpi{font-size:22px;font-weight:700;color:var(--c-primary-800)} .card-sm p{font-size:13px;color:var(--gray-700)} .card-sm h3{font-size:14px;margin-bottom:6px}</style>
 </head>
 <body>
-<div class="hero"><div class="hero-badge">RDW 完全入門ガイド 2026年7月4日版</div><h1>宇宙・防衛テック株<br><span>Redwire Corporation（RDW）</span>を<br>理解するための全知識</h1><p>宇宙インフラ、衛星部品、太陽電池アレイ、無人航空機、ISRセンサーを横断する「宇宙×防衛」の小型成長株。売上成長と受注残の拡大が魅力である一方、赤字・希薄化・政府予算依存が大きな確認ポイントです。</p><div class="hero-tags"><span class="hero-tag">🛰️ 宇宙インフラ</span><span class="hero-tag">🛡️ 防衛テック</span><span class="hero-tag">🚁 UAS/ドローン</span><span class="hero-tag">🔋 宇宙電力</span><span class="hero-tag">📡 ISRセンサー</span></div></div>
-<nav class="nav-index"><div class="nav-inner"><a class="nav-item" href="#sec1">① 会社概要</a><a class="nav-item" href="#sec2">② 宇宙・防衛業界</a><a class="nav-item" href="#sec3">③ 主要技術</a><a class="nav-item" href="#sec4">④ 受注と規制</a><a class="nav-item" href="#sec5">⑤ 競合比較</a><a class="nav-item" href="#sec6">⑥ 専門用語辞典</a><a class="nav-item" href="#sec7">⑦ 株価の見方</a></div></nav>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- ========================================================
+  HERO
+  RDW Redwire Corporation 宇宙・防衛テック 宇宙インフラから無人航空機まで。宇宙と防衛をつなぐ総合テック企業。 <span class="hero-tag">🛰️ 宇宙インフラ</span><span class="hero-tag">🛩️ 防衛ドローン</span><span class="hero-tag">🏗️ ROSA</span> 2026年7月14日
+  ※見出しの重要ワードは <span class="g">…</span> で緑ハイライト
+======================================================== -->
+<div class="hero">
+  <div class="brandmark">S<span class="g">i</span>M &nbsp;MARKET LAB</div>
+  <div class="hero-badge">RDW 完全入門ガイド ・ 2026年7月14日版</div>
+  <h1>Redwire Corporation（RDW）を<br><span class="g">まるっと</span>解説</h1>
+  <p>宇宙インフラから無人航空機まで。宇宙と防衛をつなぐ総合テック企業。</p>
+  <div class="hero-tags">
+    <!-- 例: <span class="hero-tag">⚛️ 同位体って何？</span> -->
+    <span class="hero-tag">🛰️ 宇宙インフラ</span><span class="hero-tag">🛩️ 防衛ドローン</span><span class="hero-tag">🏗️ ROSA</span>
+  </div>
+</div>
+
+<!-- 30秒サマリー：でかい数字カード3〜4枚（上昇は .up / 下落は .down） -->
+<div class="tldr-hero">
+  <div class="tldr-hero-inner">
+    <div class="tldr-hero-title">📊 まずは数字でざっくり</div>
+    <div class="stat-strip">
+      <!-- 例:
+      <div class="stat"><div class="stat-value">$12.34</div><div class="stat-label">現在の株価</div><div class="stat-note">52週 $4〜$18</div></div>
+      <div class="stat"><div class="stat-value up">+180%</div><div class="stat-label">直近1年</div></div>
+      <div class="stat"><div class="stat-value">$1.2B</div><div class="stat-label">時価総額</div></div>
+      <div class="stat"><div class="stat-value">2027</div><div class="stat-label">黒字化目標</div></div>
+      -->
+      <div class="stat"><div class="stat-value">$10.47</div><div class="stat-label">7月13日終値</div></div><div class="stat"><div class="stat-value up">$97M</div><div class="stat-label">Q1 2026売上</div></div><div class="stat"><div class="stat-value">$498.1M</div><div class="stat-label">受注残</div></div><div class="stat"><div class="stat-value down">HIGH</div><div class="stat-label">リスク</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- STICKY NAV -->
+<nav class="nav-index">
+  <div class="nav-inner">
+    <a class="nav-item" href="#sec1">① どんな会社</a>
+    <a class="nav-item" href="#sec2">② 宇宙業界</a>
+    <a class="nav-item" href="#sec3">③ 製品</a>
+    <a class="nav-item" href="#sec4">④ 防衛・技術</a>
+    <a class="nav-item" href="#sec5">⑤ 競合</a>
+    <a class="nav-item" href="#sec6">⑥ 用語辞典</a>
+    <a class="nav-item" href="#sec7">⑦ 株価の見方</a>
+  </div>
+</nav>
+
 <div class="container">
-<section class="section" id="sec1"><div class="section-header"><div class="section-icon icon-primary">🏢</div><div><div class="section-title">Redwireとはどんな会社？</div><div class="section-sub">宇宙機器メーカーから防衛プラットフォーム企業へ拡張中</div></div></div>
-<p class="lead">Redwire Corporationは、米国ジャクソンビルに本社を置く統合型の宇宙・防衛テクノロジー企業です。会社自身は「宇宙インフラ、 autonomous systems、多領域作戦を支える企業」と説明しており、2026年時点では北米・欧州に約1,400名の従業員を抱えています。</p>
-<div class="card-grid"><div class="card-sm"><h3>上場情報</h3><div class="kpi">NYSE: RDW</div><p>米国NYSE上場。宇宙関連のテーマ株として見られやすいが、現在は防衛・無人機・ISRへの比重も高まっています。</p></div><div class="card-sm"><h3>株価・時価総額</h3><div class="kpi">約$11.31</div><p>2026年7月4日時点で参照した市場データでは、52週レンジは$4.87〜$26.64、時価総額は約$2.2〜2.7B付近です。</p></div><div class="card-sm"><h3>直近決算</h3><div class="kpi">売上 $97.0M</div><p>2026年Q1売上は前年同期比57.9%増。粗利率は26.6%に改善しました。</p></div><div class="card-sm"><h3>受注残</h3><div class="kpi">$498.1M</div><p>Q1末の受注残は過去最高水準。Book-to-Billは1.92で、売上化前の注文が増えている状態です。</p></div></div>
-<div class="highlight"><h3>RDW株の基本ルール</h3><p>RDWは「今すでに高収益な大型防衛企業」ではなく、「宇宙・防衛の需要増を受けて、赤字から収益化へ移れるかを見る成長株」です。投資判断では、売上成長だけでなく、粗利率、調整EBITDA、フリーキャッシュフロー、株式希薄化、政府契約の実際の売上化をセットで確認する必要があります。</p></div></section>
-<section class="section" id="sec2"><div class="section-header"><div class="section-icon icon-violet">🌌</div><div><div class="section-title">宇宙・防衛テック業界の基本原理</div><div class="section-sub">ロケット会社ではなく「宇宙で使う部品・システム」を売る会社</div></div></div>
-<p class="lead">宇宙ビジネスは「ロケットを飛ばす会社」だけではありません。衛星に電気を供給する太陽電池アレイ、姿勢を制御するセンサー、通信・観測ペイロード、宇宙ステーションでの研究装置、軍向け無人機など、ミッションを成立させる裏方の機器が大量に必要です。Redwireはこの“宇宙と防衛の工具箱”を広く持つ会社です。</p><div class="term-list">
-<details class="term-item"><summary class="term-header"><span><span class="term-name">宇宙インフラ</span><span class="term-en">Space Infrastructure</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>衛星、宇宙ステーション、月・火星探査機などが機能するための土台となる部品・装置・システムの総称です。</p><div class="ex-box"><div class="ex-label ex-label-primary">RDWでの意味</div><div class="ex-text">Redwireは太陽電池アレイ、展開構造物、アビオニクス、RFシステム、宇宙研究装置などを提供します。</div></div></div></details>
-<details class="term-item"><summary class="term-header"><span><span class="term-name">防衛テック</span><span class="term-en">Defense Tech</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>軍や政府機関の作戦能力を高める技術領域です。単なる武器ではなく、偵察、通信、センサー、無人機、ソフトウェア、AI活用まで含みます。</p><div class="ex-box"><div class="ex-label ex-label-primary">RDWでの意味</div><div class="ex-text">Edge Autonomy買収後、Redwireは無人航空機や光学センサーも主力領域になりました。</div></div></div></details>
-<details class="term-item"><summary class="term-header"><span><span class="term-name">多領域作戦</span><span class="term-en">Multi-Domain Operations</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>地上・空・海・宇宙・サイバーを連携させる軍事コンセプトです。情報を速く集め、共有し、判断する能力が重要になります。</p><div class="ex-box"><div class="ex-label ex-label-primary">RDWでの意味</div><div class="ex-text">RDWは宇宙と航空の橋渡しをする会社として、このテーマに乗っています。</div></div></div></details>
-<details class="term-item"><summary class="term-header"><span><span class="term-name">政府契約</span><span class="term-en">Government Contract</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>NASA、米軍、欧州宇宙機関などからの契約。安定感はありますが、予算・入札・納期・仕様変更の影響を受けます。</p><div class="ex-box"><div class="ex-label ex-label-primary">RDWでの意味</div><div class="ex-text">RDWの受注残や大型IDIQは期待材料ですが、契約枠すべてが売上になるとは限りません。</div></div></div></details>
-<details class="term-item"><summary class="term-header"><span><span class="term-name">商業宇宙</span><span class="term-en">Commercial Space</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>民間企業が衛星、宇宙実験、通信、地球観測などを事業化する流れです。</p><div class="ex-box"><div class="ex-label ex-label-primary">RDWでの意味</div><div class="ex-text">Redwireの微小重力研究や宇宙製造は商業宇宙の長期オプションです。</div></div></div></details>
-</div></section>
-<section class="section" id="sec3"><div class="section-header"><div class="section-icon icon-primary">🔬</div><div><div class="section-title">Redwireの主要技術・製品</div><div class="section-sub">衛星部品、宇宙電力、無人機、ISR、宇宙研究</div></div></div>
-<div class="product-grid"><div class="product-box info-box-primary"><div class="product-symbol">⚡</div><div class="product-name">ELSA / ROSA / IROSA</div><div class="product-use">軽量・高性能な宇宙用太陽電池アレイ</div></div><div class="product-box info-box-blue"><div class="product-symbol">🚁</div><div class="product-name">Stalker / Penguin UAS</div><div class="product-use">偵察・監視向け小型無人航空機</div></div><div class="product-box info-box-accent"><div class="product-symbol">📷</div><div class="product-name">Octopus EO/IR</div><div class="product-use">中波赤外線などのISR光学ペイロード</div></div><div class="product-box info-box-amber"><div class="product-symbol">🧪</div><div class="product-name">PIL-BOX / Biotech</div><div class="product-use">ISSでの医薬品・バイオ研究支援</div></div></div>
-<div class="term-list">
-<details class="term-item"><summary class="term-header"><span><span class="term-name">太陽電池アレイ</span><span class="term-en">Solar Array</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>衛星や宇宙ステーションに電力を供給する“宇宙の発電パネル”です。軽く、折りたため、打ち上げ後に確実に展開できることが重要です。</p><div class="ex-box"><div class="ex-label ex-label-primary">RDWでの意味</div><div class="ex-text">RedwireはISS向けIROSAを納入し、2026年Q1にはMoog向けELSA初受注を発表しました。</div></div></div></details>
-<details class="term-item"><summary class="term-header"><span><span class="term-name">UAS / sUAS</span><span class="term-en">Uncrewed Aerial System</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>ドローン本体だけでなく、地上管制、通信、センサー、運用システムを含む無人航空機システムです。</p><div class="ex-box"><div class="ex-label ex-label-primary">RDWでの意味</div><div class="ex-text">StalkerやPenguinは防衛向けの偵察・監視・目標捕捉用途で注目されます。</div></div></div></details>
-<details class="term-item"><summary class="term-header"><span><span class="term-name">EO/IRペイロード</span><span class="term-en">Electro-Optical / Infrared</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>可視光・赤外線で対象を観測するセンサー。夜間や悪天候、遠距離での識別能力が重要です。</p><div class="ex-box"><div class="ex-label ex-label-primary">RDWでの意味</div><div class="ex-text">OctopusシリーズはISR能力を高める製品群です。</div></div></div></details>
-<details class="term-item"><summary class="term-header"><span><span class="term-name">微小重力研究</span><span class="term-en">Microgravity Research</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>宇宙ステーションのほぼ無重力環境を使い、地上では再現しにくい結晶成長・細胞実験・医薬品研究を行う分野です。</p><div class="ex-box"><div class="ex-label ex-label-primary">RDWでの意味</div><div class="ex-text">PIL-BOXなどを通じ、がん治療・創薬研究の実験基盤を提供しています。</div></div></div></details>
-</div></section>
-<section class="section" id="sec4"><div class="section-header"><div class="section-icon icon-accent">🏛️</div><div><div class="section-title">受注・技術・規制プロセス</div><div class="section-sub">「発表された契約」がいつ売上になるかを見る</div></div></div>
-<p class="lead">RDWを見るときに大切なのは、ニュースの派手さと会計上の売上には時間差があることです。大型契約枠、初回受注、試験成功、量産移行はそれぞれ意味が違います。</p><div class="term-list">
-<details class="term-item"><summary class="term-header"><span><span class="term-name">Backlog</span><span class="term-en">受注残</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>すでに契約・注文を受けたが、まだ売上として計上していない将来売上候補です。</p><div class="ex-box"><div class="ex-label ex-label-primary">RDWでの意味</div><div class="ex-text">Q1 2026末のRDW受注残は$498.1M。成長期待の根拠ですが、納品遅延やキャンセルリスクもあります。</div></div></div></details>
-<details class="term-item"><summary class="term-header"><span><span class="term-name">Book-to-Bill</span><span class="term-en">受注売上倍率</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>新規受注額を売上で割った指標。1を超えると、売上より受注の積み上がりが速い状態です。</p><div class="ex-box"><div class="ex-label ex-label-primary">RDWでの意味</div><div class="ex-text">Q1 2026のRDWは1.92。短期的には需要が強いシグナルです。</div></div></div></details>
-<details class="term-item"><summary class="term-header"><span><span class="term-name">IDIQ契約</span><span class="term-en">Indefinite Delivery / Indefinite Quantity</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>政府契約でよく使われる枠組み。最大契約額は大きく見えますが、実際の発注額は個別タスクオーダー次第です。</p><div class="ex-box"><div class="ex-label ex-label-primary">RDWでの意味</div><div class="ex-text">Andromeda IDIQやSHIELD関連は期待材料ですが、満額売上を意味しません。</div></div></div></details>
-<details class="term-item"><summary class="term-header"><span><span class="term-name">認定・ミッション実績</span><span class="term-en">Mission Heritage</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>宇宙・防衛では「過去に飛んだ」「軍で使われた」という実績が信用になります。失敗できない領域だからです。</p><div class="ex-box"><div class="ex-label ex-label-primary">RDWでの意味</div><div class="ex-text">RedwireはISS、Artemis II、Space Force、Marine Corpsなどの実績を訴求しています。</div></div></div></details>
-<details class="term-item"><summary class="term-header"><span><span class="term-name">希薄化</span><span class="term-en">Dilution</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>新株発行や株式報酬により、1株あたりの価値が薄まることです。成長企業では資金調達の代償として起こります。</p><div class="ex-box"><div class="ex-label ex-label-primary">RDWでの意味</div><div class="ex-text">Redwireは大型買収・ATMプログラム・株式報酬の影響を投資家が確認する必要があります。</div></div></div></details>
-</div></section>
-<section class="section" id="sec5"><div class="section-header"><div class="section-icon icon-amber">⚔️</div><div><div class="section-title">競合比較・ポジション</div><div class="section-sub">宇宙専業というより「宇宙＋防衛の部品・プラットフォーム」</div></div></div>
-<div class="card"><table class="compare-table"><thead><tr><th>企業</th><th>主領域</th><th>RDWとの違い</th></tr></thead><tbody><tr><td>Rocket Lab</td><td>小型ロケット・衛星バス</td><td>打上げ＋衛星製造色が強い。RDWは部品・ペイロード・防衛UAS寄り。</td></tr><tr><td>Planet Labs</td><td>地球観測データ</td><td>衛星データ販売が中心。RDWは衛星を構成する機器・防衛機器を売る。</td></tr><tr><td>Maxar / MDA Space</td><td>大型宇宙システム</td><td>大型案件・衛星システムに強い。RDWは小型成長株として高ボラ。</td></tr><tr><td>Northrop / Lockheed</td><td>大手防衛・宇宙</td><td>規模・財務安定性で圧倒。RDWはニッチ技術と成長率で勝負。</td></tr><tr><td>AeroVironment</td><td>無人機・徘徊弾薬</td><td>防衛ドローン色が強い。RDWは宇宙技術との組み合わせが特徴。</td></tr><tr><td>Kratos</td><td>無人システム・防衛通信</td><td>防衛テックの近い比較対象。RDWは宇宙インフラの比重が高い。</td></tr></tbody></table></div>
-<div class="highlight"><h3>最大の差別化ポイント</h3><p>Redwireの差別化は、宇宙用ハードウェア、宇宙研究、衛星プラットフォーム、防衛UAS、ISRセンサーを1社で横断できる点です。個別製品の会社ではなく、ミッション全体の一部を複数レイヤーで取りに行く「統合型の小型宇宙・防衛テック企業」として見ると理解しやすくなります。</p></div></section>
-<section class="section" id="sec6"><div class="section-header"><div class="section-icon icon-primary">📖</div><div><div class="section-title">RDW専門用語 全辞典</div><div class="section-sub">ニュースに出てくる言葉を一覧で確認</div></div></div><div class="term-list">
-<details class="term-item"><summary class="term-header"><span><span class="term-name">Adjusted EBITDA</span><span class="term-en">調整EBITDA</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>本業の収益力を見るために、一時費用や非現金費用などを除いた利益指標です。</p><div class="ex-box"><div class="ex-label ex-label-primary">RDWでの意味</div><div class="ex-text">Q1 2026は-$9.2M。黒字化への道筋を見る重要指標です。</div></div></div></details>
-<details class="term-item"><summary class="term-header"><span><span class="term-name">Gross Margin</span><span class="term-en">粗利率</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>売上から直接原価を引いた後に残る割合。製造業では収益性の基本です。</p><div class="ex-box"><div class="ex-label ex-label-primary">RDWでの意味</div><div class="ex-text">Q1 2026は26.6%。前年同期14.7%から改善しました。</div></div></div></details>
-<details class="term-item"><summary class="term-header"><span><span class="term-name">Free Cash Flow</span><span class="term-en">フリーキャッシュフロー</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>事業運営と設備投資後に残る現金。赤字企業では資金寿命を見る指標です。</p><div class="ex-box"><div class="ex-label ex-label-primary">RDWでの意味</div><div class="ex-text">Q1 2026は-$12.7Mで、前年同期から改善しました。</div></div></div></details>
-<details class="term-item"><summary class="term-header"><span><span class="term-name">Liquidity</span><span class="term-en">流動性</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>手元資金と利用可能な借入枠など、短期的に使える資金余力です。</p><div class="ex-box"><div class="ex-label ex-label-primary">RDWでの意味</div><div class="ex-text">Q1末の総流動性は$175.2M、うち現金等は$144.5Mです。</div></div></div></details>
-<details class="term-item"><summary class="term-header"><span><span class="term-name">Artemis II</span><span class="term-en">NASA有人月探査計画</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>NASAのアルテミス計画における初の有人ミッションです。</p><div class="ex-box"><div class="ex-label ex-label-primary">RDWでの意味</div><div class="ex-text">Redwireの光学イメージング・太陽センサー技術がOrionに搭載されたと会社は発表しています。</div></div></div></details>
-<details class="term-item"><summary class="term-header"><span><span class="term-name">Golden Dome</span><span class="term-en">米国ミサイル防衛構想</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>宇宙・地上・空中のセンサーや迎撃能力を組み合わせる構想として市場が注目しました。</p><div class="ex-box"><div class="ex-label ex-label-primary">RDWでの意味</div><div class="ex-text">Redwireは既存技術を活用して支援策を探ると説明していますが、収益化は未確定です。</div></div></div></details>
-<details class="term-item"><summary class="term-header"><span><span class="term-name">SHIELD</span><span class="term-en">MDA契約枠</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>米ミサイル防衛庁の大規模IDIQ契約枠。選定されても実発注は別問題です。</p><div class="ex-box"><div class="ex-label ex-label-primary">RDWでの意味</div><div class="ex-text">株価材料になりやすいが、売上計上にはタスクオーダーが必要です。</div></div></div></details>
-<details class="term-item"><summary class="term-header"><span><span class="term-name">Edge Autonomy</span><span class="term-en">買収企業</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>Redwireが買収した無人航空機・防衛技術企業です。</p><div class="ex-box"><div class="ex-label ex-label-primary">RDWでの意味</div><div class="ex-text">RDWを宇宙専業から宇宙＋防衛プラットフォーム企業へ変える重要な買収です。</div></div></div></details>
-<details class="term-item"><summary class="term-header"><span><span class="term-name">ISR</span><span class="term-en">Intelligence, Surveillance, Reconnaissance</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>情報収集・監視・偵察。防衛ドローンや光学センサーの中心用途です。</p><div class="ex-box"><div class="ex-label ex-label-primary">RDWでの意味</div><div class="ex-text">Stalker、Penguin、Octopusなどの需要背景です。</div></div></div></details>
-<details class="term-item"><summary class="term-header"><span><span class="term-name">ATMプログラム</span><span class="term-en">At-the-Market Offering</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>市場価格で随時株式を発行して資金調達する仕組みです。</p><div class="ex-box"><div class="ex-label ex-label-primary">RDWでの意味</div><div class="ex-text">成長資金にはなる一方、株式数増加による希薄化リスクがあります。</div></div></div></details>
-<details class="term-item"><summary class="term-header"><span><span class="term-name">Guidance</span><span class="term-en">会社予想</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>会社が出す通期売上・利益見通しです。</p><div class="ex-box"><div class="ex-label ex-label-primary">RDWでの意味</div><div class="ex-text">2026年売上予想は$450M〜$500Mで据え置かれています。</div></div></div></details>
-<details class="term-item"><summary class="term-header"><span><span class="term-name">Catalyst</span><span class="term-en">カタリスト</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>株価を動かす可能性のあるイベントです。決算、契約、納入、ミッション成功、資金調達などが該当します。</p><div class="ex-box"><div class="ex-label ex-label-primary">RDWでの意味</div><div class="ex-text">RDWはニュースフローが多く、カタリストで株価が大きく動きやすい銘柄です。</div></div></div></details>
-</div></section>
-<section class="section" id="sec7"><div class="section-header"><div class="section-icon icon-amber">💹</div><div><div class="section-title">RDW株の見方・カタリスト</div><div class="section-sub">何が株価を動かすのかを理解する</div></div></div>
-<div class="timeline"><div class="tl-row"><div class="tl-date">2026年Q2〜Q3</div><div class="tl-title">2026年Q2決算</div><div class="tl-desc">次回決算では、売上が会社予想ペースに乗っているか、粗利率改善が継続するか、受注残が減らずに積み上がるかが焦点です。</div></div><div class="tl-row"><div class="tl-date">2026年内</div><div class="tl-title">通期売上ガイダンス $450M〜$500M</div><div class="tl-desc">Q1売上$97Mから通期レンジ達成には、後半の納品・売上計上が重要になります。</div></div><div class="tl-row"><div class="tl-date">随時</div><div class="tl-title">Stalker / Penguin UASの追加受注</div><div class="tl-desc">米海兵隊、台湾、ウクライナなど防衛需要に関するニュースは株価材料になりやすいです。</div></div><div class="tl-row"><div class="tl-date">随時</div><div class="tl-title">ELSA・太陽電池アレイの商用化</div><div class="tl-desc">宇宙電力製品が単発開発から複数顧客の量産型製品へ広がるかを確認します。</div></div><div class="tl-row"><div class="tl-date">随時</div><div class="tl-title">Golden Dome / SHIELD関連の実発注</div><div class="tl-desc">大きな契約枠の見出しではなく、個別の発注金額・納期・利益率が重要です。</div></div><div class="tl-row"><div class="tl-date">2026年後半</div><div class="tl-title">キャッシュフロー改善</div><div class="tl-desc">成長企業として許容される赤字か、それとも追加希薄化が必要な赤字かを分けるポイントです。</div></div></div>
-<div class="info-row"><div class="info-box info-box-red"><div class="info-title info-title-red">技術リスク</div><div class="info-text">宇宙機器・防衛UASは納期遅延、試験失敗、性能不足が株価に直結します。</div></div><div class="info-box info-box-amber"><div class="info-title info-title-amber">規制・予算リスク</div><div class="info-text">政府予算、輸出規制、契約審査、政権方針の影響を受けます。</div></div><div class="info-box info-box-blue"><div class="info-title info-title-blue">財務リスク</div><div class="info-text">赤字、フリーキャッシュフロー、借入、株式発行による希薄化に注意が必要です。</div></div><div class="info-box info-box-gray"><div class="info-title info-title-gray">市場リスク</div><div class="info-text">宇宙・防衛テーマ株はニュースと金利で大きく上下しやすい高ボラ銘柄です。</div></div></div>
-<div class="card"><table class="compare-table"><thead><tr><th>項目</th><th>最新確認値</th><th>見方</th></tr></thead><tbody><tr><td>株価</td><td>約$11.31</td><td>52週高値からは大きく下、安値からは大きく上。ボラティリティが高い。</td></tr><tr><td>52週レンジ</td><td>$4.87〜$26.64</td><td>テーマ株として期待と失望の振れ幅が大きい。</td></tr><tr><td>時価総額</td><td>約$2.2B〜$2.7B</td><td>小型〜中型の成長株。大型防衛株とはリスクが違う。</td></tr><tr><td>Q1 2026売上</td><td>$97.0M</td><td>前年同期比57.9%増。買収効果と需要増を含む。</td></tr><tr><td>粗利率</td><td>26.6%</td><td>前年同期14.7%から改善。収益化シナリオの重要材料。</td></tr><tr><td>受注残</td><td>$498.1M</td><td>将来売上の候補。納品・利益率・キャンセルリスクも見る。</td></tr><tr><td>2026年売上予想</td><td>$450M〜$500M</td><td>達成できれば成長株評価を維持しやすい。</td></tr></tbody></table></div>
-<div class="highlight"><h3>投資家向け注意点</h3><p>RDWは「宇宙・防衛テーマの夢」と「赤字・希薄化・契約売上化リスク」が同居する銘柄です。初心者は、株価ニュースだけで判断せず、四半期ごとに①売上、②粗利率、③調整EBITDA、④フリーキャッシュフロー、⑤受注残、⑥株式数の増加を同時に確認してください。</p></div>
-<div class="card source-list"><strong>主な参照情報</strong><p class="mini">Redwire 2026年Q1決算リリース、Redwire公式サイト・IR資料、MarketWatch、Investing.com、GuruFocus、Yahoo Finance、Barron's/Investor's Business Daily等の2026年公開情報を参照。本文中の数値は2026年7月4日時点で取得できた公開情報に基づきます。</p><p class="mini"><a href="https://www.morningstar.com/news/business-wire/20260506664539/redwire-corporation-reports-first-quarter-2026-financial-results-achieves-record-contract-backlog-with-significant-gross-margin-improvement">Q1 2026 Financial Results</a><br><a href="https://ir.rdw.com/company-information/presentations">Redwire Investor Presentations</a><br><a href="https://rdw.com/">Redwire Official Site</a><br><a href="https://www.marketwatch.com/investing/stock/rdw">MarketWatch RDW Quote</a><br><a href="https://www.investing.com/equities/redwire">Investing.com RDW Quote</a></p></div>
-</section></div><div class="footer"><p style="margin-bottom:8px;font-weight:600;color:var(--gray-700)">⚠️ 免責事項</p><p>本資料は情報提供・教育目的のみです。投資助言ではありません。宇宙・防衛テック株は高ボラティリティで元本損失リスクがあります。<br>実際の投資判断はご自身の責任で行ってください。データは2026年7月4日時点の公開情報に基づきます。</p></div>
-<script>document.querySelectorAll('details.term-item').forEach(d=>{d.addEventListener('toggle',()=>{if(d.open){document.querySelectorAll('details.term-item').forEach(o=>{if(o!==d&&o.open)o.removeAttribute('open');});}});});</script>
-</body></html>
+
+  <!-- SEC1: 会社概要　⚡3秒まとめ → 会社データ → card-sm 4枚 → どう稼ぐ → highlight「基本ルール」 -->
+  <section class="section" id="sec1">
+    <div class="section-header">
+      <div class="section-icon">🏢</div><div class="section-num">1</div>
+      <div>
+        <div class="section-title">Redwire Corporationって<span class="g">どんな会社</span>？</div>
+        <div class="section-sub">まず全体像を3秒で</div>
+      </div>
+    </div>
+    <div class="tldr">
+      <div class="tldr-label">⚡ このセクションの3秒まとめ</div>
+      <ul>
+        <!-- 例: <li data-emoji="🏭">◯◯を作ってる△△業界の会社</li> -->
+        <li data-emoji="🛰️">宇宙機器と防衛ドローンを作る会社。</li><li data-emoji="📈">Q1売上は約58%増。</li><li data-emoji="⚠️">成長中だが赤字と統合リスクあり。</li>
+      </ul>
+    </div>
+
+    <!-- 会社データ（クイックファクト）：設立/本社/従業員/CEO/上場/売上規模 等。不明は「非開示」 -->
+    <div class="facts">
+      <div><dt>設立</dt><dd>2020年</dd></div><div><dt>本社</dt><dd>米国フロリダ州</dd></div><div><dt>CEO</dt><dd>Peter Cannito</dd></div><div><dt>上場</dt><dd>NYSE: RDW</dd></div><div><dt>事業</dt><dd>Space / Defense Tech</dd></div><div><dt>Q1売上</dt><dd>約$97M</dd></div>
+      <!-- 例:
+      <div><dt>設立</dt><dd>2019年</dd></div>
+      <div><dt>本社</dt><dd>東京</dd></div>
+      <div><dt>従業員数</dt><dd>約12,000人</dd></div>
+      <div><dt>CEO</dt><dd>◯◯ ◯◯</dd></div>
+      <div><dt>上場</dt><dd>東証プライム（285A）</dd></div>
+      <div><dt>売上規模</dt><dd>約2.3兆円</dd></div>
+      -->
+    </div>
+
+    <!-- 4枚カード：何をしてる/主力事業/直近の業績/なぜ注目 -->
+    <div class="card-grid">
+      <div class="card-sm"><span class="card-emoji">🛰️</span><div class="card-title">何をしてる</div><div class="card-desc">衛星部品、太陽電池、宇宙製造など。</div></div><div class="card-sm"><span class="card-emoji">🛩️</span><div class="card-title">主力事業</div><div class="card-desc">Edge Autonomy買収で防衛ドローンへ拡大。</div></div><div class="card-sm"><span class="card-emoji">📈</span><div class="card-title">直近業績</div><div class="card-desc">Q1 2026売上約$97M、前年比約58%増。</div></div><div class="card-sm"><span class="card-emoji">🔥</span><div class="card-title">なぜ注目</div><div class="card-desc">宇宙と防衛を横断する大型案件の可能性。</div></div>
+      <!-- 例: <div class="card-sm"><span class="card-emoji">🏭</span><div class="card-title">何をしてる</div><div class="card-desc">…</div></div> を4枚 -->
+    </div>
+
+    <!-- どうやって稼ぐ？：ビジネスモデルと売上の内訳を平易に -->
+    <div class="block-label">💰 どうやって<span class="g">稼いでる</span>？</div>
+    <ul class="keypoints">
+      <li><span class="kp-emoji">🛰️</span><span class="kp-text"><b>宇宙</b>：政府・商業顧客へ機器やシステムを販売。</span></li><li><span class="kp-emoji">🛩️</span><span class="kp-text"><b>防衛</b>：無人航空機と関連システムを提供。</span></li>
+      <!-- 例: <li><span class="kp-emoji">🧩</span><span class="kp-text"><b>主力</b>：◯◯を作って△△に売る。売上の約7割。</span></li> を2〜4件（売上構成・主要顧客・課金の仕組み等） -->
+    </ul>
+
+    <!-- 会社の“基本ルール”（この銘柄を見るうえで最初に押さえる勘所） -->
+    <div class="highlight"><h3>📏 RDW株の基本ルール</h3><p><b>受注残が実際の売上と利益に変わるか</b>が最重要。契約枠の大きさだけで判断しない。</p></div>
+    <!-- 例: <div class="highlight"><h3>📏 ◯◯株の基本ルール</h3><p>…</p></div> -->
+  </section>
+
+  <!-- SEC2: 業界の基本　⚡まとめ → lead(比喩) → sowhat → term-list 4〜6 -->
+  <section class="section" id="sec2">
+    <div class="section-header">
+      <div class="section-icon">🌌</div><div class="section-num">2</div>
+      <div><div class="section-title">宇宙ビジネスの<span class="g">基本</span></div><div class="section-sub">難しい話をかんたんに</div></div>
+    </div>
+    <div class="tldr"><div class="tldr-label">⚡ このセクションの3秒まとめ</div><ul><li data-emoji="🟢">成長市場だが案件の時期は読みにくい。</li><li data-emoji="🟡">政府予算と大型契約の影響が大きい。</li><li data-emoji="🔴">赤字企業は資金調達も重要。</li></ul></div>
+    <div class="lead">RDWは、衛星向け部品・太陽電池・宇宙製造・無人航空機まで扱います。</div><div class="sowhat"><p><b>つまり：</b>単なる宇宙株ではなく、宇宙＋防衛の複合企業です。</p></div><div class="term-list"><details class="term-item"><summary class="term-header"><span class="term-name">ROSA</span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>展開式の宇宙用太陽電池。Redwireの代表技術の一つ。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">Edge Autonomy</span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>無人航空機事業。買収後の統合が重要。</p></div></details></div>
+  </section>
+
+  <!-- SEC3: 主要製品・技術　⚡まとめ → product-grid → term-list 3〜5 -->
+  <section class="section" id="sec3">
+    <div class="section-header">
+      <div class="section-icon">🔬</div><div class="section-num">3</div>
+      <div><div class="section-title">RDWの<span class="g">主要製品</span></div><div class="section-sub">難しい話をかんたんに</div></div>
+    </div>
+    <div class="tldr"><div class="tldr-label">⚡ このセクションの3秒まとめ</div><ul><li data-emoji="🟢">成長市場だが案件の時期は読みにくい。</li><li data-emoji="🟡">政府予算と大型契約の影響が大きい。</li><li data-emoji="🔴">赤字企業は資金調達も重要。</li></ul></div>
+    <div class="lead">RDWは、衛星向け部品・太陽電池・宇宙製造・無人航空機まで扱います。</div><div class="sowhat"><p><b>つまり：</b>単なる宇宙株ではなく、宇宙＋防衛の複合企業です。</p></div><div class="term-list"><details class="term-item"><summary class="term-header"><span class="term-name">ROSA</span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>展開式の宇宙用太陽電池。Redwireの代表技術の一つ。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">Edge Autonomy</span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>無人航空機事業。買収後の統合が重要。</p></div></details></div>
+  </section>
+
+  <!-- SEC4: 技術詳細・規制　⚡まとめ → keypoints → term-list 4〜6 -->
+  <section class="section" id="sec4">
+    <div class="section-header">
+      <div class="section-icon">🏛️</div><div class="section-num">4</div>
+      <div><div class="section-title">防衛と宇宙を<span class="g">つなぐ技術</span></div><div class="section-sub">難しい話をかんたんに</div></div>
+    </div>
+    <div class="tldr"><div class="tldr-label">⚡ このセクションの3秒まとめ</div><ul><li data-emoji="🟢">成長市場だが案件の時期は読みにくい。</li><li data-emoji="🟡">政府予算と大型契約の影響が大きい。</li><li data-emoji="🔴">赤字企業は資金調達も重要。</li></ul></div>
+    <div class="lead">RDWは、衛星向け部品・太陽電池・宇宙製造・無人航空機まで扱います。</div><div class="sowhat"><p><b>つまり：</b>単なる宇宙株ではなく、宇宙＋防衛の複合企業です。</p></div><div class="term-list"><details class="term-item"><summary class="term-header"><span class="term-name">ROSA</span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>展開式の宇宙用太陽電池。Redwireの代表技術の一つ。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">Edge Autonomy</span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>無人航空機事業。買収後の統合が重要。</p></div></details></div>
+  </section>
+
+  <!-- SEC5: 競合比較　⚡まとめ → table-wrap>compare-table(自社=me) → highlight「差別化」 -->
+  <section class="section" id="sec5">
+    <div class="section-header">
+      <div class="section-icon">⚔️</div><div class="section-num">5</div>
+      <div><div class="section-title">ライバルと<span class="g">何が違う</span>？</div><div class="section-sub">難しい話をかんたんに</div></div>
+    </div>
+    <div class="tldr"><div class="tldr-label">⚡ このセクションの3秒まとめ</div><ul><li data-emoji="🟢">成長市場だが案件の時期は読みにくい。</li><li data-emoji="🟡">政府予算と大型契約の影響が大きい。</li><li data-emoji="🔴">赤字企業は資金調達も重要。</li></ul></div>
+    <div class="table-wrap"><table class="compare-table"><tr><th>企業</th><th>主戦場</th><th>特徴</th></tr><tr class="me"><td>Redwire</td><td>宇宙＋防衛</td><td>複合ポートフォリオ</td></tr><tr><td>Rocket Lab</td><td>打上げ＋宇宙機</td><td>垂直統合</td></tr><tr><td>Intuitive Machines</td><td>月面</td><td>月ミッション</td></tr></table></div><div class="highlight"><h3>最大の差別化</h3><p>宇宙インフラと防衛無人機を一社で持つ点。</p></div>
+  </section>
+
+  <!-- SEC6: 用語辞典　⚡まとめ(特にこの3つ) → term-list 10〜12（①定義→②なぜ重要→③この銘柄では） -->
+  <section class="section" id="sec6">
+    <div class="section-header">
+      <div class="section-icon">📖</div><div class="section-num">6</div>
+      <div><div class="section-title">RDWのニュースで出る<span class="g">言葉</span> 全辞典</div><div class="section-sub">分からん単語はここで潰す</div></div>
+    </div>
+    <div class="tldr"><div class="tldr-label">⚡ 特にこの3つだけは覚えて</div><ul><li data-emoji="1️⃣">受注残</li><li data-emoji="2️⃣">IDIQ</li><li data-emoji="3️⃣">希薄化</li></ul></div>
+    <div class="term-list"><details class="term-item"><summary class="term-header"><span class="term-name">受注残</span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>RDWを見る上で重要な用語。<b>なぜ重要：</b>売上・利益・リスクに影響します。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">EV/Sales</span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>RDWを見る上で重要な用語。<b>なぜ重要：</b>売上・利益・リスクに影響します。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">ROSA</span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>RDWを見る上で重要な用語。<b>なぜ重要：</b>売上・利益・リスクに影響します。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">SOTP</span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>RDWを見る上で重要な用語。<b>なぜ重要：</b>売上・利益・リスクに影響します。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">IDIQ</span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>RDWを見る上で重要な用語。<b>なぜ重要：</b>売上・利益・リスクに影響します。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">タスクオーダー</span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>RDWを見る上で重要な用語。<b>なぜ重要：</b>売上・利益・リスクに影響します。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">希薄化</span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>RDWを見る上で重要な用語。<b>なぜ重要：</b>売上・利益・リスクに影響します。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">キャッシュバーン</span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>RDWを見る上で重要な用語。<b>なぜ重要：</b>売上・利益・リスクに影響します。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">粗利率</span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>RDWを見る上で重要な用語。<b>なぜ重要：</b>売上・利益・リスクに影響します。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">Edge Autonomy</span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>RDWを見る上で重要な用語。<b>なぜ重要：</b>売上・利益・リスクに影響します。</p></div></details></div>
+  </section>
+
+  <!-- SEC7: 株価の見方　⚡まとめ → timeline(signal+rating) → リスク4分類 info-row → highlight → 数字まとめ table -->
+  <section class="section" id="sec7">
+    <div class="section-header">
+      <div class="section-icon">💹</div><div class="section-num">7</div>
+      <div><div class="section-title">何がRDW株を<span class="g">動かす</span>？</div><div class="section-sub">上がる理由・下がる理由を一目で</div></div>
+    </div>
+    <div class="tldr"><div class="tldr-label">⚡ 株価のツボ 3秒まとめ</div><ul><li data-emoji="🟢">受注残の売上化が追い風。</li><li data-emoji="🟡">Edge統合が最大の分岐点。</li><li data-emoji="🔴">赤字・資金調達・高ボラに注意。</li></ul></div>
+    <div class="timeline"><div class="tl-row"><div class="tl-date">次回決算</div><div class="tl-title"><span class="signal neutral">要確認</span> 売上・粗利・CF</div><div class="tl-desc">成長が現金創出へ近づくか。</div></div><div class="tl-row"><div class="tl-date">今後12か月</div><div class="tl-title"><span class="signal bull">追い風候補</span> 防衛大型案件</div><div class="tl-desc">実際の受注額と売上時期を見る。</div></div></div><div class="info-row"><div class="info-box info-box-red"><div class="info-title info-title-red">財務</div><div class="info-text">赤字と追加調達。</div></div><div class="info-box info-box-amber"><div class="info-title info-title-amber">統合</div><div class="info-text">大型買収の実行リスク。</div></div><div class="info-box info-box-blue"><div class="info-title info-title-blue">市場</div><div class="info-text">宇宙株の倍率変動。</div></div><div class="info-box info-box-gray"><div class="info-title info-title-gray">契約</div><div class="info-text">契約枠と確定売上は別。</div></div></div><div class="highlight"><h3>投資家向け注意点</h3><p>会社の成長性と、今の株価が安いかは別問題。受注、利益、現金、希薄化をセットで見る。</p></div>
+  </section>
+
+</div><!-- /container -->
+
+<div class="footer">
+  <div class="brandmark">S<span class="g">i</span>M &nbsp;MARKET LAB</div>
+  <p style="margin-bottom:8px;font-weight:700;color:#d8ded8">⚠️ 免責事項</p>
+  <p>本資料は情報提供・教育目的のみです。投資助言ではありません。宇宙・防衛テック株は値動きが激しく、元本を失うリスクがあります。<br>投資判断はご自身の責任で。データは2026年7月14日時点の公開情報に基づきます。</p>
+</div>
+
+<script>
+document.querySelectorAll('details.term-item').forEach(d => {
+  d.addEventListener('toggle', () => {
+    if (d.open) document.querySelectorAll('details.term-item').forEach(o => { if (o !== d && o.open) o.removeAttribute('open'); });
+  });
+});
+(function(){
+  var bar = document.getElementById('progressBar');
+  function u(){ var h=document.documentElement; var s=h.scrollTop/(h.scrollHeight-h.clientHeight); bar.style.width=Math.min(100,Math.max(0,s*100))+'%'; }
+  document.addEventListener('scroll', u, {passive:true}); window.addEventListener('resize', u); u();
+})();
+</script>
+
+</body>
+</html>
+
+<!--
+================================================================
+  デザインロック（重要）
+  ・アクセント色はSiMグリーンで固定。銘柄・業界で変えない。
+  ・以前あった「業界別カラー早見表」は廃止（色を変えると銘柄ごとに見た目がぶれるため）。
+  ・この <style> と骨格は改変禁止。{{ }} の中身だけ差し替える。
+================================================================
+  ChatGPT用ルール: 完成HTMLは必ず index.html というファイル名で保存・出力する。
+================================================================
+-->

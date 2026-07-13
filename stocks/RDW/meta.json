@@ -5,29 +5,29 @@
   "name": "Redwire Corporation",
   "market": "米国株",
   "sector": "宇宙・防衛",
-  "method": "将来EV/Sales",
+  "method": "SOTP＋EV/Sales",
   "status": "published",
   "updated": "2026-07-13",
   "price": {
-    "current": 10.18,
+    "current": 10.47,
     "currency": "USD"
   },
   "scenarios": {
-    "bear": 4.1,
-    "base": 9.8,
-    "bull": 19.9
+    "bear": 6,
+    "base": 13,
+    "bull": 21
   },
-  "positionPct": 47,
-  "zone": "Base近辺 会社の成長余地は大きい",
-  "riskReward": "1.14x",
+  "positionPct": 29.8,
+  "zone": "適正〜慎重寄り",
+  "riskReward": "2.36",
   "catalyst": "要確認",
-  "summary": "Bear（弱気）30% $4.1 統合停滞、低成長、倍率縮小。",
+  "summary": "会社は拡大中。",
   "tags": [
     "SOTP＋オプション価値",
     "宇宙・防衛",
     "テーマ株"
   ],
-  "risk": "非常に高い",
+  "risk": "高",
   "detailPath": "stocks/RDW/index.html",
   "scenarioPath": "stocks/RDW/scenario.html"
 }
