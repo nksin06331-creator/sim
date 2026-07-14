@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "ticker": "GOOG",
+  "slug": "goog",
+  "name": "Alphabet",
+  "market": "米国株",
+  "sector": "検索・広告・クラウド・AI",
+  "method": "正規化FY26E EPS × PER",
+  "status": "published",
+  "updated": "2026-07-14",
+  "price": {
+    "current": 350.67,
+    "currency": "USD"
+  },
+  "scenarios": {
+    "bear": 240,
+    "base": 390,
+    "bull": 576
+  },
+  "positionPct": 32.9,
+  "zone": "Bear〜Base帯",
+  "riskReward": "2.04倍",
+  "catalyst": "2026/7/22 Q2決算",
+  "summary": "検索は堅調。Cloudが加速。",
+  "tags": [
+    "PER",
+    "AI",
+    "Google検索",
+    "Google Cloud",
+    "Gemini"
+  ],
+  "risk": "中〜高",
+  "detailPath": "stocks/GOOG/index.html",
+  "scenarioPath": "stocks/GOOG/scenario.html"
+}
