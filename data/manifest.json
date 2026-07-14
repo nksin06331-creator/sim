@@ -66,6 +66,40 @@
   },
   {
     "schemaVersion": 1,
+    "ticker": "5803",
+    "slug": "5803",
+    "name": "株式会社フジクラ",
+    "market": "日本株",
+    "sector": "光ファイバー・AIデータセンター",
+    "method": "FY3/27E EPS × PER",
+    "status": "published",
+    "updated": "2026-07-14",
+    "price": {
+      "current": 4800,
+      "currency": "JPY"
+    },
+    "scenarios": {
+      "bear": 2800,
+      "base": 4750,
+      "bull": 6600
+    },
+    "positionPct": 52.6,
+    "zone": "Base付近",
+    "riskReward": "0.90倍",
+    "catalyst": "FY3/27 1Q決算 / 情報通信の利益率・増産進捗",
+    "summary": "業績は強い。期待も高い。",
+    "tags": [
+      "PER",
+      "光ファイバー",
+      "AIデータセンター",
+      "高成長型"
+    ],
+    "risk": "高",
+    "detailPath": "stocks/フジクラ/index.html",
+    "scenarioPath": "stocks/フジクラ/scenario.html"
+  },
+  {
+    "schemaVersion": 1,
     "ticker": "ABCL",
     "slug": "abcl",
     "name": "AbCellera Biologics",
