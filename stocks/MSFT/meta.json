@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "ticker": "MSFT",
+  "slug": "msft",
+  "name": "Microsoft",
+  "market": "米国株",
+  "sector": "クラウド・ソフトウェア・AI",
+  "method": "FY27E EPS × PER",
+  "status": "published",
+  "updated": "2026-07-14",
+  "price": {
+    "current": 390.99,
+    "currency": "USD"
+  },
+  "scenarios": {
+    "bear": 315,
+    "base": 492,
+    "bull": 644
+  },
+  "positionPct": 23.1,
+  "zone": "Bear〜Base帯",
+  "riskReward": "3.33倍",
+  "catalyst": "2026/7/29 FY26 Q4決算",
+  "summary": "クラウドは強い。株価は調整済み。",
+  "tags": [
+    "PER",
+    "AI",
+    "Azure",
+    "Copilot",
+    "Microsoft 365"
+  ],
+  "risk": "中",
+  "detailPath": "stocks/MSFT/index.html",
+  "scenarioPath": "stocks/MSFT/scenario.html"
+}
