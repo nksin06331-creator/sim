@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "ticker": "META",
+  "slug": "meta",
+  "name": "Meta Platforms",
+  "market": "米国株",
+  "sector": "SNS広告・AI・AR/VR",
+  "method": "正規化FY26E EPS × PER",
+  "status": "published",
+  "updated": "2026-07-14",
+  "price": {
+    "current": 656.73,
+    "currency": "USD"
+  },
+  "scenarios": {
+    "bear": 504,
+    "base": 768,
+    "bull": 1008
+  },
+  "positionPct": 30.3,
+  "zone": "Bear〜Base帯",
+  "riskReward": "2.30倍",
+  "catalyst": "2026 Q2決算 / 広告成長とCapEx",
+  "summary": "広告は絶好調。投資額も巨大。",
+  "tags": [
+    "PER",
+    "AI",
+    "Instagram",
+    "AI広告",
+    "Reality Labs"
+  ],
+  "risk": "中〜高",
+  "detailPath": "stocks/META/index.html",
+  "scenarioPath": "stocks/META/scenario.html"
+}
