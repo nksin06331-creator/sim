@@ -34,7 +34,6 @@ const sorters = {
   "price-desc": (a, b) => compareNumber(a.price?.current, b.price?.current) || tieBreak(a, b),
   "price-asc": (a, b) => compareNumber(a.price?.current, b.price?.current, "asc") || tieBreak(a, b),
   "value-desc": (a, b) => compareNumber(a.riskReward, b.riskReward) || compareNumber(a.positionPct, b.positionPct, "asc") || tieBreak(a, b),
-  "market-cap-desc": (a, b) => compareNumber(a.marketCap ?? a.market_cap, b.marketCap ?? b.market_cap) || tieBreak(a, b),
   "ticker-asc": tieBreak,
 };
 
