@@ -2,16 +2,41 @@ const grid = document.querySelector("#stock-grid");
 const status = document.querySelector("#status");
 const search = document.querySelector("#stock-search");
 const filters = document.querySelector("#market-filters");
+const sort = document.querySelector("#stock-sort");
 const manifestUrl = document.body.dataset.manifestUrl || "./data/manifest.json";
 const linkPrefix = document.body.dataset.linkPrefix ?? (location.pathname.includes("/lab/") ? "../" : "");
 let stocks = [];
 let activeMarket = "all";
+let activeSort = "updated";
 
 const formatPrice = (value, currency = "USD") => Number.isFinite(value)
   ? new Intl.NumberFormat("ja-JP", { style: "currency", currency, maximumFractionDigits: 2 }).format(value)
   : "—";
 const addText = (parent, tag, text, className) => { const el = document.createElement(tag); el.textContent = text; if (className) el.className = className; parent.append(el); return el; };
 const setText = (selector, text) => { const el = document.querySelector(selector); if (el) el.textContent = text; };
+const numberValue = (value) => {
+  if (Number.isFinite(value)) return value;
+  if (typeof value !== "string") return null;
+  const parsed = Number.parseFloat(value.replace(/,/g, ""));
+  return Number.isFinite(parsed) ? parsed : null;
+};
+const compareNumber = (a, b, direction = "desc") => {
+  const aValue = numberValue(a);
+  const bValue = numberValue(b);
+  if (aValue === null && bValue === null) return 0;
+  if (aValue === null) return 1;
+  if (bValue === null) return -1;
+  return direction === "asc" ? aValue - bValue : bValue - aValue;
+};
+const tieBreak = (a, b) => a.ticker.localeCompare(b.ticker, "ja");
+const sorters = {
+  updated: (a, b) => b.updated.localeCompare(a.updated) || tieBreak(a, b),
+  "price-desc": (a, b) => compareNumber(a.price?.current, b.price?.current) || tieBreak(a, b),
+  "price-asc": (a, b) => compareNumber(a.price?.current, b.price?.current, "asc") || tieBreak(a, b),
+  "value-desc": (a, b) => compareNumber(a.riskReward, b.riskReward) || compareNumber(a.positionPct, b.positionPct, "asc") || tieBreak(a, b),
+  "market-cap-desc": (a, b) => compareNumber(a.marketCap ?? a.market_cap, b.marketCap ?? b.market_cap) || tieBreak(a, b),
+  "ticker-asc": tieBreak,
+};
 
 function scenarioCell(parent, label, value, currency) {
   const cell = document.createElement("div");
@@ -56,7 +81,7 @@ function createCard(stock) {
 }
 function render(query = "") {
   grid.replaceChildren(); const normalized = query.trim().toLowerCase();
-  const filtered = stocks.filter((stock) => (activeMarket === "all" || stock.market === activeMarket) && [stock.ticker, stock.name, stock.market, stock.sector, stock.method, stock.summary, stock.catalyst, ...(stock.tags ?? [])].join(" ").toLowerCase().includes(normalized));
+  const filtered = stocks.filter((stock) => (activeMarket === "all" || stock.market === activeMarket) && [stock.ticker, stock.name, stock.market, stock.sector, stock.method, stock.summary, stock.catalyst, ...(stock.tags ?? [])].join(" ").toLowerCase().includes(normalized)).sort(sorters[activeSort] ?? sorters.updated);
   filtered.forEach((stock) => grid.append(createCard(stock)));
   status.textContent = normalized ? `${filtered.length}件が一致しました` : `${filtered.length}銘柄のレポートを公開中`;
 }
@@ -69,4 +94,5 @@ async function init() {
 }
 search?.addEventListener("input", (event) => render(event.target.value));
 filters?.addEventListener("click", (event) => { const button = event.target.closest(".filter-tab"); if (!button) return; filters.querySelectorAll(".filter-tab").forEach((tab) => tab.classList.remove("active")); button.classList.add("active"); activeMarket = button.dataset.market; render(search.value); });
+sort?.addEventListener("change", (event) => { activeSort = event.target.value; render(search.value); });
 init();
