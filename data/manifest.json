@@ -168,6 +168,41 @@
   },
   {
     "schemaVersion": 1,
+    "ticker": "GOOG",
+    "slug": "goog",
+    "name": "Alphabet",
+    "market": "米国株",
+    "sector": "検索・広告・クラウド・AI",
+    "method": "正規化FY26E EPS × PER",
+    "status": "published",
+    "updated": "2026-07-14",
+    "price": {
+      "current": 350.67,
+      "currency": "USD"
+    },
+    "scenarios": {
+      "bear": 240,
+      "base": 390,
+      "bull": 576
+    },
+    "positionPct": 32.9,
+    "zone": "Bear〜Base帯",
+    "riskReward": "2.04倍",
+    "catalyst": "2026/7/22 Q2決算",
+    "summary": "検索は堅調。Cloudが加速。",
+    "tags": [
+      "PER",
+      "AI",
+      "Google検索",
+      "Google Cloud",
+      "Gemini"
+    ],
+    "risk": "中〜高",
+    "detailPath": "stocks/GOOG/index.html",
+    "scenarioPath": "stocks/GOOG/scenario.html"
+  },
+  {
+    "schemaVersion": 1,
     "ticker": "IBM",
     "slug": "ibm",
     "name": "IBM",
@@ -262,6 +297,76 @@
     "risk": "高",
     "detailPath": "stocks/IOT/index.html",
     "scenarioPath": "stocks/IOT/scenario.html"
+  },
+  {
+    "schemaVersion": 1,
+    "ticker": "META",
+    "slug": "meta",
+    "name": "Meta Platforms",
+    "market": "米国株",
+    "sector": "SNS広告・AI・AR/VR",
+    "method": "正規化FY26E EPS × PER",
+    "status": "published",
+    "updated": "2026-07-14",
+    "price": {
+      "current": 656.73,
+      "currency": "USD"
+    },
+    "scenarios": {
+      "bear": 504,
+      "base": 768,
+      "bull": 1008
+    },
+    "positionPct": 30.3,
+    "zone": "Bear〜Base帯",
+    "riskReward": "2.30倍",
+    "catalyst": "2026 Q2決算 / 広告成長とCapEx",
+    "summary": "広告は絶好調。投資額も巨大。",
+    "tags": [
+      "PER",
+      "AI",
+      "Instagram",
+      "AI広告",
+      "Reality Labs"
+    ],
+    "risk": "中〜高",
+    "detailPath": "stocks/META/index.html",
+    "scenarioPath": "stocks/META/scenario.html"
+  },
+  {
+    "schemaVersion": 1,
+    "ticker": "MSFT",
+    "slug": "msft",
+    "name": "Microsoft",
+    "market": "米国株",
+    "sector": "クラウド・ソフトウェア・AI",
+    "method": "FY27E EPS × PER",
+    "status": "published",
+    "updated": "2026-07-14",
+    "price": {
+      "current": 390.99,
+      "currency": "USD"
+    },
+    "scenarios": {
+      "bear": 315,
+      "base": 492,
+      "bull": 644
+    },
+    "positionPct": 23.1,
+    "zone": "Bear〜Base帯",
+    "riskReward": "3.33倍",
+    "catalyst": "2026/7/29 FY26 Q4決算",
+    "summary": "クラウドは強い。株価は調整済み。",
+    "tags": [
+      "PER",
+      "AI",
+      "Azure",
+      "Copilot",
+      "Microsoft 365"
+    ],
+    "risk": "中",
+    "detailPath": "stocks/MSFT/index.html",
+    "scenarioPath": "stocks/MSFT/scenario.html"
   },
   {
     "schemaVersion": 1,
