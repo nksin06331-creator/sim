@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "ticker": "6976",
+  "slug": "6976",
+  "name": "太陽誘電",
+  "market": "日本株",
+  "sector": "電子部品・AIサーバー・車載",
+  "method": "FY3/27E EPS × PER",
+  "status": "published",
+  "updated": "2026-07-15",
+  "price": {
+    "current": 11855,
+    "currency": "JPY"
+  },
+  "scenarios": {
+    "bear": 6300,
+    "base": 10450,
+    "bull": 16250
+  },
+  "positionPct": 55.8,
+  "zone": "Base超え・強気寄り",
+  "riskReward": "0.79倍",
+  "catalyst": "2026年8月頃 FY2026 第1四半期決算 / コンデンサ数量・単価と営業利益率を確認",
+  "summary": "AIサーバーと車載は伸びる。一方、株価は大幅な利益成長を先取り",
+  "tags": [
+    "FY3/27E EPS × PER",
+    "電子部品",
+    "AIサーバー",
+    "車載"
+  ],
+  "risk": "非常に高い",
+  "detailPath": "stocks/太陽誘電/index.html",
+  "scenarioPath": "stocks/太陽誘電/scenario.html"
+}
