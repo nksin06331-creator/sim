@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "ticker": "3350",
+  "slug": "3350",
+  "name": "メタプラネット",
+  "market": "日本株",
+  "sector": "ビットコイン・デジタル資産",
+  "method": "BTC純資産価値（mNAV）＋希薄化調整",
+  "status": "published",
+  "updated": "2026-07-15",
+  "price": {
+    "current": 245,
+    "currency": "JPY"
+  },
+  "scenarios": {
+    "bear": 115,
+    "base": 240,
+    "bull": 480
+  },
+  "positionPct": 35.6,
+  "zone": "Base付近",
+  "riskReward": "1.81倍",
+  "catalyst": "随時 BTC追加購入・新株予約権の行使状況 / BTC/希薄化後1株とmNAVを確認",
+  "summary": "43,000 BTCは巨大。ただしBTC価格と希薄化で1株価値は激しく動く",
+  "tags": [
+    "BTC純資産価値（mNAV）＋希薄化調整",
+    "ビットコイン",
+    "デジタル資産"
+  ],
+  "risk": "非常に高い",
+  "detailPath": "stocks/メタプラネット/index.html",
+  "scenarioPath": "stocks/メタプラネット/scenario.html"
+}
