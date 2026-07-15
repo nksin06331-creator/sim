@@ -1,6 +1,107 @@
 [
   {
     "schemaVersion": 1,
+    "ticker": "3350",
+    "slug": "3350",
+    "name": "メタプラネット",
+    "market": "日本株",
+    "sector": "ビットコイン・デジタル資産",
+    "method": "BTC純資産価値（mNAV）＋希薄化調整",
+    "status": "published",
+    "updated": "2026-07-15",
+    "price": {
+      "current": 245,
+      "currency": "JPY"
+    },
+    "scenarios": {
+      "bear": 115,
+      "base": 240,
+      "bull": 480
+    },
+    "positionPct": 35.6,
+    "zone": "Base付近",
+    "riskReward": "1.81倍",
+    "catalyst": "随時 BTC追加購入・新株予約権の行使状況 / BTC/希薄化後1株とmNAVを確認",
+    "summary": "43,000 BTCは巨大。ただしBTC価格と希薄化で1株価値は激しく動く",
+    "tags": [
+      "BTC純資産価値（mNAV）＋希薄化調整",
+      "ビットコイン",
+      "デジタル資産"
+    ],
+    "risk": "非常に高い",
+    "detailPath": "stocks/メタプラネット/index.html",
+    "scenarioPath": "stocks/メタプラネット/scenario.html"
+  },
+  {
+    "schemaVersion": 1,
+    "ticker": "6976",
+    "slug": "6976",
+    "name": "太陽誘電",
+    "market": "日本株",
+    "sector": "電子部品・AIサーバー・車載",
+    "method": "FY3/27E EPS × PER",
+    "status": "published",
+    "updated": "2026-07-15",
+    "price": {
+      "current": 11855,
+      "currency": "JPY"
+    },
+    "scenarios": {
+      "bear": 6300,
+      "base": 10450,
+      "bull": 16250
+    },
+    "positionPct": 55.8,
+    "zone": "Base超え・強気寄り",
+    "riskReward": "0.79倍",
+    "catalyst": "2026年8月頃 FY2026 第1四半期決算 / コンデンサ数量・単価と営業利益率を確認",
+    "summary": "AIサーバーと車載は伸びる。一方、株価は大幅な利益成長を先取り",
+    "tags": [
+      "FY3/27E EPS × PER",
+      "電子部品",
+      "AIサーバー",
+      "車載"
+    ],
+    "risk": "非常に高い",
+    "detailPath": "stocks/太陽誘電/index.html",
+    "scenarioPath": "stocks/太陽誘電/scenario.html"
+  },
+  {
+    "schemaVersion": 1,
+    "ticker": "7013",
+    "slug": "7013",
+    "name": "IHI",
+    "market": "日本株",
+    "sector": "航空エンジン・防衛・エネルギー",
+    "method": "FY3/27E EPS × PER",
+    "status": "published",
+    "updated": "2026-07-15",
+    "price": {
+      "current": 2815,
+      "currency": "JPY"
+    },
+    "scenarios": {
+      "bear": 1750,
+      "base": 2945,
+      "bull": 4750
+    },
+    "positionPct": 35.5,
+    "zone": "Base手前",
+    "riskReward": "1.82倍",
+    "catalyst": "2026/8/5頃 FY2026 第1四半期決算 / 航空エンジン採算・防衛受注・資産売却を確認",
+    "summary": "民間航空エンジンと防衛が伸びる。現値は会社計画を概ね織り込む",
+    "tags": [
+      "FY3/27E EPS × PER",
+      "航空エンジン",
+      "防衛",
+      "エネルギー"
+    ],
+    "risk": "高い",
+    "detailPath": "stocks/IHI/index.html",
+    "scenarioPath": "stocks/IHI/scenario.html"
+  },
+  {
+    "schemaVersion": 1,
     "ticker": "6981",
     "slug": "6981",
     "name": "村田製作所",
