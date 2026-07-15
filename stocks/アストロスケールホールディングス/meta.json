@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "ticker": "186A",
+  "slug": "186a",
+  "name": "アストロスケールホールディングス",
+  "market": "日本株",
+  "sector": "軌道上サービス・宇宙デブリ除去",
+  "method": "FY4/29Eプロジェクト収入 × EV/Income＋希薄化調整",
+  "status": "published",
+  "updated": "2026-07-15",
+  "price": {
+    "current": 1064,
+    "currency": "JPY"
+  },
+  "scenarios": {
+    "bear": 500,
+    "base": 1100,
+    "bull": 2100
+  },
+  "positionPct": 35.3,
+  "zone": "Base付近",
+  "riskReward": "1.84倍",
+  "catalyst": "2026/9頃 FY2027 第1四半期決算 / 受注、プロジェクト収入、CB転換・現金残高を確認",
+  "summary": "受注残379億円は厚い。赤字・案件遅延・約10.4%の潜在希薄化を同時評価",
+  "tags": [
+    "FY4/29Eプロジェクト収入 × EV/Income＋希薄化調整",
+    "軌道上サービス",
+    "宇宙デブリ除去"
+  ],
+  "risk": "非常に高い",
+  "detailPath": "stocks/アストロスケールホールディングス/index.html",
+  "scenarioPath": "stocks/アストロスケールホールディングス/scenario.html"
+}
