@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "ticker": "464A",
+  "slug": "464a",
+  "name": "QPSホールディングス",
+  "market": "日本株",
+  "sector": "小型SAR衛星・宇宙インフラ",
+  "method": "FY5/29E売上 × EV/Sales＋希薄化調整",
+  "status": "published",
+  "updated": "2026-07-15",
+  "price": {
+    "current": 1844,
+    "currency": "JPY"
+  },
+  "scenarios": {
+    "bear": 900,
+    "base": 1900,
+    "bull": 3400
+  },
+  "positionPct": 37.8,
+  "zone": "Base付近",
+  "riskReward": "1.65倍",
+  "catalyst": "2026/10/9頃 FY2027 第1四半期決算 / 衛星打上げ、稼働機数、防衛省案件の売上計上",
+  "summary": "衛星数と防衛売上は拡大。ただし打上げ・資金調達・希薄化が同時進行",
+  "tags": [
+    "FY5/29E売上 × EV/Sales＋希薄化調整",
+    "小型SAR衛星",
+    "宇宙インフラ"
+  ],
+  "risk": "非常に高い",
+  "detailPath": "stocks/QPSホールディングス/index.html",
+  "scenarioPath": "stocks/QPSホールディングス/scenario.html"
+}
