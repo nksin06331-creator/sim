@@ -1,6 +1,105 @@
 [
   {
     "schemaVersion": 1,
+    "ticker": "6613",
+    "slug": "6613",
+    "name": "QDレーザ",
+    "market": "日本株",
+    "sector": "量子ドットレーザ・光デバイス",
+    "method": "FY3/28E売上 × EV/Sales＋希薄化調整",
+    "status": "published",
+    "updated": "2026-07-15",
+    "price": {
+      "current": 2425,
+      "currency": "JPY"
+    },
+    "scenarios": {
+      "bear": 600,
+      "base": 1750,
+      "bull": 4000
+    },
+    "positionPct": 53.7,
+    "zone": "Base超え・強気寄り",
+    "riskReward": "0.86倍",
+    "catalyst": "2026/8/10 FY2026 第1四半期決算 / 受注残、量子ドット量産案件、営業黒字の進捗",
+    "summary": "黒字化計画は前進。ただし株価は量産成功を何年分も先取り",
+    "tags": [
+      "FY3/28E売上 × EV/Sales＋希薄化調整",
+      "量子ドットレーザ",
+      "光デバイス"
+    ],
+    "risk": "非常に高い",
+    "detailPath": "stocks/QDレーザ/index.html",
+    "scenarioPath": "stocks/QDレーザ/scenario.html"
+  },
+  {
+    "schemaVersion": 1,
+    "ticker": "464A",
+    "slug": "464a",
+    "name": "QPSホールディングス",
+    "market": "日本株",
+    "sector": "小型SAR衛星・宇宙インフラ",
+    "method": "FY5/29E売上 × EV/Sales＋希薄化調整",
+    "status": "published",
+    "updated": "2026-07-15",
+    "price": {
+      "current": 1844,
+      "currency": "JPY"
+    },
+    "scenarios": {
+      "bear": 900,
+      "base": 1900,
+      "bull": 3400
+    },
+    "positionPct": 37.8,
+    "zone": "Base付近",
+    "riskReward": "1.65倍",
+    "catalyst": "2026/10/9頃 FY2027 第1四半期決算 / 衛星打上げ、稼働機数、防衛省案件の売上計上",
+    "summary": "衛星数と防衛売上は拡大。ただし打上げ・資金調達・希薄化が同時進行",
+    "tags": [
+      "FY5/29E売上 × EV/Sales＋希薄化調整",
+      "小型SAR衛星",
+      "宇宙インフラ"
+    ],
+    "risk": "非常に高い",
+    "detailPath": "stocks/QPSホールディングス/index.html",
+    "scenarioPath": "stocks/QPSホールディングス/scenario.html"
+  },
+  {
+    "schemaVersion": 1,
+    "ticker": "3905",
+    "slug": "3905",
+    "name": "データセクション",
+    "market": "日本株",
+    "sector": "AIインフラ・GPUデータセンター",
+    "method": "FY3/27E希薄化後EPS × PER",
+    "status": "published",
+    "updated": "2026-07-15",
+    "price": {
+      "current": 2845,
+      "currency": "JPY"
+    },
+    "scenarios": {
+      "bear": 1200,
+      "base": 2880,
+      "bull": 5760
+    },
+    "positionPct": 36.1,
+    "zone": "Base付近",
+    "riskReward": "1.77倍",
+    "catalyst": "2026年8月頃 FY2027 第1四半期決算 / データセンター稼働開始、顧客利用率、資金調達",
+    "summary": "AIインフラは急拡大計画。現値は計画達成を概ね織り込むが振れ幅は大きい",
+    "tags": [
+      "FY3/27E希薄化後EPS × PER",
+      "AIインフラ",
+      "GPUデータセンター"
+    ],
+    "risk": "非常に高い",
+    "detailPath": "stocks/データセクション/index.html",
+    "scenarioPath": "stocks/データセクション/scenario.html"
+  },
+  {
+    "schemaVersion": 1,
     "ticker": "3350",
     "slug": "3350",
     "name": "メタプラネット",
