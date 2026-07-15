@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "ticker": "7013",
+  "slug": "7013",
+  "name": "IHI",
+  "market": "日本株",
+  "sector": "航空エンジン・防衛・エネルギー",
+  "method": "FY3/27E EPS × PER",
+  "status": "published",
+  "updated": "2026-07-15",
+  "price": {
+    "current": 2815,
+    "currency": "JPY"
+  },
+  "scenarios": {
+    "bear": 1750,
+    "base": 2945,
+    "bull": 4750
+  },
+  "positionPct": 35.5,
+  "zone": "Base手前",
+  "riskReward": "1.82倍",
+  "catalyst": "2026/8/5頃 FY2026 第1四半期決算 / 航空エンジン採算・防衛受注・資産売却を確認",
+  "summary": "民間航空エンジンと防衛が伸びる。現値は会社計画を概ね織り込む",
+  "tags": [
+    "FY3/27E EPS × PER",
+    "航空エンジン",
+    "防衛",
+    "エネルギー"
+  ],
+  "risk": "高い",
+  "detailPath": "stocks/IHI/index.html",
+  "scenarioPath": "stocks/IHI/scenario.html"
+}
