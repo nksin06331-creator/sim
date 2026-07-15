@@ -1,6 +1,107 @@
 [
   {
     "schemaVersion": 1,
+    "ticker": "3825",
+    "slug": "3825",
+    "name": "リミックスポイント",
+    "market": "日本株",
+    "sector": "暗号資産・電力・蓄電池",
+    "method": "暗号資産NAV＋事業価値SOTP",
+    "status": "published",
+    "updated": "2026-07-15",
+    "price": {
+      "current": 203,
+      "currency": "JPY"
+    },
+    "scenarios": {
+      "bear": 100,
+      "base": 210,
+      "bull": 380
+    },
+    "positionPct": 36.8,
+    "zone": "Base付近",
+    "riskReward": "1.72倍",
+    "catalyst": "2026年8月頃 FY2027 第1四半期決算 / BTC評価額、電力粗利、蓄電池受注を確認",
+    "summary": "約1,491 BTCと電力事業を併有。株価はBTC価格と本業利益の両方で動く",
+    "tags": [
+      "暗号資産NAV＋事業価値SOTP",
+      "暗号資産",
+      "電力",
+      "蓄電池"
+    ],
+    "risk": "非常に高い",
+    "detailPath": "stocks/リミックスポイント/index.html",
+    "scenarioPath": "stocks/リミックスポイント/scenario.html"
+  },
+  {
+    "schemaVersion": 1,
+    "ticker": "5801",
+    "slug": "5801",
+    "name": "古河電気工業",
+    "market": "日本株",
+    "sector": "光ファイバー・AIデータセンター・電力",
+    "method": "FY3/27E EPS × PER",
+    "status": "published",
+    "updated": "2026-07-15",
+    "price": {
+      "current": 3520,
+      "currency": "JPY"
+    },
+    "scenarios": {
+      "bear": 1900,
+      "base": 3360,
+      "bull": 5700
+    },
+    "positionPct": 42.6,
+    "zone": "Base付近",
+    "riskReward": "1.35倍",
+    "catalyst": "2026/8/6 FY2026 第1四半期決算 / 光ソリューション利益率とデータセンター売上を確認",
+    "summary": "AIデータセンター向け光部品が利益を牽引。株価は高成長の継続を要求",
+    "tags": [
+      "FY3/27E EPS × PER",
+      "光ファイバー",
+      "AIデータセンター",
+      "電力"
+    ],
+    "risk": "高い",
+    "detailPath": "stocks/古河電気工業/index.html",
+    "scenarioPath": "stocks/古河電気工業/scenario.html"
+  },
+  {
+    "schemaVersion": 1,
+    "ticker": "186A",
+    "slug": "186a",
+    "name": "アストロスケールホールディングス",
+    "market": "日本株",
+    "sector": "軌道上サービス・宇宙デブリ除去",
+    "method": "FY4/29Eプロジェクト収入 × EV/Income＋希薄化調整",
+    "status": "published",
+    "updated": "2026-07-15",
+    "price": {
+      "current": 1064,
+      "currency": "JPY"
+    },
+    "scenarios": {
+      "bear": 500,
+      "base": 1100,
+      "bull": 2100
+    },
+    "positionPct": 35.3,
+    "zone": "Base付近",
+    "riskReward": "1.84倍",
+    "catalyst": "2026/9頃 FY2027 第1四半期決算 / 受注、プロジェクト収入、CB転換・現金残高を確認",
+    "summary": "受注残379億円は厚い。赤字・案件遅延・約10.4%の潜在希薄化を同時評価",
+    "tags": [
+      "FY4/29Eプロジェクト収入 × EV/Income＋希薄化調整",
+      "軌道上サービス",
+      "宇宙デブリ除去"
+    ],
+    "risk": "非常に高い",
+    "detailPath": "stocks/アストロスケールホールディングス/index.html",
+    "scenarioPath": "stocks/アストロスケールホールディングス/scenario.html"
+  },
+  {
+    "schemaVersion": 1,
     "ticker": "6613",
     "slug": "6613",
     "name": "QDレーザ",
