@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "ticker": "3825",
+  "slug": "3825",
+  "name": "リミックスポイント",
+  "market": "日本株",
+  "sector": "暗号資産・電力・蓄電池",
+  "method": "暗号資産NAV＋事業価値SOTP",
+  "status": "published",
+  "updated": "2026-07-15",
+  "price": {
+    "current": 203,
+    "currency": "JPY"
+  },
+  "scenarios": {
+    "bear": 100,
+    "base": 210,
+    "bull": 380
+  },
+  "positionPct": 36.8,
+  "zone": "Base付近",
+  "riskReward": "1.72倍",
+  "catalyst": "2026年8月頃 FY2027 第1四半期決算 / BTC評価額、電力粗利、蓄電池受注を確認",
+  "summary": "約1,491 BTCと電力事業を併有。株価はBTC価格と本業利益の両方で動く",
+  "tags": [
+    "暗号資産NAV＋事業価値SOTP",
+    "暗号資産",
+    "電力",
+    "蓄電池"
+  ],
+  "risk": "非常に高い",
+  "detailPath": "stocks/リミックスポイント/index.html",
+  "scenarioPath": "stocks/リミックスポイント/scenario.html"
+}
