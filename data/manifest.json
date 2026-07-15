@@ -280,26 +280,26 @@
     "sector": "エンタープライズIT・ソフトウェア",
     "method": "2027E EPS × PER",
     "status": "published",
-    "updated": "2026-07-13",
+    "updated": "2026-07-15",
     "price": {
-      "current": 287.56,
+      "current": 217.07,
       "currency": "USD"
     },
     "scenarios": {
-      "bear": 198,
-      "base": 275,
-      "bull": 363
+      "bear": 152,
+      "base": 219,
+      "bull": 311
     },
-    "positionPct": 54.3,
-    "zone": "Base超え・強気寄り",
-    "riskReward": "0.84倍",
-    "catalyst": "要確認",
-    "summary": "会社は強い。",
+    "positionPct": 40.9,
+    "zone": "Base付近",
+    "riskReward": "1.44倍",
+    "catalyst": "2026/7/22 Q2正式決算 / 通期見通し・案件回収時期",
+    "summary": "Q2失速で急落。前提を再評価。",
     "tags": [
       "2027E EPS × PER",
       "エンタープライズIT・ソフトウェア"
     ],
-    "risk": "中",
+    "risk": "高",
     "detailPath": "stocks/IBM/index.html",
     "scenarioPath": "stocks/IBM/scenario.html"
   },
