@@ -42,24 +42,24 @@ details{border:1px solid var(--line);background:#111119;border-radius:16px;paddi
 <div class="wrap">
   <div class="eyebrow">DOPAGAKI STOCK LAB / SCENARIO CHECK</div>
   <h1>IBM <small>IBM</small></h1>
-  <div class="sub">NYSE｜評価基準日 2026-07-13｜使用手法 2027E EPS × PER</div>
+  <div class="sub">NYSE｜評価基準日 2026-07-15｜使用手法 2027E EPS × PER</div>
   <div class="verdict">
     <div class="verdict-main">
       <span class="pill">まず結論だけ</span>
       <!-- decision.status＋一言結論（絵文字は先頭1個まで、45文字目安） -->
-      <div class="status">会社は強い。ただし現値は基本シナリオを少し上回る</div>
+      <div class="status">Q2失速で急落。現値は基本シナリオ付近まで低下</div>
       <!-- 現値ポジショニングと市場逆算を1〜2文で -->
-      <p>現値$287.56は、Bear〜Bull帯の約54%地点。Base $275をやや上回ります。</p>
-      <p class="sub">市場はSoftware成長と量子のオプション価値をかなり評価。次のQ2決算が近いです。</p>
+      <p>現値$217.07は、Bear〜Bull帯の約41%地点。Base $219とほぼ同水準です。</p>
+      <p class="sub">7月14日に25.2%急落。市場はSoftware減速と大型案件の遅延を一気に再評価しました。</p>
     </div>
     <!-- 総合スコアは“補助指標”。売買判断そのものではない旨を必ず添える -->
-    <div class="score"><small>総合スコア（補助指標）</small><b>66</b><small>/ 100　売買判断そのものではありません</small></div>
+    <div class="score"><small>総合スコア（補助指標）</small><b>52</b><small>/ 100　売買判断そのものではありません</small></div>
   </div>
   <div class="kpis">
-    <div class="kpi"><span>現在株価</span><b>$287.56</b><small>2026/7/10終値</small></div>
-    <div class="kpi"><span>Base価値（標準ケース）</span><b>$275</b><small>現値比 -4.4%</small></div>
-    <div class="kpi"><span>確率加重期待値</span><b>$282</b><small>現値比 -2.1%</small></div>
-    <div class="kpi"><span>リスク区分</span><b>MEDIUM</b><small>高評価・大型買収後の負債・AI競争</small></div>
+    <div class="kpi"><span>現在株価</span><b>$217.07</b><small>2026/7/14終値</small></div>
+    <div class="kpi"><span>Base価値（標準ケース）</span><b>$219</b><small>現値比 +0.9%</small></div>
+    <div class="kpi"><span>確率加重期待値</span><b>$217.30</b><small>現値比 +0.1%</small></div>
+    <div class="kpi"><span>リスク区分</span><b>HIGH</b><small>業績警告・大型案件遅延・買収後負債</small></div>
   </div>
 
 <div style="position:relative;z-index:1;margin-top:14px;display:inline-flex;gap:8px;flex-wrap:wrap">
@@ -72,7 +72,7 @@ details{border:1px solid var(--line);background:#111119;border-radius:16px;paddi
 </header>
 
 <!-- Validation：WARNがあれば下の注意帯を残す（なければ丸ごと削除）。FAIL時は完成版にしない。 -->
-<div class="wrap"><div class="notice" style="margin-top:14px"><b>注意：</b>2027年EPS・PERは仮定。Q2決算直前で、Confluent統合後の利益・負債前提に不確実性があります。</div></div>
+<div class="wrap"><div class="notice" style="margin-top:14px"><b>注意：</b>Q2数値は7月14日公表の暫定値。正式決算は7月22日で、通期見通しと2027年EPS仮定には大きな不確実性があります。</div></div>
 <!-- 例（WARN時）:
 <div class="wrap"><div class="notice" style="margin-top:14px"><b>注意：</b>—</div></div>
 -->
@@ -91,23 +91,23 @@ details{border:1px solid var(--line);background:#111119;border-radius:16px;paddi
 <!-- Layer2-1：いまどこ？（現値ポジショニング＋市場逆算） -->
 <section class="card" id="snapshot">
   <h2>いまの株価、どこにいる？</h2>
-  <p class="lead">今の株価はBaseを少し超えています。上振れにはSoftware成長の継続か、量子価値の追加評価が必要です。</p>
+  <p class="lead">急落後の株価はBase付近です。ただし「安くなった」だけでなく、成長率の前提そのものが悪化しました。</p>
   <div class="grid-2">
     <div>
       <h3>現値ポジショニング</h3>
-      <p>Bear〜Bull帯の <b>54.3%</b> 地点。判定は <b>Base超え・強気寄り</b>。ただしBullまでは距離があります。</p>
+      <p>Bear〜Bull帯の <b>40.9%</b> 地点。判定は <b>Base付近</b>。正式決算前で不確実性は高いです。</p>
       <!-- pin の left:% を band_position_pct に合わせる -->
-      <div class="position"><div class="position-line"><i class="pin" style="left:54.3%"></i></div><div class="position-labels"><span>Bear $198</span><span>Base $275</span><span>Bull $363</span></div></div>
-      <p>上値下値比：<b>0.84倍</b>　確率加重期待値：<b>$282</b></p>
+      <div class="position"><div class="position-line"><i class="pin" style="left:40.9%"></i></div><div class="position-labels"><span>Bear $152</span><span>Base $219</span><span>Bull $311</span></div></div>
+      <p>上値下値比：<b>1.44倍</b>　確率加重期待値：<b>$217.30</b></p>
     </div>
     <div>
       <h3>市場期待と独自見解</h3>
       <div class="compare">
-        <div><b>市場期待 72/100</b><div class="meter"><i style="width:72%"></i></div></div>
-        <div><b>本試算 66/100</b><div class="meter"><i style="width:66%"></i></div></div>
+        <div><b>市場期待 49/100</b><div class="meter"><i style="width:49%"></i></div></div>
+        <div><b>本試算 52/100</b><div class="meter"><i style="width:52%"></i></div></div>
       </div>
       <!-- market_reverse.conclusion：現値が自分のどの前提に相当するか -->
-      <p>現値$287.56は、仮定2027年EPS $12.5に対して約23.0倍。Baseの22倍より約1倍高い評価です。</p>
+      <p>現値$217.07は、仮定2027年EPS $11.5に対して約18.9倍。市場は従来の高成長プレミアムをほぼ剥がしました。</p>
     </div>
   </div>
 </section>
@@ -118,23 +118,23 @@ details{border:1px solid var(--line);background:#111119;border-radius:16px;paddi
   <p class="lead">2027年EPSとPERの組み合わせで3ケースを作成。量子はBull側の倍率プレミアムに限定的に反映します。</p>
   <div class="scenarios">
     <article class="scenario bear">
-      <div class="scenario-head"><span>Bear（悲観ケース）</span><b>20%</b></div>
-      <div class="scenario-price">$198</div>
-      <div class="small">現値比 -31.1%</div>
-      <dl><div><dt>2027E EPS（仮定）</dt><dd>$11.0</dd></div><div><dt>PER（仮定）</dt><dd>18倍</dd></div><div><dt>理論株価</dt><dd>$198</dd></div></dl>
+      <div class="scenario-head"><span>Bear（悲観ケース）</span><b>30%</b></div>
+      <div class="scenario-price">$152</div>
+      <div class="small">現値比 -30.0%</div>
+      <dl><div><dt>2027E EPS（仮定）</dt><dd>$9.5</dd></div><div><dt>PER（仮定）</dt><dd>16倍</dd></div><div><dt>理論株価</dt><dd>$152</dd></div></dl>
       <!-- 例: <div><dt>事業価値</dt><dd>25.9兆円</dd></div> を手法に応じて数行 -->
     </article>
     <article class="scenario base">
-      <div class="scenario-head"><span>Base（標準ケース）</span><b>55%</b></div>
-      <div class="scenario-price">$275</div>
-      <div class="small">現値比 現値比 -4.4%</div>
-      <dl><div><dt>2027E EPS（仮定）</dt><dd>$12.5</dd></div><div><dt>PER（仮定）</dt><dd>22倍</dd></div><div><dt>理論株価</dt><dd>$275</dd></div></dl>
+      <div class="scenario-head"><span>Base（標準ケース）</span><b>50%</b></div>
+      <div class="scenario-price">$219</div>
+      <div class="small">現値比 +0.9%</div>
+      <dl><div><dt>2027E EPS（仮定）</dt><dd>$11.5</dd></div><div><dt>PER（仮定）</dt><dd>19倍</dd></div><div><dt>理論株価</dt><dd>$219</dd></div></dl>
     </article>
     <article class="scenario bull">
-      <div class="scenario-head"><span>Bull（強気ケース）</span><b>25%</b></div>
-      <div class="scenario-price">$363</div>
-      <div class="small">現値比 +26.2%</div>
-      <dl><div><dt>2027E EPS（仮定）</dt><dd>$14.5</dd></div><div><dt>PER（仮定）</dt><dd>25倍</dd></div><div><dt>理論株価</dt><dd>$363</dd></div></dl>
+      <div class="scenario-head"><span>Bull（強気ケース）</span><b>20%</b></div>
+      <div class="scenario-price">$311</div>
+      <div class="small">現値比 +43.3%</div>
+      <dl><div><dt>2027E EPS（仮定）</dt><dd>$13.5</dd></div><div><dt>PER（仮定）</dt><dd>23倍</dd></div><div><dt>理論株価</dt><dd>$311</dd></div></dl>
     </article></div>
 </section>
 
@@ -143,13 +143,13 @@ details{border:1px solid var(--line);background:#111119;border-radius:16px;paddi
   <div class="card">
     <h2>この値段ならどう見る？</h2>
     <!-- 4〜5帯。「買い/売り」は断定しない。星は割安度の目安 -->
-    <div class="zone"><div><b>$198未満</b><span>★★★★★</span></div><p>Bear以下。業績悪化を強く織り込む水準。</p></div><div class="zone"><div><b>$198〜$275</b><span>★★★★☆</span></div><p>慎重〜Base帯。Software成長の持続を確認。</p></div><div class="zone"><div><b>$275〜$363</b><span>★★★☆☆</span></div><p>強気寄り。成長と倍率維持が必要。</p></div><div class="zone"><div><b>$363超</b><span>★☆☆☆☆</span></div><p>Bull超。量子・AIの追加上振れが必要。</p></div>
+    <div class="zone"><div><b>$152未満</b><span>★★★★★</span></div><p>Bear以下。長期停滞を強く織り込む水準。</p></div><div class="zone"><div><b>$152〜$219</b><span>★★★★☆</span></div><p>Bear〜Base帯。案件回復とSoftware成長を確認。</p></div><div class="zone"><div><b>$219〜$311</b><span>★★★☆☆</span></div><p>Base超え。成長回復と倍率上昇が必要。</p></div><div class="zone"><div><b>$311超</b><span>★☆☆☆☆</span></div><p>Bull超。AI・量子の追加上振れが必要。</p></div>
     <!-- 例: <div class="zone"><div><b>48,000円未満</b><span>★★★★★</span></div><p>悲観ケース以下。下方リスクを相当織り込む</p></div> -->
   </div>
   <div class="card">
     <h2>株価を動かす4つ</h2>
     <!-- 各材料に up=追い風 / down=注意 / flat を付ける -->
-    <div class="signal"><div><b>Software / Red Hat</b><span class="up">追い風</span></div><p>1Q Softwareは前年比11.3%増。</p></div><div class="signal"><div><b>Q2決算</b><span class="flat">7/22予定</span></div><p>最も近い重要カタリスト。</p></div><div class="signal"><div><b>Confluent統合</b><span class="flat">要確認</span></div><p>成長加速と負債負担の両面。</p></div><div class="signal"><div><b>Consulting競争</b><span class="down">注意</span></div><p>AIネイティブ勢との競争が強まる。</p></div>
+    <div class="signal"><div><b>Software / Red Hat</b><span class="down">減速</span></div><p>Q2 Softwareは5%増。一方Red Hatは11%増。</p></div><div class="signal"><div><b>Q2正式決算</b><span class="flat">7/22予定</span></div><p>通期見通しと案件回収時期が最重要。</p></div><div class="signal"><div><b>Confluent統合</b><span class="flat">要確認</span></div><p>買収事業は好調だが、負債負担も大きい。</p></div><div class="signal"><div><b>大型案件遅延</b><span class="down">注意</span></div><p>後ずれか、需要消失かで評価が変わる。</p></div>
     <!-- 例: <div class="signal"><div><b>AI向けSSD需要</b><span class="up">追い風</span></div><p>…</p></div> -->
   </div>
 </section>
@@ -158,12 +158,12 @@ details{border:1px solid var(--line);background:#111119;border-radius:16px;paddi
 <section class="grid-2">
   <div class="card">
     <h2>ここは普通に強い</h2>
-    <ul class="clean"><li>2026年1Q売上は159億ドル、前年比9%増。</li><li>Softwareは11.3%増。利益率も29.8%。</li><li>1QフリーCFは22億ドル。</li><li>Red Hat・AI・メインフレームの複数成長軸。</li></ul>
+    <ul class="clean"><li>Q2でもRed Hatは前年比11%増。</li><li>HashiCorpとConfluentは会社説明で好調。</li><li>上期フリーCFは47.6億ドル。</li><li>Distributed Infrastructureは37%増、受注残約5億ドル。</li></ul>
     <!-- 例: <li>FY2025売上2.34兆円で過去最高。</li> を3〜5件 -->
   </div>
   <div class="card">
     <h2>ここで事故るかも</h2>
-    <ul class="clean"><li>現値はBase $275を上回る。</li><li>Confluent買収後、総負債は664億ドル。</li><li>Consultingは1Qで前年比4%増にとどまる。</li><li>量子の商用価値は長期で不確実。</li></ul>
+    <ul class="clean"><li>Q2売上は1%増、Softwareは5%増へ失速。</li><li>Infrastructureは7%減。IBM Zと関連ソフトが未達。</li><li>大型案件を予定通り閉じられず、実行力に疑問。</li><li>Confluent買収後の負債と量子投資が重い。</li></ul>
     <!-- 2つ目のカードのliは自動で赤「!」になる -->
   </div>
 </section>
@@ -174,16 +174,16 @@ details{border:1px solid var(--line);background:#111119;border-radius:16px;paddi
   <p class="lead">理論株価 ＝ 2027年EPS（仮定）× 想定PER（仮定）。</p>
   <div class="table-wrap"><table>
   <thead><tr><th>ケース</th><th>2027E EPS</th><th>PER</th><th>理論株価</th><th>確率</th></tr></thead>
-  <tbody><tr><td>Bear</td><td>$11.0</td><td>18倍</td><td>$198</td><td>20%</td></tr><tr><td>Base</td><td>$12.5</td><td>22倍</td><td>$275</td><td>55%</td></tr><tr><td>Bull</td><td>$14.5</td><td>25倍</td><td>$363</td><td>25%</td></tr></tbody>
+  <tbody><tr><td>Bear</td><td>$9.5</td><td>16倍</td><td>$152</td><td>30%</td></tr><tr><td>Base</td><td>$11.5</td><td>19倍</td><td>$219</td><td>50%</td></tr><tr><td>Bull</td><td>$13.5</td><td>23倍</td><td>$311</td><td>20%</td></tr></tbody>
   </table></div>
   <!-- 現値に合わせた逆算ではない旨、未開示前提の注意など -->
-  <p class="notice"><b>重要：</b>現値に理論株価を合わせていません。現値からの市場逆算は別計算で約23.0倍と算出しています。</p>
+  <p class="notice"><b>重要：</b>現値に理論株価を合わせていません。Q2減速を受けEPSと倍率を独立して再設定。市場逆算は別計算で約18.9倍です。</p>
 </section>
 
 <!-- Layer3：成立条件 -->
 <section class="card" id="conditions">
   <h2>この未来になる条件</h2>
-  <details><summary>Bear：$198 / 確率20%</summary><p>Software減速、Consulting圧力、買収統合負担でEPS $11・PER 18倍。</p></details><details open><summary>Base：$275 / 確率55%</summary><p>Software成長継続、2027年EPS $12.5、PER 22倍。</p></details><details><summary>Bull：$363 / 確率25%</summary><p>Red Hat・AI・Confluent統合が上振れ、EPS $14.5・PER 25倍。</p></details>
+  <details><summary>Bear：$152 / 確率30%</summary><p>案件遅延が需要消失へ広がり、Software低成長が続く。EPS $9.5・PER 16倍。</p></details><details open><summary>Base：$219 / 確率50%</summary><p>Q2が一時的な失速にとどまり、2027年EPS $11.5・PER 19倍。</p></details><details><summary>Bull：$311 / 確率20%</summary><p>大型案件を回収し、Red Hat・Confluent・AIが再加速。EPS $13.5・PER 23倍。</p></details>
   <!-- 例: <details open><summary>Base：$275 / 確率55%</summary><p>…</p></details> を3つ -->
 </section>
 
@@ -192,24 +192,24 @@ details{border:1px solid var(--line);background:#111119;border-radius:16px;paddi
   <div class="card">
     <h2>数字がズレるとどうなる？</h2>
     <div class="table-wrap"><table>
-      <thead><tr><th>2027E EPS \ PER</th><th>18倍</th><th>22倍</th><th>25倍</th></tr></thead>
-      <tbody><tr><td>$11.0</td><td>$198</td><td>$242</td><td>$275</td></tr><tr><td>$12.5</td><td>$225</td><td>$275</td><td>$313</td></tr><tr><td>$14.5</td><td>$261</td><td>$319</td><td>$363</td></tr></tbody>
+      <thead><tr><th>2027E EPS \ PER</th><th>16倍</th><th>19倍</th><th>23倍</th></tr></thead>
+      <tbody><tr><td>$9.5</td><td>$152</td><td>$181</td><td>$219</td></tr><tr><td>$11.5</td><td>$184</td><td>$219</td><td>$265</td></tr><tr><td>$13.5</td><td>$216</td><td>$257</td><td>$311</td></tr></tbody>
     </table></div>
     <p class="small">最重要ドライバはEPSとPER。Q2決算で成長率・FCF・統合進捗を再確認。</p>
   </div>
   <div class="card">
     <h2>どの価格に行きやすい？</h2>
     <p class="lead">3シナリオ確率を価格帯に対応させた補助表示です。モンテカルロではありません。</p>
-    <div class="dist-row"><span>$220未満</span><div class="track"><i style="width:20%"></i></div><b>20%</b></div><div class="dist-row"><span>$220〜$320</span><div class="track"><i style="width:55%"></i></div><b>55%</b></div><div class="dist-row"><span>$320超</span><div class="track"><i style="width:25%"></i></div><b>25%</b></div>
+    <div class="dist-row"><span>$180未満</span><div class="track"><i style="width:30%"></i></div><b>30%</b></div><div class="dist-row"><span>$180〜$270</span><div class="track"><i style="width:50%"></i></div><b>50%</b></div><div class="dist-row"><span>$270超</span><div class="track"><i style="width:20%"></i></div><b>20%</b></div>
     <!-- 例: <div class="dist-row"><span>5万円未満</span><div class="track"><i style="width:7.6%"></i></div><b>7.6%</b></div> -->
-    <p>Base確率55%が中心。確率は仮定であり予言ではありません。</p>
+    <p>Base確率50%が中心。確率は仮定であり予言ではありません。</p>
   </div>
 </section>
 
 <!-- 次の決算/イベントで見る場所（watch_items） -->
 <section class="card">
   <h2>次の決算で見る場所</h2>
-  <div class="signal"><div><b>2026年7月22日予定のQ2決算</b></div><p>売上、調整後EPS、Software/Red Hat成長、FCF見通し。</p></div><div class="signal"><div><b>Confluent統合</b></div><p>クロスセル、利益寄与、負債削減ペース。</p></div><div class="signal"><div><b>量子ロードマップ</b></div><p>技術進展と実際の契約・収益化を分けて確認。</p></div>
+  <div class="signal"><div><b>2026年7月22日のQ2正式決算</b></div><p>通期売上・FCF見通し、暫定値との差、案件遅延の回収時期。</p></div><div class="signal"><div><b>Softwareの中身</b></div><p>Red Hat 11%増に対し、Transaction Processingがどこまで弱いか。</p></div><div class="signal"><div><b>Confluent統合</b></div><p>成長寄与、利益率、負債削減ペース。</p></div>
   <!-- 例: <div class="signal"><div><b>2026年7月31日の1Q決算</b></div><p>…</p></div> -->
 </section>
 
@@ -218,7 +218,7 @@ details{border:1px solid var(--line);background:#111119;border-radius:16px;paddi
   <h2>使った数字と前提</h2>
   <div class="table-wrap"><table>
   <thead><tr><th>項目</th><th>値</th><th>分類</th><th>注記</th></tr></thead>
-  <tbody><tr><td>現在株価</td><td>$287.56</td><td>市場データ</td><td>2026/7/10終値</td></tr><tr><td>1Q売上</td><td>$15.9B</td><td>実績</td><td>IBM 1Q26</td></tr><tr><td>現金等</td><td>$11.8B</td><td>実績</td><td>2026/3/31</td></tr><tr><td>総負債</td><td>$66.4B</td><td>実績</td><td>IBM Financing含む</td></tr><tr><td>発行株式</td><td>939.9M</td><td>実績</td><td>2026/3/31</td></tr><tr><td>2027E EPS</td><td>$11.0 / $12.5 / $14.5</td><td>仮定</td><td>Bear / Base / Bull</td></tr><tr><td>PER</td><td>18 / 22 / 25倍</td><td>仮定</td><td>成長・競争・量子プレミアムを反映</td></tr></tbody>
+  <tbody><tr><td>現在株価</td><td>$217.07</td><td>市場データ</td><td>2026/7/14終値</td></tr><tr><td>Q2売上</td><td>$17.2B</td><td>暫定実績</td><td>IBM 7/14書簡</td></tr><tr><td>Q2調整後EPS</td><td>$2.93</td><td>暫定実績</td><td>前年比5%増</td></tr><tr><td>上期FCF</td><td>$4.76B</td><td>暫定実績</td><td>2026/6/30</td></tr><tr><td>現金等</td><td>$11.8B</td><td>実績</td><td>2026/3/31</td></tr><tr><td>総負債</td><td>$66.4B</td><td>実績</td><td>IBM Financing含む・2026/3/31</td></tr><tr><td>2027E EPS</td><td>$9.5 / $11.5 / $13.5</td><td>仮定</td><td>Bear / Base / Bull</td></tr><tr><td>PER</td><td>16 / 19 / 23倍</td><td>仮定</td><td>Q2減速と成長回復度を反映</td></tr></tbody>
   </table></div>
 </section>
 
@@ -226,14 +226,14 @@ details{border:1px solid var(--line);background:#111119;border-radius:16px;paddi
 <section class="card">
   <h2>ガチ勢向けの深掘り</h2>
   <details><summary>評価手法を選んだ理由</summary><p>IBMは黒字・成熟企業で、EPSとPERが直感的。FCFを補助確認します。</p></details>
-<details><summary>市場逆算</summary><p>現値$287.56 ÷ Base EPS $12.5 ＝ 約23.0倍。Baseの22倍より約1倍高い評価です。</p></details>
-<details><summary>倍率トラジェクトリと同業比較</summary><p>IBMのLTM PERは約23.5倍との外部データ。Microsoftの2026年前半フォワードPER 23倍、IBM 23.7倍という比較もあり、Base 22倍は現値よりやや保守的な仮定です。</p></details>
+<details><summary>市場逆算</summary><p>現値$217.07 ÷ Base EPS $11.5 ＝ 約18.9倍。急落前の約25倍前後から成長プレミアムが大きく縮小しました。</p></details>
+<details><summary>倍率トラジェクトリと同業比較</summary><p>株価データ上のLTM PERは約19.2倍。Base 19倍はQ2減速後の現状維持、Bear 16倍は低成長成熟株化、Bull 23倍はSoftware再加速を仮定しています。</p></details>
 <details><summary>キャッシュ・負債・希薄化</summary><p>2026年3月末の現金等は118億ドル、総負債664億ドル。発行株式939,885,280株。既知の大型株式希薄化は本モデルで追加仮定していません。</p></details>
 <details><summary>M&A</summary><p>Confluent買収後の負債増をリスクに反映。PER法のため被取得事業価値を別加算せず、EPSに統合効果が表れる前提です。</p></details>
-<details><summary>未確認事項</summary><p>2027年正式会社EPSガイダンスは未確認。Q2決算後にEPS・FCF・統合前提を更新すべきです。</p></details>
-<details><summary>Validation Engine結果</summary><p>WARN。V01確率100%、V02順序正常、V03期待値再計算一致、V08市場逆算独立。V09/V18はPER比較・EPS/PER感応度を実施。Q2直前かつ将来EPS仮定の不確実性をWARN表示。</p></details>
-<details><summary>更新履歴</summary><p>評価基準日：2026-07-13。最終更新：2026-07-13。Q1 2026実績、7/10終値、Q2予定日、直近アナリスト評価を反映。</p></details>
-<details><summary>主要出典</summary><p>IBM Investor Relations / IBM 1Q26 earnings release / SEC 10-Q / IBM newsroom / MarketWatch / Barron's / Investors Business Daily / MarketScreener / Multiples.vc。取得日2026-07-13。</p></details>
+<details><summary>未確認事項</summary><p>Q2は暫定値で、通期ガイダンスは7月22日に説明予定。2027年正式会社EPSガイダンスも未確認です。</p></details>
+<details><summary>Validation Engine結果</summary><p>WARN。V01確率100%、V02順序正常、V03期待値$217.30で再計算一致、V08市場逆算独立。V09/V18はPER根拠とEPS/PER感応度を実施。Q2暫定値かつ将来EPS仮定の不確実性をWARN表示。</p></details>
+<details><summary>更新履歴</summary><p>評価基準日：2026-07-15。最終更新：2026-07-15。7月14日のQ2暫定業績、25.2%急落、7月22日の正式決算予定を反映。シナリオを全面再計算。</p></details>
+<details><summary>主要出典</summary><p><a href="https://newsroom.ibm.com/2026-07-14-Arvind-Krishnas-Letter-to-IBM-Investors">IBM Q2暫定業績</a> / <a href="https://www.ibm.com/investor/events/earnings-2q26">IBM 2Q26決算予定</a> / <a href="https://newsroom.ibm.com/2026-04-22-IBM-RELEASES-FIRST-QUARTER-RESULTS">IBM 1Q26</a> / WSJ市場データ。取得日2026-07-15。</p></details>
   <!-- 手法選定理由 / 市場逆算 / 倍率トラジェクトリ / 同業比較 / キャッシュバーン・希薄化 /
        転換社債 / M&A / モンテカルロ・ベイズ（実施時）/ 前提と未確認事項 / 更新履歴 / 主要出典 を
        それぞれ <details><summary>…</summary><p>…</p></details> で。出典はリンクの箇条書き -->
@@ -242,6 +242,6 @@ details{border:1px solid var(--line);background:#111119;border-radius:16px;paddi
 <section class="card notice">
   <h3>免責</h3><p>本資料は情報提供・教育目的のみで、投資助言ではありません。将来EPS、PER、確率は仮定です。投資判断はご自身の責任で行ってください。</p>
 </section>
-<footer>DOPAGAKI STOCK LAB｜Premium Scenario Valuation Framework v2.1｜最終更新 2026-07-13</footer>
+<footer>DOPAGAKI STOCK LAB｜Premium Scenario Valuation Framework v2.1｜最終更新 2026-07-15</footer>
 </main>
 </body></html>
