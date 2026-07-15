@@ -583,9 +583,9 @@
     "sector": "モバイルDX・業務端末",
     "method": "PER＋売上進捗シナリオ",
     "status": "published",
-    "updated": "2026-07-13",
+    "updated": "2026-07-15",
     "price": {
-      "current": 1961,
+      "current": 1899,
       "currency": "JPY"
     },
     "scenarios": {
@@ -593,14 +593,16 @@
       "base": 1600,
       "bull": 2800
     },
-    "positionPct": 55.8,
-    "zone": "適正上限～強気寄り",
-    "riskReward": "0.79",
-    "catalyst": "要確認",
-    "summary": "期待先行。",
+    "positionPct": 52.6,
+    "zone": "Base超え・強気寄り",
+    "riskReward": "0.90倍",
+    "catalyst": "2026年10月頃 通期決算 / 4Q大型案件・黒字転換・新株予約権行使を確認",
+    "summary": "3Qは赤字縮小。ただし通期達成には4Qへの大型売上集中が必要。",
     "tags": [
       "PER＋売上進捗シナリオ",
-      "モバイルDX・業務端末"
+      "モバイルDX・業務端末",
+      "RFID",
+      "潜在希薄化"
     ],
     "risk": "非常に高い",
     "detailPath": "stocks/アスタリスク/index.html",
