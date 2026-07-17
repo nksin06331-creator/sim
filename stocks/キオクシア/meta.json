@@ -7,9 +7,9 @@
   "sector": "半導体・AI",
   "method": "フォワードEV/Sales＋平準化利益クロスチェック",
   "status": "published",
-  "updated": "2026-07-13",
+  "updated": "2026-07-17",
   "price": {
-    "current": 67100,
+    "current": 52290,
     "currency": "JPY"
   },
   "scenarios": {
@@ -17,15 +17,16 @@
     "base": 54000,
     "bull": 90000
   },
-  "positionPct": 63.1,
-  "zone": "Base超え・強気寄り",
-  "riskReward": "0.59倍",
-  "catalyst": "2026 Q1決算 / FY3/27 Q1決算・Q2ガイダンス",
-  "summary": "⚠️ 業績は爆発中。",
+  "positionPct": 39.2,
+  "zone": "Base付近",
+  "riskReward": "1.55倍",
+  "catalyst": "2026/7/31 15:30 FY3/27 Q1決算 / NAND ASP・企業SSD・訴訟影響を確認",
+  "summary": "AI・NAND好況は継続。ただしメモリー株安とViasat特許評決で急落",
   "tags": [
-    "PER",
-    "半導体",
-    "黒字成熟型"
+    "EV/Sales",
+    "NAND",
+    "AI企業SSD",
+    "特許訴訟"
   ],
   "risk": "非常に高い",
   "detailPath": "stocks/キオクシア/index.html",
