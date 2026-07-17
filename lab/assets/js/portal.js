@@ -9,8 +9,33 @@ let stocks = [];
 let activeMarket = "all";
 let activeSort = "updated";
 
+const latestOverrides = {
+  ASPI: {
+    updated: "2026-07-17",
+    price: { current: 3.945, currency: "USD" },
+    scenarios: { bear: 2.5, base: 5.5, bull: 10 },
+    positionPct: 19.3,
+    zone: "慎重寄り",
+    riskReward: "4.19倍",
+    catalyst: "2026年Q3 / Si-28初回商業出荷・Renergen商業生産",
+    summary: "QLE社債交換で負債は減少。一方、約2,320万株の発行による希薄化を警戒。",
+    risk: "非常に高い"
+  }
+};
+
+const applyLatestOverride = (stock) => {
+  const override = latestOverrides[stock.ticker];
+  if (!override) return stock;
+  return {
+    ...stock,
+    ...override,
+    price: { ...stock.price, ...override.price },
+    scenarios: { ...stock.scenarios, ...override.scenarios }
+  };
+};
+
 const formatPrice = (value, currency = "USD") => Number.isFinite(value)
-  ? new Intl.NumberFormat("ja-JP", { style: "currency", currency, maximumFractionDigits: 2 }).format(value)
+  ? new Intl.NumberFormat("ja-JP", { style: "currency", currency, maximumFractionDigits: 3 }).format(value)
   : "—";
 const addText = (parent, tag, text, className) => { const el = document.createElement(tag); el.textContent = text; if (className) el.className = className; parent.append(el); return el; };
 const setText = (selector, text) => { const el = document.querySelector(selector); if (el) el.textContent = text; };
@@ -87,7 +112,7 @@ function render(query = "") {
 async function init() {
   try {
     const response = await fetch(manifestUrl, { cache: "no-store" }); if (!response.ok) throw new Error(`一覧データを取得できませんでした（${response.status}）`);
-    stocks = (await response.json()).filter((stock) => stock.status !== "draft");
+    stocks = (await response.json()).filter((stock) => stock.status !== "draft").map(applyLatestOverride);
     setText("#hero-total", stocks.length); setText("#hero-us", stocks.filter((s) => s.market === "米国株").length); setText("#hero-jp", stocks.filter((s) => s.market === "日本株").length); render();
   } catch (error) { status.className = "error-panel"; status.textContent = `${error.message}。GitHub Pagesの更新状況を確認してください。`; }
 }
