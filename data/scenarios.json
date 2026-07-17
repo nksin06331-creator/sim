@@ -112,15 +112,15 @@
     "name": "キオクシアホールディングス",
     "market": "日本株",
     "sector": "半導体・AI",
-    "method": "PER",
+    "method": "フォワードEV/Sales＋平準化利益クロスチェック",
     "currentPrice": "¥52,290",
-    "bear": "¥40,000",
-    "base": "¥90,000",
-    "bull": "¥130,000",
+    "bear": "¥28,000",
+    "base": "¥54,000",
+    "bull": "¥90,000",
     "positionPct": 39.2,
     "zone": "Base付近",
     "riskReward": "1.55x",
-    "expectedValue": "¥85,000",
+    "expectedValue": "¥56,500",
     "recentMove": "7/17 12:43時点：52,290円（前日比−15.81%）/ メモリー株安とViasat特許評決で急落",
     "catalyst": "2026/7/31 15:30 / FY3/27 Q1決算・NAND ASP・企業SSD・訴訟影響",
     "summary": "AI・NAND好況は継続。ただしメモリー株安とViasat特許評決で急落した局面を再評価。",
@@ -132,7 +132,7 @@
     ],
     "risk": "非常に高い",
     "updated": "2026-07-17",
-    "detailUrl": "stocks/285A/index.html",
-    "scenarioUrl": "stocks/285A/scenario.html"
+    "detailUrl": "stocks/キオクシア/index.html",
+    "scenarioUrl": "stocks/キオクシア/scenario.html"
   }
 ]
