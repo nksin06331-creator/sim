@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "ticker": "5016",
+  "slug": "5016",
+  "name": "JX金属",
+  "market": "日本株",
+  "sector": "半導体材料・非鉄金属・リサイクル",
+  "method": "FY3/27E EPS × PER",
+  "status": "published",
+  "updated": "2026-07-17",
+  "price": {"current": 3409, "currency": "JPY"},
+  "scenarios": {"bear": 2100, "base": 3400, "bull": 5100},
+  "positionPct": 43.6,
+  "zone": "Base付近",
+  "riskReward": "1.29倍",
+  "catalyst": "2026/8/6 FY3/27 Q1決算 / 半導体材料の数量・単価・利益率を確認",
+  "summary": "AI向け材料は高成長。急落でBase付近だが、期待の織り込みはなお大きい",
+  "tags": ["FY3/27E EPS × PER", "半導体材料", "InP基板", "銅・リサイクル"],
+  "risk": "高い",
+  "detailPath": "stocks/JX金属/index.html",
+  "scenarioPath": "stocks/JX金属/scenario.html"
+}
