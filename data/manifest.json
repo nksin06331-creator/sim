@@ -684,9 +684,9 @@
     "sector": "抗体創薬・バイオテクノロジー",
     "method": "SOTP＋簡易rNPV",
     "status": "published",
-    "updated": "2026-07-13",
+    "updated": "2026-07-21",
     "price": {
-      "current": 6.8,
+      "current": 5.8,
       "currency": "USD"
     },
     "scenarios": {
@@ -694,11 +694,11 @@
       "base": 8,
       "bull": 15.5
     },
-    "positionPct": 27.5,
+    "positionPct": 19.2,
     "zone": "適正〜慎重寄り",
-    "riskReward": "2.64倍",
-    "catalyst": "要確認",
-    "summary": "期待は乗った。",
+    "riskReward": "4.22倍",
+    "catalyst": "2026年Q3 ABCL635トップライン",
+    "summary": "期待は後退。治験データ待ち。",
     "tags": [
       "rNPV",
       "SOTP",
