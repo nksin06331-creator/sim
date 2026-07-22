@@ -1,1 +1,239 @@
-<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>T1 Energy 株価シナリオ｜SiM MARKET LAB</title><style>:root{--bg:#090b0a;--card:#121613;--line:#293229;--g:#49e88f;--r:#ff6577;--t:#f4f7f4;--m:#a9b2aa}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--t);font-family:system-ui,-apple-system,"Noto Sans JP",sans-serif;line-height:1.75}.wrap{width:min(1100px,92%);margin:auto}header{padding:48px 0 28px;border-bottom:1px solid var(--line);background:radial-gradient(circle at 80% 0,#153524 0,transparent 38%)}a{color:var(--g)}.brand{font-weight:900;letter-spacing:.12em}.brand i{color:var(--g);font-style:normal}h1{font-size:clamp(34px,6vw,64px);line-height:1.1;margin:24px 0 12px}h2{font-size:24px;margin-top:0}.sub,.note{color:var(--m)}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px;margin:18px 0}.price{font-size:42px;font-weight:900}.bear{border-top:4px solid var(--r)}.base{border-top:4px solid #d9ded9}.bull{border-top:4px solid var(--g)}.tag{display:inline-block;padding:4px 9px;border-radius:999px;background:#193122;color:var(--g);font-size:12px;font-weight:800}table{width:100%;border-collapse:collapse}th,td{text-align:left;padding:10px;border-bottom:1px solid var(--line)}li{margin:8px 0}footer{padding:30px 0;color:var(--m)}@media(max-width:720px){.grid{grid-template-columns:1fr}}</style></head><body><header><div class="wrap"><div class="brand">S<i>i</i>M MARKET LAB</div><span class="tag">SCENARIO</span><h1>T1 Energy <small>(TE)</small></h1><p class="sub">太陽電池・米国製造｜評価基準日 2026-07-22｜現在株価 $6.10</p></div></header><main class="wrap"><section class="card"><h2>結論</h2><p>Q1は過去最高益。G1の収益定着とG2_Austinの資金調達・建設実行が焦点</p><p>確率加重期待値は <b>$6.80</b>。現値はBear〜Bull帯の<b>34.4%</b>地点で、判定は<b>Bear〜Base帯</b>です。</p></section><section class="grid"><article class="card bear"><h2>Bear 30%</h2><div class="price">$3</div><p>成長鈍化・計画遅延・評価倍率低下を反映。</p></article><article class="card base"><h2>Base 50%</h2><div class="price">$7</div><p>主要計画が概ね進み、評価倍率が正常化。</p></article><article class="card bull"><h2>Bull 20%</h2><div class="price">$12</div><p>成長・利益・キャッシュ創出がそろって上振れ。</p></article></section><section class="card"><h2>数字の作り方</h2><p>G1収益＋G2将来価値の確率調整SOTP－ネット負債。将来業績と倍率をシナリオ別に置く試算です。</p><table><tr><th>ケース</th><th>理論株価</th><th>現値比</th></tr><tr><td>Bear</td><td>$3</td><td>-50.8%</td></tr><tr><td>Base</td><td>$7</td><td>14.8%</td></tr><tr><td>Bull</td><td>$12</td><td>96.7%</td></tr></table><p class="note">Validation: 確率合計100%、Bear&lt;Base&lt;Bull、期待値計算は整合。将来前提が多いためWARN。</p></section><section class="grid"><article class="card"><h2>強いところ</h2><ul><li>G1_Dallasの増産で四半期黒字化を達成。</li><li>固定マージン・コストプラス契約への構成改善。</li><li>米国内の太陽電池サプライチェーン構築を狙う。</li></ul></article><article class="card"><h2>事故りやすいところ</h2><ul><li>G2_Austinは巨額資金と建設実行が必要。</li><li>政策支援・関税・税額控除の変更影響が大きい。</li><li>設備立上げ、顧客集中、追加希薄化に注意。</li></ul></article><article class="card"><h2>次に見るもの</h2><p>2026年8月頃のQ2決算とG2_Austin資金計画</p></article></section><section class="card"><h2>出典・注意</h2><p><a href="https://ir.t1energy.com/news-releases/news-release-details/t1-energy-reports-first-quarter-2026-results">会社IR・最新決算資料</a></p><p class="note">株価は2026-07-21米国市場データ。情報提供・教育目的で、投資助言ではありません。</p></section><p><a href="index.html">企業完全入門へ →</a></p></main><footer><div class="wrap">SiM MARKET LAB｜更新日 2026-07-22</div></footer></body></html>
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>T1 Energy（TE）｜ドパガキ株価シナリオ</title>
+
+<style>
+:root{--bg:#0b0b10;--panel:#171720;--panel2:#20202b;--ink:#f7f7fb;--muted:#aaaabd;--line:#343445;--lime:#caff00;--pink:#ff4ecd;--cyan:#48e7ff;--orange:#ff9c2b;--red:#ff5d68;--green:#56f39a;--purple:#845cff;--shadow:0 18px 55px rgba(0,0,0,.35)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 8% 4%,rgba(132,92,255,.2),transparent 30rem),radial-gradient(circle at 92% 12%,rgba(255,78,205,.14),transparent 26rem),linear-gradient(180deg,#08080c,#111119 48%,#0b0b10);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans JP",sans-serif;line-height:1.65;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.15;background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:28px 28px;mask-image:linear-gradient(#000,transparent 72%)}
+a{color:var(--cyan)}.wrap{max-width:1120px;margin:auto;padding:0 18px}.hero{position:relative;color:#fff;padding:34px 0 42px;border-bottom:1px solid rgba(255,255,255,.08)}.hero:after{content:"DOPAGAKI";position:absolute;right:-20px;top:12px;font-size:clamp(56px,14vw,170px);font-weight:1000;letter-spacing:-.08em;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.08);transform:rotate(4deg);pointer-events:none}
+.eyebrow{display:inline-flex;align-items:center;gap:7px;padding:7px 12px;border:1px solid rgba(202,255,0,.45);border-radius:999px;font-size:11px;letter-spacing:.12em;color:var(--lime);background:rgba(202,255,0,.08);font-weight:900}.eyebrow:before{content:"●";font-size:8px}
+h1{position:relative;z-index:1;font-size:clamp(36px,7vw,72px);line-height:.98;letter-spacing:-.055em;margin:18px 0 10px;font-weight:1000;max-width:900px}h1 small{display:inline-block;font-size:.31em;padding:7px 11px;border-radius:10px;background:var(--lime);color:#0b0b10;vertical-align:middle;letter-spacing:0;transform:rotate(-2deg)}.sub{color:#c1c1d2;position:relative;z-index:1}
+.verdict{position:relative;z-index:1;display:grid;grid-template-columns:1.55fr .45fr;gap:16px;margin-top:24px}.verdict-main,.score{border:1px solid rgba(255,255,255,.1);border-radius:26px;padding:24px;box-shadow:var(--shadow)}.verdict-main{background:linear-gradient(135deg,rgba(132,92,255,.27),rgba(255,78,205,.12)),var(--panel)}.score{background:var(--lime);color:#0b0b10;transform:rotate(1deg);display:flex;flex-direction:column;justify-content:center}.status{font-size:clamp(25px,4vw,40px);line-height:1.15;font-weight:1000;letter-spacing:-.04em;margin-top:10px}.score b{font-size:58px;line-height:1;display:block}.score small{color:#202014;font-weight:800}
+.kpis{position:relative;z-index:1;display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:16px}.kpi{min-height:126px;background:rgba(23,23,32,.94);border:1px solid var(--line);border-radius:20px;padding:18px;position:relative;overflow:hidden}.kpi:after{content:"";position:absolute;width:72px;height:72px;border-radius:50%;right:-25px;bottom:-30px;background:var(--purple);opacity:.2}.kpi:nth-child(2):after{background:var(--cyan)}.kpi:nth-child(3):after{background:var(--pink)}.kpi:nth-child(4):after{background:var(--red)}.kpi span{font-size:11px;color:var(--muted);font-weight:800}.kpi b{font-size:clamp(22px,3vw,31px);display:block;margin-top:6px;letter-spacing:-.04em}.kpi small{color:#cfcfe0}
+main{padding:22px 0 70px}section{margin:18px 0}.card{background:linear-gradient(180deg,rgba(31,31,43,.98),rgba(20,20,28,.98));border:1px solid var(--line);box-shadow:var(--shadow);border-radius:26px;padding:24px;position:relative;overflow:hidden}.card:before{content:"";position:absolute;width:130px;height:130px;border-radius:50%;right:-70px;top:-75px;background:var(--purple);filter:blur(10px);opacity:.13}
+h2{position:relative;z-index:1;font-size:clamp(23px,3vw,32px);line-height:1.15;letter-spacing:-.04em;margin:0 0 9px;font-weight:1000}h2:before{content:"#";color:var(--lime);margin-right:7px}h3{margin:0 0 8px;font-size:19px}.lead{color:var(--muted);margin-top:0}.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}.scenarios{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.scenario{border-radius:22px;padding:19px;border:1px solid var(--line);background:#111119;position:relative;overflow:hidden;min-height:335px}.scenario:after{position:absolute;right:-5px;top:-12px;font-weight:1000;font-size:68px;opacity:.07;line-height:1}.scenario.bear:after{content:"B";color:var(--red)}.scenario.base:after{content:"A";color:var(--cyan)}.scenario.bull:after{content:"↑";color:var(--lime)}.scenario-head{display:flex;justify-content:space-between;gap:10px;font-weight:900}.scenario-head b{padding:4px 9px;border-radius:999px;color:#0a0a0d;background:#fff}.scenario-price{font-size:clamp(32px,4vw,44px);font-weight:1000;letter-spacing:-.055em;margin:14px 0 0}.scenario.bear{border-top:6px solid var(--red)}.scenario.base{border-top:6px solid var(--cyan);box-shadow:0 0 0 1px rgba(72,231,255,.15),0 16px 40px rgba(72,231,255,.08)}.scenario.bull{border-top:6px solid var(--lime)}
+.small{font-size:13px;color:var(--muted)}dl{margin:16px 0 0}dl div{display:flex;justify-content:space-between;border-top:1px dashed var(--line);padding:8px 0;gap:12px}dt{color:var(--muted)}dd{margin:0;font-weight:800}
+.position{margin-top:20px}.position-line{height:20px;border-radius:999px;background:linear-gradient(90deg,var(--red),var(--orange),var(--cyan),var(--lime));position:relative;box-shadow:inset 0 0 0 2px rgba(255,255,255,.12)}.pin{position:absolute;top:-9px;width:8px;height:38px;background:#fff;border:2px solid #050508;border-radius:6px;left:36.1%;box-shadow:0 4px 14px rgba(0,0,0,.55)}.position-labels{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);margin-top:7px;gap:7px}.pill{display:inline-block;padding:6px 11px;border-radius:999px;background:var(--pink);color:#fff;font-weight:1000;font-size:11px;transform:rotate(-1deg)}
+.zone,.signal{border-top:1px solid var(--line);padding:14px 0}.zone div,.signal div{display:flex;justify-content:space-between;gap:12px}.zone span{color:var(--lime);letter-spacing:.1em}.zone p,.signal p{margin:4px 0;color:var(--muted);font-size:14px}.up{color:var(--green);font-weight:900}.down{color:var(--red);font-weight:900}.flat{color:var(--orange);font-weight:900}
+ul.clean{padding:0;margin:12px 0;list-style:none}ul.clean li{margin:10px 0;padding:12px 14px 12px 42px;background:#111119;border:1px solid var(--line);border-radius:15px;position:relative}ul.clean li:before{content:"✓";position:absolute;left:14px;top:11px;color:var(--lime);font-weight:1000}.grid-2 .card:nth-child(2) ul.clean li:before{content:"!";color:var(--red)}
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:14px}.meter,.track{background:#0d0d13;border:1px solid #2d2d3b;border-radius:999px;overflow:hidden}.meter{height:14px}.meter i{display:block;height:100%;background:linear-gradient(90deg,var(--purple),var(--pink));border-radius:999px}.dist-row{display:grid;grid-template-columns:120px 1fr 52px;gap:10px;align-items:center;margin:12px 0}.track{height:12px}.track i{display:block;height:100%;background:linear-gradient(90deg,var(--cyan),var(--lime));border-radius:999px}
+.table-wrap{overflow:auto;border:1px solid var(--line);border-radius:18px;background:#111119}table{border-collapse:collapse;width:100%;min-width:760px}th,td{border-bottom:1px solid var(--line);padding:12px;text-align:right}th:first-child,td:first-child{text-align:left}th{font-size:11px;color:var(--lime);background:#0f0f16;position:sticky;top:0}
+details{border:1px solid var(--line);background:#111119;border-radius:16px;padding:0;margin:10px 0;overflow:hidden}summary{font-weight:900;cursor:pointer;padding:15px 16px;list-style:none}summary::-webkit-details-marker{display:none}summary:after{content:"＋";float:right;color:var(--lime);font-size:20px;line-height:1}details[open] summary:after{content:"−"}details>p,details>ul{padding:0 16px 16px;margin:0;color:#c4c4d2}
+.notice{border:1px solid rgba(255,156,43,.45);border-left:6px solid var(--orange);background:linear-gradient(90deg,rgba(255,156,43,.12),rgba(255,156,43,.03));padding:15px 16px;border-radius:16px}footer{color:var(--muted);font-size:12px;margin-top:28px;padding:20px 0 0;border-top:1px solid var(--line)}
+@media(max-width:800px){.verdict,.grid-2,.compare{grid-template-columns:1fr}.kpis{grid-template-columns:1fr 1fr}.scenarios{grid-template-columns:1fr}.hero{padding-top:24px}.score{transform:none}.scenario{min-height:auto}}
+@media(max-width:520px){.wrap{padding:0 13px}.kpis{grid-template-columns:1fr 1fr;gap:9px}.kpi{padding:15px;min-height:112px}.kpi b{font-size:21px}.card{padding:18px;border-radius:22px}.dist-row{grid-template-columns:90px 1fr 46px;font-size:12px}.position-labels{font-size:9px}h1{font-size:42px}}
+@media print{body{background:#fff;color:#111}body:before,.hero:after{display:none}.hero,.card,.kpi,.scenario,details,.table-wrap{background:#fff!important;color:#111!important;box-shadow:none!important}.hero{border-bottom:2px solid #111}.sub,.lead,.small,.zone p,.signal p,footer{color:#555!important}.card,.kpi,.scenario,details{break-inside:avoid}}
+</style>
+
+</head>
+<body>
+<!-- ================================================================
+  DOPAGAKI STOCK LAB / SCENARIO TEMPLATE
+  ・CSSと各セクション構成はキオクシア版と同一（サイト掲載の見た目を維持）。
+  ・{{ }} を report_data の値で置換して使う。数値・確率・結論は改変しない。
+  ・ファイル名は銘柄名（例: 285A.html / IONQ.html）。
+================================================================ -->
+<header class="hero">
+<div class="wrap">
+  <div class="eyebrow">DOPAGAKI STOCK LAB / SCENARIO CHECK</div>
+  <h1>T1 Energy <small>TE</small></h1>
+  <div class="sub">NYSE｜評価基準日 2026-07-22｜使用手法 G1＋G2確率調整SOTP－資金負担</div>
+  <div class="verdict">
+    <div class="verdict-main">
+      <span class="pill">まず結論だけ</span>
+      <!-- decision.status＋一言結論（絵文字は先頭1個まで、45文字目安） -->
+      <div class="status">実行確認型</div>
+      <!-- 現値ポジショニングと市場逆算を1〜2文で -->
+      <p>現値$6.10はBear〜Bull帯の32%地点。</p>
+      <p class="sub">時価総額約$852M。現値はG1の黒字継続に加え、G2の一部成功確率まで織り込むBase未満の水準。</p>
+    </div>
+    <!-- 総合スコアは“補助指標”。売買判断そのものではない旨を必ず添える -->
+    <div class="score"><small>総合スコア（補助指標）</small><b>55</b><small>/ 100　売買判断そのものではありません</small></div>
+  </div>
+  <div class="kpis">
+    <div class="kpi"><span>現在株価</span><b>$6.10</b><small>2026年7月21日終値</small></div>
+    <div class="kpi"><span>Base価値（標準ケース）</span><b>$8.0</b><small>+31.1%</small></div>
+    <div class="kpi"><span>確率加重期待値</span><b>$7.7</b><small>+25.4%（補助指標）</small></div>
+    <div class="kpi"><span>リスク区分</span><b>極めて高い</b><small>政策・G2資金・希薄化</small></div>
+  </div>
+
+<div style="position:relative;z-index:1;margin-top:14px;display:inline-flex;gap:8px;flex-wrap:wrap">
+<span style="background:#caff00;color:#0b0b10;padding:5px 9px;border-radius:8px;font-size:11px;font-weight:1000;transform:rotate(-1deg)">初心者でも読める</span>
+<span style="background:#48e7ff;color:#0b0b10;padding:5px 9px;border-radius:8px;font-size:11px;font-weight:1000;transform:rotate(1deg)">数字はガチ</span>
+<span style="background:#ff4ecd;color:#fff;padding:5px 9px;border-radius:8px;font-size:11px;font-weight:1000;transform:rotate(-1deg)">煽りだけはしない</span>
+</div>
+
+</div>
+</header>
+
+<!-- Validation：WARNがあれば下の注意帯を残す（なければ丸ごと削除）。FAIL時は完成版にしない。 -->
+<div class="wrap"><div class="notice" style="margin-top:14px"><b>注意：</b>G2の最終資金調達条件と転換後株数が未確定。ValidationはWARN。</div></div>
+<!-- 例（WARN時）:
+<div class="wrap"><div class="notice" style="margin-top:14px"><b>注意：</b>{{WARN_MESSAGE}}</div></div>
+-->
+
+<nav style="position:sticky;top:0;z-index:50;background:rgba(9,9,13,.86);backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.08)">
+<div class="wrap" style="display:flex;gap:8px;overflow:auto;padding-top:10px;padding-bottom:10px">
+<a href="#snapshot" style="white-space:nowrap;text-decoration:none;background:#1b1b25;border:1px solid #343445;color:#fff;padding:7px 11px;border-radius:999px;font-size:12px;font-weight:900">結論</a>
+<a href="#scenarios" style="white-space:nowrap;text-decoration:none;background:#1b1b25;border:1px solid #343445;color:#fff;padding:7px 11px;border-radius:999px;font-size:12px;font-weight:900">3シナリオ</a>
+<a href="#logic" style="white-space:nowrap;text-decoration:none;background:#1b1b25;border:1px solid #343445;color:#fff;padding:7px 11px;border-radius:999px;font-size:12px;font-weight:900">計算</a>
+<a href="#sensitivity" style="white-space:nowrap;text-decoration:none;background:#1b1b25;border:1px solid #343445;color:#fff;padding:7px 11px;border-radius:999px;font-size:12px;font-weight:900">感応度</a>
+<a href="#assumptions" style="white-space:nowrap;text-decoration:none;background:#1b1b25;border:1px solid #343445;color:#fff;padding:7px 11px;border-radius:999px;font-size:12px;font-weight:900">前提</a>
+</div></nav>
+
+<main class="wrap">
+
+<!-- Layer2-1：いまどこ？（現値ポジショニング＋市場逆算） -->
+<section class="card" id="snapshot">
+  <h2>いまの株価、どこにいる？</h2>
+  <p class="lead">会社の質と株価の安さを分け、Q2利益とG2資金計画を優先して確認します。</p>
+  <div class="grid-2">
+    <div>
+      <h3>現値ポジショニング</h3>
+      <p>Bear〜Bull帯の <b>32%</b> 地点。判定は <b>Bear〜Base帯</b>。期待値だけで判断せず、材料の二重織り込みを確認。</p>
+      <!-- pin の left:% を band_position_pct に合わせる -->
+      <div class="position"><div class="position-line"><i class="pin" style="left:32%"></i></div><div class="position-labels"><span>Bear $1.5</span><span>Base $8.0</span><span>Bull $16.0</span></div></div>
+      <p>上値下値比：<b>2.15倍</b>　確率加重期待値：<b>$7.7</b></p>
+    </div>
+    <div>
+      <h3>市場期待と独自見解</h3>
+      <div class="compare">
+        <div><b>市場期待 53/100</b><div class="meter"><i style="width:53%"></i></div></div>
+        <div><b>本試算 55/100</b><div class="meter"><i style="width:55%"></i></div></div>
+      </div>
+      <!-- market_reverse.conclusion：現値が自分のどの前提に相当するか -->
+      <p>時価総額約$852M。現値はG1の黒字継続に加え、G2の一部成功確率まで織り込むBase未満の水準。</p>
+    </div>
+  </div>
+</section>
+
+<!-- Layer1/2：3シナリオ。dl の項目は使用手法に合わせて変える（rNPV/SOTP/EV-Sales/PER等） -->
+<section class="card" id="scenarios">
+  <h2>未来はこの3パターン</h2>
+  <p class="lead">事業価値、ネット現金・負債、希薄化後株式数をシナリオ別に分けたモデル仮定。</p>
+  <div class="scenarios">
+    <article class="scenario bear">
+      <div class="scenario-head"><span>Bear（悲観ケース）</span><b>30%</b></div>
+      <div class="scenario-price">$1.5</div>
+      <div class="small">現値比 -75.4%</div>
+      <dl><div><dt>事業価値（仮定）</dt><dd>$0.340B</dd></div><div><dt>ネット現金/負債</dt><dd>$-0.100B</dd></div><div><dt>希薄化後株数</dt><dd>160M株</dd></div><div><dt>成立前提</dt><dd>G1減益・G2遅延</dd></div></dl>
+      <!-- 例: <div><dt>事業価値</dt><dd>25.9兆円</dd></div> を手法に応じて数行 -->
+    </article>
+    <article class="scenario base">
+      <div class="scenario-head"><span>Base（標準ケース）</span><b>50%</b></div>
+      <div class="scenario-price">$8.0</div>
+      <div class="small">現値比 +31.1%</div>
+      <dl><div><dt>事業価値（仮定）</dt><dd>$1.45B</dd></div><div><dt>ネット現金/負債</dt><dd>$-0.250B</dd></div><div><dt>希薄化後株数</dt><dd>150M株</dd></div><div><dt>成立前提</dt><dd>G1安定＋G2立上げ</dd></div></dl>
+    </article>
+    <article class="scenario bull">
+      <div class="scenario-head"><span>Bull（強気ケース）</span><b>20%</b></div>
+      <div class="scenario-price">$16.0</div>
+      <div class="small">現値比 +162.3%</div>
+      <dl><div><dt>事業価値（仮定）</dt><dd>$2.62B</dd></div><div><dt>ネット現金/負債</dt><dd>$-0.300B</dd></div><div><dt>希薄化後株数</dt><dd>145M株</dd></div><div><dt>成立前提</dt><dd>一貫生産とBESS成功</dd></div></dl>
+    </article></div>
+</section>
+
+<!-- Layer2：価格別アクションマップ ＋ 株価を動かす材料 -->
+<section class="grid-2">
+  <div class="card">
+    <h2>この値段ならどう見る？</h2>
+    <!-- 4〜5帯。「買い/売り」は断定しない。星は割安度の目安 -->
+    <div class="zone"><div><b>$1.5未満</b><span>★★★★★</span></div><p>悲観ケース以下。悪化材料と資金繰りを確認。</p></div><div class="zone"><div><b>$1.5〜$8.0</b><span>★★★☆☆</span></div><p>慎重〜標準前提の間。</p></div><div class="zone"><div><b>$8.0〜$16.0</b><span>★★☆☆☆</span></div><p>強い実行と成長を織り込む。</p></div><div class="zone"><div><b>$16.0超</b><span>★☆☆☆☆</span></div><p>Bull超。追加材料が必要。</p></div>
+    <!-- 例: <div class="zone"><div><b>48,000円未満</b><span>★★★★★</span></div><p>悲観ケース以下。下方リスクを相当織り込む</p></div> -->
+  </div>
+  <div class="card">
+    <h2>株価を動かす4つ</h2>
+    <!-- 各材料に up=追い風 / down=注意 / flat を付ける -->
+    <div class="signal"><div><b>2026年8月頃｜Q2決算</b><span class="flat">確認</span></div><p>生産・利益・現金。</p></div><div class="signal"><div><b>2026年Q4目標｜G2初期生産</b><span class="up">追い風候補</span></div><p>工程と歩留まり。</p></div><div class="signal"><div><b>随時｜G2資金調達</b><span class="flat">確認</span></div><p>残り約$225Mの確保。</p></div><div class="signal"><div><b>2026年｜BESS事業</b><span class="up">追い風候補</span></div><p>EBITDA寄与の確認。</p></div>
+    <!-- 例: <div class="signal"><div><b>AI向けSSD需要</b><span class="up">追い風</span></div><p>…</p></div> -->
+  </div>
+</section>
+
+<!-- Layer2：良い点 / 気になる点（対比） -->
+<section class="grid-2">
+  <div class="card">
+    <h2>ここは普通に強い</h2>
+    <ul class="clean"><li>Q1売上$177.6M。</li><li>Q1調整後EBITDA$9.1M。</li><li>継続事業純利益$3.9M。</li><li>G1_Dallasの生産と販売構成が改善。</li></ul>
+    <!-- 例: <li>FY2025売上2.34兆円で過去最高。</li> を3〜5件 -->
+  </div>
+  <div class="card">
+    <h2>ここで事故るかも</h2>
+    <ul class="clean"><li>G2 Phase 1の残資金需要は約$225M。</li><li>政策・関税・税額控除の変更。</li><li>セル工場の立上げと歩留まり。</li><li>転換社債・新株による希薄化。</li></ul>
+    <!-- 2つ目のカードのliは自動で赤「!」になる -->
+  </div>
+</section>
+
+<!-- Layer3：計算ロジック -->
+<section class="card" id="logic">
+  <h2>数字の作り方</h2>
+  <p class="lead">理論株価＝（事業価値＋ネット現金／負債調整）÷希薄化後株式数</p>
+  <div class="table-wrap"><table>
+  <thead><tr><th>ケース</th><th>事業価値</th><th>ネット調整</th><th>株式数</th><th>株価</th></tr></thead>
+  <tbody><tr><td>Bear</td><td>$0.340B</td><td>$-0.100B</td><td>160M</td><td>$1.5</td></tr><tr><td>Base</td><td>$1.45B</td><td>$-0.250B</td><td>150M</td><td>$8.0</td></tr><tr><td>Bull</td><td>$2.62B</td><td>$-0.300B</td><td>145M</td><td>$16.0</td></tr></tbody>
+  </table></div>
+  <!-- 現値に合わせた逆算ではない旨、未開示前提の注意など -->
+  <p class="notice"><b>重要：</b>将来値は仮定。現値にBaseを合わせていません。現金・負債・株式数は評価基準日にそろえ、未確認項目はWARN表示しています。</p>
+</section>
+
+<!-- Layer3：成立条件 -->
+<section class="card" id="conditions">
+  <h2>この未来になる条件</h2>
+  <details open><summary>Base：$8.0 / 確率50%</summary><p>G1安定＋G2立上げ。Q2利益とG2資金計画が概ね計画通り。</p></details><details><summary>Bear：$1.5 / 確率30%</summary><p>G1減益・G2遅延。資金・工程・倍率が悪化。</p></details><details><summary>Bull：$16.0 / 確率20%</summary><p>一貫生産とBESS成功。主要カタリストが順調。</p></details>
+  <!-- 例: <details open><summary>Base：$8.0 / 確率50%</summary><p>…</p></details> を3つ -->
+</section>
+
+<!-- Layer3：感応度 ＋ 分布（モンテカルロは実施時のみ） -->
+<section class="grid-2" id="sensitivity">
+  <div class="card">
+    <h2>数字がズレるとどうなる？</h2>
+    <div class="table-wrap"><table>
+      <thead><tr><th>G2成功確率＼事業価値</th><th>25%</th><th>50%</th><th>75%</th></tr></thead>
+      <tbody><tr><td>G1弱気</td><td>$2</td><td>$4</td><td>$6</td></tr><tr><td>G1標準</td><td>$4</td><td>$8</td><td>$11</td></tr><tr><td>G1強気</td><td>$7</td><td>$12</td><td>$16</td></tr></tbody>
+    </table></div>
+    <p class="small">主要ドライバと評価倍率・成功確率の組み合わせ。将来時期が遅れるほど現在価値は低下。</p>
+  </div>
+  <div class="card">
+    <h2>どの価格に行きやすい？</h2>
+    <p class="lead">3シナリオの確率をそのまま表示。予言ではありません。</p>
+    <div class="dist-row"><span>Bear $1.5</span><div class="track"><i style="width:30%"></i></div><b>30%</b></div><div class="dist-row"><span>Base $8.0</span><div class="track"><i style="width:50%"></i></div><b>50%</b></div><div class="dist-row"><span>Bull $16.0</span><div class="track"><i style="width:20%"></i></div><b>20%</b></div>
+    <!-- 例: <div class="dist-row"><span>5万円未満</span><div class="track"><i style="width:7.6%"></i></div><b>7.6%</b></div> -->
+    <p>確率加重期待値は$7.7。単独の売買判断には使いません。</p>
+  </div>
+</section>
+
+<!-- 次の決算/イベントで見る場所（watch_items） -->
+<section class="card">
+  <h2>次の決算で見る場所</h2>
+  <div class="signal"><div><b>2026年8月頃｜Q2決算</b></div><p>生産・利益・現金。</p></div><div class="signal"><div><b>2026年Q4目標｜G2初期生産</b></div><p>工程と歩留まり。</p></div><div class="signal"><div><b>随時｜G2資金調達</b></div><p>残り約$225Mの確保。</p></div><div class="signal"><div><b>2026年｜BESS事業</b></div><p>EBITDA寄与の確認。</p></div>
+  <!-- 例: <div class="signal"><div><b>2026年7月31日の1Q決算</b></div><p>…</p></div> -->
+</section>
+
+<!-- 前提表（事実/市場データ/推定/仮定を分類明記） -->
+<section class="card" id="assumptions">
+  <h2>使った数字と前提</h2>
+  <div class="table-wrap"><table>
+  <thead><tr><th>項目</th><th>値</th><th>分類</th><th>注記</th></tr></thead>
+  <tbody><tr><td>現値</td><td>$6.10</td><td>市場データ</td><td>2026-07-21終値</td></tr><tr><td>時価総額</td><td>$852M</td><td>市場データ</td><td>同日取得</td></tr><tr><td>評価手法</td><td>G1＋G2確率調整SOTP－資金負担</td><td>モデル仮定</td><td>現値へ調整せず</td></tr><tr><td>確率</td><td>30/50/20%</td><td>モデル仮定</td><td>合計100%</td></tr><tr><td>20営業日騰落</td><td>未確認</td><td>未確認</td><td>V17 WARN</td></tr><tr><td>Q1売上</td><td>$177.6M</td><td>会社開示</td><td>会社発表</td></tr><tr><td>Q1調整後EBITDA</td><td>$9.1M</td><td>会社開示</td><td>過去最高</td></tr><tr><td>Q1生産</td><td>683.3MW</td><td>会社開示</td><td>G1_Dallas</td></tr></tbody>
+  </table></div>
+</section>
+
+<!-- Layer3：ガチ勢向け深掘り（details折りたたみ） -->
+<section class="card">
+  <h2>ガチ勢向けの深掘り</h2>
+  <details><summary>手法と市場逆算</summary><p>G1＋G2確率調整SOTP－資金負担を採用。時価総額約$852M。現値はG1の黒字継続に加え、G2の一部成功確率まで織り込むBase未満の水準。</p></details><details><summary>倍率・SOTPの根拠</summary><p>Bearは遅延と倍率縮小、Baseは会社計画の部分達成、Bullは主要カタリスト成功を置いた仮定。現値へBaseを合わせていません。</p></details><details><summary>キャッシュ・負債・希薄化</summary><p>各シナリオのネット調整と希薄化後株式数を別々に反映。G2の最終資金調達条件と転換後株数が未確定。ValidationはWARN。</p></details><details><summary>エントリーコンテキスト</summary><p>直近20営業日騰落率は完全確認できずWARN。材料の二重織り込みを避け、Q2利益とG2資金計画を優先します。</p></details><details><summary>Validation Engine</summary><p>WARN。V01確率100%、V02 Bear＜Base＜Bull、V03期待値$7.7、V04株価変換を再計算済み。FAILなし。</p></details><details><summary>主要出典</summary><p><a href="https://ir.t1energy.com/news-releases/news-release-details/t1-energy-reports-first-quarter-2026-results">Q1 2026決算</a><br><a href="https://ir.t1energy.com/news-releases/T1_Energy_Enters_Battery_and_Data_Center_Infrastructure_Markets">BESS等の新市場</a></p></details><details><summary>更新履歴</summary><p>2026-07-22全面改訂。正式テンプレート、最新株価、最新決算、希薄化、市場逆算を反映。</p></details>
+  <!-- 手法選定理由 / 市場逆算 / 倍率トラジェクトリ / 同業比較 / キャッシュバーン・希薄化 /
+       転換社債 / M&A / モンテカルロ・ベイズ（実施時）/ 前提と未確認事項 / 更新履歴 / 主要出典 を
+       それぞれ <details><summary>…</summary><p>…</p></details> で。出典はリンクの箇条書き -->
+</section>
+
+<section class="card notice">
+  <h3>免責</h3><p>本資料は情報提供・教育目的で、投資助言ではありません。将来価格は仮定に基づく試算で、実現を保証しません。</p>
+</section>
+<footer>DOPAGAKI STOCK LAB｜最終更新 2026-07-22｜Validation: WARN</footer>
+</main>
+</body></html>
