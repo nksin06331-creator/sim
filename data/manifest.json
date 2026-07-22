@@ -1,6 +1,74 @@
 [
   {
     "schemaVersion": 1,
+    "ticker": "DVLT",
+    "slug": "dvlt",
+    "name": "Datavault AI",
+    "market": "米国株",
+    "sector": "データ収益化・RWAトークン化・エッジAI",
+    "method": "2026E EV/Sales＋希薄化調整",
+    "status": "published",
+    "updated": "2026-07-22",
+    "price": {
+      "current": 0.3677,
+      "currency": "USD"
+    },
+    "scenarios": {
+      "bear": 0.12,
+      "base": 0.45,
+      "bull": 1.2
+    },
+    "positionPct": 22.9,
+    "zone": "Bear〜Base帯",
+    "riskReward": "3.36倍",
+    "catalyst": "2026年8月頃 Q2決算 / 売上認識・粗利・発行株数を確認",
+    "summary": "契約期待は大きいがQ1売上は年目標の約1.7%。希薄化と実売上の確認が最重要",
+    "tags": [
+      "EV/Sales",
+      "RWA",
+      "トークン化",
+      "エッジAI"
+    ],
+    "risk": "極めて高い",
+    "detailPath": "stocks/DVLT/index.html",
+    "scenarioPath": "stocks/DVLT/scenario.html"
+  },
+  {
+    "schemaVersion": 1,
+    "ticker": "GRRR",
+    "slug": "grrr",
+    "name": "Gorilla Technology Group",
+    "market": "米国株",
+    "sector": "AIインフラ・スマートシティ・公共安全",
+    "method": "2026E EV/Sales＋ネットキャッシュ",
+    "status": "published",
+    "updated": "2026-07-22",
+    "price": {
+      "current": 12.73,
+      "currency": "USD"
+    },
+    "scenarios": {
+      "bear": 7,
+      "base": 18,
+      "bull": 30
+    },
+    "positionPct": 24.9,
+    "zone": "Bear〜Base帯",
+    "riskReward": "3.01倍",
+    "catalyst": "2026年8月頃 Q2決算 / 売上進捗・営業CF・大型案件の検収を確認",
+    "summary": "Q1売上+55%、営業CF黒字化。大型AI案件を売上と入金へ変えられるかが焦点",
+    "tags": [
+      "EV/Sales",
+      "AIインフラ",
+      "スマートシティ",
+      "公共安全"
+    ],
+    "risk": "非常に高い",
+    "detailPath": "stocks/GRRR/index.html",
+    "scenarioPath": "stocks/GRRR/scenario.html"
+  },
+  {
+    "schemaVersion": 1,
     "ticker": "5016",
     "slug": "5016",
     "name": "JX金属",
@@ -614,9 +682,9 @@
     "sector": "SNS広告・AI・AR/VR",
     "method": "正規化FY26E EPS × PER",
     "status": "published",
-    "updated": "2026-07-14",
+    "updated": "2026-07-22",
     "price": {
-      "current": 656.73,
+      "current": 643.81,
       "currency": "USD"
     },
     "scenarios": {
@@ -624,11 +692,11 @@
       "base": 768,
       "bull": 1008
     },
-    "positionPct": 30.3,
+    "positionPct": 27.7,
     "zone": "Bear〜Base帯",
-    "riskReward": "2.30倍",
-    "catalyst": "2026 Q2決算 / 広告成長とCapEx",
-    "summary": "広告は絶好調。投資額も巨大。",
+    "riskReward": "2.61倍",
+    "catalyst": "2026/7/29 Q2決算 / 広告成長・AI CapEx・Reality Labs損失を確認",
+    "summary": "広告は高成長。現値はBase未満だが、年$125〜145BのAI投資回収が焦点",
     "tags": [
       "PER",
       "AI",
