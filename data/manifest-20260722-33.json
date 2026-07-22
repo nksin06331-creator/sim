@@ -1,6 +1,106 @@
 [
   {
     "schemaVersion": 1,
+    "ticker": "BB",
+    "slug": "bb",
+    "name": "BlackBerry",
+    "market": "米国株",
+    "sector": "組込みOS・自動車ソフト・セキュア通信",
+    "method": "FY2027E EV/Sales＋FCFクロスチェック",
+    "status": "published",
+    "updated": "2026-07-22",
+    "price": {
+      "current": 8.99,
+      "currency": "USD"
+    },
+    "scenarios": {
+      "bear": 5,
+      "base": 9,
+      "bull": 14
+    },
+    "positionPct": 44.4,
+    "zone": "Base付近",
+    "riskReward": "1.66倍",
+    "catalyst": "2026/9/24 Q2 FY2027決算 / QNX売上・ARR・営業CFを確認",
+    "summary": "Q1売上+26%で利益・CFが改善。QNX成長とSecure Communicationsの安定が焦点",
+    "tags": [
+      "FY2027E EV/Sales",
+      "組込みOS",
+      "自動車ソフト",
+      "セキュア通信"
+    ],
+    "risk": "高い",
+    "detailPath": "stocks/BB/index.html",
+    "scenarioPath": "stocks/BB/scenario.html"
+  },
+  {
+    "schemaVersion": 1,
+    "ticker": "SYM",
+    "slug": "sym",
+    "name": "Symbotic",
+    "market": "米国株",
+    "sector": "倉庫自動化・AIロボティクス",
+    "method": "FY2027E EV/Sales＋利益率クロスチェック",
+    "status": "published",
+    "updated": "2026-07-22",
+    "price": {
+      "current": 42.86,
+      "currency": "USD"
+    },
+    "scenarios": {
+      "bear": 25,
+      "base": 45,
+      "bull": 70
+    },
+    "positionPct": 39.9,
+    "zone": "Base付近",
+    "riskReward": "1.59倍",
+    "catalyst": "2026年8月頃 Q3 FY2026決算 / 売上・粗利率・導入件数を確認",
+    "summary": "Q2売上+23%で黒字転換。大型受注を利益率を保って稼働へ移せるかが焦点",
+    "tags": [
+      "FY2027E EV/Sales",
+      "倉庫自動化",
+      "AIロボティクス"
+    ],
+    "risk": "非常に高い",
+    "detailPath": "stocks/SYM/index.html",
+    "scenarioPath": "stocks/SYM/scenario.html"
+  },
+  {
+    "schemaVersion": 1,
+    "ticker": "APLD",
+    "slug": "apld",
+    "name": "Applied Digital",
+    "market": "米国株",
+    "sector": "AIデータセンター・HPCインフラ",
+    "method": "契約NOI×評価倍率－ネット負債＋希薄化調整",
+    "status": "published",
+    "updated": "2026-07-22",
+    "price": {
+      "current": 30.05,
+      "currency": "USD"
+    },
+    "scenarios": {
+      "bear": 14,
+      "base": 30,
+      "bull": 50
+    },
+    "positionPct": 44.6,
+    "zone": "Base付近",
+    "riskReward": "1.25倍",
+    "catalyst": "2026年8月頃 FY2026通期決算 / 建設進捗・資金調達・賃料開始を確認",
+    "summary": "長期AIデータセンター契約は急拡大。建設・資金調達・稼働開始までの実行が核心",
+    "tags": [
+      "契約NOI×評価倍率－ネット負債",
+      "AIデータセンター",
+      "HPCインフラ"
+    ],
+    "risk": "極めて高い",
+    "detailPath": "stocks/APLD/index.html",
+    "scenarioPath": "stocks/APLD/scenario.html"
+  },
+  {
+    "schemaVersion": 1,
     "ticker": "DVLT",
     "slug": "dvlt",
     "name": "Datavault AI",
