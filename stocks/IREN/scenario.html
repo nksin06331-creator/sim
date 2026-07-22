@@ -1,5 +1,239 @@
-<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>IREN Limited 株価シナリオ｜SiM MARKET LAB</title><style>:root{--bg:#090b0a;--card:#121613;--line:#293229;--green:#49e88f;--red:#ff6577;--text:#f4f7f4;--muted:#a9b2aa}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,"Noto Sans JP",sans-serif;line-height:1.75}.wrap{width:min(1100px,92%);margin:auto}header{padding:48px 0 28px;border-bottom:1px solid var(--line);background:radial-gradient(circle at 80% 0,#153524 0,transparent 38%)}a{color:var(--green)}.brand{font-weight:900;letter-spacing:.12em}.brand i{color:var(--green);font-style:normal}h1{font-size:clamp(34px,6vw,64px);line-height:1.1;margin:24px 0 12px}h2{font-size:24px;margin-top:0}.sub{color:var(--muted)}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px;margin:18px 0}.price{font-size:42px;font-weight:900}.bear{border-top:4px solid var(--red)}.base{border-top:4px solid #d9ded9}.bull{border-top:4px solid var(--green)}.tag{display:inline-block;padding:4px 9px;border-radius:999px;background:#193122;color:var(--green);font-size:12px;font-weight:800}table{width:100%;border-collapse:collapse}th,td{text-align:left;padding:10px;border-bottom:1px solid var(--line)}li{margin:8px 0}.note{color:var(--muted);font-size:13px}footer{padding:30px 0;color:var(--muted)}@media(max-width:720px){.grid{grid-template-columns:1fr}}</style></head><body><header><div class="wrap"><div class="brand">S<i>i</i>M MARKET LAB</div><span class="tag">SCENARIO</span><h1>IREN Limited <small>(IREN)</small></h1><p class="sub">AIクラウド・データセンター・Bitcoin採掘｜評価基準日 2026-07-22｜現在株価 $41.29</p></div></header><main class="wrap">
-<section class="card"><h2>結論</h2><p>新規AI契約で2026年末ARR目標は$4B超へ。成長速度と巨額設備投資の両立が核心</p><p>確率加重期待値は <b>$43.00</b>。現値はBear〜Bull帯の<b>45%</b>地点で、判定は<b>Base付近</b>です。</p></section>
-<section class="grid"><article class="card bear"><h2>Bear 25%</h2><div class="price">$20</div><p>計画遅延・資金負担・評価倍率低下を強く反映。</p></article><article class="card base"><h2>Base 50%</h2><div class="price">$42</div><p>主要計画が概ね進み、評価倍率が正常化。</p></article><article class="card bull"><h2>Bull 25%</h2><div class="price">$68</div><p>契約・建設・収益化がそろって上振れ。</p></article></section><section class="card"><h2>数字の作り方</h2><p>AI Cloud ARR×評価倍率＋Bitcoin採掘SOTP－ネット負債。未開示の将来売上・設備投資・株数をシナリオ別に置く試算です。</p><table><tr><th>ケース</th><th>理論株価</th><th>現値比</th></tr><tr><td>Bear</td><td>$20</td><td>-51.6%</td></tr><tr><td>Base</td><td>$42</td><td>1.7%</td></tr><tr><td>Bull</td><td>$68</td><td>64.7%</td></tr></table><p class="note">Validation: 確率合計100%、Bear&lt;Base&lt;Bull、期待値計算は整合。将来前提が多いためWARN。</p></section>
-<section class="grid"><article class="card"><h2>強いところ</h2><ul><li>7月20日にAI開発企業との新規契約$2.8Bを発表。</li><li>2026年末AI Cloud ARR目標を$4B超へ引き上げ。</li><li>再生可能エネルギーを使う大規模データセンター運営の経験。</li></ul></article><article class="card"><h2>事故りやすいところ</h2><ul><li>GPU・データセンター増設に巨額の先行投資が必要。</li><li>契約開始の遅延や顧客集中でARRが計画を下回る可能性。</li><li>Bitcoin採掘収益と設備価格の変動も大きい。</li></ul></article><article class="card"><h2>次に見るもの</h2><p>2026年8月頃 FY2026通期決算</p></article></section>
-<section class="card"><h2>出典・注意</h2><p><a href="https://iren.com/investors/news">会社IR・最新決算資料</a></p><p class="note">株価は2026-07-21米国市場データ。数値は評価基準日時点。情報提供・教育目的で、投資助言ではありません。</p></section><p><a href="index.html">企業完全入門へ →</a></p></main><footer><div class="wrap">SiM MARKET LAB｜更新日 2026-07-22</div></footer></body></html>
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>IREN Limited（IREN）｜ドパガキ株価シナリオ</title>
+
+<style>
+:root{--bg:#0b0b10;--panel:#171720;--panel2:#20202b;--ink:#f7f7fb;--muted:#aaaabd;--line:#343445;--lime:#caff00;--pink:#ff4ecd;--cyan:#48e7ff;--orange:#ff9c2b;--red:#ff5d68;--green:#56f39a;--purple:#845cff;--shadow:0 18px 55px rgba(0,0,0,.35)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 8% 4%,rgba(132,92,255,.2),transparent 30rem),radial-gradient(circle at 92% 12%,rgba(255,78,205,.14),transparent 26rem),linear-gradient(180deg,#08080c,#111119 48%,#0b0b10);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans JP",sans-serif;line-height:1.65;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.15;background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:28px 28px;mask-image:linear-gradient(#000,transparent 72%)}
+a{color:var(--cyan)}.wrap{max-width:1120px;margin:auto;padding:0 18px}.hero{position:relative;color:#fff;padding:34px 0 42px;border-bottom:1px solid rgba(255,255,255,.08)}.hero:after{content:"DOPAGAKI";position:absolute;right:-20px;top:12px;font-size:clamp(56px,14vw,170px);font-weight:1000;letter-spacing:-.08em;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.08);transform:rotate(4deg);pointer-events:none}
+.eyebrow{display:inline-flex;align-items:center;gap:7px;padding:7px 12px;border:1px solid rgba(202,255,0,.45);border-radius:999px;font-size:11px;letter-spacing:.12em;color:var(--lime);background:rgba(202,255,0,.08);font-weight:900}.eyebrow:before{content:"●";font-size:8px}
+h1{position:relative;z-index:1;font-size:clamp(36px,7vw,72px);line-height:.98;letter-spacing:-.055em;margin:18px 0 10px;font-weight:1000;max-width:900px}h1 small{display:inline-block;font-size:.31em;padding:7px 11px;border-radius:10px;background:var(--lime);color:#0b0b10;vertical-align:middle;letter-spacing:0;transform:rotate(-2deg)}.sub{color:#c1c1d2;position:relative;z-index:1}
+.verdict{position:relative;z-index:1;display:grid;grid-template-columns:1.55fr .45fr;gap:16px;margin-top:24px}.verdict-main,.score{border:1px solid rgba(255,255,255,.1);border-radius:26px;padding:24px;box-shadow:var(--shadow)}.verdict-main{background:linear-gradient(135deg,rgba(132,92,255,.27),rgba(255,78,205,.12)),var(--panel)}.score{background:var(--lime);color:#0b0b10;transform:rotate(1deg);display:flex;flex-direction:column;justify-content:center}.status{font-size:clamp(25px,4vw,40px);line-height:1.15;font-weight:1000;letter-spacing:-.04em;margin-top:10px}.score b{font-size:58px;line-height:1;display:block}.score small{color:#202014;font-weight:800}
+.kpis{position:relative;z-index:1;display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:16px}.kpi{min-height:126px;background:rgba(23,23,32,.94);border:1px solid var(--line);border-radius:20px;padding:18px;position:relative;overflow:hidden}.kpi:after{content:"";position:absolute;width:72px;height:72px;border-radius:50%;right:-25px;bottom:-30px;background:var(--purple);opacity:.2}.kpi:nth-child(2):after{background:var(--cyan)}.kpi:nth-child(3):after{background:var(--pink)}.kpi:nth-child(4):after{background:var(--red)}.kpi span{font-size:11px;color:var(--muted);font-weight:800}.kpi b{font-size:clamp(22px,3vw,31px);display:block;margin-top:6px;letter-spacing:-.04em}.kpi small{color:#cfcfe0}
+main{padding:22px 0 70px}section{margin:18px 0}.card{background:linear-gradient(180deg,rgba(31,31,43,.98),rgba(20,20,28,.98));border:1px solid var(--line);box-shadow:var(--shadow);border-radius:26px;padding:24px;position:relative;overflow:hidden}.card:before{content:"";position:absolute;width:130px;height:130px;border-radius:50%;right:-70px;top:-75px;background:var(--purple);filter:blur(10px);opacity:.13}
+h2{position:relative;z-index:1;font-size:clamp(23px,3vw,32px);line-height:1.15;letter-spacing:-.04em;margin:0 0 9px;font-weight:1000}h2:before{content:"#";color:var(--lime);margin-right:7px}h3{margin:0 0 8px;font-size:19px}.lead{color:var(--muted);margin-top:0}.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}.scenarios{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.scenario{border-radius:22px;padding:19px;border:1px solid var(--line);background:#111119;position:relative;overflow:hidden;min-height:335px}.scenario:after{position:absolute;right:-5px;top:-12px;font-weight:1000;font-size:68px;opacity:.07;line-height:1}.scenario.bear:after{content:"B";color:var(--red)}.scenario.base:after{content:"A";color:var(--cyan)}.scenario.bull:after{content:"↑";color:var(--lime)}.scenario-head{display:flex;justify-content:space-between;gap:10px;font-weight:900}.scenario-head b{padding:4px 9px;border-radius:999px;color:#0a0a0d;background:#fff}.scenario-price{font-size:clamp(32px,4vw,44px);font-weight:1000;letter-spacing:-.055em;margin:14px 0 0}.scenario.bear{border-top:6px solid var(--red)}.scenario.base{border-top:6px solid var(--cyan);box-shadow:0 0 0 1px rgba(72,231,255,.15),0 16px 40px rgba(72,231,255,.08)}.scenario.bull{border-top:6px solid var(--lime)}
+.small{font-size:13px;color:var(--muted)}dl{margin:16px 0 0}dl div{display:flex;justify-content:space-between;border-top:1px dashed var(--line);padding:8px 0;gap:12px}dt{color:var(--muted)}dd{margin:0;font-weight:800}
+.position{margin-top:20px}.position-line{height:20px;border-radius:999px;background:linear-gradient(90deg,var(--red),var(--orange),var(--cyan),var(--lime));position:relative;box-shadow:inset 0 0 0 2px rgba(255,255,255,.12)}.pin{position:absolute;top:-9px;width:8px;height:38px;background:#fff;border:2px solid #050508;border-radius:6px;left:36.1%;box-shadow:0 4px 14px rgba(0,0,0,.55)}.position-labels{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);margin-top:7px;gap:7px}.pill{display:inline-block;padding:6px 11px;border-radius:999px;background:var(--pink);color:#fff;font-weight:1000;font-size:11px;transform:rotate(-1deg)}
+.zone,.signal{border-top:1px solid var(--line);padding:14px 0}.zone div,.signal div{display:flex;justify-content:space-between;gap:12px}.zone span{color:var(--lime);letter-spacing:.1em}.zone p,.signal p{margin:4px 0;color:var(--muted);font-size:14px}.up{color:var(--green);font-weight:900}.down{color:var(--red);font-weight:900}.flat{color:var(--orange);font-weight:900}
+ul.clean{padding:0;margin:12px 0;list-style:none}ul.clean li{margin:10px 0;padding:12px 14px 12px 42px;background:#111119;border:1px solid var(--line);border-radius:15px;position:relative}ul.clean li:before{content:"✓";position:absolute;left:14px;top:11px;color:var(--lime);font-weight:1000}.grid-2 .card:nth-child(2) ul.clean li:before{content:"!";color:var(--red)}
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:14px}.meter,.track{background:#0d0d13;border:1px solid #2d2d3b;border-radius:999px;overflow:hidden}.meter{height:14px}.meter i{display:block;height:100%;background:linear-gradient(90deg,var(--purple),var(--pink));border-radius:999px}.dist-row{display:grid;grid-template-columns:120px 1fr 52px;gap:10px;align-items:center;margin:12px 0}.track{height:12px}.track i{display:block;height:100%;background:linear-gradient(90deg,var(--cyan),var(--lime));border-radius:999px}
+.table-wrap{overflow:auto;border:1px solid var(--line);border-radius:18px;background:#111119}table{border-collapse:collapse;width:100%;min-width:760px}th,td{border-bottom:1px solid var(--line);padding:12px;text-align:right}th:first-child,td:first-child{text-align:left}th{font-size:11px;color:var(--lime);background:#0f0f16;position:sticky;top:0}
+details{border:1px solid var(--line);background:#111119;border-radius:16px;padding:0;margin:10px 0;overflow:hidden}summary{font-weight:900;cursor:pointer;padding:15px 16px;list-style:none}summary::-webkit-details-marker{display:none}summary:after{content:"＋";float:right;color:var(--lime);font-size:20px;line-height:1}details[open] summary:after{content:"−"}details>p,details>ul{padding:0 16px 16px;margin:0;color:#c4c4d2}
+.notice{border:1px solid rgba(255,156,43,.45);border-left:6px solid var(--orange);background:linear-gradient(90deg,rgba(255,156,43,.12),rgba(255,156,43,.03));padding:15px 16px;border-radius:16px}footer{color:var(--muted);font-size:12px;margin-top:28px;padding:20px 0 0;border-top:1px solid var(--line)}
+@media(max-width:800px){.verdict,.grid-2,.compare{grid-template-columns:1fr}.kpis{grid-template-columns:1fr 1fr}.scenarios{grid-template-columns:1fr}.hero{padding-top:24px}.score{transform:none}.scenario{min-height:auto}}
+@media(max-width:520px){.wrap{padding:0 13px}.kpis{grid-template-columns:1fr 1fr;gap:9px}.kpi{padding:15px;min-height:112px}.kpi b{font-size:21px}.card{padding:18px;border-radius:22px}.dist-row{grid-template-columns:90px 1fr 46px;font-size:12px}.position-labels{font-size:9px}h1{font-size:42px}}
+@media print{body{background:#fff;color:#111}body:before,.hero:after{display:none}.hero,.card,.kpi,.scenario,details,.table-wrap{background:#fff!important;color:#111!important;box-shadow:none!important}.hero{border-bottom:2px solid #111}.sub,.lead,.small,.zone p,.signal p,footer{color:#555!important}.card,.kpi,.scenario,details{break-inside:avoid}}
+</style>
+
+</head>
+<body>
+<!-- ================================================================
+  DOPAGAKI STOCK LAB / SCENARIO TEMPLATE
+  ・CSSと各セクション構成はキオクシア版と同一（サイト掲載の見た目を維持）。
+  ・{{ }} を report_data の値で置換して使う。数値・確率・結論は改変しない。
+  ・ファイル名は銘柄名（例: 285A.html / IONQ.html）。
+================================================================ -->
+<header class="hero">
+<div class="wrap">
+  <div class="eyebrow">DOPAGAKI STOCK LAB / SCENARIO CHECK</div>
+  <h1>IREN Limited <small>IREN</small></h1>
+  <div class="sub">NASDAQ｜評価基準日 2026-07-22｜使用手法 AI Cloud ARR＋採掘SOTP－資金負担</div>
+  <div class="verdict">
+    <div class="verdict-main">
+      <span class="pill">まず結論だけ</span>
+      <!-- decision.status＋一言結論（絵文字は先頭1個まで、45文字目安） -->
+      <div class="status">材料を強く織り込み</div>
+      <!-- 現値ポジショニングと市場逆算を1〜2文で -->
+      <p>現値$41.29はBear〜Bull帯の63%地点。</p>
+      <p class="sub">時価総額約$13.78B。現値は年末ARR&gt;$4Bの約3.4倍に相当し、契約開始と高稼働をBase以上で織り込む。</p>
+    </div>
+    <!-- 総合スコアは“補助指標”。売買判断そのものではない旨を必ず添える -->
+    <div class="score"><small>総合スコア（補助指標）</small><b>45</b><small>/ 100　売買判断そのものではありません</small></div>
+  </div>
+  <div class="kpis">
+    <div class="kpi"><span>現在株価</span><b>$41.29</b><small>2026年7月21日終値</small></div>
+    <div class="kpi"><span>Base価値（標準ケース）</span><b>$30</b><small>-27.3%</small></div>
+    <div class="kpi"><span>確率加重期待値</span><b>$33</b><small>-21.3%（補助指標）</small></div>
+    <div class="kpi"><span>リスク区分</span><b>極めて高い</b><small>CapEx・契約開始・顧客集中</small></div>
+  </div>
+
+<div style="position:relative;z-index:1;margin-top:14px;display:inline-flex;gap:8px;flex-wrap:wrap">
+<span style="background:#caff00;color:#0b0b10;padding:5px 9px;border-radius:8px;font-size:11px;font-weight:1000;transform:rotate(-1deg)">初心者でも読める</span>
+<span style="background:#48e7ff;color:#0b0b10;padding:5px 9px;border-radius:8px;font-size:11px;font-weight:1000;transform:rotate(1deg)">数字はガチ</span>
+<span style="background:#ff4ecd;color:#fff;padding:5px 9px;border-radius:8px;font-size:11px;font-weight:1000;transform:rotate(-1deg)">煽りだけはしない</span>
+</div>
+
+</div>
+</header>
+
+<!-- Validation：WARNがあれば下の注意帯を残す（なければ丸ごと削除）。FAIL時は完成版にしない。 -->
+<div class="wrap"><div class="notice" style="margin-top:14px"><b>注意：</b>7月20日材料後の急変動。ARRは実売上ではなく、最終資金調達と希薄化も未確定のためValidationはWARN。</div></div>
+<!-- 例（WARN時）:
+<div class="wrap"><div class="notice" style="margin-top:14px"><b>注意：</b>{{WARN_MESSAGE}}</div></div>
+-->
+
+<nav style="position:sticky;top:0;z-index:50;background:rgba(9,9,13,.86);backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.08)">
+<div class="wrap" style="display:flex;gap:8px;overflow:auto;padding-top:10px;padding-bottom:10px">
+<a href="#snapshot" style="white-space:nowrap;text-decoration:none;background:#1b1b25;border:1px solid #343445;color:#fff;padding:7px 11px;border-radius:999px;font-size:12px;font-weight:900">結論</a>
+<a href="#scenarios" style="white-space:nowrap;text-decoration:none;background:#1b1b25;border:1px solid #343445;color:#fff;padding:7px 11px;border-radius:999px;font-size:12px;font-weight:900">3シナリオ</a>
+<a href="#logic" style="white-space:nowrap;text-decoration:none;background:#1b1b25;border:1px solid #343445;color:#fff;padding:7px 11px;border-radius:999px;font-size:12px;font-weight:900">計算</a>
+<a href="#sensitivity" style="white-space:nowrap;text-decoration:none;background:#1b1b25;border:1px solid #343445;color:#fff;padding:7px 11px;border-radius:999px;font-size:12px;font-weight:900">感応度</a>
+<a href="#assumptions" style="white-space:nowrap;text-decoration:none;background:#1b1b25;border:1px solid #343445;color:#fff;padding:7px 11px;border-radius:999px;font-size:12px;font-weight:900">前提</a>
+</div></nav>
+
+<main class="wrap">
+
+<!-- Layer2-1：いまどこ？（現値ポジショニング＋市場逆算） -->
+<section class="card" id="snapshot">
+  <h2>いまの株価、どこにいる？</h2>
+  <p class="lead">会社の質と株価の安さを分け、通期決算とARR開始時期を優先して確認します。</p>
+  <div class="grid-2">
+    <div>
+      <h3>現値ポジショニング</h3>
+      <p>Bear〜Bull帯の <b>63%</b> 地点。判定は <b>Base〜Bull帯</b>。期待値だけで判断せず、材料の二重織り込みを確認。</p>
+      <!-- pin の left:% を band_position_pct に合わせる -->
+      <div class="position"><div class="position-line"><i class="pin" style="left:63%"></i></div><div class="position-labels"><span>Bear $10.0</span><span>Base $30</span><span>Bull $60</span></div></div>
+      <p>上値下値比：<b>0.60倍</b>　確率加重期待値：<b>$33</b></p>
+    </div>
+    <div>
+      <h3>市場期待と独自見解</h3>
+      <div class="compare">
+        <div><b>市場期待 78/100</b><div class="meter"><i style="width:78%"></i></div></div>
+        <div><b>本試算 45/100</b><div class="meter"><i style="width:45%"></i></div></div>
+      </div>
+      <!-- market_reverse.conclusion：現値が自分のどの前提に相当するか -->
+      <p>時価総額約$13.78B。現値は年末ARR&gt;$4Bの約3.4倍に相当し、契約開始と高稼働をBase以上で織り込む。</p>
+    </div>
+  </div>
+</section>
+
+<!-- Layer1/2：3シナリオ。dl の項目は使用手法に合わせて変える（rNPV/SOTP/EV-Sales/PER等） -->
+<section class="card" id="scenarios">
+  <h2>未来はこの3パターン</h2>
+  <p class="lead">事業価値、ネット現金・負債、希薄化後株式数をシナリオ別に分けたモデル仮定。</p>
+  <div class="scenarios">
+    <article class="scenario bear">
+      <div class="scenario-head"><span>Bear（悲観ケース）</span><b>25%</b></div>
+      <div class="scenario-price">$10.0</div>
+      <div class="small">現値比 -75.8%</div>
+      <dl><div><dt>事業価値（仮定）</dt><dd>$6.80B</dd></div><div><dt>ネット現金/負債</dt><dd>$-3.00B</dd></div><div><dt>希薄化後株数</dt><dd>380M株</dd></div><div><dt>成立前提</dt><dd>ARR$2.5B・低稼働</dd></div></dl>
+      <!-- 例: <div><dt>事業価値</dt><dd>25.9兆円</dd></div> を手法に応じて数行 -->
+    </article>
+    <article class="scenario base">
+      <div class="scenario-head"><span>Base（標準ケース）</span><b>50%</b></div>
+      <div class="scenario-price">$30</div>
+      <div class="small">現値比 -27.3%</div>
+      <dl><div><dt>事業価値（仮定）</dt><dd>$14.80B</dd></div><div><dt>ネット現金/負債</dt><dd>$-4.00B</dd></div><div><dt>希薄化後株数</dt><dd>360M株</dd></div><div><dt>成立前提</dt><dd>ARR$4B・契約開始</dd></div></dl>
+    </article>
+    <article class="scenario bull">
+      <div class="scenario-head"><span>Bull（強気ケース）</span><b>25%</b></div>
+      <div class="scenario-price">$60</div>
+      <div class="small">現値比 +45.3%</div>
+      <dl><div><dt>事業価値（仮定）</dt><dd>$25.00B</dd></div><div><dt>ネット現金/負債</dt><dd>$-4.00B</dd></div><div><dt>希薄化後株数</dt><dd>350M株</dd></div><div><dt>成立前提</dt><dd>ARR$5B超・高稼働</dd></div></dl>
+    </article></div>
+</section>
+
+<!-- Layer2：価格別アクションマップ ＋ 株価を動かす材料 -->
+<section class="grid-2">
+  <div class="card">
+    <h2>この値段ならどう見る？</h2>
+    <!-- 4〜5帯。「買い/売り」は断定しない。星は割安度の目安 -->
+    <div class="zone"><div><b>$10.0未満</b><span>★★★★★</span></div><p>悲観ケース以下。悪化材料と資金繰りを確認。</p></div><div class="zone"><div><b>$10.0〜$30</b><span>★★★☆☆</span></div><p>慎重〜標準前提の間。</p></div><div class="zone"><div><b>$30〜$60</b><span>★★☆☆☆</span></div><p>強い実行と成長を織り込む。</p></div><div class="zone"><div><b>$60超</b><span>★☆☆☆☆</span></div><p>Bull超。追加材料が必要。</p></div>
+    <!-- 例: <div class="zone"><div><b>48,000円未満</b><span>★★★★★</span></div><p>悲観ケース以下。下方リスクを相当織り込む</p></div> -->
+  </div>
+  <div class="card">
+    <h2>株価を動かす4つ</h2>
+    <!-- 各材料に up=追い風 / down=注意 / flat を付ける -->
+    <div class="signal"><div><b>2026年8月頃｜FY2026通期決算</b><span class="flat">確認</span></div><p>現金・CapEx・契約開始。</p></div><div class="signal"><div><b>2026年末｜AI Cloud ARR</b><span class="up">追い風候補</span></div><p>&gt;$4Bの到達確認。</p></div><div class="signal"><div><b>2026年後半｜GPU稼働</b><span class="up">追い風候補</span></div><p>480MW計画の実装。</p></div><div class="signal"><div><b>随時｜顧客前払</b><span class="flat">確認</span></div><p>資金負担の軽減。</p></div>
+    <!-- 例: <div class="signal"><div><b>AI向けSSD需要</b><span class="up">追い風</span></div><p>…</p></div> -->
+  </div>
+</section>
+
+<!-- Layer2：良い点 / 気になる点（対比） -->
+<section class="grid-2">
+  <div class="card">
+    <h2>ここは普通に強い</h2>
+    <ul class="clean"><li>7月20日に$2.8Bの新規AI契約。</li><li>2026年末AI Cloud ARR目標を&gt;$4Bへ引き上げ。</li><li>約85%が契約済みと会社が説明。</li><li>顧客前払でGPU CapExの一部を軽減。</li></ul>
+    <!-- 例: <li>FY2025売上2.34兆円で過去最高。</li> を3〜5件 -->
+  </div>
+  <div class="card">
+    <h2>ここで事故るかも</h2>
+    <ul class="clean"><li>ARRは年間実売上ではない。</li><li>GPU・データセンター増設に巨額投資。</li><li>契約開始遅延と顧客集中。</li><li>BitcoinとGPU残存価値の変動。</li></ul>
+    <!-- 2つ目のカードのliは自動で赤「!」になる -->
+  </div>
+</section>
+
+<!-- Layer3：計算ロジック -->
+<section class="card" id="logic">
+  <h2>数字の作り方</h2>
+  <p class="lead">理論株価＝（事業価値＋ネット現金／負債調整）÷希薄化後株式数</p>
+  <div class="table-wrap"><table>
+  <thead><tr><th>ケース</th><th>事業価値</th><th>ネット調整</th><th>株式数</th><th>株価</th></tr></thead>
+  <tbody><tr><td>Bear</td><td>$6.80B</td><td>$-3.00B</td><td>380M</td><td>$10.0</td></tr><tr><td>Base</td><td>$14.80B</td><td>$-4.00B</td><td>360M</td><td>$30</td></tr><tr><td>Bull</td><td>$25.00B</td><td>$-4.00B</td><td>350M</td><td>$60</td></tr></tbody>
+  </table></div>
+  <!-- 現値に合わせた逆算ではない旨、未開示前提の注意など -->
+  <p class="notice"><b>重要：</b>将来値は仮定。現値にBaseを合わせていません。現金・負債・株式数は評価基準日にそろえ、未確認項目はWARN表示しています。</p>
+</section>
+
+<!-- Layer3：成立条件 -->
+<section class="card" id="conditions">
+  <h2>この未来になる条件</h2>
+  <details open><summary>Base：$30 / 確率50%</summary><p>ARR$4B・契約開始。通期決算とARR開始時期が概ね計画通り。</p></details><details><summary>Bear：$10.0 / 確率25%</summary><p>ARR$2.5B・低稼働。資金・工程・倍率が悪化。</p></details><details><summary>Bull：$60 / 確率25%</summary><p>ARR$5B超・高稼働。主要カタリストが順調。</p></details>
+  <!-- 例: <details open><summary>Base：$30 / 確率50%</summary><p>…</p></details> を3つ -->
+</section>
+
+<!-- Layer3：感応度 ＋ 分布（モンテカルロは実施時のみ） -->
+<section class="grid-2" id="sensitivity">
+  <div class="card">
+    <h2>数字がズレるとどうなる？</h2>
+    <div class="table-wrap"><table>
+      <thead><tr><th>AI ARR＼倍率</th><th>2x</th><th>3x</th><th>4x</th></tr></thead>
+      <tbody><tr><td>$2.5B</td><td>$10</td><td>$17</td><td>$23</td></tr><tr><td>$4.0B</td><td>$19</td><td>$30</td><td>$41</td></tr><tr><td>$5.0B</td><td>$24</td><td>$38</td><td>$52</td></tr></tbody>
+    </table></div>
+    <p class="small">主要ドライバと評価倍率・成功確率の組み合わせ。将来時期が遅れるほど現在価値は低下。</p>
+  </div>
+  <div class="card">
+    <h2>どの価格に行きやすい？</h2>
+    <p class="lead">3シナリオの確率をそのまま表示。予言ではありません。</p>
+    <div class="dist-row"><span>Bear $10.0</span><div class="track"><i style="width:25%"></i></div><b>25%</b></div><div class="dist-row"><span>Base $30</span><div class="track"><i style="width:50%"></i></div><b>50%</b></div><div class="dist-row"><span>Bull $60</span><div class="track"><i style="width:25%"></i></div><b>25%</b></div>
+    <!-- 例: <div class="dist-row"><span>5万円未満</span><div class="track"><i style="width:7.6%"></i></div><b>7.6%</b></div> -->
+    <p>確率加重期待値は$33。単独の売買判断には使いません。</p>
+  </div>
+</section>
+
+<!-- 次の決算/イベントで見る場所（watch_items） -->
+<section class="card">
+  <h2>次の決算で見る場所</h2>
+  <div class="signal"><div><b>2026年8月頃｜FY2026通期決算</b></div><p>現金・CapEx・契約開始。</p></div><div class="signal"><div><b>2026年末｜AI Cloud ARR</b></div><p>&gt;$4Bの到達確認。</p></div><div class="signal"><div><b>2026年後半｜GPU稼働</b></div><p>480MW計画の実装。</p></div><div class="signal"><div><b>随時｜顧客前払</b></div><p>資金負担の軽減。</p></div>
+  <!-- 例: <div class="signal"><div><b>2026年7月31日の1Q決算</b></div><p>…</p></div> -->
+</section>
+
+<!-- 前提表（事実/市場データ/推定/仮定を分類明記） -->
+<section class="card" id="assumptions">
+  <h2>使った数字と前提</h2>
+  <div class="table-wrap"><table>
+  <thead><tr><th>項目</th><th>値</th><th>分類</th><th>注記</th></tr></thead>
+  <tbody><tr><td>現値</td><td>$41.29</td><td>市場データ</td><td>2026-07-21終値</td></tr><tr><td>時価総額</td><td>$13.78B</td><td>市場データ</td><td>同日取得</td></tr><tr><td>評価手法</td><td>AI Cloud ARR＋採掘SOTP－資金負担</td><td>モデル仮定</td><td>現値へ調整せず</td></tr><tr><td>確率</td><td>25/50/25%</td><td>モデル仮定</td><td>合計100%</td></tr><tr><td>20営業日騰落</td><td>未確認</td><td>未確認</td><td>V17 WARN</td></tr><tr><td>新規AI契約</td><td>$2.8B</td><td>会社開示</td><td>2026-07-20</td></tr><tr><td>年末ARR目標</td><td>&gt;$4B</td><td>会社開示</td><td>約85%契約済み</td></tr><tr><td>評価基準</td><td>ARR≠実売上</td><td>会社開示</td><td>開始時期に注意</td></tr></tbody>
+  </table></div>
+</section>
+
+<!-- Layer3：ガチ勢向け深掘り（details折りたたみ） -->
+<section class="card">
+  <h2>ガチ勢向けの深掘り</h2>
+  <details><summary>手法と市場逆算</summary><p>AI Cloud ARR＋採掘SOTP－資金負担を採用。時価総額約$13.78B。現値は年末ARR&gt;$4Bの約3.4倍に相当し、契約開始と高稼働をBase以上で織り込む。</p></details><details><summary>倍率・SOTPの根拠</summary><p>Bearは遅延と倍率縮小、Baseは会社計画の部分達成、Bullは主要カタリスト成功を置いた仮定。現値へBaseを合わせていません。</p></details><details><summary>キャッシュ・負債・希薄化</summary><p>各シナリオのネット調整と希薄化後株式数を別々に反映。7月20日材料後の急変動。ARRは実売上ではなく、最終資金調達と希薄化も未確定のためValidationはWARN。</p></details><details><summary>エントリーコンテキスト</summary><p>直近20営業日騰落率は完全確認できずWARN。材料の二重織り込みを避け、通期決算とARR開始時期を優先します。</p></details><details><summary>Validation Engine</summary><p>WARN。V01確率100%、V02 Bear＜Base＜Bull、V03期待値$33、V04株価変換を再計算済み。FAILなし。</p></details><details><summary>主要出典</summary><p><a href="https://iren.com/investors/news">7月20日AI契約</a><br><a href="https://www.globenewswire.com/news-release/2026/07/20/3329624/0/en/iren-signs-2-8bn-in-new-customer-contracts-with-leading-ai-developers-raises-2026-arr-target-to-over-4bn.html">発表全文</a></p></details><details><summary>更新履歴</summary><p>2026-07-22全面改訂。正式テンプレート、最新株価、最新決算、希薄化、市場逆算を反映。</p></details>
+  <!-- 手法選定理由 / 市場逆算 / 倍率トラジェクトリ / 同業比較 / キャッシュバーン・希薄化 /
+       転換社債 / M&A / モンテカルロ・ベイズ（実施時）/ 前提と未確認事項 / 更新履歴 / 主要出典 を
+       それぞれ <details><summary>…</summary><p>…</p></details> で。出典はリンクの箇条書き -->
+</section>
+
+<section class="card notice">
+  <h3>免責</h3><p>本資料は情報提供・教育目的で、投資助言ではありません。将来価格は仮定に基づく試算で、実現を保証しません。</p>
+</section>
+<footer>DOPAGAKI STOCK LAB｜最終更新 2026-07-22｜Validation: WARN</footer>
+</main>
+</body></html>
