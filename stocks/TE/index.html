@@ -1,1 +1,470 @@
-<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>T1 Energy 完全入門｜SiM MARKET LAB</title><style>:root{--bg:#090b0a;--card:#121613;--line:#293229;--g:#49e88f;--r:#ff6577;--t:#f4f7f4;--m:#a9b2aa}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--t);font-family:system-ui,-apple-system,"Noto Sans JP",sans-serif;line-height:1.75}.wrap{width:min(1100px,92%);margin:auto}header{padding:48px 0 28px;border-bottom:1px solid var(--line);background:radial-gradient(circle at 80% 0,#153524 0,transparent 38%)}a{color:var(--g)}.brand{font-weight:900;letter-spacing:.12em}.brand i{color:var(--g);font-style:normal}h1{font-size:clamp(34px,6vw,64px);line-height:1.1;margin:24px 0 12px}h2{font-size:24px;margin-top:0}.sub,.note{color:var(--m)}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px;margin:18px 0}.price{font-size:42px;font-weight:900}.bear{border-top:4px solid var(--r)}.base{border-top:4px solid #d9ded9}.bull{border-top:4px solid var(--g)}.tag{display:inline-block;padding:4px 9px;border-radius:999px;background:#193122;color:var(--g);font-size:12px;font-weight:800}table{width:100%;border-collapse:collapse}th,td{text-align:left;padding:10px;border-bottom:1px solid var(--line)}li{margin:8px 0}footer{padding:30px 0;color:var(--m)}@media(max-width:720px){.grid{grid-template-columns:1fr}}</style></head><body><header><div class="wrap"><div class="brand">S<i>i</i>M MARKET LAB</div><span class="tag">BEGINNER GUIDE</span><h1>T1 Energy <small>(TE)</small></h1><p class="sub">太陽電池・米国製造｜評価基準日 2026-07-22｜現在株価 $6.10</p></div></header><main class="wrap"><section class="card"><h2>まず結論</h2><p>Q1は過去最高益。G1の収益定着とG2_Austinの資金調達・建設実行が焦点</p><p><b>何を見る株？</b> 計画やAI期待が、売上・利益・キャッシュへ変わるかを見る銘柄です。</p></section><section class="grid"><article class="card"><h2>何の会社？</h2><p>T1 Energyは太陽電池・米国製造を主力とする企業です。</p></article><article class="card"><h2>直近の数字</h2><ul><li>Q1売上 $177.6M</li><li>Q1調整後EBITDA $9.1M</li><li>Q1継続事業純利益 $3.9M</li></ul></article><article class="card"><h2>最大の注意点</h2><p>G2_Austinは巨額資金と建設実行が必要。</p></article></section><section class="card"><h2>数字で見る現在地</h2><table><tr><th>現在株価</th><td>$6.10</td></tr><tr><th>Base価値</th><td>$7</td></tr><tr><th>評価方法</th><td>G1収益＋G2将来価値の確率調整SOTP－ネット負債</td></tr><tr><th>リスク</th><td>極めて高い</td></tr></table></section><section class="grid"><article class="card"><h2>強いところ</h2><ul><li>G1_Dallasの増産で四半期黒字化を達成。</li><li>固定マージン・コストプラス契約への構成改善。</li><li>米国内の太陽電池サプライチェーン構築を狙う。</li></ul></article><article class="card"><h2>事故りやすいところ</h2><ul><li>G2_Austinは巨額資金と建設実行が必要。</li><li>政策支援・関税・税額控除の変更影響が大きい。</li><li>設備立上げ、顧客集中、追加希薄化に注意。</li></ul></article><article class="card"><h2>次に見るもの</h2><p>2026年8月頃のQ2決算とG2_Austin資金計画</p></article></section><section class="card"><h2>出典・注意</h2><p><a href="https://ir.t1energy.com/news-releases/news-release-details/t1-energy-reports-first-quarter-2026-results">会社IR・最新決算資料</a></p><p class="note">株価は2026-07-21米国市場データ。情報提供・教育目的で、投資助言ではありません。</p></section><p><a href="scenario.html">Bear / Base / Bullシナリオへ →</a></p></main><footer><div class="wrap">SiM MARKET LAB｜更新日 2026-07-22</div></footer></body></html>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TE 完全入門ガイド</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@700;900&family=Noto+Sans+JP:wght@400;500;700;900&family=DM+Sans:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+/*
+ ================================================================
+  STOCK GUIDE TEMPLATE v3  SiM MARKET LAB ダーク版 / ChatGPT index.html
+  ----------------------------------------------------------------
+  ★★ デザインロック（ぶれ防止）★★
+  ・この <style> ブロックとページ骨格は「改変禁止」。1文字も変えない。逐語コピーする。
+  ・色はSiMグリーンで固定。銘柄・業界でアクセント色を変えない。
+  ・差し替えてよいのは {{ }} プレースホルダーの中身（＝テキスト）だけ。
+  ・セクションの数・順番・各コンポーネントの個数（SEC1のcard-smは4枚 等）は固定。
+    追加・削除・並べ替えをしない。
+  ----------------------------------------------------------------
+  ブランド：黒背景 × ネオングリーン × 白文字（キーワードだけ緑）。Instagram(sim.marketlab)準拠。
+  設計思想：「表層＝3秒で意味が取れる／深層＝読みたい人だけ開く」の2層構造。
+  ・見出しの重要ワードは <span class="g">…</span> で緑ハイライト。
+ ================================================================
+*/
+
+:root {
+  /* ── ブランド・アクセント：SiMグリーンで固定（銘柄・業界で変えない＝デザインぶれ防止） ── */
+  --accent:        #6EE24E;
+  --accent-bright: #8BF56B;
+  --accent-tint:   rgba(110,226,78,.12);
+  --accent-line:   rgba(110,226,78,.38);
+
+  /* ── ダークシェル（変更不要・全銘柄共通） ── */
+  --bg:        #0a0c0a;
+  --surface:   #141815;   /* カード面 */
+  --surface-2: #1b201c;   /* 少し明るい面 */
+
+  /* レガシー変数マッピング（本文markupが参照。名前は据え置き、意味をダーク用に再定義） */
+  --c-primary-50:  var(--accent-tint);        --c-primary-100: rgba(110,226,78,.18);
+  --c-primary-200: rgba(110,226,78,.55);      --c-primary-400: var(--accent);
+  --c-primary-600: var(--accent);             --c-primary-800: var(--accent-bright);
+  --c-accent-50:   var(--accent-tint);        --c-accent-400:  var(--accent);   --c-accent-600: var(--accent-bright);
+
+  /* システム色（ダーク版：薄背景は半透明の暗色、文字は明るい色に反転） */
+  --amber-50:  rgba(251,191,36,.13); --amber-400: #fbbf24; --amber-600: #fcd34d; --amber-800: #fde68a;
+  --red-50:    rgba(248,113,113,.13); --red-400:  #f87171; --red-600:   #fca5a5;
+  --blue-50:   rgba(96,165,250,.13); --blue-400:  #60a5fa; --blue-600:  #93c5fd; --blue-800: #bfdbfe;
+  --green-50:  rgba(110,226,78,.13); --green-400: #6EE24E; --green-600: #8bf56b;
+  --violet-50: rgba(167,139,250,.13); --violet-400:#a78bfa; --violet-600:#c4b5fd;
+  --gray-50:  #15191b;               --gray-100: rgba(255,255,255,.06);
+  --gray-200: rgba(255,255,255,.09); --gray-300: #3f463f;
+  --gray-500: #8a948a;               --gray-700: #c3ccc3; --gray-900: #f1f5f1;
+
+  --font-display: 'Zen Kaku Gothic New', 'Noto Sans JP', sans-serif;
+  --font-body:    'Noto Sans JP', 'DM Sans', sans-serif;
+  --font-num:     'DM Sans', 'Noto Sans JP', sans-serif;
+  --radius: 16px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-body); background: var(--bg); color: var(--gray-900); line-height: 1.85; font-size: 16px; -webkit-text-size-adjust: 100%; }
+.g { color: var(--accent); }               /* 緑キーワード */
+
+/* 読了プログレスバー */
+.progress-bar { position: fixed; top: 0; left: 0; height: 4px; width: 0%; z-index: 200; background: var(--accent); box-shadow: 0 0 12px var(--accent); transition: width .1s linear; }
+
+/* ── HERO（黒＋緑グロー＋ハーフトーン・ドット） ── */
+.hero {
+  background: radial-gradient(120% 90% at 50% -10%, #12251a 0%, #0b0f0c 45%, var(--bg) 75%);
+  color: #fff; padding: 58px 22px 66px; text-align: center; position: relative; overflow: hidden;
+}
+.hero::before { content:''; position:absolute; inset:0;
+  background-image: radial-gradient(var(--accent) 1px, transparent 1.6px);
+  background-size: 15px 15px; opacity: .10;
+  -webkit-mask-image: radial-gradient(ellipse at 50% 120%, #000 0%, transparent 60%);
+          mask-image: radial-gradient(ellipse at 50% 120%, #000 0%, transparent 60%);
+}
+.hero > * { position: relative; z-index: 1; }
+.brandmark { font-family: var(--font-num); font-weight: 700; letter-spacing: .18em; font-size: 13px; color: var(--gray-500); margin-bottom: 18px; }
+.brandmark b { color: #fff; font-weight: 700; }
+.brandmark .g { color: var(--accent); }
+.hero-badge { display: inline-block; background: rgba(110,226,78,.10); border: 1px solid var(--accent-line); border-radius: 999px; padding: 6px 18px; font-size: 12px; letter-spacing: .06em; font-weight: 700; margin-bottom: 18px; color: var(--accent); }
+.hero h1 { font-family: var(--font-display); font-size: clamp(30px,7.5vw,50px); font-weight: 900; line-height: 1.3; margin-bottom: 14px; letter-spacing: .01em; }
+.hero h1 .g { color: var(--accent); }
+.hero p { font-size: 15.5px; color: #c3ccc3; max-width: 560px; margin: 0 auto 26px; line-height: 1.85; }
+.hero-tags { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+.hero-tag { background: rgba(255,255,255,.04); border: 1px solid var(--gray-200); border-radius: 999px; padding: 6px 14px; font-size: 13px; font-weight: 500; color: #d8ded8; }
+
+/* ── 30秒サマリー（でかい数字カード） ── */
+.tldr-hero { max-width: 820px; margin: -30px auto 0; padding: 0 16px; position: relative; z-index: 5; }
+.tldr-hero-inner { background: var(--surface); border: 1px solid var(--gray-200); border-radius: var(--radius); padding: 20px 20px 8px; box-shadow: 0 16px 40px rgba(0,0,0,.5); }
+.tldr-hero-title { font-family: var(--font-display); font-weight: 900; font-size: 17px; color: #fff; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+.stat-strip { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px,1fr)); gap: 10px; margin-bottom: 14px; }
+.stat { background: var(--gray-50); border: 1px solid var(--gray-200); border-radius: 12px; padding: 14px 12px; text-align: center; }
+.stat-value { font-family: var(--font-num); font-weight: 700; font-size: clamp(24px,6vw,32px); line-height: 1.1; color: #fff; }
+.stat-value.up   { color: var(--accent); }
+.stat-value.down { color: var(--red-400); }
+.stat-label { font-size: 12px; color: var(--gray-500); margin-top: 4px; font-weight: 500; }
+.stat-note  { font-size: 11px; color: var(--gray-500); margin-top: 2px; }
+
+/* ── NAV ── */
+.nav-index { background: rgba(10,12,10,.82); backdrop-filter: blur(10px); border-bottom: 1px solid var(--gray-200); position: sticky; top: 0; z-index: 100; }
+.nav-inner { max-width: 820px; margin: 0 auto; padding: 0 16px; display: flex; overflow-x: auto; scrollbar-width: none; }
+.nav-inner::-webkit-scrollbar { display: none; }
+.nav-item { flex-shrink: 0; padding: 14px 14px; font-size: 13px; font-weight: 700; color: var(--gray-500); text-decoration: none; border-bottom: 3px solid transparent; transition: color .2s, border-color .2s; white-space: nowrap; }
+.nav-item:hover { color: var(--accent); border-bottom-color: var(--accent); }
+
+.container { max-width: 820px; margin: 0 auto; padding: 0 16px; }
+
+/* ── SECTION ── */
+.section { padding: 46px 0 34px; border-bottom: 1px solid var(--gray-200); opacity: 0; transform: translateY(16px); animation: fadeUp .5s ease forwards; }
+@keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+.section-header { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
+.section-icon { width: 46px; height: 46px; border-radius: 50%; background: var(--surface-2); border: 1px solid var(--gray-200); display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0; }
+.section-num { width: 30px; height: 30px; border-radius: 50%; background: var(--accent); color: #06210a; font-family: var(--font-num); font-weight: 700; font-size: 15px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.section-title { font-family: var(--font-display); font-size: clamp(21px,5.4vw,27px); font-weight: 900; color: #fff; line-height: 1.32; position: relative; display: inline-block; padding-bottom: 9px; }
+.section-title::after { content: ''; position: absolute; left: 0; bottom: 0; width: 40px; height: 3px; background: var(--accent); border-radius: 3px; }
+.section-title .g { color: var(--accent); }
+.section-sub { font-size: 13px; color: var(--gray-500); margin-top: 6px; font-weight: 500; }
+
+/* ── ⚡3秒まとめ ── */
+.tldr { background: var(--accent-tint); border: 1px solid var(--accent-line); border-radius: var(--radius); padding: 18px 20px; margin-bottom: 22px; }
+.tldr-label { display: inline-flex; align-items: center; gap: 6px; font-family: var(--font-display); font-weight: 900; font-size: 14px; color: var(--accent); margin-bottom: 10px; }
+.tldr ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.tldr li { font-size: 15.5px; font-weight: 500; color: #eef2ee; line-height: 1.7; padding-left: 30px; position: relative; }
+.tldr li::before { content: attr(data-emoji); position: absolute; left: 0; top: 0; font-size: 18px; }
+
+/* ── 👉つまり ── */
+.sowhat { background: var(--surface); border: 1.5px dashed var(--accent); border-radius: 14px; padding: 12px 16px 12px 46px; margin: 14px 0; position: relative; }
+.sowhat::before { content: '👉'; position: absolute; left: 14px; top: 11px; font-size: 20px; }
+.sowhat b { color: var(--accent); }
+.sowhat p { font-size: 14.5px; color: var(--gray-700); line-height: 1.8; }
+
+/* ── シグナル判定ピル ── */
+.signal { display: inline-flex; align-items: center; gap: 5px; font-weight: 700; font-size: 12.5px; padding: 4px 12px; border-radius: 999px; white-space: nowrap; }
+.signal.bull    { background: var(--green-50); color: var(--accent); }
+.signal.neutral { background: var(--amber-50); color: var(--amber-600); }
+.signal.bear    { background: var(--red-50);   color: var(--red-600); }
+
+/* ── ★重要度 ── */
+.rating { font-family: var(--font-num); letter-spacing: 1px; color: var(--accent); font-size: 14px; }
+.rating .off { color: var(--gray-300); }
+
+/* ── 絵文字箇条書き ── */
+.keypoints { list-style: none; display: flex; flex-direction: column; gap: 12px; margin: 8px 0; }
+.keypoints li { display: flex; gap: 12px; align-items: flex-start; font-size: 15px; line-height: 1.7; color: #e4e9e4; }
+.keypoints .kp-emoji { font-size: 22px; flex-shrink: 0; line-height: 1.4; }
+.keypoints .kp-text b { color: var(--accent); }
+
+/* ── CARDS ── */
+.card { background: var(--surface); border: 1px solid var(--gray-200); border-radius: 14px; padding: 18px 20px; margin-bottom: 12px; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 12px; margin-bottom: 12px; }
+.card-sm { background: var(--surface); border: 1px solid var(--gray-200); border-radius: 14px; padding: 16px 18px; }
+.card-sm .card-emoji { font-size: 22px; display: inline-flex; width: 40px; height: 40px; border-radius: 50%; background: var(--surface-2); border: 1px solid var(--gray-200); align-items: center; justify-content: center; margin-bottom: 8px; }
+.card-sm .card-title { font-family: var(--font-display); font-weight: 700; font-size: 15px; margin-bottom: 4px; color: var(--accent); }
+.card-sm .card-desc { font-size: 13.5px; color: var(--gray-700); line-height: 1.75; }
+
+/* ── 会社クイックデータ（企業詳細を厚くする一覧） ── */
+.facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(148px,1fr)); gap: 1px; background: var(--gray-200); border: 1px solid var(--gray-200); border-radius: 14px; overflow: hidden; margin: 4px 0 14px; }
+.facts > div { background: var(--surface); padding: 12px 14px; }
+.facts dt { font-size: 11px; color: var(--gray-500); font-weight: 700; margin-bottom: 3px; }
+.facts dd { margin: 0; font-size: 14.5px; color: #fff; font-weight: 700; line-height: 1.5; }
+.block-label { font-family: var(--font-display); font-weight: 900; font-size: 15px; color: #fff; margin: 18px 0 8px; display: flex; align-items: center; gap: 7px; }
+.block-label .g { color: var(--accent); }
+
+/* ── TERM ACCORDION ── */
+.term-list { display: flex; flex-direction: column; gap: 10px; }
+.term-item { background: var(--surface); border: 1px solid var(--gray-200); border-radius: 14px; overflow: hidden; transition: border-color .2s; }
+.term-item:hover { border-color: var(--accent); }
+.term-header { display: flex; align-items: center; justify-content: space-between; padding: 16px 18px; cursor: pointer; gap: 12px; user-select: none; min-height: 56px; }
+.term-header::-webkit-details-marker { display: none; }
+.term-name { font-family: var(--font-display); font-weight: 700; font-size: 15.5px; color: #fff; }
+.term-en { font-size: 11px; color: var(--gray-500); margin-left: 8px; font-weight: 400; }
+.term-arrow { font-size: 20px; color: var(--accent); transition: transform .25s; flex-shrink: 0; }
+.term-item[open] .term-arrow { transform: rotate(180deg); }
+.term-item[open] { border-color: var(--accent); }
+.term-body { padding: 2px 18px 18px; border-top: 1px solid var(--gray-100); }
+.term-body p { font-size: 14.5px; color: var(--gray-700); line-height: 1.85; margin: 10px 0 0; }
+.term-body b { color: var(--accent); }
+
+/* ── CALL-OUT ── */
+.ex-box, .ex-box-accent, .ex-box-amber, .ex-box-red { border-radius: 0 8px 8px 0; padding: 12px 16px; margin-top: 12px; }
+.ex-box        { background: var(--accent-tint); border-left: 4px solid var(--accent); }
+.ex-box-accent { background: var(--accent-tint); border-left: 4px solid var(--accent); }
+.ex-box-amber  { background: var(--amber-50);  border-left: 4px solid var(--amber-400); }
+.ex-box-red    { background: var(--red-50);    border-left: 4px solid var(--red-400); }
+.ex-label { font-size: 11px; font-weight: 700; letter-spacing: .04em; margin-bottom: 4px; }
+.ex-label-primary, .ex-label-accent { color: var(--accent); }
+.ex-label-amber { color: var(--amber-600); }
+.ex-label-red { color: var(--red-600); }
+.ex-text { font-size: 13.5px; color: var(--gray-700); line-height: 1.75; }
+
+/* ── INFO BOXES（リスク4分類） ── */
+.info-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap: 12px; margin-top: 16px; }
+.info-box { border-radius: 14px; padding: 16px 18px; border: 1px solid var(--gray-200); }
+.info-box-primary { background: var(--accent-tint); }
+.info-box-accent  { background: var(--accent-tint); }
+.info-box-amber   { background: var(--amber-50); }
+.info-box-red     { background: var(--red-50); }
+.info-box-blue    { background: var(--blue-50); }
+.info-box-green   { background: var(--green-50); }
+.info-box-gray    { background: var(--surface-2); }
+.info-title { font-family: var(--font-display); font-weight: 700; font-size: 14px; margin-bottom: 6px; display: flex; align-items: center; gap: 6px; }
+.info-title-primary, .info-title-accent, .info-title-green { color: var(--accent); }
+.info-title-amber { color: var(--amber-600); }
+.info-title-red { color: var(--red-600); }
+.info-title-blue { color: var(--blue-600); }
+.info-title-gray { color: #d8ded8; }
+.info-text { font-size: 13.5px; color: var(--gray-700); line-height: 1.75; }
+
+/* ── TIMELINE ── */
+.timeline { position: relative; padding-left: 30px; }
+.timeline::before { content: ''; position: absolute; left: 9px; top: 8px; bottom: 6px; width: 3px; background: rgba(110,226,78,.25); border-radius: 3px; }
+.tl-row { position: relative; margin-bottom: 22px; }
+.tl-row::before { content: ''; position: absolute; left: -25px; top: 5px; width: 14px; height: 14px; border-radius: 50%; background: var(--accent); border: 3px solid var(--bg); box-shadow: 0 0 0 2px var(--accent); }
+.tl-date { font-family: var(--font-num); font-size: 12px; font-weight: 700; color: var(--accent); letter-spacing: .04em; margin-bottom: 3px; }
+.tl-title { font-family: var(--font-display); font-weight: 700; font-size: 15.5px; color: #fff; margin-bottom: 3px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.tl-desc { font-size: 13.5px; color: var(--gray-500); line-height: 1.75; }
+
+/* ── BADGES ── */
+.badge { display: inline-block; font-size: 11px; padding: 3px 9px; border-radius: 6px; font-weight: 700; }
+.badge-primary { background: var(--accent-tint); color: var(--accent); }
+.badge-accent  { background: var(--accent-tint); color: var(--accent); }
+.badge-amber   { background: var(--amber-50);  color: var(--amber-600); }
+.badge-red     { background: var(--red-50);    color: var(--red-600); }
+.badge-blue    { background: var(--blue-50);   color: var(--blue-600); }
+.badge-green   { background: var(--green-50);  color: var(--accent); }
+.badge-violet  { background: var(--violet-50); color: var(--violet-600); }
+
+/* ── COMPARE TABLE ── */
+.table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; border: 1px solid var(--gray-200); border-radius: 14px; margin: 12px 0; }
+.compare-table { width: 100%; border-collapse: collapse; font-size: 13.5px; min-width: 480px; }
+.compare-table th { background: var(--gray-50); padding: 12px 14px; text-align: left; font-weight: 700; font-size: 12px; color: var(--gray-500); letter-spacing: .03em; border-bottom: 1px solid var(--gray-200); white-space: nowrap; }
+.compare-table td { padding: 12px 14px; border-bottom: 1px solid var(--gray-100); color: var(--gray-700); vertical-align: top; }
+.compare-table tr:last-child td { border-bottom: none; }
+.compare-table tr:hover td { background: rgba(255,255,255,.02); }
+.compare-table .me { background: var(--accent-tint); font-weight: 700; color: var(--accent); }
+
+/* ── HIGHLIGHT（インスタの“まとめ”枠：ダーク＋緑ボーダー） ── */
+.highlight { background: var(--surface); border: 1.5px solid var(--accent-line); border-radius: var(--radius); padding: 22px 24px; margin: 22px 0; position: relative; overflow: hidden; }
+.highlight::before { content:''; position:absolute; right:-30px; bottom:-30px; width:160px; height:160px;
+  background-image: radial-gradient(var(--accent) 1px, transparent 1.5px); background-size: 13px 13px; opacity:.12; }
+.highlight h3 { font-family: var(--font-display); font-size: 19px; font-weight: 900; margin-bottom: 10px; color: var(--accent); display: flex; align-items: center; gap: 8px; position: relative; }
+.highlight p { font-size: 14.5px; color: #d8ded8; line-height: 1.85; position: relative; }
+.highlight b { color: var(--accent); }
+
+/* ── PRODUCT GRID ── */
+.product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px,1fr)); gap: 12px; margin: 16px 0; }
+.product-box { border-radius: 14px; padding: 18px 14px; text-align: center; border: 1px solid var(--gray-200); background: var(--surface); }
+.product-symbol { font-family: var(--font-num); font-size: 30px; font-weight: 700; margin-bottom: 4px; color: var(--accent); }
+.product-name { font-size: 11px; font-weight: 700; letter-spacing: .04em; margin-bottom: 6px; color: #fff; }
+.product-use { font-size: 12px; line-height: 1.55; color: var(--gray-700); }
+
+/* ── MISC ── */
+.lead { font-size: 16.5px; color: #dbe1db; line-height: 1.9; margin-bottom: 20px; font-weight: 500; }
+.lead .g { color: var(--accent); }
+strong { font-weight: 700; color: #fff; }
+strong.g { color: var(--accent); }
+.grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap: 12px; }
+
+/* ── FOOTER ── */
+.footer { padding: 40px 22px; text-align: center; color: var(--gray-500); font-size: 13px; border-top: 1px solid var(--gray-200); margin-top: 32px; }
+.footer .brandmark { margin-bottom: 14px; }
+
+@media (max-width: 480px){
+  .section-icon { width: 40px; height: 40px; font-size: 20px; }
+  .stat-strip { grid-template-columns: repeat(2,1fr); }
+}
+@media (prefers-reduced-motion: reduce){
+  .section { animation: none; opacity: 1; transform: none; }
+  html { scroll-behavior: auto; }
+}
+</style>
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- ========================================================
+  HERO
+  TE T1 Energy 米国太陽電池製造 米国内で太陽光モジュールからセルまで一貫生産を目指す製造会社。 <span class="hero-tag">G1_Dallas</span><span class="hero-tag">G2_Austin</span><span class="hero-tag">米国製造</span> 2026年7月22日
+  ※見出しの重要ワードは <span class="g">…</span> で緑ハイライト
+======================================================== -->
+<div class="hero">
+  <div class="brandmark">S<span class="g">i</span>M &nbsp;MARKET LAB</div>
+  <div class="hero-badge">TE 完全入門ガイド ・ 2026年7月22日版</div>
+  <h1>T1 Energy（TE）を<br><span class="g">まるっと</span>解説</h1>
+  <p>米国内で太陽光モジュールからセルまで一貫生産を目指す製造会社。</p>
+  <div class="hero-tags">
+    <!-- 例: <span class="hero-tag">⚛️ 同位体って何？</span> -->
+    <span class="hero-tag">G1_Dallas</span><span class="hero-tag">G2_Austin</span><span class="hero-tag">米国製造</span>
+  </div>
+</div>
+
+<!-- 30秒サマリー：でかい数字カード3〜4枚（上昇は .up / 下落は .down） -->
+<div class="tldr-hero">
+  <div class="tldr-hero-inner">
+    <div class="tldr-hero-title">📊 まずは数字でざっくり</div>
+    <div class="stat-strip">
+      <!-- 例:
+      <div class="stat"><div class="stat-value">$12.34</div><div class="stat-label">現在の株価</div><div class="stat-note">52週 $4〜$18</div></div>
+      <div class="stat"><div class="stat-value up">+180%</div><div class="stat-label">直近1年</div></div>
+      <div class="stat"><div class="stat-value">$1.2B</div><div class="stat-label">時価総額</div></div>
+      <div class="stat"><div class="stat-value">2027</div><div class="stat-label">黒字化目標</div></div>
+      -->
+      <div class="stat"><div class="stat-value">$6.10</div><div class="stat-label">現在株価</div><div class="stat-note">2026/7/21終値</div></div><div class="stat"><div class="stat-value">$177.6M</div><div class="stat-label">Q1売上</div><div class="stat-note">会社発表</div></div><div class="stat"><div class="stat-value">$9.1M</div><div class="stat-label">Q1調整後EBITDA</div><div class="stat-note">過去最高</div></div><div class="stat"><div class="stat-value">極めて高い</div><div class="stat-label">リスク区分</div><div class="stat-note">政策・G2資金・希薄化</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- STICKY NAV -->
+<nav class="nav-index">
+  <div class="nav-inner">
+    <a class="nav-item" href="#sec1">① どんな会社</a>
+    <a class="nav-item" href="#sec2">② 業界の基本</a>
+    <a class="nav-item" href="#sec3">③ 製品・技術</a>
+    <a class="nav-item" href="#sec4">④ 競争力と規制</a>
+    <a class="nav-item" href="#sec5">⑤ 競合</a>
+    <a class="nav-item" href="#sec6">⑥ 用語辞典</a>
+    <a class="nav-item" href="#sec7">⑦ 株価の見方</a>
+  </div>
+</nav>
+
+<div class="container">
+
+  <!-- SEC1: 会社概要　⚡3秒まとめ → 会社データ → card-sm 4枚 → どう稼ぐ → highlight「基本ルール」 -->
+  <section class="section" id="sec1">
+    <div class="section-header">
+      <div class="section-icon">🏢</div><div class="section-num">1</div>
+      <div>
+        <div class="section-title">T1 Energyって<span class="g">どんな会社</span>？</div>
+        <div class="section-sub">まず全体像を3秒で</div>
+      </div>
+    </div>
+    <div class="tldr">
+      <div class="tldr-label">⚡ このセクションの3秒まとめ</div>
+      <ul>
+        <!-- 例: <li data-emoji="🏭">◯◯を作ってる△△業界の会社</li> -->
+        <li data-emoji="🏢">G1_Dallasでモジュール量産。</li><li data-emoji="📊">Q1は継続事業で黒字。</li><li data-emoji="⚠️">G2_Austinの資金と立上げが核心。</li>
+      </ul>
+    </div>
+
+    <!-- 会社データ（クイックファクト）：設立/本社/従業員/CEO/上場/売上規模 等。不明は「非開示」 -->
+    <div class="facts">
+      <div><dt>現在の社名</dt><dd>2025年からT1 Energy</dd></div><div><dt>本社</dt><dd>米国オースティン</dd></div><div><dt>CEO</dt><dd>Daniel Barcelo</dd></div><div><dt>上場</dt><dd>NYSE（TE）</dd></div><div><dt>Q1売上</dt><dd>$177.6M</dd></div><div><dt>Q1調整後EBITDA</dt><dd>$9.1M</dd></div>
+      <!-- 例:
+      <div><dt>設立</dt><dd>2019年</dd></div>
+      <div><dt>本社</dt><dd>東京</dd></div>
+      <div><dt>従業員数</dt><dd>約12,000人</dd></div>
+      <div><dt>CEO</dt><dd>◯◯ ◯◯</dd></div>
+      <div><dt>上場</dt><dd>東証プライム（285A）</dd></div>
+      <div><dt>売上規模</dt><dd>約2.3兆円</dd></div>
+      -->
+    </div>
+
+    <!-- 4枚カード：何をしてる/主力事業/直近の業績/なぜ注目 -->
+    <div class="card-grid">
+      <div class="card-sm"><span class="card-emoji">☀️</span><div class="card-title">G1_Dallas</div><div class="card-desc">太陽光モジュール工場。</div></div><div class="card-sm"><span class="card-emoji">🏭</span><div class="card-title">G2_Austin</div><div class="card-desc">米国製セル工場を建設。</div></div><div class="card-sm"><span class="card-emoji">📈</span><div class="card-title">Q1黒字</div><div class="card-desc">継続事業純利益$3.9M。</div></div><div class="card-sm"><span class="card-emoji">🔋</span><div class="card-title">新市場</div><div class="card-desc">BESS・データセンター関連へ。</div></div>
+      <!-- 例: <div class="card-sm"><span class="card-emoji">🏭</span><div class="card-title">何をしてる</div><div class="card-desc">…</div></div> を4枚 -->
+    </div>
+
+    <!-- どうやって稼ぐ？：ビジネスモデルと売上の内訳を平易に -->
+    <div class="block-label">💰 どうやって<span class="g">稼いでる</span>？</div>
+    <ul class="keypoints">
+      <li><span class="kp-emoji">☀️</span><span class="kp-text"><b>モジュール販売</b>：固定マージン・コストプラス契約。</span></li><li><span class="kp-emoji">🏭</span><span class="kp-text"><b>米国セル</b>：G2で輸入依存を下げる計画。</span></li><li><span class="kp-emoji">💵</span><span class="kp-text"><b>税額控除</b>：45X等の政策支援。</span></li><li><span class="kp-emoji">🔋</span><span class="kp-text"><b>BESS</b>：買収事業で追加収益を狙う。</span></li>
+      <!-- 例: <li><span class="kp-emoji">🧩</span><span class="kp-text"><b>主力</b>：◯◯を作って△△に売る。売上の約7割。</span></li> を2〜4件（売上構成・主要顧客・課金の仕組み等） -->
+    </ul>
+
+    <!-- 会社の“基本ルール”（この銘柄を見るうえで最初に押さえる勘所） -->
+    <div class="highlight"><h3>📏 TE株の基本ルール</h3><p>売上より、1GWあたり粗利・税額控除・G2建設費・資金ギャップを見る。</p></div>
+    <!-- 例: <div class="highlight"><h3>📏 ◯◯株の基本ルール</h3><p>…</p></div> -->
+  </section>
+
+  <!-- SEC2: 業界の基本　⚡まとめ → lead(比喩) → sowhat → term-list 4〜6 -->
+  <section class="section" id="sec2">
+    <div class="section-header">
+      <div class="section-icon">🧩</div><div class="section-num">2</div>
+      <div><div class="section-title">米国太陽電池製造の<span class="g">仕組み</span></div><div class="section-sub">数字を見る前に業界をつかむ</div></div>
+    </div>
+    <div class="tldr"><div class="tldr-label">⚡ このセクションの3秒まとめ</div><ul><li data-emoji="🧩">G1_Dallasでモジュール量産。</li><li data-emoji="💰">Q1は継続事業で黒字。</li><li data-emoji="⚠️">G2_Austinの資金と立上げが核心。</li></ul></div>
+    <p class="lead">太陽光工場は「量を作るほど必ず儲かる」わけではありません。販売価格、セル原価、税額控除の差で利益が決まります。</p><div class="sowhat"><p><b>つまり：</b>売上より、1GWあたり粗利・税額控除・G2建設費・資金ギャップを見る。</p></div><div class="term-list"><details class="term-item"><summary class="term-header"><span class="term-name">モジュール<span class="term-en">Solar module</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>セルを組み合わせた太陽光パネル。 <b>なぜ重要：</b>業績と評価の前提を動かします。 <b>この銘柄では：</b>モジュールの進捗を決算と会社開示で確認します。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">セル<span class="term-en">Solar cell</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>光を電気へ変える中核部品。 <b>なぜ重要：</b>業績と評価の前提を動かします。 <b>この銘柄では：</b>セルの進捗を決算と会社開示で確認します。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">GW<span class="term-en">Gigawatt</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>生産能力を表す単位。 <b>なぜ重要：</b>業績と評価の前提を動かします。 <b>この銘柄では：</b>GWの進捗を決算と会社開示で確認します。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">45X<span class="term-en">Section 45X</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>米国製造を支援する税額控除。 <b>なぜ重要：</b>業績と評価の前提を動かします。 <b>この銘柄では：</b>45Xの進捗を決算と会社開示で確認します。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">FEOC<span class="term-en">Foreign entity of concern</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>政策支援で制限される海外主体。 <b>なぜ重要：</b>業績と評価の前提を動かします。 <b>この銘柄では：</b>FEOCの進捗を決算と会社開示で確認します。</p></div></details></div>
+  </section>
+
+  <!-- SEC3: 主要製品・技術　⚡まとめ → product-grid → term-list 3〜5 -->
+  <section class="section" id="sec3">
+    <div class="section-header">
+      <div class="section-icon">🔬</div><div class="section-num">3</div>
+      <div><div class="section-title">主力の<span class="g">製品と技術</span></div><div class="section-sub">何を顧客へ届けるのか</div></div>
+    </div>
+    <div class="tldr"><div class="tldr-label">⚡ このセクションの3秒まとめ</div><ul><li data-emoji="🔬">Modules：ダラスのモジュール製造</li><li data-emoji="🧠">Cells：オースティンのセル計画</li><li data-emoji="📦">Tax credit：米国製造の税額控除</li></ul></div>
+    <div class="product-grid"><div class="product-box"><div class="product-symbol">G1</div><div class="product-name">Modules</div><div class="product-use">ダラスのモジュール製造</div></div><div class="product-box"><div class="product-symbol">G2</div><div class="product-name">Cells</div><div class="product-use">オースティンのセル計画</div></div><div class="product-box"><div class="product-symbol">45X</div><div class="product-name">Tax credit</div><div class="product-use">米国製造の税額控除</div></div><div class="product-box"><div class="product-symbol">BESS</div><div class="product-name">Storage</div><div class="product-use">蓄電池・電力設備</div></div></div><div class="term-list"><details class="term-item"><summary class="term-header"><span class="term-name">FEOC<span class="term-en">Foreign entity of concern</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>政策支援で制限される海外主体。 <b>なぜ重要：</b>業績と評価の前提を動かします。 <b>この銘柄では：</b>FEOCの進捗を決算と会社開示で確認します。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">固定マージン<span class="term-en">Fixed margin</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>一定の利益幅を確保する契約。 <b>なぜ重要：</b>業績と評価の前提を動かします。 <b>この銘柄では：</b>固定マージンの進捗を決算と会社開示で確認します。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">コストプラス<span class="term-en">Cost-plus</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>原価に利益を上乗せする契約。 <b>なぜ重要：</b>業績と評価の前提を動かします。 <b>この銘柄では：</b>コストプラスの進捗を決算と会社開示で確認します。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">Safe harbor<span class="term-en">Safe harbor</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>制度適用を守る要件。 <b>なぜ重要：</b>業績と評価の前提を動かします。 <b>この銘柄では：</b>Safe harborの進捗を決算と会社開示で確認します。</p></div></details></div>
+  </section>
+
+  <!-- SEC4: 技術詳細・規制　⚡まとめ → keypoints → term-list 4〜6 -->
+  <section class="section" id="sec4">
+    <div class="section-header">
+      <div class="section-icon">🏛️</div><div class="section-num">4</div>
+      <div><div class="section-title">伸びる条件と<span class="g">壁</span></div><div class="section-sub">技術を売上へ変える難しさ</div></div>
+    </div>
+    <div class="tldr"><div class="tldr-label">⚡ このセクションの3秒まとめ</div><ul><li data-emoji="🟢">Q1売上$177.6M。</li><li data-emoji="🟡">G2 Phase 1の残資金需要は約$225M。</li><li data-emoji="🔴">政策・関税・税額控除の変更。</li></ul></div>
+    <ul class="keypoints"><li><span class="kp-emoji">🟢</span><span class="kp-text"><b>強み</b>：Q1売上$177.6M。</span></li><li><span class="kp-emoji">🟡</span><span class="kp-text"><b>実行条件</b>：G2 Phase 1の残資金需要は約$225M。</span></li><li><span class="kp-emoji">🔴</span><span class="kp-text"><b>最大リスク</b>：政策・関税・税額控除の変更。</span></li></ul><div class="term-list"><details class="term-item"><summary class="term-header"><span class="term-name">コストプラス<span class="term-en">Cost-plus</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>原価に利益を上乗せする契約。 <b>なぜ重要：</b>業績と評価の前提を動かします。 <b>この銘柄では：</b>コストプラスの進捗を決算と会社開示で確認します。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">Safe harbor<span class="term-en">Safe harbor</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>制度適用を守る要件。 <b>なぜ重要：</b>業績と評価の前提を動かします。 <b>この銘柄では：</b>Safe harborの進捗を決算と会社開示で確認します。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">BESS<span class="term-en">Battery energy storage system</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>大型蓄電池設備。 <b>なぜ重要：</b>業績と評価の前提を動かします。 <b>この銘柄では：</b>BESSの進捗を決算と会社開示で確認します。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">SOTP<span class="term-en">Sum of the parts</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>事業別価値を足す評価法。 <b>なぜ重要：</b>業績と評価の前提を動かします。 <b>この銘柄では：</b>SOTPの進捗を決算と会社開示で確認します。</p></div></details></div>
+  </section>
+
+  <!-- SEC5: 競合比較　⚡まとめ → table-wrap>compare-table(自社=me) → highlight「差別化」 -->
+  <section class="section" id="sec5">
+    <div class="section-header">
+      <div class="section-icon">⚔️</div><div class="section-num">5</div>
+      <div><div class="section-title">競合と比べた<span class="g">立ち位置</span></div><div class="section-sub">強みと弱点を横並び</div></div>
+    </div>
+    <div class="tldr"><div class="tldr-label">⚡ このセクションの3秒まとめ</div><ul><li data-emoji="⚔️">自社の強み：米国内一貫化</li><li data-emoji="⚠️">主な弱点：資金・政策</li><li data-emoji="📏">規模・資金・実行力を同時に比較。</li></ul></div>
+    <div class="table-wrap"><table class="compare-table"><thead><tr><th>会社</th><th>主戦場</th><th>強み</th><th>注意点</th></tr></thead><tbody><tr class="me"><td>T1 Energy</td><td>米国モジュール・セル</td><td>米国内一貫化</td><td>資金・政策</td></tr><tr><td>First Solar</td><td>薄膜パネル</td><td>収益・受注残</td><td>技術方式</td></tr><tr><td>Canadian Solar</td><td>結晶系パネル</td><td>世界規模</td><td>中国関連</td></tr><tr><td>JinkoSolar</td><td>セル・パネル</td><td>コスト競争力</td><td>政策リスク</td></tr><tr><td>Qcells</td><td>米国製造</td><td>垂直統合</td><td>非上場</td></tr></tbody></table></div><div class="highlight"><h3>🧠 最大の差別化</h3><p>米国内一貫化。ただし、資金・政策を決算で確認します。</p></div>
+  </section>
+
+  <!-- SEC6: 用語辞典　⚡まとめ(特にこの3つ) → term-list 10〜12（①定義→②なぜ重要→③この銘柄では） -->
+  <section class="section" id="sec6">
+    <div class="section-header">
+      <div class="section-icon">📖</div><div class="section-num">6</div>
+      <div><div class="section-title">TEのニュースで出る<span class="g">言葉</span> 全辞典</div><div class="section-sub">分からん単語はここで潰す</div></div>
+    </div>
+    <div class="tldr"><div class="tldr-label">⚡ 特にこの3つだけは覚えて</div><ul><li data-emoji="1️⃣">モジュール：セルを組み合わせた太陽光パネル。</li><li data-emoji="2️⃣">セル：光を電気へ変える中核部品。</li><li data-emoji="3️⃣">GW：生産能力を表す単位。</li></ul></div>
+    <div class="term-list"><details class="term-item"><summary class="term-header"><span class="term-name">モジュール<span class="term-en">Solar module</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>セルを組み合わせた太陽光パネル。 <b>なぜ重要：</b>業績と評価の前提を動かします。 <b>この銘柄では：</b>モジュールの進捗を決算と会社開示で確認します。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">セル<span class="term-en">Solar cell</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>光を電気へ変える中核部品。 <b>なぜ重要：</b>業績と評価の前提を動かします。 <b>この銘柄では：</b>セルの進捗を決算と会社開示で確認します。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">GW<span class="term-en">Gigawatt</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>生産能力を表す単位。 <b>なぜ重要：</b>業績と評価の前提を動かします。 <b>この銘柄では：</b>GWの進捗を決算と会社開示で確認します。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">45X<span class="term-en">Section 45X</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>米国製造を支援する税額控除。 <b>なぜ重要：</b>業績と評価の前提を動かします。 <b>この銘柄では：</b>45Xの進捗を決算と会社開示で確認します。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">FEOC<span class="term-en">Foreign entity of concern</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>政策支援で制限される海外主体。 <b>なぜ重要：</b>業績と評価の前提を動かします。 <b>この銘柄では：</b>FEOCの進捗を決算と会社開示で確認します。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">固定マージン<span class="term-en">Fixed margin</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>一定の利益幅を確保する契約。 <b>なぜ重要：</b>業績と評価の前提を動かします。 <b>この銘柄では：</b>固定マージンの進捗を決算と会社開示で確認します。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">コストプラス<span class="term-en">Cost-plus</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>原価に利益を上乗せする契約。 <b>なぜ重要：</b>業績と評価の前提を動かします。 <b>この銘柄では：</b>コストプラスの進捗を決算と会社開示で確認します。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">Safe harbor<span class="term-en">Safe harbor</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>制度適用を守る要件。 <b>なぜ重要：</b>業績と評価の前提を動かします。 <b>この銘柄では：</b>Safe harborの進捗を決算と会社開示で確認します。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">BESS<span class="term-en">Battery energy storage system</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>大型蓄電池設備。 <b>なぜ重要：</b>業績と評価の前提を動かします。 <b>この銘柄では：</b>BESSの進捗を決算と会社開示で確認します。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">SOTP<span class="term-en">Sum of the parts</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>事業別価値を足す評価法。 <b>なぜ重要：</b>業績と評価の前提を動かします。 <b>この銘柄では：</b>SOTPの進捗を決算と会社開示で確認します。</p></div></details></div>
+  </section>
+
+  <!-- SEC7: 株価の見方　⚡まとめ → timeline(signal+rating) → リスク4分類 info-row → highlight → 数字まとめ table -->
+  <section class="section" id="sec7">
+    <div class="section-header">
+      <div class="section-icon">💹</div><div class="section-num">7</div>
+      <div><div class="section-title">何がTE株を<span class="g">動かす</span>？</div><div class="section-sub">上がる理由・下がる理由を一目で</div></div>
+    </div>
+    <div class="tldr"><div class="tldr-label">⚡ 株価のツボ 3秒まとめ</div><ul><li data-emoji="📅">Q2利益とG2資金計画</li><li data-emoji="⚠️">G2 Phase 1の残資金需要は約$225M。</li><li data-emoji="💹">現在株価$6.10</li></ul></div>
+    <div class="timeline"><div class="tl-row"><div class="tl-date">2026年8月頃</div><div class="tl-title">Q2決算 <span class="signal neutral">🟡 確認</span> <span class="rating">★★★★★<span class="off"></span></span></div><div class="tl-desc">生産・利益・現金。</div></div><div class="tl-row"><div class="tl-date">2026年Q4目標</div><div class="tl-title">G2初期生産 <span class="signal bull">🟢 追い風候補</span> <span class="rating">★★★★★<span class="off"></span></span></div><div class="tl-desc">工程と歩留まり。</div></div><div class="tl-row"><div class="tl-date">随時</div><div class="tl-title">G2資金調達 <span class="signal neutral">🟡 確認</span> <span class="rating">★★★★★<span class="off"></span></span></div><div class="tl-desc">残り約$225Mの確保。</div></div><div class="tl-row"><div class="tl-date">2026年</div><div class="tl-title">BESS事業 <span class="signal bull">🟢 追い風候補</span> <span class="rating">★★★<span class="off">★★</span></span></div><div class="tl-desc">EBITDA寄与の確認。</div></div><div class="tl-row"><div class="tl-date">随時</div><div class="tl-title">米国政策 <span class="signal neutral">🟡 確認</span> <span class="rating">★★★★★<span class="off"></span></span></div><div class="tl-desc">45X・関税・FEOC。</div></div><div class="tl-row"><div class="tl-date">毎四半期</div><div class="tl-title">契約構成 <span class="signal bull">🟢 追い風候補</span> <span class="rating">★★★★<span class="off">★</span></span></div><div class="tl-desc">固定マージン比率。</div></div></div><div class="block-label">⚠️ リスクを4つに分ける</div><div class="info-row"><div class="info-box info-box-primary"><div class="info-title info-title-primary">技術</div><div class="info-text">G2立上げ・歩留まり</div></div><div class="info-box info-box-amber"><div class="info-title info-title-amber">規制</div><div class="info-text">45X・関税・FEOC</div></div><div class="info-box info-box-red"><div class="info-title info-title-red">財務</div><div class="info-text">G2資金・転換希薄化</div></div><div class="info-box info-box-gray"><div class="info-title info-title-gray">市場</div><div class="info-text">パネル価格</div></div></div><div class="highlight"><h3>📌 投資家向け注意点</h3><p>会社の魅力と株価の割安性は別です。<b>Q2利益とG2資金計画</b>を確認し、契約・売上・現金・株数を分けて読みます。</p></div><div class="table-wrap"><table class="compare-table"><thead><tr><th>項目</th><th>最新値</th><th>基準</th></tr></thead><tbody><tr><td>現在株価</td><td>$6.10</td><td>2026-07-21終値</td></tr><tr><td>Q1売上</td><td>$177.6M</td><td>会社発表</td></tr><tr><td>Q1調整後EBITDA</td><td>$9.1M</td><td>過去最高</td></tr><tr><td>Q1生産</td><td>683.3MW</td><td>G1_Dallas</td></tr></tbody></table></div><details class="term-item"><summary class="term-header"><span class="term-name">主要出典</span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><a href="https://ir.t1energy.com/news-releases/news-release-details/t1-energy-reports-first-quarter-2026-results">Q1 2026決算</a><br><a href="https://ir.t1energy.com/news-releases/T1_Energy_Enters_Battery_and_Data_Center_Infrastructure_Markets">BESS等の新市場</a></p></div></details>
+  </section>
+
+</div><!-- /container -->
+
+<div class="footer">
+  <div class="brandmark">S<span class="g">i</span>M &nbsp;MARKET LAB</div>
+  <p style="margin-bottom:8px;font-weight:700;color:#d8ded8">⚠️ 免責事項</p>
+  <p>本資料は情報提供・教育目的のみです。投資助言ではありません。米国太陽電池製造株は値動きが激しく、元本を失うリスクがあります。<br>投資判断はご自身の責任で。データは2026年7月22日時点の公開情報に基づきます。</p>
+</div>
+
+<script>
+document.querySelectorAll('details.term-item').forEach(d => {
+  d.addEventListener('toggle', () => {
+    if (d.open) document.querySelectorAll('details.term-item').forEach(o => { if (o !== d && o.open) o.removeAttribute('open'); });
+  });
+});
+(function(){
+  var bar = document.getElementById('progressBar');
+  function u(){ var h=document.documentElement; var s=h.scrollTop/(h.scrollHeight-h.clientHeight); bar.style.width=Math.min(100,Math.max(0,s*100))+'%'; }
+  document.addEventListener('scroll', u, {passive:true}); window.addEventListener('resize', u); u();
+})();
+</script>
+
+</body>
+</html>
+
+<!--
+================================================================
+  デザインロック（重要）
+  ・アクセント色はSiMグリーンで固定。銘柄・業界で変えない。
+  ・以前あった「業界別カラー早見表」は廃止（色を変えると銘柄ごとに見た目がぶれるため）。
+  ・この <style> と骨格は改変禁止。{{ }} の中身だけ差し替える。
+================================================================
+  ChatGPT用ルール: 完成HTMLは必ず index.html というファイル名で保存・出力する。
+================================================================
+-->
