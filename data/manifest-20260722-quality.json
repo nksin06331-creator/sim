@@ -1,0 +1,1402 @@
+[
+  {
+    "schemaVersion": 1,
+    "ticker": "TE",
+    "slug": "te",
+    "name": "T1 Energy",
+    "market": "米国株",
+    "sector": "太陽電池・米国製造",
+    "method": "G1＋G2確率調整SOTP－資金負担",
+    "status": "published",
+    "updated": "2026-07-22",
+    "price": {
+      "current": 6.1,
+      "currency": "USD"
+    },
+    "scenarios": {
+      "bear": 1.5,
+      "base": 8,
+      "bull": 16
+    },
+    "positionPct": 31.7,
+    "zone": "Bear〜Base帯",
+    "riskReward": "2.15倍",
+    "catalyst": "2026年8月頃 Q2決算 / G1利益・G2資金・初期生産",
+    "summary": "Q1黒字化は前進。G2_Austinの残資金と立上げが焦点",
+    "tags": [
+      "G1_Dallas",
+      "G2_Austin",
+      "45X"
+    ],
+    "risk": "極めて高い",
+    "detailPath": "stocks/TE/index.html",
+    "scenarioPath": "stocks/TE/scenario.html"
+  },
+  {
+    "schemaVersion": 1,
+    "ticker": "MP",
+    "slug": "mp",
+    "name": "MP Materials",
+    "market": "米国株",
+    "sector": "レアアース・永久磁石",
+    "method": "Materials＋Magnetics SOTP",
+    "status": "published",
+    "updated": "2026-07-22",
+    "price": {
+      "current": 46.3,
+      "currency": "USD"
+    },
+    "scenarios": {
+      "bear": 27,
+      "base": 49,
+      "bull": 79
+    },
+    "positionPct": 37.1,
+    "zone": "Bear〜Base帯",
+    "riskReward": "1.69倍",
+    "catalyst": "2026年8月頃 Q2決算 / NdPr量・価格保護・磁石量産",
+    "summary": "NdPrは過去最高。価格保護と磁石量産を実利益へ変えられるか",
+    "tags": [
+      "NdPr",
+      "永久磁石",
+      "価格保護"
+    ],
+    "risk": "非常に高い",
+    "detailPath": "stocks/MP/index.html",
+    "scenarioPath": "stocks/MP/scenario.html"
+  },
+  {
+    "schemaVersion": 1,
+    "ticker": "NOW",
+    "slug": "now",
+    "name": "ServiceNow",
+    "market": "米国株",
+    "sector": "企業向けワークフロー・AI",
+    "method": "2027E FCF倍率＋ネットキャッシュ",
+    "status": "published",
+    "updated": "2026-07-22",
+    "price": {
+      "current": 102.06,
+      "currency": "USD"
+    },
+    "scenarios": {
+      "bear": 81,
+      "base": 128,
+      "bull": 189
+    },
+    "positionPct": 19.5,
+    "zone": "Bear〜Base帯",
+    "riskReward": "4.13倍",
+    "catalyst": "2026年7月22日 Q2決算 / cRPO・AI ACV・利益率",
+    "summary": "Q1成長は強い。AI追加販売とSaaS代替懸念の綱引き",
+    "tags": [
+      "Now Platform",
+      "Now Assist",
+      "cRPO"
+    ],
+    "risk": "高い",
+    "detailPath": "stocks/NOW/index.html",
+    "scenarioPath": "stocks/NOW/scenario.html"
+  },
+  {
+    "schemaVersion": 1,
+    "ticker": "CIFR",
+    "slug": "cifr",
+    "name": "Cipher Digital",
+    "market": "米国株",
+    "sector": "AI/HPCデータセンター・Bitcoin採掘",
+    "method": "AI/HPC＋採掘SOTP－シナリオ別負債",
+    "status": "published",
+    "updated": "2026-07-22",
+    "price": {
+      "current": 22.89,
+      "currency": "USD"
+    },
+    "scenarios": {
+      "bear": 6,
+      "base": 26,
+      "bull": 49
+    },
+    "positionPct": 39.3,
+    "zone": "Bear〜Base帯",
+    "riskReward": "1.55倍",
+    "catalyst": "2026年8月4日 Q2更新 / 168MW引渡し・負債・転換株数",
+    "summary": "AI/HPC転換を強く織り込み。$4.45・$16.03転換債をシナリオ別反映",
+    "tags": [
+      "AI/HPC",
+      "Bitcoin",
+      "転換社債"
+    ],
+    "risk": "極めて高い",
+    "detailPath": "stocks/CIFR/index.html",
+    "scenarioPath": "stocks/CIFR/scenario.html"
+  },
+  {
+    "schemaVersion": 1,
+    "ticker": "IREN",
+    "slug": "iren",
+    "name": "IREN Limited",
+    "market": "米国株",
+    "sector": "AIクラウド・データセンター・Bitcoin採掘",
+    "method": "AI Cloud ARR＋採掘SOTP－資金負担",
+    "status": "published",
+    "updated": "2026-07-22",
+    "price": {
+      "current": 41.29,
+      "currency": "USD"
+    },
+    "scenarios": {
+      "bear": 10,
+      "base": 30,
+      "bull": 60
+    },
+    "positionPct": 62.6,
+    "zone": "Base〜Bull帯",
+    "riskReward": "0.60倍",
+    "catalyst": "2026年8月頃 通期決算 / ARR開始時期・GPU稼働・CapEx",
+    "summary": "$2.8B新規契約で期待急拡大。ARRと実売上を分けて確認",
+    "tags": [
+      "AI Cloud",
+      "GPU",
+      "ARR"
+    ],
+    "risk": "極めて高い",
+    "detailPath": "stocks/IREN/index.html",
+    "scenarioPath": "stocks/IREN/scenario.html"
+  },
+  {
+    "schemaVersion": 1,
+    "ticker": "OKLO",
+    "slug": "oklo",
+    "name": "Oklo",
+    "market": "米国株",
+    "sector": "先進原子力・高速炉・核燃料リサイクル",
+    "method": "確率調整SOTP＋ネットキャッシュ",
+    "status": "published",
+    "updated": "2026-07-22",
+    "price": {
+      "current": 44.13,
+      "currency": "USD"
+    },
+    "scenarios": {
+      "bear": 13,
+      "base": 42,
+      "bull": 89
+    },
+    "positionPct": 41,
+    "zone": "Base〜Bull帯",
+    "riskReward": "1.44倍",
+    "catalyst": "2026年8月頃 Q2更新 / NRC工程・HALEU・現金使用",
+    "summary": "売上前。現値はBaseの認可進展をかなり織り込む",
+    "tags": [
+      "高速炉",
+      "NRC",
+      "HALEU"
+    ],
+    "risk": "極めて高い",
+    "detailPath": "stocks/OKLO/index.html",
+    "scenarioPath": "stocks/OKLO/scenario.html"
+  },
+  {
+    "schemaVersion": 1,
+    "ticker": "BB",
+    "slug": "bb",
+    "name": "BlackBerry",
+    "market": "米国株",
+    "sector": "組込みOS・自動車ソフト・セキュア通信",
+    "method": "FY2029E EV/Sales＋ネットキャッシュ",
+    "status": "published",
+    "updated": "2026-07-22",
+    "price": {
+      "current": 8.99,
+      "currency": "USD"
+    },
+    "scenarios": {
+      "bear": 4,
+      "base": 7.5,
+      "bull": 13
+    },
+    "positionPct": 55.4,
+    "zone": "Base〜Bull帯",
+    "riskReward": "0.80倍",
+    "catalyst": "2026年9月24日頃 Q2 FY2027決算 / QNX成長と利益率",
+    "summary": "QNX成長と黒字化は改善。株価はBull寄りの期待を先取り",
+    "tags": [
+      "QNX",
+      "車載OS",
+      "Secure Communications"
+    ],
+    "risk": "高い",
+    "detailPath": "stocks/BB/index.html",
+    "scenarioPath": "stocks/BB/scenario.html"
+  },
+  {
+    "schemaVersion": 1,
+    "ticker": "SYM",
+    "slug": "sym",
+    "name": "Symbotic",
+    "market": "米国株",
+    "sector": "倉庫自動化・AIロボティクス",
+    "method": "2028E EV/Sales＋全経済持分",
+    "status": "published",
+    "updated": "2026-07-22",
+    "price": {
+      "current": 42.86,
+      "currency": "USD"
+    },
+    "scenarios": {
+      "bear": 14,
+      "base": 30,
+      "bull": 55
+    },
+    "positionPct": 70.4,
+    "zone": "Base〜Bull帯",
+    "riskReward": "0.42倍",
+    "catalyst": "2026年8月頃 Q3 FY2026決算 / 粗利・導入工程・株式構造",
+    "summary": "売上成長と黒字化は前進。ただし現値は大型案件成功を強く織り込む",
+    "tags": [
+      "倉庫AI",
+      "ロボット",
+      "顧客集中"
+    ],
+    "risk": "非常に高い",
+    "detailPath": "stocks/SYM/index.html",
+    "scenarioPath": "stocks/SYM/scenario.html"
+  },
+  {
+    "schemaVersion": 1,
+    "ticker": "APLD",
+    "slug": "apld",
+    "name": "Applied Digital",
+    "market": "米国株",
+    "sector": "AIデータセンター・HPCインフラ",
+    "method": "契約データセンターSOTP－ネット負債",
+    "status": "published",
+    "updated": "2026-07-22",
+    "price": {
+      "current": 30.05,
+      "currency": "USD"
+    },
+    "scenarios": {
+      "bear": 14,
+      "base": 29,
+      "bull": 50
+    },
+    "positionPct": 44.6,
+    "zone": "Base〜Bull帯",
+    "riskReward": "1.24倍",
+    "catalyst": "2026年7月27日 FY2026通期決算 / 建設・融資・賃料開始",
+    "summary": "長期契約は強いが現値はBase付近。建設資金と工期が核心",
+    "tags": [
+      "AIデータセンター",
+      "HPC",
+      "長期リース"
+    ],
+    "risk": "極めて高い",
+    "detailPath": "stocks/APLD/index.html",
+    "scenarioPath": "stocks/APLD/scenario.html"
+  },
+  {
+    "schemaVersion": 1,
+    "ticker": "DVLT",
+    "slug": "dvlt",
+    "name": "Datavault AI",
+    "market": "米国株",
+    "sector": "データ収益化・RWAトークン化・エッジAI",
+    "method": "2027E EV/Sales＋希薄化調整",
+    "status": "published",
+    "updated": "2026-07-22",
+    "price": {
+      "current": 0.3677,
+      "currency": "USD"
+    },
+    "scenarios": {
+      "bear": 0.05,
+      "base": 0.3,
+      "bull": 1.1
+    },
+    "positionPct": 30.3,
+    "zone": "Base〜Bull帯",
+    "riskReward": "2.31倍",
+    "catalyst": "2026年8月頃 Q2決算 / 売上認識・粗利・発行済株式数",
+    "summary": "契約期待は大きいが、Q1実績と通期目標の差・希薄化が最大論点",
+    "tags": [
+      "RWA",
+      "トークン化",
+      "希薄化"
+    ],
+    "risk": "極めて高い",
+    "detailPath": "stocks/DVLT/index.html",
+    "scenarioPath": "stocks/DVLT/scenario.html"
+  },
+  {
+    "schemaVersion": 1,
+    "ticker": "GRRR",
+    "slug": "grrr",
+    "name": "Gorilla Technology Group",
+    "market": "米国株",
+    "sector": "AIインフラ・スマートシティ・公共安全",
+    "method": "2028E EV/Sales＋ネットキャッシュ",
+    "status": "published",
+    "updated": "2026-07-22",
+    "price": {
+      "current": 12.73,
+      "currency": "USD"
+    },
+    "scenarios": {
+      "bear": 6.5,
+      "base": 26,
+      "bull": 72
+    },
+    "positionPct": 9.5,
+    "zone": "Bear〜Base帯",
+    "riskReward": "9.51倍",
+    "catalyst": "2026年8月頃 Q2決算 / 売上$44M以上と大型案件の入金",
+    "summary": "低い評価と大型案件リスクが同居。契約より検収・営業CFを確認",
+    "tags": [
+      "AIインフラ",
+      "スマートシティ",
+      "公共安全"
+    ],
+    "risk": "非常に高い",
+    "detailPath": "stocks/GRRR/index.html",
+    "scenarioPath": "stocks/GRRR/scenario.html"
+  },
+  {
+    "schemaVersion": 1,
+    "ticker": "5016",
+    "slug": "5016",
+    "name": "JX金属",
+    "market": "日本株",
+    "sector": "半導体材料・非鉄金属・リサイクル",
+    "method": "FY3/27E EPS × PER",
+    "status": "published",
+    "updated": "2026-07-17",
+    "price": {
+      "current": 3409,
+      "currency": "JPY"
+    },
+    "scenarios": {
+      "bear": 2100,
+      "base": 3400,
+      "bull": 5100
+    },
+    "positionPct": 43.6,
+    "zone": "Base付近",
+    "riskReward": "1.29倍",
+    "catalyst": "2026/8/6 FY3/27 Q1決算 / 半導体材料の数量・単価・利益率を確認",
+    "summary": "AI向け材料は高成長。急落でBase付近だが、期待の織り込みはなお大きい",
+    "tags": [
+      "FY3/27E EPS × PER",
+      "半導体材料",
+      "InP基板",
+      "銅・リサイクル"
+    ],
+    "risk": "高い",
+    "detailPath": "stocks/JX金属/index.html",
+    "scenarioPath": "stocks/JX金属/scenario.html"
+  },
+  {
+    "schemaVersion": 1,
+    "ticker": "285A",
+    "slug": "285a",
+    "name": "キオクシアホールディングス",
+    "market": "日本株",
+    "sector": "半導体・AI",
+    "method": "フォワードEV/Sales＋平準化利益クロスチェック",
+    "status": "published",
+    "updated": "2026-07-17",
+    "price": {
+      "current": 52290,
+      "currency": "JPY"
+    },
+    "scenarios": {
+      "bear": 28000,
+      "base": 54000,
+      "bull": 90000
+    },
+    "positionPct": 39.2,
+    "zone": "Base付近",
+    "riskReward": "1.55倍",
+    "catalyst": "2026/7/31 15:30 FY3/27 Q1決算 / NAND ASP・企業SSD・訴訟影響を確認",
+    "summary": "AI・NAND好況は継続。ただしメモリー株安とViasat特許評決で急落",
+    "tags": [
+      "EV/Sales",
+      "NAND",
+      "AI企業SSD",
+      "特許訴訟"
+    ],
+    "risk": "非常に高い",
+    "detailPath": "stocks/キオクシア/index.html",
+    "scenarioPath": "stocks/キオクシア/scenario.html"
+  },
+  {
+    "schemaVersion": 1,
+    "ticker": "186A",
+    "slug": "186a",
+    "name": "アストロスケールホールディングス",
+    "market": "日本株",
+    "sector": "軌道上サービス・宇宙デブリ除去",
+    "method": "FY4/29Eプロジェクト収入 × EV/Income＋希薄化調整",
+    "status": "published",
+    "updated": "2026-07-15",
+    "price": {
+      "current": 1064,
+      "currency": "JPY"
+    },
+    "scenarios": {
+      "bear": 500,
+      "base": 1100,
+      "bull": 2100
+    },
+    "positionPct": 35.3,
+    "zone": "Base付近",
+    "riskReward": "1.84倍",
+    "catalyst": "2026/9頃 FY2027 第1四半期決算 / 受注、プロジェクト収入、CB転換・現金残高を確認",
+    "summary": "受注残379億円は厚い。赤字・案件遅延・約10.4%の潜在希薄化を同時評価",
+    "tags": [
+      "FY4/29Eプロジェクト収入 × EV/Income＋希薄化調整",
+      "軌道上サービス",
+      "宇宙デブリ除去"
+    ],
+    "risk": "非常に高い",
+    "detailPath": "stocks/アストロスケールホールディングス/index.html",
+    "scenarioPath": "stocks/アストロスケールホールディングス/scenario.html"
+  },
+  {
+    "schemaVersion": 1,
+    "ticker": "3350",
+    "slug": "3350",
+    "name": "メタプラネット",
+    "market": "日本株",
+    "sector": "ビットコイン・デジタル資産",
+    "method": "BTC純資産価値（mNAV）＋希薄化調整",
+    "status": "published",
+    "updated": "2026-07-15",
+    "price": {
+      "current": 245,
+      "currency": "JPY"
+    },
+    "scenarios": {
+      "bear": 115,
+      "base": 240,
+      "bull": 480
+    },
+    "positionPct": 35.6,
+    "zone": "Base付近",
+    "riskReward": "1.81倍",
+    "catalyst": "随時 BTC追加購入・新株予約権の行使状況 / BTC/希薄化後1株とmNAVを確認",
+    "summary": "43,000 BTCは巨大。ただしBTC価格と希薄化で1株価値は激しく動く",
+    "tags": [
+      "BTC純資産価値（mNAV）＋希薄化調整",
+      "ビットコイン",
+      "デジタル資産"
+    ],
+    "risk": "非常に高い",
+    "detailPath": "stocks/メタプラネット/index.html",
+    "scenarioPath": "stocks/メタプラネット/scenario.html"
+  },
+  {
+    "schemaVersion": 1,
+    "ticker": "3825",
+    "slug": "3825",
+    "name": "リミックスポイント",
+    "market": "日本株",
+    "sector": "暗号資産・電力・蓄電池",
+    "method": "暗号資産NAV＋事業価値SOTP",
+    "status": "published",
+    "updated": "2026-07-15",
+    "price": {
+      "current": 203,
+      "currency": "JPY"
+    },
+    "scenarios": {
+      "bear": 100,
+      "base": 210,
+      "bull": 380
+    },
+    "positionPct": 36.8,
+    "zone": "Base付近",
+    "riskReward": "1.72倍",
+    "catalyst": "2026年8月頃 FY2027 第1四半期決算 / BTC評価額、電力粗利、蓄電池受注を確認",
+    "summary": "約1,491 BTCと電力事業を併有。株価はBTC価格と本業利益の両方で動く",
+    "tags": [
+      "暗号資産NAV＋事業価値SOTP",
+      "暗号資産",
+      "電力",
+      "蓄電池"
+    ],
+    "risk": "非常に高い",
+    "detailPath": "stocks/リミックスポイント/index.html",
+    "scenarioPath": "stocks/リミックスポイント/scenario.html"
+  },
+  {
+    "schemaVersion": 1,
+    "ticker": "3905",
+    "slug": "3905",
+    "name": "データセクション",
+    "market": "日本株",
+    "sector": "AIインフラ・GPUデータセンター",
+    "method": "FY3/27E希薄化後EPS × PER",
+    "status": "published",
+    "updated": "2026-07-15",
+    "price": {
+      "current": 2845,
+      "currency": "JPY"
+    },
+    "scenarios": {
+      "bear": 1200,
+      "base": 2880,
+      "bull": 5760
+    },
+    "positionPct": 36.1,
+    "zone": "Base付近",
+    "riskReward": "1.77倍",
+    "catalyst": "2026年8月頃 FY2027 第1四半期決算 / データセンター稼働開始、顧客利用率、資金調達",
+    "summary": "AIインフラは急拡大計画。現値は計画達成を概ね織り込むが振れ幅は大きい",
+    "tags": [
+      "FY3/27E希薄化後EPS × PER",
+      "AIインフラ",
+      "GPUデータセンター"
+    ],
+    "risk": "非常に高い",
+    "detailPath": "stocks/データセクション/index.html",
+    "scenarioPath": "stocks/データセクション/scenario.html"
+  },
+  {
+    "schemaVersion": 1,
+    "ticker": "464A",
+    "slug": "464a",
+    "name": "QPSホールディングス",
+    "market": "日本株",
+    "sector": "小型SAR衛星・宇宙インフラ",
+    "method": "FY5/29E売上 × EV/Sales＋希薄化調整",
+    "status": "published",
+    "updated": "2026-07-15",
+    "price": {
+      "current": 1844,
+      "currency": "JPY"
+    },
+    "scenarios": {
+      "bear": 900,
+      "base": 1900,
+      "bull": 3400
+    },
+    "positionPct": 37.8,
+    "zone": "Base付近",
+    "riskReward": "1.65倍",
+    "catalyst": "2026/10/9頃 FY2027 第1四半期決算 / 衛星打上げ、稼働機数、防衛省案件の売上計上",
+    "summary": "衛星数と防衛売上は拡大。ただし打上げ・資金調達・希薄化が同時進行",
+    "tags": [
+      "FY5/29E売上 × EV/Sales＋希薄化調整",
+      "小型SAR衛星",
+      "宇宙インフラ"
+    ],
+    "risk": "非常に高い",
+    "detailPath": "stocks/QPSホールディングス/index.html",
+    "scenarioPath": "stocks/QPSホールディングス/scenario.html"
+  },
+  {
+    "schemaVersion": 1,
+    "ticker": "5801",
+    "slug": "5801",
+    "name": "古河電気工業",
+    "market": "日本株",
+    "sector": "光ファイバー・AIデータセンター・電力",
+    "method": "FY3/27E EPS × PER",
+    "status": "published",
+    "updated": "2026-07-15",
+    "price": {
+      "current": 3520,
+      "currency": "JPY"
+    },
+    "scenarios": {
+      "bear": 1900,
+      "base": 3360,
+      "bull": 5700
+    },
+    "positionPct": 42.6,
+    "zone": "Base付近",
+    "riskReward": "1.35倍",
+    "catalyst": "2026/8/6 FY2026 第1四半期決算 / 光ソリューション利益率とデータセンター売上を確認",
+    "summary": "AIデータセンター向け光部品が利益を牽引。株価は高成長の継続を要求",
+    "tags": [
+      "FY3/27E EPS × PER",
+      "光ファイバー",
+      "AIデータセンター",
+      "電力"
+    ],
+    "risk": "高い",
+    "detailPath": "stocks/古河電気工業/index.html",
+    "scenarioPath": "stocks/古河電気工業/scenario.html"
+  },
+  {
+    "schemaVersion": 1,
+    "ticker": "6522",
+    "slug": "6522",
+    "name": "株式会社アスタリスク",
+    "market": "日本株",
+    "sector": "モバイルDX・業務端末",
+    "method": "PER＋売上進捗シナリオ",
+    "status": "published",
+    "updated": "2026-07-15",
+    "price": {
+      "current": 1899,
+      "currency": "JPY"
+    },
+    "scenarios": {
+      "bear": 900,
+      "base": 1600,
+      "bull": 2800
+    },
+    "positionPct": 52.6,
+    "zone": "Base超え・強気寄り",
+    "riskReward": "0.90倍",
+    "catalyst": "2026年10月頃 通期決算 / 4Q大型案件・黒字転換・新株予約権行使を確認",
+    "summary": "3Qは赤字縮小。ただし通期達成には4Qへの大型売上集中が必要。",
+    "tags": [
+      "PER＋売上進捗シナリオ",
+      "モバイルDX・業務端末",
+      "RFID",
+      "潜在希薄化"
+    ],
+    "risk": "非常に高い",
+    "detailPath": "stocks/アスタリスク/index.html",
+    "scenarioPath": "stocks/アスタリスク/scenario.html"
+  },
+  {
+    "schemaVersion": 1,
+    "ticker": "6613",
+    "slug": "6613",
+    "name": "QDレーザ",
+    "market": "日本株",
+    "sector": "量子ドットレーザ・光デバイス",
+    "method": "FY3/28E売上 × EV/Sales＋希薄化調整",
+    "status": "published",
+    "updated": "2026-07-15",
+    "price": {
+      "current": 2425,
+      "currency": "JPY"
+    },
+    "scenarios": {
+      "bear": 600,
+      "base": 1750,
+      "bull": 4000
+    },
+    "positionPct": 53.7,
+    "zone": "Base超え・強気寄り",
+    "riskReward": "0.86倍",
+    "catalyst": "2026/8/10 FY2026 第1四半期決算 / 受注残、量子ドット量産案件、営業黒字の進捗",
+    "summary": "黒字化計画は前進。ただし株価は量産成功を何年分も先取り",
+    "tags": [
+      "FY3/28E売上 × EV/Sales＋希薄化調整",
+      "量子ドットレーザ",
+      "光デバイス"
+    ],
+    "risk": "非常に高い",
+    "detailPath": "stocks/QDレーザ/index.html",
+    "scenarioPath": "stocks/QDレーザ/scenario.html"
+  },
+  {
+    "schemaVersion": 1,
+    "ticker": "6976",
+    "slug": "6976",
+    "name": "太陽誘電",
+    "market": "日本株",
+    "sector": "電子部品・AIサーバー・車載",
+    "method": "FY3/27E EPS × PER",
+    "status": "published",
+    "updated": "2026-07-15",
+    "price": {
+      "current": 11855,
+      "currency": "JPY"
+    },
+    "scenarios": {
+      "bear": 6300,
+      "base": 10450,
+      "bull": 16250
+    },
+    "positionPct": 55.8,
+    "zone": "Base超え・強気寄り",
+    "riskReward": "0.79倍",
+    "catalyst": "2026年8月頃 FY2026 第1四半期決算 / コンデンサ数量・単価と営業利益率を確認",
+    "summary": "AIサーバーと車載は伸びる。一方、株価は大幅な利益成長を先取り",
+    "tags": [
+      "FY3/27E EPS × PER",
+      "電子部品",
+      "AIサーバー",
+      "車載"
+    ],
+    "risk": "非常に高い",
+    "detailPath": "stocks/太陽誘電/index.html",
+    "scenarioPath": "stocks/太陽誘電/scenario.html"
+  },
+  {
+    "schemaVersion": 1,
+    "ticker": "6981",
+    "slug": "6981",
+    "name": "村田製作所",
+    "market": "日本株",
+    "sector": "電子部品・AIサーバー・車載",
+    "method": "FY3/27E EPS × PER",
+    "status": "published",
+    "updated": "2026-07-15",
+    "price": {
+      "current": 9100,
+      "currency": "JPY"
+    },
+    "scenarios": {
+      "bear": 4725,
+      "base": 7680,
+      "bull": 11100
+    },
+    "positionPct": 68.6,
+    "zone": "Base超え・強気寄り",
+    "riskReward": "0.46倍",
+    "catalyst": "2026/7/31 FY26 Q1決算 / AIサーバー向けと利益率を確認",
+    "summary": "AIサーバー需要は強い。株価はかなり先まで評価",
+    "tags": [
+      "FY3/27E EPS × PER",
+      "電子部品",
+      "AIサーバー",
+      "車載"
+    ],
+    "risk": "高い",
+    "detailPath": "stocks/村田製作所/index.html",
+    "scenarioPath": "stocks/村田製作所/scenario.html"
+  },
+  {
+    "schemaVersion": 1,
+    "ticker": "7011",
+    "slug": "7011",
+    "name": "三菱重工業",
+    "market": "日本株",
+    "sector": "防衛・エネルギー・宇宙",
+    "method": "FY3/27E EPS × PER",
+    "status": "published",
+    "updated": "2026-07-15",
+    "price": {
+      "current": 3749,
+      "currency": "JPY"
+    },
+    "scenarios": {
+      "bear": 2470,
+      "base": 3680,
+      "bull": 5400
+    },
+    "positionPct": 43.7,
+    "zone": "Base付近",
+    "riskReward": "1.29倍",
+    "catalyst": "2026年8月頃 FY26 Q1決算 / 利益進捗と受注を確認",
+    "summary": "受注は歴史的。ただし株価には高成長がかなり必要",
+    "tags": [
+      "FY3/27E EPS × PER",
+      "防衛",
+      "エネルギー",
+      "宇宙"
+    ],
+    "risk": "高い",
+    "detailPath": "stocks/三菱重工業/index.html",
+    "scenarioPath": "stocks/三菱重工業/scenario.html"
+  },
+  {
+    "schemaVersion": 1,
+    "ticker": "7013",
+    "slug": "7013",
+    "name": "IHI",
+    "market": "日本株",
+    "sector": "航空エンジン・防衛・エネルギー",
+    "method": "FY3/27E EPS × PER",
+    "status": "published",
+    "updated": "2026-07-15",
+    "price": {
+      "current": 2815,
+      "currency": "JPY"
+    },
+    "scenarios": {
+      "bear": 1750,
+      "base": 2945,
+      "bull": 4750
+    },
+    "positionPct": 35.5,
+    "zone": "Base手前",
+    "riskReward": "1.82倍",
+    "catalyst": "2026/8/5頃 FY2026 第1四半期決算 / 航空エンジン採算・防衛受注・資産売却を確認",
+    "summary": "民間航空エンジンと防衛が伸びる。現値は会社計画を概ね織り込む",
+    "tags": [
+      "FY3/27E EPS × PER",
+      "航空エンジン",
+      "防衛",
+      "エネルギー"
+    ],
+    "risk": "高い",
+    "detailPath": "stocks/IHI/index.html",
+    "scenarioPath": "stocks/IHI/scenario.html"
+  },
+  {
+    "schemaVersion": 1,
+    "ticker": "9984",
+    "slug": "9984",
+    "name": "ソフトバンクグループ",
+    "market": "日本株",
+    "sector": "AI投資・半導体・通信",
+    "method": "SOTP＋NAVディスカウント",
+    "status": "published",
+    "updated": "2026-07-15",
+    "price": {
+      "current": 6574,
+      "currency": "JPY"
+    },
+    "scenarios": {
+      "bear": 4000,
+      "base": 6800,
+      "bull": 9800
+    },
+    "positionPct": 44.4,
+    "zone": "Base付近",
+    "riskReward": "1.25倍",
+    "catalyst": "2026/8/6 FY26 Q1決算 / NAV・LTV・OpenAI追加投資を確認",
+    "summary": "AI資産は巨大。ただし借入と評価額の振れも巨大",
+    "tags": [
+      "SOTP＋NAVディスカウント",
+      "AI投資",
+      "半導体",
+      "通信"
+    ],
+    "risk": "非常に高い",
+    "detailPath": "stocks/ソフトバンクグループ/index.html",
+    "scenarioPath": "stocks/ソフトバンクグループ/scenario.html"
+  },
+  {
+    "schemaVersion": 1,
+    "ticker": "IBM",
+    "slug": "ibm",
+    "name": "IBM",
+    "market": "米国株",
+    "sector": "エンタープライズIT・ソフトウェア",
+    "method": "2027E EPS × PER",
+    "status": "published",
+    "updated": "2026-07-15",
+    "price": {
+      "current": 217.07,
+      "currency": "USD"
+    },
+    "scenarios": {
+      "bear": 152,
+      "base": 219,
+      "bull": 311
+    },
+    "positionPct": 40.9,
+    "zone": "Base付近",
+    "riskReward": "1.44倍",
+    "catalyst": "2026/7/22 Q2正式決算 / 通期見通し・案件回収時期",
+    "summary": "Q2失速で急落。前提を再評価。",
+    "tags": [
+      "2027E EPS × PER",
+      "エンタープライズIT・ソフトウェア"
+    ],
+    "risk": "高",
+    "detailPath": "stocks/IBM/index.html",
+    "scenarioPath": "stocks/IBM/scenario.html"
+  },
+  {
+    "schemaVersion": 1,
+    "ticker": "5803",
+    "slug": "5803",
+    "name": "株式会社フジクラ",
+    "market": "日本株",
+    "sector": "光ファイバー・AIデータセンター",
+    "method": "FY3/27E EPS × PER",
+    "status": "published",
+    "updated": "2026-07-14",
+    "price": {
+      "current": 4800,
+      "currency": "JPY"
+    },
+    "scenarios": {
+      "bear": 2800,
+      "base": 4750,
+      "bull": 6600
+    },
+    "positionPct": 52.6,
+    "zone": "Base付近",
+    "riskReward": "0.90倍",
+    "catalyst": "FY3/27 1Q決算 / 情報通信の利益率・増産進捗",
+    "summary": "業績は強い。期待も高い。",
+    "tags": [
+      "PER",
+      "光ファイバー",
+      "AIデータセンター",
+      "高成長型"
+    ],
+    "risk": "高",
+    "detailPath": "stocks/フジクラ/index.html",
+    "scenarioPath": "stocks/フジクラ/scenario.html"
+  },
+  {
+    "schemaVersion": 1,
+    "ticker": "GOOG",
+    "slug": "goog",
+    "name": "Alphabet",
+    "market": "米国株",
+    "sector": "検索・広告・クラウド・AI",
+    "method": "正規化FY26E EPS × PER",
+    "status": "published",
+    "updated": "2026-07-14",
+    "price": {
+      "current": 350.67,
+      "currency": "USD"
+    },
+    "scenarios": {
+      "bear": 240,
+      "base": 390,
+      "bull": 576
+    },
+    "positionPct": 32.9,
+    "zone": "Bear〜Base帯",
+    "riskReward": "2.04倍",
+    "catalyst": "2026/7/22 Q2決算",
+    "summary": "検索は堅調。Cloudが加速。",
+    "tags": [
+      "PER",
+      "AI",
+      "Google検索",
+      "Google Cloud",
+      "Gemini"
+    ],
+    "risk": "中〜高",
+    "detailPath": "stocks/GOOG/index.html",
+    "scenarioPath": "stocks/GOOG/scenario.html"
+  },
+  {
+    "schemaVersion": 1,
+    "ticker": "META",
+    "slug": "meta",
+    "name": "Meta Platforms",
+    "market": "米国株",
+    "sector": "SNS広告・AI・AR/VR",
+    "method": "2027E FCF倍率＋ネットキャッシュ",
+    "status": "published",
+    "updated": "2026-07-22",
+    "price": {
+      "current": 643.81,
+      "currency": "USD"
+    },
+    "scenarios": {
+      "bear": 450,
+      "base": 690,
+      "bull": 1000
+    },
+    "positionPct": 35.2,
+    "zone": "Bear〜Base帯",
+    "riskReward": "1.84倍",
+    "catalyst": "2026年7月29日 Q2決算 / 広告成長・CapEx・AI収益化",
+    "summary": "広告成長は強い。AI設備投資が将来FCFへ変わる速度を確認",
+    "tags": [
+      "AI広告",
+      "Instagram",
+      "FCF"
+    ],
+    "risk": "高い",
+    "detailPath": "stocks/META/index.html",
+    "scenarioPath": "stocks/META/scenario.html"
+  },
+  {
+    "schemaVersion": 1,
+    "ticker": "MSFT",
+    "slug": "msft",
+    "name": "Microsoft",
+    "market": "米国株",
+    "sector": "クラウド・ソフトウェア・AI",
+    "method": "FY27E EPS × PER",
+    "status": "published",
+    "updated": "2026-07-14",
+    "price": {
+      "current": 390.99,
+      "currency": "USD"
+    },
+    "scenarios": {
+      "bear": 315,
+      "base": 492,
+      "bull": 644
+    },
+    "positionPct": 23.1,
+    "zone": "Bear〜Base帯",
+    "riskReward": "3.33倍",
+    "catalyst": "2026/7/29 FY26 Q4決算",
+    "summary": "クラウドは強い。株価は調整済み。",
+    "tags": [
+      "PER",
+      "AI",
+      "Azure",
+      "Copilot",
+      "Microsoft 365"
+    ],
+    "risk": "中",
+    "detailPath": "stocks/MSFT/index.html",
+    "scenarioPath": "stocks/MSFT/scenario.html"
+  },
+  {
+    "schemaVersion": 1,
+    "ticker": "ABCL",
+    "slug": "abcl",
+    "name": "AbCellera Biologics",
+    "market": "米国株",
+    "sector": "抗体創薬・バイオテクノロジー",
+    "method": "SOTP＋簡易rNPV",
+    "status": "published",
+    "updated": "2026-07-21",
+    "price": {
+      "current": 5.8,
+      "currency": "USD"
+    },
+    "scenarios": {
+      "bear": 3.5,
+      "base": 8,
+      "bull": 15.5
+    },
+    "positionPct": 19.2,
+    "zone": "適正〜慎重寄り",
+    "riskReward": "4.22倍",
+    "catalyst": "2026年Q3 ABCL635トップライン",
+    "summary": "期待は後退。治験データ待ち。",
+    "tags": [
+      "rNPV",
+      "SOTP",
+      "抗体創薬",
+      "バイオ",
+      "臨床カタリスト"
+    ],
+    "risk": "高い",
+    "detailPath": "stocks/ABCL/index.html",
+    "scenarioPath": "stocks/ABCL/scenario.html"
+  },
+  {
+    "schemaVersion": 1,
+    "ticker": "ASPI",
+    "slug": "aspi",
+    "name": "ASP Isotopes Inc.",
+    "market": "米国株",
+    "sector": "素材・同位体",
+    "method": "SOTP＋カタリスト割引",
+    "status": "published",
+    "updated": "2026-07-13",
+    "price": {
+      "current": 4.83,
+      "currency": "USD"
+    },
+    "scenarios": {
+      "bear": 3,
+      "base": 7,
+      "bull": 12
+    },
+    "positionPct": 20.3,
+    "zone": "慎重寄り",
+    "riskReward": "3.9倍",
+    "catalyst": "Q3-Q4 2026 / Si-28・ヘリウム商業化",
+    "summary": "会社は前進中。",
+    "tags": [
+      "SOTP",
+      "同位体",
+      "カタリスト型"
+    ],
+    "risk": "非常に高い",
+    "detailPath": "stocks/ASPI/index.html",
+    "scenarioPath": "stocks/ASPI/scenario.html"
+  },
+  {
+    "schemaVersion": 1,
+    "ticker": "IONQ",
+    "slug": "ionq",
+    "name": "IonQ, Inc.",
+    "market": "米国株",
+    "sector": "量子コンピューター",
+    "method": "EV/Sales＋SkyWater SOTP",
+    "status": "published",
+    "updated": "2026-07-13",
+    "price": {
+      "current": 42.86,
+      "currency": "USD"
+    },
+    "scenarios": {
+      "bear": 24,
+      "base": 45,
+      "bull": 76
+    },
+    "positionPct": 36,
+    "zone": "適正〜慎重寄り",
+    "riskReward": "1.76倍",
+    "catalyst": "2026 Q2〜Q3 / SkyWater買収完了と統合進捗",
+    "summary": "期待先行。",
+    "tags": [
+      "EV/Sales",
+      "量子",
+      "高成長型"
+    ],
+    "risk": "高",
+    "detailPath": "stocks/IONQ/index.html",
+    "scenarioPath": "stocks/IONQ/scenario.html"
+  },
+  {
+    "schemaVersion": 1,
+    "ticker": "IOT",
+    "slug": "iot",
+    "name": "Samsara",
+    "market": "米国株",
+    "sector": "Connected Operations / IoTソフトウェア",
+    "method": "EV/Sales（将来売上倍率）",
+    "status": "published",
+    "updated": "2026-07-13",
+    "price": {
+      "current": 36.72,
+      "currency": "USD"
+    },
+    "scenarios": {
+      "bear": 27,
+      "base": 44,
+      "bull": 68
+    },
+    "positionPct": 23.7,
+    "zone": "適正〜慎重寄り",
+    "riskReward": "3.2倍",
+    "catalyst": "要確認",
+    "summary": "成長は強い。",
+    "tags": [
+      "EV/Sales（将来売上倍率）",
+      "Connected Operations / IoTソフトウェア"
+    ],
+    "risk": "高",
+    "detailPath": "stocks/IOT/index.html",
+    "scenarioPath": "stocks/IOT/scenario.html"
+  },
+  {
+    "schemaVersion": 1,
+    "ticker": "MU",
+    "slug": "mu",
+    "name": "Micron Technology",
+    "market": "米国株",
+    "sector": "半導体・メモリ",
+    "method": "PER / PEG（景気循環調整）",
+    "status": "published",
+    "updated": "2026-07-13",
+    "price": {
+      "current": 905.92,
+      "currency": "USD"
+    },
+    "scenarios": {
+      "bear": 665,
+      "base": 1035,
+      "bull": 1485
+    },
+    "positionPct": 34,
+    "zone": "Base未満・慎重寄り",
+    "riskReward": "1.43倍",
+    "catalyst": "要確認",
+    "summary": "好業績は本物。",
+    "tags": [
+      "PER / PEG（景気循環調整）",
+      "半導体・メモリ"
+    ],
+    "risk": "高",
+    "detailPath": "stocks/MU/index.html",
+    "scenarioPath": "stocks/MU/scenario.html"
+  },
+  {
+    "schemaVersion": 1,
+    "ticker": "NVDA",
+    "slug": "nvda",
+    "name": "NVIDIA",
+    "market": "米国株",
+    "sector": "AI半導体・アクセラレーテッドコンピューティング",
+    "method": "PER / 感応度分析",
+    "status": "published",
+    "updated": "2026-07-13",
+    "price": {
+      "current": 202.78,
+      "currency": "USD"
+    },
+    "scenarios": {
+      "bear": 160,
+      "base": 230,
+      "bull": 300
+    },
+    "positionPct": 30.6,
+    "zone": "適正〜慎重寄り",
+    "riskReward": "2.27",
+    "catalyst": "要確認",
+    "summary": "会社は圧倒的。",
+    "tags": [
+      "PER / 感応度分析",
+      "AI半導体・アクセラレーテッドコンピューティング"
+    ],
+    "risk": "中",
+    "detailPath": "stocks/NVDA/index.html",
+    "scenarioPath": "stocks/NVDA/scenario.html"
+  },
+  {
+    "schemaVersion": 1,
+    "ticker": "QNT",
+    "slug": "qnt",
+    "name": "Quantinuum",
+    "market": "米国株",
+    "sector": "量子コンピューター",
+    "method": "SOTP＋オプション価値",
+    "status": "published",
+    "updated": "2026-07-13",
+    "price": {
+      "current": 70.69,
+      "currency": "USD"
+    },
+    "scenarios": {
+      "bear": 45,
+      "base": 80,
+      "bull": 126
+    },
+    "positionPct": 31.7,
+    "zone": "Bear〜Base帯",
+    "riskReward": "2.15倍",
+    "catalyst": "要確認",
+    "summary": "技術は強い。",
+    "tags": [
+      "SOTP＋オプション価値",
+      "量子コンピューター"
+    ],
+    "risk": "非常に高い",
+    "detailPath": "stocks/QNT/index.html",
+    "scenarioPath": "stocks/QNT/scenario.html"
+  },
+  {
+    "schemaVersion": 1,
+    "ticker": "RDW",
+    "slug": "rdw",
+    "name": "Redwire Corporation",
+    "market": "米国株",
+    "sector": "宇宙・防衛",
+    "method": "SOTP＋EV/Sales",
+    "status": "published",
+    "updated": "2026-07-13",
+    "price": {
+      "current": 10.47,
+      "currency": "USD"
+    },
+    "scenarios": {
+      "bear": 6,
+      "base": 13,
+      "bull": 21
+    },
+    "positionPct": 29.8,
+    "zone": "適正〜慎重寄り",
+    "riskReward": "2.36",
+    "catalyst": "要確認",
+    "summary": "会社は拡大中。",
+    "tags": [
+      "SOTP＋オプション価値",
+      "宇宙・防衛",
+      "テーマ株"
+    ],
+    "risk": "高",
+    "detailPath": "stocks/RDW/index.html",
+    "scenarioPath": "stocks/RDW/scenario.html"
+  },
+  {
+    "schemaVersion": 1,
+    "ticker": "RKLB",
+    "slug": "rklb",
+    "name": "Rocket Lab",
+    "market": "米国株",
+    "sector": "宇宙・防衛",
+    "method": "SOTP＋オプション価値",
+    "status": "published",
+    "updated": "2026-07-13",
+    "price": {
+      "current": 80.4,
+      "currency": "USD"
+    },
+    "scenarios": {
+      "bear": 45,
+      "base": 85,
+      "bull": 145
+    },
+    "positionPct": 35.4,
+    "zone": "Base付近",
+    "riskReward": "1.82",
+    "catalyst": "2026 Q4 / Neutron初飛行成功",
+    "summary": "会社は強い。",
+    "tags": [
+      "SOTP＋オプション価値",
+      "宇宙",
+      "カタリスト型"
+    ],
+    "risk": "高",
+    "detailPath": "stocks/RKLB/index.html",
+    "scenarioPath": "stocks/RKLB/scenario.html"
+  },
+  {
+    "schemaVersion": 1,
+    "ticker": "TSLA",
+    "slug": "tsla",
+    "name": "Tesla, Inc.",
+    "market": "米国株",
+    "sector": "EV・エネルギー・AI/自動運転",
+    "method": "SOTP（自動車＋エネルギー＋AI/自動運転オプション）",
+    "status": "published",
+    "updated": "2026-07-13",
+    "price": {
+      "current": 403.79,
+      "currency": "USD"
+    },
+    "scenarios": {
+      "bear": 250,
+      "base": 400,
+      "bull": 600
+    },
+    "positionPct": 43.9,
+    "zone": "Base付近",
+    "riskReward": "1.28",
+    "catalyst": "要確認",
+    "summary": "期待はかなり高い。",
+    "tags": [
+      "SOTP（自動車＋エネルギー＋AI/自動運転オプション）",
+      "EV・エネルギー・AI/自動運転"
+    ],
+    "risk": "高",
+    "detailPath": "stocks/TSLA/index.html",
+    "scenarioPath": "stocks/TSLA/scenario.html"
+  },
+  {
+    "schemaVersion": 1,
+    "ticker": "SPCX",
+    "slug": "spcx",
+    "name": "SpaceX",
+    "market": "米国株",
+    "sector": "宇宙・衛星通信・AI",
+    "method": "SOTP＋将来価値の現在価値換算",
+    "status": "published",
+    "updated": "2026-07-10",
+    "price": {
+      "current": 145.3,
+      "currency": "USD"
+    },
+    "scenarios": {
+      "bear": 65,
+      "base": 132,
+      "bull": 242
+    },
+    "positionPct": 45,
+    "zone": "BearとBaseの間だがBase超え",
+    "riskReward": "1.20倍",
+    "catalyst": "初の上場後決算、Starship進捗、AI設備投資と顧客契約、段階的ロックアップ解除",
+    "summary": "🟡 会社は別格。",
+    "tags": [
+      "SOTP",
+      "宇宙",
+      "衛星通信",
+      "AI",
+      "IPO"
+    ],
+    "risk": "非常に高い",
+    "detailPath": "stocks/SPCX/index.html",
+    "scenarioPath": "stocks/SPCX/scenario.html"
+  }
+]
+
