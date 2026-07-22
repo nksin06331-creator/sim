@@ -15,7 +15,7 @@
   ★★ デザインロック（ぶれ防止）★★
   ・この <style> ブロックとページ骨格は「改変禁止」。1文字も変えない。逐語コピーする。
   ・色はSiMグリーンで固定。銘柄・業界でアクセント色を変えない。
-  ・差し替えてよいのは  プレースホルダーの中身（＝テキスト）だけ。
+  ・差し替えてよいのは {{ }} プレースホルダーの中身（＝テキスト）だけ。
   ・セクションの数・順番・各コンポーネントの個数（SEC1のcard-smは4枚 等）は固定。
     追加・削除・並べ替えをしない。
   ----------------------------------------------------------------
@@ -281,17 +281,17 @@ strong.g { color: var(--accent); }
 
 <!-- ========================================================
   HERO
-  GRRR Gorilla Technology Group AIインフラ・スマートシティ AIデータセンターと公共安全を、政府・大企業へまとめて届ける会社。 <span>AIインフラ</span><span>スマートシティ</span><span>公共安全</span> 2026年7月22日
+  GRRR Gorilla Technology Group AIインフラ・スマートシティ 公共安全AIとデータセンターを、政府・通信会社へまとめて届ける会社。 <span class="hero-tag">AIインフラ</span><span class="hero-tag">スマートシティ</span><span class="hero-tag">公共安全</span> 2026年7月22日
   ※見出しの重要ワードは <span class="g">…</span> で緑ハイライト
 ======================================================== -->
 <div class="hero">
   <div class="brandmark">S<span class="g">i</span>M &nbsp;MARKET LAB</div>
   <div class="hero-badge">GRRR 完全入門ガイド ・ 2026年7月22日版</div>
   <h1>Gorilla Technology Group（GRRR）を<br><span class="g">まるっと</span>解説</h1>
-  <p>AIデータセンターと公共安全を、政府・大企業へまとめて届ける会社。</p>
+  <p>公共安全AIとデータセンターを、政府・通信会社へまとめて届ける会社。</p>
   <div class="hero-tags">
     <!-- 例: <span class="hero-tag">⚛️ 同位体って何？</span> -->
-    <span>AIインフラ</span><span>スマートシティ</span><span>公共安全</span>
+    <span class="hero-tag">AIインフラ</span><span class="hero-tag">スマートシティ</span><span class="hero-tag">公共安全</span>
   </div>
 </div>
 
@@ -306,7 +306,7 @@ strong.g { color: var(--accent); }
       <div class="stat"><div class="stat-value">$1.2B</div><div class="stat-label">時価総額</div></div>
       <div class="stat"><div class="stat-value">2027</div><div class="stat-label">黒字化目標</div></div>
       -->
-      <div class="stat"><span>現在株価</span><b>$12.73</b><small>2026/7/21終値基準</small></div><div class="stat up"><span>直近売上</span><b>$28.2M</b><small>Q1 2026</small></div><div class="stat"><span>Base</span><b>$18</b><small>仮定モデル</small></div><div class="stat down"><span>リスク</span><b>非常に高い</b><small>値動き・実行</small></div>
+      <div class="stat"><div class="stat-value">$12.73</div><div class="stat-label">現在株価</div><div class="stat-note">2026/7/21終値</div></div><div class="stat"><div class="stat-value">$28.2M</div><div class="stat-label">Q1売上</div><div class="stat-note">会社発表</div></div><div class="stat"><div class="stat-value">≥$44M</div><div class="stat-label">Q2見通し</div><div class="stat-note">会社発表</div></div><div class="stat"><div class="stat-value">非常に高い</div><div class="stat-label">リスク区分</div><div class="stat-note">案件・回収・希薄化</div></div>
     </div>
   </div>
 </div>
@@ -318,7 +318,7 @@ strong.g { color: var(--accent); }
     <a class="nav-item" href="#sec2">② 業界の基本</a>
     <a class="nav-item" href="#sec3">③ 製品・技術</a>
     <a class="nav-item" href="#sec4">④ 競争力と規制</a>
-    <a class="nav-item" href="#sec5">⑤ 競合比較</a>
+    <a class="nav-item" href="#sec5">⑤ 競合</a>
     <a class="nav-item" href="#sec6">⑥ 用語辞典</a>
     <a class="nav-item" href="#sec7">⑦ 株価の見方</a>
   </div>
@@ -339,13 +339,13 @@ strong.g { color: var(--accent); }
       <div class="tldr-label">⚡ このセクションの3秒まとめ</div>
       <ul>
         <!-- 例: <li data-emoji="🏭">◯◯を作ってる△△業界の会社</li> -->
-        <li data-emoji="🔥">AIデータセンターと公共安全を、政府・大企業へまとめて届ける会社。</li><li data-emoji="📊">Q1売上は55%増。</li><li data-emoji="⚠️">大型案件の検収と入金が重要。</li>
+        <li data-emoji="🏢">公共安全AIとAIインフラを大型案件で提供。</li><li data-emoji="📊">Q1売上は前年同期比55%増。</li><li data-emoji="⚠️">契約より検収・入金が株価の核心。</li>
       </ul>
     </div>
 
     <!-- 会社データ（クイックファクト）：設立/本社/従業員/CEO/上場/売上規模 等。不明は「非開示」 -->
     <div class="facts">
-      <div class="facts"><div class="fact"><span>設立</span><b>2001年</b></div><div class="fact"><span>本社</span><b>ロンドン</b></div><div class="fact"><span>CEO</span><b>Jay Chandan</b></div><div class="fact"><span>上場</span><b>NASDAQ：GRRR</b></div><div class="fact"><span>Q1売上</span><b>$28.2M</b></div><div class="fact"><span>現金</span><b>$98.4M</b></div></div>
+      <div><dt>設立</dt><dd>2001年</dd></div><div><dt>本社</dt><dd>英国ロンドン</dd></div><div><dt>CEO</dt><dd>Jay Chandan</dd></div><div><dt>上場</dt><dd>NASDAQ（GRRR）</dd></div><div><dt>Q1 2026売上</dt><dd>$28.2M</dd></div><div><dt>現金・借入</dt><dd>$98.4M / $13.2M</dd></div>
       <!-- 例:
       <div><dt>設立</dt><dd>2019年</dd></div>
       <div><dt>本社</dt><dd>東京</dd></div>
@@ -358,19 +358,19 @@ strong.g { color: var(--accent); }
 
     <!-- 4枚カード：何をしてる/主力事業/直近の業績/なぜ注目 -->
     <div class="card-grid">
-      <div class="card-sm"><span class="card-emoji">🏙️</span><div class="card-title">スマートシティ</div><div class="card-desc">映像AI、交通、公共安全を統合。</div></div><div class="card-sm"><span class="card-emoji">🖥️</span><div class="card-title">AIインフラ</div><div class="card-desc">GPU・データセンター案件を設計・構築。</div></div><div class="card-sm"><span class="card-emoji">📈</span><div class="card-title">Q1の伸び</div><div class="card-desc">売上は前年同期比55%増。</div></div><div class="card-sm"><span class="card-emoji">💵</span><div class="card-title">現金創出</div><div class="card-desc">営業CFは$6.6Mのプラスへ。</div></div>
+      <div class="card-sm"><span class="card-emoji">🏙️</span><div class="card-title">スマートシティ</div><div class="card-desc">映像AI、交通、公共安全を統合。</div></div><div class="card-sm"><span class="card-emoji">🖥️</span><div class="card-title">AIインフラ</div><div class="card-desc">GPU・データセンター案件を設計。</div></div><div class="card-sm"><span class="card-emoji">📈</span><div class="card-title">成長</div><div class="card-desc">Q1売上は$28.2Mへ拡大。</div></div><div class="card-sm"><span class="card-emoji">💵</span><div class="card-title">現金創出</div><div class="card-desc">Q1営業CFはプラスへ転換。</div></div>
       <!-- 例: <div class="card-sm"><span class="card-emoji">🏭</span><div class="card-title">何をしてる</div><div class="card-desc">…</div></div> を4枚 -->
     </div>
 
     <!-- どうやって稼ぐ？：ビジネスモデルと売上の内訳を平易に -->
     <div class="block-label">💰 どうやって<span class="g">稼いでる</span>？</div>
     <ul class="keypoints">
-      <li><span class="kp-emoji">💰</span><span class="kp-text"><b>大型案件</b>：政府・通信・公共機関の構築案件で売上を得る。</span></li><li><span class="kp-emoji">💰</span><span class="kp-text"><b>保守・運用</b>：導入後の運用と追加機能が継続収益になる。</span></li><li><span class="kp-emoji">💰</span><span class="kp-text"><b>2026年目標</b>：売上$160M〜$200M。実行時期が重要。</span></li>
+      <li><span class="kp-emoji">💰</span><span class="kp-text"><b>大型構築</b>：政府・通信向け案件を納品して売上計上。</span></li><li><span class="kp-emoji">🔁</span><span class="kp-text"><b>保守運用</b>：導入後の運用と追加機能で継続収益。</span></li><li><span class="kp-emoji">📡</span><span class="kp-text"><b>ソフトウェア</b>：映像解析・ネットワーク分析をライセンス。</span></li>
       <!-- 例: <li><span class="kp-emoji">🧩</span><span class="kp-text"><b>主力</b>：◯◯を作って△△に売る。売上の約7割。</span></li> を2〜4件（売上構成・主要顧客・課金の仕組み等） -->
     </ul>
 
     <!-- 会社の“基本ルール”（この銘柄を見るうえで最初に押さえる勘所） -->
-    <div class="highlight"><h3>📏 GRRR株の基本ルール</h3><p>契約発表より、検収・請求・入金を追う。</p></div>
+    <div class="highlight"><h3>📏 GRRR株の基本ルール</h3><p>契約額ではなく、検収・売上・営業キャッシュフローの順に追う。</p></div>
     <!-- 例: <div class="highlight"><h3>📏 ◯◯株の基本ルール</h3><p>…</p></div> -->
   </section>
 
@@ -380,8 +380,8 @@ strong.g { color: var(--accent); }
       <div class="section-icon">🧩</div><div class="section-num">2</div>
       <div><div class="section-title">AIインフラ・スマートシティの<span class="g">仕組み</span></div><div class="section-sub">数字を見る前に業界をつかむ</div></div>
     </div>
-    <div class="tldr"><div class="tldr-label">⚡ このセクションの3秒まとめ</div><ul><li data-emoji="🔥">契約額と売上計上は別。</li><li data-emoji="📊">技術だけでなく導入・規制が必要。</li><li data-emoji="⚠️">継続収益化が評価の鍵。</li></ul></div>
-    <p class="lead">大きな計画は「予約」。決算の売上と現金は「実際に届いた商品」です。</p><div class="sowhat"><b>だから何？</b><p>発表額だけでなく、売上・粗利・現金の3点を確認します。</p></div><div class="term-list"><details class="term-item"><summary><span class="term-name">契約</span></summary><div class="term-body">顧客との合意。すぐ全額が売上になるとは限らない。</div></details><details class="term-item"><summary><span class="term-name">売上認識</span></summary><div class="term-body">サービス提供の進み具合に応じて会計へ載せる。</div></details><details class="term-item"><summary><span class="term-name">検収</span></summary><div class="term-body">顧客が納品を確認する節目。</div></details><details class="term-item"><summary><span class="term-name">継続収益</span></summary><div class="term-body">毎年・毎月くり返す売上。評価が安定しやすい。</div></details></div>
+    <div class="tldr"><div class="tldr-label">⚡ このセクションの3秒まとめ</div><ul><li data-emoji="🧩">公共安全AIとAIインフラを大型案件で提供。</li><li data-emoji="💰">Q1売上は前年同期比55%増。</li><li data-emoji="⚠️">契約より検収・入金が株価の核心。</li></ul></div>
+    <p class="lead">大きな契約は予約票です。売上と現金は、実際に商品を渡して受け取った代金です。</p><div class="sowhat"><p><b>つまり：</b>契約額ではなく、検収・売上・営業キャッシュフローの順に追う。</p></div><div class="term-list"><details class="term-item"><summary class="term-header"><span class="term-name">検収<span class="term-en">Acceptance</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>顧客が納品物の完成を認める節目。 <b>なぜ重要：</b>業績と評価の前提を動かします。 <b>この銘柄では：</b>検収の進捗を決算と会社開示で確認します。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">売上認識<span class="term-en">Revenue recognition</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>契約額を会計上の売上へ移すルール。 <b>なぜ重要：</b>業績と評価の前提を動かします。 <b>この銘柄では：</b>売上認識の進捗を決算と会社開示で確認します。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">バックログ<span class="term-en">Backlog</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>まだ売上になっていない受注残。 <b>なぜ重要：</b>業績と評価の前提を動かします。 <b>この銘柄では：</b>バックログの進捗を決算と会社開示で確認します。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">営業CF<span class="term-en">Operating cash flow</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>本業で現金が増えたかを示す指標。 <b>なぜ重要：</b>業績と評価の前提を動かします。 <b>この銘柄では：</b>営業CFの進捗を決算と会社開示で確認します。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">GPU<span class="term-en">Graphics Processing Unit</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>AI計算を高速化する半導体。 <b>なぜ重要：</b>業績と評価の前提を動かします。 <b>この銘柄では：</b>GPUの進捗を決算と会社開示で確認します。</p></div></details></div>
   </section>
 
   <!-- SEC3: 主要製品・技術　⚡まとめ → product-grid → term-list 3〜5 -->
@@ -390,8 +390,8 @@ strong.g { color: var(--accent); }
       <div class="section-icon">🔬</div><div class="section-num">3</div>
       <div><div class="section-title">主力の<span class="g">製品と技術</span></div><div class="section-sub">何を顧客へ届けるのか</div></div>
     </div>
-    <div class="tldr"><div class="tldr-label">⚡ このセクションの3秒まとめ</div><ul><li data-emoji="🔥">AIデータセンター：GPU基盤を設計・構築。</li><li data-emoji="📊">公共安全AI：映像解析と顔・車両認識。</li><li data-emoji="⚠️">ネットワーク知能：通信網の監視と分析。</li></ul></div>
-    <div class="product-grid"><div class="product"><div class="product-icon">🧠</div><h3>AIデータセンター</h3><p>GPU基盤を設計・構築。</p></div><div class="product"><div class="product-icon">🔐</div><h3>公共安全AI</h3><p>映像解析と顔・車両認識。</p></div><div class="product"><div class="product-icon">🖥️</div><h3>ネットワーク知能</h3><p>通信網の監視と分析。</p></div><div class="product"><div class="product-icon">📡</div><h3>スマートシティ</h3><p>複数システムを一体運用。</p></div></div><div class="term-list"><details class="term-item"><summary><span class="term-name">AIデータセンター</span></summary><div class="term-body">GPU基盤を設計・構築。</div></details><details class="term-item"><summary><span class="term-name">公共安全AI</span></summary><div class="term-body">映像解析と顔・車両認識。</div></details><details class="term-item"><summary><span class="term-name">ネットワーク知能</span></summary><div class="term-body">通信網の監視と分析。</div></details><details class="term-item"><summary><span class="term-name">スマートシティ</span></summary><div class="term-body">複数システムを一体運用。</div></details></div>
+    <div class="tldr"><div class="tldr-label">⚡ このセクションの3秒まとめ</div><ul><li data-emoji="🔬">AIインフラ：データセンターの設計・構築</li><li data-emoji="🧠">映像AI：顔・車両・行動を解析</li><li data-emoji="📦">ネットワークAI：通信網の異常と混雑を監視</li></ul></div>
+    <div class="product-grid"><div class="product-box"><div class="product-symbol">GPU</div><div class="product-name">AIインフラ</div><div class="product-use">データセンターの設計・構築</div></div><div class="product-box"><div class="product-symbol">IVAR</div><div class="product-name">映像AI</div><div class="product-use">顔・車両・行動を解析</div></div><div class="product-box"><div class="product-symbol">NET</div><div class="product-name">ネットワークAI</div><div class="product-use">通信網の異常と混雑を監視</div></div><div class="product-box"><div class="product-symbol">CITY</div><div class="product-name">統合基盤</div><div class="product-use">複数の公共システムを統合</div></div></div><div class="term-list"><details class="term-item"><summary class="term-header"><span class="term-name">GPU<span class="term-en">Graphics Processing Unit</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>AI計算を高速化する半導体。 <b>なぜ重要：</b>業績と評価の前提を動かします。 <b>この銘柄では：</b>GPUの進捗を決算と会社開示で確認します。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">スマートシティ<span class="term-en">Smart city</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>都市設備をデータで統合運用する仕組み。 <b>なぜ重要：</b>業績と評価の前提を動かします。 <b>この銘柄では：</b>スマートシティの進捗を決算と会社開示で確認します。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">映像解析<span class="term-en">Video analytics</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>カメラ映像をAIで判定する技術。 <b>なぜ重要：</b>業績と評価の前提を動かします。 <b>この銘柄では：</b>映像解析の進捗を決算と会社開示で確認します。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">顧客集中<span class="term-en">Customer concentration</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>少数案件への依存度が高い状態。 <b>なぜ重要：</b>業績と評価の前提を動かします。 <b>この銘柄では：</b>顧客集中の進捗を決算と会社開示で確認します。</p></div></details></div>
   </section>
 
   <!-- SEC4: 技術詳細・規制　⚡まとめ → keypoints → term-list 4〜6 -->
@@ -400,8 +400,8 @@ strong.g { color: var(--accent); }
       <div class="section-icon">🏛️</div><div class="section-num">4</div>
       <div><div class="section-title">伸びる条件と<span class="g">壁</span></div><div class="section-sub">技術を売上へ変える難しさ</div></div>
     </div>
-    <div class="tldr"><div class="tldr-label">⚡ このセクションの3秒まとめ</div><ul><li data-emoji="🔥">大型顧客の信頼が参入障壁。</li><li data-emoji="📊">実装と回収まで時間がかかる。</li><li data-emoji="⚠️">規制・会計・資金調達も重要。</li></ul></div>
-    <ul class="keypoints"><li><span class="kp-emoji">🟢</span><span class="kp-text"><b>強み</b>：特許と実装能力を組み合わせる。</span></li><li><span class="kp-emoji">🟡</span><span class="kp-text"><b>課題</b>：発表を売上と現金へ変える。</span></li><li><span class="kp-emoji">🔴</span><span class="kp-text"><b>リスク</b>：遅延・顧客集中・希薄化。</span></li></ul><div class="term-list"><details class="term-item"><summary><span class="term-name">実装</span></summary><div class="term-body">技術を顧客環境で実際に動かす作業。</div></details><details class="term-item"><summary><span class="term-name">顧客集中</span></summary><div class="term-body">少数案件への依存。遅延の影響が大きい。</div></details><details class="term-item"><summary><span class="term-name">規制</span></summary><div class="term-body">国や業界のルール。開始時期を左右する。</div></details><details class="term-item"><summary><span class="term-name">資金調達</span></summary><div class="term-body">成長投資の現金を集めること。</div></details></div>
+    <div class="tldr"><div class="tldr-label">⚡ このセクションの3秒まとめ</div><ul><li data-emoji="🟢">Q1売上$28.2M、前年同期比55%増。</li><li data-emoji="🟡">大型案件の検収時期で四半期がぶれる。</li><li data-emoji="🔴">為替差損とSBCが会計利益を振らす。</li></ul></div>
+    <ul class="keypoints"><li><span class="kp-emoji">🟢</span><span class="kp-text"><b>強み</b>：Q1売上$28.2M、前年同期比55%増。</span></li><li><span class="kp-emoji">🟡</span><span class="kp-text"><b>実行条件</b>：大型案件の検収時期で四半期がぶれる。</span></li><li><span class="kp-emoji">🔴</span><span class="kp-text"><b>最大リスク</b>：為替差損とSBCが会計利益を振らす。</span></li></ul><div class="term-list"><details class="term-item"><summary class="term-header"><span class="term-name">映像解析<span class="term-en">Video analytics</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>カメラ映像をAIで判定する技術。 <b>なぜ重要：</b>業績と評価の前提を動かします。 <b>この銘柄では：</b>映像解析の進捗を決算と会社開示で確認します。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">顧客集中<span class="term-en">Customer concentration</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>少数案件への依存度が高い状態。 <b>なぜ重要：</b>業績と評価の前提を動かします。 <b>この銘柄では：</b>顧客集中の進捗を決算と会社開示で確認します。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">SBC<span class="term-en">Stock-based compensation</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>株式で払う報酬。株数増加につながる。 <b>なぜ重要：</b>業績と評価の前提を動かします。 <b>この銘柄では：</b>SBCの進捗を決算と会社開示で確認します。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">EV/Sales<span class="term-en">Enterprise value / Sales</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>企業価値を売上で割る評価倍率。 <b>なぜ重要：</b>業績と評価の前提を動かします。 <b>この銘柄では：</b>EV/Salesの進捗を決算と会社開示で確認します。</p></div></details></div>
   </section>
 
   <!-- SEC5: 競合比較　⚡まとめ → table-wrap>compare-table(自社=me) → highlight「差別化」 -->
@@ -410,8 +410,8 @@ strong.g { color: var(--accent); }
       <div class="section-icon">⚔️</div><div class="section-num">5</div>
       <div><div class="section-title">競合と比べた<span class="g">立ち位置</span></div><div class="section-sub">強みと弱点を横並び</div></div>
     </div>
-    <div class="tldr"><div class="tldr-label">⚡ このセクションの3秒まとめ</div><ul><li data-emoji="🔥">独自技術はある。</li><li data-emoji="📊">大手より事業規模は小さい。</li><li data-emoji="⚠️">実績と資金調達が評価差になる。</li></ul></div>
-    <div class="table-wrap"><table class="compare-table"><thead><tr><th>会社</th><th>強み</th><th>注意点</th></tr></thead><tbody><tr class="me"><td>Gorilla</td><td>大型案件＋映像AI</td><td>実行・回収リスク</td></tr><tr><td>Palantir</td><td>政府向けデータAI</td><td>評価倍率が高い</td></tr><tr><td>C3.ai</td><td>企業向けAI基盤</td><td>赤字継続</td></tr><tr><td>Super Micro</td><td>AIサーバー供給</td><td>ハード依存</td></tr><tr><td>Verint</td><td>公共安全・分析</td><td>成長率が低め</td></tr></tbody></table></div><div class="highlight"><h3>🧠 差別化の芯</h3><p>公共安全AIから大型AIインフラまで一括で実装できる点。</p></div>
+    <div class="tldr"><div class="tldr-label">⚡ このセクションの3秒まとめ</div><ul><li data-emoji="⚔️">自社の強み：構築とAIを一体提供</li><li data-emoji="⚠️">主な弱点：案件集中</li><li data-emoji="📏">規模・資金・実行力を同時に比較。</li></ul></div>
+    <div class="table-wrap"><table class="compare-table"><thead><tr><th>会社</th><th>主戦場</th><th>強み</th><th>注意点</th></tr></thead><tbody><tr><td>Gorilla Technology</td><td>公共安全・AI基盤</td><td>構築とAIを一体提供</td><td>案件集中</td></tr><tr><td>Palantir</td><td>政府・企業AI</td><td>データ統合力</td><td>高い評価倍率</td></tr><tr><td>C3.ai</td><td>企業向けAI</td><td>横断型ソフト</td><td>赤字継続</td></tr><tr><td>Super Micro</td><td>AIサーバー</td><td>供給規模</td><td>ハード依存</td></tr><tr><td>Verint</td><td>公共安全・分析</td><td>顧客基盤</td><td>成長率</td></tr></tbody></table></div><div class="highlight"><h3>🧠 最大の差別化</h3><p>構築とAIを一体提供。ただし、案件集中を決算で確認します。</p></div>
   </section>
 
   <!-- SEC6: 用語辞典　⚡まとめ(特にこの3つ) → term-list 10〜12（①定義→②なぜ重要→③この銘柄では） -->
@@ -420,8 +420,8 @@ strong.g { color: var(--accent); }
       <div class="section-icon">📖</div><div class="section-num">6</div>
       <div><div class="section-title">GRRRのニュースで出る<span class="g">言葉</span> 全辞典</div><div class="section-sub">分からん単語はここで潰す</div></div>
     </div>
-    <div class="tldr"><div class="tldr-label">⚡ 特にこの3つだけは覚えて</div><ul><li data-emoji="🔥">バックログ：契約済み未売上。売上化の時期が重要。</li><li data-emoji="📊">EV/Sales：企業価値を売上で割る倍率。</li><li data-emoji="⚠️">営業CF：本業で増減した現金。Q1はプラス。</li></ul></div>
-    <div class="term-list"><details class="term-item"><summary><span class="term-name">バックログ</span></summary><div class="term-body">契約済み未売上。売上化の時期が重要。</div></details><details class="term-item"><summary><span class="term-name">EV/Sales</span></summary><div class="term-body">企業価値を売上で割る倍率。</div></details><details class="term-item"><summary><span class="term-name">営業CF</span></summary><div class="term-body">本業で増減した現金。Q1はプラス。</div></details><details class="term-item"><summary><span class="term-name">FX損失</span></summary><div class="term-body">為替変動による損失。Q1は$18.9M。</div></details><details class="term-item"><summary><span class="term-name">SBC</span></summary><div class="term-body">株式報酬。Q1は$20.9M。</div></details><details class="term-item"><summary><span class="term-name">スマートシティ</span></summary><div class="term-body">都市機能をデータで一体管理。</div></details><details class="term-item"><summary><span class="term-name">GPU</span></summary><div class="term-body">AI計算に使う半導体。</div></details><details class="term-item"><summary><span class="term-name">ネットキャッシュ</span></summary><div class="term-body">現金から有利子負債を引いた額。</div></details><details class="term-item"><summary><span class="term-name">希薄化</span></summary><div class="term-body">新株で1株の持分が薄くなること。</div></details><details class="term-item"><summary><span class="term-name">マイルストーン</span></summary><div class="term-body">契約の検収・請求の節目。</div></details><details class="term-item"><summary><span class="term-name">粗利率</span></summary><div class="term-body">売上から原価を引いた利益率。</div></details><details class="term-item"><summary><span class="term-name">パイプライン</span></summary><div class="term-body">受注前を含む商談候補。</div></details></div>
+    <div class="tldr"><div class="tldr-label">⚡ 特にこの3つだけは覚えて</div><ul><li data-emoji="1️⃣">検収：顧客が納品物の完成を認める節目。</li><li data-emoji="2️⃣">売上認識：契約額を会計上の売上へ移すルール。</li><li data-emoji="3️⃣">バックログ：まだ売上になっていない受注残。</li></ul></div>
+    <div class="term-list"><details class="term-item"><summary class="term-header"><span class="term-name">検収<span class="term-en">Acceptance</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>顧客が納品物の完成を認める節目。 <b>なぜ重要：</b>業績と評価の前提を動かします。 <b>この銘柄では：</b>検収の進捗を決算と会社開示で確認します。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">売上認識<span class="term-en">Revenue recognition</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>契約額を会計上の売上へ移すルール。 <b>なぜ重要：</b>業績と評価の前提を動かします。 <b>この銘柄では：</b>売上認識の進捗を決算と会社開示で確認します。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">バックログ<span class="term-en">Backlog</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>まだ売上になっていない受注残。 <b>なぜ重要：</b>業績と評価の前提を動かします。 <b>この銘柄では：</b>バックログの進捗を決算と会社開示で確認します。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">営業CF<span class="term-en">Operating cash flow</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>本業で現金が増えたかを示す指標。 <b>なぜ重要：</b>業績と評価の前提を動かします。 <b>この銘柄では：</b>営業CFの進捗を決算と会社開示で確認します。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">GPU<span class="term-en">Graphics Processing Unit</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>AI計算を高速化する半導体。 <b>なぜ重要：</b>業績と評価の前提を動かします。 <b>この銘柄では：</b>GPUの進捗を決算と会社開示で確認します。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">スマートシティ<span class="term-en">Smart city</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>都市設備をデータで統合運用する仕組み。 <b>なぜ重要：</b>業績と評価の前提を動かします。 <b>この銘柄では：</b>スマートシティの進捗を決算と会社開示で確認します。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">映像解析<span class="term-en">Video analytics</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>カメラ映像をAIで判定する技術。 <b>なぜ重要：</b>業績と評価の前提を動かします。 <b>この銘柄では：</b>映像解析の進捗を決算と会社開示で確認します。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">顧客集中<span class="term-en">Customer concentration</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>少数案件への依存度が高い状態。 <b>なぜ重要：</b>業績と評価の前提を動かします。 <b>この銘柄では：</b>顧客集中の進捗を決算と会社開示で確認します。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">SBC<span class="term-en">Stock-based compensation</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>株式で払う報酬。株数増加につながる。 <b>なぜ重要：</b>業績と評価の前提を動かします。 <b>この銘柄では：</b>SBCの進捗を決算と会社開示で確認します。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">EV/Sales<span class="term-en">Enterprise value / Sales</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>企業価値を売上で割る評価倍率。 <b>なぜ重要：</b>業績と評価の前提を動かします。 <b>この銘柄では：</b>EV/Salesの進捗を決算と会社開示で確認します。</p></div></details></div>
   </section>
 
   <!-- SEC7: 株価の見方　⚡まとめ → timeline(signal+rating) → リスク4分類 info-row → highlight → 数字まとめ table -->
@@ -430,8 +430,8 @@ strong.g { color: var(--accent); }
       <div class="section-icon">💹</div><div class="section-num">7</div>
       <div><div class="section-title">何がGRRR株を<span class="g">動かす</span>？</div><div class="section-sub">上がる理由・下がる理由を一目で</div></div>
     </div>
-    <div class="tldr"><div class="tldr-label">⚡ 株価のツボ 3秒まとめ</div><ul><li data-emoji="🔥">現値$12.73、Base仮定$18。</li><li data-emoji="📊">次の決算で売上と現金を見る。</li><li data-emoji="⚠️">モデル値は前提で大きく動く。</li></ul></div>
-    <div class="timeline"><div class="timeline-item"><div class="timeline-dot up"></div><div><b>2026年8月頃｜Q2決算</b><p>売上進捗と営業CFを確認</p></div><span class="rating up">確認</span></div><div class="timeline-item"><div class="timeline-dot up"></div><div><b>2026年内｜AI案件の検収</b><p>$160M〜$200M目標への進捗</p></div><span class="rating up">追い風</span></div><div class="timeline-item"><div class="timeline-dot up"></div><div><b>随時｜大型契約の入金</b><p>売掛金回収と現金残高</p></div><span class="rating up">追い風</span></div><div class="timeline-item"><div class="timeline-dot down"></div><div><b>随時｜為替・SBC</b><p>会計損失と希薄化</p></div><span class="rating down">注意</span></div></div><div class="info-row"><span>技術リスク</span><b>高い</b></div><div class="info-row"><span>規制リスク</span><b>中</b></div><div class="info-row"><span>財務リスク</span><b>中〜高</b></div><div class="info-row"><span>市場リスク</span><b>非常に高い</b></div><div class="highlight"><h3>🎯 次に見る数字</h3><p>売上、営業CF、売掛金、希薄化後株数。</p></div><div class="table-wrap"><table class="compare-table"><tbody><tr><th>現在株価</th><td>$12.73</td></tr><tr><th>Bear / Base / Bull</th><td>$7 / $18 / $30</td></tr><tr><th>更新日</th><td>2026年7月22日</td></tr></tbody></table></div>
+    <div class="tldr"><div class="tldr-label">⚡ 株価のツボ 3秒まとめ</div><ul><li data-emoji="📅">Q2決算と大型案件の入金</li><li data-emoji="⚠️">大型案件の検収時期で四半期がぶれる。</li><li data-emoji="💹">現在株価$12.73</li></ul></div>
+    <div class="timeline"><div class="tl-row"><div class="tl-date">2026年Q2</div><div class="tl-title">売上$44M以上の達成 <span class="signal bull">🟢 追い風候補</span> <span class="rating">★★★★★<span class="off"></span></span></div><div class="tl-desc">売上と営業CFを同時に確認。</div></div><div class="tl-row"><div class="tl-date">2026年内</div><div class="tl-title">東南アジアAI案件の検収 <span class="signal bull">🟢 追い風候補</span> <span class="rating">★★★★★<span class="off"></span></span></div><div class="tl-desc">契約が売上・入金へ変わるか。</div></div><div class="tl-row"><div class="tl-date">次回提出書類</div><div class="tl-title">希薄化後株式数 <span class="signal neutral">🟡 確認</span> <span class="rating">★★★★<span class="off">★</span></span></div><div class="tl-desc">SBC・ワラント・転換を確認。</div></div><div class="tl-row"><div class="tl-date">随時</div><div class="tl-title">追加契約 <span class="signal bull">🟢 追い風候補</span> <span class="rating">★★★<span class="off">★★</span></span></div><div class="tl-desc">継続収益比率が上がるか。</div></div><div class="tl-row"><div class="tl-date">毎四半期</div><div class="tl-title">売掛金回収 <span class="signal neutral">🟡 確認</span> <span class="rating">★★★★<span class="off">★</span></span></div><div class="tl-desc">利益より現金を確認。</div></div><div class="tl-row"><div class="tl-date">随時</div><div class="tl-title">為替変動 <span class="signal bear">🔴 注意</span> <span class="rating">★★<span class="off">★★★</span></span></div><div class="tl-desc">会計損益への影響に注意。</div></div></div><div class="block-label">⚠️ リスクを4つに分ける</div><div class="info-row"><div class="info-box info-box-primary"><div class="info-title info-title-primary">技術</div><div class="info-text">大型AI基盤の安定稼働</div></div><div class="info-box info-box-amber"><div class="info-title info-title-amber">規制</div><div class="info-text">公共案件の承認と調達</div></div><div class="info-box info-box-red"><div class="info-title info-title-red">財務</div><div class="info-text">SBCと運転資金</div></div><div class="info-box info-box-gray"><div class="info-title info-title-gray">市場</div><div class="info-text">案件集中と為替</div></div></div><div class="highlight"><h3>📌 投資家向け注意点</h3><p>会社の魅力と株価の割安性は別です。<b>Q2決算と大型案件の入金</b>を確認し、契約・売上・現金・株数を分けて読みます。</p></div><div class="table-wrap"><table class="compare-table"><thead><tr><th>項目</th><th>最新値</th><th>基準</th></tr></thead><tbody><tr><td>現在株価</td><td>$12.73</td><td>2026-07-21終値</td></tr><tr><td>Q1売上</td><td>$28.2M</td><td>会社発表</td></tr><tr><td>Q2見通し</td><td>≥$44M</td><td>会社発表</td></tr><tr><td>現金</td><td>$98.4M</td><td>2026-03-31</td></tr></tbody></table></div><details class="term-item"><summary class="term-header"><span class="term-name">主要出典</span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><a href="https://investors.gorilla-technology.com/gorilla-technology-converts-growth-into-cash-q1-revenue-up-55-operating-cash-flow-turns-positive-full-year-guidance-raised/">Q1 2026決算</a><br><a href="https://investors.gorilla-technology.com/gorilla-technology-raises-q2-2026-revenue-outlook-to-at-least-us44-million-driven-by-contract-wins-and-accelerating-ai-infrastructure-demand/">Q2 2026見通し</a></p></div></details>
   </section>
 
 </div><!-- /container -->
@@ -463,7 +463,7 @@ document.querySelectorAll('details.term-item').forEach(d => {
   デザインロック（重要）
   ・アクセント色はSiMグリーンで固定。銘柄・業界で変えない。
   ・以前あった「業界別カラー早見表」は廃止（色を変えると銘柄ごとに見た目がぶれるため）。
-  ・この <style> と骨格は改変禁止。 の中身だけ差し替える。
+  ・この <style> と骨格は改変禁止。{{ }} の中身だけ差し替える。
 ================================================================
   ChatGPT用ルール: 完成HTMLは必ず index.html というファイル名で保存・出力する。
 ================================================================
