@@ -42,24 +42,24 @@ details{border:1px solid var(--line);background:#111119;border-radius:16px;paddi
 <div class="wrap">
   <div class="eyebrow">DOPAGAKI STOCK LAB / SCENARIO CHECK</div>
   <h1>Meta Platforms <small>META</small></h1>
-  <div class="sub">NASDAQ｜評価基準日 2026年7月22日｜使用手法 正規化FY26E EPS × PER</div>
+  <div class="sub">NASDAQ｜評価基準日 2026-07-22｜使用手法 2027E FCF倍率＋ネットキャッシュ</div>
   <div class="verdict">
     <div class="verdict-main">
       <span class="pill">まず結論だけ</span>
       <!-- decision.status＋一言結論（絵文字は先頭1個まで、45文字目安） -->
-      <div class="status">🟡 広告は絶好調。投資額も巨大。</div>
+      <div class="status">成長と投資の綱引き</div>
       <!-- 現値ポジショニングと市場逆算を1〜2文で -->
-      <p>現値$643.81はBear〜Base帯の27.7%地点。Base価値$768まで+19.3%です。</p>
-      <p class="sub">業績の強さとAI投資負担を分け、想定EPSとPERの両方で評価しました。</p>
+      <p>現値$643.81はBear〜Bull帯の35%地点。</p>
+      <p class="sub">時価総額は約$1.65T。現値は2027年FCFを約$74B、倍率約22倍とみなす水準で、Base前提の多くを織り込む。</p>
     </div>
     <!-- 総合スコアは“補助指標”。売買判断そのものではない旨を必ず添える -->
-    <div class="score"><small>総合スコア（補助指標）</small><b>76</b><small>/ 100　売買判断そのものではありません</small></div>
+    <div class="score"><small>総合スコア（補助指標）</small><b>66</b><small>/ 100　売買判断そのものではありません</small></div>
   </div>
   <div class="kpis">
-    <div class="kpi"><span>現在株価</span><b>$643.81</b><small>2026/7/22市場データ</small></div>
-    <div class="kpi"><span>Base価値（標準ケース）</span><b>$768</b><small>現値比 +19.3%</small></div>
-    <div class="kpi"><span>確率加重期待値</span><b>$762</b><small>現値比 +16.0%</small></div>
-    <div class="kpi"><span>リスク区分</span><b>中〜高</b><small>巨額AI投資と規制の振れ</small></div>
+    <div class="kpi"><span>現在株価</span><b>$643.81</b><small>2026年7月21日終値</small></div>
+    <div class="kpi"><span>Base価値（標準ケース）</span><b>$690</b><small>+7.2%</small></div>
+    <div class="kpi"><span>確率加重期待値</span><b>$720</b><small>+11.8%（補助指標）</small></div>
+    <div class="kpi"><span>リスク区分</span><b>高い</b><small>CapEx・規制・AI収益化</small></div>
   </div>
 
 <div style="position:relative;z-index:1;margin-top:14px;display:inline-flex;gap:8px;flex-wrap:wrap">
@@ -72,9 +72,9 @@ details{border:1px solid var(--line);background:#111119;border-radius:16px;paddi
 </header>
 
 <!-- Validation：WARNがあれば下の注意帯を残す（なければ丸ごと削除）。FAIL時は完成版にしない。 -->
-
+<div class="wrap"><div class="notice" style="margin-top:14px"><b>注意：</b>Q2決算前でCapEx前提が動く可能性があり、直近20営業日騰落率は未確認。ValidationはWARN。</div></div>
 <!-- 例（WARN時）:
-<div class="wrap"><div class="notice" style="margin-top:14px"><b>注意：</b></div></div>
+<div class="wrap"><div class="notice" style="margin-top:14px"><b>注意：</b>{{WARN_MESSAGE}}</div></div>
 -->
 
 <nav style="position:sticky;top:0;z-index:50;background:rgba(9,9,13,.86);backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.08)">
@@ -91,23 +91,23 @@ details{border:1px solid var(--line);background:#111119;border-radius:16px;paddi
 <!-- Layer2-1：いまどこ？（現値ポジショニング＋市場逆算） -->
 <section class="card" id="snapshot">
   <h2>いまの株価、どこにいる？</h2>
-  <p class="lead">Bear $504〜Bull $1008の想定レンジ内で現値を評価。</p>
+  <p class="lead">会社の質と株価の安さを分け、Q2決算・広告成長・CapExを優先して確認します。</p>
   <div class="grid-2">
     <div>
       <h3>現値ポジショニング</h3>
-      <p>Bear〜Bull帯の <b>27.7%</b> 地点。判定は <b>Bear〜Base帯</b>。Baseまで上値余地があります。</p>
+      <p>Bear〜Bull帯の <b>35%</b> 地点。判定は <b>Bear〜Base帯</b>。期待値だけで判断せず、材料の二重織り込みを確認。</p>
       <!-- pin の left:% を band_position_pct に合わせる -->
-      <div class="position"><div class="position-line"><i class="pin" style="left:27.7%"></i></div><div class="position-labels"><span>Bear $504</span><span>Base $768</span><span>Bull $1008</span></div></div>
-      <p>上値下値比：<b>2.61倍</b>　確率加重期待値：<b>$762</b></p>
+      <div class="position"><div class="position-line"><i class="pin" style="left:35%"></i></div><div class="position-labels"><span>Bear $450</span><span>Base $690</span><span>Bull $1,000</span></div></div>
+      <p>上値下値比：<b>1.84倍</b>　確率加重期待値：<b>$720</b></p>
     </div>
     <div>
       <h3>市場期待と独自見解</h3>
       <div class="compare">
-        <div><b>市場期待 73/100</b><div class="meter"><i style="width:73%"></i></div></div>
-        <div><b>本試算 76/100</b><div class="meter"><i style="width:76%"></i></div></div>
+        <div><b>市場期待 61/100</b><div class="meter"><i style="width:61%"></i></div></div>
+        <div><b>本試算 66/100</b><div class="meter"><i style="width:66%"></i></div></div>
       </div>
       <!-- market_reverse.conclusion：現値が自分のどの前提に相当するか -->
-      <p>現値は概ねEPS $26.83 × PER 24倍に相当します。</p>
+      <p>時価総額は約$1.65T。現値は2027年FCFを約$74B、倍率約22倍とみなす水準で、Base前提の多くを織り込む。</p>
     </div>
   </div>
 </section>
@@ -115,26 +115,26 @@ details{border:1px solid var(--line);background:#111119;border-radius:16px;paddi
 <!-- Layer1/2：3シナリオ。dl の項目は使用手法に合わせて変える（rNPV/SOTP/EV-Sales/PER等） -->
 <section class="card" id="scenarios">
   <h2>未来はこの3パターン</h2>
-  <p class="lead">1年先の正規化EPSと適用PERを組み合わせた3シナリオ。</p>
+  <p class="lead">事業価値、ネット現金・負債、希薄化後株式数をシナリオ別に分けたモデル仮定。</p>
   <div class="scenarios">
     <article class="scenario bear">
-      <div class="scenario-head"><span>Bear（悲観ケース）</span><b>25%</b></div>
-      <div class="scenario-price">$504</div>
-      <div class="small">現値比 -21.7%</div>
-      <dl><div><dt>想定EPS</dt><dd>$28.00</dd></div><div><dt>適用PER</dt><dd>18倍</dd></div><div><dt>前提</dt><dd>成長鈍化・倍率縮小</dd></div></dl>
+      <div class="scenario-head"><span>Bear（悲観ケース）</span><b>20%</b></div>
+      <div class="scenario-price">$450</div>
+      <div class="small">現値比 -30.1%</div>
+      <dl><div><dt>事業価値（仮定）</dt><dd>$1126.00B</dd></div><div><dt>ネット現金/負債</dt><dd>+$35.00B</dd></div><div><dt>希薄化後株数</dt><dd>2,580M株</dd></div><div><dt>成立前提</dt><dd>FCF$62B・18倍相当</dd></div></dl>
       <!-- 例: <div><dt>事業価値</dt><dd>25.9兆円</dd></div> を手法に応じて数行 -->
     </article>
     <article class="scenario base">
-      <div class="scenario-head"><span>Base（標準ケース）</span><b>50%</b></div>
-      <div class="scenario-price">$768</div>
-      <div class="small">現値比 現値比 +19.3%</div>
-      <dl><div><dt>想定EPS</dt><dd>$32.00</dd></div><div><dt>適用PER</dt><dd>24倍</dd></div><div><dt>前提</dt><dd>会社成長継続</dd></div></dl>
+      <div class="scenario-head"><span>Base（標準ケース）</span><b>55%</b></div>
+      <div class="scenario-price">$690</div>
+      <div class="small">現値比 +7.2%</div>
+      <dl><div><dt>事業価値（仮定）</dt><dd>$1714.50B</dd></div><div><dt>ネット現金/負債</dt><dd>+$45.00B</dd></div><div><dt>希薄化後株数</dt><dd>2,550M株</dd></div><div><dt>成立前提</dt><dd>FCF$78B・22倍相当</dd></div></dl>
     </article>
     <article class="scenario bull">
       <div class="scenario-head"><span>Bull（強気ケース）</span><b>25%</b></div>
-      <div class="scenario-price">$1008</div>
-      <div class="small">現値比 +56.6%</div>
-      <dl><div><dt>想定EPS</dt><dd>$36.00</dd></div><div><dt>適用PER</dt><dd>28倍</dd></div><div><dt>前提</dt><dd>AI収益化上振れ</dd></div></dl>
+      <div class="scenario-price">$1,000</div>
+      <div class="small">現値比 +55.3%</div>
+      <dl><div><dt>事業価値（仮定）</dt><dd>$2465.00B</dd></div><div><dt>ネット現金/負債</dt><dd>+$55.00B</dd></div><div><dt>希薄化後株数</dt><dd>2,520M株</dd></div><div><dt>成立前提</dt><dd>FCF$95B・26倍相当</dd></div></dl>
     </article></div>
 </section>
 
@@ -143,13 +143,13 @@ details{border:1px solid var(--line);background:#111119;border-radius:16px;paddi
   <div class="card">
     <h2>この値段ならどう見る？</h2>
     <!-- 4〜5帯。「買い/売り」は断定しない。星は割安度の目安 -->
-    <div class="zone"><div><b>$529未満</b><span>★★★★★</span></div><p>Bear近辺。悲観をかなり織り込む。</p></div><div class="zone"><div><b>$529〜$691</b><span>★★★★☆</span></div><p>Baseに対して余白がある。</p></div><div class="zone"><div><b>$691〜$845</b><span>★★★☆☆</span></div><p>Base帯。決算確認が必要。</p></div><div class="zone"><div><b>$845〜$1008</b><span>★★☆☆☆</span></div><p>Bull期待が強い帯。</p></div><div class="zone"><div><b>$1008超</b><span>★☆☆☆☆</span></div><p>強気ケース超え。期待剥落に注意。</p></div>
+    <div class="zone"><div><b>$450未満</b><span>★★★★★</span></div><p>悲観ケース以下。悪化材料と資金繰りを確認。</p></div><div class="zone"><div><b>$450〜$690</b><span>★★★☆☆</span></div><p>慎重〜標準前提の間。</p></div><div class="zone"><div><b>$690〜$1,000</b><span>★★☆☆☆</span></div><p>強い実行と成長を織り込む。</p></div><div class="zone"><div><b>$1,000超</b><span>★☆☆☆☆</span></div><p>Bull超。追加材料が必要。</p></div>
     <!-- 例: <div class="zone"><div><b>48,000円未満</b><span>★★★★★</span></div><p>悲観ケース以下。下方リスクを相当織り込む</p></div> -->
   </div>
   <div class="card">
     <h2>株価を動かす4つ</h2>
     <!-- 各材料に up=追い風 / down=注意 / flat を付ける -->
-    <div class="signal"><div><b>広告AI</b><span class="up">追い風</span></div><p>表示数・単価・コンバージョンが伸びる。</p></div><div class="signal"><div><b>CapExと規制</b><span class="down">注意</span></div><p>AI設備費、訴訟、若者保護・EU規制。</p></div><div class="signal"><div><b>2026 Q2決算 / 広告成長とCapEx</b><span class="flat">決算</span></div><p>2026年7月29日のQ2決算。売上ガイダンス$58〜61B、広告表示数・単価、年間CapEx $125〜145B、Reality Labs損失を見る。</p></div><div class="signal"><div><b>PER変化</b><span class="down">重要</span></div><p>金利と成長期待で株価倍率が変動する。</p></div>
+    <div class="signal"><div><b>2026-07-29｜Q2決算</b><span class="flat">確認</span></div><p>広告成長とCapEx見通し。</p></div><div class="signal"><div><b>毎四半期｜広告単価</b><span class="up">追い風候補</span></div><p>AI改善が単価へ効くか。</p></div><div class="signal"><div><b>2026年後半｜Meta AI製品</b><span class="up">追い風候補</span></div><p>利用と収益化の距離。</p></div><div class="signal"><div><b>随時｜データセンター投資</b><span class="flat">確認</span></div><p>投資額と稼働時期。</p></div>
     <!-- 例: <div class="signal"><div><b>AI向けSSD需要</b><span class="up">追い風</span></div><p>…</p></div> -->
   </div>
 </section>
@@ -158,12 +158,12 @@ details{border:1px solid var(--line);background:#111119;border-radius:16px;paddi
 <section class="grid-2">
   <div class="card">
     <h2>ここは普通に強い</h2>
-    <ul class="clean"><li>2026 Q1売上は33%増の$56.3B。</li><li>広告表示数19%増、広告単価12%増。</li><li>営業利益は30%増、営業利益率41%。</li><li>日間利用者3.56B人の巨大な配信基盤。</li></ul>
+    <ul class="clean"><li>Q1売上$56.31B、前年同期比33%増。</li><li>広告表示数と広告単価がともに増加。</li><li>営業利益率41%。</li><li>Family DAPは3.56B人。</li></ul>
     <!-- 例: <li>FY2025売上2.34兆円で過去最高。</li> を3〜5件 -->
   </div>
   <div class="card">
     <h2>ここで事故るかも</h2>
-    <ul class="clean"><li>2026年CapEx見通し$125〜145Bへ引き上げ。</li><li>Q1 EPSには$3.13の税効果が含まれ、正規化が必要。</li><li>Reality LabsはQ1に$4.0Bの営業赤字。</li><li>EU・米国の訴訟や若者保護規制。</li></ul>
+    <ul class="clean"><li>2026年CapEx見通し$125B〜$145B。</li><li>Reality Labsの赤字が継続。</li><li>AI人材・電力・GPUコストが増加。</li><li>規制と広告景気に左右される。</li></ul>
     <!-- 2つ目のカードのliは自動で赤「!」になる -->
   </div>
 </section>
@@ -171,20 +171,20 @@ details{border:1px solid var(--line);background:#111119;border-radius:16px;paddi
 <!-- Layer3：計算ロジック -->
 <section class="card" id="logic">
   <h2>数字の作り方</h2>
-  <p class="lead">目標株価 ＝ 正規化EPS × 適用PER。METAの事業成長とAI投資回収を別々に評価。</p>
+  <p class="lead">理論株価＝（事業価値＋ネット現金／負債調整）÷希薄化後株式数</p>
   <div class="table-wrap"><table>
-  <thead><tr><th>ケース</th><th>想定EPS</th><th>PER</th><th>目標株価</th><th>現値比</th></tr></thead>
-  <tbody><tr><td>Bear</td><td>$28</td><td>18倍</td><td>$504</td><td>-21.7%</td></tr><tr><td>Base</td><td>$32</td><td>24倍</td><td>$768</td><td>+19.3%</td></tr><tr><td>Bull</td><td>$36</td><td>28倍</td><td>$1008</td><td>+56.6%</td></tr></tbody>
+  <thead><tr><th>ケース</th><th>事業価値</th><th>ネット調整</th><th>株式数</th><th>株価</th></tr></thead>
+  <tbody><tr><td>Bear</td><td>$1126.00B</td><td>+$35.00B</td><td>2,580M</td><td>$450</td></tr><tr><td>Base</td><td>$1714.50B</td><td>+$45.00B</td><td>2,550M</td><td>$690</td></tr><tr><td>Bull</td><td>$2465.00B</td><td>+$55.00B</td><td>2,520M</td><td>$1,000</td></tr></tbody>
   </table></div>
   <!-- 現値に合わせた逆算ではない旨、未開示前提の注意など -->
-  <p class="notice"><b>重要：</b>EPSとPERはいずれも将来仮定です。目標株価は保証ではなく、決算ごとに更新が必要です。</p>
+  <p class="notice"><b>重要：</b>将来値は仮定。現値にBaseを合わせていません。現金・負債・株式数は評価基準日にそろえ、未確認項目はWARN表示しています。</p>
 </section>
 
 <!-- Layer3：成立条件 -->
 <section class="card" id="conditions">
   <h2>この未来になる条件</h2>
-  <details open><summary>Bear：$504 / 確率25%</summary><p>成長鈍化、投資負担増、PER縮小。</p></details><details open><summary>Base：$768 / 確率50%</summary><p>現在の成長が概ね継続し、標準倍率を維持。</p></details><details open><summary>Bull：$1008 / 確率25%</summary><p>AI収益化が上振れし、EPSと倍率が同時に拡大。</p></details>
-  <!-- 例: <details open><summary>Base：$768 / 確率50%</summary><p>…</p></details> を3つ -->
+  <details open><summary>Base：$690 / 確率55%</summary><p>FCF$78B・22倍相当。Q2決算・広告成長・CapExが概ね計画通り。</p></details><details><summary>Bear：$450 / 確率20%</summary><p>FCF$62B・18倍相当。資金・工程・倍率が悪化。</p></details><details><summary>Bull：$1,000 / 確率25%</summary><p>FCF$95B・26倍相当。主要カタリストが順調。</p></details>
+  <!-- 例: <details open><summary>Base：$690 / 確率55%</summary><p>…</p></details> を3つ -->
 </section>
 
 <!-- Layer3：感応度 ＋ 分布（モンテカルロは実施時のみ） -->
@@ -192,24 +192,24 @@ details{border:1px solid var(--line);background:#111119;border-radius:16px;paddi
   <div class="card">
     <h2>数字がズレるとどうなる？</h2>
     <div class="table-wrap"><table>
-      <thead><tr><th>EPS \ PER</th><th>18倍</th><th>24倍</th><th>28倍</th></tr></thead>
-      <tbody><tr><td>$28</td><td>$504</td><td>$672</td><td>$784</td></tr><tr><td>$32</td><td>$576</td><td>$768</td><td>$896</td></tr><tr><td>$36</td><td>$648</td><td>$864</td><td>$1008</td></tr></tbody>
+      <thead><tr><th>2027 FCF＼倍率</th><th>18x</th><th>22x</th><th>26x</th></tr></thead>
+      <tbody><tr><td>$65B</td><td>$477</td><td>$579</td><td>$680</td></tr><tr><td>$78B</td><td>$568</td><td>$690</td><td>$813</td></tr><tr><td>$92B</td><td>$666</td><td>$810</td><td>$953</td></tr></tbody>
     </table></div>
-    <p class="small">EPSだけでなくPERの変化が株価へ大きく効きます。</p>
+    <p class="small">主要ドライバと評価倍率・成功確率の組み合わせ。将来時期が遅れるほど現在価値は低下。</p>
   </div>
   <div class="card">
     <h2>どの価格に行きやすい？</h2>
-    <p class="lead">3ケース確率を価格帯へ単純配分した目安。モンテカルロではありません。</p>
-    <div class="dist-row"><span>Bear帯</span><div class="track"><i style="width:25%"></i></div><b>25%</b></div><div class="dist-row"><span>Base帯</span><div class="track"><i style="width:50%"></i></div><b>50%</b></div><div class="dist-row"><span>Bull帯</span><div class="track"><i style="width:25%"></i></div><b>25%</b></div>
+    <p class="lead">3シナリオの確率をそのまま表示。予言ではありません。</p>
+    <div class="dist-row"><span>Bear $450</span><div class="track"><i style="width:20%"></i></div><b>20%</b></div><div class="dist-row"><span>Base $690</span><div class="track"><i style="width:55%"></i></div><b>55%</b></div><div class="dist-row"><span>Bull $1,000</span><div class="track"><i style="width:25%"></i></div><b>25%</b></div>
     <!-- 例: <div class="dist-row"><span>5万円未満</span><div class="track"><i style="width:7.6%"></i></div><b>7.6%</b></div> -->
-    <p>確率加重期待値は$762。</p>
+    <p>確率加重期待値は$720。単独の売買判断には使いません。</p>
   </div>
 </section>
 
 <!-- 次の決算/イベントで見る場所（watch_items） -->
 <section class="card">
   <h2>次の決算で見る場所</h2>
-  <div class="signal"><div><b>2026 Q2決算 / 広告成長とCapEx</b><span class="flat">最重要</span></div><p>2026年7月29日のQ2決算。売上ガイダンス$58〜61B、広告表示数・単価、年間CapEx $125〜145B、Reality Labs損失を見る。</p></div><div class="signal"><div><b>売上成長</b><span class="up">確認</span></div><p>AI関連売上が全社成長へつながるか。</p></div><div class="signal"><div><b>利益率・FCF</b><span class="flat">確認</span></div><p>巨額CapEx後にも利益と現金が残るか。</p></div>
+  <div class="signal"><div><b>2026-07-29｜Q2決算</b></div><p>広告成長とCapEx見通し。</p></div><div class="signal"><div><b>毎四半期｜広告単価</b></div><p>AI改善が単価へ効くか。</p></div><div class="signal"><div><b>2026年後半｜Meta AI製品</b></div><p>利用と収益化の距離。</p></div><div class="signal"><div><b>随時｜データセンター投資</b></div><p>投資額と稼働時期。</p></div>
   <!-- 例: <div class="signal"><div><b>2026年7月31日の1Q決算</b></div><p>…</p></div> -->
 </section>
 
@@ -218,22 +218,22 @@ details{border:1px solid var(--line);background:#111119;border-radius:16px;paddi
   <h2>使った数字と前提</h2>
   <div class="table-wrap"><table>
   <thead><tr><th>項目</th><th>値</th><th>分類</th><th>注記</th></tr></thead>
-  <tbody><tr><td>現在株価</td><td>$643.81</td><td>市場データ</td><td>2026/7/22</td></tr><tr><td>2026 Q1売上</td><td>$56.3B</td><td>事実</td><td>前年比+33%</td></tr><tr><td>Q1営業利益</td><td>$22.9B</td><td>事実</td><td>前年比+30%</td></tr><tr><td>広告表示数</td><td>+19%</td><td>事実</td><td>前年比</td></tr><tr><td>2026 CapEx見通し</td><td>$125〜145B</td><td>事実</td><td>会社予想</td></tr><tr><td>Bear EPS / PER</td><td>$28 / 18倍</td><td>仮定</td><td>減速ケース</td></tr><tr><td>Base EPS / PER</td><td>$32 / 24倍</td><td>仮定</td><td>標準ケース</td></tr><tr><td>Bull EPS / PER</td><td>$36 / 28倍</td><td>仮定</td><td>上振れケース</td></tr></tbody>
+  <tbody><tr><td>現値</td><td>$643.81</td><td>市場データ</td><td>2026-07-21終値</td></tr><tr><td>時価総額</td><td>$1.65T</td><td>市場データ</td><td>同日取得</td></tr><tr><td>評価手法</td><td>2027E FCF倍率＋ネットキャッシュ</td><td>モデル仮定</td><td>現値へ調整せず</td></tr><tr><td>確率</td><td>20/55/25%</td><td>モデル仮定</td><td>合計100%</td></tr><tr><td>20営業日騰落</td><td>未確認</td><td>未確認</td><td>V17 WARN</td></tr><tr><td>Q1売上</td><td>$56.31B</td><td>会社開示</td><td>+33%</td></tr><tr><td>営業利益率</td><td>41%</td><td>会社開示</td><td>Q1 2026</td></tr><tr><td>2026 CapEx</td><td>$125B〜$145B</td><td>会社開示</td><td>会社見通し</td></tr></tbody>
   </table></div>
 </section>
 
 <!-- Layer3：ガチ勢向け深掘り（details折りたたみ） -->
 <section class="card">
   <h2>ガチ勢向けの深掘り</h2>
-  <details><summary>手法選定</summary><p>黒字・高収益の大型株で将来EPSを推定できるためPER法を採用。</p></details><details><summary>市場逆算</summary><p>現値はBase PER 24倍でEPS $26.83を織り込みます。</p></details><details><summary>主要出典</summary><ul><li><a href="https://investor.atmeta.com/investor-news/press-release-details/2026/Meta-Reports-First-Quarter-2026-Results/default.aspx">公式IR：直近決算</a></li></ul></details><details><summary>更新履歴</summary><p>2026年7月22日：直近決算と市場価格を反映した初版。</p></details>
+  <details><summary>手法と市場逆算</summary><p>2027E FCF倍率＋ネットキャッシュを採用。時価総額は約$1.65T。現値は2027年FCFを約$74B、倍率約22倍とみなす水準で、Base前提の多くを織り込む。</p></details><details><summary>倍率・SOTPの根拠</summary><p>Bearは遅延と倍率縮小、Baseは会社計画の部分達成、Bullは主要カタリスト成功を置いた仮定。現値へBaseを合わせていません。</p></details><details><summary>キャッシュ・負債・希薄化</summary><p>各シナリオのネット調整と希薄化後株式数を別々に反映。Q2決算前でCapEx前提が動く可能性があり、直近20営業日騰落率は未確認。ValidationはWARN。</p></details><details><summary>エントリーコンテキスト</summary><p>直近20営業日騰落率は完全確認できずWARN。材料の二重織り込みを避け、Q2決算・広告成長・CapExを優先します。</p></details><details><summary>Validation Engine</summary><p>WARN。V01確率100%、V02 Bear＜Base＜Bull、V03期待値$720、V04株価変換を再計算済み。FAILなし。</p></details><details><summary>主要出典</summary><p><a href="https://investor.atmeta.com/investor-news/press-release-details/2026/Meta-Reports-First-Quarter-2026-Results/default.aspx">Q1 2026決算</a><br><a href="https://investor.atmeta.com/investor-events/">Q2 2026イベント</a></p></details><details><summary>更新履歴</summary><p>2026-07-22全面改訂。正式テンプレート、最新株価、最新決算、希薄化、市場逆算を反映。</p></details>
   <!-- 手法選定理由 / 市場逆算 / 倍率トラジェクトリ / 同業比較 / キャッシュバーン・希薄化 /
        転換社債 / M&A / モンテカルロ・ベイズ（実施時）/ 前提と未確認事項 / 更新履歴 / 主要出典 を
        それぞれ <details><summary>…</summary><p>…</p></details> で。出典はリンクの箇条書き -->
 </section>
 
 <section class="card notice">
-  <h3>免責</h3><p>公開情報を基にした教育目的のシナリオ試算であり、投資助言や将来価格の保証ではありません。投資には元本割れリスクがあります。</p>
+  <h3>免責</h3><p>本資料は情報提供・教育目的で、投資助言ではありません。将来価格は仮定に基づく試算で、実現を保証しません。</p>
 </section>
-<footer>DOPAGAKI STOCK LAB｜Meta Platforms（META）｜2026年7月22日更新</footer>
+<footer>DOPAGAKI STOCK LAB｜最終更新 2026-07-22｜Validation: WARN</footer>
 </main>
 </body></html>
