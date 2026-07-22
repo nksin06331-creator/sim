@@ -35,31 +35,31 @@ details{border:1px solid var(--line);background:#111119;border-radius:16px;paddi
 <!-- ================================================================
   DOPAGAKI STOCK LAB / SCENARIO TEMPLATE
   ・CSSと各セクション構成はキオクシア版と同一（サイト掲載の見た目を維持）。
-  ・ を report_data の値で置換して使う。数値・確率・結論は改変しない。
+  ・{{ }} を report_data の値で置換して使う。数値・確率・結論は改変しない。
   ・ファイル名は銘柄名（例: 285A.html / IONQ.html）。
 ================================================================ -->
 <header class="hero">
 <div class="wrap">
   <div class="eyebrow">DOPAGAKI STOCK LAB / SCENARIO CHECK</div>
   <h1>Gorilla Technology Group <small>GRRR</small></h1>
-  <div class="sub">NASDAQ｜評価基準日 2026-07-22｜使用手法 2026E EV/Sales＋ネットキャッシュ</div>
+  <div class="sub">NASDAQ｜評価基準日 2026-07-22｜使用手法 2028E EV/Sales＋ネットキャッシュ</div>
   <div class="verdict">
     <div class="verdict-main">
       <span class="pill">まず結論だけ</span>
       <!-- decision.status＋一言結論（絵文字は先頭1個まで、45文字目安） -->
-      <div class="status">慎重寄り</div>
+      <div class="status">実行確認型</div>
       <!-- 現値ポジショニングと市場逆算を1〜2文で -->
-      <p>現値は低倍率。ただし大型案件の実行確認が必要。</p>
-      <p class="sub">会社の魅力と株価の割安性は分けて評価します。</p>
+      <p>現値$12.73はBear〜Bull帯の10%地点。</p>
+      <p class="sub">現値の株式価値は約$141M。ネット現金を差し引くと、成長目標に対する評価は低い一方、案件実行リスクを強く織り込む。</p>
     </div>
     <!-- 総合スコアは“補助指標”。売買判断そのものではない旨を必ず添える -->
-    <div class="score"><small>総合スコア（補助指標）</small><b>58</b><small>/ 100　売買判断そのものではありません</small></div>
+    <div class="score"><small>総合スコア（補助指標）</small><b>56</b><small>/ 100　売買判断そのものではありません</small></div>
   </div>
   <div class="kpis">
     <div class="kpi"><span>現在株価</span><b>$12.73</b><small>2026年7月21日終値</small></div>
-    <div class="kpi"><span>Base価値（標準ケース）</span><b>$18</b><small>41.4%</small></div>
-    <div class="kpi"><span>確率加重期待値</span><b>$18.25</b><small>43.4%</small></div>
-    <div class="kpi"><span>リスク区分</span><b>非常に高い</b><small>業績・実行・希薄化を含む</small></div>
+    <div class="kpi"><span>Base価値（標準ケース）</span><b>$26</b><small>+104.2%</small></div>
+    <div class="kpi"><span>確率加重期待値</span><b>$29</b><small>+130.6%（補助指標）</small></div>
+    <div class="kpi"><span>リスク区分</span><b>非常に高い</b><small>案件・回収・希薄化</small></div>
   </div>
 
 <div style="position:relative;z-index:1;margin-top:14px;display:inline-flex;gap:8px;flex-wrap:wrap">
@@ -72,9 +72,9 @@ details{border:1px solid var(--line);background:#111119;border-radius:16px;paddi
 </header>
 
 <!-- Validation：WARNがあれば下の注意帯を残す（なければ丸ごと削除）。FAIL時は完成版にしない。 -->
-
+<div class="wrap"><div class="notice" style="margin-top:14px"><b>注意：</b>希薄化後株式数と直近20営業日騰落率は完全確認できず、ValidationはWARN。</div></div>
 <!-- 例（WARN時）:
-<div class="wrap"><div class="notice" style="margin-top:14px"><b>注意：</b>希薄化後株式数は市場データからの概算です。次回提出書類で再確認が必要です。</div></div>
+<div class="wrap"><div class="notice" style="margin-top:14px"><b>注意：</b>{{WARN_MESSAGE}}</div></div>
 -->
 
 <nav style="position:sticky;top:0;z-index:50;background:rgba(9,9,13,.86);backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.08)">
@@ -91,23 +91,23 @@ details{border:1px solid var(--line);background:#111119;border-radius:16px;paddi
 <!-- Layer2-1：いまどこ？（現値ポジショニング＋市場逆算） -->
 <section class="card" id="snapshot">
   <h2>いまの株価、どこにいる？</h2>
-  <p class="lead">まず、現値が3シナリオ帯のどこにいるかを確認します。</p>
+  <p class="lead">会社の質と株価の安さを分け、Q2決算と大型案件の入金を優先して確認します。</p>
   <div class="grid-2">
     <div>
       <h3>現値ポジショニング</h3>
-      <p>Bear〜Bull帯の <b>24.9%</b> 地点。判定は <b>Bear〜Base帯</b>。期待値だけで判断せず、次の決算と入金を確認。</p>
+      <p>Bear〜Bull帯の <b>10%</b> 地点。判定は <b>Bear〜Base帯</b>。期待値だけで判断せず、材料の二重織り込みを確認。</p>
       <!-- pin の left:% を band_position_pct に合わせる -->
-      <div class="position"><div class="position-line"><i class="pin" style="left:24.9%"></i></div><div class="position-labels"><span>Bear $7</span><span>Base $18</span><span>Bull $30</span></div></div>
-      <p>上値下値比：<b>3.01倍</b>　確率加重期待値：<b>$18.25</b></p>
+      <div class="position"><div class="position-line"><i class="pin" style="left:10%"></i></div><div class="position-labels"><span>Bear $6.5</span><span>Base $26</span><span>Bull $72</span></div></div>
+      <p>上値下値比：<b>9.51倍</b>　確率加重期待値：<b>$29</b></p>
     </div>
     <div>
       <h3>市場期待と独自見解</h3>
       <div class="compare">
-        <div><b>市場期待 38/100</b><div class="meter"><i style="width:38%"></i></div></div>
-        <div><b>本試算 55/100</b><div class="meter"><i style="width:55%"></i></div></div>
+        <div><b>市場期待 44/100</b><div class="meter"><i style="width:44%"></i></div></div>
+        <div><b>本試算 56/100</b><div class="meter"><i style="width:56%"></i></div></div>
       </div>
       <!-- market_reverse.conclusion：現値が自分のどの前提に相当するか -->
-      <p>時価総額$141Mとネットキャッシュ約$85Mから、現値のEVは約$56M。2026年売上目標の中間値$180Mに対し約0.31倍を織り込む。</p>
+      <p>現値の株式価値は約$141M。ネット現金を差し引くと、成長目標に対する評価は低い一方、案件実行リスクを強く織り込む。</p>
     </div>
   </div>
 </section>
@@ -115,26 +115,26 @@ details{border:1px solid var(--line);background:#111119;border-radius:16px;paddi
 <!-- Layer1/2：3シナリオ。dl の項目は使用手法に合わせて変える（rNPV/SOTP/EV-Sales/PER等） -->
 <section class="card" id="scenarios">
   <h2>未来はこの3パターン</h2>
-  <p class="lead">将来売上、評価倍率、ネット資産、希薄化後株数を分けて試算。</p>
+  <p class="lead">事業価値、ネット現金・負債、希薄化後株式数をシナリオ別に分けたモデル仮定。</p>
   <div class="scenarios">
     <article class="scenario bear">
-      <div class="scenario-head"><span>Bear（悲観ケース）</span><b>25%</b></div>
-      <div class="scenario-price">$7</div>
-      <div class="small">現値比 -45.0%</div>
-      <dl><dt>事業価値</dt><dd>$40M</dd><dt>ネット資産調整</dt><dd>$37.8M</dd><dt>希薄化後株式数</dt><dd>11.11M株（仮定）</dd><dt>成立条件</dt><dd>遅延・倍率低下</dd></dl>
+      <div class="scenario-head"><span>Bear（悲観ケース）</span><b>30%</b></div>
+      <div class="scenario-price">$6.5</div>
+      <div class="small">現値比 -48.9%</div>
+      <dl><div><dt>事業価値（仮定）</dt><dd>$0.061B</dd></div><div><dt>ネット現金/負債</dt><dd>+$0.030B</dd></div><div><dt>希薄化後株数</dt><dd>14M株</dd></div><div><dt>成立前提</dt><dd>売上遅延と低倍率</dd></div></dl>
       <!-- 例: <div><dt>事業価値</dt><dd>25.9兆円</dd></div> を手法に応じて数行 -->
     </article>
     <article class="scenario base">
       <div class="scenario-head"><span>Base（標準ケース）</span><b>50%</b></div>
-      <div class="scenario-price">$18</div>
-      <div class="small">現値比 41.4%</div>
-      <dl><dt>事業価値</dt><dd>$115M</dd><dt>ネット資産調整</dt><dd>$85M</dd><dt>希薄化後株式数</dt><dd>11.11M株（仮定）</dd><dt>成立条件</dt><dd>会社計画へ進捗</dd></dl>
+      <div class="scenario-price">$26</div>
+      <div class="small">現値比 +104.2%</div>
+      <dl><div><dt>事業価値（仮定）</dt><dd>$0.278B</dd></div><div><dt>ネット現金/負債</dt><dd>+$0.060B</dd></div><div><dt>希薄化後株数</dt><dd>13M株</dd></div><div><dt>成立前提</dt><dd>Q2以降も成長継続</dd></div></dl>
     </article>
     <article class="scenario bull">
-      <div class="scenario-head"><span>Bull（強気ケース）</span><b>25%</b></div>
-      <div class="scenario-price">$30</div>
-      <div class="small">現値比 135.7%</div>
-      <dl><dt>事業価値</dt><dd>$250M</dd><dt>ネット資産調整</dt><dd>$83.3M</dd><dt>希薄化後株式数</dt><dd>11.11M株（仮定）</dd><dt>成立条件</dt><dd>案件成功と継続成長</dd></dl>
+      <div class="scenario-head"><span>Bull（強気ケース）</span><b>20%</b></div>
+      <div class="scenario-price">$72</div>
+      <div class="small">現値比 +465.6%</div>
+      <dl><div><dt>事業価値（仮定）</dt><dd>$0.794B</dd></div><div><dt>ネット現金/負債</dt><dd>+$0.070B</dd></div><div><dt>希薄化後株数</dt><dd>12M株</dd></div><div><dt>成立前提</dt><dd>大型案件と継続収益が両立</dd></div></dl>
     </article></div>
 </section>
 
@@ -143,13 +143,13 @@ details{border:1px solid var(--line);background:#111119;border-radius:16px;paddi
   <div class="card">
     <h2>この値段ならどう見る？</h2>
     <!-- 4〜5帯。「買い/売り」は断定しない。星は割安度の目安 -->
-    <div class="zone"><b>Bear未満</b><p>契約遅延や追加希薄化を強く織り込む。</p></div><div class="zone"><b>Bear〜Base</b><p>実行を慎重に評価する帯。</p></div><div class="zone"><b>Base〜Bull</b><p>成長目標の達成を強く織り込む。</p></div><div class="zone"><b>Bull超</b><p>上振れと継続成長まで要求する。</p></div>
+    <div class="zone"><div><b>$6.5未満</b><span>★★★★★</span></div><p>悲観ケース以下。悪化材料と資金繰りを確認。</p></div><div class="zone"><div><b>$6.5〜$26</b><span>★★★☆☆</span></div><p>慎重〜標準前提の間。</p></div><div class="zone"><div><b>$26〜$72</b><span>★★☆☆☆</span></div><p>強い実行と成長を織り込む。</p></div><div class="zone"><div><b>$72超</b><span>★☆☆☆☆</span></div><p>Bull超。追加材料が必要。</p></div>
     <!-- 例: <div class="zone"><div><b>48,000円未満</b><span>★★★★★</span></div><p>悲観ケース以下。下方リスクを相当織り込む</p></div> -->
   </div>
   <div class="card">
     <h2>株価を動かす4つ</h2>
     <!-- 各材料に up=追い風 / down=注意 / flat を付ける -->
-    <div class="signal"><b>2026年8月頃｜Q2決算</b><p>売上進捗と営業CFを確認</p></div><div class="signal"><b>2026年内｜AI案件の検収</b><p>$160M〜$200M目標への進捗</p></div><div class="signal"><b>随時｜大型契約の入金</b><p>売掛金回収と現金残高</p></div><div class="signal"><b>随時｜為替・SBC</b><p>会計損失と希薄化</p></div>
+    <div class="signal"><div><b>2026年Q2｜売上$44M以上の達成</b><span class="up">追い風候補</span></div><p>売上と営業CFを同時に確認。</p></div><div class="signal"><div><b>2026年内｜東南アジアAI案件の検収</b><span class="up">追い風候補</span></div><p>契約が売上・入金へ変わるか。</p></div><div class="signal"><div><b>次回提出書類｜希薄化後株式数</b><span class="flat">確認</span></div><p>SBC・ワラント・転換を確認。</p></div><div class="signal"><div><b>随時｜追加契約</b><span class="up">追い風候補</span></div><p>継続収益比率が上がるか。</p></div>
     <!-- 例: <div class="signal"><div><b>AI向けSSD需要</b><span class="up">追い風</span></div><p>…</p></div> -->
   </div>
 </section>
@@ -158,12 +158,12 @@ details{border:1px solid var(--line);background:#111119;border-radius:16px;paddi
 <section class="grid-2">
   <div class="card">
     <h2>ここは普通に強い</h2>
-    <ul class="clean"><li>Q1売上は前年同期比55%増。</li><li>営業CFが$6.6Mのプラスへ転換。</li><li>現金$98.4Mに対し借入は約$13.2M。</li></ul>
+    <ul class="clean"><li>Q1売上$28.2M、前年同期比55%増。</li><li>Q2売上見通しを少なくとも$44Mへ引き上げ。</li><li>現金$98.4M、借入$13.2M。</li><li>営業CFがプラスへ転換。</li></ul>
     <!-- 例: <li>FY2025売上2.34兆円で過去最高。</li> を3〜5件 -->
   </div>
   <div class="card">
     <h2>ここで事故るかも</h2>
-    <ul class="clean"><li>2026年目標は案件の検収時期に左右される。</li><li>Q1はFX損失$18.9M、SBC$20.9M。</li><li>大型案件は顧客集中と回収遅延の影響が大きい。</li></ul>
+    <ul class="clean"><li>大型案件の検収時期で四半期がぶれる。</li><li>為替差損とSBCが会計利益を振らす。</li><li>顧客集中と回収遅延の影響が大きい。</li><li>潜在株式数は次回提出書類で再確認が必要。</li></ul>
     <!-- 2つ目のカードのliは自動で赤「!」になる -->
   </div>
 </section>
@@ -171,20 +171,20 @@ details{border:1px solid var(--line);background:#111119;border-radius:16px;paddi
 <!-- Layer3：計算ロジック -->
 <section class="card" id="logic">
   <h2>数字の作り方</h2>
-  <p class="lead">理論株価＝（事業価値＋ネット資産調整）÷希薄化後株式数</p>
+  <p class="lead">理論株価＝（事業価値＋ネット現金／負債調整）÷希薄化後株式数</p>
   <div class="table-wrap"><table>
-  <thead><tr><th>ケース</th><th>事業価値</th><th>ネット資産</th><th>株式数</th><th>株価</th></tr></thead>
-  <tbody><tr><td>Bear</td><td>$40M</td><td>$37.8M</td><td>11.11M</td><td>$7</td></tr><tr><td>Base</td><td>$115M</td><td>$85M</td><td>11.11M</td><td>$18</td></tr><tr><td>Bull</td><td>$250M</td><td>$83.3M</td><td>11.11M</td><td>$30</td></tr></tbody>
+  <thead><tr><th>ケース</th><th>事業価値</th><th>ネット調整</th><th>株式数</th><th>株価</th></tr></thead>
+  <tbody><tr><td>Bear</td><td>$0.061B</td><td>+$0.030B</td><td>14M</td><td>$6.5</td></tr><tr><td>Base</td><td>$0.278B</td><td>+$0.060B</td><td>13M</td><td>$26</td></tr><tr><td>Bull</td><td>$0.794B</td><td>+$0.070B</td><td>12M</td><td>$72</td></tr></tbody>
   </table></div>
   <!-- 現値に合わせた逆算ではない旨、未開示前提の注意など -->
-  <p class="notice"><b>重要：</b>株式数11.11Mは2026年7月21日の時価総額÷株価による市場データ上の概算。会社開示との照合が必要。</p>
+  <p class="notice"><b>重要：</b>将来値は仮定。現値にBaseを合わせていません。現金・負債・株式数は評価基準日にそろえ、未確認項目はWARN表示しています。</p>
 </section>
 
 <!-- Layer3：成立条件 -->
 <section class="card" id="conditions">
   <h2>この未来になる条件</h2>
-  <details open><summary>Base：$18 / 確率50%</summary><p>2026年売上$160M〜$200Mへ進み、営業CFの黒字を維持。</p></details><details><summary>Bear：$7 / 確率25%</summary><p>案件・売上認識が遅れ、追加調達または評価倍率低下が起きる。</p></details><details><summary>Bull：$30 / 確率25%</summary><p>主要案件が予定どおり売上・現金へ変わり、継続収益も確認される。</p></details>
-  <!-- 例: <details open><summary>Base：$18 / 確率50%</summary><p>…</p></details> を3つ -->
+  <details open><summary>Base：$26 / 確率50%</summary><p>Q2以降も成長継続。Q2決算と大型案件の入金が概ね計画通り。</p></details><details><summary>Bear：$6.5 / 確率30%</summary><p>売上遅延と低倍率。資金・工程・倍率が悪化。</p></details><details><summary>Bull：$72 / 確率20%</summary><p>大型案件と継続収益が両立。主要カタリストが順調。</p></details>
+  <!-- 例: <details open><summary>Base：$26 / 確率50%</summary><p>…</p></details> を3つ -->
 </section>
 
 <!-- Layer3：感応度 ＋ 分布（モンテカルロは実施時のみ） -->
@@ -192,24 +192,24 @@ details{border:1px solid var(--line);background:#111119;border-radius:16px;paddi
   <div class="card">
     <h2>数字がズレるとどうなる？</h2>
     <div class="table-wrap"><table>
-      <thead><tr><th>主要ドライバ</th><th>下振れ</th><th>Base</th><th>上振れ</th></tr></thead>
-      <tbody><tr><td>売上達成</td><td>遅延</td><td>概ね計画</td><td>前倒し</td></tr><tr><td>評価倍率</td><td>低下</td><td>維持</td><td>上昇</td></tr><tr><td>希薄化</td><td>大</td><td>仮定内</td><td>小</td></tr></tbody>
+      <thead><tr><th>2028売上＼EV/Sales</th><th>0.8x</th><th>1.2x</th><th>1.8x</th></tr></thead>
+      <tbody><tr><td>$200M</td><td>$12</td><td>$18</td><td>$27</td></tr><tr><td>$350M</td><td>$18</td><td>$26</td><td>$39</td></tr><tr><td>$500M</td><td>$25</td><td>$38</td><td>$57</td></tr></tbody>
     </table></div>
-    <p class="small">売上認識時期と希薄化後株式数が最も効きます。</p>
+    <p class="small">主要ドライバと評価倍率・成功確率の組み合わせ。将来時期が遅れるほど現在価値は低下。</p>
   </div>
   <div class="card">
     <h2>どの価格に行きやすい？</h2>
-    <p class="lead">確率は予言ではなく、前提の重みです。</p>
-    <div class="track"><i style="width:25%"></i></div><div class="track"><i style="width:50%"></i></div><div class="track"><i style="width:25%"></i></div>
+    <p class="lead">3シナリオの確率をそのまま表示。予言ではありません。</p>
+    <div class="dist-row"><span>Bear $6.5</span><div class="track"><i style="width:30%"></i></div><b>30%</b></div><div class="dist-row"><span>Base $26</span><div class="track"><i style="width:50%"></i></div><b>50%</b></div><div class="dist-row"><span>Bull $72</span><div class="track"><i style="width:20%"></i></div><b>20%</b></div>
     <!-- 例: <div class="dist-row"><span>5万円未満</span><div class="track"><i style="width:7.6%"></i></div><b>7.6%</b></div> -->
-    <p>Bear 25% / Base 50% / Bull 25%。合計100%。</p>
+    <p>確率加重期待値は$29。単独の売買判断には使いません。</p>
   </div>
 </section>
 
 <!-- 次の決算/イベントで見る場所（watch_items） -->
 <section class="card">
   <h2>次の決算で見る場所</h2>
-  <div class="watch"><b>Q2決算</b><span>2026年8月頃</span><p>売上・粗利・営業CF</p></div><div class="watch"><b>大型案件の検収</b><span>2026年内</span><p>請求と入金の一致</p></div><div class="watch"><b>株式数</b><span>次回開示</span><p>SBCと希薄化後株数</p></div>
+  <div class="signal"><div><b>2026年Q2｜売上$44M以上の達成</b></div><p>売上と営業CFを同時に確認。</p></div><div class="signal"><div><b>2026年内｜東南アジアAI案件の検収</b></div><p>契約が売上・入金へ変わるか。</p></div><div class="signal"><div><b>次回提出書類｜希薄化後株式数</b></div><p>SBC・ワラント・転換を確認。</p></div><div class="signal"><div><b>随時｜追加契約</b></div><p>継続収益比率が上がるか。</p></div>
   <!-- 例: <div class="signal"><div><b>2026年7月31日の1Q決算</b></div><p>…</p></div> -->
 </section>
 
@@ -218,22 +218,22 @@ details{border:1px solid var(--line);background:#111119;border-radius:16px;paddi
   <h2>使った数字と前提</h2>
   <div class="table-wrap"><table>
   <thead><tr><th>項目</th><th>値</th><th>分類</th><th>注記</th></tr></thead>
-  <tbody><tr><th>評価基準日</th><td>2026-07-22</td></tr><tr><th>現在株価</th><td>$12.73</td></tr><tr><th>希薄化後株式数</th><td>11.11M株（仮定）</td></tr><tr><th>確率</th><td>25% / 50% / 25%</td></tr></tbody>
+  <tbody><tr><td>現値</td><td>$12.73</td><td>市場データ</td><td>2026-07-21終値</td></tr><tr><td>時価総額</td><td>$141M</td><td>市場データ</td><td>同日取得</td></tr><tr><td>評価手法</td><td>2028E EV/Sales＋ネットキャッシュ</td><td>モデル仮定</td><td>現値へ調整せず</td></tr><tr><td>確率</td><td>30/50/20%</td><td>モデル仮定</td><td>合計100%</td></tr><tr><td>20営業日騰落</td><td>未確認</td><td>未確認</td><td>V17 WARN</td></tr><tr><td>Q1売上</td><td>$28.2M</td><td>会社開示</td><td>会社発表</td></tr><tr><td>Q2見通し</td><td>≥$44M</td><td>会社開示</td><td>会社発表</td></tr><tr><td>現金</td><td>$98.4M</td><td>会社開示</td><td>2026-03-31</td></tr></tbody>
   </table></div>
 </section>
 
 <!-- Layer3：ガチ勢向け深掘り（details折りたたみ） -->
 <section class="card">
   <h2>ガチ勢向けの深掘り</h2>
-  <details><summary>市場逆算</summary><p>時価総額$141Mとネットキャッシュ約$85Mから、現値のEVは約$56M。2026年売上目標の中間値$180Mに対し約0.31倍を織り込む。</p></details><details><summary>希薄化・株数</summary><p>株式数11.11Mは2026年7月21日の時価総額÷株価による市場データ上の概算。会社開示との照合が必要。</p></details><details><summary>出典</summary><p>Gorilla Technology Q1 2026（2026-05-27）／https://investors.gorilla-technology.com/gorilla-technology-converts-growth-into-cash-q1-revenue-up-55-operating-cash-flow-turns-positive-full-year-guidance-raised/</p><p>株価・時価総額：市場データ、2026年7月21日。</p></details><details><summary>Validation Engine</summary><p>WARN。V01確率合計、V02順序、V03期待値、V04株価変換は整合。V11希薄化後株数は仮定のため警告。FAIL 0件。</p></details><details><summary>更新履歴</summary><p>2026-07-22：新規作成。Q1 2026決算と最新株価を反映。</p></details>
+  <details><summary>手法と市場逆算</summary><p>2028E EV/Sales＋ネットキャッシュを採用。現値の株式価値は約$141M。ネット現金を差し引くと、成長目標に対する評価は低い一方、案件実行リスクを強く織り込む。</p></details><details><summary>倍率・SOTPの根拠</summary><p>Bearは遅延と倍率縮小、Baseは会社計画の部分達成、Bullは主要カタリスト成功を置いた仮定。現値へBaseを合わせていません。</p></details><details><summary>キャッシュ・負債・希薄化</summary><p>各シナリオのネット調整と希薄化後株式数を別々に反映。希薄化後株式数と直近20営業日騰落率は完全確認できず、ValidationはWARN。</p></details><details><summary>エントリーコンテキスト</summary><p>直近20営業日騰落率は完全確認できずWARN。材料の二重織り込みを避け、Q2決算と大型案件の入金を優先します。</p></details><details><summary>Validation Engine</summary><p>WARN。V01確率100%、V02 Bear＜Base＜Bull、V03期待値$29、V04株価変換を再計算済み。FAILなし。</p></details><details><summary>主要出典</summary><p><a href="https://investors.gorilla-technology.com/gorilla-technology-converts-growth-into-cash-q1-revenue-up-55-operating-cash-flow-turns-positive-full-year-guidance-raised/">Q1 2026決算</a><br><a href="https://investors.gorilla-technology.com/gorilla-technology-raises-q2-2026-revenue-outlook-to-at-least-us44-million-driven-by-contract-wins-and-accelerating-ai-infrastructure-demand/">Q2 2026見通し</a></p></details><details><summary>更新履歴</summary><p>2026-07-22全面改訂。正式テンプレート、最新株価、最新決算、希薄化、市場逆算を反映。</p></details>
   <!-- 手法選定理由 / 市場逆算 / 倍率トラジェクトリ / 同業比較 / キャッシュバーン・希薄化 /
        転換社債 / M&A / モンテカルロ・ベイズ（実施時）/ 前提と未確認事項 / 更新履歴 / 主要出典 を
        それぞれ <details><summary>…</summary><p>…</p></details> で。出典はリンクの箇条書き -->
 </section>
 
 <section class="card notice">
-  <h3>免責</h3><p>本資料は情報提供・教育目的であり、投資助言ではありません。仮定は実績と異なる可能性があります。</p>
+  <h3>免責</h3><p>本資料は情報提供・教育目的で、投資助言ではありません。将来価格は仮定に基づく試算で、実現を保証しません。</p>
 </section>
-<footer>SiM MARKET LAB｜更新日 2026-07-22</footer>
+<footer>DOPAGAKI STOCK LAB｜最終更新 2026-07-22｜Validation: WARN</footer>
 </main>
 </body></html>
