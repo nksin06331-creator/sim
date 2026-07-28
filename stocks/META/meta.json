@@ -7,9 +7,9 @@
   "sector": "SNS広告・AI・AR/VR",
   "method": "正規化FY26E EPS × PER",
   "status": "published",
-  "updated": "2026-07-14",
+  "updated": "2026-07-28",
   "price": {
-    "current": 656.73,
+    "current": 598.6929,
     "currency": "USD"
   },
   "scenarios": {
@@ -17,9 +17,9 @@
     "base": 768,
     "bull": 1008
   },
-  "positionPct": 30.3,
-  "zone": "Bear〜Base帯",
-  "riskReward": "2.30倍",
+  "positionPct": 18.8,
+  "zone": "Bear寄り",
+  "riskReward": "4.32倍",
   "catalyst": "2026 Q2決算 / 広告成長とCapEx",
   "summary": "広告は絶好調。投資額も巨大。",
   "tags": [

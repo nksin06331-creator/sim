@@ -7,9 +7,9 @@
   "sector": "素材・同位体",
   "method": "SOTP＋カタリスト割引",
   "status": "published",
-  "updated": "2026-07-13",
+  "updated": "2026-07-28",
   "price": {
-    "current": 4.83,
+    "current": 3.95,
     "currency": "USD"
   },
   "scenarios": {
@@ -17,9 +17,9 @@
     "base": 7,
     "bull": 12
   },
-  "positionPct": 20.3,
-  "zone": "慎重寄り",
-  "riskReward": "3.9倍",
+  "positionPct": 10.6,
+  "zone": "Bear寄り",
+  "riskReward": "8.47倍",
   "catalyst": "Q3-Q4 2026 / Si-28・ヘリウム商業化",
   "summary": "会社は前進中。",
   "tags": [

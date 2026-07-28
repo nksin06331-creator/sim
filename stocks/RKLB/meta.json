@@ -7,9 +7,9 @@
   "sector": "宇宙・防衛",
   "method": "SOTP＋オプション価値",
   "status": "published",
-  "updated": "2026-07-13",
+  "updated": "2026-07-28",
   "price": {
-    "current": 80.4,
+    "current": 65.0482,
     "currency": "USD"
   },
   "scenarios": {
@@ -17,9 +17,9 @@
     "base": 85,
     "bull": 145
   },
-  "positionPct": 35.4,
-  "zone": "Base付近",
-  "riskReward": "1.82",
+  "positionPct": 20,
+  "zone": "Bear寄り",
+  "riskReward": "3.99倍",
   "catalyst": "2026 Q4 / Neutron初飛行成功",
   "summary": "会社は強い。",
   "tags": [

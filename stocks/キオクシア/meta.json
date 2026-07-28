@@ -7,9 +7,9 @@
   "sector": "半導体・AI",
   "method": "フォワードEV/Sales＋平準化利益クロスチェック",
   "status": "published",
-  "updated": "2026-07-13",
+  "updated": "2026-07-28",
   "price": {
-    "current": 67100,
+    "current": 44550,
     "currency": "JPY"
   },
   "scenarios": {
@@ -17,9 +17,9 @@
     "base": 54000,
     "bull": 90000
   },
-  "positionPct": 63.1,
-  "zone": "Base超え・強気寄り",
-  "riskReward": "0.59倍",
+  "positionPct": 26.7,
+  "zone": "Bear〜Base帯",
+  "riskReward": "2.75倍",
   "catalyst": "2026 Q1決算 / FY3/27 Q1決算・Q2ガイダンス",
   "summary": "⚠️ 業績は爆発中。",
   "tags": [

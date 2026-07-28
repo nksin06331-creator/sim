@@ -7,9 +7,9 @@
   "sector": "宇宙・防衛",
   "method": "SOTP＋EV/Sales",
   "status": "published",
-  "updated": "2026-07-13",
+  "updated": "2026-07-28",
   "price": {
-    "current": 10.47,
+    "current": 8.62,
     "currency": "USD"
   },
   "scenarios": {
@@ -17,9 +17,9 @@
     "base": 13,
     "bull": 21
   },
-  "positionPct": 29.8,
-  "zone": "適正〜慎重寄り",
-  "riskReward": "2.36",
+  "positionPct": 17.5,
+  "zone": "Bear寄り",
+  "riskReward": "4.73倍",
   "catalyst": "要確認",
   "summary": "会社は拡大中。",
   "tags": [

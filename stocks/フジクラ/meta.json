@@ -7,9 +7,9 @@
   "sector": "光ファイバー・AIデータセンター",
   "method": "FY3/27E EPS × PER",
   "status": "published",
-  "updated": "2026-07-14",
+  "updated": "2026-07-28",
   "price": {
-    "current": 4800,
+    "current": 4073,
     "currency": "JPY"
   },
   "scenarios": {
@@ -17,9 +17,9 @@
     "base": 4750,
     "bull": 6600
   },
-  "positionPct": 52.6,
-  "zone": "Base付近",
-  "riskReward": "0.90倍",
+  "positionPct": 33.5,
+  "zone": "Bear〜Base帯",
+  "riskReward": "1.99倍",
   "catalyst": "FY3/27 1Q決算 / 情報通信の利益率・増産進捗",
   "summary": "業績は強い。期待も高い。",
   "tags": [
