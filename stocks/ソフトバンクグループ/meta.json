@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "ticker": "9984",
+  "slug": "9984",
+  "name": "ソフトバンクグループ",
+  "market": "日本株",
+  "sector": "AI投資・半導体・通信",
+  "method": "SOTP＋NAVディスカウント",
+  "status": "published",
+  "updated": "2026-07-15",
+  "price": {
+    "current": 6574,
+    "currency": "JPY"
+  },
+  "scenarios": {
+    "bear": 4000,
+    "base": 6800,
+    "bull": 9800
+  },
+  "positionPct": 44.4,
+  "zone": "Base付近",
+  "riskReward": "1.25倍",
+  "catalyst": "2026/8/6 FY26 Q1決算 / NAV・LTV・OpenAI追加投資を確認",
+  "summary": "AI資産は巨大。ただし借入と評価額の振れも巨大",
+  "tags": [
+    "SOTP＋NAVディスカウント",
+    "AI投資",
+    "半導体",
+    "通信"
+  ],
+  "risk": "非常に高い",
+  "detailPath": "stocks/ソフトバンクグループ/index.html",
+  "scenarioPath": "stocks/ソフトバンクグループ/scenario.html"
+}

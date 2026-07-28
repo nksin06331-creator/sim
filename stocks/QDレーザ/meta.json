@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "ticker": "6613",
+  "slug": "6613",
+  "name": "QDレーザ",
+  "market": "日本株",
+  "sector": "量子ドットレーザ・光デバイス",
+  "method": "FY3/28E売上 × EV/Sales＋希薄化調整",
+  "status": "published",
+  "updated": "2026-07-15",
+  "price": {
+    "current": 2425,
+    "currency": "JPY"
+  },
+  "scenarios": {
+    "bear": 600,
+    "base": 1750,
+    "bull": 4000
+  },
+  "positionPct": 53.7,
+  "zone": "Base超え・強気寄り",
+  "riskReward": "0.86倍",
+  "catalyst": "2026/8/10 FY2026 第1四半期決算 / 受注残、量子ドット量産案件、営業黒字の進捗",
+  "summary": "黒字化計画は前進。ただし株価は量産成功を何年分も先取り",
+  "tags": [
+    "FY3/28E売上 × EV/Sales＋希薄化調整",
+    "量子ドットレーザ",
+    "光デバイス"
+  ],
+  "risk": "非常に高い",
+  "detailPath": "stocks/QDレーザ/index.html",
+  "scenarioPath": "stocks/QDレーザ/scenario.html"
+}

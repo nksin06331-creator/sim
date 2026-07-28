@@ -20,12 +20,13 @@
   "positionPct": 26.7,
   "zone": "Bear〜Base帯",
   "riskReward": "2.75倍",
-  "catalyst": "2026 Q1決算 / FY3/27 Q1決算・Q2ガイダンス",
-  "summary": "⚠️ 業績は爆発中。",
+  "catalyst": "2026/7/31 15:30 FY3/27 Q1決算 / NAND ASP・企業SSD・訴訟影響を確認",
+  "summary": "AI・NAND好況は継続。ただしメモリー株安とViasat特許評決で急落",
   "tags": [
-    "PER",
-    "半導体",
-    "黒字成熟型"
+    "EV/Sales",
+    "NAND",
+    "AI企業SSD",
+    "特許訴訟"
   ],
   "risk": "非常に高い",
   "detailPath": "stocks/キオクシア/index.html",

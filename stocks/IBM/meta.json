@@ -13,20 +13,20 @@
     "currency": "USD"
   },
   "scenarios": {
-    "bear": 198,
-    "base": 275,
-    "bull": 363
+    "bear": 152,
+    "base": 219,
+    "bull": 311
   },
-  "positionPct": 12.6,
-  "zone": "Bear寄り",
-  "riskReward": "6.92倍",
-  "catalyst": "要確認",
-  "summary": "会社は強い。",
+  "positionPct": 42,
+  "zone": "Bear〜Base帯",
+  "riskReward": "1.38倍",
+  "catalyst": "2026/7/22 Q2正式決算 / 通期見通し・案件回収時期",
+  "summary": "Q2失速で急落。前提を再評価。",
   "tags": [
     "2027E EPS × PER",
     "エンタープライズIT・ソフトウェア"
   ],
-  "risk": "中",
+  "risk": "高",
   "detailPath": "stocks/IBM/index.html",
   "scenarioPath": "stocks/IBM/scenario.html"
 }

@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "ticker": "7011",
+  "slug": "7011",
+  "name": "三菱重工業",
+  "market": "日本株",
+  "sector": "防衛・エネルギー・宇宙",
+  "method": "FY3/27E EPS × PER",
+  "status": "published",
+  "updated": "2026-07-15",
+  "price": {
+    "current": 3749,
+    "currency": "JPY"
+  },
+  "scenarios": {
+    "bear": 2470,
+    "base": 3680,
+    "bull": 5400
+  },
+  "positionPct": 43.7,
+  "zone": "Base付近",
+  "riskReward": "1.29倍",
+  "catalyst": "2026年8月頃 FY26 Q1決算 / 利益進捗と受注を確認",
+  "summary": "受注は歴史的。ただし株価には高成長がかなり必要",
+  "tags": [
+    "FY3/27E EPS × PER",
+    "防衛",
+    "エネルギー",
+    "宇宙"
+  ],
+  "risk": "高い",
+  "detailPath": "stocks/三菱重工業/index.html",
+  "scenarioPath": "stocks/三菱重工業/scenario.html"
+}

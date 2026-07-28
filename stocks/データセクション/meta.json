@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "ticker": "3905",
+  "slug": "3905",
+  "name": "データセクション",
+  "market": "日本株",
+  "sector": "AIインフラ・GPUデータセンター",
+  "method": "FY3/27E希薄化後EPS × PER",
+  "status": "published",
+  "updated": "2026-07-15",
+  "price": {
+    "current": 2845,
+    "currency": "JPY"
+  },
+  "scenarios": {
+    "bear": 1200,
+    "base": 2880,
+    "bull": 5760
+  },
+  "positionPct": 36.1,
+  "zone": "Base付近",
+  "riskReward": "1.77倍",
+  "catalyst": "2026年8月頃 FY2027 第1四半期決算 / データセンター稼働開始、顧客利用率、資金調達",
+  "summary": "AIインフラは急拡大計画。現値は計画達成を概ね織り込むが振れ幅は大きい",
+  "tags": [
+    "FY3/27E希薄化後EPS × PER",
+    "AIインフラ",
+    "GPUデータセンター"
+  ],
+  "risk": "非常に高い",
+  "detailPath": "stocks/データセクション/index.html",
+  "scenarioPath": "stocks/データセクション/scenario.html"
+}

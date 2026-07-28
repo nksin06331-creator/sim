@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "ticker": "5801",
+  "slug": "5801",
+  "name": "古河電気工業",
+  "market": "日本株",
+  "sector": "光ファイバー・AIデータセンター・電力",
+  "method": "FY3/27E EPS × PER",
+  "status": "published",
+  "updated": "2026-07-15",
+  "price": {
+    "current": 3520,
+    "currency": "JPY"
+  },
+  "scenarios": {
+    "bear": 1900,
+    "base": 3360,
+    "bull": 5700
+  },
+  "positionPct": 42.6,
+  "zone": "Base付近",
+  "riskReward": "1.35倍",
+  "catalyst": "2026/8/6 FY2026 第1四半期決算 / 光ソリューション利益率とデータセンター売上を確認",
+  "summary": "AIデータセンター向け光部品が利益を牽引。株価は高成長の継続を要求",
+  "tags": [
+    "FY3/27E EPS × PER",
+    "光ファイバー",
+    "AIデータセンター",
+    "電力"
+  ],
+  "risk": "高い",
+  "detailPath": "stocks/古河電気工業/index.html",
+  "scenarioPath": "stocks/古河電気工業/scenario.html"
+}
