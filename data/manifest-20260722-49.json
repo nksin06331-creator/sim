@@ -107,9 +107,9 @@
     "sector": "ハイブリッドクラウド・AI・ITサービス",
     "method": "FY2027E調整後EPS×PER＋FCF確認",
     "status": "published",
-    "updated": "2026-07-22",
+    "updated": "2026-07-28",
     "price": {
-      "current": 210.5,
+      "current": 218.84,
       "currency": "USD"
     },
     "scenarios": {
@@ -117,9 +117,9 @@
       "base": 230,
       "bull": 320
     },
-    "positionPct": 43.8,
+    "positionPct": 40.5,
     "zone": "Bear〜Base帯",
-    "riskReward": "1.81倍",
+    "riskReward": "1.47倍",
     "catalyst": "2026年7月22日｜Q2正式決算 / 速報値と通期FCF見通しを確認。",
     "summary": "AI期待より、Software成長とFCFの持続性を確認する局面。",
     "tags": [
@@ -669,9 +669,9 @@
     "sector": "半導体・AI",
     "method": "フォワードEV/Sales＋平準化利益クロスチェック",
     "status": "published",
-    "updated": "2026-07-17",
+    "updated": "2026-07-28",
     "price": {
-      "current": 52290,
+      "current": 44550,
       "currency": "JPY"
     },
     "scenarios": {
@@ -679,9 +679,9 @@
       "base": 54000,
       "bull": 90000
     },
-    "positionPct": 39.2,
-    "zone": "Base付近",
-    "riskReward": "1.55倍",
+    "positionPct": 26.7,
+    "zone": "Bear〜Base帯",
+    "riskReward": "2.75倍",
     "catalyst": "2026/7/31 15:30 FY3/27 Q1決算 / NAND ASP・企業SSD・訴訟影響を確認",
     "summary": "AI・NAND好況は継続。ただしメモリー株安とViasat特許評決で急落",
     "tags": [
@@ -903,9 +903,9 @@
     "sector": "モバイルDX・業務端末",
     "method": "PER＋売上進捗シナリオ",
     "status": "published",
-    "updated": "2026-07-15",
+    "updated": "2026-07-28",
     "price": {
-      "current": 1899,
+      "current": 1459,
       "currency": "JPY"
     },
     "scenarios": {
@@ -913,9 +913,9 @@
       "base": 1600,
       "bull": 2800
     },
-    "positionPct": 52.6,
-    "zone": "Base超え・強気寄り",
-    "riskReward": "0.90倍",
+    "positionPct": 29.4,
+    "zone": "Bear〜Base帯",
+    "riskReward": "2.40倍",
     "catalyst": "2026年10月頃 通期決算 / 4Q大型案件・黒字転換・新株予約権行使を確認",
     "summary": "3Qは赤字縮小。ただし通期達成には4Qへの大型売上集中が必要。",
     "tags": [
@@ -1140,9 +1140,9 @@
     "sector": "光ファイバー・AIデータセンター",
     "method": "FY3/27E EPS × PER",
     "status": "published",
-    "updated": "2026-07-14",
+    "updated": "2026-07-28",
     "price": {
-      "current": 4800,
+      "current": 4073,
       "currency": "JPY"
     },
     "scenarios": {
@@ -1150,9 +1150,9 @@
       "base": 4750,
       "bull": 6600
     },
-    "positionPct": 52.6,
-    "zone": "Base付近",
-    "riskReward": "0.90倍",
+    "positionPct": 33.5,
+    "zone": "Bear〜Base帯",
+    "riskReward": "1.99倍",
     "catalyst": "FY3/27 1Q決算 / 情報通信の利益率・増産進捗",
     "summary": "業績は強い。期待も高い。",
     "tags": [
@@ -1174,9 +1174,9 @@
     "sector": "検索・広告・クラウド・AI",
     "method": "正規化FY26E EPS × PER",
     "status": "published",
-    "updated": "2026-07-14",
+    "updated": "2026-07-28",
     "price": {
-      "current": 350.67,
+      "current": 327.91,
       "currency": "USD"
     },
     "scenarios": {
@@ -1184,9 +1184,9 @@
       "base": 390,
       "bull": 576
     },
-    "positionPct": 32.9,
+    "positionPct": 26.2,
     "zone": "Bear〜Base帯",
-    "riskReward": "2.04倍",
+    "riskReward": "2.82倍",
     "catalyst": "2026/7/22 Q2決算",
     "summary": "検索は堅調。Cloudが加速。",
     "tags": [
@@ -1209,9 +1209,9 @@
     "sector": "SNS広告・AI・AR/VR",
     "method": "2027E FCF倍率＋ネットキャッシュ",
     "status": "published",
-    "updated": "2026-07-22",
+    "updated": "2026-07-28",
     "price": {
-      "current": 643.81,
+      "current": 598.6929,
       "currency": "USD"
     },
     "scenarios": {
@@ -1219,9 +1219,9 @@
       "base": 690,
       "bull": 1000
     },
-    "positionPct": 35.2,
+    "positionPct": 27,
     "zone": "Bear〜Base帯",
-    "riskReward": "1.84倍",
+    "riskReward": "2.70倍",
     "catalyst": "2026年7月29日 Q2決算 / 広告成長・CapEx・AI収益化",
     "summary": "広告成長は強い。AI設備投資が将来FCFへ変わる速度を確認",
     "tags": [
@@ -1242,9 +1242,9 @@
     "sector": "クラウド・ソフトウェア・AI",
     "method": "FY27E EPS × PER",
     "status": "published",
-    "updated": "2026-07-14",
+    "updated": "2026-07-28",
     "price": {
-      "current": 390.99,
+      "current": 395.0906,
       "currency": "USD"
     },
     "scenarios": {
@@ -1252,9 +1252,9 @@
       "base": 492,
       "bull": 644
     },
-    "positionPct": 23.1,
-    "zone": "Bear〜Base帯",
-    "riskReward": "3.33倍",
+    "positionPct": 24.3,
+    "zone": "Bear寄り",
+    "riskReward": "3.11倍",
     "catalyst": "2026/7/29 FY26 Q4決算",
     "summary": "クラウドは強い。株価は調整済み。",
     "tags": [
@@ -1277,9 +1277,9 @@
     "sector": "抗体創薬・バイオテクノロジー",
     "method": "SOTP＋簡易rNPV",
     "status": "published",
-    "updated": "2026-07-21",
+    "updated": "2026-07-28",
     "price": {
-      "current": 5.8,
+      "current": 5.22,
       "currency": "USD"
     },
     "scenarios": {
@@ -1287,9 +1287,9 @@
       "base": 8,
       "bull": 15.5
     },
-    "positionPct": 19.2,
-    "zone": "適正〜慎重寄り",
-    "riskReward": "4.22倍",
+    "positionPct": 14.3,
+    "zone": "Bear寄り",
+    "riskReward": "5.98倍",
     "catalyst": "2026年Q3 ABCL635トップライン",
     "summary": "期待は後退。治験データ待ち。",
     "tags": [
@@ -1312,9 +1312,9 @@
     "sector": "素材・同位体",
     "method": "SOTP＋カタリスト割引",
     "status": "published",
-    "updated": "2026-07-13",
+    "updated": "2026-07-28",
     "price": {
-      "current": 4.83,
+      "current": 3.95,
       "currency": "USD"
     },
     "scenarios": {
@@ -1322,9 +1322,9 @@
       "base": 7,
       "bull": 12
     },
-    "positionPct": 20.3,
-    "zone": "慎重寄り",
-    "riskReward": "3.9倍",
+    "positionPct": 10.6,
+    "zone": "Bear寄り",
+    "riskReward": "8.47倍",
     "catalyst": "Q3-Q4 2026 / Si-28・ヘリウム商業化",
     "summary": "会社は前進中。",
     "tags": [
@@ -1345,9 +1345,9 @@
     "sector": "量子コンピューター",
     "method": "EV/Sales＋SkyWater SOTP",
     "status": "published",
-    "updated": "2026-07-13",
+    "updated": "2026-07-28",
     "price": {
-      "current": 42.86,
+      "current": 35.243,
       "currency": "USD"
     },
     "scenarios": {
@@ -1355,9 +1355,9 @@
       "base": 45,
       "bull": 76
     },
-    "positionPct": 36,
-    "zone": "適正〜慎重寄り",
-    "riskReward": "1.76倍",
+    "positionPct": 21.6,
+    "zone": "Bear寄り",
+    "riskReward": "3.63倍",
     "catalyst": "2026 Q2〜Q3 / SkyWater買収完了と統合進捗",
     "summary": "期待先行。",
     "tags": [
@@ -1378,9 +1378,9 @@
     "sector": "Connected Operations / IoTソフトウェア",
     "method": "EV/Sales（将来売上倍率）",
     "status": "published",
-    "updated": "2026-07-13",
+    "updated": "2026-07-28",
     "price": {
-      "current": 36.72,
+      "current": 35.82,
       "currency": "USD"
     },
     "scenarios": {
@@ -1388,9 +1388,9 @@
       "base": 44,
       "bull": 68
     },
-    "positionPct": 23.7,
-    "zone": "適正〜慎重寄り",
-    "riskReward": "3.2倍",
+    "positionPct": 21.5,
+    "zone": "Bear寄り",
+    "riskReward": "3.65倍",
     "catalyst": "要確認",
     "summary": "成長は強い。",
     "tags": [
@@ -1410,9 +1410,9 @@
     "sector": "半導体・メモリ",
     "method": "PER / PEG（景気循環調整）",
     "status": "published",
-    "updated": "2026-07-13",
+    "updated": "2026-07-28",
     "price": {
-      "current": 905.92,
+      "current": 840.176,
       "currency": "USD"
     },
     "scenarios": {
@@ -1420,9 +1420,9 @@
       "base": 1035,
       "bull": 1485
     },
-    "positionPct": 34,
-    "zone": "Base未満・慎重寄り",
-    "riskReward": "1.43倍",
+    "positionPct": 21.4,
+    "zone": "Bear寄り",
+    "riskReward": "3.68倍",
     "catalyst": "要確認",
     "summary": "好業績は本物。",
     "tags": [
@@ -1442,9 +1442,9 @@
     "sector": "AI半導体・アクセラレーテッドコンピューティング",
     "method": "PER / 感応度分析",
     "status": "published",
-    "updated": "2026-07-13",
+    "updated": "2026-07-28",
     "price": {
-      "current": 202.78,
+      "current": 195.62,
       "currency": "USD"
     },
     "scenarios": {
@@ -1452,9 +1452,9 @@
       "base": 230,
       "bull": 300
     },
-    "positionPct": 30.6,
-    "zone": "適正〜慎重寄り",
-    "riskReward": "2.27",
+    "positionPct": 25.4,
+    "zone": "Bear〜Base帯",
+    "riskReward": "2.93倍",
     "catalyst": "要確認",
     "summary": "会社は圧倒的。",
     "tags": [
@@ -1506,9 +1506,9 @@
     "sector": "宇宙・防衛",
     "method": "SOTP＋EV/Sales",
     "status": "published",
-    "updated": "2026-07-13",
+    "updated": "2026-07-28",
     "price": {
-      "current": 10.47,
+      "current": 8.62,
       "currency": "USD"
     },
     "scenarios": {
@@ -1516,9 +1516,9 @@
       "base": 13,
       "bull": 21
     },
-    "positionPct": 29.8,
-    "zone": "適正〜慎重寄り",
-    "riskReward": "2.36",
+    "positionPct": 17.5,
+    "zone": "Bear寄り",
+    "riskReward": "4.73倍",
     "catalyst": "要確認",
     "summary": "会社は拡大中。",
     "tags": [
@@ -1539,9 +1539,9 @@
     "sector": "宇宙・防衛",
     "method": "SOTP＋オプション価値",
     "status": "published",
-    "updated": "2026-07-13",
+    "updated": "2026-07-28",
     "price": {
-      "current": 80.4,
+      "current": 65.0482,
       "currency": "USD"
     },
     "scenarios": {
@@ -1549,9 +1549,9 @@
       "base": 85,
       "bull": 145
     },
-    "positionPct": 35.4,
-    "zone": "Base付近",
-    "riskReward": "1.82",
+    "positionPct": 20,
+    "zone": "Bear寄り",
+    "riskReward": "3.99倍",
     "catalyst": "2026 Q4 / Neutron初飛行成功",
     "summary": "会社は強い。",
     "tags": [
@@ -1572,9 +1572,9 @@
     "sector": "EV・エネルギー・AI/自動運転",
     "method": "SOTP（自動車＋エネルギー＋AI/自動運転オプション）",
     "status": "published",
-    "updated": "2026-07-13",
+    "updated": "2026-07-28",
     "price": {
-      "current": 403.79,
+      "current": 306.5395,
       "currency": "USD"
     },
     "scenarios": {
@@ -1582,9 +1582,9 @@
       "base": 400,
       "bull": 600
     },
-    "positionPct": 43.9,
-    "zone": "Base付近",
-    "riskReward": "1.28",
+    "positionPct": 16.2,
+    "zone": "Bear寄り",
+    "riskReward": "5.19倍",
     "catalyst": "要確認",
     "summary": "期待はかなり高い。",
     "tags": [
