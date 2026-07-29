@@ -91,12 +91,14 @@ function riskClass(risk = "") { return /非常|極めて|VERY/i.test(risk) ? "ve
 function createList(stocksToRender) {
   const wrap = document.createElement("div"); wrap.className = "stock-list-wrap";
   const table = document.createElement("table"); table.className = "stock-list";
-  table.innerHTML = "<thead><tr><th>ティッカー</th><th>企業名</th><th>市場</th><th>テーマ</th><th>現在株価</th><th>BASE</th><th>リスク</th><th>更新日</th><th></th></tr></thead>";
+  table.innerHTML = "<thead><tr><th>ティッカー</th><th>企業名</th><th>市場</th><th>テーマ</th><th>現在株価</th><th>BASE</th><th>リスク</th><th>更新日</th><th>レポート</th></tr></thead>";
   const body = document.createElement("tbody");
   stocksToRender.forEach((stock) => {
     const row = document.createElement("tr");
     const theme = detectTheme(stock);
-    row.innerHTML = `<td class="stock-list-ticker">${stock.ticker}</td><td class="stock-list-company">${stock.name}</td><td>${stock.market}</td><td>${theme === "その他" ? stock.sector : theme}</td><td>${formatPrice(stock.price?.current, stock.price?.currency)}</td><td>${formatPrice(stock.scenarios?.base, stock.price?.currency)}</td><td><span class="stock-list-risk ${riskClass(stock.risk)}">${stock.risk || "—"}</span></td><td>${stock.updated}</td><td><a class="stock-list-link" href="${linkPrefix}${stock.detailPath || stock.scenarioPath || "#"}">見る →</a></td>`;
+    const detailLink = stock.detailPath ? `<a class="stock-list-link" href="${linkPrefix}${stock.detailPath}">企業を知る →</a>` : "";
+    const scenarioLink = stock.scenarioPath ? `<a class="stock-list-link stock-list-link-primary" href="${linkPrefix}${stock.scenarioPath}">株価を考える →</a>` : "";
+    row.innerHTML = `<td class="stock-list-ticker">${stock.ticker}</td><td class="stock-list-company">${stock.name}</td><td>${stock.market}</td><td>${theme === "その他" ? stock.sector : theme}</td><td>${formatPrice(stock.price?.current, stock.price?.currency)}</td><td>${formatPrice(stock.scenarios?.base, stock.price?.currency)}</td><td><span class="stock-list-risk ${riskClass(stock.risk)}">${stock.risk || "—"}</span></td><td>${stock.updated}</td><td><div class="stock-list-actions">${detailLink}${scenarioLink}</div></td>`;
     body.append(row);
   });
   table.append(body); wrap.append(table); return wrap;
