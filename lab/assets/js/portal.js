@@ -90,6 +90,16 @@ function createCard(stock) {
 function riskClass(risk = "") { return /非常|極めて|VERY/i.test(risk) ? "very-high" : /高|HIGH/i.test(risk) ? "high" : ""; }
 function createList(stocksToRender) {
   const wrap = document.createElement("div"); wrap.className = "stock-list-wrap";
+  const mobileList = document.createElement("div"); mobileList.className = "stock-mobile-list";
+  stocksToRender.forEach((stock) => {
+    const item = document.createElement("details"); item.className = "stock-mobile-row";
+    const theme = detectTheme(stock);
+    const summary = document.createElement("summary");
+    summary.innerHTML = `<span class="mobile-stock-id"><strong>${stock.ticker}</strong><small>${stock.name}</small></span><span class="mobile-stock-price"><small>現在株価</small><strong>${formatPrice(stock.price?.current, stock.price?.currency)}</strong></span><span class="mobile-stock-toggle" aria-hidden="true"></span>`;
+    const panel = document.createElement("div"); panel.className = "mobile-stock-panel";
+    panel.innerHTML = `<div class="mobile-stock-meta"><span>${stock.market}</span><span>${theme === "その他" ? stock.sector : theme}</span><span>${stock.updated} 更新</span></div><div class="mobile-stock-values"><div><small>BASE</small><strong>${formatPrice(stock.scenarios?.base, stock.price?.currency)}</strong></div><div><small>リスク</small><strong class="stock-list-risk ${riskClass(stock.risk)}">${stock.risk || "—"}</strong></div></div><div class="stock-list-actions">${stock.scenarioPath ? `<a class="stock-list-link stock-list-link-primary" href="${linkPrefix}${stock.scenarioPath}">株価を考える →</a>` : ""}${stock.detailPath ? `<a class="stock-list-link" href="${linkPrefix}${stock.detailPath}">企業を知る →</a>` : ""}</div>`;
+    item.append(summary, panel); mobileList.append(item);
+  });
   const table = document.createElement("table"); table.className = "stock-list";
   table.innerHTML = "<thead><tr><th>ティッカー</th><th>企業名</th><th>市場</th><th>テーマ</th><th>現在株価</th><th>BASE</th><th>リスク</th><th>更新日</th><th>レポート</th></tr></thead>";
   const body = document.createElement("tbody");
@@ -101,7 +111,7 @@ function createList(stocksToRender) {
     row.innerHTML = `<td class="stock-list-ticker">${stock.ticker}</td><td class="stock-list-company">${stock.name}</td><td>${stock.market}</td><td>${theme === "その他" ? stock.sector : theme}</td><td>${formatPrice(stock.price?.current, stock.price?.currency)}</td><td>${formatPrice(stock.scenarios?.base, stock.price?.currency)}</td><td><span class="stock-list-risk ${riskClass(stock.risk)}">${stock.risk || "—"}</span></td><td>${stock.updated}</td><td><div class="stock-list-actions">${detailLink}${scenarioLink}</div></td>`;
     body.append(row);
   });
-  table.append(body); wrap.append(table); return wrap;
+  table.append(body); wrap.append(mobileList, table); return wrap;
 }
 function stockSearchText(stock) { return [stock.ticker, stock.name, stock.market, stock.sector, stock.method, stock.summary, stock.catalyst, ...(stock.tags ?? [])].join(" ").toLowerCase(); }
 function detectTheme(stock) {
