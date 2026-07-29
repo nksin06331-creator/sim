@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-07-29T09:41:19.513251+00:00",
+  "generatedAt": "2026-07-29T09:41:52.252439+00:00",
   "source": "Yahoo Finance chart endpoint",
   "manifest": "data/manifest-20260729-60.json",
   "quoteCount": 60,
