@@ -10,7 +10,7 @@
 <style>
 /*
  ================================================================
-  STOCK GUIDE TEMPLATE v3  SiM MARKET LAB ダーク版 / ChatGPT index.html
+  STOCK GUIDE TEMPLATE v4  SiM MARKET LAB ダーク版 / ChatGPT index.html
   ----------------------------------------------------------------
   ★★ デザインロック（ぶれ防止）★★
   ・この <style> ブロックとページ骨格は「改変禁止」。1文字も変えない。逐語コピーする。
@@ -275,23 +275,23 @@ strong.g { color: var(--accent); }
 }
 </style>
 </head>
-<body>
+<body data-stock-ticker="RDW" data-price-source="../../data/prices.json">
 
 <div class="progress-bar" id="progressBar"></div>
 
 <!-- ========================================================
   HERO
-  RDW Redwire Corporation 宇宙・防衛テック 宇宙インフラから無人航空機まで。宇宙と防衛をつなぐ総合テック企業。 <span class="hero-tag">🛰️ 宇宙インフラ</span><span class="hero-tag">🛩️ 防衛ドローン</span><span class="hero-tag">🏗️ ROSA</span> 2026年7月14日
+  RDW Redwire Corporation 宇宙・防衛 宇宙の電力・航法・研究装置と、軍用ドローンをまとめて提供する複合企業。 <span class="hero-tag">🛰️ 宇宙インフラ</span><span class="hero-tag">🛩️ Stalker UAS</span><span class="hero-tag">🧪 微小重力研究</span><span class="hero-tag">💸 希薄化に注意</span> 2026年7月29日
   ※見出しの重要ワードは <span class="g">…</span> で緑ハイライト
 ======================================================== -->
 <div class="hero">
   <div class="brandmark">S<span class="g">i</span>M &nbsp;MARKET LAB</div>
-  <div class="hero-badge">RDW 完全入門ガイド ・ 2026年7月14日版</div>
+  <div class="hero-badge">RDW 完全入門ガイド ・ 2026年7月29日版</div>
   <h1>Redwire Corporation（RDW）を<br><span class="g">まるっと</span>解説</h1>
-  <p>宇宙インフラから無人航空機まで。宇宙と防衛をつなぐ総合テック企業。</p>
+  <p>宇宙の電力・航法・研究装置と、軍用ドローンをまとめて提供する複合企業。</p>
   <div class="hero-tags">
     <!-- 例: <span class="hero-tag">⚛️ 同位体って何？</span> -->
-    <span class="hero-tag">🛰️ 宇宙インフラ</span><span class="hero-tag">🛩️ 防衛ドローン</span><span class="hero-tag">🏗️ ROSA</span>
+    <span class="hero-tag">🛰️ 宇宙インフラ</span><span class="hero-tag">🛩️ Stalker UAS</span><span class="hero-tag">🧪 微小重力研究</span><span class="hero-tag">💸 希薄化に注意</span>
   </div>
 </div>
 
@@ -306,7 +306,7 @@ strong.g { color: var(--accent); }
       <div class="stat"><div class="stat-value">$1.2B</div><div class="stat-label">時価総額</div></div>
       <div class="stat"><div class="stat-value">2027</div><div class="stat-label">黒字化目標</div></div>
       -->
-      <div class="stat"><div class="stat-value">$10.47</div><div class="stat-label">7月13日終値</div></div><div class="stat"><div class="stat-value up">$97M</div><div class="stat-label">Q1 2026売上</div></div><div class="stat"><div class="stat-value">$498.1M</div><div class="stat-label">受注残</div></div><div class="stat"><div class="stat-value down">HIGH</div><div class="stat-label">リスク</div></div>
+      <div class="stat"><div class="stat-value" data-live-price>$8.57</div><div class="stat-label">現在の株価 <span class="g">LIVE</span></div><div class="stat-note" data-live-price-date>7月28日終値（分析基準値）</div></div><div class="stat"><div class="stat-value">$4.87〜$26.64</div><div class="stat-label">52週レンジ</div></div><div class="stat"><div class="stat-value">$2.05B</div><div class="stat-label">時価総額</div><div class="stat-note">7月28日概算</div></div><div class="stat"><div class="stat-value up">$498.1M</div><div class="stat-label">受注残</div><div class="stat-note">Q1 2026末</div></div>
     </div>
   </div>
 </div>
@@ -315,10 +315,10 @@ strong.g { color: var(--accent); }
 <nav class="nav-index">
   <div class="nav-inner">
     <a class="nav-item" href="#sec1">① どんな会社</a>
-    <a class="nav-item" href="#sec2">② 宇宙業界</a>
-    <a class="nav-item" href="#sec3">③ 製品</a>
-    <a class="nav-item" href="#sec4">④ 防衛・技術</a>
-    <a class="nav-item" href="#sec5">⑤ 競合</a>
+    <a class="nav-item" href="#sec2">② 業界の基本</a>
+    <a class="nav-item" href="#sec3">③ 製品・技術</a>
+    <a class="nav-item" href="#sec4">④ 契約・規制</a>
+    <a class="nav-item" href="#sec5">⑤ 競合比較</a>
     <a class="nav-item" href="#sec6">⑥ 用語辞典</a>
     <a class="nav-item" href="#sec7">⑦ 株価の見方</a>
   </div>
@@ -339,13 +339,15 @@ strong.g { color: var(--accent); }
       <div class="tldr-label">⚡ このセクションの3秒まとめ</div>
       <ul>
         <!-- 例: <li data-emoji="🏭">◯◯を作ってる△△業界の会社</li> -->
-        <li data-emoji="🛰️">宇宙機器と防衛ドローンを作る会社。</li><li data-emoji="📈">Q1売上は約58%増。</li><li data-emoji="⚠️">成長中だが赤字と統合リスクあり。</li>
+        <li data-emoji="🛰️">宇宙部品と軍用ドローンを同時に持つ会社</li>
+<li data-emoji="📈">Q1売上は$97.0M。前年比57.9%増</li>
+<li data-emoji="⚠️">成長は速いが、赤字と新株発行は要確認</li>
       </ul>
     </div>
 
     <!-- 会社データ（クイックファクト）：設立/本社/従業員/CEO/上場/売上規模 等。不明は「非開示」 -->
     <div class="facts">
-      <div><dt>設立</dt><dd>2020年</dd></div><div><dt>本社</dt><dd>米国フロリダ州</dd></div><div><dt>CEO</dt><dd>Peter Cannito</dd></div><div><dt>上場</dt><dd>NYSE: RDW</dd></div><div><dt>事業</dt><dd>Space / Defense Tech</dd></div><div><dt>Q1売上</dt><dd>約$97M</dd></div>
+      <div><dt>設立</dt><dd>2020年</dd></div><div><dt>本社</dt><dd>米国フロリダ州<br>Jacksonville</dd></div><div><dt>従業員数</dt><dd>約1,400人</dd></div><div><dt>CEO</dt><dd>Peter Cannito</dd></div><div><dt>上場</dt><dd>NYSE（RDW）</dd></div><div><dt>2025年売上</dt><dd>$335.4M</dd></div>
       <!-- 例:
       <div><dt>設立</dt><dd>2019年</dd></div>
       <div><dt>本社</dt><dd>東京</dd></div>
@@ -358,60 +360,68 @@ strong.g { color: var(--accent); }
 
     <!-- 4枚カード：何をしてる/主力事業/直近の業績/なぜ注目 -->
     <div class="card-grid">
-      <div class="card-sm"><span class="card-emoji">🛰️</span><div class="card-title">何をしてる</div><div class="card-desc">衛星部品、太陽電池、宇宙製造など。</div></div><div class="card-sm"><span class="card-emoji">🛩️</span><div class="card-title">主力事業</div><div class="card-desc">Edge Autonomy買収で防衛ドローンへ拡大。</div></div><div class="card-sm"><span class="card-emoji">📈</span><div class="card-title">直近業績</div><div class="card-desc">Q1 2026売上約$97M、前年比約58%増。</div></div><div class="card-sm"><span class="card-emoji">🔥</span><div class="card-title">なぜ注目</div><div class="card-desc">宇宙と防衛を横断する大型案件の可能性。</div></div>
+      <div class="card-sm"><span class="card-emoji">🛰️</span><div class="card-title">何をしてる</div><div class="card-desc">宇宙船の太陽電池、航法センサー、通信、研究装置を作る。</div></div><div class="card-sm"><span class="card-emoji">🛩️</span><div class="card-title">主力事業</div><div class="card-desc">SpaceとDefense Techの2部門。Stalker UASも主力。</div></div><div class="card-sm"><span class="card-emoji">📊</span><div class="card-title">直近の業績</div><div class="card-desc">Q1売上$97.0M、粗利率26.6%、受注残$498.1M。</div></div><div class="card-sm"><span class="card-emoji">🔥</span><div class="card-title">なぜ注目</div><div class="card-desc">宇宙・防衛予算、ドローン需要、微小重力研究の3テーマ。</div></div>
       <!-- 例: <div class="card-sm"><span class="card-emoji">🏭</span><div class="card-title">何をしてる</div><div class="card-desc">…</div></div> を4枚 -->
     </div>
 
     <!-- どうやって稼ぐ？：ビジネスモデルと売上の内訳を平易に -->
     <div class="block-label">💰 どうやって<span class="g">稼いでる</span>？</div>
     <ul class="keypoints">
-      <li><span class="kp-emoji">🛰️</span><span class="kp-text"><b>宇宙</b>：政府・商業顧客へ機器やシステムを販売。</span></li><li><span class="kp-emoji">🛩️</span><span class="kp-text"><b>防衛</b>：無人航空機と関連システムを提供。</span></li>
+      <li><span class="kp-emoji">🛰️</span><span class="kp-text"><b>Space：</b>Q1売上$52.7M。太陽電池、航法、RF、研究装置を政府・民間へ納入。</span></li><li><span class="kp-emoji">🛩️</span><span class="kp-text"><b>Defense Tech：</b>Q1売上$44.3M。StalkerなどのUASとカメラを軍・政府へ販売。</span></li><li><span class="kp-emoji">🏛️</span><span class="kp-text"><b>顧客：</b>Q1売上は国家安全保障$46.0M、民間ほか$30.9M、民間宇宙$20.1M。</span></li><li><span class="kp-emoji">📦</span><span class="kp-text"><b>稼ぎ方：</b>開発費、製品販売、契約マイルストーン、サービス収入で売上を作る。</span></li>
       <!-- 例: <li><span class="kp-emoji">🧩</span><span class="kp-text"><b>主力</b>：◯◯を作って△△に売る。売上の約7割。</span></li> を2〜4件（売上構成・主要顧客・課金の仕組み等） -->
     </ul>
 
     <!-- 会社の“基本ルール”（この銘柄を見るうえで最初に押さえる勘所） -->
-    <div class="highlight"><h3>📏 RDW株の基本ルール</h3><p><b>受注残が実際の売上と利益に変わるか</b>が最重要。契約枠の大きさだけで判断しない。</p></div>
+    <div class="highlight"><h3>📏 RDW株の基本ルール</h3><p>見る順番は<b>受注→売上→粗利→営業CF→株数</b>です。2026年5〜6月に旧ATMで$350Mを売却済み。さらに最大$500Mの新ATM枠があります。</p></div>
     <!-- 例: <div class="highlight"><h3>📏 ◯◯株の基本ルール</h3><p>…</p></div> -->
   </section>
 
   <!-- SEC2: 業界の基本　⚡まとめ → lead(比喩) → sowhat → term-list 4〜6 -->
   <section class="section" id="sec2">
     <div class="section-header">
-      <div class="section-icon">🌌</div><div class="section-num">2</div>
-      <div><div class="section-title">宇宙ビジネスの<span class="g">基本</span></div><div class="section-sub">難しい話をかんたんに</div></div>
+      <div class="section-icon">🚀</div><div class="section-num">2</div>
+      <div><div class="section-title">宇宙・防衛の<span class="g">基本</span></div><div class="section-sub">ロケット会社ではなく、飛んだ後を支える会社</div></div>
     </div>
-    <div class="tldr"><div class="tldr-label">⚡ このセクションの3秒まとめ</div><ul><li data-emoji="🟢">成長市場だが案件の時期は読みにくい。</li><li data-emoji="🟡">政府予算と大型契約の影響が大きい。</li><li data-emoji="🔴">赤字企業は資金調達も重要。</li></ul></div>
-    <div class="lead">RDWは、衛星向け部品・太陽電池・宇宙製造・無人航空機まで扱います。</div><div class="sowhat"><p><b>つまり：</b>単なる宇宙株ではなく、宇宙＋防衛の複合企業です。</p></div><div class="term-list"><details class="term-item"><summary class="term-header"><span class="term-name">ROSA</span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>展開式の宇宙用太陽電池。Redwireの代表技術の一つ。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">Edge Autonomy</span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>無人航空機事業。買収後の統合が重要。</p></div></details></div>
+    <div class="tldr"><div class="tldr-label">⚡ このセクションの3秒まとめ</div><ul><li data-emoji="🔋">宇宙では電力・姿勢制御・通信が必須</li>
+<li data-emoji="🏛️">政府予算と契約時期で四半期業績がぶれる</li>
+<li data-emoji="🏭">開発から量産へ移れるかが利益の分かれ目</li></ul></div>
+    <p class="lead">Redwireは、宇宙船の「部品屋」と、軍用ドローンの<span class="g">「機体屋」</span>を1社にまとめた会社です。</p><div class="sowhat"><p><b>つまり：</b>ロケットを飛ばす会社ではない。飛んだ後に必要な電力、姿勢制御、通信、研究装置と、空の偵察機を売ります。</p></div><div class="term-list"><details class="term-item" open><summary class="term-header"><span class="term-name">宇宙インフラ<span class="term-en">Space Infrastructure</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>宇宙で働くための土台</b>です。太陽電池、センサー、アンテナ、研究装置など。RedwireのSpace部門が担当します。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">防衛テック<span class="term-en">Defense Tech</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>軍や政府向けの技術です。RedwireではStalkerやPenguinなどの<b>無人航空機</b>、Octopusカメラジンバルが中心です。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">政府契約<span class="term-en">Government Contract</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>NASA、米国防総省、欧州機関などが顧客です。予算が大きい一方、<b>承認・入札・検収</b>で売上時期がずれます。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">量産と開発<span class="term-en">Production vs. Development</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>開発案件は先行コストが出やすい。量産へ移ると同じ設計を繰り返せるため、<b>利益率が上がりやすい</b>のが基本です。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">複合企業<span class="term-en">Multi-domain Company</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>宇宙と無人航空機をまたぐ会社です。成長先が増える反面、<b>買収統合と管理の難しさ</b>も増えます。</p></div></details></div>
   </section>
 
   <!-- SEC3: 主要製品・技術　⚡まとめ → product-grid → term-list 3〜5 -->
   <section class="section" id="sec3">
     <div class="section-header">
       <div class="section-icon">🔬</div><div class="section-num">3</div>
-      <div><div class="section-title">RDWの<span class="g">主要製品</span></div><div class="section-sub">難しい話をかんたんに</div></div>
+      <div><div class="section-title">何を<span class="g">売ってる</span>？</div><div class="section-sub">宇宙の部品から軍用UASまで</div></div>
     </div>
-    <div class="tldr"><div class="tldr-label">⚡ このセクションの3秒まとめ</div><ul><li data-emoji="🟢">成長市場だが案件の時期は読みにくい。</li><li data-emoji="🟡">政府予算と大型契約の影響が大きい。</li><li data-emoji="🔴">赤字企業は資金調達も重要。</li></ul></div>
-    <div class="lead">RDWは、衛星向け部品・太陽電池・宇宙製造・無人航空機まで扱います。</div><div class="sowhat"><p><b>つまり：</b>単なる宇宙株ではなく、宇宙＋防衛の複合企業です。</p></div><div class="term-list"><details class="term-item"><summary class="term-header"><span class="term-name">ROSA</span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>展開式の宇宙用太陽電池。Redwireの代表技術の一つ。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">Edge Autonomy</span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>無人航空機事業。買収後の統合が重要。</p></div></details></div>
+    <div class="tldr"><div class="tldr-label">⚡ このセクションの3秒まとめ</div><ul><li data-emoji="🛰️">ROSA・ELSAが宇宙で電力を作る</li>
+<li data-emoji="🛩️">Stalkerが長時間の偵察を行う</li>
+<li data-emoji="🧪">PIL-BOXとSpaceMDが宇宙実験を商売にする</li></ul></div>
+    <div class="product-grid"><div class="product-box"><div class="product-symbol">ROSA</div><div class="product-name">展開式太陽電池</div><div class="product-use">宇宙で広げ、衛星や宇宙施設へ電力を供給</div></div><div class="product-box"><div class="product-symbol">STALKER</div><div class="product-name">長時間滞空UAS</div><div class="product-use">偵察・監視・情報収集を行う無人航空機</div></div><div class="product-box"><div class="product-symbol">PIL-BOX</div><div class="product-name">微小重力研究</div><div class="product-use">ISSで薬や材料の実験を行う装置</div></div><div class="product-box"><div class="product-symbol">GN&amp;C</div><div class="product-name">航法・姿勢制御</div><div class="product-use">宇宙船の向きと位置を正しく保つ部品</div></div></div><div class="term-list"><details class="term-item" open><summary class="term-header"><span class="term-name">ROSA / ELSA<span class="term-en">Solar Arrays</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>軽く畳んで打ち上げ、宇宙で広げる太陽電池です。ELSAは2026年Q1に<b>$12.8Mの初受注</b>を獲得しました。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">Stalker Block 30<span class="term-en">Uncrewed Aircraft System</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>長時間飛べる偵察用UASです。2026年Q1の約$20Mに続き、Q2には<b>$21.5Mの追加注文</b>が発表されました。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">Octopus<span class="term-en">Gimbal Payload</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>機体に載せる安定化カメラです。揺れても対象を追い続ける<b>目の役割</b>を持ちます。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">SpaceMD<span class="term-en">Microgravity Venture</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>無重力を使った薬・バイオ研究の事業です。2026年7月に<b>3万平方フィートのIndiana施設</b>が開設されました。</p></div></details></div>
   </section>
 
   <!-- SEC4: 技術詳細・規制　⚡まとめ → keypoints → term-list 4〜6 -->
   <section class="section" id="sec4">
     <div class="section-header">
       <div class="section-icon">🏛️</div><div class="section-num">4</div>
-      <div><div class="section-title">防衛と宇宙を<span class="g">つなぐ技術</span></div><div class="section-sub">難しい話をかんたんに</div></div>
+      <div><div class="section-title">技術と契約の<span class="g">落とし穴</span></div><div class="section-sub">成功しても、売上になるまで段階がある</div></div>
     </div>
-    <div class="tldr"><div class="tldr-label">⚡ このセクションの3秒まとめ</div><ul><li data-emoji="🟢">成長市場だが案件の時期は読みにくい。</li><li data-emoji="🟡">政府予算と大型契約の影響が大きい。</li><li data-emoji="🔴">赤字企業は資金調達も重要。</li></ul></div>
-    <div class="lead">RDWは、衛星向け部品・太陽電池・宇宙製造・無人航空機まで扱います。</div><div class="sowhat"><p><b>つまり：</b>単なる宇宙株ではなく、宇宙＋防衛の複合企業です。</p></div><div class="term-list"><details class="term-item"><summary class="term-header"><span class="term-name">ROSA</span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>展開式の宇宙用太陽電池。Redwireの代表技術の一つ。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">Edge Autonomy</span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>無人航空機事業。買収後の統合が重要。</p></div></details></div>
+    <div class="tldr"><div class="tldr-label">⚡ このセクションの3秒まとめ</div><ul><li data-emoji="⚠️">開発コストの見積もり悪化は粗利を直撃</li>
+<li data-emoji="📑">大型IDIQの上限額は売上保証ではない</li>
+<li data-emoji="🛡️">防衛品は輸出規制と顧客検収が重要</li></ul></div>
+    <ul class="keypoints"><li><span class="kp-emoji">🧪</span><span class="kp-text"><b>開発：</b>顧客仕様に合わせるため、試作段階で想定外コストが出やすい。</span></li><li><span class="kp-emoji">🛰️</span><span class="kp-text"><b>宇宙品質：</b>打ち上げ後は直しに行けない。振動・放射線・温度差への試験が重い。</span></li><li><span class="kp-emoji">🛡️</span><span class="kp-text"><b>輸出管理：</b>防衛品はITARなどの規制対象。販売先と技術移転に制限がある。</span></li><li><span class="kp-emoji">📑</span><span class="kp-text"><b>契約：</b>IDIQの上限額は売上保証ではない。個別注文が出て初めて売上へ近づく。</span></li></ul><div class="term-list"><details class="term-item" open><summary class="term-header"><span class="term-name">EAC調整<span class="term-en">Estimate at Completion</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>完成までの総コスト見積もりを直す会計処理です。見積もり悪化は<b>売上・粗利を一度に押し下げる</b>ことがあります。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">IDIQ<span class="term-en">Indefinite Delivery / Indefinite Quantity</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>発注量が未確定の契約枠です。大きな上限額でも、<b>タスクオーダーが出るまでは確定売上ではありません</b>。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">ISR<span class="term-en">Intelligence, Surveillance, Reconnaissance</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>情報・監視・偵察です。Stalkerの主要任務で、カメラや通信を使い<b>現場の状況を集める</b>仕事です。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">ITAR<span class="term-en">International Traffic in Arms Regulations</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>米国の防衛関連輸出規制です。国際展開の壁になりますが、<b>規制対応力は参入障壁</b>にもなります。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">認定と検収<span class="term-en">Qualification & Acceptance</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>試験に合格し、顧客が受け取る工程です。遅れると<b>売上計上や入金の時期</b>もずれます。</p></div></details></div>
   </section>
 
   <!-- SEC5: 競合比較　⚡まとめ → table-wrap>compare-table(自社=me) → highlight「差別化」 -->
   <section class="section" id="sec5">
     <div class="section-header">
       <div class="section-icon">⚔️</div><div class="section-num">5</div>
-      <div><div class="section-title">ライバルと<span class="g">何が違う</span>？</div><div class="section-sub">難しい話をかんたんに</div></div>
+      <div><div class="section-title">ライバルと<span class="g">何が違う</span>？</div><div class="section-sub">宇宙と防衛UASを同時に持つのが特徴</div></div>
     </div>
-    <div class="tldr"><div class="tldr-label">⚡ このセクションの3秒まとめ</div><ul><li data-emoji="🟢">成長市場だが案件の時期は読みにくい。</li><li data-emoji="🟡">政府予算と大型契約の影響が大きい。</li><li data-emoji="🔴">赤字企業は資金調達も重要。</li></ul></div>
-    <div class="table-wrap"><table class="compare-table"><tr><th>企業</th><th>主戦場</th><th>特徴</th></tr><tr class="me"><td>Redwire</td><td>宇宙＋防衛</td><td>複合ポートフォリオ</td></tr><tr><td>Rocket Lab</td><td>打上げ＋宇宙機</td><td>垂直統合</td></tr><tr><td>Intuitive Machines</td><td>月面</td><td>月ミッション</td></tr></table></div><div class="highlight"><h3>最大の差別化</h3><p>宇宙インフラと防衛無人機を一社で持つ点。</p></div>
+    <div class="tldr"><div class="tldr-label">⚡ このセクションの3秒まとめ</div><ul><li data-emoji="🧩">RDWは宇宙部品とUASの複合型</li>
+<li data-emoji="⚔️">各分野には大きく強い専業ライバルがいる</li>
+<li data-emoji="🔗">Edge Autonomy統合で横のつながりを作れるか</li></ul></div>
+    <div class="table-wrap"><table class="compare-table"><thead><tr><th>会社</th><th>強い場所</th><th>RDWとの違い</th></tr></thead><tbody><tr class="me"><td>Redwire</td><td>宇宙部品＋UAS</td><td>2事業を横断。買収統合は途中</td></tr><tr><td>Rocket Lab</td><td>打ち上げ＋宇宙システム</td><td>ロケットまで自社で持つ</td></tr><tr><td>MDA Space</td><td>衛星・ロボット・通信</td><td>大型プログラムの実績と規模</td></tr><tr><td>AeroVironment</td><td>UAS・徘徊型兵器</td><td>防衛無人機への集中度が高い</td></tr><tr><td>Kratos</td><td>無人機・防衛システム</td><td>大型の防衛ポートフォリオ</td></tr><tr><td>Karman</td><td>宇宙・ミサイル部品</td><td>部品に集中し事業範囲は狭い</td></tr></tbody></table></div><div class="highlight"><h3>🧩 最大の差別化</h3><p>Redwireは<b>宇宙インフラと長時間滞空UAS</b>を同じ会社で持ちます。顧客接点は広い。ただし、広さが利益につながるかはEdge Autonomy統合で決まります。</p></div>
   </section>
 
   <!-- SEC6: 用語辞典　⚡まとめ(特にこの3つ) → term-list 10〜12（①定義→②なぜ重要→③この銘柄では） -->
@@ -420,8 +430,10 @@ strong.g { color: var(--accent); }
       <div class="section-icon">📖</div><div class="section-num">6</div>
       <div><div class="section-title">RDWのニュースで出る<span class="g">言葉</span> 全辞典</div><div class="section-sub">分からん単語はここで潰す</div></div>
     </div>
-    <div class="tldr"><div class="tldr-label">⚡ 特にこの3つだけは覚えて</div><ul><li data-emoji="1️⃣">受注残</li><li data-emoji="2️⃣">IDIQ</li><li data-emoji="3️⃣">希薄化</li></ul></div>
-    <div class="term-list"><details class="term-item"><summary class="term-header"><span class="term-name">受注残</span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>RDWを見る上で重要な用語。<b>なぜ重要：</b>売上・利益・リスクに影響します。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">EV/Sales</span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>RDWを見る上で重要な用語。<b>なぜ重要：</b>売上・利益・リスクに影響します。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">ROSA</span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>RDWを見る上で重要な用語。<b>なぜ重要：</b>売上・利益・リスクに影響します。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">SOTP</span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>RDWを見る上で重要な用語。<b>なぜ重要：</b>売上・利益・リスクに影響します。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">IDIQ</span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>RDWを見る上で重要な用語。<b>なぜ重要：</b>売上・利益・リスクに影響します。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">タスクオーダー</span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>RDWを見る上で重要な用語。<b>なぜ重要：</b>売上・利益・リスクに影響します。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">希薄化</span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>RDWを見る上で重要な用語。<b>なぜ重要：</b>売上・利益・リスクに影響します。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">キャッシュバーン</span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>RDWを見る上で重要な用語。<b>なぜ重要：</b>売上・利益・リスクに影響します。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">粗利率</span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>RDWを見る上で重要な用語。<b>なぜ重要：</b>売上・利益・リスクに影響します。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">Edge Autonomy</span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>RDWを見る上で重要な用語。<b>なぜ重要：</b>売上・利益・リスクに影響します。</p></div></details></div>
+    <div class="tldr"><div class="tldr-label">⚡ 特にこの3つだけは覚えて</div><ul><li data-emoji="📦">受注残＝将来売上の候補。確定利益ではない</li>
+<li data-emoji="📑">IDIQ＝契約枠。個別注文が本番</li>
+<li data-emoji="💸">ATM＝現金は増えるが株数も増える</li></ul></div>
+    <div class="term-list"><details class="term-item" open><summary class="term-header"><span class="term-name">SOTP<span class="term-en">Sum of the Parts</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>①定義：</b>事業ごとに別々の値段を付けて足す方法です。<b>②なぜ重要：</b>宇宙と防衛は利益構造が違うため重要です。<b>③RDWでは：</b>RDWのシナリオ試算で使います。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">EV/Sales<span class="term-en">Enterprise Value / Sales</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>①定義：</b>企業価値を売上で割った倍率です。<b>②なぜ重要：</b>赤字企業でも比較できます。<b>③RDWでは：</b>RDWでは成長率と利益化の期待が倍率を動かします。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">受注残<span class="term-en">Backlog</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>①定義：</b>契約済みで、まだ売上にしていない仕事です。<b>②なぜ重要：</b>将来売上の手掛かりになります。<b>③RDWでは：</b>RDWは2026年Q1末に$498.1Mでした。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">Book-to-Bill<span class="term-en">Orders / Revenue</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>①定義：</b>受注額を売上で割った数字です。<b>②なぜ重要：</b>1超なら仕事が売上より速く増えます。<b>③RDWでは：</b>RDWのQ1 2026は1.92でした。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">IDIQ<span class="term-en">Contract Ceiling</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>①定義：</b>数量未確定の契約枠です。<b>②なぜ重要：</b>上限額は売上保証ではありません。<b>③RDWでは：</b>RDWではAndromedaなど大型枠を個別注文と分けて見ます。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">タスクオーダー<span class="term-en">Task Order</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>①定義：</b>契約枠の中で出る実際の注文です。<b>②なぜ重要：</b>金額と納期が具体化します。<b>③RDWでは：</b>RDWでは大型IDIQより個別注文の確認が大切です。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">EAC調整<span class="term-en">Estimate at Completion</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>①定義：</b>完成までのコスト見積もりの修正です。<b>②なぜ重要：</b>悪化すると利益が急減します。<b>③RDWでは：</b>RDWの宇宙開発案件で重要なリスクです。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">調整後EBITDA<span class="term-en">Adjusted EBITDA</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>①定義：</b>一時費用などを除いた本業の目安です。<b>②なぜ重要：</b>現金そのものではありません。<b>③RDWでは：</b>RDWはQ1 2026に-$9.2Mでした。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">ATM<span class="term-en">At-the-Market Offering</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>①定義：</b>市場で少しずつ新株を売る資金調達です。<b>②なぜ重要：</b>現金は増えますが1株の取り分は薄まります。<b>③RDWでは：</b>RDWは2026年に大型ATMを使いました。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">希薄化<span class="term-en">Dilution</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>①定義：</b>株数が増え、1株あたりの取り分が減ることです。<b>②なぜ重要：</b>RDWは6月8日時点で238.825M株。<b>③RDWでは：</b>新ATM枠もあります。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">UAS<span class="term-en">Uncrewed Aircraft System</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>①定義：</b>無人航空機と地上装置をまとめた仕組みです。<b>②なぜ重要：</b>偵察・監視を人の搭乗なしで行えます。<b>③RDWでは：</b>RDWではStalkerとPenguinがDefense Techの主力です。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">宇宙インフラ<span class="term-en">Space Infrastructure</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>①定義：</b>宇宙で活動するための電力・航法・通信・研究装置です。<b>②なぜ重要：</b>衛星や宇宙施設を動かす土台です。<b>③RDWでは：</b>RDWのSpace部門の売上源です。</p></div></details></div>
   </section>
 
   <!-- SEC7: 株価の見方　⚡まとめ → timeline(signal+rating) → リスク4分類 info-row → highlight → 数字まとめ table -->
@@ -430,8 +442,10 @@ strong.g { color: var(--accent); }
       <div class="section-icon">💹</div><div class="section-num">7</div>
       <div><div class="section-title">何がRDW株を<span class="g">動かす</span>？</div><div class="section-sub">上がる理由・下がる理由を一目で</div></div>
     </div>
-    <div class="tldr"><div class="tldr-label">⚡ 株価のツボ 3秒まとめ</div><ul><li data-emoji="🟢">受注残の売上化が追い風。</li><li data-emoji="🟡">Edge統合が最大の分岐点。</li><li data-emoji="🔴">赤字・資金調達・高ボラに注意。</li></ul></div>
-    <div class="timeline"><div class="tl-row"><div class="tl-date">次回決算</div><div class="tl-title"><span class="signal neutral">要確認</span> 売上・粗利・CF</div><div class="tl-desc">成長が現金創出へ近づくか。</div></div><div class="tl-row"><div class="tl-date">今後12か月</div><div class="tl-title"><span class="signal bull">追い風候補</span> 防衛大型案件</div><div class="tl-desc">実際の受注額と売上時期を見る。</div></div></div><div class="info-row"><div class="info-box info-box-red"><div class="info-title info-title-red">財務</div><div class="info-text">赤字と追加調達。</div></div><div class="info-box info-box-amber"><div class="info-title info-title-amber">統合</div><div class="info-text">大型買収の実行リスク。</div></div><div class="info-box info-box-blue"><div class="info-title info-title-blue">市場</div><div class="info-text">宇宙株の倍率変動。</div></div><div class="info-box info-box-gray"><div class="info-title info-title-gray">契約</div><div class="info-text">契約枠と確定売上は別。</div></div></div><div class="highlight"><h3>投資家向け注意点</h3><p>会社の成長性と、今の株価が安いかは別問題。受注、利益、現金、希薄化をセットで見る。</p></div>
+    <div class="tldr"><div class="tldr-label">⚡ 株価のツボ 3秒まとめ</div><ul><li data-emoji="📊">次の決算は売上より粗利・営業CF・株数が重要</li>
+<li data-emoji="🟢">Stalker追加注文と過去最高受注残は追い風</li>
+<li data-emoji="🔴">$500M ATM枠と買収統合は最大の注意点</li></ul></div>
+    <div class="timeline"><div class="tl-row"><div class="tl-date">2026年8月上旬（市場予想）</div><div class="tl-title">Q2決算 <span class="signal neutral">公式日程未確認</span> <span class="rating">★★★★★</span></div><div class="tl-desc">売上、粗利、営業CF、受注残、ATM後の現金と株数を確認。</div></div><div class="tl-row"><div class="tl-date">2026年後半</div><div class="tl-title">Stalker追加納入 <span class="signal bull">追い風候補</span> <span class="rating">★★★★<span class="off">★</span></span></div><div class="tl-desc">Q1約$20M、Q2$21.5Mの注文が売上へ移るか。</div></div><div class="tl-row"><div class="tl-date">2026年後半</div><div class="tl-title">2026年売上ガイダンス <span class="signal neutral">確認</span> <span class="rating">★★★★★</span></div><div class="tl-desc">$450M〜$500Mの達成確度を見る。</div></div><div class="tl-row"><div class="tl-date">継続開示</div><div class="tl-title">$500M ATM枠 <span class="signal bear">希薄化注意</span> <span class="rating">★★★★★</span></div><div class="tl-desc">実際の売却額と資金使途で1株価値が変わる。</div></div><div class="tl-row"><div class="tl-date">2026〜2027年</div><div class="tl-title">大型IDIQの個別注文 <span class="signal bull">上振れ候補</span> <span class="rating">★★★★<span class="off">★</span></span></div><div class="tl-desc">契約上限ではなく、実際のタスクオーダー金額を見る。</div></div><div class="tl-row"><div class="tl-date">2026〜2027年</div><div class="tl-title">SpaceMDの商用案件 <span class="signal neutral">育成中</span> <span class="rating">★★★<span class="off">★★</span></span></div><div class="tl-desc">Indiana新施設が薬・バイオ売上へつながるか。</div></div><div class="tl-row"><div class="tl-date">2027年Q4予定</div><div class="tl-title">Huntsville増設完了 <span class="signal bull">能力増強</span> <span class="rating">★★★<span class="off">★★</span></span></div><div class="tl-desc">164,000平方フィート追加。Stalkerなどの生産力を増やす計画。</div></div></div><div class="info-row"><div class="info-box info-box-blue"><div class="info-title info-title-blue">🛰️ 技術リスク</div><div class="info-text">開発案件のEAC悪化、試験遅延、量産移行の失敗。</div></div><div class="info-box info-box-amber"><div class="info-title info-title-amber">🏛️ 規制リスク</div><div class="info-text">政府予算、輸出管理、契約・検収時期のずれ。</div></div><div class="info-box info-box-red"><div class="info-title info-title-red">💸 財務リスク</div><div class="info-text">赤字、買収統合、ATMによる追加希薄化。</div></div><div class="info-box info-box-gray"><div class="info-title info-title-gray">📉 市場リスク</div><div class="info-text">宇宙・防衛テーマ株の倍率変動。Betaも高い。</div></div></div><div class="highlight"><h3>⚠️ 投資家向け注意点</h3><p>受注残が増えても、<b>売上・粗利・営業CF</b>へ変わらなければ価値は増えません。大型契約の見出しより、個別注文と株数の変化を確認します。</p></div><div class="table-wrap"><table class="compare-table"><thead><tr><th>数字</th><th>最新値</th><th>意味</th></tr></thead><tbody><tr><td>株価</td><td>$8.57</td><td>2026年7月28日終値。表示だけ自動更新</td></tr><tr><td>52週レンジ</td><td>$4.87〜$26.64</td><td>値動きが非常に大きい</td></tr><tr><td>Q1売上</td><td>$97.0M</td><td>前年比+57.9%</td></tr><tr><td>粗利率</td><td>26.6%</td><td>前年比・前四半期から改善</td></tr><tr><td>受注残</td><td>$498.1M</td><td>2026年Q1末の過去最高</td></tr><tr><td>株数</td><td>238.825M株</td><td>2026年6月8日時点</td></tr></tbody></table></div><div class="block-label">🔗 <span class="g">主要出典</span></div><ul class="keypoints"><li><span class="kp-emoji">📄</span><span class="kp-text"><a href="https://ir.rdw.com/news-events/press-releases/detail/230/redwire-corporation-reports-first-quarter-2026-financial">Q1 2026決算発表</a> / <a href="https://www.sec.gov/Archives/edgar/data/1819810/000181981026000063/rdw-20260331.htm">10-Q</a></span></li><li><span class="kp-emoji">💵</span><span class="kp-text"><a href="https://www.sec.gov/Archives/edgar/data/1819810/000162828026041769/redwire-atmprosuppjune2026.htm">2026年6月ATM目論見書</a></span></li><li><span class="kp-emoji">🛩️</span><span class="kp-text"><a href="https://ir.rdw.com/news-events/press-releases/detail/236/redwire-receives-21-5-million-follow-on-order-from">Stalker $21.5M追加注文</a></span></li><li><span class="kp-emoji">🏭</span><span class="kp-text"><a href="https://ir.rdw.com/news-events/press-releases/detail/237/redwire-announces-major-expansion-in-huntsville-scaling">Huntsville増設</a> / <a href="https://ir.rdw.com/news-events/press-releases/detail/238/redwire-opens-state-of-the-art-facility-in-indiana-to">Indiana施設</a></span></li><li><span class="kp-emoji">📈</span><span class="kp-text"><a href="https://www.marketwatch.com/investing/stock/rdw">市場データ</a> / <a href="https://www.investing.com/equities/redwire-historical-data">価格履歴</a></span></li></ul>
   </section>
 
 </div><!-- /container -->
@@ -439,7 +453,7 @@ strong.g { color: var(--accent); }
 <div class="footer">
   <div class="brandmark">S<span class="g">i</span>M &nbsp;MARKET LAB</div>
   <p style="margin-bottom:8px;font-weight:700;color:#d8ded8">⚠️ 免責事項</p>
-  <p>本資料は情報提供・教育目的のみです。投資助言ではありません。宇宙・防衛テック株は値動きが激しく、元本を失うリスクがあります。<br>投資判断はご自身の責任で。データは2026年7月14日時点の公開情報に基づきます。</p>
+  <p>本資料は情報提供・教育目的のみです。投資助言ではありません。宇宙・防衛株は値動きが激しく、元本を失うリスクがあります。<br>投資判断はご自身の責任で。データは2026年7月29日時点の公開情報に基づきます。</p>
 </div>
 
 <script>
@@ -455,6 +469,7 @@ document.querySelectorAll('details.term-item').forEach(d => {
 })();
 </script>
 
+<script src="../../lab/assets/js/live-report-price.js" defer></script>
 </body>
 </html>
 
