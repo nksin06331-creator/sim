@@ -1,0 +1,176 @@
+/* Mobile-only first-view optimization. Data rendering and desktop layout stay untouched. */
+@media (max-width: 760px) {
+  .site-header {
+    min-height: 58px;
+  }
+
+  .hero {
+    display: block;
+    padding: 28px 0 20px;
+  }
+
+  .hero-main .eyebrow {
+    margin-bottom: 9px;
+    font-size: .58rem;
+    letter-spacing: .13em;
+  }
+
+  .hero h1 {
+    max-width: 100%;
+    font-size: clamp(1.85rem, 9vw, 2.65rem);
+    line-height: 1.08;
+    letter-spacing: -.055em;
+  }
+
+  .hero-line {
+    white-space: normal;
+  }
+
+  .hero-copy,
+  .hero-cta {
+    display: none;
+  }
+
+  .hero-dashboard {
+    margin-top: 17px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .hero-dashboard > p,
+  .hero-markets,
+  .hero-dashboard small {
+    display: none;
+  }
+
+  .hero-total {
+    display: flex;
+    align-items: baseline;
+    gap: 7px;
+    padding: 0;
+    border: 0;
+  }
+
+  .hero-total strong {
+    font-size: 1.25rem;
+    line-height: 1;
+  }
+
+  .hero-total span {
+    margin: 0;
+    color: var(--muted);
+    font-size: .76rem;
+    font-weight: 800;
+  }
+
+  .guide-strip {
+    display: none;
+  }
+
+  .catalog {
+    display: flex;
+    flex-direction: column;
+    padding: 22px 0 72px;
+    border-top: 1px solid var(--line);
+  }
+
+  .section-heading {
+    display: none;
+  }
+
+  .tools-panel {
+    order: 1;
+    margin-top: 0;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    gap: 9px;
+  }
+
+  .search-box input {
+    min-height: 50px;
+    border: 1px solid var(--line);
+    background: rgba(11,14,11,.94);
+  }
+
+  .filter-tabs {
+    gap: 5px;
+  }
+
+  .filter-tab {
+    min-height: 41px;
+    border-color: var(--line);
+    background: rgba(255,255,255,.018);
+  }
+
+  .sort-box,
+  .view-toggle {
+    min-height: 46px;
+  }
+
+  .theme-browser {
+    order: 2;
+    margin-top: 19px;
+    padding-top: 17px;
+    border-top: 1px solid var(--line);
+  }
+
+  .theme-browser-head {
+    margin-bottom: 10px;
+  }
+
+  .theme-browser-head h3 {
+    font-size: .83rem;
+    letter-spacing: .04em;
+  }
+
+  .theme-browser-head p {
+    display: none;
+  }
+
+  .theme-chips {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 7px;
+    overflow-x: auto;
+    padding-bottom: 5px;
+    scrollbar-width: none;
+  }
+
+  .theme-chips::-webkit-scrollbar {
+    display: none;
+  }
+
+  .theme-chip {
+    flex: 0 0 auto;
+  }
+
+  .status {
+    order: 3;
+    margin: 18px 0 12px;
+  }
+
+  #stock-grid {
+    order: 4;
+  }
+
+  .load-more {
+    order: 5;
+  }
+}
+
+@media (max-width: 390px) {
+  .hero {
+    padding-top: 23px;
+  }
+
+  .hero h1 {
+    font-size: clamp(1.7rem, 8.7vw, 2.25rem);
+  }
+
+  .catalog {
+    padding-top: 18px;
+  }
+}
