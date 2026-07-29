@@ -11,7 +11,8 @@
     if (card.querySelector(".price-position")) return;
 
     const currentText = card.querySelector(".snapshot > div:first-child strong")?.textContent;
-    const scenarioValues = [...card.querySelectorAll(".scenario-row strong")].map((el) => parsePrice(el.textContent));
+    const scenarioTexts = [...card.querySelectorAll(".scenario-row strong")].map((el) => el.textContent || "");
+    const scenarioValues = scenarioTexts.map(parsePrice);
     const current = parsePrice(currentText);
     const [bear, base, bull] = scenarioValues;
 
@@ -36,13 +37,12 @@
         <span class="price-position-marker" style="left:${position}%"></span>
       </div>
       <div class="price-position-values" aria-hidden="true">
-        <span>${card.querySelector(".scenario-row strong:nth-of-type(1)")?.textContent || ""}</span>
-        <span>${card.querySelector(".scenario-row div:nth-child(2) strong")?.textContent || ""}</span>
-        <span>${card.querySelector(".scenario-row div:nth-child(3) strong")?.textContent || ""}</span>
+        <span>${scenarioTexts[0] || ""}</span>
+        <span>${scenarioTexts[1] || ""}</span>
+        <span>${scenarioTexts[2] || ""}</span>
       </div>`;
 
-    const scenarioRow = card.querySelector(".scenario-row");
-    scenarioRow?.before(block);
+    card.querySelector(".scenario-row")?.before(block);
   }
 
   const enhanceCards = () => document.querySelectorAll(".stock-card").forEach(buildPositionBar);
