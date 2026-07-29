@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-07-29T18:30:00+09:00",
+  "source": "Initial report data; refreshed automatically by GitHub Actions",
+  "prices": {
+    "285A": {
+      "symbol": "285A.T",
+      "price": 38380,
+      "previousClose": null,
+      "change": null,
+      "changePct": null,
+      "currency": "JPY",
+      "marketTime": "2026-07-29T15:30:00+09:00",
+      "status": "initial"
+    }
+  }
+}
