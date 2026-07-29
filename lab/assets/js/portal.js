@@ -2,12 +2,22 @@ const grid = document.querySelector("#stock-grid");
 const status = document.querySelector("#status");
 const search = document.querySelector("#stock-search");
 const filters = document.querySelector("#market-filters");
+const themeFilters = document.querySelector("#theme-filters");
 const sort = document.querySelector("#stock-sort");
+const cardViewButton = document.querySelector("#card-view");
+const listViewButton = document.querySelector("#list-view");
+const loadMoreButton = document.querySelector("#load-more");
 const manifestUrl = document.body.dataset.manifestUrl || "./data/manifest.json";
 const linkPrefix = document.body.dataset.linkPrefix ?? (location.pathname.includes("/lab/") ? "../" : "");
+const PAGE_SIZE = 12;
 let stocks = [];
 let activeMarket = "all";
+let activeTheme = "all";
 let activeSort = "updated";
+let activeView = "card";
+let visibleCount = PAGE_SIZE;
+
+const preferredThemes = ["AI", "半導体", "宇宙", "量子", "原子力", "防衛", "バイオ", "金融", "エネルギー"];
 
 const latestOverrides = {
   ASPI: {
@@ -26,12 +36,7 @@ const latestOverrides = {
 const applyLatestOverride = (stock) => {
   const override = latestOverrides[stock.ticker];
   if (!override) return stock;
-  return {
-    ...stock,
-    ...override,
-    price: { ...stock.price, ...override.price },
-    scenarios: { ...stock.scenarios, ...override.scenarios }
-  };
+  return { ...stock, ...override, price: { ...stock.price, ...override.price }, scenarios: { ...stock.scenarios, ...override.scenarios } };
 };
 
 const formatPrice = (value, currency = "USD") => Number.isFinite(value)
@@ -46,8 +51,7 @@ const numberValue = (value) => {
   return Number.isFinite(parsed) ? parsed : null;
 };
 const compareNumber = (a, b, direction = "desc") => {
-  const aValue = numberValue(a);
-  const bValue = numberValue(b);
+  const aValue = numberValue(a); const bValue = numberValue(b);
   if (aValue === null && bValue === null) return 0;
   if (aValue === null) return 1;
   if (bValue === null) return -1;
@@ -63,60 +67,103 @@ const sorters = {
 };
 
 function scenarioCell(parent, label, value, currency) {
-  const cell = document.createElement("div");
-  addText(cell, "span", label);
-  addText(cell, "strong", formatPrice(value, currency));
-  parent.append(cell);
+  const cell = document.createElement("div"); addText(cell, "span", label); addText(cell, "strong", formatPrice(value, currency)); parent.append(cell);
 }
 function actionLink(parent, label, href, primary = false) {
   if (!href) return;
-  const link = document.createElement("a");
-  link.className = primary ? "card-button primary" : "card-button";
-  link.href = `${linkPrefix}${href}`;
-  link.innerHTML = `<span>${label}</span><b aria-hidden="true">↗</b>`;
-  parent.append(link);
+  const link = document.createElement("a"); link.className = primary ? "card-button primary" : "card-button"; link.href = `${linkPrefix}${href}`; link.innerHTML = `<span>${label}</span><b aria-hidden="true">↗</b>`; parent.append(link);
 }
 function createCard(stock) {
-  const card = document.createElement("article");
-  card.className = "stock-card";
+  const card = document.createElement("article"); card.className = "stock-card";
   const head = document.createElement("div"); head.className = "card-head";
-  const identity = document.createElement("div");
-  addText(identity, "p", stock.ticker, "ticker"); addText(identity, "h3", stock.name, "company");
-  const badge = addText(head, "span", stock.market, "market-badge"); badge.dataset.market = stock.market;
-  head.prepend(identity); card.append(head);
-  const tags = document.createElement("div"); tags.className = "card-tags";
-  [stock.sector, stock.method].filter(Boolean).forEach((tag) => addText(tags, "span", tag)); card.append(tags);
+  const identity = document.createElement("div"); addText(identity, "p", stock.ticker, "ticker"); addText(identity, "h3", stock.name, "company");
+  const badge = addText(head, "span", stock.market, "market-badge"); badge.dataset.market = stock.market; head.prepend(identity); card.append(head);
+  const tags = document.createElement("div"); tags.className = "card-tags"; [stock.sector, ...(stock.tags ?? []).slice(0, 2)].filter(Boolean).forEach((tag) => addText(tags, "span", tag)); card.append(tags);
   addText(card, "p", stock.summary, "summary");
   const snapshot = document.createElement("div"); snapshot.className = "snapshot";
   const price = document.createElement("div"); addText(price, "span", "現在株価"); addText(price, "strong", formatPrice(stock.price?.current, stock.price?.currency)); addText(price, "small", `${stock.updated} 更新`); snapshot.append(price);
-  const risk = document.createElement("div"); addText(risk, "span", "リスク"); const riskValue = addText(risk, "strong", stock.risk || "—"); riskValue.className = /非常|VERY/i.test(stock.risk || "") ? "risk very-high" : /高|HIGH/i.test(stock.risk || "") ? "risk high" : "risk"; snapshot.append(risk); card.append(snapshot);
-  const row = document.createElement("div"); row.className = "scenario-row";
-  scenarioCell(row, "BEAR", stock.scenarios?.bear, stock.price?.currency); scenarioCell(row, "BASE", stock.scenarios?.base, stock.price?.currency); scenarioCell(row, "BULL", stock.scenarios?.bull, stock.price?.currency); card.append(row);
-  if (Number.isFinite(stock.positionPct)) {
-    const position = document.createElement("div"); position.className = "position-block";
-    const label = document.createElement("div"); label.className = "position-label"; addText(label, "span", "シナリオ帯の現在地"); addText(label, "strong", stock.zone || `${stock.positionPct}%`); position.append(label);
-    const track = document.createElement("div"); track.className = "position-track"; const marker = document.createElement("span"); marker.style.left = `${Math.max(0, Math.min(100, stock.positionPct))}%`; track.append(marker); position.append(track);
-    const ends = document.createElement("div"); ends.className = "position-ends"; addText(ends, "span", "BEAR"); addText(ends, "span", "BULL"); position.append(ends); card.append(position);
-  }
-  if (stock.catalyst) { const catalyst = document.createElement("div"); catalyst.className = "catalyst"; addText(catalyst, "span", "NEXT CATALYST"); addText(catalyst, "p", stock.catalyst); card.append(catalyst); }
-  const actions = document.createElement("div"); actions.className = "card-actions";
-  actionLink(actions, "企業を知る", stock.detailPath); actionLink(actions, "株価を考える", stock.scenarioPath, true); card.append(actions);
+  const risk = document.createElement("div"); addText(risk, "span", "リスク"); const riskValue = addText(risk, "strong", stock.risk || "—"); riskValue.className = /非常|極めて|VERY/i.test(stock.risk || "") ? "risk very-high" : /高|HIGH/i.test(stock.risk || "") ? "risk high" : "risk"; snapshot.append(risk); card.append(snapshot);
+  const row = document.createElement("div"); row.className = "scenario-row"; scenarioCell(row, "BEAR", stock.scenarios?.bear, stock.price?.currency); scenarioCell(row, "BASE", stock.scenarios?.base, stock.price?.currency); scenarioCell(row, "BULL", stock.scenarios?.bull, stock.price?.currency); card.append(row);
+  const actions = document.createElement("div"); actions.className = "card-actions"; actionLink(actions, "企業を知る", stock.detailPath); actionLink(actions, "株価を考える", stock.scenarioPath, true); card.append(actions);
   return card;
 }
+function riskClass(risk = "") { return /非常|極めて|VERY/i.test(risk) ? "very-high" : /高|HIGH/i.test(risk) ? "high" : ""; }
+function createList(stocksToRender) {
+  const wrap = document.createElement("div"); wrap.className = "stock-list-wrap";
+  const table = document.createElement("table"); table.className = "stock-list";
+  table.innerHTML = "<thead><tr><th>ティッカー</th><th>企業名</th><th>市場</th><th>テーマ</th><th>現在株価</th><th>BASE</th><th>リスク</th><th>更新日</th><th></th></tr></thead>";
+  const body = document.createElement("tbody");
+  stocksToRender.forEach((stock) => {
+    const row = document.createElement("tr");
+    const theme = detectTheme(stock);
+    row.innerHTML = `<td class="stock-list-ticker">${stock.ticker}</td><td class="stock-list-company">${stock.name}</td><td>${stock.market}</td><td>${theme === "その他" ? stock.sector : theme}</td><td>${formatPrice(stock.price?.current, stock.price?.currency)}</td><td>${formatPrice(stock.scenarios?.base, stock.price?.currency)}</td><td><span class="stock-list-risk ${riskClass(stock.risk)}">${stock.risk || "—"}</span></td><td>${stock.updated}</td><td><a class="stock-list-link" href="${linkPrefix}${stock.detailPath || stock.scenarioPath || "#"}">見る →</a></td>`;
+    body.append(row);
+  });
+  table.append(body); wrap.append(table); return wrap;
+}
+function stockSearchText(stock) { return [stock.ticker, stock.name, stock.market, stock.sector, stock.method, stock.summary, stock.catalyst, ...(stock.tags ?? [])].join(" ").toLowerCase(); }
+function detectTheme(stock) {
+  const text = stockSearchText(stock);
+  const rules = [
+    ["AI", /\bai\b|人工知能|watsonx|athena|データセンター|xpu/],
+    ["半導体", /半導体|メモリ|ddr|nand|dram|チップ|silicon|光インターコネクト/],
+    ["宇宙", /宇宙|衛星|ロケット|space|launch/],
+    ["量子", /量子|quantum/],
+    ["原子力", /原子力|原子炉|核融合|uranium|nuclear/],
+    ["防衛", /防衛|軍事|defense|ミサイル/],
+    ["バイオ", /バイオ|創薬|医薬|抗体|治療|biolog/],
+    ["金融", /金融|銀行|融資|fintech|保険/],
+    ["エネルギー", /エネルギー|太陽電池|電力|solar|battery/]
+  ];
+  return rules.find(([, pattern]) => pattern.test(text))?.[0] || "その他";
+}
+function renderThemeFilters() {
+  if (!themeFilters) return;
+  const counts = new Map(preferredThemes.map((theme) => [theme, stocks.filter((stock) => detectTheme(stock) === theme).length]));
+  const visibleThemes = preferredThemes.filter((theme) => counts.get(theme) > 0);
+  themeFilters.replaceChildren();
+  [["all", "すべて", stocks.length], ...visibleThemes.map((theme) => [theme, theme, counts.get(theme)])].forEach(([value, label, count]) => {
+    const button = document.createElement("button"); button.type = "button"; button.className = `theme-chip${activeTheme === value ? " active" : ""}`; button.dataset.theme = value; button.innerHTML = `<span>${label}</span><small>${count}</small>`; themeFilters.append(button);
+  });
+}
+function getFilteredStocks(query = "") {
+  const normalized = query.trim().toLowerCase();
+  return stocks.filter((stock) => {
+    const marketMatch = activeMarket === "all" || stock.market === activeMarket;
+    const themeMatch = activeTheme === "all" || detectTheme(stock) === activeTheme;
+    const searchMatch = stockSearchText(stock).includes(normalized);
+    return marketMatch && themeMatch && searchMatch;
+  }).sort(sorters[activeSort] ?? sorters.updated);
+}
 function render(query = "") {
-  grid.replaceChildren(); const normalized = query.trim().toLowerCase();
-  const filtered = stocks.filter((stock) => (activeMarket === "all" || stock.market === activeMarket) && [stock.ticker, stock.name, stock.market, stock.sector, stock.method, stock.summary, stock.catalyst, ...(stock.tags ?? [])].join(" ").toLowerCase().includes(normalized)).sort(sorters[activeSort] ?? sorters.updated);
-  filtered.forEach((stock) => grid.append(createCard(stock)));
-  status.textContent = normalized ? `${filtered.length}件が一致しました` : `${filtered.length}銘柄のレポートを公開中`;
+  const filtered = getFilteredStocks(query);
+  const visible = filtered.slice(0, visibleCount);
+  grid.replaceChildren();
+  if (!visible.length) {
+    const empty = document.createElement("p"); empty.className = "empty-state"; empty.textContent = "条件に一致する銘柄がありません。"; grid.className = ""; grid.append(empty);
+  } else if (activeView === "card") {
+    grid.className = "stock-grid compact-view"; visible.forEach((stock) => grid.append(createCard(stock)));
+  } else {
+    grid.className = ""; grid.append(createList(visible));
+  }
+  const normalized = query.trim();
+  status.textContent = normalized || activeTheme !== "all" || activeMarket !== "all" ? `${filtered.length}件が一致しました（${visible.length}件表示）` : `${filtered.length}銘柄のうち${visible.length}件を表示中`;
+  loadMoreButton.hidden = visible.length >= filtered.length;
+  if (!loadMoreButton.hidden) loadMoreButton.textContent = `さらに${Math.min(PAGE_SIZE, filtered.length - visible.length)}件表示`;
 }
 async function init() {
   try {
     const response = await fetch(manifestUrl, { cache: "no-store" }); if (!response.ok) throw new Error(`一覧データを取得できませんでした（${response.status}）`);
     stocks = (await response.json()).filter((stock) => stock.status !== "draft").map(applyLatestOverride);
-    setText("#hero-total", stocks.length); setText("#hero-us", stocks.filter((s) => s.market === "米国株").length); setText("#hero-jp", stocks.filter((s) => s.market === "日本株").length); render();
+    setText("#hero-total", stocks.length); setText("#hero-us", stocks.filter((s) => s.market === "米国株").length); setText("#hero-jp", stocks.filter((s) => s.market === "日本株").length);
+    renderThemeFilters(); render();
   } catch (error) { status.className = "error-panel"; status.textContent = `${error.message}。GitHub Pagesの更新状況を確認してください。`; }
 }
-search?.addEventListener("input", (event) => render(event.target.value));
-filters?.addEventListener("click", (event) => { const button = event.target.closest(".filter-tab"); if (!button) return; filters.querySelectorAll(".filter-tab").forEach((tab) => tab.classList.remove("active")); button.classList.add("active"); activeMarket = button.dataset.market; render(search.value); });
-sort?.addEventListener("change", (event) => { activeSort = event.target.value; render(search.value); });
+search?.addEventListener("input", (event) => { visibleCount = PAGE_SIZE; render(event.target.value); });
+filters?.addEventListener("click", (event) => { const button = event.target.closest(".filter-tab"); if (!button) return; filters.querySelectorAll(".filter-tab").forEach((tab) => tab.classList.remove("active")); button.classList.add("active"); activeMarket = button.dataset.market; visibleCount = PAGE_SIZE; render(search.value); });
+themeFilters?.addEventListener("click", (event) => { const button = event.target.closest(".theme-chip"); if (!button) return; activeTheme = button.dataset.theme; visibleCount = PAGE_SIZE; renderThemeFilters(); render(search.value); });
+sort?.addEventListener("change", (event) => { activeSort = event.target.value; visibleCount = PAGE_SIZE; render(search.value); });
+cardViewButton?.addEventListener("click", () => { activeView = "card"; cardViewButton.classList.add("active"); listViewButton.classList.remove("active"); render(search.value); });
+listViewButton?.addEventListener("click", () => { activeView = "list"; listViewButton.classList.add("active"); cardViewButton.classList.remove("active"); render(search.value); });
+loadMoreButton?.addEventListener("click", () => { visibleCount += PAGE_SIZE; render(search.value); });
 init();
