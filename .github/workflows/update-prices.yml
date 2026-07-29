@@ -1,0 +1,51 @@
+name: Update stock prices
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "15 22 * * 1-5"
+  push:
+    branches: [main]
+    paths:
+      - "scripts/update_prices.py"
+      - ".github/workflows/update-prices.yml"
+      - "index.html"
+      - "data/manifest*.json"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-stock-prices
+  cancel-in-progress: true
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Update prices.json
+        run: python scripts/update_prices.py
+
+      - name: Validate JSON
+        run: python -m json.tool data/prices.json > /dev/null
+
+      - name: Commit updated prices
+        run: |
+          if git diff --quiet -- data/prices.json; then
+            echo "No price changes."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/prices.json
+          git commit -m "chore: refresh stock prices"
+          git push
