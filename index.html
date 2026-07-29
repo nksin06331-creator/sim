@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="./lab/assets/css/card-price-position.css?v=20260729-price-position-v2">
   <link rel="stylesheet" href="./lab/assets/css/hero-heading-fix.css?v=20260729-v1">
   <link rel="stylesheet" href="./lab/assets/css/sort-select-modern.css?v=20260729-v1">
+  <link rel="stylesheet" href="./lab/assets/css/custom-sort-menu.css?v=20260729-v1">
 </head>
 <body data-manifest-url="./data/manifest-20260729-55.json?v=20260729-sectors" data-link-prefix="">
   <header class="site-header">
@@ -74,7 +75,7 @@
           <button class="filter-tab" type="button" data-market="米国株">米国株</button>
           <button class="filter-tab" type="button" data-market="日本株">日本株</button>
         </div>
-        <label class="sort-box">
+        <div class="sort-box">
           <span class="sort-label">表示順</span>
           <select id="stock-sort" aria-label="銘柄の表示順">
             <option value="updated">新しく更新した順</option>
@@ -83,7 +84,7 @@
             <option value="price-asc">現在株価が安い順</option>
             <option value="ticker-asc">銘柄コード順（A→Z）</option>
           </select>
-        </label>
+        </div>
         <div class="view-toggle" aria-label="表示形式">
           <button class="view-button active" id="card-view" type="button">▦ カード</button>
           <button class="view-button" id="list-view" type="button">☰ 一覧</button>
@@ -98,6 +99,7 @@
 
   <footer><a class="brand footer-brand" href="./index.html"><span class="brand-word">S<span>i</span>M</span><span class="brand-sub">MARKET LAB</span></a><p>数字を煽らず、前提を読む。<br>掲載内容は投資助言ではありません。</p><p class="visitor-count"><img src="https://hits.sh/nksin06331-creator.github.io/sim.svg?style=flat-square&label=SITE%20VISITS&color=7dff91&labelColor=222822" alt="SiM MARKET LAB サイト訪問数" loading="lazy"></p></footer>
   <script src="./lab/assets/js/portal.js?v=20260729-compact-row-v1" defer></script>
+  <script src="./lab/assets/js/custom-sort-menu.js?v=20260729-v1" defer></script>
   <script src="./lab/assets/js/card-price-position.js?v=20260729-price-position-v1" defer></script>
 </body>
 </html>
