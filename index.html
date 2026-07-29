@@ -10,6 +10,7 @@
   <meta property="og:type" content="website">
   <title>SiM MARKET LAB｜Stock Research</title>
   <link rel="stylesheet" href="./lab/assets/css/site.css?v=20260714-sort">
+  <link rel="stylesheet" href="./lab/assets/css/portal-enhancements.css?v=20260729">
 </head>
 <body data-manifest-url="./data/manifest-20260722-49.json?v=20260729-prices" data-link-prefix="">
   <header class="site-header">
@@ -46,9 +47,18 @@
 
     <section class="catalog" id="reports" aria-labelledby="catalog-title">
       <div class="section-heading">
-        <div><p class="eyebrow">PUBLISHED REPORTS</p><h2 id="catalog-title">銘柄を<span>選ぶ</span></h2></div>
-        <p>企業名・ティッカー・テーマから検索できます。</p>
+        <div><p class="eyebrow">PUBLISHED REPORTS</p><h2 id="catalog-title">テーマから<span>探す</span></h2></div>
+        <p>市場・テーマ・企業名から、読みたいレポートを絞り込めます。</p>
       </div>
+
+      <div class="theme-browser" aria-labelledby="theme-title">
+        <div class="theme-browser-head">
+          <h3 id="theme-title">人気テーマ</h3>
+          <p>クリックすると該当銘柄だけを表示します。</p>
+        </div>
+        <div class="theme-chips" id="theme-filters" aria-label="テーマで絞り込み"></div>
+      </div>
+
       <div class="tools-panel" aria-label="銘柄の検索と絞り込み">
         <label class="search-box">
           <span class="search-icon" aria-hidden="true"></span>
@@ -70,14 +80,19 @@
             <option value="ticker-asc">ティッカー順</option>
           </select>
         </label>
+        <div class="view-toggle" aria-label="表示形式">
+          <button class="view-button active" id="card-view" type="button">▦ カード</button>
+          <button class="view-button" id="list-view" type="button">☰ 一覧</button>
+        </div>
       </div>
       <p id="status" class="status" role="status">データを読み込んでいます...</p>
-      <div id="stock-grid" class="stock-grid" aria-live="polite"></div>
+      <div id="stock-grid" class="stock-grid compact-view" aria-live="polite"></div>
+      <button id="load-more" class="load-more" type="button" hidden>さらに12件表示</button>
       <noscript><p class="error-panel">このページの表示にはJavaScriptが必要です。</p></noscript>
     </section>
   </main>
 
   <footer><a class="brand footer-brand" href="./index.html"><span class="brand-word">S<span>i</span>M</span><span class="brand-sub">MARKET LAB</span></a><p>数字を煽らず、前提を読む。<br>掲載内容は投資助言ではありません。</p><p class="visitor-count"><img src="https://hits.sh/nksin06331-creator.github.io/sim.svg?style=flat-square&label=SITE%20VISITS&color=7dff91&labelColor=222822" alt="SiM MARKET LAB サイト訪問数" loading="lazy"></p></footer>
-  <script src="./lab/assets/js/portal.js?v=20260722-49" defer></script>
+  <script src="./lab/assets/js/portal.js?v=20260729-browse" defer></script>
 </body>
 </html>
