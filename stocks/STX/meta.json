@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "ticker": "STX",
+  "slug": "stx",
+  "name": "Seagate Technology Holdings plc",
+  "market": "米国株",
+  "sector": "データストレージ・HDD・AIインフラ",
+  "method": "FY2027E正規化EPS × PER",
+  "status": "published",
+  "updated": "2026-07-30",
+  "price": {
+    "current": 764.43,
+    "currency": "USD"
+  },
+  "scenarios": {
+    "bear": 360,
+    "base": 650,
+    "bull": 960
+  },
+  "positionPct": 67.4,
+  "zone": "Base〜Bull帯",
+  "riskReward": "0.48倍",
+  "catalyst": "FY2027 Q1決算 / $4.1B売上ガイダンス・HAMR出荷・粗利率",
+  "summary": "FY2026は売上34%増、FCF $3.1B。AIストレージ需要は強いが、現値はFY2027の高収益継続を大きく織り込む。",
+  "tags": [
+    "HDD",
+    "HAMR",
+    "AIデータセンター",
+    "PER"
+  ],
+  "risk": "高い",
+  "detailPath": "stocks/STX/index.html",
+  "scenarioPath": "stocks/STX/scenario.html"
+}
