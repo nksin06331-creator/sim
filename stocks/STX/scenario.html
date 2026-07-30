@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Seagate Technology（STX）のBear・Base・Bull株価シナリオと計算根拠。">
+  <title>Seagate Technology（STX）株価シナリオ｜SiM MARKET LAB</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@600;700&family=Noto+Sans+JP:wght@400;500;700;900&family=Zen+Kaku+Gothic+New:wght@700;900&display=swap" rel="stylesheet">
+  <style>
+    :root{--accent:#6ee24e;--bg:#0a0c0a;--surface:#141815;--ink:#f1f5f1;--muted:#8a948a;--line:rgba(255,255,255,.09)}
+    *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Sans JP",sans-serif;line-height:1.75}a{color:var(--accent)}.wrap{max-width:1080px;margin:auto;padding:0 20px}.verdict,.kpis,.scenarios,.grid-2{display:grid}.kpis{grid-template-columns:repeat(4,1fr);gap:10px}.kpi b,.kpi span,.kpi small{display:block}
+    nav .wrap{display:flex;overflow:auto}nav a{white-space:nowrap;padding:7px 12px;text-decoration:none}.card,.scenario{border:1px solid var(--line);border-radius:16px}.scenarios{grid-template-columns:repeat(3,1fr);gap:12px}.scenario-head{display:flex;justify-content:space-between}.scenario-price{font-weight:900}.position-line{position:relative;border-radius:999px;margin:26px 0 12px}.pin{position:absolute;left:67.4%}.position-labels{display:flex;justify-content:space-between;color:var(--muted);font-size:11px}
+    .grid-2{grid-template-columns:1fr 1fr;gap:12px}.table-wrap{overflow:auto}.table-wrap table{width:100%;border-collapse:collapse}.table-wrap th,.table-wrap td{border:1px solid var(--line);padding:10px;text-align:center}.clean{list-style:none;padding:0;display:grid;gap:8px}.clean li{border:1px solid var(--line);padding:10px 12px}.small{color:var(--muted);font-size:12px}.sources{padding-left:20px}
+    @media(max-width:760px){.kpis,.scenarios,.grid-2{grid-template-columns:1fr 1fr}.scenarios .scenario:last-child{grid-column:1/-1}}@media(max-width:500px){.kpis,.scenarios,.grid-2{grid-template-columns:1fr}.scenarios .scenario:last-child{grid-column:auto}}
+  </style>
+  <link rel="stylesheet" href="../../lab/assets/css/report-v5.css">
+</head>
+<body data-stock-ticker="STX" data-price-source="../../data/prices.json" class="sim-report sim-scenario">
+  <header class="hero"><div class="wrap"><div class="eyebrow">SiM MARKET LAB / SCENARIO</div><h1>Seagate Technology <small>STX</small></h1><p class="sub">分析基準日 2026年7月30日｜FY2027E正規化EPS × PER｜株価は自動更新</p><div class="verdict"><div class="verdict-main"><span class="pill">結論</span><div class="status">業績は強い。現在地は<span style="color:var(--accent)">Base〜Bull帯</span></div><p>AIストレージ需要とHAMRは追い風ですが、現値は高利益率の継続をかなり織り込んでいます。</p></div><div class="score"><b>61</b><small>成長 90 / 割安度 31 / 財務 70</small></div></div><div class="kpis"><div class="kpi"><span>現在株価</span><b data-live-price>$764.43</b><small data-live-price-date>2026/7/29終値</small></div><div class="kpi"><span>Base</span><b>$650</b><small>基準値から −15.0%</small></div><div class="kpi"><span>FY26非GAAP EPS</span><b>$15.58</b><small>前年比 +92%</small></div><div class="kpi"><span>FY27 Q1 EPS見通し</span><b>$7.30</b><small>±$0.20</small></div></div></div></header>
+  <nav><div class="wrap"><a href="../../index.html">ポータル</a><a href="./index.html">企業ガイド</a><a href="#position">現在地</a><a href="#scenarios">3シナリオ</a><a href="#sensitivity">感応度</a><a href="#sources">根拠資料</a></div></nav>
+  <main class="wrap">
+    <section class="card" id="position"><h2>今の株価はどこ？</h2><p>Bear $360からBull $960のレンジに対し、基準株価$764.43は下から67.4%です。</p><div class="position-line"><span class="pin"></span></div><div class="position-labels"><span>Bear $360</span><span>Base $650</span><span>Bull $960</span></div><p class="small">Bullまでの上値$195.57 ÷ Bearまでの下値$404.43 = 0.48倍。</p></section>
+    <section class="card"><h2>今回の計算ルール</h2><div class="grid-2"><ul class="clean"><li>主手法：FY2027E正規化EPS × PER</li><li>保守的希薄化後株数：233M株</li><li>発行済227M株＋交換社債6M株を仮定</li><li>PERへHDD循環・HAMR実行リスクを反映</li></ul><ul class="clean"><li>FY26売上 $12.195B</li><li>FY26非GAAP EPS $15.58</li><li>FY26 FCF $3.105B</li><li>FY27 Q1売上見通し $4.1B±$0.1B</li></ul></div><div class="notice">交換社債の約6M株は会社の非GAAP株数から除外され、一部はコール取引で相殺予定です。本試算では保守的に全量を加えた233M株を使います。</div></section>
+    <section class="card" id="scenarios"><h2>Bear / Base / Bull</h2><div class="scenarios">
+      <article class="scenario bear"><div class="scenario-head"><b>BEAR</b><span class="prob">25%</span></div><div class="scenario-price">$360</div><ul><li>FY27E正規化EPS $18</li><li>PER 20倍</li><li>正規化利益 約$4.19B</li><li>株主価値 約$83.9B</li><li>需要正常化と倍率縮小</li></ul></article>
+      <article class="scenario base"><div class="scenario-head"><b>BASE</b><span class="prob">50%</span></div><div class="scenario-price">$650</div><ul><li>FY27E正規化EPS $26</li><li>PER 25倍</li><li>正規化利益 約$6.06B</li><li>株主価値 約$151.5B</li><li>Q1ガイダンス後に成長正常化</li></ul></article>
+      <article class="scenario bull"><div class="scenario-head"><b>BULL</b><span class="prob">25%</span></div><div class="scenario-price">$960</div><ul><li>FY27E正規化EPS $32</li><li>PER 30倍</li><li>正規化利益 約$7.46B</li><li>株主価値 約$223.7B</li><li>HAMRと価格上昇が長期継続</li></ul></article>
+    </div><p class="small">確率加重価格は$655。結論は期待値ではなく、現在株価がレンジのどこにあるかを中心に判断します。</p></section>
+    <section class="grid-2" id="sensitivity"><div class="card"><h2>EPS × PER感応度</h2><div class="table-wrap"><table><thead><tr><th>EPS＼PER</th><th>20倍</th><th>25倍</th><th>30倍</th></tr></thead><tbody><tr><td>$18</td><td>$360</td><td>$450</td><td>$540</td></tr><tr><td>$26</td><td>$520</td><td>$650</td><td>$780</td></tr><tr><td>$32</td><td>$640</td><td>$800</td><td>$960</td></tr></tbody></table></div></div><div class="card"><h2>次に確認する数字</h2><ul class="clean"><li>FY27 Q1売上$4.1B達成</li><li>非GAAP粗利率</li><li>HAMR出荷・顧客認定</li><li>エクサバイト価格と出荷量</li><li>債務・交換社債の希薄化</li></ul></div></section>
+    <section class="card" id="sources"><h2>根拠資料</h2><ul class="sources"><li><a href="https://investors.seagate.com/news/news-details/2026/Seagate-Technology-Reports-Fiscal-Fourth-Quarter-and-Fiscal-Year-2026-Financial-Results/default.aspx">Seagate FY2026 Q4・通期決算</a></li><li><a href="https://investors.seagate.com/financials/sec-filings/default.aspx">Seagate SEC Filings</a></li></ul><div class="notice">本資料は投資助言ではありません。株価は自動更新、分析前提は2026年7月30日時点です。</div></section>
+  </main>
+  <footer><a href="../../index.html">SiM MARKET LABへ戻る</a></footer><script src="../../lab/assets/js/live-report-price.js" defer></script>
+</body>
+</html>
