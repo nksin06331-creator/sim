@@ -1,472 +1,93 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>META 完全入門ガイド</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@700;900&family=Noto+Sans+JP:wght@400;500;700;900&family=DM+Sans:wght@500;600;700&display=swap" rel="stylesheet">
-<style>
-/*
- ================================================================
-  STOCK GUIDE TEMPLATE v4  SiM MARKET LAB ダーク版 / ChatGPT index.html
-  ----------------------------------------------------------------
-  ★★ デザインロック（ぶれ防止）★★
-  ・この <style> ブロックとページ骨格は「改変禁止」。1文字も変えない。逐語コピーする。
-  ・色はSiMグリーンで固定。銘柄・業界でアクセント色を変えない。
-  ・差し替えてよいのは {{ }} プレースホルダーの中身（＝テキスト）だけ。
-  ・セクションの数・順番・各コンポーネントの個数（SEC1のcard-smは4枚 等）は固定。
-    追加・削除・並べ替えをしない。
-  ----------------------------------------------------------------
-  ブランド：黒背景 × ネオングリーン × 白文字（キーワードだけ緑）。Instagram(sim.marketlab)準拠。
-  設計思想：「表層＝3秒で意味が取れる／深層＝読みたい人だけ開く」の2層構造。
-  ・見出しの重要ワードは <span class="g">…</span> で緑ハイライト。
- ================================================================
-*/
-
-:root {
-  /* ── ブランド・アクセント：SiMグリーンで固定（銘柄・業界で変えない＝デザインぶれ防止） ── */
-  --accent:        #6EE24E;
-  --accent-bright: #8BF56B;
-  --accent-tint:   rgba(110,226,78,.12);
-  --accent-line:   rgba(110,226,78,.38);
-
-  /* ── ダークシェル（変更不要・全銘柄共通） ── */
-  --bg:        #0a0c0a;
-  --surface:   #141815;   /* カード面 */
-  --surface-2: #1b201c;   /* 少し明るい面 */
-
-  /* レガシー変数マッピング（本文markupが参照。名前は据え置き、意味をダーク用に再定義） */
-  --c-primary-50:  var(--accent-tint);        --c-primary-100: rgba(110,226,78,.18);
-  --c-primary-200: rgba(110,226,78,.55);      --c-primary-400: var(--accent);
-  --c-primary-600: var(--accent);             --c-primary-800: var(--accent-bright);
-  --c-accent-50:   var(--accent-tint);        --c-accent-400:  var(--accent);   --c-accent-600: var(--accent-bright);
-
-  /* システム色（ダーク版：薄背景は半透明の暗色、文字は明るい色に反転） */
-  --amber-50:  rgba(251,191,36,.13); --amber-400: #fbbf24; --amber-600: #fcd34d; --amber-800: #fde68a;
-  --red-50:    rgba(248,113,113,.13); --red-400:  #f87171; --red-600:   #fca5a5;
-  --blue-50:   rgba(96,165,250,.13); --blue-400:  #60a5fa; --blue-600:  #93c5fd; --blue-800: #bfdbfe;
-  --green-50:  rgba(110,226,78,.13); --green-400: #6EE24E; --green-600: #8bf56b;
-  --violet-50: rgba(167,139,250,.13); --violet-400:#a78bfa; --violet-600:#c4b5fd;
-  --gray-50:  #15191b;               --gray-100: rgba(255,255,255,.06);
-  --gray-200: rgba(255,255,255,.09); --gray-300: #3f463f;
-  --gray-500: #8a948a;               --gray-700: #c3ccc3; --gray-900: #f1f5f1;
-
-  --font-display: 'Zen Kaku Gothic New', 'Noto Sans JP', sans-serif;
-  --font-body:    'Noto Sans JP', 'DM Sans', sans-serif;
-  --font-num:     'DM Sans', 'Noto Sans JP', sans-serif;
-  --radius: 16px;
-}
-
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
-body { font-family: var(--font-body); background: var(--bg); color: var(--gray-900); line-height: 1.85; font-size: 16px; -webkit-text-size-adjust: 100%; }
-.g { color: var(--accent); }               /* 緑キーワード */
-
-/* 読了プログレスバー */
-.progress-bar { position: fixed; top: 0; left: 0; height: 4px; width: 0%; z-index: 200; background: var(--accent); box-shadow: 0 0 12px var(--accent); transition: width .1s linear; }
-
-/* ── HERO（黒＋緑グロー＋ハーフトーン・ドット） ── */
-.hero {
-  background: radial-gradient(120% 90% at 50% -10%, #12251a 0%, #0b0f0c 45%, var(--bg) 75%);
-  color: #fff; padding: 58px 22px 66px; text-align: center; position: relative; overflow: hidden;
-}
-.hero::before { content:''; position:absolute; inset:0;
-  background-image: radial-gradient(var(--accent) 1px, transparent 1.6px);
-  background-size: 15px 15px; opacity: .10;
-  -webkit-mask-image: radial-gradient(ellipse at 50% 120%, #000 0%, transparent 60%);
-          mask-image: radial-gradient(ellipse at 50% 120%, #000 0%, transparent 60%);
-}
-.hero > * { position: relative; z-index: 1; }
-.brandmark { font-family: var(--font-num); font-weight: 700; letter-spacing: .18em; font-size: 13px; color: var(--gray-500); margin-bottom: 18px; }
-.brandmark b { color: #fff; font-weight: 700; }
-.brandmark .g { color: var(--accent); }
-.hero-badge { display: inline-block; background: rgba(110,226,78,.10); border: 1px solid var(--accent-line); border-radius: 999px; padding: 6px 18px; font-size: 12px; letter-spacing: .06em; font-weight: 700; margin-bottom: 18px; color: var(--accent); }
-.hero h1 { font-family: var(--font-display); font-size: clamp(30px,7.5vw,50px); font-weight: 900; line-height: 1.3; margin-bottom: 14px; letter-spacing: .01em; }
-.hero h1 .g { color: var(--accent); }
-.hero p { font-size: 15.5px; color: #c3ccc3; max-width: 560px; margin: 0 auto 26px; line-height: 1.85; }
-.hero-tags { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
-.hero-tag { background: rgba(255,255,255,.04); border: 1px solid var(--gray-200); border-radius: 999px; padding: 6px 14px; font-size: 13px; font-weight: 500; color: #d8ded8; }
-
-/* ── 30秒サマリー（でかい数字カード） ── */
-.tldr-hero { max-width: 820px; margin: -30px auto 0; padding: 0 16px; position: relative; z-index: 5; }
-.tldr-hero-inner { background: var(--surface); border: 1px solid var(--gray-200); border-radius: var(--radius); padding: 20px 20px 8px; box-shadow: 0 16px 40px rgba(0,0,0,.5); }
-.tldr-hero-title { font-family: var(--font-display); font-weight: 900; font-size: 17px; color: #fff; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
-.stat-strip { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px,1fr)); gap: 10px; margin-bottom: 14px; }
-.stat { background: var(--gray-50); border: 1px solid var(--gray-200); border-radius: 12px; padding: 14px 12px; text-align: center; }
-.stat-value { font-family: var(--font-num); font-weight: 700; font-size: clamp(24px,6vw,32px); line-height: 1.1; color: #fff; }
-.stat-value.up   { color: var(--accent); }
-.stat-value.down { color: var(--red-400); }
-.stat-label { font-size: 12px; color: var(--gray-500); margin-top: 4px; font-weight: 500; }
-.stat-note  { font-size: 11px; color: var(--gray-500); margin-top: 2px; }
-
-/* ── NAV ── */
-.nav-index { background: rgba(10,12,10,.82); backdrop-filter: blur(10px); border-bottom: 1px solid var(--gray-200); position: sticky; top: 0; z-index: 100; }
-.nav-inner { max-width: 820px; margin: 0 auto; padding: 0 16px; display: flex; overflow-x: auto; scrollbar-width: none; }
-.nav-inner::-webkit-scrollbar { display: none; }
-.nav-item { flex-shrink: 0; padding: 14px 14px; font-size: 13px; font-weight: 700; color: var(--gray-500); text-decoration: none; border-bottom: 3px solid transparent; transition: color .2s, border-color .2s; white-space: nowrap; }
-.nav-item:hover { color: var(--accent); border-bottom-color: var(--accent); }
-
-.container { max-width: 820px; margin: 0 auto; padding: 0 16px; }
-
-/* ── SECTION ── */
-.section { padding: 46px 0 34px; border-bottom: 1px solid var(--gray-200); opacity: 0; transform: translateY(16px); animation: fadeUp .5s ease forwards; }
-@keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
-.section-header { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
-.section-icon { width: 46px; height: 46px; border-radius: 50%; background: var(--surface-2); border: 1px solid var(--gray-200); display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0; }
-.section-num { width: 30px; height: 30px; border-radius: 50%; background: var(--accent); color: #06210a; font-family: var(--font-num); font-weight: 700; font-size: 15px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-.section-title { font-family: var(--font-display); font-size: clamp(21px,5.4vw,27px); font-weight: 900; color: #fff; line-height: 1.32; position: relative; display: inline-block; padding-bottom: 9px; }
-.section-title::after { content: ''; position: absolute; left: 0; bottom: 0; width: 40px; height: 3px; background: var(--accent); border-radius: 3px; }
-.section-title .g { color: var(--accent); }
-.section-sub { font-size: 13px; color: var(--gray-500); margin-top: 6px; font-weight: 500; }
-
-/* ── ⚡3秒まとめ ── */
-.tldr { background: var(--accent-tint); border: 1px solid var(--accent-line); border-radius: var(--radius); padding: 18px 20px; margin-bottom: 22px; }
-.tldr-label { display: inline-flex; align-items: center; gap: 6px; font-family: var(--font-display); font-weight: 900; font-size: 14px; color: var(--accent); margin-bottom: 10px; }
-.tldr ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
-.tldr li { font-size: 15.5px; font-weight: 500; color: #eef2ee; line-height: 1.7; padding-left: 30px; position: relative; }
-.tldr li::before { content: attr(data-emoji); position: absolute; left: 0; top: 0; font-size: 18px; }
-
-/* ── 👉つまり ── */
-.sowhat { background: var(--surface); border: 1.5px dashed var(--accent); border-radius: 14px; padding: 12px 16px 12px 46px; margin: 14px 0; position: relative; }
-.sowhat::before { content: '👉'; position: absolute; left: 14px; top: 11px; font-size: 20px; }
-.sowhat b { color: var(--accent); }
-.sowhat p { font-size: 14.5px; color: var(--gray-700); line-height: 1.8; }
-
-/* ── シグナル判定ピル ── */
-.signal { display: inline-flex; align-items: center; gap: 5px; font-weight: 700; font-size: 12.5px; padding: 4px 12px; border-radius: 999px; white-space: nowrap; }
-.signal.bull    { background: var(--green-50); color: var(--accent); }
-.signal.neutral { background: var(--amber-50); color: var(--amber-600); }
-.signal.bear    { background: var(--red-50);   color: var(--red-600); }
-
-/* ── ★重要度 ── */
-.rating { font-family: var(--font-num); letter-spacing: 1px; color: var(--accent); font-size: 14px; }
-.rating .off { color: var(--gray-300); }
-
-/* ── 絵文字箇条書き ── */
-.keypoints { list-style: none; display: flex; flex-direction: column; gap: 12px; margin: 8px 0; }
-.keypoints li { display: flex; gap: 12px; align-items: flex-start; font-size: 15px; line-height: 1.7; color: #e4e9e4; }
-.keypoints .kp-emoji { font-size: 22px; flex-shrink: 0; line-height: 1.4; }
-.keypoints .kp-text b { color: var(--accent); }
-
-/* ── CARDS ── */
-.card { background: var(--surface); border: 1px solid var(--gray-200); border-radius: 14px; padding: 18px 20px; margin-bottom: 12px; }
-.card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 12px; margin-bottom: 12px; }
-.card-sm { background: var(--surface); border: 1px solid var(--gray-200); border-radius: 14px; padding: 16px 18px; }
-.card-sm .card-emoji { font-size: 22px; display: inline-flex; width: 40px; height: 40px; border-radius: 50%; background: var(--surface-2); border: 1px solid var(--gray-200); align-items: center; justify-content: center; margin-bottom: 8px; }
-.card-sm .card-title { font-family: var(--font-display); font-weight: 700; font-size: 15px; margin-bottom: 4px; color: var(--accent); }
-.card-sm .card-desc { font-size: 13.5px; color: var(--gray-700); line-height: 1.75; }
-
-/* ── 会社クイックデータ（企業詳細を厚くする一覧） ── */
-.facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(148px,1fr)); gap: 1px; background: var(--gray-200); border: 1px solid var(--gray-200); border-radius: 14px; overflow: hidden; margin: 4px 0 14px; }
-.facts > div { background: var(--surface); padding: 12px 14px; }
-.facts dt { font-size: 11px; color: var(--gray-500); font-weight: 700; margin-bottom: 3px; }
-.facts dd { margin: 0; font-size: 14.5px; color: #fff; font-weight: 700; line-height: 1.5; }
-.block-label { font-family: var(--font-display); font-weight: 900; font-size: 15px; color: #fff; margin: 18px 0 8px; display: flex; align-items: center; gap: 7px; }
-.block-label .g { color: var(--accent); }
-
-/* ── TERM ACCORDION ── */
-.term-list { display: flex; flex-direction: column; gap: 10px; }
-.term-item { background: var(--surface); border: 1px solid var(--gray-200); border-radius: 14px; overflow: hidden; transition: border-color .2s; }
-.term-item:hover { border-color: var(--accent); }
-.term-header { display: flex; align-items: center; justify-content: space-between; padding: 16px 18px; cursor: pointer; gap: 12px; user-select: none; min-height: 56px; }
-.term-header::-webkit-details-marker { display: none; }
-.term-name { font-family: var(--font-display); font-weight: 700; font-size: 15.5px; color: #fff; }
-.term-en { font-size: 11px; color: var(--gray-500); margin-left: 8px; font-weight: 400; }
-.term-arrow { font-size: 20px; color: var(--accent); transition: transform .25s; flex-shrink: 0; }
-.term-item[open] .term-arrow { transform: rotate(180deg); }
-.term-item[open] { border-color: var(--accent); }
-.term-body { padding: 2px 18px 18px; border-top: 1px solid var(--gray-100); }
-.term-body p { font-size: 14.5px; color: var(--gray-700); line-height: 1.85; margin: 10px 0 0; }
-.term-body b { color: var(--accent); }
-
-/* ── CALL-OUT ── */
-.ex-box, .ex-box-accent, .ex-box-amber, .ex-box-red { border-radius: 0 8px 8px 0; padding: 12px 16px; margin-top: 12px; }
-.ex-box        { background: var(--accent-tint); border-left: 4px solid var(--accent); }
-.ex-box-accent { background: var(--accent-tint); border-left: 4px solid var(--accent); }
-.ex-box-amber  { background: var(--amber-50);  border-left: 4px solid var(--amber-400); }
-.ex-box-red    { background: var(--red-50);    border-left: 4px solid var(--red-400); }
-.ex-label { font-size: 11px; font-weight: 700; letter-spacing: .04em; margin-bottom: 4px; }
-.ex-label-primary, .ex-label-accent { color: var(--accent); }
-.ex-label-amber { color: var(--amber-600); }
-.ex-label-red { color: var(--red-600); }
-.ex-text { font-size: 13.5px; color: var(--gray-700); line-height: 1.75; }
-
-/* ── INFO BOXES（リスク4分類） ── */
-.info-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap: 12px; margin-top: 16px; }
-.info-box { border-radius: 14px; padding: 16px 18px; border: 1px solid var(--gray-200); }
-.info-box-primary { background: var(--accent-tint); }
-.info-box-accent  { background: var(--accent-tint); }
-.info-box-amber   { background: var(--amber-50); }
-.info-box-red     { background: var(--red-50); }
-.info-box-blue    { background: var(--blue-50); }
-.info-box-green   { background: var(--green-50); }
-.info-box-gray    { background: var(--surface-2); }
-.info-title { font-family: var(--font-display); font-weight: 700; font-size: 14px; margin-bottom: 6px; display: flex; align-items: center; gap: 6px; }
-.info-title-primary, .info-title-accent, .info-title-green { color: var(--accent); }
-.info-title-amber { color: var(--amber-600); }
-.info-title-red { color: var(--red-600); }
-.info-title-blue { color: var(--blue-600); }
-.info-title-gray { color: #d8ded8; }
-.info-text { font-size: 13.5px; color: var(--gray-700); line-height: 1.75; }
-
-/* ── TIMELINE ── */
-.timeline { position: relative; padding-left: 30px; }
-.timeline::before { content: ''; position: absolute; left: 9px; top: 8px; bottom: 6px; width: 3px; background: rgba(110,226,78,.25); border-radius: 3px; }
-.tl-row { position: relative; margin-bottom: 22px; }
-.tl-row::before { content: ''; position: absolute; left: -25px; top: 5px; width: 14px; height: 14px; border-radius: 50%; background: var(--accent); border: 3px solid var(--bg); box-shadow: 0 0 0 2px var(--accent); }
-.tl-date { font-family: var(--font-num); font-size: 12px; font-weight: 700; color: var(--accent); letter-spacing: .04em; margin-bottom: 3px; }
-.tl-title { font-family: var(--font-display); font-weight: 700; font-size: 15.5px; color: #fff; margin-bottom: 3px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
-.tl-desc { font-size: 13.5px; color: var(--gray-500); line-height: 1.75; }
-
-/* ── BADGES ── */
-.badge { display: inline-block; font-size: 11px; padding: 3px 9px; border-radius: 6px; font-weight: 700; }
-.badge-primary { background: var(--accent-tint); color: var(--accent); }
-.badge-accent  { background: var(--accent-tint); color: var(--accent); }
-.badge-amber   { background: var(--amber-50);  color: var(--amber-600); }
-.badge-red     { background: var(--red-50);    color: var(--red-600); }
-.badge-blue    { background: var(--blue-50);   color: var(--blue-600); }
-.badge-green   { background: var(--green-50);  color: var(--accent); }
-.badge-violet  { background: var(--violet-50); color: var(--violet-600); }
-
-/* ── COMPARE TABLE ── */
-.table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; border: 1px solid var(--gray-200); border-radius: 14px; margin: 12px 0; }
-.compare-table { width: 100%; border-collapse: collapse; font-size: 13.5px; min-width: 480px; }
-.compare-table th { background: var(--gray-50); padding: 12px 14px; text-align: left; font-weight: 700; font-size: 12px; color: var(--gray-500); letter-spacing: .03em; border-bottom: 1px solid var(--gray-200); white-space: nowrap; }
-.compare-table td { padding: 12px 14px; border-bottom: 1px solid var(--gray-100); color: var(--gray-700); vertical-align: top; }
-.compare-table tr:last-child td { border-bottom: none; }
-.compare-table tr:hover td { background: rgba(255,255,255,.02); }
-.compare-table .me { background: var(--accent-tint); font-weight: 700; color: var(--accent); }
-
-/* ── HIGHLIGHT（インスタの“まとめ”枠：ダーク＋緑ボーダー） ── */
-.highlight { background: var(--surface); border: 1.5px solid var(--accent-line); border-radius: var(--radius); padding: 22px 24px; margin: 22px 0; position: relative; overflow: hidden; }
-.highlight::before { content:''; position:absolute; right:-30px; bottom:-30px; width:160px; height:160px;
-  background-image: radial-gradient(var(--accent) 1px, transparent 1.5px); background-size: 13px 13px; opacity:.12; }
-.highlight h3 { font-family: var(--font-display); font-size: 19px; font-weight: 900; margin-bottom: 10px; color: var(--accent); display: flex; align-items: center; gap: 8px; position: relative; }
-.highlight p { font-size: 14.5px; color: #d8ded8; line-height: 1.85; position: relative; }
-.highlight b { color: var(--accent); }
-
-/* ── PRODUCT GRID ── */
-.product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px,1fr)); gap: 12px; margin: 16px 0; }
-.product-box { border-radius: 14px; padding: 18px 14px; text-align: center; border: 1px solid var(--gray-200); background: var(--surface); }
-.product-symbol { font-family: var(--font-num); font-size: 30px; font-weight: 700; margin-bottom: 4px; color: var(--accent); }
-.product-name { font-size: 11px; font-weight: 700; letter-spacing: .04em; margin-bottom: 6px; color: #fff; }
-.product-use { font-size: 12px; line-height: 1.55; color: var(--gray-700); }
-
-/* ── MISC ── */
-.lead { font-size: 16.5px; color: #dbe1db; line-height: 1.9; margin-bottom: 20px; font-weight: 500; }
-.lead .g { color: var(--accent); }
-strong { font-weight: 700; color: #fff; }
-strong.g { color: var(--accent); }
-.grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap: 12px; }
-
-/* ── FOOTER ── */
-.footer { padding: 40px 22px; text-align: center; color: var(--gray-500); font-size: 13px; border-top: 1px solid var(--gray-200); margin-top: 32px; }
-.footer .brandmark { margin-bottom: 14px; }
-
-@media (max-width: 480px){
-  .section-icon { width: 40px; height: 40px; font-size: 20px; }
-  .stat-strip { grid-template-columns: repeat(2,1fr); }
-}
-@media (prefers-reduced-motion: reduce){
-  .section { animation: none; opacity: 1; transform: none; }
-  html { scroll-behavior: auto; }
-}
-</style>
-<link rel="stylesheet" href="../../lab/assets/css/report-v5.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Meta Platforms（META）の事業、2026年Q2決算、AI投資、成長要因とリスクを初心者向けに整理。">
+  <title>Meta Platforms（META）完全入門ガイド｜SiM MARKET LAB</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@600;700&family=Noto+Sans+JP:wght@400;500;700;900&family=Zen+Kaku+Gothic+New:wght@700;900&display=swap" rel="stylesheet">
+  <style>
+    :root{--accent:#6ee24e;--bg:#0a0c0a;--surface:#141815;--surface-2:#1b201c;--ink:#f1f5f1;--muted:#8a948a;--line:rgba(255,255,255,.09);--red:#f87171;--amber:#fbbf24}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Sans JP",sans-serif;line-height:1.8}a{color:var(--accent)}
+    .wrap,.container{max-width:1080px;margin:auto;padding:0 20px}.brandmark{font-family:"DM Sans",sans-serif;letter-spacing:.18em}.g{color:var(--accent)}
+    .hero-tags,.nav-inner,.section-header,.keypoints li{display:flex}.hero-tags{flex-wrap:wrap;gap:8px}.hero-tag{border:1px solid var(--line);border-radius:999px;padding:6px 13px;font-size:12px}
+    .tldr-hero-title,.section-title,.card-title,.highlight h3{font-family:"Zen Kaku Gothic New",sans-serif;font-weight:900}.stat-strip,.card-grid,.facts,.info-row{display:grid}
+    .stat-strip{grid-template-columns:repeat(4,1fr);gap:10px}.nav-inner{overflow:auto}.nav-item{white-space:nowrap;text-decoration:none}.section-header{align-items:center}
+    .tldr ul,.keypoints{list-style:none;padding:0}.card-grid{grid-template-columns:repeat(4,1fr);gap:12px}.facts{grid-template-columns:repeat(3,1fr);gap:12px}.facts dt{color:var(--muted);font-size:11px}.facts dd{margin:2px 0 0;font-weight:700}
+    .keypoints{display:grid;gap:10px}.keypoints li{gap:10px}.info-row{grid-template-columns:repeat(2,1fr);gap:12px}.timeline{border-left:2px solid rgba(110,226,78,.25);padding-left:22px}.tl-row{margin:0 0 20px}.tl-date{color:var(--accent);font-size:12px;font-weight:800}
+    .compare-table{width:100%;border-collapse:collapse}.compare-table th,.compare-table td{border:1px solid var(--line);padding:12px;text-align:left}.compare-table th{background:var(--surface-2)}
+    .term-list{display:grid;gap:10px}.term-item{border:1px solid var(--line);border-radius:12px;padding:0 16px}.term-header{cursor:pointer;padding:14px 0;font-weight:800}.term-body{color:#c3ccc3}
+    .highlight{border:1px solid rgba(110,226,78,.35);border-radius:18px;padding:20px;margin-top:18px}.notice{padding:14px 16px;margin-top:16px}.source-list{padding-left:20px}.footer{padding:36px 20px;text-align:center}.cta{display:inline-block;border:1px solid rgba(110,226,78,.45);border-radius:999px;padding:10px 18px;text-decoration:none;font-weight:800}
+    @media(max-width:760px){.stat-strip,.card-grid,.facts,.info-row{grid-template-columns:1fr 1fr}.container{padding:0 16px}}@media(max-width:480px){.stat-strip,.card-grid,.facts,.info-row{grid-template-columns:1fr}}
+  </style>
+  <link rel="stylesheet" href="../../lab/assets/css/report-v5.css">
 </head>
 <body data-stock-ticker="META" data-price-source="../../data/prices.json" class="sim-report sim-guide">
-
-<div class="progress-bar" id="progressBar"></div>
-
-<!-- ========================================================
-  HERO
-  META Meta Platforms デジタル広告・AI・AR/VR 広告は加速。ただしAI設備投資で、利益とキャッシュの見え方が大きく変わった会社。 <span class="hero-tag">📱 Family of Apps</span><span class="hero-tag">🤖 AI広告</span><span class="hero-tag">🥽 Reality Labs</span> 2026年7月30日
-  ※見出しの重要ワードは <span class="g">…</span> で緑ハイライト
-======================================================== -->
-<div class="hero">
-  <div class="brandmark">S<span class="g">i</span>M &nbsp;MARKET LAB</div>
-  <div class="hero-badge">META 完全入門ガイド ・ 2026年7月30日版</div>
-  <h1>Meta Platforms（META）を<br><span class="g">まるっと</span>解説</h1>
-  <p>広告は加速。ただしAI設備投資で、利益とキャッシュの見え方が大きく変わった会社。</p>
-  <div class="hero-tags">
-    <!-- 例: <span class="hero-tag">⚛️ 同位体って何？</span> -->
-    <span class="hero-tag">📱 Family of Apps</span><span class="hero-tag">🤖 AI広告</span><span class="hero-tag">🥽 Reality Labs</span>
-  </div>
-</div>
-
-<!-- 30秒サマリー：でかい数字カード3〜4枚（上昇は .up / 下落は .down） -->
-<div class="tldr-hero">
-  <div class="tldr-hero-inner">
-    <div class="tldr-hero-title">📊 まずは数字でざっくり</div>
+  <header class="hero"><div class="wrap">
+    <div class="brandmark">S<span class="g">i</span>M MARKET LAB</div>
+    <div class="hero-badge">META 完全入門ガイド・2026年7月30日版</div>
+    <h1>Meta Platformsを<br><span class="g">まるっと</span>解説</h1>
+    <p>広告は強い。しかしAI設備投資も巨大。2026年Q2で変わった「成長と現金創出のバランス」を整理します。</p>
+    <div class="hero-tags"><span class="hero-tag">📱 SNS広告</span><span class="hero-tag">🤖 AI</span><span class="hero-tag">🥽 AR/VR</span></div>
+  </div></header>
+  <div class="tldr-hero"><div class="tldr-hero-inner">
+    <div class="tldr-hero-title">30秒でつかむ最新状況</div>
     <div class="stat-strip">
-      <!-- 例:
-      <div class="stat"><div class="stat-value">$12.34</div><div class="stat-label">現在の株価</div><div class="stat-note">52週 $4〜$18</div></div>
-      <div class="stat"><div class="stat-value up">+180%</div><div class="stat-label">直近1年</div></div>
-      <div class="stat"><div class="stat-value">$1.2B</div><div class="stat-label">時価総額</div></div>
-      <div class="stat"><div class="stat-value">2027</div><div class="stat-label">黒字化目標</div></div>
-      -->
-      <div class="stat"><div class="stat-value" data-live-price>$585.61</div><div class="stat-label">現在株価 <span style="color:#6EE24E;font-size:10px;font-weight:700;letter-spacing:.04em">LIVE</span></div><div class="stat-note" data-live-price-date>2026年7月29日市場データ（分析基準値）</div></div><div class="stat"><div class="stat-value">$60.80B</div><div class="stat-label">Q2売上</div><div class="stat-note">+28%</div></div><div class="stat"><div class="stat-value">31%</div><div class="stat-label">営業利益率</div><div class="stat-note">Q2 2026</div></div><div class="stat"><div class="stat-value">$130–145B</div><div class="stat-label">2026年CapEx</div><div class="stat-note">会社見通し</div></div>
+      <div class="stat"><div class="stat-value" data-live-price>$585.61</div><div class="stat-label">現在株価 <span class="g">LIVE</span></div><div class="stat-note" data-live-price-date>2026/7/29終値</div></div>
+      <div class="stat"><div class="stat-value">$60.80B</div><div class="stat-label">Q2売上</div><div class="stat-note">前年比 +28%</div></div>
+      <div class="stat"><div class="stat-value">31%</div><div class="stat-label">営業利益率</div><div class="stat-note">前年 43%</div></div>
+      <div class="stat"><div class="stat-value">$0.784B</div><div class="stat-label">Q2フリーCF</div><div class="stat-note">前年 $8.55B</div></div>
     </div>
-  </div>
-</div>
-
-<!-- STICKY NAV -->
-<nav class="nav-index">
-  <div class="nav-inner">
-    <a class="nav-item" href="#sec1">① どんな会社</a>
-    <a class="nav-item" href="#sec2">② 最新決算</a>
-    <a class="nav-item" href="#sec3">③ 成長要因</a>
-    <a class="nav-item" href="#sec4">④ リスク</a>
-    <a class="nav-item" href="#sec5">⑤ 競争</a>
-    <a class="nav-item" href="#sec6">⑥ 用語辞典</a>
-    <a class="nav-item" href="#sec7">⑦ 株価の見方</a>
-  </div>
-</nav>
-
-<div class="container">
-
-  <!-- SEC1: 会社概要　⚡3秒まとめ → 会社データ → card-sm 4枚 → どう稼ぐ → highlight「基本ルール」 -->
-  <section class="section" id="sec1">
-    <div class="section-header">
-      <div class="section-icon">🏢</div><div class="section-num">1</div>
-      <div>
-        <div class="section-title">Meta Platformsって<span class="g">どんな会社</span>？</div>
-        <div class="section-sub">まず全体像を3秒で</div>
+  </div></div>
+  <nav class="nav-index"><div class="nav-inner">
+    <a class="nav-item" href="#sec1">① どんな会社</a><a class="nav-item" href="#sec2">② 最新決算</a><a class="nav-item" href="#sec3">③ 成長要因</a><a class="nav-item" href="#sec4">④ リスク</a><a class="nav-item" href="#sec5">⑤ 競争</a><a class="nav-item" href="#sec6">⑥ 用語</a><a class="nav-item" href="#sec7">⑦ 株価の見方</a>
+  </div></nav>
+  <main class="container">
+    <section class="section" id="sec1">
+      <div class="section-header"><div class="section-icon">🏢</div><div class="section-num">1</div><div><div class="section-title">何をしている<span class="g">会社</span>？</div><div class="section-sub">人が集まる場所を広告収益へ変える</div></div></div>
+      <div class="tldr"><div class="tldr-label">3秒まとめ</div><ul><li>Facebook、Instagram、WhatsAppなどを運営。</li><li>売上の大半は広告。AIで表示内容と広告成果を改善。</li><li>Reality LabsではAR/VRへ先行投資を続ける。</li></ul></div>
+      <div class="facts"><div><dt>Q2広告売上</dt><dd>$59.36B</dd></div><div><dt>6月DAP</dt><dd>3.60B人</dd></div><div><dt>現金・有価証券</dt><dd>$90.26B</dd></div><div><dt>長期債務</dt><dd>$83.66B</dd></div><div><dt>Q2希薄化後株数</dt><dd>2.566B株</dd></div><div><dt>Reality Labs損失</dt><dd>−$4.62B</dd></div></div>
+      <div class="highlight"><h3>Metaを見る基本ルール</h3><p>売上成長だけでなく、広告単価・表示回数・営業利益率・設備投資・フリーキャッシュフローを一緒に見ます。</p></div>
+    </section>
+    <section class="section" id="sec2">
+      <div class="section-header"><div class="section-icon">📊</div><div class="section-num">2</div><div><div class="section-title">最新決算で<span class="g">何が変わった</span>？</div><div class="section-sub">売上は強いが、費用と設備投資が利益を上回って伸びた</div></div></div>
+      <div class="card-grid">
+        <div class="card-sm"><div class="card-title">売上</div><p>$60.801B、前年比+28%。広告表示+14%、単価+12%。</p></div>
+        <div class="card-sm"><div class="card-title">利益</div><p>営業利益$18.775B、前年比−8%。EPS $6.18、−13%。</p></div>
+        <div class="card-sm"><div class="card-title">費用</div><p>$42.026B、+55%。法務費$2.4Bと退職費$1.18Bを含む。</p></div>
+        <div class="card-sm"><div class="card-title">設備投資</div><p>Q2 $31.08B。2026年見通しは$130–145B。</p></div>
       </div>
-    </div>
-    <div class="tldr">
-      <div class="tldr-label">⚡ このセクションの3秒まとめ</div>
-      <ul>
-        <!-- 例: <li data-emoji="🏭">◯◯を作ってる△△業界の会社</li> -->
-        <li data-emoji="🟢">Facebook・Instagram・WhatsAppを運営。</li><li data-emoji="🟡">広告表示回数は14%増、広告単価は12%増で、広告エンジンは強い。</li><li data-emoji="🔴">AIデータセンターの投資回収</li>
-      </ul>
-    </div>
-
-    <!-- 会社データ（クイックファクト）：設立/本社/従業員/CEO/上場/売上規模 等。不明は「非開示」 -->
-    <div class="facts">
-      <div><dt>設立</dt><dd>2004年</dd></div><div><dt>本社</dt><dd>米国メンロパーク</dd></div><div><dt>CEO</dt><dd>Mark Zuckerberg</dd></div><div><dt>上場</dt><dd>NASDAQ（META）</dd></div><div><dt>Q2売上</dt><dd>$60.80B</dd></div><div><dt>日次利用者</dt><dd>3.60B</dd></div>
-      <!-- 例:
-      <div><dt>設立</dt><dd>2019年</dd></div>
-      <div><dt>本社</dt><dd>東京</dd></div>
-      <div><dt>従業員数</dt><dd>約12,000人</dd></div>
-      <div><dt>CEO</dt><dd>◯◯ ◯◯</dd></div>
-      <div><dt>上場</dt><dd>東証プライム（285A）</dd></div>
-      <div><dt>売上規模</dt><dd>約2.3兆円</dd></div>
-      -->
-    </div>
-
-    <!-- 4枚カード：何をしてる/主力事業/直近の業績/なぜ注目 -->
-    <div class="card-grid">
-      <div class="card-sm"><span class="card-emoji">📱</span><div class="card-title">主力事業</div><div class="card-desc">Facebook・Instagram・WhatsAppを運営。</div></div><div class="card-sm"><span class="card-emoji">📣</span><div class="card-title">収益源</div><div class="card-desc">売上の中心はデジタル広告。</div></div><div class="card-sm"><span class="card-emoji">🤖</span><div class="card-title">成長投資</div><div class="card-desc">広告推薦と生成AIへ巨額投資。</div></div><div class="card-sm"><span class="card-emoji">🥽</span><div class="card-title">先行投資</div><div class="card-desc">Reality Labsは大幅赤字が続く。</div></div>
-      <!-- 例: <div class="card-sm"><span class="card-emoji">🏭</span><div class="card-title">何をしてる</div><div class="card-desc">…</div></div> を4枚 -->
-    </div>
-
-    <!-- どうやって稼ぐ？：ビジネスモデルと売上の内訳を平易に -->
-    <div class="block-label">💰 どうやって<span class="g">稼いでる</span>？</div>
-    <ul class="keypoints">
-      <li><span class="kp-emoji">📣</span><span class="kp-text"><b>広告</b>：表示回数と広告単価の双方が伸びると売上が増える。</span></li><li><span class="kp-emoji">🤖</span><span class="kp-text"><b>AI</b>：推薦精度の改善が利用時間と広告効率を押し上げる。</span></li><li><span class="kp-emoji">🥽</span><span class="kp-text"><b>Reality Labs</b>：将来の端末・空間コンピューティングへ先行投資する。</span></li>
-      <!-- 例: <li><span class="kp-emoji">🧩</span><span class="kp-text"><b>主力</b>：◯◯を作って△△に売る。売上の約7割。</span></li> を2〜4件（売上構成・主要顧客・課金の仕組み等） -->
-    </ul>
-
-    <!-- 会社の“基本ルール”（この銘柄を見るうえで最初に押さえる勘所） -->
-    <div class="highlight"><h3>📏 META株の基本ルール</h3><p>売上成長だけでなく、広告表示回数・単価、設備投資、正規化FCFを同時に見る。</p></div>
-    <!-- 例: <div class="highlight"><h3>📏 ◯◯株の基本ルール</h3><p>…</p></div> -->
-  </section>
-
-  <!-- SEC2: 業界の基本　⚡まとめ → lead(比喩) → sowhat → term-list 4〜6 -->
-  <section class="section" id="sec2">
-    <div class="section-header">
-      <div class="section-icon">📊</div><div class="section-num">2</div>
-      <div><div class="section-title">最新決算で<span class="g">何が変わった</span>？</div><div class="section-sub">新しい事実と旧前提を切り分ける</div></div>
-    </div>
-    <div class="tldr"><div class="tldr-label">⚡ このセクションの3秒まとめ</div><ul><li data-emoji="🟢">広告表示回数は14%増、広告単価は12%増で、広告エンジンは強い。</li><li data-emoji="🟡">法務費用と人員再編、AIインフラ投資により営業利益率は31%へ低下。</li><li data-emoji="🔴">Q2 FCFは$0.784B。設備投資の大きさを無視して利益だけで評価しない。</li></ul></div>
-    <ul class="keypoints"><li><span class="kp-emoji">🟢</span><span class="kp-text">広告表示回数は14%増、広告単価は12%増で、広告エンジンは強い。</span></li><li><span class="kp-emoji">🟡</span><span class="kp-text">法務費用と人員再編、AIインフラ投資により営業利益率は31%へ低下。</span></li><li><span class="kp-emoji">🔴</span><span class="kp-text">Q2 FCFは$0.784B。設備投資の大きさを無視して利益だけで評価しない。</span></li></ul><div class="table-wrap"><table class="compare-table"><thead><tr><th>項目</th><th>最新値</th><th>変化・基準</th></tr></thead><tbody><tr><td>Q2売上</td><td>$60.801B</td><td>+28%</td></tr><tr><td>営業利益</td><td>$18.775B</td><td>前年比−8%</td></tr><tr><td>営業利益率</td><td>31%</td><td>前年同期43%</td></tr><tr><td>Q3売上見通し</td><td>$61–64B</td><td>会社見通し</td></tr><tr><td>2026年費用</td><td>$165–169B</td><td>会社見通し</td></tr><tr><td>2026年CapEx</td><td>$130–145B</td><td>従来レンジの下限を引き上げ</td></tr></tbody></table></div><div class="sowhat"><p><b>つまり：</b>広告成長は想定以上。一方、2026年CapExと法務費用を反映し、正規化FCFの幅を広げた。</p></div>
-  </section>
-
-  <!-- SEC3: 主要製品・技術　⚡まとめ → product-grid → term-list 3〜5 -->
-  <section class="section" id="sec3">
-    <div class="section-header">
-      <div class="section-icon">🔬</div><div class="section-num">3</div>
-      <div><div class="section-title">成長を作る<span class="g">エンジン</span></div><div class="section-sub">次の売上・利益につながる場所</div></div>
-    </div>
-    <div class="tldr"><div class="tldr-label">⚡ このセクションの3秒まとめ</div><ul><li data-emoji="🟢">日次利用者3.60Bの規模を維持しながら広告効率を改善できるか。</li><li data-emoji="🟡">Q3売上が会社レンジ中点を上回れば、需要前提はさらに強くなる。</li><li data-emoji="🔴">CapExが広告・AI売上へ変換される速度が倍率を左右する。</li></ul></div>
-    <div class="product-grid"><div class="product-box"><div class="product-symbol">Ads</div><div class="product-name">広告推薦AI</div><div class="product-use">転換率と広告単価</div></div><div class="product-box"><div class="product-symbol">Reels</div><div class="product-name">短尺動画</div><div class="product-use">利用時間と収益化</div></div><div class="product-box"><div class="product-symbol">AI</div><div class="product-name">Meta AI</div><div class="product-use">利用者接点の拡大</div></div><div class="product-box"><div class="product-symbol">RL</div><div class="product-name">Reality Labs</div><div class="product-use">長期オプション</div></div></div><ul class="keypoints"><li><span class="kp-emoji">✓</span><span class="kp-text">日次利用者3.60Bの規模を維持しながら広告効率を改善できるか。</span></li><li><span class="kp-emoji">✓</span><span class="kp-text">Q3売上が会社レンジ中点を上回れば、需要前提はさらに強くなる。</span></li><li><span class="kp-emoji">✓</span><span class="kp-text">CapExが広告・AI売上へ変換される速度が倍率を左右する。</span></li></ul>
-  </section>
-
-  <!-- SEC4: 技術詳細・規制　⚡まとめ → keypoints → term-list 4〜6 -->
-  <section class="section" id="sec4">
-    <div class="section-header">
-      <div class="section-icon">🏛️</div><div class="section-num">4</div>
-      <div><div class="section-title">前提を壊す<span class="g">リスク</span></div><div class="section-sub">ニュースを株価シナリオへつなぐ</div></div>
-    </div>
-    <div class="tldr"><div class="tldr-label">⚡ このセクションの3秒まとめ</div><ul><li data-emoji="🟢">AIデータセンターの投資回収</li><li data-emoji="🟡">独禁法・個人情報規制</li><li data-emoji="🔴">Reality Labsの継続赤字</li></ul></div>
-    <div class="info-row"><div class="info-box info-box-primary"><div class="info-title info-title-primary">技術・実行</div><div class="info-text">AIデータセンターの投資回収</div></div><div class="info-box info-box-amber"><div class="info-title info-title-amber">規制・外部</div><div class="info-text">独禁法・個人情報規制</div></div><div class="info-box info-box-red"><div class="info-title info-title-red">財務</div><div class="info-text">Reality Labsの継続赤字</div></div><div class="info-box info-box-gray"><div class="info-title info-title-gray">市場</div><div class="info-text">広告景気と高倍率</div></div></div><div class="highlight"><h3>⚠️ 今回の前提変更</h3><p>広告成長は想定以上。一方、2026年CapExと法務費用を反映し、正規化FCFの幅を広げた。</p></div>
-  </section>
-
-  <!-- SEC5: 競合比較　⚡まとめ → table-wrap>compare-table(自社=me) → highlight「差別化」 -->
-  <section class="section" id="sec5">
-    <div class="section-header">
-      <div class="section-icon">⚔️</div><div class="section-num">5</div>
-      <div><div class="section-title">競合と比べた<span class="g">立ち位置</span></div><div class="section-sub">強みと弱点を同じ物差しで</div></div>
-    </div>
-    <div class="tldr"><div class="tldr-label">⚡ このセクションの3秒まとめ</div><ul><li data-emoji="🟢">Meta Platformsの強みは利用者規模・推薦AI。</li><li data-emoji="🟡">注意点は巨額CapEx。</li><li data-emoji="🔴">倍率は成長の持続性と資本効率で判断。</li></ul></div>
-    <div class="table-wrap"><table class="compare-table"><thead><tr><th>会社</th><th>主戦場</th><th>強み</th><th>注意点</th></tr></thead><tbody><tr><td>Meta</td><td>SNS広告</td><td>利用者規模・推薦AI</td><td>巨額CapEx</td></tr><tr><td>Alphabet</td><td>検索・動画広告</td><td>検索意図データ</td><td>AI検索移行</td></tr><tr><td>TikTok</td><td>短尺動画</td><td>若年層・推薦</td><td>規制</td></tr><tr><td>Snap</td><td>SNS広告</td><td>若年層</td><td>規模・収益性</td></tr></tbody></table></div><div class="highlight"><h3>🧠 見分け方</h3><p>売上成長だけでなく、広告表示回数・単価、設備投資、正規化FCFを同時に見る。</p></div>
-  </section>
-
-  <!-- SEC6: 用語辞典　⚡まとめ(特にこの3つ) → term-list 10〜12（①定義→②なぜ重要→③この銘柄では） -->
-  <section class="section" id="sec6">
-    <div class="section-header">
-      <div class="section-icon">📖</div><div class="section-num">6</div>
-      <div><div class="section-title">METAのニュースで出る<span class="g">言葉</span> 全辞典</div><div class="section-sub">分からん単語はここで潰す</div></div>
-    </div>
-    <div class="tldr"><div class="tldr-label">⚡ 特にこの3つだけは覚えて</div><ul><li data-emoji="🟢">DAP：Metaアプリ群の日次利用者。</li><li data-emoji="🟡">Ad impressions：広告が表示された回数。</li><li data-emoji="🔴">Price per ad：1広告表示あたりの平均価格。</li></ul></div>
-    <div class="term-list"><details class="term-item"><summary class="term-header"><span class="term-name">DAP<span class="term-en">Daily Active People</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>Metaアプリ群の日次利用者。 <b>なぜ重要：</b>業績と評価の前提を動かすため、決算ごとに確認します。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">Ad impressions<span class="term-en">広告表示回数</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>広告が表示された回数。 <b>なぜ重要：</b>業績と評価の前提を動かすため、決算ごとに確認します。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">Price per ad<span class="term-en">広告単価</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>1広告表示あたりの平均価格。 <b>なぜ重要：</b>業績と評価の前提を動かすため、決算ごとに確認します。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">CapEx<span class="term-en">Capital expenditure</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>AIサーバー等への設備投資。 <b>なぜ重要：</b>業績と評価の前提を動かすため、決算ごとに確認します。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">FCF<span class="term-en">Free cash flow</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>事業から残る自由現金。 <b>なぜ重要：</b>業績と評価の前提を動かすため、決算ごとに確認します。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">Reality Labs<span class="term-en">AR/VR部門</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>Questやスマートグラス等の先行投資部門。 <b>なぜ重要：</b>業績と評価の前提を動かすため、決算ごとに確認します。</p></div></details></div>
-  </section>
-
-  <!-- SEC7: 株価の見方　⚡まとめ → timeline(signal+rating) → リスク4分類 info-row → highlight → 数字まとめ table -->
-  <section class="section" id="sec7">
-    <div class="section-header">
-      <div class="section-icon">💹</div><div class="section-num">7</div>
-      <div><div class="section-title">何がMETA株を<span class="g">動かす</span>？</div><div class="section-sub">上がる理由・下がる理由を一目で</div></div>
-    </div>
-    <div class="tldr"><div class="tldr-label">⚡ 株価のツボ 3秒まとめ</div><ul><li data-emoji="🟢">2026年Q3決算 / 売上ガイダンス・CapEx・広告単価</li><li data-emoji="🟡">AIデータセンターの投資回収</li><li data-emoji="🔴">分析基準株価 $585.61</li></ul></div>
-    <div class="timeline"><div class="tl-row"><div class="tl-date">2026年Q3</div><div class="tl-title">売上$61–64Bの達成 <span class="signal bull">🟢 重要</span></div><div class="tl-desc">広告需要とAI推薦効果を確認。</div></div><div class="tl-row"><div class="tl-date">毎四半期</div><div class="tl-title">CapExとFCF <span class="signal neutral">🟡 確認</span></div><div class="tl-desc">AI投資が現金創出へつながるか。</div></div><div class="tl-row"><div class="tl-date">毎四半期</div><div class="tl-title">広告表示回数・単価 <span class="signal neutral">🟡 確認</span></div><div class="tl-desc">量と価格の両輪が続くか。</div></div><div class="tl-row"><div class="tl-date">随時</div><div class="tl-title">法務・規制 <span class="signal bear">🔴 注意</span></div><div class="tl-desc">罰金や事業制約の追加有無。</div></div></div><div class="table-wrap"><table class="compare-table"><thead><tr><th>項目</th><th>最新値</th><th>基準</th></tr></thead><tbody><tr><td>分析基準株価</td><td>$585.61</td><td>2026年7月29日</td></tr><tr><td>Bear / Base / Bull</td><td>$430 / $650 / $910</td><td>2027E正規化FCF倍率＋ネット調整</td></tr><tr><td>更新日</td><td>2026年7月30日</td><td>決算反映済み</td></tr></tbody></table></div><details class="term-item"><summary class="term-header"><span class="term-name">主要出典</span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><a href="https://investor.atmeta.com/investor-news/press-release-details/2026/Meta-Reports-Second-Quarter-2026-Results/default.aspx">Q2 2026決算</a></p></div></details>
-  </section>
-
-</div><!-- /container -->
-
-<div class="footer">
-  <div class="brandmark">S<span class="g">i</span>M &nbsp;MARKET LAB</div>
-  <p style="margin-bottom:8px;font-weight:700;color:#d8ded8">⚠️ 免責事項</p>
-  <p>本資料は情報提供・教育目的のみです。投資助言ではありません。デジタル広告・AI・AR/VR株は値動きが激しく、元本を失うリスクがあります。<br>投資判断はご自身の責任で。データは2026年7月30日時点の公開情報に基づきます。</p>
-</div>
-
-<script>
-document.querySelectorAll('details.term-item').forEach(d => {
-  d.addEventListener('toggle', () => {
-    if (d.open) document.querySelectorAll('details.term-item').forEach(o => { if (o !== d && o.open) o.removeAttribute('open'); });
-  });
-});
-(function(){
-  var bar = document.getElementById('progressBar');
-  function u(){ var h=document.documentElement; var s=h.scrollTop/(h.scrollHeight-h.clientHeight); bar.style.width=Math.min(100,Math.max(0,s*100))+'%'; }
-  document.addEventListener('scroll', u, {passive:true}); window.addEventListener('resize', u); u();
-})();
-</script>
-
-<script src="../../lab/assets/js/live-report-price.js" defer></script>
+      <ul class="keypoints"><li><span>🟢</span><span><b>広告需要：</b>表示回数と単価が同時に2桁成長。</span></li><li><span>🟡</span><span><b>一時要因：</b>法務・退職費を除いても、AIインフラ投資の重さは残る。</span></li><li><span>🔴</span><span><b>現金創出：</b>営業CF $31.86Bに対し設備投資等が$31.08Bで、Q2 FCFは$0.784B。</span></li></ul>
+      <div class="notice">Q3売上ガイダンスは$61–64B。2026年費用見通しは$165–169Bへ下限が引き上げられました。</div>
+    </section>
+    <section class="section" id="sec3">
+      <div class="section-header"><div class="section-icon">🚀</div><div class="section-num">3</div><div><div class="section-title">成長を動かす<span class="g">3本柱</span></div><div class="section-sub">広告AI、利用時間、企業向けAI</div></div></div>
+      <div class="timeline"><div class="tl-row"><div class="tl-date">現在</div><div class="tl-title">広告最適化</div><p>推薦AIと広告自動化で、表示回数だけでなく広告単価も伸ばしています。</p></div><div class="tl-row"><div class="tl-date">次の段階</div><div class="tl-title">WhatsApp・Threadsの収益化</div><p>巨大な利用者基盤を広告・企業メッセージへ広げる余地があります。</p></div><div class="tl-row"><div class="tl-date">長期</div><div class="tl-title">企業向けAIと新端末</div><p>AIモデル、エージェント、スマートグラスが新収益源になるかを確認します。</p></div></div>
+    </section>
+    <section class="section" id="sec4">
+      <div class="section-header"><div class="section-icon">⚠️</div><div class="section-num">4</div><div><div class="section-title">見落とせない<span class="g">リスク</span></div><div class="section-sub">成長企業でも投資回収が遅れれば価値は下がる</div></div></div>
+      <div class="info-row"><div class="info-box"><div class="info-title">🏗️ 設備投資</div><p>AIデータセンター投資が売上と利益へ変わるまで時間差があります。</p></div><div class="info-box"><div class="info-title">⚖️ 法務・規制</div><p>若年層、安全性、競争法、プライバシー関連で損失が膨らむ可能性。</p></div><div class="info-box"><div class="info-title">💸 Reality Labs</div><p>Q2だけで$4.62Bの営業赤字。回収時期は不透明です。</p></div><div class="info-box"><div class="info-title">🔁 広告集中</div><p>景気・規制・競争で広告単価が鈍化すると利益への影響が大きい。</p></div></div>
+    </section>
+    <section class="section" id="sec5">
+      <div class="section-header"><div class="section-icon">🥊</div><div class="section-num">5</div><div><div class="section-title">何と<span class="g">競争</span>する？</div><div class="section-sub">広告、生成AI、端末の3市場</div></div></div>
+      <table class="compare-table"><thead><tr><th>競合群</th><th>Metaの強み</th><th>確認点</th></tr></thead><tbody><tr><td>Google・TikTok</td><td>巨大な行動データと広告基盤</td><td>利用時間と広告効果</td></tr><tr><td>OpenAI等</td><td>配信面と利用者基盤</td><td>モデル性能と収益化</td></tr><tr><td>Apple等</td><td>ソーシャル連携</td><td>端末普及と損失縮小</td></tr></tbody></table>
+    </section>
+    <section class="section" id="sec6">
+      <div class="section-header"><div class="section-icon">📚</div><div class="section-num">6</div><div><div class="section-title">最低限の<span class="g">用語</span></div><div class="section-sub">決算で見る3語</div></div></div>
+      <div class="term-list"><details class="term-item"><summary class="term-header">DAP</summary><div class="term-body"><p>Family of Appsを1日に使う人数の平均です。</p></div></details><details class="term-item"><summary class="term-header">設備投資（CapEx）</summary><div class="term-body"><p>データセンターやサーバーなど、長期利用する資産への支出です。</p></div></details><details class="term-item"><summary class="term-header">フリーキャッシュフロー</summary><div class="term-body"><p>営業活動の現金から設備投資等を引いた補助指標。Q2は$0.784Bでした。</p></div></details></div>
+    </section>
+    <section class="section" id="sec7">
+      <div class="section-header"><div class="section-icon">💹</div><div class="section-num">7</div><div><div class="section-title">株価をどう<span class="g">見る</span>？</div><div class="section-sub">強い広告と重い投資をEPS×PERで整理</div></div></div>
+      <div class="tldr"><div class="tldr-label">現在の整理</div><ul><li>広告成長：強い</li><li>利益率・FCF：投資で圧迫</li><li>判定：Bear〜Base帯</li><li>次の焦点：Q3広告成長と設備投資の回収</li></ul></div>
+      <div class="card-grid"><div class="card-sm"><div class="card-title">Bear $420</div><p>2027E EPS $21 × 20倍。</p></div><div class="card-sm"><div class="card-title">Base $720</div><p>2027E EPS $30 × 24倍。</p></div><div class="card-sm"><div class="card-title">Bull $1,008</div><p>2027E EPS $36 × 28倍。</p></div><div class="card-sm"><div class="card-title">基準株価 $585.61</div><p>レンジ下から28.2%。上値/下値は2.55倍。</p></div></div>
+      <p><a class="cta" href="./scenario.html">Bear / Base / Bullの計算を見る →</a></p>
+      <div class="notice">本ページは学習用で、売買を勧めるものではありません。株価は自動更新、分析前提は2026年7月30日時点です。</div>
+      <div class="card"><h3>一次情報</h3><ul class="source-list"><li><a href="https://investor.atmeta.com/investor-news/press-release-details/2026/Meta-Reports-Second-Quarter-2026-Results/default.aspx">Meta Q2 2026決算（2026/7/29）</a></li><li><a href="https://investor.atmeta.com/investor-events/">Meta Investor Events</a></li></ul></div>
+    </section>
+  </main>
+  <footer class="footer"><p><a href="../../index.html">SiM MARKET LABへ戻る</a></p><p>数字を煽らず、前提を読む。</p></footer>
+  <script src="../../lab/assets/js/live-report-price.js" defer></script>
 </body>
 </html>
-
-<!--
-================================================================
-  デザインロック（重要）
-  ・アクセント色はSiMグリーンで固定。銘柄・業界で変えない。
-  ・以前あった「業界別カラー早見表」は廃止（色を変えると銘柄ごとに見た目がぶれるため）。
-  ・この <style> と骨格は改変禁止。{{ }} の中身だけ差し替える。
-================================================================
-  ChatGPT用ルール: 完成HTMLは必ず index.html というファイル名で保存・出力する。
-================================================================
--->
