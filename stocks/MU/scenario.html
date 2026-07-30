@@ -31,7 +31,7 @@ details{border:1px solid var(--line);background:#111119;border-radius:16px;paddi
 </style>
 
 </head>
-<body>
+<body data-stock-ticker="MU" data-price-source="../../data/prices.json">
 <!-- ================================================================
   DOPAGAKI STOCK LAB / SCENARIO TEMPLATE
   ・CSSと各セクション構成はキオクシア版と同一（サイト掲載の見た目を維持）。
@@ -56,7 +56,7 @@ details{border:1px solid var(--line);background:#111119;border-radius:16px;paddi
     <div class="score"><small>総合スコア（補助指標）</small><b>72</b><small>/ 100　売買判断そのものではありません</small></div>
   </div>
   <div class="kpis">
-    <div class="kpi"><span>現在株価</span><b>$905.92</b><small>2026-07-13報道ベース</small></div>
+    <div class="kpi"><span>現在株価 <em style="font-style:normal;color:#6EE24E;font-size:10px">LIVE</em></span><b data-live-price>$905.92</b><small data-live-price-date>2026-07-13報道ベース（分析基準値）</small></div>
     <div class="kpi"><span>Base価値（標準ケース）</span><b>$1,035</b><small>+14.2%</small></div>
     <div class="kpi"><span>確率加重期待値</span><b>$1,055</b><small>+16.5%</small></div>
     <div class="kpi"><span>リスク区分</span><b>HIGH</b><small>メモリ市況・設備投資・AI需要に敏感</small></div>
@@ -236,4 +236,5 @@ details{border:1px solid var(--line);background:#111119;border-radius:16px;paddi
 </section>
 <footer>AI向けHBM需要は強い一方、メモリ市況の循環性と将来の供給増を確認する必要があります。</footer>
 </main>
+<script src="../../lab/assets/js/live-report-price.js" defer></script>
 </body></html>

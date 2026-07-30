@@ -275,7 +275,7 @@ strong.g { color: var(--accent); }
 }
 </style>
 </head>
-<body>
+<body data-stock-ticker="ARQQ" data-price-source="../../data/prices.json">
 
 <div class="progress-bar" id="progressBar"></div>
 
@@ -306,7 +306,7 @@ strong.g { color: var(--accent); }
       <div class="stat"><div class="stat-value">$1.2B</div><div class="stat-label">時価総額</div></div>
       <div class="stat"><div class="stat-value">2027</div><div class="stat-label">黒字化目標</div></div>
       -->
-      <div class="stat"><div class="stat-value">$17.20</div><div class="stat-label">現在株価</div><div class="stat-note">2026年7月21日</div></div><div class="stat"><div class="stat-value">$0.623M</div><div class="stat-label">H1売上</div><div class="stat-note">前年$0.067M</div></div><div class="stat"><div class="stat-value">$35.9M</div><div class="stat-label">現金</div><div class="stat-note">2026年5月20日</div></div><div class="stat"><div class="stat-value">11</div><div class="stat-label">売上発生契約</div><div class="stat-note">H1 FY2026</div></div>
+      <div class="stat"><div class="stat-value" data-live-price>$17.20</div><div class="stat-label">現在株価 <span style="color:#6EE24E;font-size:10px;font-weight:700;letter-spacing:.04em">LIVE</span></div><div class="stat-note" data-live-price-date>2026年7月21日（分析基準値）</div></div><div class="stat"><div class="stat-value">$0.623M</div><div class="stat-label">H1売上</div><div class="stat-note">前年$0.067M</div></div><div class="stat"><div class="stat-value">$35.9M</div><div class="stat-label">現金</div><div class="stat-note">2026年5月20日</div></div><div class="stat"><div class="stat-value">11</div><div class="stat-label">売上発生契約</div><div class="stat-note">H1 FY2026</div></div>
     </div>
   </div>
 </div>
@@ -455,6 +455,7 @@ document.querySelectorAll('details.term-item').forEach(d => {
 })();
 </script>
 
+<script src="../../lab/assets/js/live-report-price.js" defer></script>
 </body>
 </html>
 

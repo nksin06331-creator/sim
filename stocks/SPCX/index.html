@@ -275,7 +275,7 @@ strong.g { color: var(--accent); }
 }
 </style>
 </head>
-<body>
+<body data-stock-ticker="SPCX" data-price-source="../../data/prices.json">
 
 <div class="progress-bar" id="progressBar"></div>
 
@@ -306,7 +306,7 @@ strong.g { color: var(--accent); }
       <div class="stat"><div class="stat-value">$1.2B</div><div class="stat-label">時価総額</div></div>
       <div class="stat"><div class="stat-value">2027</div><div class="stat-label">黒字化目標</div></div>
       -->
-      <div class="stat"><div class="stat-value">$145.30</div><div class="stat-label">株価</div><div class="stat-note">2026/7/10</div></div><div class="stat"><div class="stat-value">$18.7B</div><div class="stat-label">2025年売上</div></div><div class="stat"><div class="stat-value up">1,030万</div><div class="stat-label">Starlink加入者</div><div class="stat-note">2026/2</div></div><div class="stat"><div class="stat-value down">−$4.9B</div><div class="stat-label">2025年純損失</div></div>
+      <div class="stat"><div class="stat-value" data-live-price>$145.30</div><div class="stat-label">現在株価 <span style="color:#6EE24E;font-size:10px;font-weight:700;letter-spacing:.04em">LIVE</span></div><div class="stat-note" data-live-price-date>2026/7/10（分析基準値）</div></div><div class="stat"><div class="stat-value">$18.7B</div><div class="stat-label">2025年売上</div></div><div class="stat"><div class="stat-value up">1,030万</div><div class="stat-label">Starlink加入者</div><div class="stat-note">2026/2</div></div><div class="stat"><div class="stat-value down">−$4.9B</div><div class="stat-label">2025年純損失</div></div>
     </div>
   </div>
 </div>
@@ -455,6 +455,7 @@ document.querySelectorAll('details.term-item').forEach(d => {
 })();
 </script>
 
+<script src="../../lab/assets/js/live-report-price.js" defer></script>
 </body>
 </html>
 

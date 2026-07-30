@@ -262,7 +262,7 @@ strong.g { color: var(--accent); }
 }
 </style>
 </head>
-<body>
+<body data-stock-ticker="MU" data-price-source="../../data/prices.json">
 
 <div class="progress-bar" id="progressBar"></div>
 
@@ -293,7 +293,7 @@ strong.g { color: var(--accent); }
       <div class="stat"><div class="stat-value">$1.2B</div><div class="stat-label">時価総額</div></div>
       <div class="stat"><div class="stat-value">2027</div><div class="stat-label">黒字化目標</div></div>
       -->
-      <div class="stat"><div class="stat-value">$936.17</div><div class="stat-label">参考株価</div><div class="stat-note">7月13日取得値</div></div>
+      <div class="stat"><div class="stat-value" data-live-price>$936.17</div><div class="stat-label">現在株価 <span style="color:#6EE24E;font-size:10px;font-weight:700;letter-spacing:.04em">LIVE</span></div><div class="stat-note" data-live-price-date>7月13日取得値（分析基準値）</div></div>
 <div class="stat"><div class="stat-value">$41.46B</div><div class="stat-label">FY26 Q3 売上</div><div class="stat-note">過去最高</div></div>
 <div class="stat"><div class="stat-value up">$18.3B</div><div class="stat-label">調整後FCF</div><div class="stat-note">FY26 Q3</div></div>
 <div class="stat"><div class="stat-value">$30.2B</div><div class="stat-label">現金等</div><div class="stat-note">四半期末</div></div>
@@ -459,6 +459,7 @@ document.querySelectorAll('details.term-item').forEach(d => {
 })();
 </script>
 
+<script src="../../lab/assets/js/live-report-price.js" defer></script>
 </body>
 </html>
 

@@ -275,7 +275,7 @@ strong.g { color: var(--accent); }
 }
 </style>
 </head>
-<body>
+<body data-stock-ticker="6857" data-price-source="../../data/prices.json">
 
 <div class="progress-bar" id="progressBar"></div>
 
@@ -306,7 +306,7 @@ strong.g { color: var(--accent); }
       <div class="stat"><div class="stat-value">$1.2B</div><div class="stat-label">時価総額</div></div>
       <div class="stat"><div class="stat-value">2027</div><div class="stat-label">黒字化目標</div></div>
       -->
-      <div class="stat"><div class="stat-value">25,200円</div><div class="stat-label">7/29終値</div><div class="stat-note">日中 24,135〜27,520円</div></div><div class="stat"><div class="stat-value">-12.5%</div><div class="stat-label">7月1日比</div><div class="stat-note">短期騰落</div></div><div class="stat"><div class="stat-value">約18.4兆円</div><div class="stat-label">時価総額</div><div class="stat-note">概算</div></div><div class="stat"><div class="stat-value">9,744〜35,940円</div><div class="stat-label">52週レンジ</div><div class="stat-note">市場データ</div></div>
+      <div class="stat"><div class="stat-value" data-live-price>25,200円</div><div class="stat-label">現在株価 <span style="color:#6EE24E;font-size:10px;font-weight:700;letter-spacing:.04em">LIVE</span></div><div class="stat-note">日中 24,135〜27,520円</div><div class="stat-note" data-live-price-date>分析基準値</div></div><div class="stat"><div class="stat-value">-12.5%</div><div class="stat-label">7月1日比</div><div class="stat-note">短期騰落</div></div><div class="stat"><div class="stat-value">約18.4兆円</div><div class="stat-label">時価総額</div><div class="stat-note">概算</div></div><div class="stat"><div class="stat-value">9,744〜35,940円</div><div class="stat-label">52週レンジ</div><div class="stat-note">市場データ</div></div>
     </div>
   </div>
 </div>
@@ -455,6 +455,7 @@ document.querySelectorAll('details.term-item').forEach(d => {
 })();
 </script>
 
+<script src="../../lab/assets/js/live-report-price.js" defer></script>
 </body>
 </html>
 

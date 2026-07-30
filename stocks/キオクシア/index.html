@@ -275,7 +275,7 @@ strong.g { color: var(--accent); }
 }
 </style>
 </head>
-<body>
+<body data-stock-ticker="285A" data-price-source="../../data/prices.json">
 
 <div class="progress-bar" id="progressBar"></div>
 
@@ -306,7 +306,7 @@ strong.g { color: var(--accent); }
       <div class="stat"><div class="stat-value">$1.2B</div><div class="stat-label">時価総額</div></div>
       <div class="stat"><div class="stat-value">2027</div><div class="stat-label">黒字化目標</div></div>
       -->
-      <div class="stat"><div class="stat-value down">¥52,290</div><div class="stat-label">7/17 12:43時点</div><div class="stat-note">前日比 −15.81%</div></div><div class="stat"><div class="stat-value">2.34兆円</div><div class="stat-label">FY2025売上</div><div class="stat-note">前年比 +37%</div></div><div class="stat"><div class="stat-value up">8,704億円</div><div class="stat-label">FY2025営業利益</div><div class="stat-note">利益率37.2%</div></div><div class="stat"><div class="stat-value">7/31</div><div class="stat-label">次の1Q決算</div><div class="stat-note">最大の確認日</div></div>
+      <div class="stat"><div class="stat-value down" data-live-price>¥52,290</div><div class="stat-label">現在株価 <span style="color:#6EE24E;font-size:10px;font-weight:700;letter-spacing:.04em">LIVE</span></div><div class="stat-note">前日比 −15.81%</div><div class="stat-note" data-live-price-date>分析基準値</div></div><div class="stat"><div class="stat-value">2.34兆円</div><div class="stat-label">FY2025売上</div><div class="stat-note">前年比 +37%</div></div><div class="stat"><div class="stat-value up">8,704億円</div><div class="stat-label">FY2025営業利益</div><div class="stat-note">利益率37.2%</div></div><div class="stat"><div class="stat-value">7/31</div><div class="stat-label">次の1Q決算</div><div class="stat-note">最大の確認日</div></div>
     </div>
   </div>
 </div>
@@ -455,6 +455,7 @@ document.querySelectorAll('details.term-item').forEach(d => {
 })();
 </script>
 
+<script src="../../lab/assets/js/live-report-price.js" defer></script>
 </body>
 </html>
 

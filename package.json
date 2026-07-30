@@ -2,6 +2,7 @@
   "scripts": {
     "add": "node scripts/add-stock.mjs",
     "build": "node scripts/build-pages.mjs",
+    "migrate:live-prices": "node scripts/migrate-live-report-prices.mjs",
     "new": "node scripts/new-stock.mjs",
     "sync:check": "node scripts/sync-site-folder.mjs",
     "sync:site-folder": "node scripts/sync-site-folder.mjs --apply",

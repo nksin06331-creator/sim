@@ -31,7 +31,7 @@ details{border:1px solid var(--line);background:#111119;border-radius:16px;paddi
 </style>
 
 </head>
-<body>
+<body data-stock-ticker="NOW" data-price-source="../../data/prices.json">
 <!-- ================================================================
   DOPAGAKI STOCK LAB / SCENARIO TEMPLATE
   ・CSSと各セクション構成はキオクシア版と同一（サイト掲載の見た目を維持）。
@@ -56,7 +56,7 @@ details{border:1px solid var(--line);background:#111119;border-radius:16px;paddi
     <div class="score"><small>総合スコア（補助指標）</small><b>63</b><small>/ 100　売買判断そのものではありません</small></div>
   </div>
   <div class="kpis">
-    <div class="kpi"><span>現在株価</span><b>$102.06</b><small>2026年7月21日終値</small></div>
+    <div class="kpi"><span>現在株価 <em style="font-style:normal;color:#6EE24E;font-size:10px">LIVE</em></span><b data-live-price>$102.06</b><small data-live-price-date>2026年7月21日終値（分析基準値）</small></div>
     <div class="kpi"><span>Base価値（標準ケース）</span><b>$128</b><small>+25.4%</small></div>
     <div class="kpi"><span>確率加重期待値</span><b>$132</b><small>+28.8%（補助指標）</small></div>
     <div class="kpi"><span>リスク区分</span><b>高い</b><small>AI代替・買収・倍率</small></div>
@@ -236,4 +236,5 @@ details{border:1px solid var(--line);background:#111119;border-radius:16px;paddi
 </section>
 <footer>DOPAGAKI STOCK LAB｜最終更新 2026-07-22｜Validation: WARN</footer>
 </main>
+<script src="../../lab/assets/js/live-report-price.js" defer></script>
 </body></html>

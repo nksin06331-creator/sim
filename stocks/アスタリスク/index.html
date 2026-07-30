@@ -275,7 +275,7 @@ strong.g { color: var(--accent); }
 }
 </style>
 </head>
-<body>
+<body data-stock-ticker="6522" data-price-source="../../data/prices.json">
 
 <div class="progress-bar" id="progressBar"></div>
 
@@ -306,7 +306,7 @@ strong.g { color: var(--accent); }
       <div class="stat"><div class="stat-value">$1.2B</div><div class="stat-label">時価総額</div></div>
       <div class="stat"><div class="stat-value">2027</div><div class="stat-label">黒字化目標</div></div>
       -->
-      <div class="stat"><div class="stat-value">1,899円</div><div class="stat-label">現在株価</div><div class="stat-note">7月15日終値</div></div><div class="stat"><div class="stat-value down">11.84億円</div><div class="stat-label">3Q累計売上</div><div class="stat-note">前年同期比 -9.2%</div></div><div class="stat"><div class="stat-value down">-0.41億円</div><div class="stat-label">3Q累計営業益</div></div><div class="stat"><div class="stat-value">22.91億円</div><div class="stat-label">通期売上予想</div><div class="stat-note">会社予想は据え置き</div></div>
+      <div class="stat"><div class="stat-value" data-live-price>1,899円</div><div class="stat-label">現在株価 <span style="color:#6EE24E;font-size:10px;font-weight:700;letter-spacing:.04em">LIVE</span></div><div class="stat-note" data-live-price-date>7月15日終値（分析基準値）</div></div><div class="stat"><div class="stat-value down">11.84億円</div><div class="stat-label">3Q累計売上</div><div class="stat-note">前年同期比 -9.2%</div></div><div class="stat"><div class="stat-value down">-0.41億円</div><div class="stat-label">3Q累計営業益</div></div><div class="stat"><div class="stat-value">22.91億円</div><div class="stat-label">通期売上予想</div><div class="stat-note">会社予想は据え置き</div></div>
     </div>
   </div>
 </div>
@@ -455,6 +455,7 @@ document.querySelectorAll('details.term-item').forEach(d => {
 })();
 </script>
 
+<script src="../../lab/assets/js/live-report-price.js" defer></script>
 </body>
 </html>
 

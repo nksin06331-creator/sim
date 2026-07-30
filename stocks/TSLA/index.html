@@ -275,7 +275,7 @@ strong.g { color: var(--accent); }
 }
 </style>
 </head>
-<body>
+<body data-stock-ticker="TSLA" data-price-source="../../data/prices.json">
 
 <div class="progress-bar" id="progressBar"></div>
 
@@ -306,7 +306,7 @@ strong.g { color: var(--accent); }
       <div class="stat"><div class="stat-value">$1.2B</div><div class="stat-label">時価総額</div></div>
       <div class="stat"><div class="stat-value">2027</div><div class="stat-label">黒字化目標</div></div>
       -->
-      <div class="stat"><div class="stat-value">$403.79</div><div class="stat-label">現在株価</div><div class="stat-note">2026/7/13</div></div><div class="stat"><div class="stat-value up">480,126</div><div class="stat-label">Q2納車台数</div><div class="stat-note">前年比+25%</div></div><div class="stat"><div class="stat-value">$44.7B</div><div class="stat-label">現金・短期投資</div><div class="stat-note">Q1末</div></div><div class="stat"><div class="stat-value">1.28M</div><div class="stat-label">FSD有料契約</div><div class="stat-note">Q1末</div></div>
+      <div class="stat"><div class="stat-value" data-live-price>$403.79</div><div class="stat-label">現在株価 <span style="color:#6EE24E;font-size:10px;font-weight:700;letter-spacing:.04em">LIVE</span></div><div class="stat-note" data-live-price-date>2026/7/13（分析基準値）</div></div><div class="stat"><div class="stat-value up">480,126</div><div class="stat-label">Q2納車台数</div><div class="stat-note">前年比+25%</div></div><div class="stat"><div class="stat-value">$44.7B</div><div class="stat-label">現金・短期投資</div><div class="stat-note">Q1末</div></div><div class="stat"><div class="stat-value">1.28M</div><div class="stat-label">FSD有料契約</div><div class="stat-note">Q1末</div></div>
     </div>
   </div>
 </div>
@@ -465,6 +465,7 @@ document.querySelectorAll('details.term-item').forEach(d => {
 })();
 </script>
 
+<script src="../../lab/assets/js/live-report-price.js" defer></script>
 </body>
 </html>
 

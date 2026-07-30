@@ -275,7 +275,7 @@ strong.g { color: var(--accent); }
 }
 </style>
 </head>
-<body>
+<body data-stock-ticker="SYM" data-price-source="../../data/prices.json">
 
 <div class="progress-bar" id="progressBar"></div>
 
@@ -306,7 +306,7 @@ strong.g { color: var(--accent); }
       <div class="stat"><div class="stat-value">$1.2B</div><div class="stat-label">時価総額</div></div>
       <div class="stat"><div class="stat-value">2027</div><div class="stat-label">黒字化目標</div></div>
       -->
-      <div class="stat"><div class="stat-value">$42.86</div><div class="stat-label">現在株価</div><div class="stat-note">2026/7/21終値</div></div><div class="stat"><div class="stat-value">$676M</div><div class="stat-label">Q2売上</div><div class="stat-note">+23%</div></div><div class="stat"><div class="stat-value">$9M</div><div class="stat-label">Q2純利益</div><div class="stat-note">黒字転換</div></div><div class="stat"><div class="stat-value">非常に高い</div><div class="stat-label">リスク区分</div><div class="stat-note">顧客集中・工程・株式構造</div></div>
+      <div class="stat"><div class="stat-value" data-live-price>$42.86</div><div class="stat-label">現在株価 <span style="color:#6EE24E;font-size:10px;font-weight:700;letter-spacing:.04em">LIVE</span></div><div class="stat-note" data-live-price-date>2026/7/21終値（分析基準値）</div></div><div class="stat"><div class="stat-value">$676M</div><div class="stat-label">Q2売上</div><div class="stat-note">+23%</div></div><div class="stat"><div class="stat-value">$9M</div><div class="stat-label">Q2純利益</div><div class="stat-note">黒字転換</div></div><div class="stat"><div class="stat-value">非常に高い</div><div class="stat-label">リスク区分</div><div class="stat-note">顧客集中・工程・株式構造</div></div>
     </div>
   </div>
 </div>
@@ -455,6 +455,7 @@ document.querySelectorAll('details.term-item').forEach(d => {
 })();
 </script>
 
+<script src="../../lab/assets/js/live-report-price.js" defer></script>
 </body>
 </html>
 
