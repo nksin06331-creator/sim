@@ -402,23 +402,23 @@
     "name": "Rambus",
     "market": "米国株",
     "sector": "メモリ接続半導体・IP",
-    "method": "2028E非GAAP EPS×PER＋ネットキャッシュ確認",
+    "method": "2028E非GAAP EPS × PER",
     "status": "published",
-    "updated": "2026-07-22",
+    "updated": "2026-07-30",
     "price": {
-      "current": 105.79,
+      "current": 82.81,
       "currency": "USD"
     },
     "scenarios": {
       "bear": 65,
-      "base": 115,
-      "bull": 170
+      "base": 130,
+      "bull": 190
     },
-    "positionPct": 38.8,
+    "positionPct": 14.2,
     "zone": "Bear〜Base帯",
-    "riskReward": "1.57倍",
-    "catalyst": "2026年7月下旬｜Q2決算 / DDR5製品売上とライセンスを確認。",
-    "summary": "AIメモリ帯域の追い風は強いが、現値は高成長継続を要求。",
+    "riskReward": "6.02倍",
+    "catalyst": "2026年Q3決算 / 製品売上$110–116M・ロイヤルティ",
+    "summary": "Q2売上とQ3製品ガイダンスが上振れ。DDR5製品成長を反映してBase/Bullを引き上げた。",
     "tags": [
       "DDR5",
       "メモリ接続",
@@ -435,23 +435,23 @@
     "name": "SoFi Technologies",
     "market": "米国株",
     "sector": "デジタル金融・銀行",
-    "method": "2028E希薄化後EPS×PER＋信用コスト確認",
+    "method": "2028E希薄化後EPS × PER",
     "status": "published",
-    "updated": "2026-07-22",
+    "updated": "2026-07-30",
     "price": {
-      "current": 17.64,
+      "current": 15.25,
       "currency": "USD"
     },
     "scenarios": {
-      "bear": 11,
-      "base": 20,
-      "bull": 31
+      "bear": 12,
+      "base": 24,
+      "bull": 38
     },
-    "positionPct": 33.2,
+    "positionPct": 12.5,
     "zone": "Bear〜Base帯",
-    "riskReward": "2.01倍",
-    "catalyst": "2026年7月29日｜Q2決算 / 純金利収益、延滞率、通期EPSを確認。",
-    "summary": "会員・利益成長は強い。次は高倍率に見合うROEと信用品質。",
+    "riskReward": "7.00倍",
+    "catalyst": "2026年Q3決算 / NIM・延滞率・会員成長",
+    "summary": "Q2利益と通期ガイダンスを上方修正。信用コストと株式数を明示してEPS前提を更新した。",
     "tags": [
       "デジタル銀行",
       "Galileo",
@@ -699,23 +699,23 @@
     "name": "ServiceNow",
     "market": "米国株",
     "sector": "企業向けワークフロー・AI",
-    "method": "2027E FCF倍率＋ネットキャッシュ",
+    "method": "2027E正規化FCF倍率－ネット負債",
     "status": "published",
-    "updated": "2026-07-22",
+    "updated": "2026-07-30",
     "price": {
-      "current": 102.06,
+      "current": 115.76,
       "currency": "USD"
     },
     "scenarios": {
       "bear": 81,
-      "base": 128,
-      "bull": 189
+      "base": 130,
+      "bull": 188
     },
-    "positionPct": 19.5,
+    "positionPct": 32.5,
     "zone": "Bear〜Base帯",
-    "riskReward": "4.13倍",
-    "catalyst": "2026年7月22日 Q2決算 / cRPO・AI ACV・利益率",
-    "summary": "Q1成長は強い。AI追加販売とSaaS代替懸念の綱引き",
+    "riskReward": "2.08倍",
+    "catalyst": "2026年Q3決算 / cRPO約19.5%・AI ACV・利益率",
+    "summary": "Q2 cRPOとAI ACVは強い。新規債務と買収負担をネット調整に反映し、Baseを小幅更新した。",
     "tags": [
       "Now Platform",
       "Now Assist",
@@ -899,21 +899,21 @@
     "sector": "AIデータセンター・HPCインフラ",
     "method": "契約データセンターSOTP－ネット負債",
     "status": "published",
-    "updated": "2026-07-22",
+    "updated": "2026-07-30",
     "price": {
-      "current": 30.05,
+      "current": 23.22,
       "currency": "USD"
     },
     "scenarios": {
-      "bear": 14,
-      "base": 29,
-      "bull": 50
+      "bear": 20,
+      "base": 41,
+      "bull": 69
     },
-    "positionPct": 44.6,
-    "zone": "Base〜Bull帯",
-    "riskReward": "1.24倍",
-    "catalyst": "2026年7月27日 FY2026通期決算 / 建設・融資・賃料開始",
-    "summary": "長期契約は強いが現値はBase付近。建設資金と工期が核心",
+    "positionPct": 6.6,
+    "zone": "Bear〜Base帯",
+    "riskReward": "14.22倍",
+    "catalyst": "FY27四半期決算 / 建設進捗・資金調達・賃料開始",
+    "summary": "契約容量1.4GWと基礎契約収入$36Bを反映。巨額負債と建設リスクを明示してSOTPを再構築した。",
     "tags": [
       "AIデータセンター",
       "HPC",
@@ -1570,23 +1570,23 @@
     "name": "Meta Platforms",
     "market": "米国株",
     "sector": "SNS広告・AI・AR/VR",
-    "method": "2027E FCF倍率＋ネットキャッシュ",
+    "method": "2027E正規化FCF倍率＋ネット調整",
     "status": "published",
-    "updated": "2026-07-28",
+    "updated": "2026-07-30",
     "price": {
-      "current": 598.6929,
+      "current": 585.61,
       "currency": "USD"
     },
     "scenarios": {
-      "bear": 450,
-      "base": 690,
-      "bull": 1000
+      "bear": 430,
+      "base": 650,
+      "bull": 910
     },
-    "positionPct": 27,
+    "positionPct": 32.4,
     "zone": "Bear〜Base帯",
-    "riskReward": "2.70倍",
-    "catalyst": "2026年7月29日 Q2決算 / 広告成長・CapEx・AI収益化",
-    "summary": "広告成長は強い。AI設備投資が将来FCFへ変わる速度を確認",
+    "riskReward": "2.08倍",
+    "catalyst": "2026年Q3決算 / 売上ガイダンス・CapEx・広告単価",
+    "summary": "広告成長は想定以上。一方、2026年CapExと法務費用を反映し、正規化FCFの幅を広げた。",
     "tags": [
       "AI広告",
       "Instagram",
@@ -1603,23 +1603,23 @@
     "name": "Microsoft",
     "market": "米国株",
     "sector": "クラウド・ソフトウェア・AI",
-    "method": "FY27E EPS × PER",
+    "method": "FY27E希薄化後EPS × PER",
     "status": "published",
-    "updated": "2026-07-28",
+    "updated": "2026-07-30",
     "price": {
-      "current": 395.0906,
+      "current": 390.54,
       "currency": "USD"
     },
     "scenarios": {
-      "bear": 315,
-      "base": 492,
-      "bull": 644
+      "bear": 306,
+      "base": 533,
+      "bull": 690
     },
-    "positionPct": 24.3,
-    "zone": "Bear寄り",
-    "riskReward": "3.11倍",
-    "catalyst": "2026/7/29 FY26 Q4決算",
-    "summary": "クラウドは強い。株価は調整済み。",
+    "positionPct": 22,
+    "zone": "Bear〜Base帯",
+    "riskReward": "3.54倍",
+    "catalyst": "FY27 Q1決算 / Azure約45%成長・CapEx・利益率",
+    "summary": "Azure成長と受注残は強い。FY27の大型CapExを反映しつつ、EPS成長前提を引き上げた。",
     "tags": [
       "PER",
       "AI",

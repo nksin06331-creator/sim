@@ -6,85 +6,76 @@
 <title>Meta Platforms（META）｜ドパガキ株価シナリオ</title>
 
 <style>
-:root{--bg:#0b0b10;--panel:#171720;--panel2:#20202b;--ink:#f7f7fb;--muted:#aaaabd;--line:#343445;--lime:#caff00;--pink:#ff4ecd;--cyan:#48e7ff;--orange:#ff9c2b;--red:#ff5d68;--green:#56f39a;--purple:#845cff;--shadow:0 18px 55px rgba(0,0,0,.35)}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 8% 4%,rgba(132,92,255,.2),transparent 30rem),radial-gradient(circle at 92% 12%,rgba(255,78,205,.14),transparent 26rem),linear-gradient(180deg,#08080c,#111119 48%,#0b0b10);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans JP",sans-serif;line-height:1.65;overflow-x:hidden}
-body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.15;background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:28px 28px;mask-image:linear-gradient(#000,transparent 72%)}
-a{color:var(--cyan)}.wrap{max-width:1120px;margin:auto;padding:0 18px}.hero{position:relative;color:#fff;padding:34px 0 42px;border-bottom:1px solid rgba(255,255,255,.08)}.hero:after{content:"DOPAGAKI";position:absolute;right:-20px;top:12px;font-size:clamp(56px,14vw,170px);font-weight:1000;letter-spacing:-.08em;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.08);transform:rotate(4deg);pointer-events:none}
-.eyebrow{display:inline-flex;align-items:center;gap:7px;padding:7px 12px;border:1px solid rgba(202,255,0,.45);border-radius:999px;font-size:11px;letter-spacing:.12em;color:var(--lime);background:rgba(202,255,0,.08);font-weight:900}.eyebrow:before{content:"●";font-size:8px}
-h1{position:relative;z-index:1;font-size:clamp(36px,7vw,72px);line-height:.98;letter-spacing:-.055em;margin:18px 0 10px;font-weight:1000;max-width:900px}h1 small{display:inline-block;font-size:.31em;padding:7px 11px;border-radius:10px;background:var(--lime);color:#0b0b10;vertical-align:middle;letter-spacing:0;transform:rotate(-2deg)}.sub{color:#c1c1d2;position:relative;z-index:1}
-.verdict{position:relative;z-index:1;display:grid;grid-template-columns:1.55fr .45fr;gap:16px;margin-top:24px}.verdict-main,.score{border:1px solid rgba(255,255,255,.1);border-radius:26px;padding:24px;box-shadow:var(--shadow)}.verdict-main{background:linear-gradient(135deg,rgba(132,92,255,.27),rgba(255,78,205,.12)),var(--panel)}.score{background:var(--lime);color:#0b0b10;transform:rotate(1deg);display:flex;flex-direction:column;justify-content:center}.status{font-size:clamp(25px,4vw,40px);line-height:1.15;font-weight:1000;letter-spacing:-.04em;margin-top:10px}.score b{font-size:58px;line-height:1;display:block}.score small{color:#202014;font-weight:800}
-.kpis{position:relative;z-index:1;display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:16px}.kpi{min-height:126px;background:rgba(23,23,32,.94);border:1px solid var(--line);border-radius:20px;padding:18px;position:relative;overflow:hidden}.kpi:after{content:"";position:absolute;width:72px;height:72px;border-radius:50%;right:-25px;bottom:-30px;background:var(--purple);opacity:.2}.kpi:nth-child(2):after{background:var(--cyan)}.kpi:nth-child(3):after{background:var(--pink)}.kpi:nth-child(4):after{background:var(--red)}.kpi span{font-size:11px;color:var(--muted);font-weight:800}.kpi b{font-size:clamp(22px,3vw,31px);display:block;margin-top:6px;letter-spacing:-.04em}.kpi small{color:#cfcfe0}
-main{padding:22px 0 70px}section{margin:18px 0}.card{background:linear-gradient(180deg,rgba(31,31,43,.98),rgba(20,20,28,.98));border:1px solid var(--line);box-shadow:var(--shadow);border-radius:26px;padding:24px;position:relative;overflow:hidden}.card:before{content:"";position:absolute;width:130px;height:130px;border-radius:50%;right:-70px;top:-75px;background:var(--purple);filter:blur(10px);opacity:.13}
-h2{position:relative;z-index:1;font-size:clamp(23px,3vw,32px);line-height:1.15;letter-spacing:-.04em;margin:0 0 9px;font-weight:1000}h2:before{content:"#";color:var(--lime);margin-right:7px}h3{margin:0 0 8px;font-size:19px}.lead{color:var(--muted);margin-top:0}.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}.scenarios{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-.scenario{border-radius:22px;padding:19px;border:1px solid var(--line);background:#111119;position:relative;overflow:hidden;min-height:335px}.scenario:after{position:absolute;right:-5px;top:-12px;font-weight:1000;font-size:68px;opacity:.07;line-height:1}.scenario.bear:after{content:"B";color:var(--red)}.scenario.base:after{content:"A";color:var(--cyan)}.scenario.bull:after{content:"↑";color:var(--lime)}.scenario-head{display:flex;justify-content:space-between;gap:10px;font-weight:900}.scenario-head b{padding:4px 9px;border-radius:999px;color:#0a0a0d;background:#fff}.scenario-price{font-size:clamp(32px,4vw,44px);font-weight:1000;letter-spacing:-.055em;margin:14px 0 0}.scenario.bear{border-top:6px solid var(--red)}.scenario.base{border-top:6px solid var(--cyan);box-shadow:0 0 0 1px rgba(72,231,255,.15),0 16px 40px rgba(72,231,255,.08)}.scenario.bull{border-top:6px solid var(--lime)}
-.small{font-size:13px;color:var(--muted)}dl{margin:16px 0 0}dl div{display:flex;justify-content:space-between;border-top:1px dashed var(--line);padding:8px 0;gap:12px}dt{color:var(--muted)}dd{margin:0;font-weight:800}
-.position{margin-top:20px}.position-line{height:20px;border-radius:999px;background:linear-gradient(90deg,var(--red),var(--orange),var(--cyan),var(--lime));position:relative;box-shadow:inset 0 0 0 2px rgba(255,255,255,.12)}.pin{position:absolute;top:-9px;width:8px;height:38px;background:#fff;border:2px solid #050508;border-radius:6px;left:36.1%;box-shadow:0 4px 14px rgba(0,0,0,.55)}.position-labels{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);margin-top:7px;gap:7px}.pill{display:inline-block;padding:6px 11px;border-radius:999px;background:var(--pink);color:#fff;font-weight:1000;font-size:11px;transform:rotate(-1deg)}
-.zone,.signal{border-top:1px solid var(--line);padding:14px 0}.zone div,.signal div{display:flex;justify-content:space-between;gap:12px}.zone span{color:var(--lime);letter-spacing:.1em}.zone p,.signal p{margin:4px 0;color:var(--muted);font-size:14px}.up{color:var(--green);font-weight:900}.down{color:var(--red);font-weight:900}.flat{color:var(--orange);font-weight:900}
-ul.clean{padding:0;margin:12px 0;list-style:none}ul.clean li{margin:10px 0;padding:12px 14px 12px 42px;background:#111119;border:1px solid var(--line);border-radius:15px;position:relative}ul.clean li:before{content:"✓";position:absolute;left:14px;top:11px;color:var(--lime);font-weight:1000}.grid-2 .card:nth-child(2) ul.clean li:before{content:"!";color:var(--red)}
-.compare{display:grid;grid-template-columns:1fr 1fr;gap:14px}.meter,.track{background:#0d0d13;border:1px solid #2d2d3b;border-radius:999px;overflow:hidden}.meter{height:14px}.meter i{display:block;height:100%;background:linear-gradient(90deg,var(--purple),var(--pink));border-radius:999px}.dist-row{display:grid;grid-template-columns:120px 1fr 52px;gap:10px;align-items:center;margin:12px 0}.track{height:12px}.track i{display:block;height:100%;background:linear-gradient(90deg,var(--cyan),var(--lime));border-radius:999px}
-.table-wrap{overflow:auto;border:1px solid var(--line);border-radius:18px;background:#111119}table{border-collapse:collapse;width:100%;min-width:760px}th,td{border-bottom:1px solid var(--line);padding:12px;text-align:right}th:first-child,td:first-child{text-align:left}th{font-size:11px;color:var(--lime);background:#0f0f16;position:sticky;top:0}
-details{border:1px solid var(--line);background:#111119;border-radius:16px;padding:0;margin:10px 0;overflow:hidden}summary{font-weight:900;cursor:pointer;padding:15px 16px;list-style:none}summary::-webkit-details-marker{display:none}summary:after{content:"＋";float:right;color:var(--lime);font-size:20px;line-height:1}details[open] summary:after{content:"−"}details>p,details>ul{padding:0 16px 16px;margin:0;color:#c4c4d2}
-.notice{border:1px solid rgba(255,156,43,.45);border-left:6px solid var(--orange);background:linear-gradient(90deg,rgba(255,156,43,.12),rgba(255,156,43,.03));padding:15px 16px;border-radius:16px}footer{color:var(--muted);font-size:12px;margin-top:28px;padding:20px 0 0;border-top:1px solid var(--line)}
-@media(max-width:800px){.verdict,.grid-2,.compare{grid-template-columns:1fr}.kpis{grid-template-columns:1fr 1fr}.scenarios{grid-template-columns:1fr}.hero{padding-top:24px}.score{transform:none}.scenario{min-height:auto}}
-@media(max-width:520px){.wrap{padding:0 13px}.kpis{grid-template-columns:1fr 1fr;gap:9px}.kpi{padding:15px;min-height:112px}.kpi b{font-size:21px}.card{padding:18px;border-radius:22px}.dist-row{grid-template-columns:90px 1fr 46px;font-size:12px}.position-labels{font-size:9px}h1{font-size:42px}}
+:root{--accent:#6EE24E;--accent-bright:#8BF56B;--accent-tint:rgba(110,226,78,.12);--accent-line:rgba(110,226,78,.38);--bg:#0a0c0a;--surface:#141815;--surface-2:#1b201c;--ink:#f1f5f1;--muted:#8a948a;--line:rgba(255,255,255,.09);--amber:#fbbf24;--red:#f87171;--blue:#60a5fa;--shadow:0 18px 48px rgba(0,0,0,.28);--radius:16px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(100% 80% at 50% -10%,#12251a 0%,#0b0f0c 45%,var(--bg) 76%);color:var(--ink);font-family:'Noto Sans JP',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;line-height:1.75;overflow-x:hidden;-webkit-text-size-adjust:100%}body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.08;background-image:radial-gradient(var(--accent) 1px,transparent 1.5px);background-size:18px 18px;mask-image:linear-gradient(#000,transparent 72%)}a{color:var(--accent)}.wrap{max-width:1040px;margin:auto;padding:0 20px}
+.hero{position:relative;color:#fff;padding:52px 0 34px;border-bottom:1px solid var(--line);overflow:hidden}.hero:after{content:"SiM";position:absolute;right:-18px;top:-18px;font-size:clamp(96px,22vw,230px);font-weight:900;letter-spacing:-.08em;color:transparent;-webkit-text-stroke:1px rgba(110,226,78,.10);pointer-events:none}.eyebrow{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border:1px solid var(--accent-line);border-radius:999px;font-size:11px;letter-spacing:.14em;color:var(--accent);background:var(--accent-tint);font-weight:800}.eyebrow:before{content:"●";font-size:8px}.hero h1{position:relative;z-index:1;font-size:clamp(38px,7vw,68px);line-height:1.02;letter-spacing:-.05em;margin:20px 0 10px;font-weight:900;max-width:900px}.hero h1 small{display:inline-block;font-size:.29em;padding:6px 11px;border-radius:8px;background:var(--accent);color:#06210a;vertical-align:middle;letter-spacing:0}.sub{color:#b9c1b9;position:relative;z-index:1;font-size:14px}
+.verdict{position:relative;z-index:1;display:grid;grid-template-columns:1.5fr .5fr;gap:14px;margin-top:24px}.verdict-main,.score{border:1px solid var(--line);border-radius:18px;padding:22px;box-shadow:var(--shadow)}.verdict-main{background:linear-gradient(145deg,rgba(110,226,78,.12),rgba(110,226,78,.03)),var(--surface)}.score{background:var(--accent);color:#06210a;display:flex;flex-direction:column;justify-content:center}.status{font-size:clamp(24px,4vw,38px);line-height:1.2;font-weight:900;letter-spacing:-.035em;margin-top:8px}.score b{font-size:54px;line-height:1;display:block}.score small{color:#173b1e;font-weight:800}
+.kpis{position:relative;z-index:1;display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:14px}.kpi{min-height:120px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px;position:relative;overflow:hidden}.kpi:after{content:"";position:absolute;width:66px;height:66px;border-radius:50%;right:-28px;bottom:-32px;background:var(--accent);opacity:.09}.kpi span{font-size:11px;color:var(--muted);font-weight:700}.kpi b{font-size:clamp(21px,3vw,29px);display:block;margin-top:6px;letter-spacing:-.035em}.kpi small{color:#bfc7bf;font-size:12px}
+main{padding:24px 0 72px}section{margin:16px 0}.card{background:linear-gradient(180deg,var(--surface-2),var(--surface));border:1px solid var(--line);box-shadow:var(--shadow);border-radius:18px;padding:22px;position:relative;overflow:hidden}.card:before{content:"";position:absolute;width:120px;height:120px;border-radius:50%;right:-72px;top:-76px;background:var(--accent);filter:blur(12px);opacity:.08}h2{position:relative;z-index:1;font-size:clamp(22px,3vw,30px);line-height:1.25;letter-spacing:-.035em;margin:0 0 9px;font-weight:900;padding-bottom:10px}h2:after{content:"";position:absolute;left:0;bottom:0;width:40px;height:3px;background:var(--accent);border-radius:3px}h3{margin:0 0 8px;font-size:18px}.lead{color:var(--muted);margin-top:0}.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:14px}.scenarios{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.scenario{border-radius:16px;padding:18px;border:1px solid var(--line);background:#101410;position:relative;overflow:hidden;min-height:320px}.scenario:after{position:absolute;right:4px;top:-12px;font-weight:900;font-size:66px;opacity:.05;line-height:1}.scenario.bear:after{content:"B"}.scenario.base:after{content:"A"}.scenario.bull:after{content:"↑"}.scenario-head{display:flex;justify-content:space-between;gap:10px;font-weight:800}.scenario-head b{padding:4px 9px;border-radius:999px;color:#06210a;background:var(--accent)}.scenario-price{font-size:clamp(31px,4vw,42px);font-weight:900;letter-spacing:-.05em;margin:14px 0 0}.scenario.bear{border-top:4px solid var(--red)}.scenario.base{border-top:4px solid var(--accent);box-shadow:0 0 0 1px rgba(110,226,78,.12)}.scenario.bull{border-top:4px solid var(--accent-bright)}
+.small{font-size:13px;color:var(--muted)}dl{margin:16px 0 0}dl div{display:flex;justify-content:space-between;border-top:1px dashed var(--line);padding:8px 0;gap:12px}dt{color:var(--muted)}dd{margin:0;font-weight:800}.position{margin-top:20px}.position-line{height:14px;border-radius:999px;background:linear-gradient(90deg,var(--red),var(--amber),var(--accent));position:relative;box-shadow:inset 0 0 0 1px rgba(255,255,255,.12)}.pin{position:absolute;top:-8px;width:7px;height:30px;background:#fff;border:2px solid #050805;border-radius:6px;left:36.1%;box-shadow:0 4px 14px rgba(0,0,0,.55)}.position-labels{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);margin-top:7px;gap:7px}.pill{display:inline-block;padding:5px 10px;border-radius:999px;background:var(--accent-tint);border:1px solid var(--accent-line);color:var(--accent);font-weight:800;font-size:11px}
+.zone,.signal{border-top:1px solid var(--line);padding:14px 0}.zone div,.signal div{display:flex;justify-content:space-between;gap:12px}.zone span{color:var(--accent);letter-spacing:.08em}.zone p,.signal p{margin:4px 0;color:var(--muted);font-size:14px}.up{color:var(--accent);font-weight:800}.down{color:var(--red);font-weight:800}.flat{color:var(--amber);font-weight:800}ul.clean{padding:0;margin:12px 0;list-style:none}ul.clean li{margin:9px 0;padding:12px 14px 12px 40px;background:#101410;border:1px solid var(--line);border-radius:12px;position:relative}ul.clean li:before{content:"✓";position:absolute;left:14px;top:11px;color:var(--accent);font-weight:900}.grid-2 .card:nth-child(2) ul.clean li:before{content:"!";color:var(--red)}
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:12px}.meter,.track{background:#0d100d;border:1px solid var(--line);border-radius:999px;overflow:hidden}.meter{height:12px}.meter i{display:block;height:100%;background:var(--accent);border-radius:999px}.dist-row{display:grid;grid-template-columns:120px 1fr 52px;gap:10px;align-items:center;margin:12px 0}.track{height:11px}.track i{display:block;height:100%;background:var(--accent);border-radius:999px}.table-wrap{overflow:auto;border:1px solid var(--line);border-radius:14px;background:#101410}table{border-collapse:collapse;width:100%;min-width:760px}th,td{border-bottom:1px solid var(--line);padding:12px;text-align:right}th:first-child,td:first-child{text-align:left}th{font-size:11px;color:var(--accent);background:#0f120f;position:sticky;top:0}
+details{border:1px solid var(--line);background:#101410;border-radius:12px;padding:0;margin:10px 0;overflow:hidden}summary{font-weight:800;cursor:pointer;padding:14px 16px;list-style:none}summary::-webkit-details-marker{display:none}summary:after{content:"＋";float:right;color:var(--accent);font-size:20px;line-height:1}details[open] summary:after{content:"−"}details>p,details>ul{padding:0 16px 16px;margin:0;color:#c4ccc4}.notice{border:1px solid rgba(251,191,36,.35);border-left:4px solid var(--amber);background:rgba(251,191,36,.08);padding:14px 16px;border-radius:12px}footer{color:var(--muted);font-size:12px;margin-top:28px;padding:20px 0 0;border-top:1px solid var(--line)}
+.report-nav{position:sticky;top:0;z-index:50;background:rgba(10,12,10,.88);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}.report-nav .wrap{display:flex;gap:8px;overflow:auto;padding-top:9px;padding-bottom:9px}.report-nav a{white-space:nowrap;text-decoration:none;background:var(--surface);border:1px solid var(--line);color:#fff;padding:7px 12px;border-radius:999px;font-size:12px;font-weight:700}.report-nav a:hover{border-color:var(--accent);color:var(--accent)}.hero-tags{position:relative;z-index:1;margin-top:14px;display:flex;gap:8px;flex-wrap:wrap}.hero-tags span{background:var(--accent-tint);border:1px solid var(--accent-line);color:var(--accent);padding:5px 9px;border-radius:999px;font-size:11px;font-weight:800}
+@media(max-width:800px){.verdict,.grid-2,.compare{grid-template-columns:1fr}.kpis{grid-template-columns:1fr 1fr}.scenarios{grid-template-columns:1fr}.hero{padding-top:34px}.scenario{min-height:auto}}
+@media(max-width:520px){.wrap{padding:0 14px}.hero{padding:28px 0 24px}.hero h1{font-size:38px;margin-top:14px}.sub{font-size:12px}.verdict{margin-top:16px}.verdict-main,.score{padding:17px;border-radius:14px}.score{display:grid;grid-template-columns:1fr auto;align-items:end;gap:8px}.score b{font-size:40px}.kpis{gap:8px}.kpi{padding:13px;min-height:102px}.kpi b{font-size:20px}.card{padding:17px;border-radius:14px}.dist-row{grid-template-columns:88px 1fr 44px;font-size:12px}.position-labels{font-size:9px}h2{font-size:22px}}
 @media print{body{background:#fff;color:#111}body:before,.hero:after{display:none}.hero,.card,.kpi,.scenario,details,.table-wrap{background:#fff!important;color:#111!important;box-shadow:none!important}.hero{border-bottom:2px solid #111}.sub,.lead,.small,.zone p,.signal p,footer{color:#555!important}.card,.kpi,.scenario,details{break-inside:avoid}}
 </style>
 
-<link rel="stylesheet" href="../../lab/assets/css/report-v5.css">
 </head>
-<body data-stock-ticker="META" data-price-source="../../data/prices.json" class="sim-report sim-scenario">
+<body data-stock-ticker="META" data-price-source="../../data/prices.json">
 <!-- ================================================================
-  DOPAGAKI STOCK LAB / SCENARIO TEMPLATE
+  SiM MARKET LAB / UNIFIED SCENARIO TEMPLATE
   ・CSSと各セクション構成はキオクシア版と同一（サイト掲載の見た目を維持）。
   ・{{ }} を report_data の値で置換して使う。数値・確率・結論は改変しない。
   ・ファイル名は銘柄名（例: 285A.html / IONQ.html）。
 ================================================================ -->
 <header class="hero">
 <div class="wrap">
-  <div class="eyebrow">DOPAGAKI STOCK LAB / SCENARIO CHECK</div>
+  <div class="eyebrow">S<span style="color:#fff">i</span>M MARKET LAB / PRICE SCENARIO</div>
   <h1>Meta Platforms <small>META</small></h1>
-  <div class="sub">NASDAQ｜評価基準日 2026-07-22｜使用手法 2027E FCF倍率＋ネットキャッシュ</div>
+  <div class="sub">NASDAQ｜評価基準日 2026年7月29日｜使用手法 2027E正規化FCF倍率＋ネット調整</div>
   <div class="verdict">
     <div class="verdict-main">
       <span class="pill">まず結論だけ</span>
       <!-- decision.status＋一言結論（絵文字は先頭1個まで、45文字目安） -->
-      <div class="status">成長と投資の綱引き</div>
+      <div class="status">決算後、前提を更新</div>
       <!-- 現値ポジショニングと市場逆算を1〜2文で -->
-      <p>現値$643.81はBear〜Bull帯の35%地点。</p>
-      <p class="sub">時価総額は約$1.65T。現値は2027年FCFを約$74B、倍率約22倍とみなす水準で、Base前提の多くを織り込む。</p>
+      <p>現値$585.61はBear〜Base帯の32.4%地点。Base $650までの条件を最新決算で再点検。</p>
+      <p class="sub">広告成長は想定以上。一方、2026年CapExと法務費用を反映し、正規化FCFの幅を広げた。</p>
     </div>
     <!-- 総合スコアは“補助指標”。売買判断そのものではない旨を必ず添える -->
-    <div class="score"><small>総合スコア（補助指標）</small><b>66</b><small>/ 100　売買判断そのものではありません</small></div>
+    <div class="score"><small>総合スコア（補助指標）</small><b>70</b><small>/ 100　売買判断そのものではありません</small></div>
   </div>
   <div class="kpis">
-    <div class="kpi"><span>現在株価 <em style="font-style:normal;color:#6EE24E;font-size:10px">LIVE</em></span><b data-live-price>$643.81</b><small data-live-price-date>2026年7月21日終値（分析基準値）</small></div>
-    <div class="kpi"><span>Base価値（標準ケース）</span><b>$690</b><small>+7.2%</small></div>
-    <div class="kpi"><span>確率加重期待値</span><b>$720</b><small>+11.8%（補助指標）</small></div>
-    <div class="kpi"><span>リスク区分</span><b>高い</b><small>CapEx・規制・AI収益化</small></div>
+    <div class="kpi"><span>現在株価 <em style="font-style:normal;color:var(--accent);font-size:10px">LIVE</em></span><b data-live-price>$585.61</b><small data-live-price-date>2026年7月29日市場データ（分析基準値）</small></div>
+    <div class="kpi"><span>Base価値（標準ケース）</span><b>$650</b><small>現値比 +11.0%</small></div>
+    <div class="kpi"><span>確率加重期待値</span><b>$660</b><small>現値比 +12.7%</small></div>
+    <div class="kpi"><span>リスク区分</span><b>高い</b><small>CapEx・規制・Reality Labs</small></div>
   </div>
 
-<div style="position:relative;z-index:1;margin-top:14px;display:inline-flex;gap:8px;flex-wrap:wrap">
-<span style="background:#caff00;color:#0b0b10;padding:5px 9px;border-radius:8px;font-size:11px;font-weight:1000;transform:rotate(-1deg)">初心者でも読める</span>
-<span style="background:#48e7ff;color:#0b0b10;padding:5px 9px;border-radius:8px;font-size:11px;font-weight:1000;transform:rotate(1deg)">数字はガチ</span>
-<span style="background:#ff4ecd;color:#fff;padding:5px 9px;border-radius:8px;font-size:11px;font-weight:1000;transform:rotate(-1deg)">煽りだけはしない</span>
+<div class="hero-tags">
+<span>初心者でも読める</span>
+<span>数字はガチ</span>
+<span>煽りだけはしない</span>
 </div>
 
 </div>
 </header>
 
 <!-- Validation：WARNがあれば下の注意帯を残す（なければ丸ごと削除）。FAIL時は完成版にしない。 -->
-<div class="wrap"><div class="notice" style="margin-top:14px"><b>注意：</b>Q2決算前でCapEx前提が動く可能性があり、直近20営業日騰落率は未確認。ValidationはWARN。</div></div>
+
 <!-- 例（WARN時）:
-<div class="wrap"><div class="notice" style="margin-top:14px"><b>注意：</b>{{WARN_MESSAGE}}</div></div>
+<div class="wrap"><div class="notice" style="margin-top:14px"><b>注意：</b></div></div>
 -->
 
-<nav style="position:sticky;top:0;z-index:50;background:rgba(9,9,13,.86);backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.08)">
-<div class="wrap" style="display:flex;gap:8px;overflow:auto;padding-top:10px;padding-bottom:10px">
-<a href="#snapshot" style="white-space:nowrap;text-decoration:none;background:#1b1b25;border:1px solid #343445;color:#fff;padding:7px 11px;border-radius:999px;font-size:12px;font-weight:900">結論</a>
-<a href="#scenarios" style="white-space:nowrap;text-decoration:none;background:#1b1b25;border:1px solid #343445;color:#fff;padding:7px 11px;border-radius:999px;font-size:12px;font-weight:900">3シナリオ</a>
-<a href="#logic" style="white-space:nowrap;text-decoration:none;background:#1b1b25;border:1px solid #343445;color:#fff;padding:7px 11px;border-radius:999px;font-size:12px;font-weight:900">計算</a>
-<a href="#sensitivity" style="white-space:nowrap;text-decoration:none;background:#1b1b25;border:1px solid #343445;color:#fff;padding:7px 11px;border-radius:999px;font-size:12px;font-weight:900">感応度</a>
-<a href="#assumptions" style="white-space:nowrap;text-decoration:none;background:#1b1b25;border:1px solid #343445;color:#fff;padding:7px 11px;border-radius:999px;font-size:12px;font-weight:900">前提</a>
+<nav class="report-nav"><div class="wrap">
+<a href="#snapshot">結論</a>
+<a href="#scenarios">3シナリオ</a>
+<a href="#logic">計算</a>
+<a href="#sensitivity">感応度</a>
+<a href="#assumptions">前提</a>
 </div></nav>
 
 <main class="wrap">
@@ -92,23 +83,23 @@ details{border:1px solid var(--line);background:#111119;border-radius:16px;paddi
 <!-- Layer2-1：いまどこ？（現値ポジショニング＋市場逆算） -->
 <section class="card" id="snapshot">
   <h2>いまの株価、どこにいる？</h2>
-  <p class="lead">会社の質と株価の安さを分け、Q2決算・広告成長・CapExを優先して確認します。</p>
+  <p class="lead">分析基準株価$585.61を、Bear $430〜Bull $910の同じ物差しで比較します。</p>
   <div class="grid-2">
     <div>
       <h3>現値ポジショニング</h3>
-      <p>Bear〜Bull帯の <b>35%</b> 地点。判定は <b>Bear〜Base帯</b>。期待値だけで判断せず、材料の二重織り込みを確認。</p>
+      <p>Bear〜Bull帯の <b>32.4%</b> 地点。判定は <b>Bear〜Base帯</b>。Base実現には次回決算で主要KPIの継続確認が必要です。</p>
       <!-- pin の left:% を band_position_pct に合わせる -->
-      <div class="position"><div class="position-line"><i class="pin" style="left:35%"></i></div><div class="position-labels"><span>Bear $450</span><span>Base $690</span><span>Bull $1,000</span></div></div>
-      <p>上値下値比：<b>1.84倍</b>　確率加重期待値：<b>$720</b></p>
+      <div class="position"><div class="position-line"><i class="pin" style="left:32.4%"></i></div><div class="position-labels"><span>Bear $430</span><span>Base $650</span><span>Bull $910</span></div></div>
+      <p>上値下値比：<b>2.08倍</b>　確率加重期待値：<b>$660</b></p>
     </div>
     <div>
       <h3>市場期待と独自見解</h3>
       <div class="compare">
-        <div><b>市場期待 61/100</b><div class="meter"><i style="width:61%"></i></div></div>
-        <div><b>本試算 66/100</b><div class="meter"><i style="width:66%"></i></div></div>
+        <div><b>市場期待 72/100</b><div class="meter"><i style="width:72%"></i></div></div>
+        <div><b>本試算 75/100</b><div class="meter"><i style="width:75%"></i></div></div>
       </div>
       <!-- market_reverse.conclusion：現値が自分のどの前提に相当するか -->
-      <p>時価総額は約$1.65T。現値は2027年FCFを約$74B、倍率約22倍とみなす水準で、Base前提の多くを織り込む。</p>
+      <p>現値はBearを上回る一方、Base未満。市場は最新決算の改善を一部評価しつつ、AIデータセンターの投資回収を残していると逆算します。</p>
     </div>
   </div>
 </section>
@@ -116,26 +107,26 @@ details{border:1px solid var(--line);background:#111119;border-radius:16px;paddi
 <!-- Layer1/2：3シナリオ。dl の項目は使用手法に合わせて変える（rNPV/SOTP/EV-Sales/PER等） -->
 <section class="card" id="scenarios">
   <h2>未来はこの3パターン</h2>
-  <p class="lead">事業価値、ネット現金・負債、希薄化後株式数をシナリオ別に分けたモデル仮定。</p>
+  <p class="lead">最新決算を出発点に、2027E正規化FCFとFCF倍率を独立して変えています。</p>
   <div class="scenarios">
     <article class="scenario bear">
-      <div class="scenario-head"><span>Bear（悲観ケース）</span><b>20%</b></div>
-      <div class="scenario-price">$450</div>
-      <div class="small">現値比 -30.1%</div>
-      <dl><div><dt>事業価値（仮定）</dt><dd>$1126.00B</dd></div><div><dt>ネット現金/負債</dt><dd>+$35.00B</dd></div><div><dt>希薄化後株数</dt><dd>2,580M株</dd></div><div><dt>成立前提</dt><dd>FCF$62B・18倍相当</dd></div></dl>
+      <div class="scenario-head"><span>Bear（悲観ケース）</span><b>25%</b></div>
+      <div class="scenario-price">$430</div>
+      <div class="small">現値比 −26.6%</div>
+      <dl><div><dt>2027E正規化FCF</dt><dd>$60B</dd></div><div><dt>FCF倍率</dt><dd>18倍</dd></div><div><dt>ネット調整</dt><dd>+$7B</dd></div><div><dt>希薄化後株式数</dt><dd>2.53B</dd></div></dl>
       <!-- 例: <div><dt>事業価値</dt><dd>25.9兆円</dd></div> を手法に応じて数行 -->
     </article>
     <article class="scenario base">
-      <div class="scenario-head"><span>Base（標準ケース）</span><b>55%</b></div>
-      <div class="scenario-price">$690</div>
-      <div class="small">現値比 +7.2%</div>
-      <dl><div><dt>事業価値（仮定）</dt><dd>$1714.50B</dd></div><div><dt>ネット現金/負債</dt><dd>+$45.00B</dd></div><div><dt>希薄化後株数</dt><dd>2,550M株</dd></div><div><dt>成立前提</dt><dd>FCF$78B・22倍相当</dd></div></dl>
+      <div class="scenario-head"><span>Base（標準ケース）</span><b>50%</b></div>
+      <div class="scenario-price">$650</div>
+      <div class="small">現値比 現値比 +11.0%</div>
+      <dl><div><dt>2027E正規化FCF</dt><dd>$74B</dd></div><div><dt>FCF倍率</dt><dd>22倍</dd></div><div><dt>ネット調整</dt><dd>+$10B</dd></div><div><dt>希薄化後株式数</dt><dd>2.52B</dd></div></dl>
     </article>
     <article class="scenario bull">
       <div class="scenario-head"><span>Bull（強気ケース）</span><b>25%</b></div>
-      <div class="scenario-price">$1,000</div>
-      <div class="small">現値比 +55.3%</div>
-      <dl><div><dt>事業価値（仮定）</dt><dd>$2465.00B</dd></div><div><dt>ネット現金/負債</dt><dd>+$55.00B</dd></div><div><dt>希薄化後株数</dt><dd>2,520M株</dd></div><div><dt>成立前提</dt><dd>FCF$95B・26倍相当</dd></div></dl>
+      <div class="scenario-price">$910</div>
+      <div class="small">現値比 +55.4%</div>
+      <dl><div><dt>2027E正規化FCF</dt><dd>$88B</dd></div><div><dt>FCF倍率</dt><dd>26倍</dd></div><div><dt>ネット調整</dt><dd>+$12B</dd></div><div><dt>希薄化後株式数</dt><dd>2.53B</dd></div></dl>
     </article></div>
 </section>
 
@@ -144,13 +135,13 @@ details{border:1px solid var(--line);background:#111119;border-radius:16px;paddi
   <div class="card">
     <h2>この値段ならどう見る？</h2>
     <!-- 4〜5帯。「買い/売り」は断定しない。星は割安度の目安 -->
-    <div class="zone"><div><b>$450未満</b><span>★★★★★</span></div><p>悲観ケース以下。悪化材料と資金繰りを確認。</p></div><div class="zone"><div><b>$450〜$690</b><span>★★★☆☆</span></div><p>慎重〜標準前提の間。</p></div><div class="zone"><div><b>$690〜$1,000</b><span>★★☆☆☆</span></div><p>強い実行と成長を織り込む。</p></div><div class="zone"><div><b>$1,000超</b><span>★☆☆☆☆</span></div><p>Bull超。追加材料が必要。</p></div>
+    <div class="zone"><div><b>$430未満</b><span>★★★★★</span></div><p>悲観ケース以下。事業前提の悪化有無を優先確認。</p></div><div class="zone"><div><b>$430〜$585</b><span>★★★★☆</span></div><p>Bear〜Base下側。下振れと回復条件を比較。</p></div><div class="zone"><div><b>$585〜$715.00</b><span>★★★☆☆</span></div><p>Base近辺。標準ケースの実現度が中心。</p></div><div class="zone"><div><b>$715.00〜$910</b><span>★★☆☆☆</span></div><p>Bull期待が増える帯。前提未達に敏感。</p></div><div class="zone"><div><b>$910超</b><span>★☆☆☆☆</span></div><p>強気ケース超。追加の上振れ根拠が必要。</p></div>
     <!-- 例: <div class="zone"><div><b>48,000円未満</b><span>★★★★★</span></div><p>悲観ケース以下。下方リスクを相当織り込む</p></div> -->
   </div>
   <div class="card">
     <h2>株価を動かす4つ</h2>
     <!-- 各材料に up=追い風 / down=注意 / flat を付ける -->
-    <div class="signal"><div><b>2026-07-29｜Q2決算</b><span class="flat">確認</span></div><p>広告成長とCapEx見通し。</p></div><div class="signal"><div><b>毎四半期｜広告単価</b><span class="up">追い風候補</span></div><p>AI改善が単価へ効くか。</p></div><div class="signal"><div><b>2026年後半｜Meta AI製品</b><span class="up">追い風候補</span></div><p>利用と収益化の距離。</p></div><div class="signal"><div><b>随時｜データセンター投資</b><span class="flat">確認</span></div><p>投資額と稼働時期。</p></div>
+    <div class="signal"><div><b>2026年Q3決算 / 売上ガイダンス・CapEx・広告単価</b><span class="up">追い風</span></div><p>ガイダンス達成ならBase以上の確度が上がる。</p></div><div class="signal"><div><b>日次利用者3.60Bの規模を維持しながら広告効率を改善できるか。</b><span class="up">追い風</span></div><p>成長ドライバーの実績化を確認。</p></div><div class="signal"><div><b>AIデータセンターの投資回収</b><span class="down">注意</span></div><p>発生時はEPS/FCFと倍率が同時に下がり得る。</p></div><div class="signal"><div><b>独禁法・個人情報規制</b><span class="flat">確認</span></div><p>発生確率と金額影響を開示で追う。</p></div>
     <!-- 例: <div class="signal"><div><b>AI向けSSD需要</b><span class="up">追い風</span></div><p>…</p></div> -->
   </div>
 </section>
@@ -159,12 +150,12 @@ details{border:1px solid var(--line);background:#111119;border-radius:16px;paddi
 <section class="grid-2">
   <div class="card">
     <h2>ここは普通に強い</h2>
-    <ul class="clean"><li>Q1売上$56.31B、前年同期比33%増。</li><li>広告表示数と広告単価がともに増加。</li><li>営業利益率41%。</li><li>Family DAPは3.56B人。</li></ul>
+    <ul class="clean"><li>広告表示回数は14%増、広告単価は12%増で、広告エンジンは強い。</li><li>法務費用と人員再編、AIインフラ投資により営業利益率は31%へ低下。</li><li>Q2 FCFは$0.784B。設備投資の大きさを無視して利益だけで評価しない。</li></ul>
     <!-- 例: <li>FY2025売上2.34兆円で過去最高。</li> を3〜5件 -->
   </div>
   <div class="card">
     <h2>ここで事故るかも</h2>
-    <ul class="clean"><li>2026年CapEx見通し$125B〜$145B。</li><li>Reality Labsの赤字が継続。</li><li>AI人材・電力・GPUコストが増加。</li><li>規制と広告景気に左右される。</li></ul>
+    <ul class="clean"><li>AIデータセンターの投資回収</li><li>独禁法・個人情報規制</li><li>Reality Labsの継続赤字</li><li>広告景気と高倍率</li></ul>
     <!-- 2つ目のカードのliは自動で赤「!」になる -->
   </div>
 </section>
@@ -172,20 +163,20 @@ details{border:1px solid var(--line);background:#111119;border-radius:16px;paddi
 <!-- Layer3：計算ロジック -->
 <section class="card" id="logic">
   <h2>数字の作り方</h2>
-  <p class="lead">理論株価＝（事業価値＋ネット現金／負債調整）÷希薄化後株式数</p>
+  <p class="lead">（2027E正規化FCF × FCF倍率 ＋ ネット調整）÷ 希薄化後株式数</p>
   <div class="table-wrap"><table>
-  <thead><tr><th>ケース</th><th>事業価値</th><th>ネット調整</th><th>株式数</th><th>株価</th></tr></thead>
-  <tbody><tr><td>Bear</td><td>$1126.00B</td><td>+$35.00B</td><td>2,580M</td><td>$450</td></tr><tr><td>Base</td><td>$1714.50B</td><td>+$45.00B</td><td>2,550M</td><td>$690</td></tr><tr><td>Bull</td><td>$2465.00B</td><td>+$55.00B</td><td>2,520M</td><td>$1,000</td></tr></tbody>
+  <thead><tr><th>ケース</th><th>2027E正規化FCF</th><th>FCF倍率</th><th>ネット調整</th><th>株式数</th><th>1株価値</th></tr></thead>
+  <tbody><tr><td>Bear</td><td>$60B</td><td>18倍</td><td>+$7B</td><td>2.53B</td><td>$430</td></tr><tr><td>Base</td><td>$74B</td><td>22倍</td><td>+$10B</td><td>2.52B</td><td>$650</td></tr><tr><td>Bull</td><td>$88B</td><td>26倍</td><td>+$12B</td><td>2.53B</td><td>$910</td></tr></tbody>
   </table></div>
   <!-- 現値に合わせた逆算ではない旨、未開示前提の注意など -->
-  <p class="notice"><b>重要：</b>将来値は仮定。現値にBaseを合わせていません。現金・負債・株式数は評価基準日にそろえ、未確認項目はWARN表示しています。</p>
+  <p class="notice"><b>重要：</b>倍率は同業比較と金利環境を踏まえた分析前提。FCFはQ2単期値ではなく、投資サイクルを平準化した2027年推計。 目標値は現値に合わせた逆算ではありません。</p>
 </section>
 
 <!-- Layer3：成立条件 -->
 <section class="card" id="conditions">
   <h2>この未来になる条件</h2>
-  <details open><summary>Base：$690 / 確率55%</summary><p>FCF$78B・22倍相当。Q2決算・広告成長・CapExが概ね計画通り。</p></details><details><summary>Bear：$450 / 確率20%</summary><p>FCF$62B・18倍相当。資金・工程・倍率が悪化。</p></details><details><summary>Bull：$1,000 / 確率25%</summary><p>FCF$95B・26倍相当。主要カタリストが順調。</p></details>
-  <!-- 例: <details open><summary>Base：$690 / 確率55%</summary><p>…</p></details> を3つ -->
+  <details ><summary>Bear：$430 / 確率25%</summary><p>AIデータセンターの投資回収が顕在化し、2027E正規化FCFと評価倍率が保守側へ。</p></details><details open><summary>Base：$650 / 確率50%</summary><p>2026年Q3決算 / 売上ガイダンス・CapEx・広告単価を概ね達成し、最新決算の成長が段階的に続く。</p></details><details ><summary>Bull：$910 / 確率25%</summary><p>日次利用者3.60Bの規模を維持しながら広告効率を改善できるか。 収益化と資本効率が想定を上回る。</p></details>
+  <!-- 例: <details open><summary>Base：$650 / 確率50%</summary><p>…</p></details> を3つ -->
 </section>
 
 <!-- Layer3：感応度 ＋ 分布（モンテカルロは実施時のみ） -->
@@ -193,24 +184,24 @@ details{border:1px solid var(--line);background:#111119;border-radius:16px;paddi
   <div class="card">
     <h2>数字がズレるとどうなる？</h2>
     <div class="table-wrap"><table>
-      <thead><tr><th>2027 FCF＼倍率</th><th>18x</th><th>22x</th><th>26x</th></tr></thead>
-      <tbody><tr><td>$65B</td><td>$477</td><td>$579</td><td>$680</td></tr><tr><td>$78B</td><td>$568</td><td>$690</td><td>$813</td></tr><tr><td>$92B</td><td>$666</td><td>$810</td><td>$953</td></tr></tbody>
+      <thead><tr><th>前提</th><th>18倍</th><th>22倍</th><th>26倍</th></tr></thead>
+      <tbody><tr><td>FCF $60B</td><td>$427</td><td>$522</td><td>$617</td></tr><tr><td>FCF $74B</td><td>$527</td><td>$644</td><td>$762</td></tr><tr><td>FCF $88B</td><td>$626</td><td>$766</td><td>$905</td></tr></tbody>
     </table></div>
-    <p class="small">主要ドライバと評価倍率・成功確率の組み合わせ。将来時期が遅れるほど現在価値は低下。</p>
+    <p class="small">2027E正規化FCFとFCF倍率を別々に動かした感応度。単位は1株あたりUSD。</p>
   </div>
   <div class="card">
     <h2>どの価格に行きやすい？</h2>
-    <p class="lead">3シナリオの確率をそのまま表示。予言ではありません。</p>
-    <div class="dist-row"><span>Bear $450</span><div class="track"><i style="width:20%"></i></div><b>20%</b></div><div class="dist-row"><span>Base $690</span><div class="track"><i style="width:55%"></i></div><b>55%</b></div><div class="dist-row"><span>Bull $1,000</span><div class="track"><i style="width:25%"></i></div><b>25%</b></div>
+    <p class="lead">離散3シナリオの確率分布です。連続分布やモンテカルロではありません。</p>
+    <div class="dist-row"><span>Bear</span><div class="track"><i style="width:25%"></i></div><b>25%</b></div><div class="dist-row"><span>Base</span><div class="track"><i style="width:50%"></i></div><b>50%</b></div><div class="dist-row"><span>Bull</span><div class="track"><i style="width:25%"></i></div><b>25%</b></div>
     <!-- 例: <div class="dist-row"><span>5万円未満</span><div class="track"><i style="width:7.6%"></i></div><b>7.6%</b></div> -->
-    <p>確率加重期待値は$720。単独の売買判断には使いません。</p>
+    <p>最頻ケースはBase $650（50%）。確率加重期待値は$660です。</p>
   </div>
 </section>
 
 <!-- 次の決算/イベントで見る場所（watch_items） -->
 <section class="card">
   <h2>次の決算で見る場所</h2>
-  <div class="signal"><div><b>2026-07-29｜Q2決算</b></div><p>広告成長とCapEx見通し。</p></div><div class="signal"><div><b>毎四半期｜広告単価</b></div><p>AI改善が単価へ効くか。</p></div><div class="signal"><div><b>2026年後半｜Meta AI製品</b></div><p>利用と収益化の距離。</p></div><div class="signal"><div><b>随時｜データセンター投資</b></div><p>投資額と稼働時期。</p></div>
+  <div class="signal"><div><b>2026年Q3｜売上$61–64Bの達成</b></div><p>広告需要とAI推薦効果を確認。</p></div><div class="signal"><div><b>毎四半期｜CapExとFCF</b></div><p>AI投資が現金創出へつながるか。</p></div><div class="signal"><div><b>毎四半期｜広告表示回数・単価</b></div><p>量と価格の両輪が続くか。</p></div><div class="signal"><div><b>随時｜法務・規制</b></div><p>罰金や事業制約の追加有無。</p></div>
   <!-- 例: <div class="signal"><div><b>2026年7月31日の1Q決算</b></div><p>…</p></div> -->
 </section>
 
@@ -219,23 +210,23 @@ details{border:1px solid var(--line);background:#111119;border-radius:16px;paddi
   <h2>使った数字と前提</h2>
   <div class="table-wrap"><table>
   <thead><tr><th>項目</th><th>値</th><th>分類</th><th>注記</th></tr></thead>
-  <tbody><tr><td>現値</td><td>$643.81</td><td>市場データ</td><td>2026-07-21終値</td></tr><tr><td>時価総額</td><td>$1.65T</td><td>市場データ</td><td>同日取得</td></tr><tr><td>評価手法</td><td>2027E FCF倍率＋ネットキャッシュ</td><td>モデル仮定</td><td>現値へ調整せず</td></tr><tr><td>確率</td><td>20/55/25%</td><td>モデル仮定</td><td>合計100%</td></tr><tr><td>20営業日騰落</td><td>未確認</td><td>未確認</td><td>V17 WARN</td></tr><tr><td>Q1売上</td><td>$56.31B</td><td>会社開示</td><td>+33%</td></tr><tr><td>営業利益率</td><td>41%</td><td>会社開示</td><td>Q1 2026</td></tr><tr><td>2026 CapEx</td><td>$125B〜$145B</td><td>会社開示</td><td>会社見通し</td></tr></tbody>
+  <tbody><tr><td>分析基準株価</td><td>$585.61</td><td>市場データ</td><td>2026年7月29日市場データ</td></tr><tr><td>確率</td><td>25% / 50% / 25%</td><td>分析前提</td><td>Bear / Base / Bull、合計100%</td></tr><tr><td>2027E正規化FCF</td><td>$60B / $74B / $88B</td><td>分析前提</td><td>決算・ガイダンスから推計</td></tr><tr><td>FCF倍率</td><td>18倍 / 22倍 / 26倍</td><td>分析前提</td><td>成長・金利・同業比較</td></tr><tr><td>ネット調整</td><td>+$7B / +$10B / +$12B</td><td>計算前提</td><td>ケース別に明示</td></tr><tr><td>希薄化後株式数</td><td>2.53B / 2.52B / 2.53B</td><td>計算前提</td><td>希薄化を反映</td></tr></tbody>
   </table></div>
 </section>
 
 <!-- Layer3：ガチ勢向け深掘り（details折りたたみ） -->
 <section class="card">
   <h2>ガチ勢向けの深掘り</h2>
-  <details><summary>手法と市場逆算</summary><p>2027E FCF倍率＋ネットキャッシュを採用。時価総額は約$1.65T。現値は2027年FCFを約$74B、倍率約22倍とみなす水準で、Base前提の多くを織り込む。</p></details><details><summary>倍率・SOTPの根拠</summary><p>Bearは遅延と倍率縮小、Baseは会社計画の部分達成、Bullは主要カタリスト成功を置いた仮定。現値へBaseを合わせていません。</p></details><details><summary>キャッシュ・負債・希薄化</summary><p>各シナリオのネット調整と希薄化後株式数を別々に反映。Q2決算前でCapEx前提が動く可能性があり、直近20営業日騰落率は未確認。ValidationはWARN。</p></details><details><summary>エントリーコンテキスト</summary><p>直近20営業日騰落率は完全確認できずWARN。材料の二重織り込みを避け、Q2決算・広告成長・CapExを優先します。</p></details><details><summary>Validation Engine</summary><p>WARN。V01確率100%、V02 Bear＜Base＜Bull、V03期待値$720、V04株価変換を再計算済み。FAILなし。</p></details><details><summary>主要出典</summary><p><a href="https://investor.atmeta.com/investor-news/press-release-details/2026/Meta-Reports-First-Quarter-2026-Results/default.aspx">Q1 2026決算</a><br><a href="https://investor.atmeta.com/investor-events/">Q2 2026イベント</a></p></details><details><summary>更新履歴</summary><p>2026-07-22全面改訂。正式テンプレート、最新株価、最新決算、希薄化、市場逆算を反映。</p></details>
+  <details><summary>手法選定理由</summary><p>2027E正規化FCF倍率＋ネット調整。倍率は同業比較と金利環境を踏まえた分析前提。FCFはQ2単期値ではなく、投資サイクルを平準化した2027年推計。</p></details><details><summary>市場逆算</summary><p>現値はBear〜Base帯の32.4%地点。Baseに必要なKPIと資本効率を次回決算で確認します。</p></details><details><summary>希薄化・資本構成</summary><p>希薄化後株式数とネットキャッシュ／負債を決算ごとに更新します。</p></details><details><summary>更新履歴</summary><p>2026年7月30日：最新決算、会社ガイダンス、2026年7月29日市場データを反映して全シナリオを再計算。</p></details><details><summary>主要出典</summary><ul><li><a href="https://investor.atmeta.com/investor-news/press-release-details/2026/Meta-Reports-Second-Quarter-2026-Results/default.aspx">Q2 2026決算</a></li></ul></details>
   <!-- 手法選定理由 / 市場逆算 / 倍率トラジェクトリ / 同業比較 / キャッシュバーン・希薄化 /
        転換社債 / M&A / モンテカルロ・ベイズ（実施時）/ 前提と未確認事項 / 更新履歴 / 主要出典 を
        それぞれ <details><summary>…</summary><p>…</p></details> で。出典はリンクの箇条書き -->
 </section>
 
 <section class="card notice">
-  <h3>免責</h3><p>本資料は情報提供・教育目的で、投資助言ではありません。将来価格は仮定に基づく試算で、実現を保証しません。</p>
+  <h3>免責</h3><p>本資料は情報提供・教育目的であり、投資助言ではありません。将来予想は公開情報に基づく分析前提で、実績を保証しません。</p>
 </section>
-<footer>DOPAGAKI STOCK LAB｜最終更新 2026-07-22｜Validation: WARN</footer>
+<footer>SiM MARKET LAB｜META｜更新 2026年7月30日｜評価基準日 2026年7月29日</footer>
 </main>
 <script src="../../lab/assets/js/live-report-price.js" defer></script>
 </body></html>
