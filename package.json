@@ -4,6 +4,7 @@
     "build": "node scripts/build-pages.mjs",
     "migrate:live-prices": "node scripts/migrate-live-report-prices.mjs",
     "new": "node scripts/new-stock.mjs",
+    "theme:reports": "node scripts/apply-report-theme.mjs",
     "sync:check": "node scripts/sync-site-folder.mjs",
     "sync:site-folder": "node scripts/sync-site-folder.mjs --apply",
     "serve": "python3 -m http.server 8000 --bind 127.0.0.1"
