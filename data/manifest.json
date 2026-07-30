@@ -1,6 +1,670 @@
 [
   {
     "schemaVersion": 1,
+    "ticker": "APLD",
+    "slug": "apld",
+    "name": "Applied Digital",
+    "market": "米国株",
+    "sector": "AIデータセンター・HPCインフラ",
+    "method": "契約データセンターSOTP－ネット負債",
+    "status": "published",
+    "updated": "2026-07-30",
+    "price": {
+      "current": 23.22,
+      "currency": "USD"
+    },
+    "scenarios": {
+      "bear": 20,
+      "base": 41,
+      "bull": 69
+    },
+    "positionPct": 6.6,
+    "zone": "Bear〜Base帯",
+    "riskReward": "14.22倍",
+    "catalyst": "FY27四半期決算 / 建設進捗・資金調達・賃料開始",
+    "summary": "契約容量1.4GWと基礎契約収入$36Bを反映。巨額負債と建設リスクを明示してSOTPを再構築した。",
+    "tags": [
+      "AIデータセンター",
+      "HPC",
+      "長期リース"
+    ],
+    "risk": "極めて高い",
+    "detailPath": "stocks/APLD/index.html",
+    "scenarioPath": "stocks/APLD/scenario.html"
+  },
+  {
+    "schemaVersion": 1,
+    "ticker": "BE",
+    "slug": "be",
+    "name": "Bloom Energy Corporation",
+    "market": "米国株",
+    "sector": "分散型電源・燃料電池・AIデータセンター",
+    "method": "2028E調整後EPS × PER",
+    "status": "published",
+    "updated": "2026-07-30",
+    "price": {
+      "current": 163.75,
+      "currency": "USD"
+    },
+    "scenarios": {
+      "bear": 105,
+      "base": 175,
+      "bull": 265
+    },
+    "positionPct": 36.7,
+    "zone": "Bear〜Base帯",
+    "riskReward": "1.72倍",
+    "catalyst": "2026年Q3決算 / AI向け出荷・製品粗利・通期ガイダンス",
+    "summary": "Q2売上は前年比166%増で通期見通しも上方修正。AI電力需要は強いが、現値は高成長の継続を要求する。",
+    "tags": [
+      "燃料電池",
+      "AIデータセンター",
+      "オンサイト電源"
+    ],
+    "risk": "高い",
+    "detailPath": "stocks/BE/index.html",
+    "scenarioPath": "stocks/BE/scenario.html"
+  },
+  {
+    "schemaVersion": 1,
+    "ticker": "HOOD",
+    "slug": "hood",
+    "name": "Robinhood Markets, Inc.",
+    "market": "米国株",
+    "sector": "オンライン証券・予測市場・暗号資産",
+    "method": "2027E正規化EPS × PER",
+    "status": "published",
+    "updated": "2026-07-30",
+    "price": {
+      "current": 89.84,
+      "currency": "USD"
+    },
+    "scenarios": {
+      "bear": 58,
+      "base": 108,
+      "bull": 175
+    },
+    "positionPct": 27.2,
+    "zone": "Bear〜Base帯",
+    "riskReward": "2.67倍",
+    "catalyst": "2026年Q3決算 / 予測市場収益・純入金・暗号資産取引",
+    "summary": "Q2は過去最高売上。予測市場と株式取引が急伸した一方、暗号資産減速と一時利益を除いた収益力を確認する。",
+    "tags": [
+      "オンライン証券",
+      "予測市場",
+      "フィンテック"
+    ],
+    "risk": "高い",
+    "detailPath": "stocks/HOOD/index.html",
+    "scenarioPath": "stocks/HOOD/scenario.html"
+  },
+  {
+    "schemaVersion": 1,
+    "ticker": "META",
+    "slug": "meta",
+    "name": "Meta Platforms, Inc.",
+    "market": "米国株",
+    "sector": "SNS広告・AI・AR/VR",
+    "method": "2027E正規化EPS × PER",
+    "status": "published",
+    "updated": "2026-07-30",
+    "price": {
+      "current": 585.61,
+      "currency": "USD"
+    },
+    "scenarios": {
+      "bear": 420,
+      "base": 720,
+      "bull": 1008
+    },
+    "positionPct": 28.2,
+    "zone": "Bear〜Base帯",
+    "riskReward": "2.55倍",
+    "catalyst": "2026年Q3決算 / 広告単価・AI投資・設備投資・フリーCF",
+    "summary": "Q2売上は28%増でも、費用55%増とAI設備投資で利益・FCFが圧迫。広告成長と投資回収の綱引きを再評価。",
+    "tags": [
+      "PER",
+      "AI広告",
+      "設備投資",
+      "Instagram"
+    ],
+    "risk": "中〜高",
+    "detailPath": "stocks/META/index.html",
+    "scenarioPath": "stocks/META/scenario.html"
+  },
+  {
+    "schemaVersion": 1,
+    "ticker": "MSFT",
+    "slug": "msft",
+    "name": "Microsoft",
+    "market": "米国株",
+    "sector": "クラウド・ソフトウェア・AI",
+    "method": "FY27E希薄化後EPS × PER",
+    "status": "published",
+    "updated": "2026-07-30",
+    "price": {
+      "current": 390.54,
+      "currency": "USD"
+    },
+    "scenarios": {
+      "bear": 306,
+      "base": 533,
+      "bull": 690
+    },
+    "positionPct": 22,
+    "zone": "Bear〜Base帯",
+    "riskReward": "3.54倍",
+    "catalyst": "FY27 Q1決算 / Azure約45%成長・CapEx・利益率",
+    "summary": "Azure成長と受注残は強い。FY27の大型CapExを反映しつつ、EPS成長前提を引き上げた。",
+    "tags": [
+      "PER",
+      "AI",
+      "Azure",
+      "Copilot",
+      "Microsoft 365"
+    ],
+    "risk": "中",
+    "detailPath": "stocks/MSFT/index.html",
+    "scenarioPath": "stocks/MSFT/scenario.html"
+  },
+  {
+    "schemaVersion": 1,
+    "ticker": "NOW",
+    "slug": "now",
+    "name": "ServiceNow",
+    "market": "米国株",
+    "sector": "企業向けワークフロー・AI",
+    "method": "2027E正規化FCF倍率－ネット負債",
+    "status": "published",
+    "updated": "2026-07-30",
+    "price": {
+      "current": 115.76,
+      "currency": "USD"
+    },
+    "scenarios": {
+      "bear": 81,
+      "base": 130,
+      "bull": 188
+    },
+    "positionPct": 32.5,
+    "zone": "Bear〜Base帯",
+    "riskReward": "2.08倍",
+    "catalyst": "2026年Q3決算 / cRPO約19.5%・AI ACV・利益率",
+    "summary": "Q2 cRPOとAI ACVは強い。新規債務と買収負担をネット調整に反映し、Baseを小幅更新した。",
+    "tags": [
+      "Now Platform",
+      "Now Assist",
+      "cRPO"
+    ],
+    "risk": "高い",
+    "detailPath": "stocks/NOW/index.html",
+    "scenarioPath": "stocks/NOW/scenario.html"
+  },
+  {
+    "schemaVersion": 1,
+    "ticker": "RMBS",
+    "slug": "rmbs",
+    "name": "Rambus",
+    "market": "米国株",
+    "sector": "メモリ接続半導体・IP",
+    "method": "2028E非GAAP EPS × PER",
+    "status": "published",
+    "updated": "2026-07-30",
+    "price": {
+      "current": 82.81,
+      "currency": "USD"
+    },
+    "scenarios": {
+      "bear": 65,
+      "base": 130,
+      "bull": 190
+    },
+    "positionPct": 14.2,
+    "zone": "Bear〜Base帯",
+    "riskReward": "6.02倍",
+    "catalyst": "2026年Q3決算 / 製品売上$110–116M・ロイヤルティ",
+    "summary": "Q2売上とQ3製品ガイダンスが上振れ。DDR5製品成長を反映してBase/Bullを引き上げた。",
+    "tags": [
+      "DDR5",
+      "メモリ接続",
+      "半導体IP"
+    ],
+    "risk": "高い",
+    "detailPath": "stocks/RMBS/index.html",
+    "scenarioPath": "stocks/RMBS/scenario.html"
+  },
+  {
+    "schemaVersion": 1,
+    "ticker": "SOFI",
+    "slug": "sofi",
+    "name": "SoFi Technologies",
+    "market": "米国株",
+    "sector": "デジタル金融・銀行",
+    "method": "2028E希薄化後EPS × PER",
+    "status": "published",
+    "updated": "2026-07-30",
+    "price": {
+      "current": 15.25,
+      "currency": "USD"
+    },
+    "scenarios": {
+      "bear": 12,
+      "base": 24,
+      "bull": 38
+    },
+    "positionPct": 12.5,
+    "zone": "Bear〜Base帯",
+    "riskReward": "7.00倍",
+    "catalyst": "2026年Q3決算 / NIM・延滞率・会員成長",
+    "summary": "Q2利益と通期ガイダンスを上方修正。信用コストと株式数を明示してEPS前提を更新した。",
+    "tags": [
+      "デジタル銀行",
+      "Galileo",
+      "融資"
+    ],
+    "risk": "高い",
+    "detailPath": "stocks/SOFI/index.html",
+    "scenarioPath": "stocks/SOFI/scenario.html"
+  },
+  {
+    "schemaVersion": 1,
+    "ticker": "STX",
+    "slug": "stx",
+    "name": "Seagate Technology Holdings plc",
+    "market": "米国株",
+    "sector": "データストレージ・HDD・AIインフラ",
+    "method": "FY2027E正規化EPS × PER",
+    "status": "published",
+    "updated": "2026-07-30",
+    "price": {
+      "current": 764.43,
+      "currency": "USD"
+    },
+    "scenarios": {
+      "bear": 360,
+      "base": 650,
+      "bull": 960
+    },
+    "positionPct": 67.4,
+    "zone": "Base〜Bull帯",
+    "riskReward": "0.48倍",
+    "catalyst": "FY2027 Q1決算 / $4.1B売上ガイダンス・HAMR出荷・粗利率",
+    "summary": "FY2026は売上34%増、FCF $3.1B。AIストレージ需要は強いが、現値はFY2027の高収益継続を大きく織り込む。",
+    "tags": [
+      "HDD",
+      "HAMR",
+      "AIデータセンター",
+      "PER"
+    ],
+    "risk": "高い",
+    "detailPath": "stocks/STX/index.html",
+    "scenarioPath": "stocks/STX/scenario.html"
+  },
+  {
+    "schemaVersion": 1,
+    "ticker": "6857",
+    "slug": "6857",
+    "name": "アドバンテスト",
+    "market": "日本株",
+    "sector": "半導体製造装置・テスト",
+    "method": "FY3/27E EPS×PER（AI半導体サイクル調整）",
+    "status": "published",
+    "updated": "2026-07-29",
+    "price": {
+      "current": 25200,
+      "currency": "JPY"
+    },
+    "scenarios": {
+      "bear": 14300,
+      "base": 29200,
+      "bull": 46200
+    },
+    "positionPct": 34.2,
+    "zone": "Bear〜Base帯",
+    "riskReward": "1.93倍",
+    "catalyst": "2026/7/30 上方修正後の初取引 / 10月頃のFY3/27 Q2決算",
+    "summary": "利益は急拡大。終値は上方修正後の反応前で、翌日の評価を確認。",
+    "tags": [
+      "半導体テスト",
+      "AI/HPC",
+      "上方修正"
+    ],
+    "risk": "非常に高い",
+    "detailPath": "stocks/6857/index.html",
+    "scenarioPath": "stocks/6857/scenario.html"
+  },
+  {
+    "schemaVersion": 1,
+    "ticker": "7203",
+    "slug": "7203",
+    "name": "トヨタ自動車",
+    "market": "日本株",
+    "sector": "自動車・モビリティ",
+    "method": "FY3/27E EPS×PER（関税・為替調整）",
+    "status": "published",
+    "updated": "2026-07-29",
+    "price": {
+      "current": 3224,
+      "currency": "JPY"
+    },
+    "scenarios": {
+      "bear": 1980,
+      "base": 3500,
+      "bull": 4900
+    },
+    "positionPct": 42.6,
+    "zone": "Bear〜Base帯",
+    "riskReward": "1.35倍",
+    "catalyst": "2026/8/4 FY3/27 Q1決算 / 関税・為替・販売台数を確認",
+    "summary": "販売力は強い。関税・為替を含む慎重予想からの上振れ余地を確認。",
+    "tags": [
+      "自動車",
+      "ハイブリッド",
+      "関税・為替"
+    ],
+    "risk": "中〜高",
+    "detailPath": "stocks/7203/index.html",
+    "scenarioPath": "stocks/7203/scenario.html"
+  },
+  {
+    "schemaVersion": 1,
+    "ticker": "7974",
+    "slug": "7974",
+    "name": "任天堂",
+    "market": "日本株",
+    "sector": "ゲーム・エンターテインメント",
+    "method": "FY3/28E正規化EPS×PER",
+    "status": "published",
+    "updated": "2026-07-29",
+    "price": {
+      "current": 7986,
+      "currency": "JPY"
+    },
+    "scenarios": {
+      "bear": 5280,
+      "base": 9520,
+      "bull": 14960
+    },
+    "positionPct": 28,
+    "zone": "Bear〜Base帯",
+    "riskReward": "2.58倍",
+    "catalyst": "2026/8/6 FY3/27 Q1決算 / Switch 2販売・ソフト装着率を確認",
+    "summary": "Switch 2は好調。次はソフト比率と利益率の回復速度が焦点。",
+    "tags": [
+      "Switch 2",
+      "ゲーム",
+      "キャラクターIP"
+    ],
+    "risk": "高い",
+    "detailPath": "stocks/7974/index.html",
+    "scenarioPath": "stocks/7974/scenario.html"
+  },
+  {
+    "schemaVersion": 1,
+    "ticker": "8136",
+    "slug": "8136",
+    "name": "サンリオ",
+    "market": "日本株",
+    "sector": "キャラクターIP・ライセンス",
+    "method": "FY3/27E EPS×PER",
+    "status": "published",
+    "updated": "2026-07-29",
+    "price": {
+      "current": 1343,
+      "currency": "JPY"
+    },
+    "scenarios": {
+      "bear": 900,
+      "base": 1480,
+      "bull": 2210
+    },
+    "positionPct": 33.8,
+    "zone": "Bear〜Base帯",
+    "riskReward": "1.96倍",
+    "catalyst": "2026/8/10 FY3/27 Q1決算 / 海外ライセンス・利益率を確認",
+    "summary": "IP収益は高成長。急騰後は成長率とガバナンスの両方を確認。",
+    "tags": [
+      "キャラクターIP",
+      "海外ライセンス",
+      "高利益率"
+    ],
+    "risk": "高い",
+    "detailPath": "stocks/8136/index.html",
+    "scenarioPath": "stocks/8136/scenario.html"
+  },
+  {
+    "schemaVersion": 1,
+    "ticker": "8306",
+    "slug": "8306",
+    "name": "三菱UFJフィナンシャル・グループ",
+    "market": "日本株",
+    "sector": "銀行・総合金融",
+    "method": "FY3/27E EPS×PER＋PBR/ROE確認",
+    "status": "published",
+    "updated": "2026-07-29",
+    "price": {
+      "current": 3647,
+      "currency": "JPY"
+    },
+    "scenarios": {
+      "bear": 2280,
+      "base": 3700,
+      "bull": 4860
+    },
+    "positionPct": 53,
+    "zone": "Base付近",
+    "riskReward": "0.89倍",
+    "catalyst": "2026/8/3 FY3/27 Q1決算 / 純金利収益・与信費用・還元を確認",
+    "summary": "金利正常化は追い風。現値は過去最高益目標を概ね織り込む。",
+    "tags": [
+      "銀行",
+      "国内金利",
+      "株主還元"
+    ],
+    "risk": "中〜高",
+    "detailPath": "stocks/8306/index.html",
+    "scenarioPath": "stocks/8306/scenario.html"
+  },
+  {
+    "schemaVersion": 1,
+    "ticker": "COST",
+    "slug": "cost",
+    "name": "Costco Wholesale Corporation",
+    "market": "米国株",
+    "sector": "会員制小売・生活必需品",
+    "method": "FY2027E EPS×PER",
+    "status": "published",
+    "updated": "2026-07-29",
+    "price": {
+      "current": 966.58,
+      "currency": "USD"
+    },
+    "scenarios": {
+      "bear": 780,
+      "base": 1010,
+      "bull": 1280
+    },
+    "positionPct": 37.3,
+    "zone": "Bear〜Base帯",
+    "riskReward": "1.68倍",
+    "catalyst": "2026年8月5日｜7月売上 / 既存店・客数・客単価を確認。",
+    "summary": "商売は優良。株価は高い品質プレミアムを維持。",
+    "tags": [
+      "生活必需品",
+      "会員制小売",
+      "Kirkland"
+    ],
+    "risk": "中〜高",
+    "detailPath": "stocks/COST/index.html",
+    "scenarioPath": "stocks/COST/scenario.html"
+  },
+  {
+    "schemaVersion": 1,
+    "ticker": "JPM",
+    "slug": "jpm",
+    "name": "JPMorgan Chase & Co.",
+    "market": "米国株",
+    "sector": "総合銀行・投資銀行・資産運用",
+    "method": "2028E調整後EPS×PER＋TBVPS確認",
+    "status": "published",
+    "updated": "2026-07-29",
+    "price": {
+      "current": 357.31,
+      "currency": "USD"
+    },
+    "scenarios": {
+      "bear": 270,
+      "base": 360,
+      "bull": 455
+    },
+    "positionPct": 47.2,
+    "zone": "Bear〜Base帯",
+    "riskReward": "1.12倍",
+    "catalyst": "2026年10月頃｜Q3決算 / NII・与信費用・CET1を確認。",
+    "summary": "会社は強い。現値は標準ケースをほぼ織り込む。",
+    "tags": [
+      "金融",
+      "総合銀行",
+      "資産運用"
+    ],
+    "risk": "中",
+    "detailPath": "stocks/JPM/index.html",
+    "scenarioPath": "stocks/JPM/scenario.html"
+  },
+  {
+    "schemaVersion": 1,
+    "ticker": "LLY",
+    "slug": "lly",
+    "name": "Eli Lilly and Company",
+    "market": "米国株",
+    "sector": "医薬品・肥満症/糖尿病・創薬",
+    "method": "2027E非GAAP EPS×PER",
+    "status": "published",
+    "updated": "2026-07-29",
+    "price": {
+      "current": 1220.66,
+      "currency": "USD"
+    },
+    "scenarios": {
+      "bear": 1000,
+      "base": 1410,
+      "bull": 1870
+    },
+    "positionPct": 25.4,
+    "zone": "Bear〜Base帯",
+    "riskReward": "2.94倍",
+    "catalyst": "2026年8月5日｜Q2決算 / GLP-1売上・供給・通期予想を確認。",
+    "summary": "成長は圧倒的。株価は高成長の継続を要求。",
+    "tags": [
+      "医薬品",
+      "肥満症",
+      "GLP-1"
+    ],
+    "risk": "高い",
+    "detailPath": "stocks/LLY/index.html",
+    "scenarioPath": "stocks/LLY/scenario.html"
+  },
+  {
+    "schemaVersion": 1,
+    "ticker": "NEE",
+    "slug": "nee",
+    "name": "NextEra Energy, Inc.",
+    "market": "米国株",
+    "sector": "公益・再生可能エネルギー・送電",
+    "method": "2028E調整後EPS×PER",
+    "status": "published",
+    "updated": "2026-07-29",
+    "price": {
+      "current": 89.28,
+      "currency": "USD"
+    },
+    "scenarios": {
+      "bear": 76,
+      "base": 103,
+      "bull": 128
+    },
+    "positionPct": 25.5,
+    "zone": "Bear〜Base帯",
+    "riskReward": "2.92倍",
+    "catalyst": "2026年9月頃｜Dominion株主投票 / 規制審査を確認。",
+    "summary": "成長目標は強い。現値はBase未満だがM&Aを確認。",
+    "tags": [
+      "公益",
+      "再生可能エネルギー",
+      "送電・蓄電"
+    ],
+    "risk": "高い",
+    "detailPath": "stocks/NEE/index.html",
+    "scenarioPath": "stocks/NEE/scenario.html"
+  },
+  {
+    "schemaVersion": 1,
+    "ticker": "PLD",
+    "slug": "pld",
+    "name": "Prologis, Inc.",
+    "market": "米国株",
+    "sector": "物流不動産・データセンターREIT",
+    "method": "2027E Core FFO×P/FFO",
+    "status": "published",
+    "updated": "2026-07-29",
+    "price": {
+      "current": 147.12,
+      "currency": "USD"
+    },
+    "scenarios": {
+      "bear": 115,
+      "base": 150,
+      "bull": 187
+    },
+    "positionPct": 44.6,
+    "zone": "Bear〜Base帯",
+    "riskReward": "1.24倍",
+    "catalyst": "2026年10月頃｜Q3決算 / 稼働率・賃料改定・開発を確認。",
+    "summary": "物流基盤は強い。現値はBase付近の妥当圏。",
+    "tags": [
+      "REIT",
+      "物流不動産",
+      "データセンター"
+    ],
+    "risk": "中",
+    "detailPath": "stocks/PLD/index.html",
+    "scenarioPath": "stocks/PLD/scenario.html"
+  },
+  {
+    "schemaVersion": 1,
+    "ticker": "XOM",
+    "slug": "xom",
+    "name": "Exxon Mobil Corporation",
+    "market": "米国株",
+    "sector": "統合石油・LNG・化学",
+    "method": "2027E正規化EPS×PER",
+    "status": "published",
+    "updated": "2026-07-29",
+    "price": {
+      "current": 153.04,
+      "currency": "USD"
+    },
+    "scenarios": {
+      "bear": 110,
+      "base": 150,
+      "bull": 210
+    },
+    "positionPct": 43,
+    "zone": "Base〜Bull帯",
+    "riskReward": "1.32倍",
+    "catalyst": "2026年7月31日｜Q2決算 / 市況・精製・ヘッジ時期差を確認。",
+    "summary": "事業は強化。現値は高めの中期利益を織り込む。",
+    "tags": [
+      "石油・ガス",
+      "LNG",
+      "Guyana"
+    ],
+    "risk": "中〜高",
+    "detailPath": "stocks/XOM/index.html",
+    "scenarioPath": "stocks/XOM/scenario.html"
+  },
+  {
+    "schemaVersion": 1,
     "ticker": "285A",
     "slug": "285a",
     "name": "キオクシアホールディングス",
@@ -89,11 +753,13 @@
     "positionPct": 29.4,
     "zone": "Bear〜Base帯",
     "riskReward": "2.40倍",
-    "catalyst": "要確認",
-    "summary": "期待先行。",
+    "catalyst": "2026年10月頃 通期決算 / 4Q大型案件・黒字転換・新株予約権行使を確認",
+    "summary": "3Qは赤字縮小。ただし通期達成には4Qへの大型売上集中が必要。",
     "tags": [
       "PER＋売上進捗シナリオ",
-      "モバイルDX・業務端末"
+      "モバイルDX・業務端末",
+      "RFID",
+      "潜在希薄化"
     ],
     "risk": "非常に高い",
     "detailPath": "stocks/アスタリスク/index.html",
@@ -206,10 +872,10 @@
     "schemaVersion": 1,
     "ticker": "IBM",
     "slug": "ibm",
-    "name": "IBM",
+    "name": "International Business Machines",
     "market": "米国株",
-    "sector": "エンタープライズIT・ソフトウェア",
-    "method": "2027E EPS × PER",
+    "sector": "ハイブリッドクラウド・AI・ITサービス",
+    "method": "FY2027E調整後EPS×PER＋FCF確認",
     "status": "published",
     "updated": "2026-07-28",
     "price": {
@@ -217,20 +883,21 @@
       "currency": "USD"
     },
     "scenarios": {
-      "bear": 152,
-      "base": 219,
-      "bull": 311
+      "bear": 150,
+      "base": 230,
+      "bull": 320
     },
-    "positionPct": 42,
+    "positionPct": 40.5,
     "zone": "Bear〜Base帯",
-    "riskReward": "1.38倍",
-    "catalyst": "2026/7/22 Q2正式決算 / 通期見通し・案件回収時期",
-    "summary": "Q2失速で急落。前提を再評価。",
+    "riskReward": "1.47倍",
+    "catalyst": "2026年7月22日｜Q2正式決算 / 速報値と通期FCF見通しを確認。",
+    "summary": "AI期待より、Software成長とFCFの持続性を確認する局面。",
     "tags": [
-      "2027E EPS × PER",
-      "エンタープライズIT・ソフトウェア"
+      "Red Hat",
+      "watsonx",
+      "メインフレーム"
     ],
-    "risk": "高",
+    "risk": "中〜高",
     "detailPath": "stocks/IBM/index.html",
     "scenarioPath": "stocks/IBM/scenario.html"
   },
@@ -298,76 +965,6 @@
     "risk": "高",
     "detailPath": "stocks/IOT/index.html",
     "scenarioPath": "stocks/IOT/scenario.html"
-  },
-  {
-    "schemaVersion": 1,
-    "ticker": "META",
-    "slug": "meta",
-    "name": "Meta Platforms",
-    "market": "米国株",
-    "sector": "SNS広告・AI・AR/VR",
-    "method": "正規化FY26E EPS × PER",
-    "status": "published",
-    "updated": "2026-07-28",
-    "price": {
-      "current": 598.6929,
-      "currency": "USD"
-    },
-    "scenarios": {
-      "bear": 504,
-      "base": 768,
-      "bull": 1008
-    },
-    "positionPct": 18.8,
-    "zone": "Bear寄り",
-    "riskReward": "4.32倍",
-    "catalyst": "2026 Q2決算 / 広告成長とCapEx",
-    "summary": "広告は絶好調。投資額も巨大。",
-    "tags": [
-      "PER",
-      "AI",
-      "Instagram",
-      "AI広告",
-      "Reality Labs"
-    ],
-    "risk": "中〜高",
-    "detailPath": "stocks/META/index.html",
-    "scenarioPath": "stocks/META/scenario.html"
-  },
-  {
-    "schemaVersion": 1,
-    "ticker": "MSFT",
-    "slug": "msft",
-    "name": "Microsoft",
-    "market": "米国株",
-    "sector": "クラウド・ソフトウェア・AI",
-    "method": "FY27E EPS × PER",
-    "status": "published",
-    "updated": "2026-07-28",
-    "price": {
-      "current": 395.0906,
-      "currency": "USD"
-    },
-    "scenarios": {
-      "bear": 315,
-      "base": 492,
-      "bull": 644
-    },
-    "positionPct": 24.3,
-    "zone": "Bear寄り",
-    "riskReward": "3.11倍",
-    "catalyst": "2026/7/29 FY26 Q4決算",
-    "summary": "クラウドは強い。株価は調整済み。",
-    "tags": [
-      "PER",
-      "AI",
-      "Azure",
-      "Copilot",
-      "Microsoft 365"
-    ],
-    "risk": "中",
-    "detailPath": "stocks/MSFT/index.html",
-    "scenarioPath": "stocks/MSFT/scenario.html"
   },
   {
     "schemaVersion": 1,
@@ -530,6 +1127,468 @@
     "risk": "高",
     "detailPath": "stocks/TSLA/index.html",
     "scenarioPath": "stocks/TSLA/scenario.html"
+  },
+  {
+    "schemaVersion": 1,
+    "ticker": "ARQQ",
+    "slug": "arqq",
+    "name": "Arqit Quantum",
+    "market": "米国株",
+    "sector": "量子耐性暗号・サイバーセキュリティ",
+    "method": "2028年売上EV/Sales＋ネットキャッシュ－希薄化",
+    "status": "published",
+    "updated": "2026-07-22",
+    "price": {
+      "current": 17.2,
+      "currency": "USD"
+    },
+    "scenarios": {
+      "bear": 1.5,
+      "base": 8,
+      "bull": 28
+    },
+    "positionPct": 59.2,
+    "zone": "Base〜Bull帯",
+    "riskReward": "0.69倍",
+    "catalyst": "2026年後半｜新規契約の売上化 / 契約件数より認識売上を確認。",
+    "summary": "売上成長は始まったが、現在評価には急拡大が必要。",
+    "tags": [
+      "量子安全暗号",
+      "ソフトウェア",
+      "希薄化"
+    ],
+    "risk": "極めて高い",
+    "detailPath": "stocks/ARQQ/index.html",
+    "scenarioPath": "stocks/ARQQ/scenario.html"
+  },
+  {
+    "schemaVersion": 1,
+    "ticker": "ASTS",
+    "slug": "asts",
+    "name": "AST SpaceMobile",
+    "market": "米国株",
+    "sector": "宇宙通信・衛星直接通信",
+    "method": "2029年SpaceMobile事業の確率調整SOTP－資金負担",
+    "status": "published",
+    "updated": "2026-07-22",
+    "price": {
+      "current": 63.34,
+      "currency": "USD"
+    },
+    "scenarios": {
+      "bear": 20,
+      "base": 62,
+      "bull": 125
+    },
+    "positionPct": 41.3,
+    "zone": "Base付近",
+    "riskReward": "1.42倍",
+    "catalyst": "2026年8月前半｜BlueBird 11〜13 / 予定通りの打上げと軌道投入。",
+    "summary": "衛星の数より、稼働確認と商用売上への変換が次の勝負。",
+    "tags": [
+      "スマホ直接通信",
+      "BlueBird",
+      "打上げ・希薄化"
+    ],
+    "risk": "極めて高い",
+    "detailPath": "stocks/ASTS/index.html",
+    "scenarioPath": "stocks/ASTS/scenario.html"
+  },
+  {
+    "schemaVersion": 1,
+    "ticker": "BB",
+    "slug": "bb",
+    "name": "BlackBerry",
+    "market": "米国株",
+    "sector": "組込みOS・自動車ソフト・セキュア通信",
+    "method": "FY2029E EV/Sales＋ネットキャッシュ",
+    "status": "published",
+    "updated": "2026-07-22",
+    "price": {
+      "current": 8.99,
+      "currency": "USD"
+    },
+    "scenarios": {
+      "bear": 4,
+      "base": 7.5,
+      "bull": 13
+    },
+    "positionPct": 55.4,
+    "zone": "Base〜Bull帯",
+    "riskReward": "0.80倍",
+    "catalyst": "2026年9月24日頃 Q2 FY2027決算 / QNX成長と利益率",
+    "summary": "QNX成長と黒字化は改善。株価はBull寄りの期待を先取り",
+    "tags": [
+      "QNX",
+      "車載OS",
+      "Secure Communications"
+    ],
+    "risk": "高い",
+    "detailPath": "stocks/BB/index.html",
+    "scenarioPath": "stocks/BB/scenario.html"
+  },
+  {
+    "schemaVersion": 1,
+    "ticker": "CIFR",
+    "slug": "cifr",
+    "name": "Cipher Digital",
+    "market": "米国株",
+    "sector": "AI/HPCデータセンター・Bitcoin採掘",
+    "method": "AI/HPC＋採掘SOTP－シナリオ別負債",
+    "status": "published",
+    "updated": "2026-07-22",
+    "price": {
+      "current": 22.89,
+      "currency": "USD"
+    },
+    "scenarios": {
+      "bear": 6,
+      "base": 26,
+      "bull": 49
+    },
+    "positionPct": 39.3,
+    "zone": "Bear〜Base帯",
+    "riskReward": "1.55倍",
+    "catalyst": "2026年8月4日 Q2更新 / 168MW引渡し・負債・転換株数",
+    "summary": "AI/HPC転換を強く織り込み。$4.45・$16.03転換債をシナリオ別反映",
+    "tags": [
+      "AI/HPC",
+      "Bitcoin",
+      "転換社債"
+    ],
+    "risk": "極めて高い",
+    "detailPath": "stocks/CIFR/index.html",
+    "scenarioPath": "stocks/CIFR/scenario.html"
+  },
+  {
+    "schemaVersion": 1,
+    "ticker": "DVLT",
+    "slug": "dvlt",
+    "name": "Datavault AI",
+    "market": "米国株",
+    "sector": "データ収益化・RWAトークン化・エッジAI",
+    "method": "2027E EV/Sales＋希薄化調整",
+    "status": "published",
+    "updated": "2026-07-22",
+    "price": {
+      "current": 0.3677,
+      "currency": "USD"
+    },
+    "scenarios": {
+      "bear": 0.05,
+      "base": 0.3,
+      "bull": 1.1
+    },
+    "positionPct": 30.3,
+    "zone": "Base〜Bull帯",
+    "riskReward": "2.31倍",
+    "catalyst": "2026年8月頃 Q2決算 / 売上認識・粗利・発行済株式数",
+    "summary": "契約期待は大きいが、Q1実績と通期目標の差・希薄化が最大論点",
+    "tags": [
+      "RWA",
+      "トークン化",
+      "希薄化"
+    ],
+    "risk": "極めて高い",
+    "detailPath": "stocks/DVLT/index.html",
+    "scenarioPath": "stocks/DVLT/scenario.html"
+  },
+  {
+    "schemaVersion": 1,
+    "ticker": "GRRR",
+    "slug": "grrr",
+    "name": "Gorilla Technology Group",
+    "market": "米国株",
+    "sector": "AIインフラ・スマートシティ・公共安全",
+    "method": "2028E EV/Sales＋ネットキャッシュ",
+    "status": "published",
+    "updated": "2026-07-22",
+    "price": {
+      "current": 12.73,
+      "currency": "USD"
+    },
+    "scenarios": {
+      "bear": 6.5,
+      "base": 26,
+      "bull": 72
+    },
+    "positionPct": 9.5,
+    "zone": "Bear〜Base帯",
+    "riskReward": "9.51倍",
+    "catalyst": "2026年8月頃 Q2決算 / 売上$44M以上と大型案件の入金",
+    "summary": "低い評価と大型案件リスクが同居。契約より検収・営業CFを確認",
+    "tags": [
+      "AIインフラ",
+      "スマートシティ",
+      "公共安全"
+    ],
+    "risk": "非常に高い",
+    "detailPath": "stocks/GRRR/index.html",
+    "scenarioPath": "stocks/GRRR/scenario.html"
+  },
+  {
+    "schemaVersion": 1,
+    "ticker": "HQ",
+    "slug": "hq",
+    "name": "Horizon Quantum Holdings",
+    "market": "米国株",
+    "sector": "量子ソフトウェア・開発基盤",
+    "method": "量子ソフト基盤の確率調整SOTP＋ネットキャッシュ",
+    "status": "published",
+    "updated": "2026-07-22",
+    "price": {
+      "current": 16.69,
+      "currency": "USD"
+    },
+    "scenarios": {
+      "bear": 2,
+      "base": 12,
+      "bull": 31
+    },
+    "positionPct": 50.7,
+    "zone": "Base〜Bull帯",
+    "riskReward": "0.97倍",
+    "catalyst": "2026年8月4日｜Q2決算 / 売上・利用KPI・現金消費を初確認。",
+    "summary": "技術価値はあるが、売上と顧客KPIの開示が必要。",
+    "tags": [
+      "量子ソフト",
+      "Triple Alpha",
+      "売上前・SPAC"
+    ],
+    "risk": "極めて高い",
+    "detailPath": "stocks/HQ/index.html",
+    "scenarioPath": "stocks/HQ/scenario.html"
+  },
+  {
+    "schemaVersion": 1,
+    "ticker": "IREN",
+    "slug": "iren",
+    "name": "IREN Limited",
+    "market": "米国株",
+    "sector": "AIクラウド・データセンター・Bitcoin採掘",
+    "method": "AI Cloud ARR＋採掘SOTP－資金負担",
+    "status": "published",
+    "updated": "2026-07-22",
+    "price": {
+      "current": 41.29,
+      "currency": "USD"
+    },
+    "scenarios": {
+      "bear": 10,
+      "base": 30,
+      "bull": 60
+    },
+    "positionPct": 62.6,
+    "zone": "Base〜Bull帯",
+    "riskReward": "0.60倍",
+    "catalyst": "2026年8月頃 通期決算 / ARR開始時期・GPU稼働・CapEx",
+    "summary": "$2.8B新規契約で期待急拡大。ARRと実売上を分けて確認",
+    "tags": [
+      "AI Cloud",
+      "GPU",
+      "ARR"
+    ],
+    "risk": "極めて高い",
+    "detailPath": "stocks/IREN/index.html",
+    "scenarioPath": "stocks/IREN/scenario.html"
+  },
+  {
+    "schemaVersion": 1,
+    "ticker": "MP",
+    "slug": "mp",
+    "name": "MP Materials",
+    "market": "米国株",
+    "sector": "レアアース・永久磁石",
+    "method": "Materials＋Magnetics SOTP",
+    "status": "published",
+    "updated": "2026-07-22",
+    "price": {
+      "current": 46.3,
+      "currency": "USD"
+    },
+    "scenarios": {
+      "bear": 27,
+      "base": 49,
+      "bull": 79
+    },
+    "positionPct": 37.1,
+    "zone": "Bear〜Base帯",
+    "riskReward": "1.69倍",
+    "catalyst": "2026年8月頃 Q2決算 / NdPr量・価格保護・磁石量産",
+    "summary": "NdPrは過去最高。価格保護と磁石量産を実利益へ変えられるか",
+    "tags": [
+      "NdPr",
+      "永久磁石",
+      "価格保護"
+    ],
+    "risk": "非常に高い",
+    "detailPath": "stocks/MP/index.html",
+    "scenarioPath": "stocks/MP/scenario.html"
+  },
+  {
+    "schemaVersion": 1,
+    "ticker": "MRVL",
+    "slug": "mrvl",
+    "name": "Marvell Technology",
+    "market": "米国株",
+    "sector": "AI・データインフラ半導体",
+    "method": "FY2028E非GAAP EPS×PER＋希薄化確認",
+    "status": "published",
+    "updated": "2026-07-22",
+    "price": {
+      "current": 207.96,
+      "currency": "USD"
+    },
+    "scenarios": {
+      "bear": 126,
+      "base": 218,
+      "bull": 360
+    },
+    "positionPct": 35,
+    "zone": "Bear〜Base帯",
+    "riskReward": "1.86倍",
+    "catalyst": "2026年8月下旬頃｜Q2決算 / 売上$2.7BとEPS$0.93の進捗。",
+    "summary": "AI売上は強い。高い倍率を維持できる成長が必要。",
+    "tags": [
+      "Custom XPU",
+      "光インターコネクト",
+      "高PER・M&A"
+    ],
+    "risk": "高い",
+    "detailPath": "stocks/MRVL/index.html",
+    "scenarioPath": "stocks/MRVL/scenario.html"
+  },
+  {
+    "schemaVersion": 1,
+    "ticker": "OKLO",
+    "slug": "oklo",
+    "name": "Oklo",
+    "market": "米国株",
+    "sector": "先進原子力・高速炉・核燃料リサイクル",
+    "method": "確率調整SOTP＋ネットキャッシュ",
+    "status": "published",
+    "updated": "2026-07-22",
+    "price": {
+      "current": 44.13,
+      "currency": "USD"
+    },
+    "scenarios": {
+      "bear": 13,
+      "base": 42,
+      "bull": 89
+    },
+    "positionPct": 41,
+    "zone": "Base〜Bull帯",
+    "riskReward": "1.44倍",
+    "catalyst": "2026年8月頃 Q2更新 / NRC工程・HALEU・現金使用",
+    "summary": "売上前。現値はBaseの認可進展をかなり織り込む",
+    "tags": [
+      "高速炉",
+      "NRC",
+      "HALEU"
+    ],
+    "risk": "極めて高い",
+    "detailPath": "stocks/OKLO/index.html",
+    "scenarioPath": "stocks/OKLO/scenario.html"
+  },
+  {
+    "schemaVersion": 1,
+    "ticker": "SYM",
+    "slug": "sym",
+    "name": "Symbotic",
+    "market": "米国株",
+    "sector": "倉庫自動化・AIロボティクス",
+    "method": "2028E EV/Sales＋全経済持分",
+    "status": "published",
+    "updated": "2026-07-22",
+    "price": {
+      "current": 42.86,
+      "currency": "USD"
+    },
+    "scenarios": {
+      "bear": 14,
+      "base": 30,
+      "bull": 55
+    },
+    "positionPct": 70.4,
+    "zone": "Base〜Bull帯",
+    "riskReward": "0.42倍",
+    "catalyst": "2026年8月頃 Q3 FY2026決算 / 粗利・導入工程・株式構造",
+    "summary": "売上成長と黒字化は前進。ただし現値は大型案件成功を強く織り込む",
+    "tags": [
+      "倉庫AI",
+      "ロボット",
+      "顧客集中"
+    ],
+    "risk": "非常に高い",
+    "detailPath": "stocks/SYM/index.html",
+    "scenarioPath": "stocks/SYM/scenario.html"
+  },
+  {
+    "schemaVersion": 1,
+    "ticker": "TE",
+    "slug": "te",
+    "name": "T1 Energy",
+    "market": "米国株",
+    "sector": "太陽電池・米国製造",
+    "method": "G1＋G2確率調整SOTP－資金負担",
+    "status": "published",
+    "updated": "2026-07-22",
+    "price": {
+      "current": 6.1,
+      "currency": "USD"
+    },
+    "scenarios": {
+      "bear": 1.5,
+      "base": 8,
+      "bull": 16
+    },
+    "positionPct": 31.7,
+    "zone": "Bear〜Base帯",
+    "riskReward": "2.15倍",
+    "catalyst": "2026年8月頃 Q2決算 / G1利益・G2資金・初期生産",
+    "summary": "Q1黒字化は前進。G2_Austinの残資金と立上げが焦点",
+    "tags": [
+      "G1_Dallas",
+      "G2_Austin",
+      "45X"
+    ],
+    "risk": "極めて高い",
+    "detailPath": "stocks/TE/index.html",
+    "scenarioPath": "stocks/TE/scenario.html"
+  },
+  {
+    "schemaVersion": 1,
+    "ticker": "ZETA",
+    "slug": "zeta",
+    "name": "Zeta Global Holdings",
+    "market": "米国株",
+    "sector": "AIマーケティングクラウド",
+    "method": "2028E売上×EV/Sales－純負債÷希薄化後株数",
+    "status": "published",
+    "updated": "2026-07-22",
+    "price": {
+      "current": 21.19,
+      "currency": "USD"
+    },
+    "scenarios": {
+      "bear": 13,
+      "base": 25,
+      "bull": 40
+    },
+    "positionPct": 30.3,
+    "zone": "Bear〜Base帯",
+    "riskReward": "2.30倍",
+    "catalyst": "2026年8月4日｜Q2決算 / Marigold統合と通期見通しを確認。",
+    "summary": "50%成長は強いが、買収寄与とオーガニック成長を分けて見る。",
+    "tags": [
+      "AIマーケティング",
+      "Athena",
+      "Marigold"
+    ],
+    "risk": "高い",
+    "detailPath": "stocks/ZETA/index.html",
+    "scenarioPath": "stocks/ZETA/scenario.html"
   },
   {
     "schemaVersion": 1,
