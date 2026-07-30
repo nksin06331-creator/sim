@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "ticker": "HOOD",
+  "slug": "hood",
+  "name": "Robinhood Markets, Inc.",
+  "market": "米国株",
+  "sector": "オンライン証券・予測市場・暗号資産",
+  "method": "2027E正規化EPS × PER",
+  "status": "published",
+  "updated": "2026-07-30",
+  "price": {
+    "current": 89.84,
+    "currency": "USD"
+  },
+  "scenarios": {
+    "bear": 58,
+    "base": 108,
+    "bull": 175
+  },
+  "positionPct": 27.2,
+  "zone": "Bear〜Base帯",
+  "riskReward": "2.67倍",
+  "catalyst": "2026年Q3決算 / 予測市場収益・純入金・暗号資産取引",
+  "summary": "Q2は過去最高売上。予測市場と株式取引が急伸した一方、暗号資産減速と一時利益を除いた収益力を確認する。",
+  "tags": [
+    "オンライン証券",
+    "予測市場",
+    "フィンテック"
+  ],
+  "risk": "高い",
+  "detailPath": "stocks/HOOD/index.html",
+  "scenarioPath": "stocks/HOOD/scenario.html"
+}

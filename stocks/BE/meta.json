@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "ticker": "BE",
+  "slug": "be",
+  "name": "Bloom Energy Corporation",
+  "market": "米国株",
+  "sector": "分散型電源・燃料電池・AIデータセンター",
+  "method": "2028E調整後EPS × PER",
+  "status": "published",
+  "updated": "2026-07-30",
+  "price": {
+    "current": 163.75,
+    "currency": "USD"
+  },
+  "scenarios": {
+    "bear": 105,
+    "base": 175,
+    "bull": 265
+  },
+  "positionPct": 36.7,
+  "zone": "Bear〜Base帯",
+  "riskReward": "1.72倍",
+  "catalyst": "2026年Q3決算 / AI向け出荷・製品粗利・通期ガイダンス",
+  "summary": "Q2売上は前年比166%増で通期見通しも上方修正。AI電力需要は強いが、現値は高成長の継続を要求する。",
+  "tags": [
+    "燃料電池",
+    "AIデータセンター",
+    "オンサイト電源"
+  ],
+  "risk": "高い",
+  "detailPath": "stocks/BE/index.html",
+  "scenarioPath": "stocks/BE/scenario.html"
+}

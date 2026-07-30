@@ -1,12 +1,32 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-07-30T02:12:38.637937+00:00",
+  "generatedAt": "2026-07-30T02:50:53+00:00",
   "source": "Yahoo Finance chart endpoint",
   "manifest": "data/manifest-20260729-60.json",
-  "quoteCount": 60,
+  "quoteCount": 62,
   "errorCount": 0,
   "errors": {},
   "prices": {
+    "BE": {
+      "symbol": "BE",
+      "price": 163.75,
+      "previousClose": 167.01,
+      "change": -3.26,
+      "changePct": -1.95198,
+      "currency": "USD",
+      "marketTime": "2026-07-29T20:00:00+00:00",
+      "status": "ok"
+    },
+    "HOOD": {
+      "symbol": "HOOD",
+      "price": 89.84,
+      "previousClose": 92.99,
+      "change": -3.15,
+      "changePct": -3.38746,
+      "currency": "USD",
+      "marketTime": "2026-07-29T20:00:00+00:00",
+      "status": "ok"
+    },
     "6857": {
       "symbol": "6857.T",
       "price": 28645.0,
