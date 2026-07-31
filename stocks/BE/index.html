@@ -1,162 +1,568 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="Bloom Energy（BE）の事業、Q2 2026決算、成長要因、リスクを初心者向けに整理した企業ガイド。">
-  <title>Bloom Energy（BE）完全入門ガイド｜SiM MARKET LAB</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@600;700&family=Noto+Sans+JP:wght@400;500;700;900&family=Zen+Kaku+Gothic+New:wght@700;900&display=swap" rel="stylesheet">
-  <style>
-    :root{--accent:#6ee24e;--bg:#0a0c0a;--surface:#141815;--surface-2:#1b201c;--ink:#f1f5f1;--muted:#8a948a;--line:rgba(255,255,255,.09);--red:#f87171;--amber:#fbbf24}
-    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Sans JP",sans-serif;line-height:1.8}a{color:var(--accent)}
-    .hero-tags,.nav-inner,.section-header,.keypoints li{display:flex}.hero-tags{flex-wrap:wrap;gap:8px}.hero-tag{border:1px solid var(--line);border-radius:999px;padding:6px 13px;font-size:12px}.brandmark{font-family:"DM Sans",sans-serif;letter-spacing:.18em}.g{color:var(--accent)}
-    .tldr-hero-title,.section-title,.block-label,.card-title,.highlight h3{font-family:"Zen Kaku Gothic New",sans-serif;font-weight:900}.stat-strip,.card-grid,.facts,.info-row{display:grid}.stat-strip{grid-template-columns:repeat(4,1fr);gap:10px}.nav-inner{overflow:auto;margin:auto;max-width:1080px}.nav-item{white-space:nowrap;text-decoration:none}.container{max-width:1080px;margin:auto;padding:0 20px}.section-header{align-items:center}.section-icon,.section-num{display:grid;place-items:center;flex:none}.tldr ul,.keypoints{list-style:none;padding:0}.tldr li{margin:7px 0}.card-grid{grid-template-columns:repeat(4,1fr)}.facts{grid-template-columns:repeat(3,1fr)}.facts dt{color:var(--muted);font-size:11px}.facts dd{margin:2px 0 0;font-weight:700}.keypoints{display:grid;gap:10px}.keypoints li{gap:10px}.card-title,.block-label,.highlight h3{color:#fff}.info-row{grid-template-columns:repeat(2,1fr)}.info-title{font-weight:800}.timeline{border-left:2px solid rgba(110,226,78,.25);padding-left:22px}.tl-row{margin:0 0 20px}.tl-date{color:var(--accent);font-size:12px;font-weight:800}.tl-title{font-weight:800}.compare-table{width:100%;border-collapse:collapse}.compare-table th,.compare-table td{border:1px solid var(--line);padding:12px;text-align:left}.compare-table th{background:var(--surface-2)}.term-list{display:grid;gap:10px}.term-item{border:1px solid var(--line);border-radius:12px;padding:0 16px}.term-header{cursor:pointer;padding:14px 0;font-weight:800}.term-body{color:#c3ccc3}.highlight{border:1px solid rgba(110,226,78,.35);border-radius:18px;padding:20px;margin-top:18px}.notice{padding:14px 16px;margin-top:16px}.source-list{padding-left:20px}.footer{padding:36px 20px;text-align:center}.cta{display:inline-block;border:1px solid rgba(110,226,78,.45);border-radius:999px;padding:10px 18px;text-decoration:none;font-weight:800}
-    @media(max-width:760px){.stat-strip,.card-grid,.facts,.info-row{grid-template-columns:1fr 1fr}.container{padding:0 16px}}
-    @media(max-width:480px){.stat-strip,.card-grid,.facts,.info-row{grid-template-columns:1fr}}
-  </style>
-  <link rel="stylesheet" href="../../lab/assets/css/report-v5.css">
-</head>
-<body data-stock-ticker="BE" data-price-source="../../data/prices.json" class="sim-report sim-guide">
-  <header class="hero">
-    <div class="wrap">
-      <div class="brandmark">S<span class="g">i</span>M MARKET LAB</div>
-      <div class="hero-badge">BE 完全入門ガイド・2026年7月30日版</div>
-      <h1>Bloom Energy（BE）を<br><span class="g">まるっと</span>解説</h1>
-      <p>AIデータセンターの「電力不足」を、敷地内に置く燃料電池で解こうとする会社。急成長の中身と、株価が織り込む期待を分けて読みます。</p>
-      <div class="hero-tags">
-        <span class="hero-tag">⚡ オンサイト電源</span>
-        <span class="hero-tag">🧱 固体酸化物形燃料電池</span>
-        <span class="hero-tag">🖥️ AIデータセンター</span>
-      </div>
-    </div>
-  </header>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BE 完全入門ガイド</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@700;900&family=Noto+Sans+JP:wght@400;500;700;900&family=DM+Sans:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+/*
+ ================================================================
+  STOCK GUIDE TEMPLATE v4  SiM MARKET LAB ダーク版 / ChatGPT index.html
+  ----------------------------------------------------------------
+  ★★ デザインロック（ぶれ防止）★★
+  ・この <style> ブロックとページ骨格は「改変禁止」。1文字も変えない。逐語コピーする。
+  ・色はSiMグリーンで固定。銘柄・業界でアクセント色を変えない。
+  ・差し替えてよいのは {{ }} プレースホルダーの中身（＝テキスト）だけ。
+  ・セクションの数・順番・各コンポーネントの個数（SEC1のcard-smは4枚 等）は固定。
+    追加・削除・並べ替えをしない。
+  ----------------------------------------------------------------
+  ブランド：黒背景 × ネオングリーン × 白文字（キーワードだけ緑）。Instagram(sim.marketlab)準拠。
+  設計思想：「表層＝3秒で意味が取れる／深層＝読みたい人だけ開く」の2層構造。
+  ・見出しの重要ワードは <span class="g">…</span> で緑ハイライト。
+ ================================================================
+*/
 
-  <div class="tldr-hero">
-    <div class="tldr-hero-inner">
-      <div class="tldr-hero-title">30秒でつかむ最新状況</div>
-      <div class="stat-strip">
-        <div class="stat"><div class="stat-value" data-live-price>$163.75</div><div class="stat-label">現在株価 <span class="g">LIVE</span></div><div class="stat-note" data-live-price-date>2026/7/29終値</div></div>
-        <div class="stat"><div class="stat-value">$1.065B</div><div class="stat-label">Q2売上</div><div class="stat-note">前年比 +166%</div></div>
-        <div class="stat"><div class="stat-value">34.3%</div><div class="stat-label">非GAAP粗利率</div><div class="stat-note">前年 28.2%</div></div>
-        <div class="stat"><div class="stat-value">$3.9–4.2B</div><div class="stat-label">2026売上見通し</div><div class="stat-note">会社が上方修正</div></div>
-      </div>
+:root {
+  /* ── ブランド・アクセント：SiMグリーンで固定（銘柄・業界で変えない＝デザインぶれ防止） ── */
+  --accent:        #6EE24E;
+  --accent-bright: #8BF56B;
+  --accent-tint:   rgba(110,226,78,.12);
+  --accent-line:   rgba(110,226,78,.38);
+
+  /* ── ダークシェル（変更不要・全銘柄共通） ── */
+  --bg:        #0a0c0a;
+  --surface:   #141815;   /* カード面 */
+  --surface-2: #1b201c;   /* 少し明るい面 */
+
+  /* レガシー変数マッピング（本文markupが参照。名前は据え置き、意味をダーク用に再定義） */
+  --c-primary-50:  var(--accent-tint);        --c-primary-100: rgba(110,226,78,.18);
+  --c-primary-200: rgba(110,226,78,.55);      --c-primary-400: var(--accent);
+  --c-primary-600: var(--accent);             --c-primary-800: var(--accent-bright);
+  --c-accent-50:   var(--accent-tint);        --c-accent-400:  var(--accent);   --c-accent-600: var(--accent-bright);
+
+  /* システム色（ダーク版：薄背景は半透明の暗色、文字は明るい色に反転） */
+  --amber-50:  rgba(251,191,36,.13); --amber-400: #fbbf24; --amber-600: #fcd34d; --amber-800: #fde68a;
+  --red-50:    rgba(248,113,113,.13); --red-400:  #f87171; --red-600:   #fca5a5;
+  --blue-50:   rgba(96,165,250,.13); --blue-400:  #60a5fa; --blue-600:  #93c5fd; --blue-800: #bfdbfe;
+  --green-50:  rgba(110,226,78,.13); --green-400: #6EE24E; --green-600: #8bf56b;
+  --violet-50: rgba(167,139,250,.13); --violet-400:#a78bfa; --violet-600:#c4b5fd;
+  --gray-50:  #15191b;               --gray-100: rgba(255,255,255,.06);
+  --gray-200: rgba(255,255,255,.09); --gray-300: #3f463f;
+  --gray-500: #8a948a;               --gray-700: #c3ccc3; --gray-900: #f1f5f1;
+
+  --font-display: 'Zen Kaku Gothic New', 'Noto Sans JP', sans-serif;
+  --font-body:    'Noto Sans JP', 'DM Sans', sans-serif;
+  --font-num:     'DM Sans', 'Noto Sans JP', sans-serif;
+  --radius: 16px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-body); background: var(--bg); color: var(--gray-900); line-height: 1.85; font-size: 16px; -webkit-text-size-adjust: 100%; }
+.g { color: var(--accent); }               /* 緑キーワード */
+
+/* 読了プログレスバー */
+.progress-bar { position: fixed; top: 0; left: 0; height: 4px; width: 0%; z-index: 200; background: var(--accent); box-shadow: 0 0 12px var(--accent); transition: width .1s linear; }
+
+/* ── HERO（黒＋緑グロー＋ハーフトーン・ドット） ── */
+.hero {
+  background: radial-gradient(120% 90% at 50% -10%, #12251a 0%, #0b0f0c 45%, var(--bg) 75%);
+  color: #fff; padding: 58px 22px 66px; text-align: center; position: relative; overflow: hidden;
+}
+.hero::before { content:''; position:absolute; inset:0;
+  background-image: radial-gradient(var(--accent) 1px, transparent 1.6px);
+  background-size: 15px 15px; opacity: .10;
+  -webkit-mask-image: radial-gradient(ellipse at 50% 120%, #000 0%, transparent 60%);
+          mask-image: radial-gradient(ellipse at 50% 120%, #000 0%, transparent 60%);
+}
+.hero > * { position: relative; z-index: 1; }
+.brandmark { font-family: var(--font-num); font-weight: 700; letter-spacing: .18em; font-size: 13px; color: var(--gray-500); margin-bottom: 18px; }
+.brandmark b { color: #fff; font-weight: 700; }
+.brandmark .g { color: var(--accent); }
+.hero-badge { display: inline-block; background: rgba(110,226,78,.10); border: 1px solid var(--accent-line); border-radius: 999px; padding: 6px 18px; font-size: 12px; letter-spacing: .06em; font-weight: 700; margin-bottom: 18px; color: var(--accent); }
+.hero h1 { font-family: var(--font-display); font-size: clamp(30px,7.5vw,50px); font-weight: 900; line-height: 1.3; margin-bottom: 14px; letter-spacing: .01em; }
+.hero h1 .g { color: var(--accent); }
+.hero p { font-size: 15.5px; color: #c3ccc3; max-width: 560px; margin: 0 auto 26px; line-height: 1.85; }
+.hero-tags { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+.hero-tag { background: rgba(255,255,255,.04); border: 1px solid var(--gray-200); border-radius: 999px; padding: 6px 14px; font-size: 13px; font-weight: 500; color: #d8ded8; }
+
+/* ── 30秒サマリー（でかい数字カード） ── */
+.tldr-hero { max-width: 820px; margin: -30px auto 0; padding: 0 16px; position: relative; z-index: 5; }
+.tldr-hero-inner { background: var(--surface); border: 1px solid var(--gray-200); border-radius: var(--radius); padding: 20px 20px 8px; box-shadow: 0 16px 40px rgba(0,0,0,.5); }
+.tldr-hero-title { font-family: var(--font-display); font-weight: 900; font-size: 17px; color: #fff; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+.stat-strip { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px,1fr)); gap: 10px; margin-bottom: 14px; }
+.stat { background: var(--gray-50); border: 1px solid var(--gray-200); border-radius: 12px; padding: 14px 12px; text-align: center; }
+.stat-value { font-family: var(--font-num); font-weight: 700; font-size: clamp(24px,6vw,32px); line-height: 1.1; color: #fff; }
+.stat-value.up   { color: var(--accent); }
+.stat-value.down { color: var(--red-400); }
+.stat-label { font-size: 12px; color: var(--gray-500); margin-top: 4px; font-weight: 500; }
+.stat-note  { font-size: 11px; color: var(--gray-500); margin-top: 2px; }
+
+/* ── NAV ── */
+.nav-index { background: rgba(10,12,10,.82); backdrop-filter: blur(10px); border-bottom: 1px solid var(--gray-200); position: sticky; top: 0; z-index: 100; }
+.nav-inner { max-width: 820px; margin: 0 auto; padding: 0 16px; display: flex; overflow-x: auto; scrollbar-width: none; }
+.nav-inner::-webkit-scrollbar { display: none; }
+.nav-item { flex-shrink: 0; padding: 14px 14px; font-size: 13px; font-weight: 700; color: var(--gray-500); text-decoration: none; border-bottom: 3px solid transparent; transition: color .2s, border-color .2s; white-space: nowrap; }
+.nav-item:hover { color: var(--accent); border-bottom-color: var(--accent); }
+
+.container { max-width: 820px; margin: 0 auto; padding: 0 16px; }
+
+/* ── SECTION ── */
+.section { padding: 46px 0 34px; border-bottom: 1px solid var(--gray-200); opacity: 0; transform: translateY(16px); animation: fadeUp .5s ease forwards; }
+@keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+.section-header { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
+.section-icon { width: 46px; height: 46px; border-radius: 50%; background: var(--surface-2); border: 1px solid var(--gray-200); display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0; }
+.section-num { width: 30px; height: 30px; border-radius: 50%; background: var(--accent); color: #06210a; font-family: var(--font-num); font-weight: 700; font-size: 15px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.section-title { font-family: var(--font-display); font-size: clamp(21px,5.4vw,27px); font-weight: 900; color: #fff; line-height: 1.32; position: relative; display: inline-block; padding-bottom: 9px; }
+.section-title::after { content: ''; position: absolute; left: 0; bottom: 0; width: 40px; height: 3px; background: var(--accent); border-radius: 3px; }
+.section-title .g { color: var(--accent); }
+.section-sub { font-size: 13px; color: var(--gray-500); margin-top: 6px; font-weight: 500; }
+
+/* ── ⚡3秒まとめ ── */
+.tldr { background: var(--accent-tint); border: 1px solid var(--accent-line); border-radius: var(--radius); padding: 18px 20px; margin-bottom: 22px; }
+.tldr-label { display: inline-flex; align-items: center; gap: 6px; font-family: var(--font-display); font-weight: 900; font-size: 14px; color: var(--accent); margin-bottom: 10px; }
+.tldr ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.tldr li { font-size: 15.5px; font-weight: 500; color: #eef2ee; line-height: 1.7; padding-left: 30px; position: relative; }
+.tldr li::before { content: attr(data-emoji); position: absolute; left: 0; top: 0; font-size: 18px; }
+
+/* ── 👉つまり ── */
+.sowhat { background: var(--surface); border: 1.5px dashed var(--accent); border-radius: 14px; padding: 12px 16px 12px 46px; margin: 14px 0; position: relative; }
+.sowhat::before { content: '👉'; position: absolute; left: 14px; top: 11px; font-size: 20px; }
+.sowhat b { color: var(--accent); }
+.sowhat p { font-size: 14.5px; color: var(--gray-700); line-height: 1.8; }
+
+/* ── シグナル判定ピル ── */
+.signal { display: inline-flex; align-items: center; gap: 5px; font-weight: 700; font-size: 12.5px; padding: 4px 12px; border-radius: 999px; white-space: nowrap; }
+.signal.bull    { background: var(--green-50); color: var(--accent); }
+.signal.neutral { background: var(--amber-50); color: var(--amber-600); }
+.signal.bear    { background: var(--red-50);   color: var(--red-600); }
+
+/* ── ★重要度 ── */
+.rating { font-family: var(--font-num); letter-spacing: 1px; color: var(--accent); font-size: 14px; }
+.rating .off { color: var(--gray-300); }
+
+/* ── 絵文字箇条書き ── */
+.keypoints { list-style: none; display: flex; flex-direction: column; gap: 12px; margin: 8px 0; }
+.keypoints li { display: flex; gap: 12px; align-items: flex-start; font-size: 15px; line-height: 1.7; color: #e4e9e4; }
+.keypoints .kp-emoji { font-size: 22px; flex-shrink: 0; line-height: 1.4; }
+.keypoints .kp-text b { color: var(--accent); }
+
+/* ── CARDS ── */
+.card { background: var(--surface); border: 1px solid var(--gray-200); border-radius: 14px; padding: 18px 20px; margin-bottom: 12px; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 12px; margin-bottom: 12px; }
+.card-sm { background: var(--surface); border: 1px solid var(--gray-200); border-radius: 14px; padding: 16px 18px; }
+.card-sm .card-emoji { font-size: 22px; display: inline-flex; width: 40px; height: 40px; border-radius: 50%; background: var(--surface-2); border: 1px solid var(--gray-200); align-items: center; justify-content: center; margin-bottom: 8px; }
+.card-sm .card-title { font-family: var(--font-display); font-weight: 700; font-size: 15px; margin-bottom: 4px; color: var(--accent); }
+.card-sm .card-desc { font-size: 13.5px; color: var(--gray-700); line-height: 1.75; }
+
+/* ── 会社クイックデータ（企業詳細を厚くする一覧） ── */
+.facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(148px,1fr)); gap: 1px; background: var(--gray-200); border: 1px solid var(--gray-200); border-radius: 14px; overflow: hidden; margin: 4px 0 14px; }
+.facts > div { background: var(--surface); padding: 12px 14px; }
+.facts dt { font-size: 11px; color: var(--gray-500); font-weight: 700; margin-bottom: 3px; }
+.facts dd { margin: 0; font-size: 14.5px; color: #fff; font-weight: 700; line-height: 1.5; }
+.block-label { font-family: var(--font-display); font-weight: 900; font-size: 15px; color: #fff; margin: 18px 0 8px; display: flex; align-items: center; gap: 7px; }
+.block-label .g { color: var(--accent); }
+
+/* ── TERM ACCORDION ── */
+.term-list { display: flex; flex-direction: column; gap: 10px; }
+.term-item { background: var(--surface); border: 1px solid var(--gray-200); border-radius: 14px; overflow: hidden; transition: border-color .2s; }
+.term-item:hover { border-color: var(--accent); }
+.term-header { display: flex; align-items: center; justify-content: space-between; padding: 16px 18px; cursor: pointer; gap: 12px; user-select: none; min-height: 56px; }
+.term-header::-webkit-details-marker { display: none; }
+.term-name { font-family: var(--font-display); font-weight: 700; font-size: 15.5px; color: #fff; }
+.term-en { font-size: 11px; color: var(--gray-500); margin-left: 8px; font-weight: 400; }
+.term-arrow { font-size: 20px; color: var(--accent); transition: transform .25s; flex-shrink: 0; }
+.term-item[open] .term-arrow { transform: rotate(180deg); }
+.term-item[open] { border-color: var(--accent); }
+.term-body { padding: 2px 18px 18px; border-top: 1px solid var(--gray-100); }
+.term-body p { font-size: 14.5px; color: var(--gray-700); line-height: 1.85; margin: 10px 0 0; }
+.term-body b { color: var(--accent); }
+
+/* ── CALL-OUT ── */
+.ex-box, .ex-box-accent, .ex-box-amber, .ex-box-red { border-radius: 0 8px 8px 0; padding: 12px 16px; margin-top: 12px; }
+.ex-box        { background: var(--accent-tint); border-left: 4px solid var(--accent); }
+.ex-box-accent { background: var(--accent-tint); border-left: 4px solid var(--accent); }
+.ex-box-amber  { background: var(--amber-50);  border-left: 4px solid var(--amber-400); }
+.ex-box-red    { background: var(--red-50);    border-left: 4px solid var(--red-400); }
+.ex-label { font-size: 11px; font-weight: 700; letter-spacing: .04em; margin-bottom: 4px; }
+.ex-label-primary, .ex-label-accent { color: var(--accent); }
+.ex-label-amber { color: var(--amber-600); }
+.ex-label-red { color: var(--red-600); }
+.ex-text { font-size: 13.5px; color: var(--gray-700); line-height: 1.75; }
+
+/* ── INFO BOXES（リスク4分類） ── */
+.info-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap: 12px; margin-top: 16px; }
+.info-box { border-radius: 14px; padding: 16px 18px; border: 1px solid var(--gray-200); }
+.info-box-primary { background: var(--accent-tint); }
+.info-box-accent  { background: var(--accent-tint); }
+.info-box-amber   { background: var(--amber-50); }
+.info-box-red     { background: var(--red-50); }
+.info-box-blue    { background: var(--blue-50); }
+.info-box-green   { background: var(--green-50); }
+.info-box-gray    { background: var(--surface-2); }
+.info-title { font-family: var(--font-display); font-weight: 700; font-size: 14px; margin-bottom: 6px; display: flex; align-items: center; gap: 6px; }
+.info-title-primary, .info-title-accent, .info-title-green { color: var(--accent); }
+.info-title-amber { color: var(--amber-600); }
+.info-title-red { color: var(--red-600); }
+.info-title-blue { color: var(--blue-600); }
+.info-title-gray { color: #d8ded8; }
+.info-text { font-size: 13.5px; color: var(--gray-700); line-height: 1.75; }
+
+/* ── TIMELINE ── */
+.timeline { position: relative; padding-left: 30px; }
+.timeline::before { content: ''; position: absolute; left: 9px; top: 8px; bottom: 6px; width: 3px; background: rgba(110,226,78,.25); border-radius: 3px; }
+.tl-row { position: relative; margin-bottom: 22px; }
+.tl-row::before { content: ''; position: absolute; left: -25px; top: 5px; width: 14px; height: 14px; border-radius: 50%; background: var(--accent); border: 3px solid var(--bg); box-shadow: 0 0 0 2px var(--accent); }
+.tl-date { font-family: var(--font-num); font-size: 12px; font-weight: 700; color: var(--accent); letter-spacing: .04em; margin-bottom: 3px; }
+.tl-title { font-family: var(--font-display); font-weight: 700; font-size: 15.5px; color: #fff; margin-bottom: 3px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.tl-desc { font-size: 13.5px; color: var(--gray-500); line-height: 1.75; }
+
+/* ── BADGES ── */
+.badge { display: inline-block; font-size: 11px; padding: 3px 9px; border-radius: 6px; font-weight: 700; }
+.badge-primary { background: var(--accent-tint); color: var(--accent); }
+.badge-accent  { background: var(--accent-tint); color: var(--accent); }
+.badge-amber   { background: var(--amber-50);  color: var(--amber-600); }
+.badge-red     { background: var(--red-50);    color: var(--red-600); }
+.badge-blue    { background: var(--blue-50);   color: var(--blue-600); }
+.badge-green   { background: var(--green-50);  color: var(--accent); }
+.badge-violet  { background: var(--violet-50); color: var(--violet-600); }
+
+/* ── COMPARE TABLE ── */
+.table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; border: 1px solid var(--gray-200); border-radius: 14px; margin: 12px 0; }
+.compare-table { width: 100%; border-collapse: collapse; font-size: 13.5px; min-width: 480px; }
+.compare-table th { background: var(--gray-50); padding: 12px 14px; text-align: left; font-weight: 700; font-size: 12px; color: var(--gray-500); letter-spacing: .03em; border-bottom: 1px solid var(--gray-200); white-space: nowrap; }
+.compare-table td { padding: 12px 14px; border-bottom: 1px solid var(--gray-100); color: var(--gray-700); vertical-align: top; }
+.compare-table tr:last-child td { border-bottom: none; }
+.compare-table tr:hover td { background: rgba(255,255,255,.02); }
+.compare-table .me { background: var(--accent-tint); font-weight: 700; color: var(--accent); }
+
+/* ── HIGHLIGHT（インスタの“まとめ”枠：ダーク＋緑ボーダー） ── */
+.highlight { background: var(--surface); border: 1.5px solid var(--accent-line); border-radius: var(--radius); padding: 22px 24px; margin: 22px 0; position: relative; overflow: hidden; }
+.highlight::before { content:''; position:absolute; right:-30px; bottom:-30px; width:160px; height:160px;
+  background-image: radial-gradient(var(--accent) 1px, transparent 1.5px); background-size: 13px 13px; opacity:.12; }
+.highlight h3 { font-family: var(--font-display); font-size: 19px; font-weight: 900; margin-bottom: 10px; color: var(--accent); display: flex; align-items: center; gap: 8px; position: relative; }
+.highlight p { font-size: 14.5px; color: #d8ded8; line-height: 1.85; position: relative; }
+.highlight b { color: var(--accent); }
+
+/* ── PRODUCT GRID ── */
+.product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px,1fr)); gap: 12px; margin: 16px 0; }
+.product-box { border-radius: 14px; padding: 18px 14px; text-align: center; border: 1px solid var(--gray-200); background: var(--surface); }
+.product-symbol { font-family: var(--font-num); font-size: 30px; font-weight: 700; margin-bottom: 4px; color: var(--accent); }
+.product-name { font-size: 11px; font-weight: 700; letter-spacing: .04em; margin-bottom: 6px; color: #fff; }
+.product-use { font-size: 12px; line-height: 1.55; color: var(--gray-700); }
+
+/* ── MISC ── */
+.lead { font-size: 16.5px; color: #dbe1db; line-height: 1.9; margin-bottom: 20px; font-weight: 500; }
+.lead .g { color: var(--accent); }
+strong { font-weight: 700; color: #fff; }
+strong.g { color: var(--accent); }
+.grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap: 12px; }
+
+/* ── FOOTER ── */
+.footer { padding: 40px 22px; text-align: center; color: var(--gray-500); font-size: 13px; border-top: 1px solid var(--gray-200); margin-top: 32px; }
+.footer .brandmark { margin-bottom: 14px; }
+
+@media (max-width: 480px){
+  .section-icon { width: 40px; height: 40px; font-size: 20px; }
+  .stat-strip { grid-template-columns: repeat(2,1fr); }
+}
+@media (prefers-reduced-motion: reduce){
+  .section { animation: none; opacity: 1; transform: none; }
+  html { scroll-behavior: auto; }
+}
+</style>
+</head>
+<body data-stock-ticker="BE" data-price-source="../../data/prices.json">
+
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- ========================================================
+  HERO
+  BE Bloom Energy 分散型電源・燃料電池 AIデータセンターの電力不足を、使う場所で発電する燃料電池で解く会社。急成長の中身と、契約が利益へ変わる条件をやさしく整理します。 <span class="hero-tag">⚡ オンサイト電源</span><span class="hero-tag">🧱 SOFC</span><span class="hero-tag">🖥️ AIデータセンター</span> 2026年7月31日
+  ※見出しの重要ワードは <span class="g">…</span> で緑ハイライト
+======================================================== -->
+<div class="hero">
+  <div class="brandmark">S<span class="g">i</span>M &nbsp;MARKET LAB</div>
+  <div class="hero-badge">BE 完全入門ガイド ・ 2026年7月31日版</div>
+  <h1>Bloom Energy（BE）を<br><span class="g">まるっと</span>解説</h1>
+  <p>AIデータセンターの電力不足を、使う場所で発電する燃料電池で解く会社。急成長の中身と、契約が利益へ変わる条件をやさしく整理します。</p>
+  <div class="hero-tags">
+    <!-- 例: <span class="hero-tag">⚛️ 同位体って何？</span> -->
+    <span class="hero-tag">⚡ オンサイト電源</span><span class="hero-tag">🧱 SOFC</span><span class="hero-tag">🖥️ AIデータセンター</span>
+  </div>
+</div>
+
+<!-- 30秒サマリー：でかい数字カード3〜4枚（上昇は .up / 下落は .down） -->
+<div class="tldr-hero">
+  <div class="tldr-hero-inner">
+    <div class="tldr-hero-title">📊 まずは数字でざっくり</div>
+    <div class="stat-strip">
+      <!-- 例:
+      <div class="stat"><div class="stat-value">$12.34</div><div class="stat-label">現在の株価</div><div class="stat-note">52週 $4〜$18</div></div>
+      <div class="stat"><div class="stat-value up">+180%</div><div class="stat-label">直近1年</div></div>
+      <div class="stat"><div class="stat-value">$1.2B</div><div class="stat-label">時価総額</div></div>
+      <div class="stat"><div class="stat-value">2027</div><div class="stat-label">黒字化目標</div></div>
+      -->
+      <div class="stat"><div class="stat-value" data-live-price>$207.12</div><div class="stat-label">現在株価 <span class="g">LIVE</span></div><div class="stat-note" data-live-price-date>2026/7/30終値・分析基準値</div></div>
+<div class="stat"><div class="stat-value up">$1.065B</div><div class="stat-label">Q2売上</div><div class="stat-note">前年比 +165.5%</div></div>
+<div class="stat"><div class="stat-value up">34.3%</div><div class="stat-label">非GAAP粗利率</div><div class="stat-note">前年 28.2%</div></div>
+<div class="stat"><div class="stat-value">$3.9–4.2B</div><div class="stat-label">2026売上見通し</div><div class="stat-note">会社が上方修正</div></div>
     </div>
   </div>
+</div>
 
-  <nav class="nav-index" aria-label="ページ内メニュー">
-    <div class="nav-inner">
-      <a class="nav-item" href="#sec1">① どんな会社</a>
-      <a class="nav-item" href="#sec2">② 最新決算</a>
-      <a class="nav-item" href="#sec3">③ 成長要因</a>
-      <a class="nav-item" href="#sec4">④ リスク</a>
-      <a class="nav-item" href="#sec5">⑤ 競争</a>
-      <a class="nav-item" href="#sec6">⑥ 用語</a>
-      <a class="nav-item" href="#sec7">⑦ 株価の見方</a>
+<!-- STICKY NAV -->
+<nav class="nav-index">
+  <div class="nav-inner">
+    <a class="nav-item" href="#sec1">① どんな会社</a>
+    <a class="nav-item" href="#sec2">② 電力業界</a>
+    <a class="nav-item" href="#sec3">③ 製品・技術</a>
+    <a class="nav-item" href="#sec4">④ 実行・規制</a>
+    <a class="nav-item" href="#sec5">⑤ 競合</a>
+    <a class="nav-item" href="#sec6">⑥ 用語辞典</a>
+    <a class="nav-item" href="#sec7">⑦ 株価の見方</a>
+  </div>
+</nav>
+
+<div class="container">
+
+  <!-- SEC1: 会社概要　⚡3秒まとめ → 会社データ → card-sm 4枚 → どう稼ぐ → highlight「基本ルール」 -->
+  <section class="section" id="sec1">
+    <div class="section-header">
+      <div class="section-icon">🏢</div><div class="section-num">1</div>
+      <div>
+        <div class="section-title">Bloom Energyって<span class="g">どんな会社</span>？</div>
+        <div class="section-sub">まず全体像を3秒で</div>
+      </div>
     </div>
-  </nav>
-
-  <main class="container">
-    <section class="section" id="sec1">
-      <div class="section-header"><div class="section-icon">🏭</div><div class="section-num">1</div><div><div class="section-title">何をしている<span class="g">会社</span>？</div><div class="section-sub">電力を「送ってもらう」のではなく、使う場所で作る</div></div></div>
-      <div class="tldr"><div class="tldr-label">⚡ 3秒まとめ</div><ul><li>燃料と空気を化学反応させ、燃焼せずに電気を作る装置を販売。</li><li>送電網の増強を待てないAIデータセンターが主要な成長市場。</li><li>売上は装置販売が中心で、設置・保守・電力収入もある。</li></ul></div>
-      <div class="facts">
-        <div><dt>本社</dt><dd>米国カリフォルニア州</dd></div><div><dt>上場</dt><dd>NYSE（BE）</dd></div><div><dt>主力製品</dt><dd>Bloom Energy Server</dd></div>
-        <div><dt>Q2製品売上</dt><dd>$935.4M</dd></div><div><dt>従業員</dt><dd>2,000人超</dd></div><div><dt>主な顧客</dt><dd>DC・半導体・公益・産業</dd></div>
-      </div>
-      <div class="card-grid">
-        <div class="card-sm"><div class="card-title">装置販売</div><p>Energy Server本体を販売。Q2売上の約88%を占める。</p></div>
-        <div class="card-sm"><div class="card-title">設置</div><p>顧客サイトへの導入・工事。案件の完成時期で売上が動く。</p></div>
-        <div class="card-sm"><div class="card-title">保守</div><p>設置後のサービス収入。装置台数の増加が将来の基盤になる。</p></div>
-        <div class="card-sm"><div class="card-title">電力</div><p>一部案件では発電した電力の販売収入も得る。</p></div>
-      </div>
-      <div class="highlight"><h3>📏 BE株の基本ルール</h3><p>「契約の大きさ」だけでなく、実際の出荷・売上認識・製品粗利・運転資金まで確認します。大型案件は成長余地である一方、顧客集中と納期変動も大きくします。</p></div>
-    </section>
-
-    <section class="section" id="sec2">
-      <div class="section-header"><div class="section-icon">📊</div><div class="section-num">2</div><div><div class="section-title">最新決算で<span class="g">何が変わった</span>？</div><div class="section-sub">2026年Q2は売上・利益・キャッシュフローが同時に改善</div></div></div>
-      <div class="card-grid">
-        <div class="card-sm"><div class="card-title">売上</div><p>$1.065B、前年比+165.5%。初めて四半期$1Bを突破。</p></div>
-        <div class="card-sm"><div class="card-title">収益性</div><p>GAAP営業利益$182.2M。前年は$3.5Mの営業赤字。</p></div>
-        <div class="card-sm"><div class="card-title">現金創出</div><p>営業CFは+$226.4M。前年の-$213.1Mから大幅改善。</p></div>
-        <div class="card-sm"><div class="card-title">会社予想</div><p>2026売上$3.9–4.2B、非GAAP EPS $2.55–2.85へ上方修正。</p></div>
-      </div>
-      <ul class="keypoints">
-        <li><span>🟢</span><span><b>良い変化：</b>数量成長だけでなく、粗利率と営業利益率も上昇。成長が利益へ変わり始めた。</span></li>
-        <li><span>🟡</span><span><b>注意点：</b>2026年の前年比成長率は非常に高い。2027年以降も同じ伸びが続く前提にはしない。</span></li>
-        <li><span>🔴</span><span><b>株価面：</b>好決算後でも株価は高い利益倍率。次の決算では「予想達成」だけでなく再上方修正が求められやすい。</span></li>
+    <div class="tldr">
+      <div class="tldr-label">⚡ このセクションの3秒まとめ</div>
+      <ul>
+        <!-- 例: <li data-emoji="🏭">◯◯を作ってる△△業界の会社</li> -->
+        <li data-emoji="⚡">燃料を燃やさず、化学反応で電気を作る装置を販売。</li>
+<li data-emoji="🖥️">送電網を待てないAIデータセンターが主な成長市場。</li>
+<li data-emoji="⚠️">大型案件が強みだが、売上の顧客集中も非常に高い。</li>
       </ul>
-      <div class="notice">会社開示の非GAAP指標は株式報酬などを除きます。GAAP利益・営業CF・株式数も併せて確認してください。</div>
-    </section>
+    </div>
 
-    <section class="section" id="sec3">
-      <div class="section-header"><div class="section-icon">🚀</div><div class="section-num">3</div><div><div class="section-title">成長を動かす<span class="g">3本柱</span></div><div class="section-sub">電力不足、導入速度、大型資金枠</div></div></div>
-      <div class="timeline">
-        <div class="tl-row"><div class="tl-date">構造要因</div><div class="tl-title">AIデータセンターの系統電力待ち</div><p>送電網・変電設備の増強には時間がかかるため、敷地内で発電できる選択肢の価値が上がっています。</p></div>
-        <div class="tl-row"><div class="tl-date">2026年4月</div><div class="tl-title">Oracleと最大2.8GWの枠組み</div><p>初期1.2GWの展開を含む大型契約。実際の発注・出荷・売上認識が次の確認点です。</p></div>
-        <div class="tl-row"><div class="tl-date">2026年6月</div><div class="tl-title">Brookfieldの資金枠が$25Bへ拡大</div><p>顧客の初期負担を抑え、AI電源案件を金融面から進める枠組みです。</p></div>
-        <div class="tl-row"><div class="tl-date">次の確認</div><div class="tl-title">生産能力と粗利率を両立できるか</div><p>需要があっても製造・設置・部材・顧客検収が詰まれば売上は後ろ倒しになります。</p></div>
-      </div>
-    </section>
+    <!-- 会社データ（クイックファクト）：設立/本社/従業員/CEO/上場/売上規模 等。不明は「非開示」 -->
+    <div class="facts">
+      <div><dt>設立</dt><dd>2001年</dd></div>
+<div><dt>本社</dt><dd>米国サンノゼ</dd></div>
+<div><dt>従業員</dt><dd>2,000人超</dd></div>
+<div><dt>CEO</dt><dd>KR Sridhar</dd></div>
+<div><dt>上場</dt><dd>NYSE（BE）</dd></div>
+<div><dt>導入実績</dt><dd>約1,100拠点・9か国</dd></div>
+      <!-- 例:
+      <div><dt>設立</dt><dd>2019年</dd></div>
+      <div><dt>本社</dt><dd>東京</dd></div>
+      <div><dt>従業員数</dt><dd>約12,000人</dd></div>
+      <div><dt>CEO</dt><dd>◯◯ ◯◯</dd></div>
+      <div><dt>上場</dt><dd>東証プライム（285A）</dd></div>
+      <div><dt>売上規模</dt><dd>約2.3兆円</dd></div>
+      -->
+    </div>
 
-    <section class="section" id="sec4">
-      <div class="section-header"><div class="section-icon">⚠️</div><div class="section-num">4</div><div><div class="section-title">見落とせない<span class="g">リスク</span></div><div class="section-sub">高成長株は「会社の失敗」だけでなく「期待未達」でも下がる</div></div></div>
-      <div class="info-row">
-        <div class="info-box"><div class="info-title">📦 顧客・案件集中</div><p>大型顧客の発注時期や検収がずれると、四半期売上が大きく動きます。</p></div>
-        <div class="info-box"><div class="info-title">🔥 燃料と脱炭素</div><p>天然ガス利用ではCO₂排出がゼロではありません。規制・燃料価格・顧客方針の影響を受けます。</p></div>
-        <div class="info-box"><div class="info-title">🏗️ 実行能力</div><p>急拡大に製造、設置、保守、人員、運転資金が追いつかない可能性があります。</p></div>
-        <div class="info-box"><div class="info-title">📈 評価倍率</div><p>現値は2026会社予想EPSに対して約61倍。成長鈍化時は利益と倍率が同時に下がり得ます。</p></div>
-      </div>
-    </section>
+    <!-- 4枚カード：何をしてる/主力事業/直近の業績/なぜ注目 -->
+    <div class="card-grid">
+      <div class="card-sm"><span class="card-emoji">⚡</span><div class="card-title">何をしてる</div><div class="card-desc">固体酸化物形燃料電池を使うBloom Energy Serverを設計・製造します。</div></div>
+<div class="card-sm"><span class="card-emoji">🏭</span><div class="card-title">主力事業</div><div class="card-desc">Q2製品売上は$935.4M。全売上の約87.8%を占めました。</div></div>
+<div class="card-sm"><span class="card-emoji">📊</span><div class="card-title">直近の業績</div><div class="card-desc">Q2売上は$1.065B。GAAP営業利益は$182.2Mへ改善しました。</div></div>
+<div class="card-sm"><span class="card-emoji">🖥️</span><div class="card-title">なぜ注目</div><div class="card-desc">AIデータセンターが電力系統の接続待ちを避ける手段として採用しています。</div></div>
+      <!-- 例: <div class="card-sm"><span class="card-emoji">🏭</span><div class="card-title">何をしてる</div><div class="card-desc">…</div></div> を4枚 -->
+    </div>
 
-    <section class="section" id="sec5">
-      <div class="section-header"><div class="section-icon">🥊</div><div class="section-num">5</div><div><div class="section-title">何と<span class="g">競争</span>する？</div><div class="section-sub">燃料電池会社だけが競合ではない</div></div></div>
-      <div class="table-wrap"><table class="compare-table">
-        <thead><tr><th>選択肢</th><th>強み</th><th>BEにとっての論点</th></tr></thead>
-        <tbody>
-          <tr><td>系統電力</td><td>大規模・長期では一般的</td><td>接続待ちが長い地域ほどBEに機会</td></tr>
-          <tr><td>ガスタービン</td><td>大容量・実績</td><td>燃焼、騒音、設置期間、排出で比較</td></tr>
-          <tr><td>他の燃料電池</td><td>用途ごとに技術差</td><td>効率、コスト、耐久性、量産力で競争</td></tr>
-          <tr><td>蓄電池＋再エネ</td><td>低炭素・高速応答</td><td>24時間の主電源には追加設備が必要</td></tr>
-        </tbody>
-      </table></div>
-    </section>
+    <!-- どうやって稼ぐ？：ビジネスモデルと売上の内訳を平易に -->
+    <div class="block-label">💰 どうやって<span class="g">稼いでる</span>？</div>
+    <ul class="keypoints">
+      <li><span class="kp-emoji">🧱</span><span class="kp-text"><b>製品販売</b>：Energy Server本体が中心。Q2売上の87.8%です。</span></li>
+<li><span class="kp-emoji">🔧</span><span class="kp-text"><b>設置・保守</b>：設置収入4.8%、サービス収入6.5%。稼働台数の増加が保守の土台になります。</span></li>
+<li><span class="kp-emoji">🔌</span><span class="kp-text"><b>電力販売</b>：一部案件は発電した電力を販売。Q2売上の0.9%です。</span></li>
+<li><span class="kp-emoji">⚠️</span><span class="kp-text"><b>顧客集中</b>：Q2売上の44%と21%を2顧客が占めました。大型化の裏側に集中リスクがあります。</span></li>
+      <!-- 例: <li><span class="kp-emoji">🧩</span><span class="kp-text"><b>主力</b>：◯◯を作って△△に売る。売上の約7割。</span></li> を2〜4件（売上構成・主要顧客・課金の仕組み等） -->
+    </ul>
 
-    <section class="section" id="sec6">
-      <div class="section-header"><div class="section-icon">📚</div><div class="section-num">6</div><div><div class="section-title">最低限の<span class="g">用語</span></div><div class="section-sub">開くと説明が表示されます</div></div></div>
-      <div class="term-list">
-        <details class="term-item"><summary class="term-header">SOFC（固体酸化物形燃料電池）</summary><div class="term-body"><p>高温のセラミック電解質を使い、燃料の化学エネルギーを直接電気へ変える方式。燃焼を介さない点が特徴です。</p></div></details>
-        <details class="term-item"><summary class="term-header">オンサイト電源</summary><div class="term-body"><p>遠くの発電所から送電するのではなく、電気を使う敷地内や近隣で発電する仕組みです。</p></div></details>
-        <details class="term-item"><summary class="term-header">非GAAP</summary><div class="term-body"><p>会社が一部費用を調整して示す補助指標。比較には便利ですが、GAAP利益や現金収支の代わりではありません。</p></div></details>
-        <details class="term-item"><summary class="term-header">GW（ギガワット）</summary><div class="term-body"><p>発電能力の単位。1GWは1,000MWです。ただし契約上限と実際の出荷量は同じではありません。</p></div></details>
-      </div>
-    </section>
+    <!-- 会社の“基本ルール”（この銘柄を見るうえで最初に押さえる勘所） -->
+    <div class="highlight"><h3>📏 BE株の基本ルール</h3><p>「契約上限」ではなく、<b>実際の発注・出荷・売上認識・粗利・現金回収</b>を見ます。最大2.8GWや$25Bは、売上そのものではありません。</p></div>
+    <!-- 例: <div class="highlight"><h3>📏 ◯◯株の基本ルール</h3><p>…</p></div> -->
+  </section>
 
-    <section class="section" id="sec7">
-      <div class="section-header"><div class="section-icon">💹</div><div class="section-num">7</div><div><div class="section-title">株価をどう<span class="g">見る</span>？</div><div class="section-sub">好決算と割安は別の話</div></div></div>
-      <div class="tldr"><div class="tldr-label">現在の整理</div><ul><li>事業モメンタム：強い</li><li>財務改善：明確</li><li>評価倍率：高い</li><li>判定：Baseに近いが、実績の積み上げが必要</li></ul></div>
-      <div class="card-grid">
-        <div class="card-sm"><div class="card-title">Bear $105</div><p>成長鈍化、粗利低下。2028E EPS $3.0 × 35倍。</p></div>
-        <div class="card-sm"><div class="card-title">Base $175</div><p>AI電源需要が継続。2028E EPS $4.4 × 40倍。</p></div>
-        <div class="card-sm"><div class="card-title">Bull $265</div><p>大型枠が出荷へ転換。2028E EPS $5.3 × 50倍。</p></div>
-        <div class="card-sm"><div class="card-title">現値 $163.75</div><p>Bear〜Base帯の36.7%。Bullまでの上値とBearまでの下値の比は1.72倍。</p></div>
-      </div>
-      <p><a class="cta" href="./scenario.html">Bear / Base / Bullの計算を見る →</a></p>
-      <div class="notice">本ページは公開情報を整理した学習用資料で、特定銘柄の売買を勧めるものではありません。株価は自動更新されますが、分析前提は2026年7月30日時点です。</div>
-      <div class="card">
-        <div class="block-label">一次情報・参照資料</div>
-        <ul class="source-list">
-          <li><a href="https://investor.bloomenergy.com/press-releases/press-release-details/2026/Bloom-Energy-Reports-Record-Second-Quarter-2026-Financial-Results-and-Raises-Full-Year-2026-Guidance/default.aspx">Bloom Energy Q2 2026決算（2026/7/28）</a></li>
-          <li><a href="https://investor.bloomenergy.com/press-releases/press-release-details/2026/Bloom-Energy-and-Oracle-Expand-Strategic-Partnership-to-Deploy-up-to-2-8-GW-to-Accelerate-AI-Infrastructure-Build-Out/default.aspx">Oracleとの最大2.8GW契約枠</a></li>
-          <li><a href="https://investor.bloomenergy.com/press-releases/press-release-details/2026/Brookfield-and-Bloom-Energy-Expand-AI-Infrastructure-Partnership-to-25-Billion-Fivefold-Increase-to-Build-and-Finance-Rapid-Power-for-AI-Infrastructure/default.aspx">Brookfieldとの$25B資金枠</a></li>
-          <li><a href="https://www.bloomenergy.com/how-fuel-cells-work/">Bloom Energy「How Fuel Cells Work」</a></li>
-        </ul>
-      </div>
-    </section>
-  </main>
+  <!-- SEC2: 業界の基本　⚡まとめ → lead(比喩) → sowhat → term-list 4〜6 -->
+  <section class="section" id="sec2">
+    <div class="section-header">
+      <div class="section-icon">⚡</div><div class="section-num">2</div>
+      <div><div class="section-title">なぜ<span class="g">使う場所で発電</span>するの？</div><div class="section-sub">送電網の待ち時間が商機になる</div></div>
+    </div>
+    <div class="tldr"><div class="tldr-label">⚡ このセクションの3秒まとめ</div><ul><li data-emoji="⏳">大規模施設は電力系統へつながるまで数年待つことがある。</li>
+<li data-emoji="📦">Bloomはモジュール式で、必要な場所へ段階的に置ける。</li>
+<li data-emoji="🔥">天然ガスも使えるため、完全なゼロ排出電源ではない。</li></ul></div>
+    <p class="lead">電力系統は「満席の高速道路」。Bloomは施設の横に<span class="g">専用道路</span>を作るイメージです。</p>
+<div class="sowhat"><div class="sowhat-label">👉 つまり</div><div class="sowhat-text">電気料金だけでなく、<b>何か月早く稼働できるか</b>が価値になります。</div></div>
+<div class="term-list"><details class="term-item"><summary class="term-header"><span class="term-name">系統接続<span class="term-en">Grid Interconnection</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>発電所や需要設備を送電網へつなぐ手続き。<br><b>重要：</b>容量不足や審査で長期化します。<br><b>BEでは：</b>接続待ちを避ける速さが営業材料です。</p></div></details>
+<details class="term-item"><summary class="term-header"><span class="term-name">オンサイト電源<span class="term-en">On-site Power</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>電気を使う場所で発電する方式。<br><b>重要：</b>送電制約を減らせます。<br><b>BEでは：</b>Energy Serverの中心用途です。</p></div></details>
+<details class="term-item"><summary class="term-header"><span class="term-name">分散型電源<span class="term-en">Distributed Generation</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>小さな電源を需要地へ分散配置する考え方。<br><b>重要：</b>停電耐性と増設性が上がります。<br><b>BEでは：</b>モジュールを足して容量を増やします。</p></div></details>
+<details class="term-item"><summary class="term-header"><span class="term-name">ベースロード<span class="term-en">Baseload</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>一日中ほぼ一定に必要な電力。<br><b>重要：</b>AI計算は24時間動きます。<br><b>BEでは：</b>連続運転できる電源として競争します。</p></div></details>
+<details class="term-item"><summary class="term-header"><span class="term-name">アイランド運転<span class="term-en">Islanding</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>系統から切り離して独立運転する仕組み。<br><b>重要：</b>停電時の事業継続に関わります。<br><b>BEでは：</b>重要施設向けの差別化になります。</p></div></details>
+<details class="term-item"><summary class="term-header"><span class="term-name">Time-to-Power<span class="term-en">稼働までの時間</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>必要な電力を使えるまでの期間。<br><b>重要：</b>データセンターの売上開始を左右します。<br><b>BEでは：</b>Oracle案件を55日で稼働した実績を訴求しています。</p></div></details></div>
+  </section>
 
-  <footer class="footer"><p><a href="../../index.html">SiM MARKET LABへ戻る</a></p><p>数字を煽らず、前提を読む。</p></footer>
-  <script src="../../lab/assets/js/live-report-price.js" defer></script>
+  <!-- SEC3: 主要製品・技術　⚡まとめ → product-grid → term-list 3〜5 -->
+  <section class="section" id="sec3">
+    <div class="section-header">
+      <div class="section-icon">🔬</div><div class="section-num">3</div>
+      <div><div class="section-title">Bloomの<span class="g">製品と技術</span></div><div class="section-sub">発電・水素・制御を一つの固体酸化物基盤で展開</div></div>
+    </div>
+    <div class="tldr"><div class="tldr-label">⚡ このセクションの3秒まとめ</div><ul><li data-emoji="🧱">主力は電気を作るEnergy Server。</li>
+<li data-emoji="💧">Electrolyzerは水素を作る別製品。</li>
+<li data-emoji="🔧">装置を売った後の長期保守も収益源。</li></ul></div>
+    <div class="product-grid">
+<div class="product-box"><div class="product-symbol">ES</div><div class="product-name">ENERGY SERVER</div><div class="product-use">燃料から24時間電力を作る主力製品</div></div>
+<div class="product-box"><div class="product-symbol">EL</div><div class="product-name">ELECTROLYZER</div><div class="product-use">高温電解で水素を作る装置</div></div>
+<div class="product-box"><div class="product-symbol">µG</div><div class="product-name">MICROGRID</div><div class="product-use">系統から独立できる電源構成</div></div>
+<div class="product-box"><div class="product-symbol">O&amp;M</div><div class="product-name">SERVICE</div><div class="product-use">保守契約と性能保証</div></div>
+</div>
+<div class="term-list"><details class="term-item"><summary class="term-header"><span class="term-name">固体酸化物セル<span class="term-en">Solid Oxide Cell</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>高温セラミックで電気化学反応を起こすセル。<br><b>重要：</b>効率と耐久性を左右します。<br><b>BEでは：</b>発電と水素の共通技術基盤です。</p></div></details>
+<details class="term-item"><summary class="term-header"><span class="term-name">燃料柔軟性<span class="term-en">Fuel Flexibility</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>複数の燃料を使える性質。<br><b>重要：</b>地域ごとの燃料事情へ対応できます。<br><b>BEでは：</b>天然ガス、バイオガス、水素などに対応します。</p></div></details>
+<details class="term-item"><summary class="term-header"><span class="term-name">モジュール設計<span class="term-en">Modular Design</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>同じ小型単位を組み合わせる設計。<br><b>重要：</b>段階導入と増設がしやすくなります。<br><b>BEでは：</b>需要の増加に合わせて容量を足せます。</p></div></details>
+<details class="term-item"><summary class="term-header"><span class="term-name">800V DC対応<span class="term-en">800 V Direct Current</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>高電圧直流で設備へ電力を渡す考え方。<br><b>重要：</b>変換損失や設備を減らせる可能性があります。<br><b>BEでは：</b>高密度AI負荷向けの設計要素です。</p></div></details></div>
+  </section>
+
+  <!-- SEC4: 技術詳細・規制　⚡まとめ → keypoints → term-list 4〜6 -->
+  <section class="section" id="sec4">
+    <div class="section-header">
+      <div class="section-icon">🏛️</div><div class="section-num">4</div>
+      <div><div class="section-title">技術が良くても<span class="g">詰まる場所</span></div><div class="section-sub">量産、燃料、許認可、株式数まで見る</div></div>
+    </div>
+    <div class="tldr"><div class="tldr-label">⚡ このセクションの3秒まとめ</div><ul><li data-emoji="🏭">需要があっても、生産・設置・検収が遅れれば売上は後ろ倒し。</li>
+<li data-emoji="🔥">天然ガス利用ではCO₂排出がゼロではない。</li>
+<li data-emoji="📈">転換社債と株式報酬で1株利益が薄まる可能性がある。</li></ul></div>
+    <ul class="keypoints"><li><span class="kp-emoji">🏭</span><span class="kp-text"><b>量産</b>：部材、人員、工場能力を増やしながら34%前後の粗利を守る必要があります。</span></li>
+<li><span class="kp-emoji">🏗️</span><span class="kp-text"><b>設置</b>：案件ごとの許認可、配管、検収で売上時期が動きます。</span></li>
+<li><span class="kp-emoji">🌿</span><span class="kp-text"><b>環境</b>：燃焼より排出を抑えられても、天然ガス利用時のCO₂は残ります。</span></li>
+<li><span class="kp-emoji">📜</span><span class="kp-text"><b>政策</b>：税控除、排出規制、電力市場制度の変更が採算へ影響します。</span></li></ul>
+<div class="term-list"><details class="term-item"><summary class="term-header"><span class="term-name">製品保証<span class="term-en">Warranty</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>故障や性能不足へ備える費用。<br><b>重要：</b>急拡大時に見積もり誤差が出ます。<br><b>BEでは：</b>Q2に保証費用の増加が開示されています。</p></div></details>
+<details class="term-item"><summary class="term-header"><span class="term-name">顧客検収<span class="term-en">Customer Acceptance</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>顧客が納品条件の達成を確認する工程。<br><b>重要：</b>売上を計上できる時期に直結します。<br><b>BEでは：</b>大型案件ほど四半期変動が大きくなります。</p></div></details>
+<details class="term-item"><summary class="term-header"><span class="term-name">税額控除<span class="term-en">Tax Credit</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>設備投資の税負担を軽くする制度。<br><b>重要：</b>顧客の実質導入コストを変えます。<br><b>BEでは：</b>米国政策の変更が需要へ影響します。</p></div></details>
+<details class="term-item"><summary class="term-header"><span class="term-name">転換社債<span class="term-en">Convertible Notes</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>条件を満たすと株式へ変わる社債。<br><b>重要：</b>負債と希薄化の両方を持ちます。<br><b>BEでは：</b>0%社債の転換価格は当初$194.97です。</p></div></details>
+<details class="term-item"><summary class="term-header"><span class="term-name">Oracleワラント<span class="term-en">Customer Warrant</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>顧客へ付与した株式購入権。<br><b>重要：</b>受注獲得と引き換えに株式数が増えます。<br><b>BEでは：</b>2026年5月に約2.15M株を発行しました。</p></div></details></div>
+  </section>
+
+  <!-- SEC5: 競合比較　⚡まとめ → table-wrap>compare-table(自社=me) → highlight「差別化」 -->
+  <section class="section" id="sec5">
+    <div class="section-header">
+      <div class="section-icon">⚔️</div><div class="section-num">5</div>
+      <div><div class="section-title">本当の<span class="g">競争相手</span>は誰？</div><div class="section-sub">燃料電池メーカーだけではない</div></div>
+    </div>
+    <div class="tldr"><div class="tldr-label">⚡ このセクションの3秒まとめ</div><ul><li data-emoji="⚡">最大の競合は系統電力とガスタービン。</li>
+<li data-emoji="⏱️">Bloomの武器は速さ、増設性、非燃焼。</li>
+<li data-emoji="💰">長期コストや燃料価格では別方式が有利な場面もある。</li></ul></div>
+    <div class="table-wrap"><table class="compare-table"><thead><tr><th>選択肢</th><th>強み</th><th>弱み・BEとの違い</th></tr></thead><tbody>
+<tr class="me"><td>Bloom Energy</td><td>高速設置、モジュール、非燃焼</td><td>燃料コスト、装置価格、顧客集中</td></tr>
+<tr><td>系統電力</td><td>大規模で一般的</td><td>接続待ちが長い地域では不利</td></tr>
+<tr><td>ガスタービン</td><td>大容量、実績、燃料網</td><td>燃焼、騒音、設置期間で比較</td></tr>
+<tr><td>Constellation Energy</td><td>原子力中心の大規模無炭素電源</td><td>新設や送電接続に時間がかかる</td></tr>
+<tr><td>NRG Energy</td><td>既存発電・小売の規模</td><td>オンサイトの短納期では別市場</td></tr>
+<tr><td>FuelCell Energy</td><td>燃料電池・水素技術</td><td>規模、収益性、採用実績で競争</td></tr>
+</tbody></table></div>
+<div class="highlight"><h3>🏁 最大の差別化</h3><p>電気単価だけではなく、<b>データセンターを何年早く稼働できるか</b>で勝負します。速さが顧客売上を前倒しできる地域ほど強みが大きくなります。</p></div>
+  </section>
+
+  <!-- SEC6: 用語辞典　⚡まとめ(特にこの3つ) → term-list 10〜12（①定義→②なぜ重要→③この銘柄では） -->
+  <section class="section" id="sec6">
+    <div class="section-header">
+      <div class="section-icon">📖</div><div class="section-num">6</div>
+      <div><div class="section-title">BEのニュースで出る<span class="g">言葉</span> 全辞典</div><div class="section-sub">分からん単語はここで潰す</div></div>
+    </div>
+    <div class="tldr"><div class="tldr-label">⚡ 特にこの3つだけは覚えて</div><ul><li data-emoji="🧱">SOFC＝燃やさずに電気を作る固体酸化物形燃料電池。</li>
+<li data-emoji="📦">Backlog＝契約済みでも、まだ売上になっていない残高。</li>
+<li data-emoji="📈">希薄化＝株数が増え、1株あたり価値が薄くなること。</li></ul></div>
+    <div class="term-list"><details class="term-item"><summary class="term-header"><span class="term-name">SOFC<span class="term-en">Solid Oxide Fuel Cell</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>高温の固体酸化物を使う燃料電池。<br><b>重要：</b>効率と燃料柔軟性を決めます。<br><b>BEでは：</b>Energy Serverの中心技術です。</p></div></details>
+<details class="term-item"><summary class="term-header"><span class="term-name">Energy Server<span class="term-en">主力製品</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>需要地で発電するモジュール装置。<br><b>重要：</b>BE売上の中心です。<br><b>BEでは：</b>Q2製品売上が全体の87.8%でした。</p></div></details>
+<details class="term-item"><summary class="term-header"><span class="term-name">MW / GW<span class="term-en">発電容量</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>電力の大きさ。1GWは1,000MW。<br><b>重要：</b>案件規模を比べます。<br><b>BEでは：</b>Oracle枠は最大2.8GWです。</p></div></details>
+<details class="term-item"><summary class="term-header"><span class="term-name">製品Backlog<span class="term-en">Product Backlog</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>将来納品予定の製品契約残高。<br><b>重要：</b>将来売上の土台です。<br><b>BEでは：</b>2025年末に約$6Bでした。</p></div></details>
+<details class="term-item"><summary class="term-header"><span class="term-name">総Backlog<span class="term-en">Total Backlog</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>製品・サービス等を含む契約残高。<br><b>重要：</b>長期収益の見通しに使います。<br><b>BEでは：</b>2025年末に約$20Bでした。</p></div></details>
+<details class="term-item"><summary class="term-header"><span class="term-name">粗利率<span class="term-en">Gross Margin</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>売上から直接原価を引いた利益率。<br><b>重要：</b>量産の質を示します。<br><b>BEでは：</b>Q2非GAAPで34.3%でした。</p></div></details>
+<details class="term-item"><summary class="term-header"><span class="term-name">非GAAP<span class="term-en">Non-GAAP</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>一部費用を調整した補助指標。<br><b>重要：</b>継続力を見る一方、GAAPも必要です。<br><b>BEでは：</b>株式報酬などの調整内容を確認します。</p></div></details>
+<details class="term-item"><summary class="term-header"><span class="term-name">営業CF<span class="term-en">Operating Cash Flow</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>本業で増減した現金。<br><b>重要：</b>利益が現金へ変わったかを示します。<br><b>BEでは：</b>Q2は+$226.4Mでした。</p></div></details>
+<details class="term-item"><summary class="term-header"><span class="term-name">顧客集中<span class="term-en">Customer Concentration</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>少数顧客が売上の多くを占める状態。<br><b>重要：</b>発注遅延の影響が大きくなります。<br><b>BEでは：</b>Q2の上位2顧客で65%でした。</p></div></details>
+<details class="term-item"><summary class="term-header"><span class="term-name">転換社債<span class="term-en">Convertible Note</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>株式へ変わる可能性がある社債。<br><b>重要：</b>負債と希薄化を切り分けます。<br><b>BEでは：</b>0%社債$2.5Bが中心です。</p></div></details>
+<details class="term-item"><summary class="term-header"><span class="term-name">希薄化<span class="term-en">Dilution</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>発行株数が増えて1株あたり比率が下がること。<br><b>重要：</b>会社が成長してもEPSを抑えます。<br><b>BEでは：</b>転換社債、RSU、顧客ワラントを見ます。</p></div></details>
+<details class="term-item"><summary class="term-header"><span class="term-name">市場逆算<span class="term-en">Reverse Valuation</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>今の株価が必要とする前提を逆に計算すること。<br><b>重要：</b>期待の高さを測れます。<br><b>BEでは：</b>$207.12は2028 Base EPSに約47倍を要求します。</p></div></details></div>
+  </section>
+
+  <!-- SEC7: 株価の見方　⚡まとめ → timeline(signal+rating) → リスク4分類 info-row → highlight → 数字まとめ table -->
+  <section class="section" id="sec7">
+    <div class="section-header">
+      <div class="section-icon">💹</div><div class="section-num">7</div>
+      <div><div class="section-title">何がBE株を<span class="g">動かす</span>？</div><div class="section-sub">上がる理由・下がる理由を一目で</div></div>
+    </div>
+    <div class="tldr"><div class="tldr-label">⚡ 株価のツボ 3秒まとめ</div><ul><li data-emoji="🔥">Q2は売上・利益・営業CFがそろって改善。</li>
+<li data-emoji="📈">基準株価$207.12はBase $175を上回る。</li>
+<li data-emoji="⚠️">次はOracle案件の出荷、粗利、顧客集中を確認。</li></ul></div>
+    <div class="timeline"><div class="tl-row"><div class="tl-date">2026/7/28</div><div class="tl-title">Q2決算と通期上方修正 <span class="signal bull">追い風</span> <span class="rating">★★★★★</span></div><div class="tl-desc">売上$1.065B、非GAAP EPS $0.78。2026売上見通しを$3.9–4.2Bへ引き上げました。</div></div>
+<div class="tl-row"><div class="tl-date">2026年下期</div><div class="tl-title">通期売上ガイダンス達成 <span class="signal bull">追い風</span> <span class="rating">★★★★★</span></div><div class="tl-desc">残り2四半期で約$2.08–2.38Bの売上が必要です。</div></div>
+<div class="tl-row"><div class="tl-date">2026年下期</div><div class="tl-title">Oracle初期1.2GWの進捗 <span class="signal neutral">要確認</span> <span class="rating">★★★★★</span></div><div class="tl-desc">契約枠ではなく、実際の発注・出荷・検収を確認します。</div></div>
+<div class="tl-row"><div class="tl-date">2026年下期</div><div class="tl-title">非GAAP粗利率 約34% <span class="signal neutral">要確認</span> <span class="rating">★★★★<span class="off">★</span></span></div><div class="tl-desc">量産拡大と高粗利を同時に維持できるかが焦点です。</div></div>
+<div class="tl-row"><div class="tl-date">2026年10月頃</div><div class="tl-title">Q3決算（日時未発表） <span class="signal neutral">次の材料</span> <span class="rating">★★★★★</span></div><div class="tl-desc">製品売上、営業CF、顧客集中、通期見通しを確認します。</div></div>
+<div class="tl-row"><div class="tl-date">2026–2027年</div><div class="tl-title">Brookfield $25B枠の案件化 <span class="signal bull">追い風</span> <span class="rating">★★★★<span class="off">★</span></span></div><div class="tl-desc">資金枠が実案件とBloomの売上へ変わる速度を見ます。</div></div>
+<div class="tl-row"><div class="tl-date">継続</div><div class="tl-title">転換社債・RSUによる希薄化 <span class="signal bear">注意</span> <span class="rating">★★★★<span class="off">★</span></span></div><div class="tl-desc">0%社債の転換価格$194.97と発行株数を追います。</div></div></div>
+<div class="info-row">
+<div class="info-box info-box-red"><div class="info-title info-title-red">🏭 技術・実行</div><div class="info-text">生産・設置・部材が需要に追いつかないリスク。</div></div>
+<div class="info-box info-box-amber"><div class="info-title info-title-amber">📜 規制・環境</div><div class="info-text">税制、排出規制、天然ガス利用への評価変更。</div></div>
+<div class="info-box info-box-red"><div class="info-title info-title-red">💰 財務</div><div class="info-text">転換社債、RSU、顧客向け株式による希薄化。</div></div>
+<div class="info-box info-box-amber"><div class="info-title info-title-amber">📈 市場</div><div class="info-text">高倍率、顧客集中、AI設備投資の減速。</div></div>
+</div>
+<div class="highlight"><h3>⚠️ 投資家向け注意点</h3><p>会社の成長は強い一方、基準株価は<b>Base $175より上</b>です。好決算でも「さらに上振れること」が要求されやすい位置です。</p><p style="margin-top:12px"><a href="./scenario.html">株価シナリオの計算を見る →</a></p></div>
+<div class="table-wrap"><table class="compare-table"><thead><tr><th>数字</th><th>値</th><th>意味</th></tr></thead><tbody>
+<tr><td>基準株価</td><td>$207.12</td><td>2026/7/30終値。表示だけ自動更新</td></tr>
+<tr><td>52週レンジ</td><td>$32.52–$351.28</td><td>値動きが非常に大きい</td></tr>
+<tr><td>概算時価総額</td><td>約$61.0B</td><td>294.5M株×基準株価</td></tr>
+<tr><td>現金 / 有利子負債</td><td>$2.67B / $2.48B</td><td>2026/6/30</td></tr>
+<tr><td>Q2売上</td><td>$1.065B</td><td>前年比+165.5%</td></tr>
+<tr><td>2026売上見通し</td><td>$3.9–4.2B</td><td>会社予想</td></tr>
+<tr><td>アナリスト中央値</td><td>$286</td><td>本試算Baseとの差は評価倍率の置き方</td></tr>
+</tbody></table></div>
+<div class="card"><div class="block-label">🔗 主な<span class="g">出典</span></div><ul class="keypoints"><li><span class="kp-emoji">↗</span><span class="kp-text"><a href="https://investor.bloomenergy.com/press-releases/press-release-details/2026/Bloom-Energy-Reports-Record-Second-Quarter-2026-Financial-Results-and-Raises-Full-Year-2026-Guidance/default.aspx" target="_blank" rel="noopener">Bloom Energy Q2 2026決算</a></span></li>
+<li><span class="kp-emoji">↗</span><span class="kp-text"><a href="https://www.sec.gov/Archives/edgar/data/1664703/000162828026050247/be-20260630.htm" target="_blank" rel="noopener">Bloom Energy 2026年Q2 Form 10-Q</a></span></li>
+<li><span class="kp-emoji">↗</span><span class="kp-text"><a href="https://investor.bloomenergy.com/press-releases/press-release-details/2026/Bloom-Energy-and-Oracle-Expand-Strategic-Partnership-to-Deploy-up-to-2-8-GW-to-Accelerate-AI-Infrastructure-Build-Out/default.aspx" target="_blank" rel="noopener">Oracleとの最大2.8GW契約枠</a></span></li>
+<li><span class="kp-emoji">↗</span><span class="kp-text"><a href="https://investor.bloomenergy.com/press-releases/press-release-details/2026/Brookfield-and-Bloom-Energy-Expand-AI-Infrastructure-Partnership-to-25-Billion-Fivefold-Increase-to-Build-and-Finance-Rapid-Power-for-AI-Infrastructure/default.aspx" target="_blank" rel="noopener">Brookfieldとの$25B資金枠</a></span></li></ul></div>
+  </section>
+
+</div><!-- /container -->
+
+<div class="footer">
+  <div class="brandmark">S<span class="g">i</span>M &nbsp;MARKET LAB</div>
+  <p style="margin-bottom:8px;font-weight:700;color:#d8ded8">⚠️ 免責事項</p>
+  <p>本資料は情報提供・教育目的のみです。投資助言ではありません。分散型電源・燃料電池株は値動きが激しく、元本を失うリスクがあります。<br>投資判断はご自身の責任で。データは2026年7月31日時点の公開情報に基づきます。</p>
+</div>
+
+<script>
+document.querySelectorAll('details.term-item').forEach(d => {
+  d.addEventListener('toggle', () => {
+    if (d.open) document.querySelectorAll('details.term-item').forEach(o => { if (o !== d && o.open) o.removeAttribute('open'); });
+  });
+});
+(function(){
+  var bar = document.getElementById('progressBar');
+  function u(){ var h=document.documentElement; var s=h.scrollTop/(h.scrollHeight-h.clientHeight); bar.style.width=Math.min(100,Math.max(0,s*100))+'%'; }
+  document.addEventListener('scroll', u, {passive:true}); window.addEventListener('resize', u); u();
+})();
+</script>
+
+<script src="../../lab/assets/js/live-report-price.js" defer></script>
 </body>
 </html>
+
+<!--
+================================================================
+  デザインロック（重要）
+  ・アクセント色はSiMグリーンで固定。銘柄・業界で変えない。
+  ・以前あった「業界別カラー早見表」は廃止（色を変えると銘柄ごとに見た目がぶれるため）。
+  ・この <style> と骨格は改変禁止。{{ }} の中身だけ差し替える。
+================================================================
+  ChatGPT用ルール: 完成HTMLは必ず index.html というファイル名で保存・出力する。
+================================================================
+-->
