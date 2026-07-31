@@ -67,6 +67,41 @@
   },
   {
     "schemaVersion": 1,
+    "ticker": "INTC",
+    "slug": "intc",
+    "name": "Intel Corporation",
+    "market": "米国株",
+    "sector": "半導体・AIコンピューティング",
+    "method": "2027年売上×フォワードEV/Sales（Foundryオプション込み）を主軸に、正規化EPSでクロスチェック",
+    "status": "published",
+    "updated": "2026-07-31",
+    "price": {
+      "current": 91.13,
+      "currency": "USD"
+    },
+    "scenarios": {
+      "bear": 60,
+      "base": 95,
+      "bull": 135
+    },
+    "positionPct": 41.5,
+    "zone": "Q2売上成長だけでは現在価値を説明し切れず、18Aの量産経済性と外部顧客価値を含むオプション評価が大きい",
+    "riskReward": "期待回復を相当織り込む高変動局面",
+    "catalyst": "Q3 2026決算と会社予想の達成度",
+    "summary": "IntelはCPUやカスタム半導体を設計するIntel Productsと、先端プロセス・製造・先端パッケージを担うIntel Foundryを同じ企業内に持つIDMです。Q2 2026はPC向けのCCPGが88.77億ドル、データセンター・AIのDCAIが62.62億ドルと製品部門が伸び、連結売上は161.28億ドルでした。評価の焦点は、製品利益の回復を維持しながら、Intel 18Aの歩留まり・供給量・外部顧客を増やし、Foundryの巨額赤字と資本負担を縮小できるかです。",
+    "tags": [
+      "CPU",
+      "AIデータセンター",
+      "Intel 18A",
+      "米国製造"
+    ],
+    "risk": "HIGH",
+    "detailPath": "stocks/INTC/index.html",
+    "scenarioPath": "stocks/INTC/scenario.html",
+    "sourceRevision": "intc-initial-20260731-r2"
+  },
+  {
+    "schemaVersion": 1,
     "ticker": "285A",
     "slug": "285a",
     "name": "キオクシアホールディングス",
