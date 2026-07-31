@@ -78,14 +78,6 @@ jobs:
           node --test report-system/tests/*.test.mjs
           node scripts/catalyst-ops.mjs registry
           node scripts/build-pages.mjs
-      - name: Prepare Pages artifact
-        if: steps.gates.outputs.decision == 'AUTO_PUBLISH'
-        uses: actions/configure-pages@v5
-      - name: Upload Pages artifact
-        if: steps.gates.outputs.decision == 'AUTO_PUBLISH'
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: "_site"
       - name: Commit machine-generated publication
         if: steps.gates.outputs.decision == 'AUTO_PUBLISH'
         shell: bash
@@ -131,16 +123,37 @@ jobs:
     if: needs.gate.outputs.published == 'true'
     needs: gate
     permissions:
-      pages: write
-      id-token: write
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      actions: write
+      contents: read
     runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
     steps:
-      - name: Deploy generated Pages artifact
-        id: deployment
-        uses: actions/deploy-pages@v4
+      - name: Dispatch main-branch Pages deployment and wait
+        shell: bash
+        run: |
+          dispatched_after=$(date -u +%Y-%m-%dT%H:%M:%SZ)
+          gh workflow run hybrid-pages.yml --repo "${{ github.repository }}" --ref main
+          run_id=""
+          for attempt in {1..12}; do
+            run_id=$(gh run list \
+              --repo "${{ github.repository }}" \
+              --workflow hybrid-pages.yml \
+              --branch main \
+              --event workflow_dispatch \
+              --limit 10 \
+              --json databaseId,createdAt \
+              --jq ".[] | select(.createdAt >= \"$dispatched_after\") | .databaseId" | head -n 1)
+            if [ -n "$run_id" ]; then
+              break
+            fi
+            sleep 5
+          done
+          if [ -z "$run_id" ]; then
+            echo "Could not resolve the dispatched main-branch Pages run."
+            exit 1
+          fi
+          gh run watch "$run_id" --repo "${{ github.repository }}" --exit-status
 
   health:
     if: needs.gate.outputs.published == 'true'
