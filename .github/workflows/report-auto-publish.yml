@@ -10,6 +10,9 @@ on:
 permissions:
   contents: write
   pull-requests: write
+  models: read
+  pages: write
+  id-token: write
 
 concurrency:
   group: report-${{ github.event.pull_request.head.repo.full_name }}-${{ github.event.pull_request.head.ref }}
@@ -19,17 +22,20 @@ jobs:
   gate:
     if: github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 45
+    outputs:
+      published: ${{ steps.merge.outputs.published }}
+      merge_sha: ${{ steps.merge.outputs.merge_sha }}
+      ticker: ${{ steps.candidate.outputs.ticker }}
     env:
-      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-      OPENAI_VALIDATION_MODEL: ${{ vars.OPENAI_VALIDATION_MODEL || 'gpt-5.6-terra' }}
-      SIM_AUTOMATION_TOKEN: ${{ secrets.SIM_AUTOMATION_TOKEN }}
+      GITHUB_TOKEN: ${{ github.token }}
+      GITHUB_VALIDATION_MODEL: ${{ vars.GITHUB_VALIDATION_MODEL || 'openai/gpt-4.1' }}
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
           ref: ${{ github.event.pull_request.head.sha }}
-          token: ${{ secrets.SIM_AUTOMATION_TOKEN || github.token }}
+          token: ${{ github.token }}
       - uses: actions/setup-node@v4
         with:
           node-version: 22
@@ -45,16 +51,7 @@ jobs:
           fi
           echo "path=${reports[0]}" >> "$GITHUB_OUTPUT"
           echo "ticker=$(basename "${reports[0]}" .report.json)" >> "$GITHUB_OUTPUT"
-      - name: Require autonomous publication credentials
-        id: credentials
-        run: |
-          if [ -z "$SIM_AUTOMATION_TOKEN" ]; then
-            echo "available=false" >> "$GITHUB_OUTPUT"
-            echo "AUTO_HOLD: SIM_AUTOMATION_TOKEN is not configured."
-          else
-            echo "available=true" >> "$GITHUB_OUTPUT"
-          fi
-      - name: Independent validation
+      - name: Independent validation with GitHub Models
         id: independent
         continue-on-error: true
         run: node scripts/independent-validate.mjs "${{ steps.candidate.outputs.path }}" independent-validation.json
@@ -62,7 +59,7 @@ jobs:
         id: gates
         continue-on-error: true
         run: node scripts/auto-publish.mjs validate "${{ steps.candidate.outputs.path }}" independent-validation.json
-      - name: Upload hold audit
+      - name: Upload validation audit
         if: always()
         uses: actions/upload-artifact@v4
         with:
@@ -70,44 +67,104 @@ jobs:
           path: |
             independent-validation.json
             report-system/audit/${{ steps.candidate.outputs.ticker }}/
-      - name: Promote candidate and generate site files
-        if: steps.gates.outputs.decision == 'AUTO_PUBLISH' && steps.credentials.outputs.available == 'true'
-        shell: bash
+      - name: Enforce AUTO_HOLD
+        if: steps.gates.outputs.decision != 'AUTO_PUBLISH'
         run: |
-          status=$(node -e "console.log(require('./${{ steps.candidate.outputs.path }}').status)")
-          if [ "$status" != "published" ]; then
-            node scripts/auto-publish.mjs promote "${{ steps.candidate.outputs.path }}" independent-validation.json
-          fi
+          echo "AUTO_HOLD: one or more V6 gates did not pass with zero warnings."
+          exit 1
+      - name: Promote candidate and generate site files
+        if: steps.gates.outputs.decision == 'AUTO_PUBLISH'
+        run: node scripts/auto-publish.mjs promote "${{ steps.candidate.outputs.path }}" independent-validation.json
       - name: Regression tests and preview build
-        if: steps.gates.outputs.decision == 'AUTO_PUBLISH' && steps.credentials.outputs.available == 'true'
+        if: steps.gates.outputs.decision == 'AUTO_PUBLISH'
         run: |
           node --test report-system/tests/*.test.mjs
           node scripts/catalyst-ops.mjs registry
           node scripts/build-pages.mjs
-      - name: Commit generated files for a first-pass candidate
-        if: steps.gates.outputs.decision == 'AUTO_PUBLISH' && steps.credentials.outputs.available == 'true'
-        id: generated
+      - name: Prepare Pages artifact
+        if: steps.gates.outputs.decision == 'AUTO_PUBLISH'
+        uses: actions/configure-pages@v5
+      - name: Upload Pages artifact
+        if: steps.gates.outputs.decision == 'AUTO_PUBLISH'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: "_site"
+      - name: Commit machine-generated publication
+        if: steps.gates.outputs.decision == 'AUTO_PUBLISH'
         shell: bash
         run: |
-          if git diff --quiet; then
-            echo "changed=false" >> "$GITHUB_OUTPUT"
-            exit 0
-          fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add report-system/reports report-system/published report-system/history report-system/audit stocks data/manifest.json lab/data/manifest.json data/catalyst-reports.json
+          git add report-system/reports report-system/published report-system/history report-system/audit report-system/catalysts stocks data/manifest.json lab/data/manifest.json data/catalyst-reports.json
           git commit -m "chore: generate ${{ steps.candidate.outputs.ticker }} publication"
           git push origin "HEAD:${{ github.event.pull_request.head.ref }}"
-          echo "changed=true" >> "$GITHUB_OUTPUT"
-      - name: Auto-merge validated candidate
-        if: steps.gates.outputs.decision == 'AUTO_PUBLISH' && steps.credentials.outputs.available == 'true'
+      - name: Merge validated candidate
+        if: steps.gates.outputs.decision == 'AUTO_PUBLISH'
+        id: merge
         env:
-          GH_TOKEN: ${{ secrets.SIM_AUTOMATION_TOKEN }}
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
         run: |
           gh pr ready "${{ github.event.pull_request.number }}" || true
           gh pr merge "${{ github.event.pull_request.number }}" --repo "${{ github.repository }}" --squash --delete-branch
-      - name: Enforce AUTO_HOLD
-        if: steps.gates.outputs.decision != 'AUTO_PUBLISH' || steps.credentials.outputs.available != 'true'
+          merge_sha=$(gh pr view "${{ github.event.pull_request.number }}" --repo "${{ github.repository }}" --json mergeCommit --jq '.mergeCommit.oid')
+          echo "published=true" >> "$GITHUB_OUTPUT"
+          echo "merge_sha=$merge_sha" >> "$GITHUB_OUTPUT"
+
+  deploy:
+    if: needs.gate.outputs.published == 'true'
+    needs: gate
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy generated Pages artifact
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+  health:
+    if: needs.gate.outputs.published == 'true'
+    needs: [gate, deploy]
+    permissions:
+      contents: write
+      actions: write
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 2
+          token: ${{ github.token }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Wait for Pages edge propagation
+        run: sleep 20
+      - name: Health check
+        id: health
+        continue-on-error: true
+        run: node scripts/health-check.mjs
+      - name: Roll back exact failed publication and dispatch recovery deploy
+        if: steps.health.outcome == 'failure'
+        shell: bash
         run: |
-          echo "AUTO_HOLD: one or more V6 gates did not pass with zero warnings."
-          exit 1
+          expected="${{ needs.gate.outputs.merge_sha }}"
+          actual=$(git rev-parse HEAD)
+          if [ "$actual" != "$expected" ]; then
+            echo "AUTO_HOLD: main advanced; refusing to revert an unrelated commit."
+            exit 1
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git revert --no-edit "$expected"
+          git push origin main
+          gh workflow run hybrid-pages.yml --repo "${{ github.repository }}" --ref main
+      - name: Fail after rollback request
+        if: steps.health.outcome == 'failure'
+        run: exit 1

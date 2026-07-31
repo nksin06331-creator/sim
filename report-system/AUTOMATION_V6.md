@@ -19,22 +19,19 @@ report-system/reports/TICKER.catalyst.json  # 必要な場合だけ
 
 公開後は`post-publish-health.yml`が公開中の企業ガイド、シナリオ、revisionを確認します。失敗時は、mainが同じ公開コミットのままの場合だけそのコミットをrevertします。別の変更が進んでいる場合は無関係なコミットを戻さず停止します。
 
-## 一度だけ必要なGitHub設定
+## 鍵なし構成
 
-Repository Settings → Secrets and variables → Actions → New repository secret:
+利用者が作成・保存するAPIキーやPersonal Access Tokenはありません。
 
-- `OPENAI_API_KEY`: 独立検証専用のOpenAI APIキー
-- `SIM_AUTOMATION_TOKEN`: このリポジトリのContentsとPull requestsへ書込み可能なFine-grained PATまたはGitHub App token
+- 独立AI検証: GitHub Models
+- GitHub認証: Actionsが実行ごとに自動発行する`GITHUB_TOKEN`
+- AI権限: `models: read`
+- 生成・マージ権限: `contents: write`、`pull-requests: write`
+- Pages公開: 同じWorkflowのPages deployment job
+- 異常時: 同じ公開merge SHAだけをrevertし、`workflow_dispatch`で復旧デプロイ
 
 Repository variable（任意）:
 
-- `OPENAI_VALIDATION_MODEL`: 省略時は`gpt-5.6-terra`
+- `GITHUB_VALIDATION_MODEL`: 省略時は`openai/gpt-4.1`
 
-Settings → Branches → Add branch protection rule（`main`）:
-
-- Require a pull request before merging: ON
-- Require status checks to pass before merging: ON
-- 必須チェック: `gate`
-- Do not allow bypassing the above settings: ON（運用可能な場合）
-
-Secretが未設定、外部fork PR、独立検証がWARN/FAILの場合は検証を省略せず`AUTO_HOLD`になります。
+GitHub Modelsが利用できない、外部fork PR、独立検証がWARN/FAILの場合は検証を省略せず`AUTO_HOLD`になります。`GITHUB_TOKEN`によるpushは別のpush WorkflowやPagesビルドを起動しないため、候補の生成・マージ・Pages公開・ヘルスチェックは同じWorkflow内で完結させています。
