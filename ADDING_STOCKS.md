@@ -6,6 +6,7 @@ ChatGPT内の2つのプロジェクトでHTMLを作成したら、このサイ�
 
 - 企業詳細HTML
 - 強気・中立・弱気のシナリオ分析HTML
+- 専用カタリストHTML（作る銘柄だけ）
 
 ファイル名は自由です。例:
 
@@ -33,6 +34,7 @@ npm run add -- 7203 "トヨタ自動車" ~/Downloads/toyota-detail.html ~/Downlo
 stocks/NVDA/
 ├─ index.html
 ├─ scenario.html
+├─ catalysts.html  # 任意
 └─ meta.json
 ```
 
@@ -78,3 +80,5 @@ http://127.0.0.1:8000/
 トップページは直接編集しません。
 
 銘柄追加で触るのは、基本的に `stocks/銘柄/meta.json` だけです。
+
+専用カタリストを追加するときは、先に`npm run catalyst:verify -- TICKER.catalyst.json`を実行します。人の確認後、`report-system/catalysts/TICKER.json`、既存銘柄フォルダの`catalysts.html`、`data/catalyst-reports.json`を同じPRで更新します。日本株などフォルダ名とティッカーが異なる場合は、既存の`detailPath`を基準にします。台帳だけ、HTMLだけ、正本JSONだけを先に公開しません。

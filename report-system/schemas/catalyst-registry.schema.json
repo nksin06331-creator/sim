@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SiM catalyst report registry",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "reports"],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "reports": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["ticker", "path", "status", "reviewedBy", "reviewedAt"],
+        "properties": {
+          "ticker": {
+            "type": "string",
+            "pattern": "^[A-Z0-9.-]+$"
+          },
+          "path": {
+            "type": "string",
+            "pattern": "^stocks/[^/?#]+/catalysts\\.html$"
+          },
+          "status": {
+            "enum": ["draft", "published"]
+          },
+          "reviewedBy": {
+            "type": ["string", "null"]
+          },
+          "reviewedAt": {
+            "type": ["string", "null"],
+            "format": "date"
+          }
+        }
+      }
+    }
+  }
+}

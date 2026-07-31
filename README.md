@@ -14,8 +14,11 @@ GitHub Pages用のシナリオ試算ポータルです。現在は、銘柄ご�
 stocks/TICKER/
 ├─ index.html
 ├─ scenario.html
+├─ catalysts.html  # 専用レポートがある銘柄だけ
 └─ meta.json
 ```
+
+専用カタリストの一覧ボタンは`data/catalyst-reports.json`の`published`銘柄だけに表示します。台帳が空・不正・取得不能の場合は既存2ボタンだけを表示します。
 
 ## 作業手順
 
