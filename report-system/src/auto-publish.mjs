@@ -138,6 +138,9 @@ export function validateCandidate(report, { baseline = null, independent = null,
   const summary = summarize(Object.values(gates).flatMap((gate) => gate.checks));
   return { decision: summary.status === "PASS" ? "AUTO_PUBLISH" : "AUTO_HOLD", candidate_revision: report.revision, validated_revision: summary.status === "PASS" ? report.revision : null, ...summary, gates };
 }
+export function isPublishedAudit(audit, revision) {
+  return audit?.decision === "AUTO_PUBLISH" && audit?.published_revision === revision;
+}
 export function makeAudit({ report, result, commitSha = "local", publishedRevision = null, rollbackRevision = null }) {
   return { schemaVersion: 1, ticker: report.reportId, candidate_revision: report.revision, validated_revision: result.validated_revision, published_revision: publishedRevision, rollback_revision: rollbackRevision, decision: result.decision, fail_count: result.fail_count, warn_count: result.warn_count, gates: result.gates, commit_sha: commitSha, generated_at: new Date().toISOString() };
 }
