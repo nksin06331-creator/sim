@@ -1,7 +1,7 @@
 import { access, cp, mkdir, readFile, rename, writeFile } from "node:fs/promises";
 import { basename, dirname, join, resolve } from "node:path";
 import { repoRoot, readJson, writeJson } from "../report-system/src/common.mjs";
-import { makeAudit, validateCandidate, validateJsonSchema } from "../report-system/src/auto-publish.mjs";
+import { isPublishedAudit, makeAudit, validateCandidate, validateJsonSchema } from "../report-system/src/auto-publish.mjs";
 import { renderGuide, renderScenario } from "../report-system/src/render.mjs";
 import { renderCatalyst, validateCatalystReport } from "../report-system/src/catalyst.mjs";
 
@@ -32,7 +32,7 @@ const result = validateCandidate(report, { baseline, independent, expectedCommit
 const auditPath = join(repoRoot, "report-system", "audit", report.reportId, `${report.revision}.json`);
 await mkdir(dirname(auditPath), { recursive: true });
 const previousAudit = await exists(auditPath) ? await readJson(auditPath) : null;
-if (previousAudit?.decision === "AUTO_PUBLISH" && command === "promote") throw new Error("同一revisionは公開済みです");
+if (isPublishedAudit(previousAudit, report.revision) && command === "promote") throw new Error("同一revisionは公開済みです");
 if (command === "validate") {
   await writeJson(auditPath, makeAudit({ report, result, commitSha: candidateSha ?? "local", rollbackRevision: baseline?.revision ?? null }));
   console.log(JSON.stringify(result, null, 2));
