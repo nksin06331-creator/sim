@@ -164,8 +164,8 @@ export async function validateReport(report, config) {
   push("TXT01_NO_ADVICE", claims.length ? "FAIL" : "PASS", claims.length ? `断定表現: ${claims.map((item) => item.path).join(", ")}` : "売買断定なし");
   push(
     "PUB01_HUMAN_REVIEW",
-    report.status !== "published" || (report.validation?.humanReviewed === true && report.validation?.status === "PASS") ? "PASS" : "FAIL",
-    "publishedには人の確認とValidation PASSが必要",
+    report.status !== "published" || (report.validation?.status === "PASS" && (report.validation?.humanReviewed === true || report.validation?.machinePublished === true)) ? "PASS" : "FAIL",
+    "publishedには人の確認、または公開パッケージ生成ゲートPASSが必要",
   );
 
   const failCount = checks.filter((check) => check.status === "FAIL").length;

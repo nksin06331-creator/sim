@@ -9,6 +9,7 @@
     "report:validate": "node scripts/report-ops.mjs validate",
     "report:preview": "node scripts/report-ops.mjs preview",
     "report:verify": "node scripts/report-ops.mjs verify",
+    "report:publish-package": "node scripts/publish-report-package.mjs",
     "report:patch": "node scripts/report-ops.mjs patch",
     "report:test": "node --test report-system/tests/*.test.mjs",
     "catalyst:validate": "node scripts/catalyst-ops.mjs validate",
