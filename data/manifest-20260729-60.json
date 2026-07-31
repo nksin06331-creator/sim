@@ -8,9 +8,9 @@
     "sector": "分散型電源・燃料電池・AIデータセンター",
     "method": "2028E調整後EPS × PER",
     "status": "published",
-    "updated": "2026-07-30",
+    "updated": "2026-07-31",
     "price": {
-      "current": 163.75,
+      "current": 207.12,
       "currency": "USD"
     },
     "scenarios": {
@@ -18,17 +18,17 @@
       "base": 175,
       "bull": 265
     },
-    "positionPct": 36.7,
-    "zone": "Bear〜Base帯",
-    "riskReward": "1.72倍",
-    "catalyst": "2026年Q3決算 / AI向け出荷・製品粗利・通期ガイダンス",
-    "summary": "Q2売上は前年比166%増で通期見通しも上方修正。AI電力需要は強いが、現値は高成長の継続を要求する。",
+    "positionPct": 63.8,
+    "zone": "Base〜Bull帯",
+    "riskReward": "0.57倍",
+    "catalyst": "2026年Q3決算 / Oracle初期1.2GW・製品粗利・営業CF",
+    "summary": "Q2は売上・利益・営業CFが急改善。基準株価はBaseを上回り、大型案件の実行と高倍率維持を要求する。",
     "tags": [
       "燃料電池",
       "AIデータセンター",
       "オンサイト電源"
     ],
-    "risk": "高い",
+    "risk": "非常に高い",
     "detailPath": "stocks/BE/index.html",
     "scenarioPath": "stocks/BE/scenario.html"
   },
@@ -41,9 +41,9 @@
     "sector": "オンライン証券・予測市場・暗号資産",
     "method": "2027E正規化EPS × PER",
     "status": "published",
-    "updated": "2026-07-30",
+    "updated": "2026-07-31",
     "price": {
-      "current": 89.84,
+      "current": 86.6,
       "currency": "USD"
     },
     "scenarios": {
@@ -51,11 +51,11 @@
       "base": 108,
       "bull": 175
     },
-    "positionPct": 27.2,
+    "positionPct": 24.4,
     "zone": "Bear〜Base帯",
-    "riskReward": "2.67倍",
-    "catalyst": "2026年Q3決算 / 予測市場収益・純入金・暗号資産取引",
-    "summary": "Q2は過去最高売上。予測市場と株式取引が急伸した一方、暗号資産減速と一時利益を除いた収益力を確認する。",
+    "riskReward": "3.09倍",
+    "catalyst": "2026年Q3決算 / 予測市場収益・純入金・信用損失",
+    "summary": "Q2は過去最高売上と純入金。報告EPSの一時利益を除き、予測市場の継続性と規制を確認する。",
     "tags": [
       "オンライン証券",
       "予測市場",
