@@ -8,6 +8,10 @@ const manifestPaths = [
   join(root, "data", "manifest.json"),
   join(root, "lab", "data", "manifest.json"),
 ];
+const seedManifestPaths = [
+  join(root, "data", "manifest-20260729-60.json"),
+  join(root, "data", "manifest.json"),
+];
 const output = join(root, "_site");
 const requiredStrings = ["ticker", "slug", "name", "market", "sector", "method", "status", "updated", "summary", "zone", "detailPath", "scenarioPath"];
 
@@ -31,7 +35,15 @@ const folders = (await readdir(stocksRoot, { withFileTypes: true }))
   .map((entry) => entry.name)
   .sort();
 
-const entries = [];
+const entriesByTicker = new Map();
+for (const seedManifestPath of seedManifestPaths) {
+  const seeded = JSON.parse(await readFile(seedManifestPath, "utf8"));
+  if (!Array.isArray(seeded)) throw new Error(`${seedManifestPath}は配列にしてください`);
+  for (const meta of seeded) {
+    if (meta?.status === "published" && typeof meta.ticker === "string") entriesByTicker.set(meta.ticker, meta);
+  }
+}
+
 const seen = new Set();
 for (const folder of folders) {
   const metaFile = join(stocksRoot, folder, "meta.json");
@@ -44,9 +56,19 @@ for (const folder of folders) {
   }
   if (errors.length) throw new Error(`${folder}/meta.json:\n- ${errors.join("\n- ")}`);
   seen.add(meta.ticker);
-  if (meta.status === "published") entries.push(meta);
+  if (meta.status === "published") entriesByTicker.set(meta.ticker, meta);
+  else entriesByTicker.delete(meta.ticker);
 }
 
+const entries = [...entriesByTicker.values()];
+for (const meta of entries) {
+  const errors = validate(meta, meta.ticker);
+  for (const path of [meta.detailPath, meta.scenarioPath]) {
+    try { await access(join(root, path)); } catch { errors.push(`${path}が存在しません`); }
+  }
+  if (errors.length) throw new Error(`${meta.ticker}:
+- ${errors.join("\n- ")}`);
+}
 entries.sort((a, b) => b.updated.localeCompare(a.updated) || a.ticker.localeCompare(b.ticker));
 for (const manifestPath of manifestPaths) {
   await mkdir(dirname(manifestPath), { recursive: true });
