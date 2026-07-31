@@ -15,6 +15,10 @@ on:
       - "report-system/templates/catalyst-shell.html"
       - "report-system/schemas/catalyst-report.schema.json"
       - "report-system/catalysts/**"
+      - "report-system/reports/*.report.json"
+      - "report-system/published/**"
+      - "scripts/auto-publish.mjs"
+      - "scripts/health-check.mjs"
       - ".github/workflows/hybrid-pages.yml"
   workflow_dispatch:
 
@@ -39,6 +43,7 @@ jobs:
           node-version: 22
       - name: Validate metadata and build site
         run: |
+          node --test report-system/tests/*.test.mjs
           node scripts/catalyst-ops.mjs registry
           node scripts/build-pages.mjs
       - name: Configure Pages
