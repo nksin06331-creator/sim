@@ -1,129 +1,275 @@
 <!doctype html>
 <html lang="ja">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="Robinhood（HOOD）のBear・Base・Bull株価シナリオと前提条件。">
-  <title>Robinhood（HOOD）株価シナリオ｜SiM MARKET LAB</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@600;700&family=Noto+Sans+JP:wght@400;500;700;900&family=Zen+Kaku+Gothic+New:wght@700;900&display=swap" rel="stylesheet">
-  <style>
-    :root{--accent:#6ee24e;--bg:#0a0c0a;--surface:#141815;--ink:#f1f5f1;--muted:#8a948a;--line:rgba(255,255,255,.09);--red:#f87171;--amber:#fbbf24;--blue:#60a5fa}
-    *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Sans JP",sans-serif;line-height:1.75}a{color:var(--accent)}.wrap{max-width:1080px;margin:auto;padding:0 20px}.eyebrow{display:inline-block}.verdict{display:grid}.status{font-weight:900}.kpis,.scenarios,.grid-2{display:grid}.kpis{grid-template-columns:repeat(4,1fr);gap:10px}.kpi{position:relative}.kpi b,.kpi span,.kpi small{display:block}.nav .wrap,nav .wrap{display:flex;overflow:auto}.nav a,nav a{white-space:nowrap;padding:7px 12px;text-decoration:none}.card,.scenario{border:1px solid var(--line);border-radius:16px}.scenarios{grid-template-columns:repeat(3,1fr);gap:12px}.scenario-head{display:flex;justify-content:space-between;align-items:center}.scenario-head b,.prob{border-radius:999px;padding:4px 9px}.scenario-price{font-weight:900}.scenario ul,.clean{padding-left:20px}.scenario li{margin:7px 0}.position-line{position:relative;border-radius:999px;margin:26px 0 12px}.pin{position:absolute;left:27.2%}.position-labels{display:flex;justify-content:space-between;color:var(--muted);font-size:11px}.grid-2{grid-template-columns:1fr 1fr;gap:12px}.table-wrap{overflow:auto}.table-wrap table{width:100%;border-collapse:collapse}.table-wrap th,.table-wrap td{border:1px solid var(--line);padding:10px;text-align:center}.clean{list-style:none;padding:0;display:grid;gap:8px}.clean li{border:1px solid var(--line);padding:10px 12px}.small,.muted{color:var(--muted);font-size:12px}.notice{padding:14px 16px}.sources{padding-left:20px}footer{padding:28px 20px;text-align:center}
-    @media(max-width:760px){.kpis,.scenarios,.grid-2{grid-template-columns:1fr 1fr}.scenarios .scenario:last-child{grid-column:1/-1}}
-    @media(max-width:500px){.kpis,.scenarios,.grid-2{grid-template-columns:1fr}.scenarios .scenario:last-child{grid-column:auto}.wrap{padding:0 15px}}
-  </style>
-  <link rel="stylesheet" href="../../lab/assets/css/report-v5.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Robinhood Markets（HOOD）｜ドパガキ株価シナリオ</title>
+
+<style>
+:root{--accent:#6EE24E;--accent-bright:#8BF56B;--accent-tint:rgba(110,226,78,.12);--accent-line:rgba(110,226,78,.38);--bg:#0a0c0a;--surface:#141815;--surface-2:#1b201c;--ink:#f1f5f1;--muted:#8a948a;--line:rgba(255,255,255,.09);--amber:#fbbf24;--red:#f87171;--blue:#60a5fa;--shadow:0 18px 48px rgba(0,0,0,.28);--radius:16px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(100% 80% at 50% -10%,#12251a 0%,#0b0f0c 45%,var(--bg) 76%);color:var(--ink);font-family:'Noto Sans JP',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;line-height:1.75;overflow-x:hidden;-webkit-text-size-adjust:100%}body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.08;background-image:radial-gradient(var(--accent) 1px,transparent 1.5px);background-size:18px 18px;mask-image:linear-gradient(#000,transparent 72%)}a{color:var(--accent)}.wrap{max-width:1040px;margin:auto;padding:0 20px}
+.hero{position:relative;color:#fff;padding:52px 0 34px;border-bottom:1px solid var(--line);overflow:hidden}.hero:after{content:"SiM";position:absolute;right:-18px;top:-18px;font-size:clamp(96px,22vw,230px);font-weight:900;letter-spacing:-.08em;color:transparent;-webkit-text-stroke:1px rgba(110,226,78,.10);pointer-events:none}.eyebrow{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border:1px solid var(--accent-line);border-radius:999px;font-size:11px;letter-spacing:.14em;color:var(--accent);background:var(--accent-tint);font-weight:800}.eyebrow:before{content:"●";font-size:8px}.hero h1{position:relative;z-index:1;font-size:clamp(38px,7vw,68px);line-height:1.02;letter-spacing:-.05em;margin:20px 0 10px;font-weight:900;max-width:900px}.hero h1 small{display:inline-block;font-size:.29em;padding:6px 11px;border-radius:8px;background:var(--accent);color:#06210a;vertical-align:middle;letter-spacing:0}.sub{color:#b9c1b9;position:relative;z-index:1;font-size:14px}
+.verdict{position:relative;z-index:1;display:grid;grid-template-columns:1.5fr .5fr;gap:14px;margin-top:24px}.verdict-main,.score{border:1px solid var(--line);border-radius:18px;padding:22px;box-shadow:var(--shadow)}.verdict-main{background:linear-gradient(145deg,rgba(110,226,78,.12),rgba(110,226,78,.03)),var(--surface)}.score{background:var(--accent);color:#06210a;display:flex;flex-direction:column;justify-content:center}.status{font-size:clamp(24px,4vw,38px);line-height:1.2;font-weight:900;letter-spacing:-.035em;margin-top:8px}.score b{font-size:54px;line-height:1;display:block}.score small{color:#173b1e;font-weight:800}
+.kpis{position:relative;z-index:1;display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:14px}.kpi{min-height:120px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px;position:relative;overflow:hidden}.kpi:after{content:"";position:absolute;width:66px;height:66px;border-radius:50%;right:-28px;bottom:-32px;background:var(--accent);opacity:.09}.kpi span{font-size:11px;color:var(--muted);font-weight:700}.kpi b{font-size:clamp(21px,3vw,29px);display:block;margin-top:6px;letter-spacing:-.035em}.kpi small{color:#bfc7bf;font-size:12px}
+main{padding:24px 0 72px}section{margin:16px 0}.card{background:linear-gradient(180deg,var(--surface-2),var(--surface));border:1px solid var(--line);box-shadow:var(--shadow);border-radius:18px;padding:22px;position:relative;overflow:hidden}.card:before{content:"";position:absolute;width:120px;height:120px;border-radius:50%;right:-72px;top:-76px;background:var(--accent);filter:blur(12px);opacity:.08}h2{position:relative;z-index:1;font-size:clamp(22px,3vw,30px);line-height:1.25;letter-spacing:-.035em;margin:0 0 9px;font-weight:900;padding-bottom:10px}h2:after{content:"";position:absolute;left:0;bottom:0;width:40px;height:3px;background:var(--accent);border-radius:3px}h3{margin:0 0 8px;font-size:18px}.lead{color:var(--muted);margin-top:0}.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:14px}.scenarios{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.scenario{border-radius:16px;padding:18px;border:1px solid var(--line);background:#101410;position:relative;overflow:hidden;min-height:320px}.scenario:after{position:absolute;right:4px;top:-12px;font-weight:900;font-size:66px;opacity:.05;line-height:1}.scenario.bear:after{content:"B"}.scenario.base:after{content:"A"}.scenario.bull:after{content:"↑"}.scenario-head{display:flex;justify-content:space-between;gap:10px;font-weight:800}.scenario-head b{padding:4px 9px;border-radius:999px;color:#06210a;background:var(--accent)}.scenario-price{font-size:clamp(31px,4vw,42px);font-weight:900;letter-spacing:-.05em;margin:14px 0 0}.scenario.bear{border-top:4px solid var(--red)}.scenario.base{border-top:4px solid var(--accent);box-shadow:0 0 0 1px rgba(110,226,78,.12)}.scenario.bull{border-top:4px solid var(--accent-bright)}
+.small{font-size:13px;color:var(--muted)}dl{margin:16px 0 0}dl div{display:flex;justify-content:space-between;border-top:1px dashed var(--line);padding:8px 0;gap:12px}dt{color:var(--muted)}dd{margin:0;font-weight:800}.position{margin-top:20px}.position-line{height:14px;border-radius:999px;background:linear-gradient(90deg,var(--red),var(--amber),var(--accent));position:relative;box-shadow:inset 0 0 0 1px rgba(255,255,255,.12)}.pin{position:absolute;top:-8px;width:7px;height:30px;background:#fff;border:2px solid #050805;border-radius:6px;left:36.1%;box-shadow:0 4px 14px rgba(0,0,0,.55)}.position-labels{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);margin-top:7px;gap:7px}.pill{display:inline-block;padding:5px 10px;border-radius:999px;background:var(--accent-tint);border:1px solid var(--accent-line);color:var(--accent);font-weight:800;font-size:11px}
+.zone,.signal{border-top:1px solid var(--line);padding:14px 0}.zone div,.signal div{display:flex;justify-content:space-between;gap:12px}.zone span{color:var(--accent);letter-spacing:.08em}.zone p,.signal p{margin:4px 0;color:var(--muted);font-size:14px}.up{color:var(--accent);font-weight:800}.down{color:var(--red);font-weight:800}.flat{color:var(--amber);font-weight:800}ul.clean{padding:0;margin:12px 0;list-style:none}ul.clean li{margin:9px 0;padding:12px 14px 12px 40px;background:#101410;border:1px solid var(--line);border-radius:12px;position:relative}ul.clean li:before{content:"✓";position:absolute;left:14px;top:11px;color:var(--accent);font-weight:900}.grid-2 .card:nth-child(2) ul.clean li:before{content:"!";color:var(--red)}
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:12px}.meter,.track{background:#0d100d;border:1px solid var(--line);border-radius:999px;overflow:hidden}.meter{height:12px}.meter i{display:block;height:100%;background:var(--accent);border-radius:999px}.dist-row{display:grid;grid-template-columns:120px 1fr 52px;gap:10px;align-items:center;margin:12px 0}.track{height:11px}.track i{display:block;height:100%;background:var(--accent);border-radius:999px}.table-wrap{overflow:auto;border:1px solid var(--line);border-radius:14px;background:#101410}table{border-collapse:collapse;width:100%;min-width:760px}th,td{border-bottom:1px solid var(--line);padding:12px;text-align:right}th:first-child,td:first-child{text-align:left}th{font-size:11px;color:var(--accent);background:#0f120f;position:sticky;top:0}
+details{border:1px solid var(--line);background:#101410;border-radius:12px;padding:0;margin:10px 0;overflow:hidden}summary{font-weight:800;cursor:pointer;padding:14px 16px;list-style:none}summary::-webkit-details-marker{display:none}summary:after{content:"＋";float:right;color:var(--accent);font-size:20px;line-height:1}details[open] summary:after{content:"−"}details>p,details>ul{padding:0 16px 16px;margin:0;color:#c4ccc4}.notice{border:1px solid rgba(251,191,36,.35);border-left:4px solid var(--amber);background:rgba(251,191,36,.08);padding:14px 16px;border-radius:12px}footer{color:var(--muted);font-size:12px;margin-top:28px;padding:20px 0 0;border-top:1px solid var(--line)}
+.report-nav{position:sticky;top:0;z-index:50;background:rgba(10,12,10,.88);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}.report-nav .wrap{display:flex;gap:8px;overflow:auto;padding-top:9px;padding-bottom:9px}.report-nav a{white-space:nowrap;text-decoration:none;background:var(--surface);border:1px solid var(--line);color:#fff;padding:7px 12px;border-radius:999px;font-size:12px;font-weight:700}.report-nav a:hover{border-color:var(--accent);color:var(--accent)}.hero-tags{position:relative;z-index:1;margin-top:14px;display:flex;gap:8px;flex-wrap:wrap}.hero-tags span{background:var(--accent-tint);border:1px solid var(--accent-line);color:var(--accent);padding:5px 9px;border-radius:999px;font-size:11px;font-weight:800}
+@media(max-width:800px){.verdict,.grid-2,.compare{grid-template-columns:1fr}.kpis{grid-template-columns:1fr 1fr}.scenarios{grid-template-columns:1fr}.hero{padding-top:34px}.scenario{min-height:auto}}
+@media(max-width:520px){.wrap{padding:0 14px}.hero{padding:28px 0 24px}.hero h1{font-size:38px;margin-top:14px}.sub{font-size:12px}.verdict{margin-top:16px}.verdict-main,.score{padding:17px;border-radius:14px}.score{display:grid;grid-template-columns:1fr auto;align-items:end;gap:8px}.score b{font-size:40px}.kpis{gap:8px}.kpi{padding:13px;min-height:102px}.kpi b{font-size:20px}.card{padding:17px;border-radius:14px}.dist-row{grid-template-columns:88px 1fr 44px;font-size:12px}.position-labels{font-size:9px}h2{font-size:22px}}
+@media print{body{background:#fff;color:#111}body:before,.hero:after{display:none}.hero,.card,.kpi,.scenario,details,.table-wrap{background:#fff!important;color:#111!important;box-shadow:none!important}.hero{border-bottom:2px solid #111}.sub,.lead,.small,.zone p,.signal p,footer{color:#555!important}.card,.kpi,.scenario,details{break-inside:avoid}}
+</style>
+
 </head>
-<body data-stock-ticker="HOOD" data-price-source="../../data/prices.json" class="sim-report sim-scenario">
-  <header class="hero">
-    <div class="wrap">
-      <div class="eyebrow">SiM MARKET LAB / SCENARIO</div>
-      <h1>Robinhood <small>HOOD</small></h1>
-      <p class="sub">分析基準日 2026年7月30日｜2027E正規化EPS × PER｜株価は自動更新</p>
-      <div class="verdict">
-        <div class="verdict-main">
-          <span class="pill">結論</span>
-          <div class="status">決算は強い。株価は<span style="color:var(--accent)">Bear〜Base帯</span></div>
-          <p>過去最高売上と純入金は好材料。ただしQ2 EPSには$0.14の一時利益があり、予測市場・取引収益の継続性と規制を割り引きます。</p>
-        </div>
-        <div class="score"><b>62</b><small>成長 82 / 割安度 52 / 財務 65</small></div>
-      </div>
-      <div class="kpis">
-        <div class="kpi"><span>現在株価</span><b class="price" data-live-price>$89.84</b><small data-live-price-date>2026/7/29終値</small></div>
-        <div class="kpi"><span>Base</span><b>$108</b><small>現値から +20.2%</small></div>
-        <div class="kpi"><span>Q2純収益</span><b>$1.31B</b><small>前年比 +32%</small></div>
-        <div class="kpi"><span>正規化Q2 EPS</span><b>約$0.48</b><small>報告$0.62−一時$0.14</small></div>
-      </div>
+<body data-stock-ticker="HOOD" data-price-source="../../data/prices.json">
+<!-- ================================================================
+  SiM MARKET LAB / UNIFIED SCENARIO TEMPLATE
+  ・CSSと各セクション構成はキオクシア版と同一（サイト掲載の見た目を維持）。
+  ・{{ }} を report_data の値で置換して使う。数値・確率・結論は改変しない。
+  ・ファイル名は銘柄名（例: 285A.html / IONQ.html）。
+================================================================ -->
+<header class="hero">
+<div class="wrap">
+  <div class="eyebrow">S<span style="color:#fff">i</span>M MARKET LAB / PRICE SCENARIO</div>
+  <h1>Robinhood Markets <small>HOOD</small></h1>
+  <div class="sub">NASDAQ｜評価基準日 2026年7月30日終値｜使用手法 2027E正規化EPS × PER</div>
+  <div class="verdict">
+    <div class="verdict-main">
+      <span class="pill">まず結論だけ</span>
+      <!-- decision.status＋一言結論（絵文字は先頭1個まで、45文字目安） -->
+      <div class="status">決算は強い。株価はBear〜Base帯</div>
+      <!-- 現値ポジショニングと市場逆算を1〜2文で -->
+      <p>基準株価$86.60はBear〜Bull帯の24.4%地点。Base $108までの余地はあります。</p>
+      <p class="sub">ただしQ2 EPSには一時利益$0.14を含みます。予測市場・取引収益の継続性と規制を優先して見ます。</p>
     </div>
-  </header>
+    <!-- 総合スコアは“補助指標”。売買判断そのものではない旨を必ず添える -->
+    <div class="score"><small>総合スコア（補助指標）</small><b>62</b><small>/ 100　売買判断そのものではありません</small></div>
+  </div>
+  <div class="kpis">
+    <div class="kpi"><span>現在株価 <em style="font-style:normal;color:var(--accent);font-size:10px">LIVE</em></span><b data-live-price>$86.60</b><small data-live-price-date>2026/7/30終値（分析基準値）</small></div>
+    <div class="kpi"><span>Base価値（標準ケース）</span><b>$108</b><small>+24.7%</small></div>
+    <div class="kpi"><span>確率加重期待値</span><b>$118.1</b><small>基準値比 +36.4%</small></div>
+    <div class="kpi"><span>リスク区分</span><b>HIGH</b><small>規制・相場循環・信用損失</small></div>
+  </div>
 
-  <nav><div class="wrap"><a href="../../index.html">ポータル</a><a href="./index.html">企業ガイド</a><a href="#position">現在地</a><a href="#scenarios">3シナリオ</a><a href="#sensitivity">感応度</a><a href="#sources">根拠資料</a></div></nav>
+<div class="hero-tags">
+<span>初心者でも読める</span>
+<span>数字はガチ</span>
+<span>煽りだけはしない</span>
+</div>
 
-  <main class="wrap">
-    <section class="card" id="position">
-      <h2>今の株価はどこ？</h2>
-      <p>Bear $58からBull $175までのレンジに対し、基準株価$89.84は下から27.2%の位置です。</p>
-      <div class="position-line"><span class="pin" aria-label="現在株価の位置"></span></div>
-      <div class="position-labels"><span>Bear $58</span><span>Base $108</span><span>Bull $175</span></div>
-      <p class="small">Bullまでの上値$85.16 ÷ Bearまでの下値$31.84 = リスク・リターン2.67倍。</p>
-    </section>
+</div>
+</header>
 
-    <section class="card">
-      <h2>今回の計算ルール</h2>
-      <div class="grid-2">
-        <div><ul class="clean"><li>評価年：2027年</li><li>利益：一時要因を除く正規化EPS</li><li>式：EPS × PER</li><li>取引循環・規制・信用コストを倍率へ反映</li></ul></div>
-        <div><ul class="clean"><li>Q2純収益 $1.308B</li><li>報告EPS $0.62、一時利益$0.14</li><li>プラットフォーム資産 $369B</li><li>純入金 $21.7B、Gold会員4.8M</li></ul></div>
+<!-- Validation：WARNがあれば下の注意帯を残す（なければ丸ごと削除）。FAIL時は完成版にしない。 -->
+<div class="wrap"><div class="notice" style="margin-top:14px"><b>注意：</b>確率加重値は売買判断ではありません。Q2の一時利益と予測市場の継続性に不確実性があります。</div></div>
+<!-- 例（WARN時）:
+<div class="wrap"><div class="notice" style="margin-top:14px"><b>注意：</b></div></div>
+-->
+
+<nav class="report-nav"><div class="wrap">
+<a href="#snapshot">結論</a>
+<a href="#scenarios">3シナリオ</a>
+<a href="#logic">計算</a>
+<a href="#sensitivity">感応度</a>
+<a href="#assumptions">前提</a>
+</div></nav>
+
+<main class="wrap">
+
+<!-- Layer2-1：いまどこ？（現値ポジショニング＋市場逆算） -->
+<section class="card" id="snapshot">
+  <h2>いまの株価、どこにいる？</h2>
+  <p class="lead">直近20営業日では7/2終値$112.73から23.2%下落。過去最高売上と純入金は強い一方、相場循環と規制で利益が変わります。報告EPSをそのまま年率化せず、正規化して評価します。</p>
+  <div class="grid-2">
+    <div>
+      <h3>現値ポジショニング</h3>
+      <p>Bear〜Bull帯の <b>24.4%</b> 地点。判定は <b>Bear〜Base帯</b>。標準ケースより下ですが、悲観ケースからは28.6ドル上です。</p>
+      <!-- pin の left:% を band_position_pct に合わせる -->
+      <div class="position"><div class="position-line"><i class="pin" style="left:24.4%"></i></div><div class="position-labels"><span>Bear $58</span><span>Base $108</span><span>Bull $175</span></div></div>
+      <p>上値下値比：<b>3.09倍</b>　確率加重期待値：<b>$118.1</b></p>
+    </div>
+    <div>
+      <h3>市場期待と独自見解</h3>
+      <div class="compare">
+        <div><b>市場期待 52/100</b><div class="meter"><i style="width:52%"></i></div></div>
+        <div><b>本試算 62/100</b><div class="meter"><i style="width:62%"></i></div></div>
       </div>
-      <div class="notice">Q2 EPS $0.62を単純に4倍していません。ファンド非連結化による一時利益を除き、2027年の継続利益を3段階で置きました。</div>
-    </section>
+      <!-- market_reverse.conclusion：現値が自分のどの前提に相当するか -->
+      <p>市場逆算では、$86.60 ÷ 2027E Base EPS $3.6 = 約24.1倍。Base利益ならBearより低いPERに相当します。</p>
+    </div>
+  </div>
+</section>
 
-    <section class="card" id="scenarios">
-      <h2>Bear / Base / Bull</h2>
-      <div class="scenarios">
-        <article class="scenario bear">
-          <div class="scenario-head"><b>BEAR</b><span class="prob">20%</span></div>
-          <div class="scenario-price">$58</div>
-          <ul><li>2027E正規化EPS：$2.3</li><li>PER：25倍</li><li>取引熱が低下、予測市場も減速</li><li>規制・信用損失・費用が上振れ</li></ul>
-        </article>
-        <article class="scenario base">
-          <div class="scenario-head"><b>BASE</b><span class="prob">50%</span></div>
-          <div class="scenario-price">$108</div>
-          <ul><li>2027E正規化EPS：$3.6</li><li>PER：30倍</li><li>純入金とGold会員が2桁成長</li><li>予測市場は伸びるが正常化</li></ul>
-        </article>
-        <article class="scenario bull">
-          <div class="scenario-head"><b>BULL</b><span class="prob">30%</span></div>
-          <div class="scenario-price">$175</div>
-          <ul><li>2027E正規化EPS：$4.6</li><li>PER：38倍</li><li>13事業のクロスセルが定着</li><li>予測市場・海外・銀行が高成長</li></ul>
-        </article>
-      </div>
-      <p class="small">確率加重価格は約$118。確率は将来の不確実性を整理するための仮定で、予測精度を保証しません。</p>
-    </section>
+<!-- Layer1/2：3シナリオ。dl の項目は使用手法に合わせて変える（rNPV/SOTP/EV-Sales/PER等） -->
+<section class="card" id="scenarios">
+  <h2>未来はこの3パターン</h2>
+  <p class="lead">仮定の2027年正規化EPSとPERを掛けます。Q2報告EPS $0.62から一時利益$0.14を除いて考えます。</p>
+  <div class="scenarios">
+    <article class="scenario bear">
+      <div class="scenario-head"><span>Bear（悲観ケース）</span><b>20%</b></div>
+      <div class="scenario-price">$58</div>
+      <div class="small">現値比 -33.0%</div>
+      <dl><div><dt>2027E EPS（仮定）</dt><dd>$2.3</dd></div><div><dt>PER（仮定）</dt><dd>25倍</dd></div><div><dt>希薄化後株数（仮定）</dt><dd>915M</dd></div><div><dt>2029転換社債</dt><dd>負債扱い</dd></div></dl>
+      <!-- 例: <div><dt>事業価値</dt><dd>25.9兆円</dd></div> を手法に応じて数行 -->
+    </article>
+    <article class="scenario base">
+      <div class="scenario-head"><span>Base（標準ケース）</span><b>50%</b></div>
+      <div class="scenario-price">$108</div>
+      <div class="small">現値比 +24.7%</div>
+      <dl><div><dt>2027E EPS（仮定）</dt><dd>$3.6</dd></div><div><dt>PER（仮定）</dt><dd>30倍</dd></div><div><dt>希薄化後株数（仮定）</dt><dd>925M</dd></div><div><dt>2029転換社債</dt><dd>負債扱い</dd></div></dl>
+    </article>
+    <article class="scenario bull">
+      <div class="scenario-head"><span>Bull（強気ケース）</span><b>30%</b></div>
+      <div class="scenario-price">$175</div>
+      <div class="small">現値比 +102.1%</div>
+      <dl><div><dt>2027E EPS（仮定）</dt><dd>$4.6</dd></div><div><dt>PER（仮定）</dt><dd>38倍</dd></div><div><dt>希薄化後株数（仮定）</dt><dd>930M</dd></div><div><dt>転換社債</dt><dd>Capped Call反映</dd></div></dl>
+    </article></div>
+</section>
 
-    <section class="card">
-      <h2>この未来になる条件</h2>
-      <details><summary>Bearになる条件</summary><ul><li>株式・オプション取引量が同時に減少</li><li>暗号資産収益の減少が続く</li><li>予測市場への規制が強化</li><li>信用損失・規制費用・SBCが想定超</li></ul></details>
-      <details open><summary>Baseになる条件</summary><ul><li>純入金が年率15%以上で成長</li><li>Gold会員とARPUが2桁成長</li><li>一時利益を除いてもEPSが伸びる</li><li>通期調整後費用見通しを達成</li></ul></details>
-      <details><summary>Bullになる条件</summary><ul><li>予測市場が継続的な大型収益源になる</li><li>海外・カード・銀行・助言を高効率でクロスセル</li><li>取引環境に頼らず利益率を維持</li></ul></details>
-    </section>
+<!-- Layer2：価格別アクションマップ ＋ 株価を動かす材料 -->
+<section class="grid-2">
+  <div class="card">
+    <h2>この値段ならどう見る？</h2>
+    <!-- 4〜5帯。「買い/売り」は断定しない。星は割安度の目安 -->
+    <div class="zone"><div><b>$58未満</b><span>★★★★★</span></div><p>悲観ケース以下。取引鈍化や規制強化を大きく織り込む水準。</p></div>
+<div class="zone"><div><b>$58–$108</b><span>★★★★☆</span></div><p>Bear〜Base帯。継続利益と純入金の確認が中心。</p></div>
+<div class="zone"><div><b>$108–$175</b><span>★★☆☆☆</span></div><p>Base〜Bull帯。予測市場と新事業の定着を要求。</p></div>
+<div class="zone"><div><b>$175超</b><span>★☆☆☆☆</span></div><p>強気ケース超。さらに高いEPSか倍率が必要。</p></div>
+    <!-- 例: <div class="zone"><div><b>48,000円未満</b><span>★★★★★</span></div><p>悲観ケース以下。下方リスクを相当織り込む</p></div> -->
+  </div>
+  <div class="card">
+    <h2>株価を動かす4つ</h2>
+    <!-- 各材料に up=追い風 / down=注意 / flat を付ける -->
+    <div class="signal"><div><b>純入金$21.7B</b><span class="up">追い風</span></div><p>顧客資産と将来収益の土台。</p></div>
+<div class="signal"><div><b>予測市場収益$156M</b><span class="flat">要確認</span></div><p>Q2の急成長が続くかを確認。</p></div>
+<div class="signal"><div><b>暗号資産収益-38%</b><span class="down">注意</span></div><p>Bitstampを含めてもアプリ内取引が弱い。</p></div>
+<div class="signal"><div><b>費用見通し引下げ</b><span class="up">追い風</span></div><p>2026調整後費用+SBCを$2.675–2.775Bへ。</p></div>
+    <!-- 例: <div class="signal"><div><b>AI向けSSD需要</b><span class="up">追い風</span></div><p>…</p></div> -->
+  </div>
+</section>
 
-    <section class="grid-2" id="sensitivity">
-      <div class="card">
-        <h2>EPS × PER感応度</h2>
-        <div class="table-wrap"><table>
-          <thead><tr><th>EPS＼PER</th><th>25倍</th><th>30倍</th><th>38倍</th></tr></thead>
-          <tbody>
-            <tr><td>$2.3</td><td>$58</td><td>$69</td><td>$87</td></tr>
-            <tr><td>$3.6</td><td>$90</td><td>$108</td><td>$137</td></tr>
-            <tr><td>$4.6</td><td>$115</td><td>$138</td><td>$175</td></tr>
-          </tbody>
-        </table></div>
-      </div>
-      <div class="card">
-        <h2>次の決算チェック</h2>
-        <ul class="clean">
-          <li>予測市場収益$156Mの継続性</li>
-          <li>純入金とプラットフォーム資産</li>
-          <li>暗号資産取引収益の底打ち</li>
-          <li>信用損失と調整後費用</li>
-          <li>希薄化後株式数と転換社債</li>
-        </ul>
-      </div>
-    </section>
+<!-- Layer2：良い点 / 気になる点（対比） -->
+<section class="grid-2">
+  <div class="card">
+    <h2>ここは普通に強い</h2>
+    <ul class="clean"><li>Q2純収益$1.308B、前年比+32%。</li>
+<li>純入金$21.7B、Gold会員4.8M。</li>
+<li>イベント契約13.6B枚、収益$156M。</li>
+<li>調整後EBITDA$741M、マージン57%。</li></ul>
+    <!-- 例: <li>FY2025売上2.34兆円で過去最高。</li> を3〜5件 -->
+  </div>
+  <div class="card">
+    <h2>ここで事故るかも</h2>
+    <ul class="clean"><li>報告EPS $0.62に一時利益$0.14を含む。</li>
+<li>暗号資産収益は前年比38%減。</li>
+<li>信用損失引当は$56M、前年の2倍。</li>
+<li>予測市場・PFOF・暗号資産の規制変更。</li></ul>
+    <!-- 2つ目のカードのliは自動で赤「!」になる -->
+  </div>
+</section>
 
-    <section class="card" id="sources">
-      <h2>根拠資料</h2>
-      <ul class="sources">
-        <li><a href="https://investors.robinhood.com/node/16381/pdf">Robinhood Q2 2026決算（PDF）</a></li>
-        <li><a href="https://investors.robinhood.com/node/16091/pdf">Robinhood $2.2B転換社債完了（PDF）</a></li>
-        <li><a href="https://investors.robinhood.com/investor-relations/">Robinhood Investor Relations</a></li>
-      </ul>
-      <div class="notice">本資料は投資助言ではありません。表示株価は自動更新、シナリオ前提は2026年7月30日時点です。</div>
-    </section>
-  </main>
+<!-- Layer3：計算ロジック -->
+<section class="card" id="logic">
+  <h2>数字の作り方</h2>
+  <p class="lead">理論株価 = 2027E正規化EPS（仮定）× PER（仮定）。一時利益を除き、各シナリオの希薄化後株式数を使います。</p>
+  <div class="table-wrap"><table>
+  <thead><tr><th>ケース</th><th>正規化利益</th><th>希薄化後株数</th><th>EPS</th><th>PER</th><th>株価</th></tr></thead>
+  <tbody><tr><td>Bear</td><td>$2.10B</td><td>915M</td><td>$2.3</td><td>25倍</td><td>$57.5→$58</td></tr>
+<tr><td>Base</td><td>$3.33B</td><td>925M</td><td>$3.6</td><td>30倍</td><td>$108</td></tr>
+<tr><td>Bull</td><td>$4.28B</td><td>930M</td><td>$4.6</td><td>38倍</td><td>$174.8→$175</td></tr></tbody>
+  </table></div>
+  <!-- 現値に合わせた逆算ではない旨、未開示前提の注意など -->
+  <p class="notice"><b>重要：</b>金融会社の現金には顧客保護・規制資本が含まれるため、現金$5.36Bを株価へ単純加算していません。正規化利益とPERへ反映します。</p>
+</section>
 
-  <footer><a href="../../index.html">SiM MARKET LABへ戻る</a></footer>
-  <script src="../../lab/assets/js/live-report-price.js" defer></script>
-</body>
-</html>
+<!-- Layer3：成立条件 -->
+<section class="card" id="conditions">
+  <h2>この未来になる条件</h2>
+  <details><summary>Bear：$58 / 確率20%</summary><p>株式・オプション取引が減速。予測市場の規制や信用損失が重なり、2027E正規化EPS $2.3、PER 25倍。</p></details>
+<details open><summary>Base：$108 / 確率50%</summary><p>純入金とGold会員が2桁成長。予測市場は伸びても正常化し、2027E正規化EPS $3.6、PER 30倍。</p></details>
+<details><summary>Bull：$175 / 確率30%</summary><p>予測市場、海外、銀行、カード、助言のクロスセルが定着。相場に頼らずEPS $4.6、PER 38倍を維持。</p></details>
+  <!-- 例: <details open><summary>Base：$108 / 確率50%</summary><p>…</p></details> を3つ -->
+</section>
+
+<!-- Layer3：感応度 ＋ 分布（モンテカルロは実施時のみ） -->
+<section class="grid-2" id="sensitivity">
+  <div class="card">
+    <h2>数字がズレるとどうなる？</h2>
+    <div class="table-wrap"><table>
+      <thead><tr><th>EPS＼PER</th><th>25倍</th><th>30倍</th><th>38倍</th></tr></thead>
+      <tbody><tr><td>$2.3</td><td>$58</td><td>$69</td><td>$87</td></tr>
+<tr><td>$3.6</td><td>$90</td><td>$108</td><td>$137</td></tr>
+<tr><td>$4.6</td><td>$115</td><td>$138</td><td>$175</td></tr></tbody>
+    </table></div>
+    <p class="small">最大ドライバは正規化EPSとPER。予測市場、取引量、純入金、信用損失がEPSを動かします。</p>
+  </div>
+  <div class="card">
+    <h2>どの価格に行きやすい？</h2>
+    <p class="lead">モンテカルロではなく、3シナリオの仮定確率です。</p>
+    <div class="dist-row"><span>Bear $58</span><div class="track"><i style="width:20%"></i></div><b>20%</b></div>
+<div class="dist-row"><span>Base $108</span><div class="track"><i style="width:50%"></i></div><b>50%</b></div>
+<div class="dist-row"><span>Bull $175</span><div class="track"><i style="width:30%"></i></div><b>30%</b></div>
+    <!-- 例: <div class="dist-row"><span>5万円未満</span><div class="track"><i style="width:7.6%"></i></div><b>7.6%</b></div> -->
+    <p>確率加重値は$118.1。将来を保証する値ではありません。</p>
+  </div>
+</section>
+
+<!-- 次の決算/イベントで見る場所（watch_items） -->
+<section class="card">
+  <h2>次の決算で見る場所</h2>
+  <div class="signal"><div><b>Q3決算（日時未発表）</b><span class="flat">最重要</span></div><p>取引収益、純入金、ARPU、信用損失。</p></div>
+<div class="signal"><div><b>予測市場</b><span class="flat">要確認</span></div><p>$156Mの継続性と規制状況。</p></div>
+<div class="signal"><div><b>暗号資産</b><span class="down">注意</span></div><p>アプリ取引収益の底打ち。</p></div>
+<div class="signal"><div><b>費用</b><span class="up">追い風</span></div><p>$2.675–2.775B見通しの達成。</p></div>
+<div class="signal"><div><b>株式数</b><span class="flat">要確認</span></div><p>SBC、買戻し、転換社債の差し引き。</p></div>
+  <!-- 例: <div class="signal"><div><b>2026年7月31日の1Q決算</b></div><p>…</p></div> -->
+</section>
+
+<!-- 前提表（事実/市場データ/推定/仮定を分類明記） -->
+<section class="card" id="assumptions">
+  <h2>使った数字と前提</h2>
+  <div class="table-wrap"><table>
+  <thead><tr><th>項目</th><th>値</th><th>分類</th><th>注記</th></tr></thead>
+  <tbody><tr><td>基準株価</td><td>$86.60</td><td>市場データ</td><td>2026/7/30終値</td></tr>
+<tr><td>52週レンジ</td><td>$63.52–$153.86</td><td>市場データ</td><td>7/30時点</td></tr>
+<tr><td>Q2純収益</td><td>$1.308B</td><td>実績</td><td>2026/6/30四半期</td></tr>
+<tr><td>Q2報告EPS</td><td>$0.62</td><td>実績</td><td>一時利益$0.14含む</td></tr>
+<tr><td>現金</td><td>$5.362B</td><td>実績</td><td>2026/6/30</td></tr>
+<tr><td>長期借入</td><td>$2.170B</td><td>実績</td><td>2026/6/30</td></tr>
+<tr><td>発行済株式</td><td>899M</td><td>実績</td><td>A790M+B109M</td></tr>
+<tr><td>2027E EPS</td><td>$2.3 / $3.6 / $4.6</td><td>仮定</td><td>正規化・希薄化後</td></tr>
+<tr><td>PER</td><td>25 / 30 / 38倍</td><td>仮定</td><td>規制・相場循環を反映</td></tr>
+<tr><td>アナリスト中央値</td><td>$126</td><td>市場データ</td><td>本Baseより16.7%高い</td></tr></tbody>
+  </table></div>
+</section>
+
+<!-- Layer3：ガチ勢向け深掘り（details折りたたみ） -->
+<section class="card">
+  <h2>ガチ勢向けの深掘り</h2>
+  <details><summary>手法選定理由</summary><p>黒字の金融プラットフォームで、1株利益が価値の中心です。一時利益を除く2027E正規化EPSへPERを掛けます。</p></details>
+<details><summary>市場逆算</summary><p>$86.60は、2027E Base EPS $3.6に約24.1倍。Base利益ならBear倍率25倍に近い価格です。</p></details>
+<details><summary>倍率トラジェクトリ</summary><p>Q2正規化EPS約$0.48の単純年率$1.92に対し、基準株価は約45倍。2027 Baseでは30倍へ低下する仮定です。</p></details>
+<details><summary>同業比較</summary><p>大手証券より高い倍率を置く理由は、純入金、Gold、予測市場、海外の成長です。暗号資産取引所の循環性と金融規制を踏まえ、Baseを40倍にしません。</p></details>
+<details><summary>転換社債</summary><p>2029年0%転換社債$2.2Bの当初転換価格は$174.42。Bear/Baseは負債。Bull $175はわずかにITMですが、Capped Callが$237.85まで希薄化を抑える設計です。</p></details>
+<details><summary>M&A三点セット</summary><p>WonderFi等の完了済み取得はQ2実績とEPS前提へ含めます。未完了買収の追加価値・追加対価は計上していません。</p></details>
+<details><summary>感応度</summary><p>EPSが$1動くと、PER30倍では株価が約$30動きます。PERが5倍動くと、EPS$3.6では約$18動きます。</p></details>
+<details><summary>未確認事項</summary><p>2027年の正式利益予想、予測市場の規制最終形、転換時の実際の決済方法、商品別の長期利益率は未開示です。</p></details>
+<details><summary>Validation Engine</summary><p>V01–V23確認済み。確率100%、順序正常、期待値$118.1、端点RR3.09倍。転換価格とCapped Callをシナリオ別に確認。FAIL 0、WARN 1（一時利益と予測市場継続性）。</p></details>
+<details><summary>更新履歴</summary><p>2026/7/31：Q2決算、10-Q、7/30終値、転換社債、信用損失を反映。簡略版からv4正式テンプレートへ全面再生成。</p></details>
+<details><summary>主要出典</summary><ul><li><a href="https://investors.robinhood.com/static-files/2f42ce10-59b7-4880-8371-7d52ede7c22e">Q2 2026決算</a></li><li><a href="https://www.sec.gov/Archives/edgar/data/1783879/000178387926000114/hood-20260630.htm">Q2 2026 Form 10-Q</a></li><li><a href="https://www.sec.gov/Archives/edgar/data/1783879/000178387926000023/hood-20251231.htm">2025 Form 10-K</a></li><li><a href="https://investors.robinhood.com/news-releases/news-release-details/robinhood-announces-pricing-private-offering-20-billion">$2.0B転換社債の条件</a></li></ul></details>
+  <!-- 手法選定理由 / 市場逆算 / 倍率トラジェクトリ / 同業比較 / キャッシュバーン・希薄化 /
+       転換社債 / M&A / モンテカルロ・ベイズ（実施時）/ 前提と未確認事項 / 更新履歴 / 主要出典 を
+       それぞれ <details><summary>…</summary><p>…</p></details> で。出典はリンクの箇条書き -->
+</section>
+
+<section class="card notice">
+  <h3>免責</h3><p>本資料は公開情報を基にした情報提供・教育目的の試算です。投資助言や売買推奨ではありません。将来値は仮定に依存し、元本を失う可能性があります。株価だけは自動更新されますが、Bear / Base / Bull、期待値、市場逆算などの分析値は2026年7月30日終値を基準に固定しています。</p>
+</section>
+<footer>SiM MARKET LAB｜評価基準日 2026年7月30日｜最終更新 2026年7月31日｜Validation: WARN（FAIL 0 / WARN 1）</footer>
+</main>
+<script src="../../lab/assets/js/live-report-price.js" defer></script>
+</body></html>
