@@ -1,7 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
-import { makeAudit, revisionDigest, shouldRollback, validateCandidate, validateJsonSchema, validatePatch } from "../src/auto-publish.mjs";
+import { isPublishedAudit, makeAudit, revisionDigest, shouldRollback, validateCandidate, validateJsonSchema, validatePatch } from "../src/auto-publish.mjs";
 
 const candidateSha = "a".repeat(40);
 const independent = (revision = "r1", commitSha = candidateSha) => ({ source: "github_pr_review", verifier: "chatgpt-independent", status: "PASS", fail_count: 0, warn_count: 0, revision, commit_sha: commitSha, summary: "independent PASS" });
@@ -55,5 +55,7 @@ test("独立検証のコミットSHA不一致はAUTO_HOLD", () => assert.equal(r
 test("旧形式の独立検証結果はAUTO_HOLD", () => assert.equal(result(report(), { independent: { status: "PASS", fail_count: 0, warn_count: 0, revision: "r1", commit_sha: candidateSha } }).decision, "AUTO_HOLD"));
 test("公開後ヘルス失敗時だけ同一SHAをロールバック", () => { assert.equal(shouldRollback({ healthPassed: false, deployedSha: "a", currentSha: "a" }), true); assert.equal(shouldRollback({ healthPassed: false, deployedSha: "a", currentSha: "b" }), false); });
 test("監査に直前正常revisionを保持", () => { const r = report(); const v = result(r); assert.equal(makeAudit({ report: r, result: v, rollbackRevision: "old" }).rollback_revision, "old"); });
+test("検証PASSだけでは公開済みと扱わない", () => { const r = report(); const v = result(r); const audit = makeAudit({ report: r, result: v }); assert.equal(isPublishedAudit(audit, r.revision), false); });
+test("published_revision一致だけ重複公開を拒否", () => { const r = report(); const v = result(r); const audit = makeAudit({ report: r, result: v, publishedRevision: r.revision }); assert.equal(isPublishedAudit(audit, r.revision), true); });
 test("report-patch schemaでchangedFields必須", async () => { const schema = JSON.parse(await readFile(new URL("../schemas/report-patch.schema.json", import.meta.url))); assert.ok(schema.required.includes("changedFields")); });
 test("添付Schemaが必須項目欠落を拒否", async () => { const schema = JSON.parse(await readFile(new URL("../schemas/report.schema.json", import.meta.url))); assert.ok(validateJsonSchema({}, schema).some((item) => item.includes("required"))); });
