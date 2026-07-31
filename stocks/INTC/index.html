@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>INTC 完全入門ガイド</title>
+<style>/*
+ ================================================================
+  STOCK GUIDE TEMPLATE v4  SiM MARKET LAB ダーク版 / ChatGPT index.html
+  ----------------------------------------------------------------
+  ★★ デザインロック（ぶれ防止）★★
+  ・この <style> ブロックとページ骨格は「改変禁止」。1文字も変えない。逐語コピーする。
+  ・色はSiMグリーンで固定。銘柄・業界でアクセント色を変えない。
+  ・差し替えてよいのは {{ }} プレースホルダーの中身（＝テキスト）だけ。
+  ・セクションの数・順番・各コンポーネントの個数（SEC1のcard-smは4枚 等）は固定。
+    追加・削除・並べ替えをしない。
+  ----------------------------------------------------------------
+  ブランド：黒背景 × ネオングリーン × 白文字（キーワードだけ緑）。Instagram(sim.marketlab)準拠。
+  設計思想：「表層＝3秒で意味が取れる／深層＝読みたい人だけ開く」の2層構造。
+  ・見出しの重要ワードは <span class="g">…</span> で緑ハイライト。
+ ================================================================
+*/
+
+:root {
+  /* ── ブランド・アクセント：SiMグリーンで固定（銘柄・業界で変えない＝デザインぶれ防止） ── */
+  --accent:        #6EE24E;
+  --accent-bright: #8BF56B;
+  --accent-tint:   rgba(110,226,78,.12);
+  --accent-line:   rgba(110,226,78,.38);
+
+  /* ── ダークシェル（変更不要・全銘柄共通） ── */
+  --bg:        #0a0c0a;
+  --surface:   #141815;   /* カード面 */
+  --surface-2: #1b201c;   /* 少し明るい面 */
+
+  /* レガシー変数マッピング（本文markupが参照。名前は据え置き、意味をダーク用に再定義） */
+  --c-primary-50:  var(--accent-tint);        --c-primary-100: rgba(110,226,78,.18);
+  --c-primary-200: rgba(110,226,78,.55);      --c-primary-400: var(--accent);
+  --c-primary-600: var(--accent);             --c-primary-800: var(--accent-bright);
+  --c-accent-50:   var(--accent-tint);        --c-accent-400:  var(--accent);   --c-accent-600: var(--accent-bright);
+
+  /* システム色（ダーク版：薄背景は半透明の暗色、文字は明るい色に反転） */
+  --amber-50:  rgba(251,191,36,.13); --amber-400: #fbbf24; --amber-600: #fcd34d; --amber-800: #fde68a;
+  --red-50:    rgba(248,113,113,.13); --red-400:  #f87171; --red-600:   #fca5a5;
+  --blue-50:   rgba(96,165,250,.13); --blue-400:  #60a5fa; --blue-600:  #93c5fd; --blue-800: #bfdbfe;
+  --green-50:  rgba(110,226,78,.13); --green-400: #6EE24E; --green-600: #8bf56b;
+  --violet-50: rgba(167,139,250,.13); --violet-400:#a78bfa; --violet-600:#c4b5fd;
+  --gray-50:  #15191b;               --gray-100: rgba(255,255,255,.06);
+  --gray-200: rgba(255,255,255,.09); --gray-300: #3f463f;
+  --gray-500: #8a948a;               --gray-700: #c3ccc3; --gray-900: #f1f5f1;
+
+  --font-display: 'Zen Kaku Gothic New', 'Noto Sans JP', sans-serif;
+  --font-body:    'Noto Sans JP', 'DM Sans', sans-serif;
+  --font-num:     'DM Sans', 'Noto Sans JP', sans-serif;
+  --radius: 16px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-body); background: var(--bg); color: var(--gray-900); line-height: 1.85; font-size: 16px; -webkit-text-size-adjust: 100%; }
+.g { color: var(--accent); }               /* 緑キーワード */
+
+/* 読了プログレスバー */
+.progress-bar { position: fixed; top: 0; left: 0; height: 4px; width: 0%; z-index: 200; background: var(--accent); box-shadow: 0 0 12px var(--accent); transition: width .1s linear; }
+
+/* ── HERO（黒＋緑グロー＋ハーフトーン・ドット） ── */
+.hero {
+  background: radial-gradient(120% 90% at 50% -10%, #12251a 0%, #0b0f0c 45%, var(--bg) 75%);
+  color: #fff; padding: 58px 22px 66px; text-align: center; position: relative; overflow: hidden;
+}
+.hero::before { content:''; position:absolute; inset:0;
+  background-image: radial-gradient(var(--accent) 1px, transparent 1.6px);
+  background-size: 15px 15px; opacity: .10;
+  -webkit-mask-image: radial-gradient(ellipse at 50% 120%, #000 0%, transparent 60%);
+          mask-image: radial-gradient(ellipse at 50% 120%, #000 0%, transparent 60%);
+}
+.hero > * { position: relative; z-index: 1; }
+.brandmark { font-family: var(--font-num); font-weight: 700; letter-spacing: .18em; font-size: 13px; color: var(--gray-500); margin-bottom: 18px; }
+.brandmark b { color: #fff; font-weight: 700; }
+.brandmark .g { color: var(--accent); }
+.hero-badge { display: inline-block; background: rgba(110,226,78,.10); border: 1px solid var(--accent-line); border-radius: 999px; padding: 6px 18px; font-size: 12px; letter-spacing: .06em; font-weight: 700; margin-bottom: 18px; color: var(--accent); }
+.hero h1 { font-family: var(--font-display); font-size: clamp(30px,7.5vw,50px); font-weight: 900; line-height: 1.3; margin-bottom: 14px; letter-spacing: .01em; }
+.hero h1 .g { color: var(--accent); }
+.hero p { font-size: 15.5px; color: #c3ccc3; max-width: 560px; margin: 0 auto 26px; line-height: 1.85; }
+.hero-tags { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+.hero-tag { background: rgba(255,255,255,.04); border: 1px solid var(--gray-200); border-radius: 999px; padding: 6px 14px; font-size: 13px; font-weight: 500; color: #d8ded8; }
+
+/* ── 30秒サマリー（でかい数字カード） ── */
+.tldr-hero { max-width: 820px; margin: -30px auto 0; padding: 0 16px; position: relative; z-index: 5; }
+.tldr-hero-inner { background: var(--surface); border: 1px solid var(--gray-200); border-radius: var(--radius); padding: 20px 20px 8px; box-shadow: 0 16px 40px rgba(0,0,0,.5); }
+.tldr-hero-title { font-family: var(--font-display); font-weight: 900; font-size: 17px; color: #fff; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+.stat-strip { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px,1fr)); gap: 10px; margin-bottom: 14px; }
+.stat { background: var(--gray-50); border: 1px solid var(--gray-200); border-radius: 12px; padding: 14px 12px; text-align: center; }
+.stat-value { font-family: var(--font-num); font-weight: 700; font-size: clamp(24px,6vw,32px); line-height: 1.1; color: #fff; }
+.stat-value.up   { color: var(--accent); }
+.stat-value.down { color: var(--red-400); }
+.stat-label { font-size: 12px; color: var(--gray-500); margin-top: 4px; font-weight: 500; }
+.stat-note  { font-size: 11px; color: var(--gray-500); margin-top: 2px; }
+
+/* ── NAV ── */
+.nav-index { background: rgba(10,12,10,.82); backdrop-filter: blur(10px); border-bottom: 1px solid var(--gray-200); position: sticky; top: 0; z-index: 100; }
+.nav-inner { max-width: 820px; margin: 0 auto; padding: 0 16px; display: flex; overflow-x: auto; scrollbar-width: none; }
+.nav-inner::-webkit-scrollbar { display: none; }
+.nav-item { flex-shrink: 0; padding: 14px 14px; font-size: 13px; font-weight: 700; color: var(--gray-500); text-decoration: none; border-bottom: 3px solid transparent; transition: color .2s, border-color .2s; white-space: nowrap; }
+.nav-item:hover { color: var(--accent); border-bottom-color: var(--accent); }
+
+.container { max-width: 820px; margin: 0 auto; padding: 0 16px; }
+
+/* ── SECTION ── */
+.section { padding: 46px 0 34px; border-bottom: 1px solid var(--gray-200); opacity: 0; transform: translateY(16px); animation: fadeUp .5s ease forwards; }
+@keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+.section-header { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
+.section-icon { width: 46px; height: 46px; border-radius: 50%; background: var(--surface-2); border: 1px solid var(--gray-200); display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0; }
+.section-num { width: 30px; height: 30px; border-radius: 50%; background: var(--accent); color: #06210a; font-family: var(--font-num); font-weight: 700; font-size: 15px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.section-title { font-family: var(--font-display); font-size: clamp(21px,5.4vw,27px); font-weight: 900; color: #fff; line-height: 1.32; position: relative; display: inline-block; padding-bottom: 9px; }
+.section-title::after { content: ''; position: absolute; left: 0; bottom: 0; width: 40px; height: 3px; background: var(--accent); border-radius: 3px; }
+.section-title .g { color: var(--accent); }
+.section-sub { font-size: 13px; color: var(--gray-500); margin-top: 6px; font-weight: 500; }
+
+/* ── ⚡3秒まとめ ── */
+.tldr { background: var(--accent-tint); border: 1px solid var(--accent-line); border-radius: var(--radius); padding: 18px 20px; margin-bottom: 22px; }
+.tldr-label { display: inline-flex; align-items: center; gap: 6px; font-family: var(--font-display); font-weight: 900; font-size: 14px; color: var(--accent); margin-bottom: 10px; }
+.tldr ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.tldr li { font-size: 15.5px; font-weight: 500; color: #eef2ee; line-height: 1.7; padding-left: 30px; position: relative; }
+.tldr li::before { content: attr(data-emoji); position: absolute; left: 0; top: 0; font-size: 18px; }
+
+/* ── 👉つまり ── */
+.sowhat { background: var(--surface); border: 1.5px dashed var(--accent); border-radius: 14px; padding: 12px 16px 12px 46px; margin: 14px 0; position: relative; }
+.sowhat::before { content: '👉'; position: absolute; left: 14px; top: 11px; font-size: 20px; }
+.sowhat b { color: var(--accent); }
+.sowhat p { font-size: 14.5px; color: var(--gray-700); line-height: 1.8; }
+
+/* ── シグナル判定ピル ── */
+.signal { display: inline-flex; align-items: center; gap: 5px; font-weight: 700; font-size: 12.5px; padding: 4px 12px; border-radius: 999px; white-space: nowrap; }
+.signal.bull    { background: var(--green-50); color: var(--accent); }
+.signal.neutral { background: var(--amber-50); color: var(--amber-600); }
+.signal.bear    { background: var(--red-50);   color: var(--red-600); }
+
+/* ── ★重要度 ── */
+.rating { font-family: var(--font-num); letter-spacing: 1px; color: var(--accent); font-size: 14px; }
+.rating .off { color: var(--gray-300); }
+
+/* ── 絵文字箇条書き ── */
+.keypoints { list-style: none; display: flex; flex-direction: column; gap: 12px; margin: 8px 0; }
+.keypoints li { display: flex; gap: 12px; align-items: flex-start; font-size: 15px; line-height: 1.7; color: #e4e9e4; }
+.keypoints .kp-emoji { font-size: 22px; flex-shrink: 0; line-height: 1.4; }
+.keypoints .kp-text b { color: var(--accent); }
+
+/* ── CARDS ── */
+.card { background: var(--surface); border: 1px solid var(--gray-200); border-radius: 14px; padding: 18px 20px; margin-bottom: 12px; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 12px; margin-bottom: 12px; }
+.card-sm { background: var(--surface); border: 1px solid var(--gray-200); border-radius: 14px; padding: 16px 18px; }
+.card-sm .card-emoji { font-size: 22px; display: inline-flex; width: 40px; height: 40px; border-radius: 50%; background: var(--surface-2); border: 1px solid var(--gray-200); align-items: center; justify-content: center; margin-bottom: 8px; }
+.card-sm .card-title { font-family: var(--font-display); font-weight: 700; font-size: 15px; margin-bottom: 4px; color: var(--accent); }
+.card-sm .card-desc { font-size: 13.5px; color: var(--gray-700); line-height: 1.75; }
+
+/* ── 会社クイックデータ（企業詳細を厚くする一覧） ── */
+.facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(148px,1fr)); gap: 1px; background: var(--gray-200); border: 1px solid var(--gray-200); border-radius: 14px; overflow: hidden; margin: 4px 0 14px; }
+.facts > div { background: var(--surface); padding: 12px 14px; }
+.facts dt { font-size: 11px; color: var(--gray-500); font-weight: 700; margin-bottom: 3px; }
+.facts dd { margin: 0; font-size: 14.5px; color: #fff; font-weight: 700; line-height: 1.5; }
+.block-label { font-family: var(--font-display); font-weight: 900; font-size: 15px; color: #fff; margin: 18px 0 8px; display: flex; align-items: center; gap: 7px; }
+.block-label .g { color: var(--accent); }
+
+/* ── TERM ACCORDION ── */
+.term-list { display: flex; flex-direction: column; gap: 10px; }
+.term-item { background: var(--surface); border: 1px solid var(--gray-200); border-radius: 14px; overflow: hidden; transition: border-color .2s; }
+.term-item:hover { border-color: var(--accent); }
+.term-header { display: flex; align-items: center; justify-content: space-between; padding: 16px 18px; cursor: pointer; gap: 12px; user-select: none; min-height: 56px; }
+.term-header::-webkit-details-marker { display: none; }
+.term-name { font-family: var(--font-display); font-weight: 700; font-size: 15.5px; color: #fff; }
+.term-en { font-size: 11px; color: var(--gray-500); margin-left: 8px; font-weight: 400; }
+.term-arrow { font-size: 20px; color: var(--accent); transition: transform .25s; flex-shrink: 0; }
+.term-item[open] .term-arrow { transform: rotate(180deg); }
+.term-item[open] { border-color: var(--accent); }
+.term-body { padding: 2px 18px 18px; border-top: 1px solid var(--gray-100); }
+.term-body p { font-size: 14.5px; color: var(--gray-700); line-height: 1.85; margin: 10px 0 0; }
+.term-body b { color: var(--accent); }
+
+/* ── CALL-OUT ── */
+.ex-box, .ex-box-accent, .ex-box-amber, .ex-box-red { border-radius: 0 8px 8px 0; padding: 12px 16px; margin-top: 12px; }
+.ex-box        { background: var(--accent-tint); border-left: 4px solid var(--accent); }
+.ex-box-accent { background: var(--accent-tint); border-left: 4px solid var(--accent); }
+.ex-box-amber  { background: var(--amber-50);  border-left: 4px solid var(--amber-400); }
+.ex-box-red    { background: var(--red-50);    border-left: 4px solid var(--red-400); }
+.ex-label { font-size: 11px; font-weight: 700; letter-spacing: .04em; margin-bottom: 4px; }
+.ex-label-primary, .ex-label-accent { color: var(--accent); }
+.ex-label-amber { color: var(--amber-600); }
+.ex-label-red { color: var(--red-600); }
+.ex-text { font-size: 13.5px; color: var(--gray-700); line-height: 1.75; }
+
+/* ── INFO BOXES（リスク4分類） ── */
+.info-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap: 12px; margin-top: 16px; }
+.info-box { border-radius: 14px; padding: 16px 18px; border: 1px solid var(--gray-200); }
+.info-box-primary { background: var(--accent-tint); }
+.info-box-accent  { background: var(--accent-tint); }
+.info-box-amber   { background: var(--amber-50); }
+.info-box-red     { background: var(--red-50); }
+.info-box-blue    { background: var(--blue-50); }
+.info-box-green   { background: var(--green-50); }
+.info-box-gray    { background: var(--surface-2); }
+.info-title { font-family: var(--font-display); font-weight: 700; font-size: 14px; margin-bottom: 6px; display: flex; align-items: center; gap: 6px; }
+.info-title-primary, .info-title-accent, .info-title-green { color: var(--accent); }
+.info-title-amber { color: var(--amber-600); }
+.info-title-red { color: var(--red-600); }
+.info-title-blue { color: var(--blue-600); }
+.info-title-gray { color: #d8ded8; }
+.info-text { font-size: 13.5px; color: var(--gray-700); line-height: 1.75; }
+
+/* ── TIMELINE ── */
+.timeline { position: relative; padding-left: 30px; }
+.timeline::before { content: ''; position: absolute; left: 9px; top: 8px; bottom: 6px; width: 3px; background: rgba(110,226,78,.25); border-radius: 3px; }
+.tl-row { position: relative; margin-bottom: 22px; }
+.tl-row::before { content: ''; position: absolute; left: -25px; top: 5px; width: 14px; height: 14px; border-radius: 50%; background: var(--accent); border: 3px solid var(--bg); box-shadow: 0 0 0 2px var(--accent); }
+.tl-date { font-family: var(--font-num); font-size: 12px; font-weight: 700; color: var(--accent); letter-spacing: .04em; margin-bottom: 3px; }
+.tl-title { font-family: var(--font-display); font-weight: 700; font-size: 15.5px; color: #fff; margin-bottom: 3px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.tl-desc { font-size: 13.5px; color: var(--gray-500); line-height: 1.75; }
+
+/* ── BADGES ── */
+.badge { display: inline-block; font-size: 11px; padding: 3px 9px; border-radius: 6px; font-weight: 700; }
+.badge-primary { background: var(--accent-tint); color: var(--accent); }
+.badge-accent  { background: var(--accent-tint); color: var(--accent); }
+.badge-amber   { background: var(--amber-50);  color: var(--amber-600); }
+.badge-red     { background: var(--red-50);    color: var(--red-600); }
+.badge-blue    { background: var(--blue-50);   color: var(--blue-600); }
+.badge-green   { background: var(--green-50);  color: var(--accent); }
+.badge-violet  { background: var(--violet-50); color: var(--violet-600); }
+
+/* ── COMPARE TABLE ── */
+.table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; border: 1px solid var(--gray-200); border-radius: 14px; margin: 12px 0; }
+.compare-table { width: 100%; border-collapse: collapse; font-size: 13.5px; min-width: 480px; }
+.compare-table th { background: var(--gray-50); padding: 12px 14px; text-align: left; font-weight: 700; font-size: 12px; color: var(--gray-500); letter-spacing: .03em; border-bottom: 1px solid var(--gray-200); white-space: nowrap; }
+.compare-table td { padding: 12px 14px; border-bottom: 1px solid var(--gray-100); color: var(--gray-700); vertical-align: top; }
+.compare-table tr:last-child td { border-bottom: none; }
+.compare-table tr:hover td { background: rgba(255,255,255,.02); }
+.compare-table .me { background: var(--accent-tint); font-weight: 700; color: var(--accent); }
+
+/* ── HIGHLIGHT（インスタの“まとめ”枠：ダーク＋緑ボーダー） ── */
+.highlight { background: var(--surface); border: 1.5px solid var(--accent-line); border-radius: var(--radius); padding: 22px 24px; margin: 22px 0; position: relative; overflow: hidden; }
+.highlight::before { content:''; position:absolute; right:-30px; bottom:-30px; width:160px; height:160px;
+  background-image: radial-gradient(var(--accent) 1px, transparent 1.5px); background-size: 13px 13px; opacity:.12; }
+.highlight h3 { font-family: var(--font-display); font-size: 19px; font-weight: 900; margin-bottom: 10px; color: var(--accent); display: flex; align-items: center; gap: 8px; position: relative; }
+.highlight p { font-size: 14.5px; color: #d8ded8; line-height: 1.85; position: relative; }
+.highlight b { color: var(--accent); }
+
+/* ── PRODUCT GRID ── */
+.product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px,1fr)); gap: 12px; margin: 16px 0; }
+.product-box { border-radius: 14px; padding: 18px 14px; text-align: center; border: 1px solid var(--gray-200); background: var(--surface); }
+.product-symbol { font-family: var(--font-num); font-size: 30px; font-weight: 700; margin-bottom: 4px; color: var(--accent); }
+.product-name { font-size: 11px; font-weight: 700; letter-spacing: .04em; margin-bottom: 6px; color: #fff; }
+.product-use { font-size: 12px; line-height: 1.55; color: var(--gray-700); }
+
+/* ── MISC ── */
+.lead { font-size: 16.5px; color: #dbe1db; line-height: 1.9; margin-bottom: 20px; font-weight: 500; }
+.lead .g { color: var(--accent); }
+strong { font-weight: 700; color: #fff; }
+strong.g { color: var(--accent); }
+.grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap: 12px; }
+
+/* ── FOOTER ── */
+.footer { padding: 40px 22px; text-align: center; color: var(--gray-500); font-size: 13px; border-top: 1px solid var(--gray-200); margin-top: 32px; }
+.footer .brandmark { margin-bottom: 14px; }
+
+@media (max-width: 480px){
+  .section-icon { width: 40px; height: 40px; font-size: 20px; }
+  .stat-strip { grid-template-columns: repeat(2,1fr); }
+}
+@media (prefers-reduced-motion: reduce){
+  .section { animation: none; opacity: 1; transform: none; }
+  html { scroll-behavior: auto; }
+}
+</style>
+</head>
+<body class="sim-report sim-guide" data-stock-ticker="INTC" data-price-source="../../data/prices.json">
+<div class="progress-bar" id="progressBar"></div>
+<div class="hero"><div class="brandmark">S<span class="g">i</span>M &nbsp;MARKET LAB</div><div class="hero-badge">INTC 完全入門ガイド ・ 2026-07-31版</div><h1>Intel Corporation（INTC）を<br><span class="g">まるっと</span>解説</h1><p>PCとサーバー向けCPUの収益力に、米国先端ファウンドリー再建の成否が重なる大型ターンアラウンド銘柄。</p><div class="hero-tags"><span class="hero-tag">CPU</span><span class="hero-tag">AIデータセンター</span><span class="hero-tag">Intel 18A</span><span class="hero-tag">米国製造</span></div></div>
+<div class="tldr-hero"><div class="tldr-hero-inner"><div class="tldr-hero-title">📊 まずは数字でざっくり</div><div class="stat-strip"><div class="stat"><div class="stat-value normal" data-live-price>91.13</div><div class="stat-label">現在株価 <span class="g">LIVE</span></div><div class="stat-note" data-live-price-date>2026-07-30米国市場終値</div></div><div class="stat"><div class="stat-value up">$16.1B</div><div class="stat-label">Q2 2026売上</div><div class="stat-note">前年比25%増・US-GAAP</div></div><div class="stat"><div class="stat-value up">40.4%</div><div class="stat-label">Q2 GAAP粗利率</div><div class="stat-note">前年同期比12.9ポイント改善</div></div><div class="stat"><div class="stat-value down">-$2.09B</div><div class="stat-label">Q2 Foundry営業損益</div><div class="stat-note">内部取引を含むセグメント値</div></div></div></div></div>
+<nav class="nav-index"><div class="nav-inner"><a class="nav-item" href="#company">1 Intelは何で稼ぐ会社？</a><a class="nav-item" href="#industry">2 半導体業界の勝ち方</a><a class="nav-item" href="#products">3 主力製品と技術</a><a class="nav-item" href="#operations">4 製造・財務で外せない論点</a><a class="nav-item" href="#competition">5 競争相手と差別化</a><a class="nav-item" href="#glossary">6 初心者向け用語集</a><a class="nav-item" href="#catalysts">7 今後のカタリストとリスク</a><a class="nav-item" href="#sources">出典</a></div></nav>
+<div class="container">
+<section class="section" id="company">
+  <div class="section-header"><div class="section-icon">🏢</div><div class="section-num">1</div><div><div class="section-title">Intelは何で稼ぐ会社？</div><div class="section-sub">設計と製造を一体で持つIDM</div></div></div>
+  <div class="tldr"><div class="tldr-label">⚡ このセクションの3秒まとめ</div><ul><li data-emoji="●">PC・サーバー向けCPUが製品利益の中心</li><li data-emoji="●">Foundryは社内製造が大半で、外部顧客獲得はまだ育成段階</li><li data-emoji="●">製品の回復と工場の採算改善を同時に進める必要がある</li></ul></div>
+  <div class="block-label">会社の全体像</div><p class="lead">Intel Productsは、PC・エッジ向けのClient Computing and Physical AI Groupと、サーバーCPU・ネットワーク・カスタムASICなどを扱うData Center and AIで構成されます。Q2 2026のIntel Products売上は151.39億ドル、営業利益は48.17億ドルで、連結利益を支える中核でした。</p><p class="lead">Intel Foundryはプロセス開発、ウェハ製造、組立・テスト、先端パッケージを提供します。ただし現時点では売上の大半がIntel社内向けです。Q2 2026のFoundry売上57.65億ドルに対して営業損失は20.89億ドルで、先端ノード立ち上げ費用と高コストのIntel 18Aウェハが採算を圧迫しています。</p><p class="lead">Alteraは2025年9月に51%を売却して連結対象から外れました。このため前年同期との比較には事業構成の変化が含まれ、単純な売上比較だけで本業の成長率を判断しないことが重要です。</p>
+<div class="block-label">Q2 2026スナップショット</div><dl class="facts"><div><dt>連結売上</dt><dd>161.28億ドル</dd></div><div><dt>CCPG売上</dt><dd>88.77億ドル</dd></div><div><dt>DCAI売上</dt><dd>62.62億ドル</dd></div><div><dt>営業キャッシュフロー</dt><dd>Q2単独70億ドル</dd></div><div><dt>発行済株式</dt><dd>50.43億株（2026-06-27）</dd></div></dl>
+</section>
+<section class="section" id="industry">
+  <div class="section-header"><div class="section-icon">🏭</div><div class="section-num">2</div><div><div class="section-title">半導体業界の勝ち方</div><div class="section-sub">設計性能・歩留まり・規模・顧客採用の掛け算</div></div></div>
+  <div class="tldr"><div class="tldr-label">⚡ このセクションの3秒まとめ</div><ul><li data-emoji="●">高性能でも量産歩留まりが低ければ利益になりにくい</li><li data-emoji="●">CPUはソフト互換性と顧客基盤が強みになる</li><li data-emoji="●">Foundryは外部顧客の量産採用と工場稼働率が決定的</li></ul></div>
+  <div class="block-label">投資家が見る4つの軸</div><ul class="keypoints"><li><span class="kp-emoji">⚙️</span><span class="kp-text"><b>製品競争力</b>：性能、消費電力、総保有コスト、ソフトウェア互換性がPC・サーバーの採用を左右します。</span></li><li><span class="kp-emoji">🔬</span><span class="kp-text"><b>プロセス技術</b>：Intel 18Aの歩留まりと性能が、自社製品の競争力と外部Foundry受注の両方へ波及します。</span></li><li><span class="kp-emoji">📦</span><span class="kp-text"><b>供給能力</b>：需要があっても基板・メモリ・工場能力が不足すると出荷数量を増やせません。</span></li><li><span class="kp-emoji">💵</span><span class="kp-text"><b>資本効率</b>：先端工場は巨額の設備投資を必要とするため、稼働率と外部売上が低い期間はフリーキャッシュフローを圧迫します。</span></li></ul>
+<div class="highlight"><h3>Intel固有の難しさ</h3><p>製品部門にとって工場は差別化要因ですが、工場の固定費は需要変動時の重荷にもなります。Intel Productsの利益だけを見ると好調でも、Foundryの赤字と設備投資を合算した連結価値で判断する必要があります。</p></div>
+</section>
+<section class="section" id="products">
+  <div class="section-header"><div class="section-icon">🧩</div><div class="section-num">3</div><div><div class="section-title">主力製品と技術</div><div class="section-sub">PC、データセンター、Foundryの3本柱</div></div></div>
+  <div class="tldr"><div class="tldr-label">⚡ このセクションの3秒まとめ</div><ul><li data-emoji="●">Core UltraはPC・エッジ・Physical AIへ展開</li><li data-emoji="●">Xeon 6+はIntel 18Aを使うサーバー製品</li><li data-emoji="●">外部Foundryと先端パッケージは将来の追加価値</li></ul></div>
+  <div class="block-label">製品マップ</div><div class="product-grid"><div class="product-box"><div class="product-symbol">PC</div><div class="product-name">Core / Core Ultra</div><div class="product-use">ノートPC、デスクトップ、エッジAI、産業・ロボティクス</div></div><div class="product-box"><div class="product-symbol">DC</div><div class="product-name">Xeon</div><div class="product-use">クラウド、企業サーバー、AI推論、HPC</div></div><div class="product-box"><div class="product-symbol">ASIC</div><div class="product-name">Purpose-built silicon</div><div class="product-use">顧客用途に最適化したネットワーク・セキュリティ等の半導体</div></div><div class="product-box"><div class="product-symbol">FAB</div><div class="product-name">Intel Foundry</div><div class="product-use">Intel 18A/3/4、先端パッケージ、組立・テスト</div></div></div>
+<div class="block-label">Q2 2026の伸び方</div><div class="table-wrap"><table><thead><tr><th>区分</th><th>売上</th><th>前年比</th><th>読み方</th></tr></thead><tbody><tr><td>CCPG</td><td>88.77億ドル</td><td>+13%</td><td>ASP上昇が寄与、クライアント数量は減少</td></tr><tr><td>DCAI</td><td>62.62億ドル</td><td>+59%</td><td>サーバーASP上昇とハイパースケーラー需要</td></tr><tr><td>Intel Foundry</td><td>57.65億ドル</td><td>+31%</td><td>大半は社内取引、外部売上は2.93億ドル</td></tr><tr><td>連結</td><td>161.28億ドル</td><td>+25%</td><td>社内取引54.77億ドルを消去後</td></tr></tbody></table></div>
+</section>
+<section class="section" id="operations">
+  <div class="section-header"><div class="section-icon">🛠️</div><div class="section-num">4</div><div><div class="section-title">製造・財務で外せない論点</div><div class="section-sub">18Aの立ち上げ、供給制約、負債</div></div></div>
+  <div class="tldr"><div class="tldr-label">⚡ このセクションの3秒まとめ</div><ul><li data-emoji="●">18A量産の歩留まり改善が売上と粗利率の両方に効く</li><li data-emoji="●">現金・短期投資より債務が大きく、設備投資との両立が課題</li><li data-emoji="●">政府向けエスクロー株と条件付きワラントはGAAP損益・希薄化の読解を難しくする</li></ul></div>
+  <div class="block-label">2026年6月末の財務位置</div><dl class="facts"><div><dt>現金・現金同等物</dt><dd>128.74億ドル</dd></div><div><dt>短期投資</dt><dd>168.53億ドル</dd></div><div><dt>短期債務</dt><dd>19.88億ドル</dd></div><div><dt>長期債務</dt><dd>485.49億ドル</dd></div><div><dt>概算ネット債務</dt><dd>208.10億ドル</dd></div><div><dt>上期設備投資支出</dt><dd>61.92億ドル（通常区分）</dd></div></dl>
+<div class="block-label">GAAP赤字をそのまま本業赤字と見ない</div><p class="lead">Q2 2026のIntel帰属GAAP純損失は110.33億ドルでしたが、主因には米国政府向けエスクロー株の株価上昇に伴う125億ドルの時価評価損が含まれます。これは営業キャッシュフローと同じ動きをする費用ではありません。</p><p class="lead">一方で非GAAPだけを見ればよいわけでもありません。Foundryの赤字、設備投資、株式報酬、政府向け株式の潜在希薄化、ApolloとのFab 34持分買い戻しに伴う資金負担は、企業価値に実際の影響を持ちます。米国政府向けには、IntelがFoundry事業の支配率51%以上を維持できなくなった場合に限り行使可能となる、最大2.41億株・行使価格20ドルの条件付きワラントもあります。現時点では行使可能でも行使見込みでもないため、通常の希薄化後株式数には加えていません。</p>
+</section>
+<section class="section" id="competition">
+  <div class="section-header"><div class="section-icon">⚔️</div><div class="section-num">5</div><div><div class="section-title">競争相手と差別化</div><div class="section-sub">製品会社とFoundryの二つの競争</div></div></div>
+  <div class="tldr"><div class="tldr-label">⚡ このセクションの3秒まとめ</div><ul><li data-emoji="●">CPUではAMD、Arm系、顧客自社開発チップと競う</li><li data-emoji="●">AI計算ではGPU・アクセラレータ中心の投資配分が逆風になり得る</li><li data-emoji="●">FoundryではTSMC、Samsung等に対し、米国先端製造とIDM統合が差別化</li></ul></div>
+  <div class="block-label">競争の見取り図</div><div class="table-wrap"><table><thead><tr><th>領域</th><th>Intelの強み</th><th>弱点・確認点</th></tr></thead><tbody><tr><td>PC CPU</td><td>x86互換性、OEM関係、Coreブランド、内製技術</td><td>シェア、性能/電力、外部Foundry利用コスト</td></tr><tr><td>サーバーCPU</td><td>Xeonの導入基盤、ソフト資産、ハイパースケーラー需要</td><td>AMDやArm系との性能・TCO競争</td></tr><tr><td>AI/ASIC</td><td>CPU、ネットワーク、ASIC、パッケージを組み合わせ可能</td><td>AI投資の中心であるGPU市場での相対的位置</td></tr><tr><td>Foundry</td><td>米国内の先端ロジックR&amp;Dと量産、18A、先端パッケージ</td><td>外部顧客売上の小ささ、巨額固定費、歩留まり実績</td></tr></tbody></table></div>
+<div class="highlight"><h3>競争優位の判定方法</h3><p>発表された性能値だけではなく、出荷数量、平均販売価格、顧客採用、粗利率、Foundry外部売上、歩留まり改善が同時に進むかを確認します。Intel 18Aが自社製品で成功しても、外部顧客の量産採用がなければFoundryの価値は限定されます。</p></div>
+</section>
+<section class="section" id="glossary">
+  <div class="section-header"><div class="section-icon">📘</div><div class="section-num">6</div><div><div class="section-title">初心者向け用語集</div><div class="section-sub">Intelを読むための最低限の言葉</div></div></div>
+  <div class="tldr"><div class="tldr-label">⚡ このセクションの3秒まとめ</div><ul><li data-emoji="●">売上と利益をつなぐのはASP・数量・歩留まり</li><li data-emoji="●">Foundry売上は社内取引と外部売上を分けて見る</li><li data-emoji="●">GAAPと非GAAPはどちらか一方ではなく差分の理由を見る</li></ul></div>
+  <div class="block-label">重要用語</div><div class="term-list"><details class="term-item"><summary class="term-header"><span class="term-name">IDM<span class="term-en">Integrated Device Manufacturer</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>半導体の設計と製造を一社で行う会社形態。<br><b>なぜ重要：</b>工場が差別化にも固定費負担にもなるため。<br><b>この銘柄では：</b>Intelは製品設計とIntel Foundryを同時に保有します。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">Foundry<span class="term-en">Semiconductor Foundry</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>他社または社内の設計した半導体を製造する事業。<br><b>なぜ重要：</b>稼働率と顧客数が採算を大きく左右します。<br><b>この銘柄では：</b>Intel Foundryの現状は社内売上が大半です。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">Intel 18A<span class="term-en">18 Angstrom-class node</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>RibbonFETとPowerViaを導入したIntelの先端プロセス。<br><b>なぜ重要：</b>製品競争力と外部Foundry受注の共通基盤です。<br><b>この銘柄では：</b>Panther LakeとXeon 6+に使われ、18A-Pはリスク生産へ進みました。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">歩留まり<span class="term-en">Yield</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>製造したチップのうち良品として使える割合。<br><b>なぜ重要：</b>低いと1個当たりコストが上がり供給量も減ります。<br><b>この銘柄では：</b>18Aの歩留まり改善は粗利率と出荷量の両方へ効きます。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">ASP<span class="term-en">Average Selling Price</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>製品1個当たりの平均販売価格。<br><b>なぜ重要：</b>数量が減っても高価格品比率で売上が伸びる場合があります。<br><b>この銘柄では：</b>Q2 2026はPC・サーバーとも高価格帯ミックスが売上を押し上げました。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">ASIC<span class="term-en">Application-Specific Integrated Circuit</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>特定用途へ最適化した半導体。<br><b>なぜ重要：</b>汎用CPU以外の成長領域になります。<br><b>この銘柄では：</b>Intelはネットワークやセキュリティ向けのカスタム半導体を拡大しています。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">GAAP<span class="term-en">Generally Accepted Accounting Principles</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>米国会計基準に沿った公式利益。<br><b>なぜ重要：</b>比較可能性が高い一方、一時的な評価損も含みます。<br><b>この銘柄では：</b>Q2 2026は政府向けエスクロー株の時価評価損がGAAP純利益を大きく動かしました。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">非GAAP<span class="term-en">Non-GAAP</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>会社が一部項目を除いて示す調整後指標。<br><b>なぜ重要：</b>本業トレンドの補助になりますが、除外項目を無視してはいけません。<br><b>この銘柄では：</b>Q2非GAAP EPSは0.42ドル、GAAP EPSはマイナス2.16ドルでした。</p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">希薄化<span class="term-en">Dilution</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>株式数が増え、1株当たりの取り分が小さくなること。<br><b>なぜ重要：</b>同じ企業価値でも株数増加は1株価値を押し下げます。<br><b>この銘柄では：</b>株式報酬、米国政府向けエスクロー株、Foundry支配率が51%未満になった場合だけ行使可能な条件付きワラントを分けて追跡します。</p></div></details></div>
+</section>
+<section class="section" id="catalysts">
+  <div class="section-header"><div class="section-icon">🗓️</div><div class="section-num">7</div><div><div class="section-title">今後のカタリストとリスク</div><div class="section-sub">日付が未発表のものは期間だけで追う</div></div></div>
+  <div class="tldr"><div class="tldr-label">⚡ このセクションの3秒まとめ</div><ul><li data-emoji="●">Q3 2026決算は売上158〜168億ドルと粗利率41%が会社予想の軸</li><li data-emoji="●">18Aの供給・歩留まり・外部顧客が中期評価を変える</li><li data-emoji="●">供給制約の緩和と設備投資負担を同時に確認する</li></ul></div>
+  <div class="block-label">確認する順番</div><div class="timeline"><div class="tl-item"><div class="tl-dot"></div><div class="tl-content"><div class="tl-title">Q3 2026決算 <span class="signal neutral">日付未発表</span></div><div class="tl-date">2026年Q3決算期・発表日はIR未掲載</div><p>売上158〜168億ドル、GAAP粗利率41%、GAAP EPS 0.31ドルの会社予想に対する実績を確認します。</p></div></div><div class="tl-item"><div class="tl-dot"></div><div class="tl-content"><div class="tl-title">供給制約の変化 <span class="signal neutral">会社見通し</span></div><div class="tl-date">2026年下期〜2027年</div><p>PC向け制約の緩和と、サーバー・基板・メモリ等の制約継続を分けて確認します。</p></div></div><div class="tl-item"><div class="tl-dot"></div><div class="tl-content"><div class="tl-title">Intel 18A/18A-Pの量産進展 <span class="signal neutral">継続</span></div><div class="tl-date">2026年下期以降</div><p>歩留まり、出荷量、製品粗利率、外部顧客の量産採用が価値へつながるかを追います。</p></div></div><div class="tl-item"><div class="tl-dot"></div><div class="tl-content"><div class="tl-title">Foundry採算改善 <span class="signal neutral">継続</span></div><div class="tl-date">四半期ごと</div><p>外部売上、期間費用、18A単位コスト、営業損失の縮小を確認します。</p></div></div></div>
+<div class="block-label">主要リスク</div><div class="info-row"><div class="info-box"><h3>18A実行リスク</h3><p>歩留まりや供給が伸びなければ製品原価とFoundry採算の両方が悪化します。</p></div><div class="info-box"><h3>資本負担</h3><p>高い設備投資と約208億ドルの概算ネット債務が資金配分の余裕を狭めます。</p></div><div class="info-box"><h3>競争と倍率</h3><p>CPUシェアやAI投資配分が悪化すると、高い売上倍率の前提が崩れます。</p></div><div class="info-box"><h3>希薄化</h3><p>株式報酬と政府向けエスクロー株に加え、Foundry支配率51%未満を条件とする政府向けワラントがあり、条件成立時は追加希薄化が生じ得ます。</p></div></div>
+</section>
+
+<section class="section" id="sources"><div class="section-header"><div class="section-icon">🔗</div><div><div class="section-title">主要出典</div><div class="section-sub">数値と事実の確認元</div></div></div><div class="term-list"><details class="term-item"><summary class="term-header"><span class="term-name">Intel Reports Second-Quarter 2026 Financial Results</span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>Intel Corporation｜2026-07-23</p><p><a href="https://www.intc.com/news-events/press-releases/detail/1776/intel-reports-second-quarter-2026-financial-results">https://www.intc.com/news-events/press-releases/detail/1776/intel-reports-second-quarter-2026-financial-results</a></p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">Quarterly Report on Form 10-Q for the quarter ended June 27, 2026</span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>U.S. Securities and Exchange Commission｜2026-07-23</p><p><a href="https://www.sec.gov/Archives/edgar/data/50863/000005086326000157/intc-20260627.htm">https://www.sec.gov/Archives/edgar/data/50863/000005086326000157/intc-20260627.htm</a></p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">Annual Report on Form 10-K for the fiscal year ended December 27, 2025</span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>U.S. Securities and Exchange Commission｜2026-01-22</p><p><a href="https://www.sec.gov/Archives/edgar/data/50863/000005086326000011/intc-20251227.htm">https://www.sec.gov/Archives/edgar/data/50863/000005086326000011/intc-20251227.htm</a></p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">Form 8-K: Repurchase of Fab 34 joint venture interest</span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>U.S. Securities and Exchange Commission｜2026-04-08</p><p><a href="https://www.sec.gov/Archives/edgar/data/50863/000005086326000072/intc-20260408.htm">https://www.sec.gov/Archives/edgar/data/50863/000005086326000072/intc-20260408.htm</a></p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">Intel Historical Stock Data</span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>Intel Corporation｜2026-07-31</p><p><a href="https://www.intc.com/stock-info/historical-data">https://www.intc.com/stock-info/historical-data</a></p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">Intel Investor Relations Calendar</span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>Intel Corporation｜2026-07-31</p><p><a href="https://www.intc.com/news-events/ir-calendar">https://www.intc.com/news-events/ir-calendar</a></p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">Intel Unveils Panther Lake Architecture: First AI PC Platform Built on 18A</span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>Intel Corporation｜2025-10-09</p><p><a href="https://www.intc.com/news-events/press-releases/detail/1752/intel-unveils-panther-lake-architecture-first-ai-pc">https://www.intc.com/news-events/press-releases/detail/1752/intel-unveils-panther-lake-architecture-first-ai-pc</a></p></div></details><details class="term-item"><summary class="term-header"><span class="term-name">Intel Corporation (INTC) market quote</span><span class="term-arrow">⌄</span></summary><div class="term-body"><p>Yahoo Finance｜2026-07-31</p><p><a href="https://finance.yahoo.com/quote/INTC/">https://finance.yahoo.com/quote/INTC/</a></p></div></details></div></section>
+<section class="section"><div class="highlight"><h3>免責</h3><p>本レポートは公開情報を基にした情報提供であり、特定の金融商品の取得・売却を勧誘するものではありません。シナリオ価格と確率は仮定に基づくモデル値で、将来の株価を保証しません。投資判断は一次資料と最新情報を確認のうえ、ご自身の責任で行ってください。</p></div></section>
+<footer>SiM MARKET LAB｜評価基準日 2026-07-30｜最終更新 2026-07-31</footer>
+</div>
+<script>
+(() => {
+  const b=document.getElementById('progressBar');
+  const u=()=>{const h=document.documentElement.scrollHeight-innerHeight;const s=h>0?scrollY/h:0;b.style.width=Math.min(100,Math.max(0,s*100))+'%'};
+  document.addEventListener('scroll',u,{passive:true});window.addEventListener('resize',u);u();
+})();
+</script>
+<script src="../../lab/assets/js/live-report-price.js" defer></script>
+</body>
+</html>

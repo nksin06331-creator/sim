@@ -1,0 +1,1170 @@
+{
+  "schemaVersion": 1,
+  "reportId": "INTC",
+  "revision": "intc-initial-20260731-r2",
+  "status": "published",
+  "renderMode": "structured",
+  "templateVersion": "sim-report-v1",
+  "update": {
+    "mode": "initial",
+    "baseRevision": null,
+    "reason": "Intel Corporationの新規企業ガイドと株価シナリオを、Q2 2026決算・最新SEC提出・市場データに基づいて作成",
+    "changedFields": [
+      "overview",
+      "guide",
+      "scenario",
+      "sources",
+      "validation"
+    ]
+  },
+  "meta": {
+    "companyName": "Intel Corporation",
+    "ticker": "INTC",
+    "aliases": [
+      "Intel",
+      "インテル"
+    ],
+    "market": "US",
+    "exchange": "NASDAQ",
+    "currency": "USD",
+    "valuationDate": "2026-07-30",
+    "lastUpdated": "2026-07-31",
+    "sector": "半導体・AIコンピューティング",
+    "industry": "CPU・データセンター半導体・半導体ファウンドリー",
+    "fiscalYearLabel": "FY2026",
+    "marketDetails": {
+      "reportingStandard": "US-GAAP",
+      "secCik": "50863",
+      "adr": false,
+      "fiscalYearEndMonth": 12
+    }
+  },
+  "overview": {
+    "tagline": "PCとサーバー向けCPUの収益力に、米国先端ファウンドリー再建の成否が重なる大型ターンアラウンド銘柄。",
+    "heroTags": [
+      "CPU",
+      "AIデータセンター",
+      "Intel 18A",
+      "米国製造"
+    ],
+    "heroStats": [
+      {
+        "value": 91.13,
+        "label": "現在株価",
+        "note": "2026-07-30米国市場終値",
+        "tone": "normal",
+        "livePrice": true
+      },
+      {
+        "value": "$16.1B",
+        "label": "Q2 2026売上",
+        "note": "前年比25%増・US-GAAP",
+        "tone": "up"
+      },
+      {
+        "value": "40.4%",
+        "label": "Q2 GAAP粗利率",
+        "note": "前年同期比12.9ポイント改善",
+        "tone": "up"
+      },
+      {
+        "value": "-$2.09B",
+        "label": "Q2 Foundry営業損益",
+        "note": "内部取引を含むセグメント値",
+        "tone": "down"
+      }
+    ],
+    "businessSummary": "IntelはCPUやカスタム半導体を設計するIntel Productsと、先端プロセス・製造・先端パッケージを担うIntel Foundryを同じ企業内に持つIDMです。Q2 2026はPC向けのCCPGが88.77億ドル、データセンター・AIのDCAIが62.62億ドルと製品部門が伸び、連結売上は161.28億ドルでした。評価の焦点は、製品利益の回復を維持しながら、Intel 18Aの歩留まり・供給量・外部顧客を増やし、Foundryの巨額赤字と資本負担を縮小できるかです。"
+  },
+  "guide": {
+    "sections": [
+      {
+        "id": "company",
+        "topic": "company",
+        "icon": "🏢",
+        "title": "Intelは何で稼ぐ会社？",
+        "subtitle": "設計と製造を一体で持つIDM",
+        "summaryItems": [
+          "PC・サーバー向けCPUが製品利益の中心",
+          "Foundryは社内製造が大半で、外部顧客獲得はまだ育成段階",
+          "製品の回復と工場の採算改善を同時に進める必要がある"
+        ],
+        "blocks": [
+          {
+            "type": "paragraphs",
+            "title": "会社の全体像",
+            "paragraphs": [
+              "Intel Productsは、PC・エッジ向けのClient Computing and Physical AI Groupと、サーバーCPU・ネットワーク・カスタムASICなどを扱うData Center and AIで構成されます。Q2 2026のIntel Products売上は151.39億ドル、営業利益は48.17億ドルで、連結利益を支える中核でした。",
+              "Intel Foundryはプロセス開発、ウェハ製造、組立・テスト、先端パッケージを提供します。ただし現時点では売上の大半がIntel社内向けです。Q2 2026のFoundry売上57.65億ドルに対して営業損失は20.89億ドルで、先端ノード立ち上げ費用と高コストのIntel 18Aウェハが採算を圧迫しています。",
+              "Alteraは2025年9月に51%を売却して連結対象から外れました。このため前年同期との比較には事業構成の変化が含まれ、単純な売上比較だけで本業の成長率を判断しないことが重要です。"
+            ],
+            "sourceRefs": [
+              "intc-q2-2026-ir",
+              "intc-q2-2026-10q",
+              "intc-2025-10k"
+            ]
+          },
+          {
+            "type": "facts",
+            "title": "Q2 2026スナップショット",
+            "items": [
+              {
+                "label": "連結売上",
+                "value": "161.28億ドル"
+              },
+              {
+                "label": "CCPG売上",
+                "value": "88.77億ドル"
+              },
+              {
+                "label": "DCAI売上",
+                "value": "62.62億ドル"
+              },
+              {
+                "label": "営業キャッシュフロー",
+                "value": "Q2単独70億ドル"
+              },
+              {
+                "label": "発行済株式",
+                "value": "50.43億株（2026-06-27）"
+              }
+            ],
+            "sourceRefs": [
+              "intc-q2-2026-ir"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "industry",
+        "topic": "industry",
+        "icon": "🏭",
+        "title": "半導体業界の勝ち方",
+        "subtitle": "設計性能・歩留まり・規模・顧客採用の掛け算",
+        "summaryItems": [
+          "高性能でも量産歩留まりが低ければ利益になりにくい",
+          "CPUはソフト互換性と顧客基盤が強みになる",
+          "Foundryは外部顧客の量産採用と工場稼働率が決定的"
+        ],
+        "blocks": [
+          {
+            "type": "keypoints",
+            "title": "投資家が見る4つの軸",
+            "items": [
+              {
+                "icon": "⚙️",
+                "title": "製品競争力",
+                "text": "性能、消費電力、総保有コスト、ソフトウェア互換性がPC・サーバーの採用を左右します。"
+              },
+              {
+                "icon": "🔬",
+                "title": "プロセス技術",
+                "text": "Intel 18Aの歩留まりと性能が、自社製品の競争力と外部Foundry受注の両方へ波及します。"
+              },
+              {
+                "icon": "📦",
+                "title": "供給能力",
+                "text": "需要があっても基板・メモリ・工場能力が不足すると出荷数量を増やせません。"
+              },
+              {
+                "icon": "💵",
+                "title": "資本効率",
+                "text": "先端工場は巨額の設備投資を必要とするため、稼働率と外部売上が低い期間はフリーキャッシュフローを圧迫します。"
+              }
+            ],
+            "sourceRefs": [
+              "intc-2025-10k",
+              "intc-q2-2026-10q"
+            ]
+          },
+          {
+            "type": "highlight",
+            "title": "Intel固有の難しさ",
+            "text": "製品部門にとって工場は差別化要因ですが、工場の固定費は需要変動時の重荷にもなります。Intel Productsの利益だけを見ると好調でも、Foundryの赤字と設備投資を合算した連結価値で判断する必要があります。",
+            "sourceRefs": [
+              "intc-2025-10k",
+              "intc-q2-2026-10q"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "products",
+        "topic": "products",
+        "icon": "🧩",
+        "title": "主力製品と技術",
+        "subtitle": "PC、データセンター、Foundryの3本柱",
+        "summaryItems": [
+          "Core UltraはPC・エッジ・Physical AIへ展開",
+          "Xeon 6+はIntel 18Aを使うサーバー製品",
+          "外部Foundryと先端パッケージは将来の追加価値"
+        ],
+        "blocks": [
+          {
+            "type": "products",
+            "title": "製品マップ",
+            "items": [
+              {
+                "symbol": "PC",
+                "name": "Core / Core Ultra",
+                "use": "ノートPC、デスクトップ、エッジAI、産業・ロボティクス"
+              },
+              {
+                "symbol": "DC",
+                "name": "Xeon",
+                "use": "クラウド、企業サーバー、AI推論、HPC"
+              },
+              {
+                "symbol": "ASIC",
+                "name": "Purpose-built silicon",
+                "use": "顧客用途に最適化したネットワーク・セキュリティ等の半導体"
+              },
+              {
+                "symbol": "FAB",
+                "name": "Intel Foundry",
+                "use": "Intel 18A/3/4、先端パッケージ、組立・テスト"
+              }
+            ],
+            "sourceRefs": [
+              "intc-q2-2026-ir",
+              "intc-2025-10k"
+            ]
+          },
+          {
+            "type": "table",
+            "title": "Q2 2026の伸び方",
+            "columns": [
+              "区分",
+              "売上",
+              "前年比",
+              "読み方"
+            ],
+            "rows": [
+              [
+                "CCPG",
+                "88.77億ドル",
+                "+13%",
+                "ASP上昇が寄与、クライアント数量は減少"
+              ],
+              [
+                "DCAI",
+                "62.62億ドル",
+                "+59%",
+                "サーバーASP上昇とハイパースケーラー需要"
+              ],
+              [
+                "Intel Foundry",
+                "57.65億ドル",
+                "+31%",
+                "大半は社内取引、外部売上は2.93億ドル"
+              ],
+              [
+                "連結",
+                "161.28億ドル",
+                "+25%",
+                "社内取引54.77億ドルを消去後"
+              ]
+            ],
+            "sourceRefs": [
+              "intc-q2-2026-ir",
+              "intc-q2-2026-10q"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "operations",
+        "topic": "operations",
+        "icon": "🛠️",
+        "title": "製造・財務で外せない論点",
+        "subtitle": "18Aの立ち上げ、供給制約、負債",
+        "summaryItems": [
+          "18A量産の歩留まり改善が売上と粗利率の両方に効く",
+          "現金・短期投資より債務が大きく、設備投資との両立が課題",
+          "政府向けエスクロー株と条件付きワラントはGAAP損益・希薄化の読解を難しくする"
+        ],
+        "blocks": [
+          {
+            "type": "facts",
+            "title": "2026年6月末の財務位置",
+            "items": [
+              {
+                "label": "現金・現金同等物",
+                "value": "128.74億ドル"
+              },
+              {
+                "label": "短期投資",
+                "value": "168.53億ドル"
+              },
+              {
+                "label": "短期債務",
+                "value": "19.88億ドル"
+              },
+              {
+                "label": "長期債務",
+                "value": "485.49億ドル"
+              },
+              {
+                "label": "概算ネット債務",
+                "value": "208.10億ドル"
+              },
+              {
+                "label": "上期設備投資支出",
+                "value": "61.92億ドル（通常区分）"
+              }
+            ],
+            "sourceRefs": [
+              "intc-q2-2026-ir",
+              "intc-q2-2026-10q"
+            ]
+          },
+          {
+            "type": "paragraphs",
+            "title": "GAAP赤字をそのまま本業赤字と見ない",
+            "paragraphs": [
+              "Q2 2026のIntel帰属GAAP純損失は110.33億ドルでしたが、主因には米国政府向けエスクロー株の株価上昇に伴う125億ドルの時価評価損が含まれます。これは営業キャッシュフローと同じ動きをする費用ではありません。",
+              "一方で非GAAPだけを見ればよいわけでもありません。Foundryの赤字、設備投資、株式報酬、政府向け株式の潜在希薄化、ApolloとのFab 34持分買い戻しに伴う資金負担は、企業価値に実際の影響を持ちます。米国政府向けには、IntelがFoundry事業の支配率51%以上を維持できなくなった場合に限り行使可能となる、最大2.41億株・行使価格20ドルの条件付きワラントもあります。現時点では行使可能でも行使見込みでもないため、通常の希薄化後株式数には加えていません。"
+            ],
+            "sourceRefs": [
+              "intc-q2-2026-10q",
+              "intc-apollo-2026-8k",
+              "intc-2025-10k"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "competition",
+        "topic": "competition",
+        "icon": "⚔️",
+        "title": "競争相手と差別化",
+        "subtitle": "製品会社とFoundryの二つの競争",
+        "summaryItems": [
+          "CPUではAMD、Arm系、顧客自社開発チップと競う",
+          "AI計算ではGPU・アクセラレータ中心の投資配分が逆風になり得る",
+          "FoundryではTSMC、Samsung等に対し、米国先端製造とIDM統合が差別化"
+        ],
+        "blocks": [
+          {
+            "type": "comparison",
+            "title": "競争の見取り図",
+            "columns": [
+              "領域",
+              "Intelの強み",
+              "弱点・確認点"
+            ],
+            "rows": [
+              [
+                "PC CPU",
+                "x86互換性、OEM関係、Coreブランド、内製技術",
+                "シェア、性能/電力、外部Foundry利用コスト"
+              ],
+              [
+                "サーバーCPU",
+                "Xeonの導入基盤、ソフト資産、ハイパースケーラー需要",
+                "AMDやArm系との性能・TCO競争"
+              ],
+              [
+                "AI/ASIC",
+                "CPU、ネットワーク、ASIC、パッケージを組み合わせ可能",
+                "AI投資の中心であるGPU市場での相対的位置"
+              ],
+              [
+                "Foundry",
+                "米国内の先端ロジックR&Dと量産、18A、先端パッケージ",
+                "外部顧客売上の小ささ、巨額固定費、歩留まり実績"
+              ]
+            ],
+            "sourceRefs": [
+              "intc-2025-10k",
+              "intc-q2-2026-ir"
+            ]
+          },
+          {
+            "type": "highlight",
+            "title": "競争優位の判定方法",
+            "text": "発表された性能値だけではなく、出荷数量、平均販売価格、顧客採用、粗利率、Foundry外部売上、歩留まり改善が同時に進むかを確認します。Intel 18Aが自社製品で成功しても、外部顧客の量産採用がなければFoundryの価値は限定されます。",
+            "sourceRefs": [
+              "intc-q2-2026-10q",
+              "intc-2025-10k"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "glossary",
+        "topic": "glossary",
+        "icon": "📘",
+        "title": "初心者向け用語集",
+        "subtitle": "Intelを読むための最低限の言葉",
+        "summaryItems": [
+          "売上と利益をつなぐのはASP・数量・歩留まり",
+          "Foundry売上は社内取引と外部売上を分けて見る",
+          "GAAPと非GAAPはどちらか一方ではなく差分の理由を見る"
+        ],
+        "blocks": [
+          {
+            "type": "terms",
+            "title": "重要用語",
+            "items": [
+              {
+                "term": "IDM",
+                "english": "Integrated Device Manufacturer",
+                "definition": "半導体の設計と製造を一社で行う会社形態。",
+                "whyImportant": "工場が差別化にも固定費負担にもなるため。",
+                "companyContext": "Intelは製品設計とIntel Foundryを同時に保有します。"
+              },
+              {
+                "term": "Foundry",
+                "english": "Semiconductor Foundry",
+                "definition": "他社または社内の設計した半導体を製造する事業。",
+                "whyImportant": "稼働率と顧客数が採算を大きく左右します。",
+                "companyContext": "Intel Foundryの現状は社内売上が大半です。"
+              },
+              {
+                "term": "Intel 18A",
+                "english": "18 Angstrom-class node",
+                "definition": "RibbonFETとPowerViaを導入したIntelの先端プロセス。",
+                "whyImportant": "製品競争力と外部Foundry受注の共通基盤です。",
+                "companyContext": "Panther LakeとXeon 6+に使われ、18A-Pはリスク生産へ進みました。"
+              },
+              {
+                "term": "歩留まり",
+                "english": "Yield",
+                "definition": "製造したチップのうち良品として使える割合。",
+                "whyImportant": "低いと1個当たりコストが上がり供給量も減ります。",
+                "companyContext": "18Aの歩留まり改善は粗利率と出荷量の両方へ効きます。"
+              },
+              {
+                "term": "ASP",
+                "english": "Average Selling Price",
+                "definition": "製品1個当たりの平均販売価格。",
+                "whyImportant": "数量が減っても高価格品比率で売上が伸びる場合があります。",
+                "companyContext": "Q2 2026はPC・サーバーとも高価格帯ミックスが売上を押し上げました。"
+              },
+              {
+                "term": "ASIC",
+                "english": "Application-Specific Integrated Circuit",
+                "definition": "特定用途へ最適化した半導体。",
+                "whyImportant": "汎用CPU以外の成長領域になります。",
+                "companyContext": "Intelはネットワークやセキュリティ向けのカスタム半導体を拡大しています。"
+              },
+              {
+                "term": "GAAP",
+                "english": "Generally Accepted Accounting Principles",
+                "definition": "米国会計基準に沿った公式利益。",
+                "whyImportant": "比較可能性が高い一方、一時的な評価損も含みます。",
+                "companyContext": "Q2 2026は政府向けエスクロー株の時価評価損がGAAP純利益を大きく動かしました。"
+              },
+              {
+                "term": "非GAAP",
+                "english": "Non-GAAP",
+                "definition": "会社が一部項目を除いて示す調整後指標。",
+                "whyImportant": "本業トレンドの補助になりますが、除外項目を無視してはいけません。",
+                "companyContext": "Q2非GAAP EPSは0.42ドル、GAAP EPSはマイナス2.16ドルでした。"
+              },
+              {
+                "term": "希薄化",
+                "english": "Dilution",
+                "definition": "株式数が増え、1株当たりの取り分が小さくなること。",
+                "whyImportant": "同じ企業価値でも株数増加は1株価値を押し下げます。",
+                "companyContext": "株式報酬、米国政府向けエスクロー株、Foundry支配率が51%未満になった場合だけ行使可能な条件付きワラントを分けて追跡します。"
+              }
+            ],
+            "sourceRefs": [
+              "intc-q2-2026-ir",
+              "intc-q2-2026-10q",
+              "intc-2025-10k"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "catalysts",
+        "topic": "catalysts",
+        "icon": "🗓️",
+        "title": "今後のカタリストとリスク",
+        "subtitle": "日付が未発表のものは期間だけで追う",
+        "summaryItems": [
+          "Q3 2026決算は売上158〜168億ドルと粗利率41%が会社予想の軸",
+          "18Aの供給・歩留まり・外部顧客が中期評価を変える",
+          "供給制約の緩和と設備投資負担を同時に確認する"
+        ],
+        "blocks": [
+          {
+            "type": "timeline",
+            "title": "確認する順番",
+            "items": [
+              {
+                "title": "Q3 2026決算",
+                "status": "日付未発表",
+                "signal": "neutral",
+                "timing": "2026年Q3決算期・発表日はIR未掲載",
+                "description": "売上158〜168億ドル、GAAP粗利率41%、GAAP EPS 0.31ドルの会社予想に対する実績を確認します。"
+              },
+              {
+                "title": "供給制約の変化",
+                "status": "会社見通し",
+                "signal": "neutral",
+                "timing": "2026年下期〜2027年",
+                "description": "PC向け制約の緩和と、サーバー・基板・メモリ等の制約継続を分けて確認します。"
+              },
+              {
+                "title": "Intel 18A/18A-Pの量産進展",
+                "status": "継続",
+                "signal": "neutral",
+                "timing": "2026年下期以降",
+                "description": "歩留まり、出荷量、製品粗利率、外部顧客の量産採用が価値へつながるかを追います。"
+              },
+              {
+                "title": "Foundry採算改善",
+                "status": "継続",
+                "signal": "neutral",
+                "timing": "四半期ごと",
+                "description": "外部売上、期間費用、18A単位コスト、営業損失の縮小を確認します。"
+              }
+            ],
+            "sourceRefs": [
+              "intc-q2-2026-ir",
+              "intc-q2-2026-10q",
+              "intc-ir-calendar",
+              "intc-panther-lake-2025"
+            ]
+          },
+          {
+            "type": "risk-grid",
+            "title": "主要リスク",
+            "items": [
+              {
+                "title": "18A実行リスク",
+                "text": "歩留まりや供給が伸びなければ製品原価とFoundry採算の両方が悪化します。"
+              },
+              {
+                "title": "資本負担",
+                "text": "高い設備投資と約208億ドルの概算ネット債務が資金配分の余裕を狭めます。"
+              },
+              {
+                "title": "競争と倍率",
+                "text": "CPUシェアやAI投資配分が悪化すると、高い売上倍率の前提が崩れます。"
+              },
+              {
+                "title": "希薄化",
+                "text": "株式報酬と政府向けエスクロー株に加え、Foundry支配率51%未満を条件とする政府向けワラントがあり、条件成立時は追加希薄化が生じ得ます。"
+              }
+            ],
+            "sourceRefs": [
+              "intc-q2-2026-10q",
+              "intc-2025-10k",
+              "intc-apollo-2026-8k"
+            ]
+          }
+        ]
+      }
+    ],
+    "extraSections": []
+  },
+  "scenario": {
+    "decision": {
+      "status": "期待回復を相当織り込む高変動局面",
+      "oneLine": "製品部門の成長は強い一方、91.13ドルはFoundry改善と2027年の追加成長をかなり要求する水準です。",
+      "score": 55,
+      "companyQuality": "製品基盤は強いが、Foundry赤字・資本負担・希薄化を含む再建途上",
+      "valuationView": "Q2売上成長だけでは現在価値を説明し切れず、18Aの量産経済性と外部顧客価値を含むオプション評価が大きい"
+    },
+    "valuation": {
+      "currentPrice": 91.13,
+      "currency": "USD",
+      "expectedValue": 94.5,
+      "expectedReturnPct": 3.7,
+      "method": "2027年売上×フォワードEV/Sales（Foundryオプション込み）を主軸に、正規化EPSでクロスチェック",
+      "currentPriceNote": "2026-07-30米国市場終値91.13ドル（2026-07-31取得）。シナリオ値はこの基準日時点で固定"
+    },
+    "scenarios": [
+      {
+        "name": "Bear",
+        "price": 60,
+        "probability": 30,
+        "conditions": [
+          "2027年モデル売上が約660億ドルにとどまり、Q3以降の成長が鈍化する。",
+          "Intel 18Aの歩留まり・供給・外部顧客が想定より進まず、Foundry営業損失の縮小が遅れる。",
+          "資本支出とネット債務への懸念からフォワードEV/Salesが約5倍まで低下する。"
+        ],
+        "details": [
+          {
+            "label": "2027年売上モデル",
+            "value": "約660億ドル（当方仮定）"
+          },
+          {
+            "label": "EV/Sales",
+            "value": "約5.0倍（当方仮定）"
+          },
+          {
+            "label": "純有利子負債等",
+            "value": "約250億ドルを控除"
+          },
+          {
+            "label": "希薄化後株式数",
+            "value": "約52億株"
+          }
+        ]
+      },
+      {
+        "name": "Base",
+        "price": 95,
+        "probability": 45,
+        "conditions": [
+          "Q3 2026会社予想の中間付近を達成し、2027年モデル売上が約750億ドルへ伸びる。",
+          "製品部門の利益成長と18Aのコスト改善が続き、Foundry赤字が段階的に縮小する。",
+          "外部Foundryの大型価値はまだ限定的だが、戦略オプションを含むEV/Sales約6.8倍が維持される。"
+        ],
+        "details": [
+          {
+            "label": "2027年売上モデル",
+            "value": "約750億ドル（当方仮定）"
+          },
+          {
+            "label": "EV/Sales",
+            "value": "約6.8倍（当方仮定）"
+          },
+          {
+            "label": "純有利子負債等",
+            "value": "約200億ドルを控除"
+          },
+          {
+            "label": "希薄化後株式数",
+            "value": "約52億株"
+          }
+        ]
+      },
+      {
+        "name": "Bull",
+        "price": 135,
+        "probability": 25,
+        "conditions": [
+          "サーバー・PC・ASIC需要が強く、2027年モデル売上が約860億ドルへ上振れる。",
+          "18A/18A-Pの歩留まりと供給が改善し、外部Foundry顧客の量産採用または前払いを伴う契約が確認される。",
+          "Foundryを含む成長オプションへの評価が高まり、EV/Sales約8.4倍が許容される。"
+        ],
+        "details": [
+          {
+            "label": "2027年売上モデル",
+            "value": "約860億ドル（当方仮定）"
+          },
+          {
+            "label": "EV/Sales",
+            "value": "約8.4倍（当方仮定）"
+          },
+          {
+            "label": "純有利子負債等",
+            "value": "約200億ドルを控除"
+          },
+          {
+            "label": "希薄化後株式数",
+            "value": "約52億株"
+          }
+        ]
+      }
+    ],
+    "positioning": {
+      "bandPositionPct": 41.5,
+      "interpretation": "現値91.13ドルはBear 60ドルからBull 135ドルのレンジ下側から約42%の位置で、Base 95ドルに近い水準です。Q2後に下落しても、売上成長・18A・Foundry改善の複数前提をなお必要とします。",
+      "priceZones": [
+        {
+          "range": "60ドル未満",
+          "note": "Bear以下。需要鈍化、18A遅延、資本負担のどれが強まったかを確認。"
+        },
+        {
+          "range": "60〜95ドル",
+          "note": "再建を部分的に織り込む帯。Q3売上・粗利率とFoundry損失を優先確認。"
+        },
+        {
+          "range": "95〜135ドル",
+          "note": "Base超。2027年成長とFoundry改善の証拠が必要。"
+        },
+        {
+          "range": "135ドル超",
+          "note": "Bull超。外部Foundryの大型量産採用など追加の上振れ前提が必要。"
+        }
+      ]
+    },
+    "marketReverse": {
+      "method": "2026-07-30時点の時価総額約4651億ドル、概算ネット債務208億ドル、2027年売上モデル750億ドルを使用",
+      "impliedForwardEvSales": 6.5,
+      "conclusion": "現値は、Base売上モデルに対して約6.5倍のフォワードEV/Salesを示唆します。これは成熟CPU企業だけの評価より高く、AI計算需要、18A製品競争力、米国Foundryの戦略価値を相当含むと推定します。",
+      "caveat": "2027年売上750億ドルは当方仮定であり市場コンセンサスではありません。Foundry価値を事業単体で分離できないため、織り込み率を精密な百分率では表示しません。",
+      "sourceRefs": [
+        "intc-q2-2026-ir",
+        "intc-q2-2026-10q",
+        "intc-market-price-20260730"
+      ]
+    },
+    "entryContext": {
+      "recent20dChangePct": -24.3,
+      "moveTrigger": "2026-07-02終値120.35ドルから2026-07-30終値91.13ドルまでの約20営業日。起点はIntel公式履歴データ",
+      "catalysts": [
+        {
+          "title": "Q3 2026決算と会社予想の達成度",
+          "timing": "2026年Q3決算期。2026-07-31時点で正式発表日はIRカレンダー未掲載",
+          "status": "unknown",
+          "importance": 5,
+          "successImpact": "売上上限寄り、粗利率41%以上、Foundry損失縮小なら2027年成長前提を支える",
+          "failureImpact": "売上下限割れ、粗利率未達、設備投資増だけが先行すると倍率圧縮につながり得る",
+          "sourceRefs": [
+            "intc-q2-2026-ir",
+            "intc-ir-calendar"
+          ]
+        },
+        {
+          "title": "Intel 18A/18A-Pの量産経済性",
+          "timing": "2026年下期以降。個別の次回開示日は未確定",
+          "status": "window",
+          "importance": 5,
+          "successImpact": "歩留まり・供給量・製品粗利率の改善と外部量産採用が確認されればFoundry価値が上がる",
+          "failureImpact": "高コストウェハと供給不足が続けば製品原価とFoundry赤字の両方を圧迫する",
+          "sourceRefs": [
+            "intc-q2-2026-ir",
+            "intc-q2-2026-10q",
+            "intc-panther-lake-2025"
+          ]
+        },
+        {
+          "title": "供給制約の緩和とサーバー需要",
+          "timing": "2026年下期〜2027年",
+          "status": "window",
+          "importance": 4,
+          "successImpact": "PC供給改善とサーバー容量増加が数量成長へつながれば売上と固定費吸収が改善する",
+          "failureImpact": "基板・メモリ・社内能力の制約が続けば強い需要を売上へ変換できない",
+          "sourceRefs": [
+            "intc-q2-2026-10q"
+          ]
+        },
+        {
+          "title": "Foundry外部顧客と損失縮小",
+          "timing": "四半期ごと。大型外部量産契約の確定日は未発表",
+          "status": "unknown",
+          "importance": 5,
+          "successImpact": "外部売上比率、前払い、量産契約、営業損失の改善が確認されれば戦略オプションが現金価値へ近づく",
+          "failureImpact": "社内売上依存と巨額赤字が続けば高い売上倍率を維持しにくい",
+          "sourceRefs": [
+            "intc-q2-2026-10q",
+            "intc-2025-10k"
+          ]
+        }
+      ],
+      "pricedInNote": "直近約20営業日で約24%下落したため6月末の高値圏より期待は低下しました。ただし現値でもBaseモデルに近く、Q2の25%増収だけでなく、2027年の成長継続、18Aの量産経済性、Foundry赤字縮小を複合的に織り込む水準です。イベント単体価値を分離できないため、織り込み度は定量不能とします。"
+    },
+    "risk": {
+      "riskClass": "HIGH",
+      "items": [
+        {
+          "category": "Execution",
+          "title": "Intel 18Aの歩留まり・量産リスク",
+          "description": "18A立ち上げの高い単位コストが続くと、Foundry損失だけでなくCoreやXeonの粗利率にも影響します。",
+          "severity": 5,
+          "sourceRefs": [
+            "intc-q2-2026-10q"
+          ]
+        },
+        {
+          "category": "Capital",
+          "title": "設備投資と債務負担",
+          "description": "2026年6月末の概算ネット債務は約208億ドルです。需要対応の追加投資とFab 34持分買い戻し後の資本効率を確認する必要があります。",
+          "severity": 5,
+          "sourceRefs": [
+            "intc-q2-2026-ir",
+            "intc-apollo-2026-8k"
+          ]
+        },
+        {
+          "category": "Competition",
+          "title": "CPU・AI・Foundryの多面競争",
+          "description": "AMD、Arm系、顧客自社チップ、GPU中心のAI投資、外部Foundryとの競争が同時進行します。",
+          "severity": 4,
+          "sourceRefs": [
+            "intc-2025-10k"
+          ]
+        },
+        {
+          "category": "Valuation",
+          "title": "高い期待倍率と株価変動",
+          "description": "現値はBase売上モデルに対し約6.5倍のフォワードEV/Salesを示唆し、実績が良くても投資増やガイダンスの質で倍率が低下し得ます。",
+          "severity": 5,
+          "sourceRefs": [
+            "intc-market-price-20260730",
+            "intc-q2-2026-ir"
+          ]
+        },
+        {
+          "category": "Dilution",
+          "title": "株式報酬・政府向け株式の希薄化",
+          "description": "2026年6月末時点で未解放のエスクロー株が1.43億株あります。加えて、IntelがFoundry事業の支配率51%以上を維持できなくなった場合に限り、米国商務省が最大2.41億株を1株20ドルで取得できる条件付きワラントがあります。ワラントは現時点で行使可能でも行使見込みでもないためシナリオ株式数には含めず、条件成立時の追加希薄化リスクとして分離します。",
+          "severity": 4,
+          "sourceRefs": [
+            "intc-2025-10k",
+            "intc-q2-2026-10q"
+          ]
+        },
+        {
+          "category": "Supply",
+          "title": "供給制約と顧客需要の取りこぼし",
+          "description": "工場能力、基板、メモリ等の不足が続くと、需要が強くても数量を増やせず、顧客が代替製品へ移る可能性があります。",
+          "severity": 4,
+          "sourceRefs": [
+            "intc-q2-2026-10q"
+          ]
+        }
+      ]
+    },
+    "positives": [
+      "Q2 2026売上は前年比25%増で、会社ガイダンスを上回る強い需要と実行改善が確認された。",
+      "DCAI売上は前年比59%増、サーバー数量も増加し、AI時代のCPU需要が数字へ表れた。",
+      "GAAP粗利率40.4%、非GAAP粗利率41.8%まで回復し、前年同期から大きく改善した。",
+      "Intel 18A製品の量産と18A-Pのリスク生産が進み、技術ロードマップは実物製品段階へ移った。",
+      "Q2単独の営業キャッシュフローは70億ドルで、会計上の巨額純損失とキャッシュ創出が異なることを示した。"
+    ],
+    "concerns": [
+      "FoundryはQ2も20.89億ドルの営業損失で、外部売上は2.93億ドルにとどまる。",
+      "現金・短期投資297.27億ドルに対し短期・長期債務は505.37億ドルで、追加設備投資の負担が大きい。",
+      "PCクライアント数量は前年比8%減で、売上成長の一部は高価格帯ミックスとASP上昇による。",
+      "政府向けエスクロー株の時価評価と潜在希薄化がGAAP利益・1株価値の読解を複雑にする。",
+      "直近約20営業日で約24%下落するなど、期待倍率の変化で株価が大きく動く。"
+    ],
+    "watchItems": [
+      {
+        "title": "Q3売上と粗利率",
+        "description": "会社予想158〜168億ドル、GAAP粗利率41%に対する実績と、上振れ・下振れの内訳を確認。",
+        "signal": "flat"
+      },
+      {
+        "title": "DCAI数量とASP",
+        "description": "サーバー数量成長が継続するか、ASP上昇が製品ミックスと需給のどちらで生じたかを分ける。",
+        "signal": "up"
+      },
+      {
+        "title": "Intel 18A単位コスト",
+        "description": "Foundry損失、製品粗利率、期間費用の説明から歩留まり改善を間接確認する。",
+        "signal": "flat"
+      },
+      {
+        "title": "Foundry外部売上",
+        "description": "社内売上ではなく外部売上、前払い、量産採用、先端パッケージ受注の増加を見る。",
+        "signal": "flat"
+      },
+      {
+        "title": "株式数とネット債務",
+        "description": "発行済株式、エスクロー株、株式報酬、現金・短期投資、債務、設備投資を同時に更新する。",
+        "signal": "down"
+      }
+    ],
+    "calculation": {
+      "summary": "連結GAAP利益は政府向けエスクロー株の時価評価で大きく歪むため、2027年売上モデルにFoundryの戦略オプションを含むEV/Salesを掛け、概算ネット債務を控除し、希薄化後株式数で割りました。確率は予測の断定ではなく、不確実な3ケースへ置くモデル上の重みです。",
+      "columns": [
+        "ケース",
+        "2027年売上",
+        "EV/Sales",
+        "控除する純債務等",
+        "希薄化後株式数",
+        "1株価値"
+      ],
+      "rows": [
+        [
+          "Bear",
+          "660億ドル",
+          "5.0倍",
+          "250億ドル",
+          "52億株",
+          "約60ドル"
+        ],
+        [
+          "Base",
+          "750億ドル",
+          "6.8倍",
+          "200億ドル",
+          "52億株",
+          "約95ドル"
+        ],
+        [
+          "Bull",
+          "860億ドル",
+          "8.4倍",
+          "200億ドル",
+          "52億株",
+          "約135ドル"
+        ]
+      ],
+      "notice": "2027年売上、倍率、純債務、希薄化後株式数は当方仮定です。Q3会社予想やQ2実績と同じ事実欄へ混ぜていません。",
+      "sensitivity": {
+        "columns": [
+          "2027年売上 / EV-Sales",
+          "5.0倍",
+          "6.5倍",
+          "8.0倍"
+        ],
+        "rows": [
+          [
+            "680億ドル",
+            "61ドル",
+            "81ドル",
+            "101ドル"
+          ],
+          [
+            "750億ドル",
+            "68ドル",
+            "90ドル",
+            "111ドル"
+          ],
+          [
+            "820億ドル",
+            "75ドル",
+            "99ドル",
+            "122ドル"
+          ]
+        ],
+        "note": "概算ネット債務208億ドル、希薄化後株式数52億株で機械計算。丸め後の参考値。"
+      },
+      "sourceRefs": [
+        "intc-q2-2026-ir",
+        "intc-q2-2026-10q",
+        "intc-market-price-20260730"
+      ]
+    },
+    "assumptions": [
+      {
+        "item": "評価基準株価",
+        "value": "91.13ドル",
+        "classification": "market-data",
+        "note": "2026-07-30米国市場終値。ライブ価格とシナリオ基準値は分離する。",
+        "sourceRefs": [
+          "intc-market-price-20260730",
+          "intc-historical-price"
+        ]
+      },
+      {
+        "item": "Q2 2026売上",
+        "value": "161.28億ドル",
+        "classification": "fact",
+        "note": "2026-06-27終了四半期・US-GAAP。",
+        "sourceRefs": [
+          "intc-q2-2026-ir",
+          "intc-q2-2026-10q"
+        ]
+      },
+      {
+        "item": "Q3 2026売上会社予想",
+        "value": "158〜168億ドル",
+        "classification": "company-guidance",
+        "note": "2026-07-23発表。予想中間値は163億ドル。",
+        "sourceRefs": [
+          "intc-q2-2026-ir"
+        ]
+      },
+      {
+        "item": "現金・短期投資",
+        "value": "297.27億ドル",
+        "classification": "fact",
+        "note": "2026-06-27時点。現金128.74億ドル＋短期投資168.53億ドル。",
+        "sourceRefs": [
+          "intc-q2-2026-ir"
+        ]
+      },
+      {
+        "item": "短期・長期債務",
+        "value": "505.37億ドル",
+        "classification": "fact",
+        "note": "2026-06-27時点。短期19.88億ドル＋長期485.49億ドル。",
+        "sourceRefs": [
+          "intc-q2-2026-ir"
+        ]
+      },
+      {
+        "item": "概算ネット債務",
+        "value": "208.10億ドル",
+        "classification": "estimate",
+        "note": "短期・長期債務から現金・短期投資を控除した単純計算。リース・非支配持分等は別扱い。",
+        "sourceRefs": [
+          "intc-q2-2026-ir"
+        ]
+      },
+      {
+        "item": "Q2加重平均基本株式数",
+        "value": "51.04億株",
+        "classification": "fact",
+        "note": "Q2 2026 EPS計算上の加重平均。期末発行済株式は50.43億株。",
+        "sourceRefs": [
+          "intc-q2-2026-ir"
+        ]
+      },
+      {
+        "item": "シナリオ希薄化後株式数",
+        "value": "52億株",
+        "classification": "assumption",
+        "note": "期末株式数、株式報酬、政府向けエスクロー株の可能性を踏まえた丸め仮定。Foundry支配率51%未満を条件とする政府向け最大2.41億株のワラントは、現時点で行使可能でも行使見込みでもないため含めない。条件成立時は全面再計算する。",
+        "sourceRefs": [
+          "intc-2025-10k",
+          "intc-q2-2026-10q"
+        ]
+      },
+      {
+        "item": "Base 2027年売上",
+        "value": "750億ドル",
+        "classification": "assumption",
+        "note": "Q2 2026実績とQ3会社予想を起点にした当方モデル。市場コンセンサスではない。",
+        "sourceRefs": [
+          "intc-q2-2026-ir"
+        ]
+      },
+      {
+        "item": "シナリオ確率",
+        "value": "Bear 30% / Base 45% / Bull 25%",
+        "classification": "assumption",
+        "note": "モデル上の重みであり、会社予想や統計的成功確率ではない。合計100%。"
+      }
+    ],
+    "deepDive": [
+      {
+        "title": "Q2のGAAP純損失と本業の関係",
+        "content": "Q2 2026は営業利益17.96億ドルを計上した一方、利息・その他で125.76億ドルの損失があり、Intel帰属純損失は110.33億ドルとなりました。10-Qは、政府向けエスクロー株の株価上昇に伴い125億ドルの時価評価損を認識したと説明しています。このためGAAP EPSマイナス2.16ドルだけで営業状態を判断せず、営業利益、キャッシュフロー、株式数の変化を併読します。",
+        "sourceRefs": [
+          "intc-q2-2026-ir",
+          "intc-q2-2026-10q"
+        ]
+      },
+      {
+        "title": "Foundry売上の二重計上を避ける",
+        "content": "Q2 Foundry売上57.65億ドルのうち外部売上は2.93億ドルで、残りの多くはIntel Products向けの社内取引です。連結売上では54.77億ドルの社内取引が消去されます。製品売上とFoundry売上を単純合算して企業規模を大きく見せないことが重要です。",
+        "sourceRefs": [
+          "intc-q2-2026-10q"
+        ]
+      },
+      {
+        "title": "Fab 34持分買い戻しと資本構成",
+        "content": "Intelは2026年4月、Apollo関連主体が保有していたアイルランドFab 34共同事業の49%持分を142億ドルで買い戻し、65億ドルのブリッジローンを含む資金で賄いました。Q2末の債務と現金を評価する際は、この取引後の資本構成で見る必要があります。",
+        "sourceRefs": [
+          "intc-apollo-2026-8k",
+          "intc-q2-2026-ir"
+        ]
+      },
+      {
+        "title": "専用カタリストJSONを作成しない理由",
+        "content": "18A、外部Foundry顧客、供給制約は重要ですが、2026-07-31時点では次の結果発表日や外部量産契約の確定日が公式に示されていません。通常レポートでは確認可能な期間と更新条件だけを記載し、日付・成功確率・イベント単体の株価影響を創作しないため、今回は専用カタリストレポートを追加しません。",
+        "sourceRefs": [
+          "intc-q2-2026-ir",
+          "intc-ir-calendar",
+          "intc-2025-10k"
+        ]
+      }
+    ],
+    "extraSections": [
+      {
+        "id": "data-quality",
+        "topic": "data-quality",
+        "title": "数値の読み分け",
+        "summaryItems": [
+          "事実、会社予想、当方仮定を分離",
+          "イベント単体の株価影響と織り込み度は定量不能",
+          "正式日未発表の決算日を推定日として固定しない"
+        ],
+        "blocks": [
+          {
+            "type": "paragraphs",
+            "title": "このレポートの限界",
+            "paragraphs": [
+              "Bear・Base・Bullは2027年売上と倍率の仮定に強く依存します。特にFoundryは外部顧客売上が小さく、事業単体の公正価値を観測できないため、織り込み度を0〜100%の精密な数値へ変換していません。",
+              "現在株価だけは後日ライブ更新され得ますが、期待値、騰落率、直近20営業日変化、シナリオ価格は2026-07-30の評価基準に固定します。"
+            ]
+          }
+        ]
+      }
+    ],
+    "disclaimer": "本レポートは公開情報を基にした情報提供であり、特定の金融商品の取得・売却を勧誘するものではありません。シナリオ価格と確率は仮定に基づくモデル値で、将来の株価を保証しません。投資判断は一次資料と最新情報を確認のうえ、ご自身の責任で行ってください。"
+  },
+  "sources": [
+    {
+      "id": "intc-q2-2026-ir",
+      "title": "Intel Reports Second-Quarter 2026 Financial Results",
+      "publisher": "Intel Corporation",
+      "url": "https://www.intc.com/news-events/press-releases/detail/1776/intel-reports-second-quarter-2026-financial-results",
+      "sourceType": "earnings",
+      "primary": true,
+      "publishedAt": "2026-07-23",
+      "accessedAt": "2026-07-31"
+    },
+    {
+      "id": "intc-q2-2026-10q",
+      "title": "Quarterly Report on Form 10-Q for the quarter ended June 27, 2026",
+      "publisher": "U.S. Securities and Exchange Commission",
+      "url": "https://www.sec.gov/Archives/edgar/data/50863/000005086326000157/intc-20260627.htm",
+      "sourceType": "sec",
+      "primary": true,
+      "publishedAt": "2026-07-23",
+      "accessedAt": "2026-07-31"
+    },
+    {
+      "id": "intc-2025-10k",
+      "title": "Annual Report on Form 10-K for the fiscal year ended December 27, 2025",
+      "publisher": "U.S. Securities and Exchange Commission",
+      "url": "https://www.sec.gov/Archives/edgar/data/50863/000005086326000011/intc-20251227.htm",
+      "sourceType": "sec",
+      "primary": true,
+      "publishedAt": "2026-01-22",
+      "accessedAt": "2026-07-31"
+    },
+    {
+      "id": "intc-apollo-2026-8k",
+      "title": "Form 8-K: Repurchase of Fab 34 joint venture interest",
+      "publisher": "U.S. Securities and Exchange Commission",
+      "url": "https://www.sec.gov/Archives/edgar/data/50863/000005086326000072/intc-20260408.htm",
+      "sourceType": "sec",
+      "primary": true,
+      "publishedAt": "2026-04-08",
+      "accessedAt": "2026-07-31"
+    },
+    {
+      "id": "intc-historical-price",
+      "title": "Intel Historical Stock Data",
+      "publisher": "Intel Corporation",
+      "url": "https://www.intc.com/stock-info/historical-data",
+      "sourceType": "market-data",
+      "primary": false,
+      "publishedAt": null,
+      "accessedAt": "2026-07-31"
+    },
+    {
+      "id": "intc-ir-calendar",
+      "title": "Intel Investor Relations Calendar",
+      "publisher": "Intel Corporation",
+      "url": "https://www.intc.com/news-events/ir-calendar",
+      "sourceType": "company-ir",
+      "primary": true,
+      "publishedAt": null,
+      "accessedAt": "2026-07-31"
+    },
+    {
+      "id": "intc-panther-lake-2025",
+      "title": "Intel Unveils Panther Lake Architecture: First AI PC Platform Built on 18A",
+      "publisher": "Intel Corporation",
+      "url": "https://www.intc.com/news-events/press-releases/detail/1752/intel-unveils-panther-lake-architecture-first-ai-pc",
+      "sourceType": "company-ir",
+      "primary": true,
+      "publishedAt": "2025-10-09",
+      "accessedAt": "2026-07-31"
+    },
+    {
+      "id": "intc-market-price-20260730",
+      "title": "Intel Corporation (INTC) market quote",
+      "publisher": "Yahoo Finance",
+      "url": "https://finance.yahoo.com/quote/INTC/",
+      "sourceType": "market-data",
+      "primary": false,
+      "publishedAt": null,
+      "accessedAt": "2026-07-31"
+    }
+  ],
+  "coverageWaivers": [],
+  "validation": {
+    "status": "PASS",
+    "humanReviewed": false,
+    "machinePublished": true,
+    "revision": "intc-initial-20260731-r2"
+  }
+}

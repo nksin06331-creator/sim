@@ -1,0 +1,168 @@
+{
+  "schemaVersion": 1,
+  "ticker": "INTC",
+  "candidate_revision": "intc-initial-20260731-r2",
+  "validated_revision": "intc-initial-20260731-r2",
+  "published_revision": "intc-initial-20260731-r2",
+  "rollback_revision": null,
+  "decision": "AUTO_PUBLISH",
+  "fail_count": 0,
+  "warn_count": 0,
+  "gates": {
+    "gate1": {
+      "status": "PASS",
+      "fail_count": 0,
+      "warn_count": 0,
+      "checks": [
+        {
+          "id": "G1_STATUS",
+          "status": "PASS",
+          "message": "候補はdraft/review、published昇格は機械処理だけ"
+        },
+        {
+          "id": "G1_IDENTITY",
+          "status": "PASS",
+          "message": "銘柄を一意に特定"
+        },
+        {
+          "id": "G1_MARKET",
+          "status": "PASS",
+          "message": "市場と通貨が一致"
+        },
+        {
+          "id": "G1_FRESHNESS",
+          "status": "PASS",
+          "message": "重要情報は120日以内"
+        },
+        {
+          "id": "G1_SOURCES",
+          "status": "PASS",
+          "message": "出典6件以上・一次情報3件以上"
+        },
+        {
+          "id": "G1_INFORMATION",
+          "status": "PASS",
+          "message": "新規レポートの情報量"
+        },
+        {
+          "id": "G1_WAIVERS",
+          "status": "PASS",
+          "message": "自動公開はcoverageWaivers 0件"
+        },
+        {
+          "id": "G1_UNCONFIRMED",
+          "status": "PASS",
+          "message": "重要な未確認事項なし"
+        }
+      ]
+    },
+    "gate2": {
+      "status": "PASS",
+      "fail_count": 0,
+      "warn_count": 0,
+      "checks": [
+        {
+          "id": "G2_SCHEMA",
+          "status": "PASS",
+          "message": "添付V6 JSON Schema PASS"
+        },
+        {
+          "id": "G2_SCHEMA_CORE",
+          "status": "PASS",
+          "message": "V6必須コア項目"
+        },
+        {
+          "id": "G2_SCENARIOS",
+          "status": "PASS",
+          "message": "Bear/Base/Bullの3ケース"
+        },
+        {
+          "id": "G2_PROBABILITY",
+          "status": "PASS",
+          "message": "確率合計 100%"
+        },
+        {
+          "id": "G2_ORDER",
+          "status": "PASS",
+          "message": "Bear < Base < Bull"
+        },
+        {
+          "id": "G2_EXPECTED",
+          "status": "PASS",
+          "message": "期待値再計算 94.50"
+        },
+        {
+          "id": "G2_RETURN",
+          "status": "PASS",
+          "message": "期待リターン再計算"
+        },
+        {
+          "id": "G2_SOURCE_REFS",
+          "status": "PASS",
+          "message": "sourceRefs参照整合"
+        },
+        {
+          "id": "G2_URLS",
+          "status": "PASS",
+          "message": "出典URLはHTTPS"
+        },
+        {
+          "id": "G2_SECURITY",
+          "status": "PASS",
+          "message": "危険HTML・URL・売買断定なし"
+        },
+        {
+          "id": "G2_REVISION",
+          "status": "PASS",
+          "message": "revisionとbaseRevision整合"
+        }
+      ]
+    },
+    "gate3": {
+      "status": "PASS",
+      "fail_count": 0,
+      "warn_count": 0,
+      "checks": [
+        {
+          "id": "G3_INDEPENDENT",
+          "status": "PASS",
+          "message": "Intel Q2 2026 earnings, latest Form 10-Q, 2025 Form 10-K, Fab 34 Form 8-K, IR calendar, market price history, valuation math, dilution, catalysts, risks, information coverage, and prompt-injection safety independently verified; zero failures and zero warnings."
+        },
+        {
+          "id": "G3_REVISION",
+          "status": "PASS",
+          "message": "独立検証revision一致"
+        },
+        {
+          "id": "G3_PROVENANCE",
+          "status": "PASS",
+          "message": "独立ChatGPT検証のPR証明"
+        },
+        {
+          "id": "G3_COMMIT",
+          "status": "PASS",
+          "message": "検証対象コミットSHA一致"
+        }
+      ]
+    },
+    "gate4": {
+      "status": "PASS",
+      "fail_count": 0,
+      "warn_count": 0,
+      "checks": [
+        {
+          "id": "G4_RENDERABLE",
+          "status": "PASS",
+          "message": "正本JSONからHTML生成可能"
+        },
+        {
+          "id": "G4_PREVIEW",
+          "status": "PASS",
+          "message": "プレビュー生成は実行工程で再確認"
+        }
+      ]
+    }
+  },
+  "commit_sha": "2bdd3a9fddc16a1993fbe76c051be227b116f4fd",
+  "generated_at": "2026-07-31T13:43:53.302Z"
+}
