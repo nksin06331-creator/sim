@@ -1,14 +1,14 @@
 {
   "schemaVersion": 1,
   "reportId": "INTC",
-  "revision": "intc-catalyst-20260731-r3",
+  "revision": "intc-catalyst-20260731-r4",
   "status": "review",
   "renderMode": "structured",
   "templateVersion": "sim-report-v1",
   "update": {
     "mode": "patch",
     "baseRevision": "intc-initial-20260731-r2",
-    "reason": "公開済みINTCへ専用カタリストレポートを追加し、企業ガイドと株価シナリオの本文・数値は維持",
+    "reason": "公開済みINTCへ専用カタリストレポートを追加し、2026年7月24日付S-8を含む最新希薄化開示を反映。企業ガイドと株価シナリオの本文・数値は維持",
     "changedFields": [
       "revision",
       "status",
@@ -1165,6 +1165,6 @@
     "status": "PASS",
     "humanReviewed": false,
     "machinePublished": false,
-    "revision": "intc-catalyst-20260731-r3"
+    "revision": "intc-catalyst-20260731-r4"
   }
 }
