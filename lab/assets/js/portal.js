@@ -8,7 +8,6 @@ const cardViewButton = document.querySelector("#card-view");
 const listViewButton = document.querySelector("#list-view");
 const loadMoreButton = document.querySelector("#load-more");
 const manifestUrl = document.body.dataset.manifestUrl || "./data/manifest.json";
-const catalystManifestUrl = document.body.dataset.catalystManifestUrl || "./data/catalyst-reports.json";
 const linkPrefix = document.body.dataset.linkPrefix ?? (location.pathname.includes("/lab/") ? "../" : "");
 const PAGE_SIZE = 12;
 let stocks = [];
@@ -168,46 +167,14 @@ function render(query = "") {
 async function init() {
   try {
     const response = await fetch(manifestUrl, { cache: "no-store" }); if (!response.ok) throw new Error(`一覧データを取得できませんでした（${response.status}）`);
-    const catalystPaths = await loadCatalystPaths();
     stocks = (await response.json())
       .filter((stock) => stock.status !== "draft")
-      .map(applyLatestOverride)
-      .map((stock) => ({ ...stock, catalystPath: catalystPaths.get(stock.ticker) }));
+      .map(applyLatestOverride);
     setText("#hero-total", stocks.length); setText("#hero-us", stocks.filter((s) => s.market === "米国株").length); setText("#hero-jp", stocks.filter((s) => s.market === "日本株").length);
     renderThemeFilters(); render();
   } catch (error) { status.className = "error-panel"; status.textContent = `${error.message}。GitHub Pagesの更新状況を確認してください。`; }
 }
 
-function safeCatalystPath(value) {
-  return typeof value === "string"
-    && !value.includes("..")
-    && /^stocks\/[^/?#]+\/catalysts\.html$/.test(value);
-}
-
-async function loadCatalystPaths() {
-  try {
-    const response = await fetch(catalystManifestUrl, { cache: "no-store" });
-    if (!response.ok) return new Map();
-    const payload = await response.json();
-    if (!Array.isArray(payload) && payload?.schemaVersion !== 1) return new Map();
-    const reports = Array.isArray(payload) ? payload : payload?.reports;
-    if (!Array.isArray(reports)) return new Map();
-    const paths = new Map();
-    for (const report of reports) {
-      if (report?.status === "draft") continue;
-      const valid = report?.status === "published"
-        && /^[A-Z0-9.-]+$/.test(report.ticker ?? "")
-        && safeCatalystPath(report.path)
-        && Boolean(report.reviewedBy)
-        && /^\d{4}-\d{2}-\d{2}$/.test(report.reviewedAt ?? "");
-      if (!valid || paths.has(report.ticker)) return new Map();
-      paths.set(report.ticker, report.path);
-    }
-    return paths;
-  } catch {
-    return new Map();
-  }
-}
 search?.addEventListener("input", (event) => { visibleCount = PAGE_SIZE; render(event.target.value); });
 filters?.addEventListener("click", (event) => { const button = event.target.closest(".filter-tab"); if (!button) return; filters.querySelectorAll(".filter-tab").forEach((tab) => tab.classList.remove("active")); button.classList.add("active"); activeMarket = button.dataset.market; visibleCount = PAGE_SIZE; render(search.value); });
 themeFilters?.addEventListener("click", (event) => { const button = event.target.closest(".theme-chip"); if (!button) return; activeTheme = button.dataset.theme; visibleCount = PAGE_SIZE; renderThemeFilters(); render(search.value); });
