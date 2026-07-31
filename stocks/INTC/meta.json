@@ -5,31 +5,32 @@
   "name": "Intel Corporation",
   "market": "米国株",
   "sector": "半導体・AIコンピューティング",
-  "method": "2027年売上×フォワードEV/Sales（Foundryオプション込み）を主軸に、正規化EPSでクロスチェック",
+  "method": "2027年売上 × EV/Sales − ネットデット",
   "status": "published",
   "updated": "2026-07-31",
   "price": {
-    "current": 91.13,
+    "current": 93.39,
     "currency": "USD"
   },
   "scenarios": {
-    "bear": 60,
-    "base": 95,
-    "bull": 135
+    "bear": 54.7,
+    "base": 89.19,
+    "bull": 137.37
   },
-  "positionPct": 41.5,
-  "zone": "Q2売上成長だけでは現在価値を説明し切れず、18Aの量産経済性と外部顧客価値を含むオプション評価が大きい",
-  "riskReward": "期待回復を相当織り込む高変動局面",
-  "catalyst": "Q3 2026決算と会社予想の達成度",
-  "summary": "IntelはCPUやカスタム半導体を設計するIntel Productsと、先端プロセス・製造・先端パッケージを担うIntel Foundryを同じ企業内に持つIDMです。Q2 2026はPC向けのCCPGが88.77億ドル、データセンター・AIのDCAIが62.62億ドルと製品部門が伸び、連結売上は161.28億ドルでした。評価の焦点は、製品利益の回復を維持しながら、Intel 18Aの歩留まり・供給量・外部顧客を増やし、Foundryの巨額赤字と資本負担を縮小できるかです。",
+  "positionPct": 46.8,
+  "zone": "Baseやや上",
+  "riskReward": "1.14倍",
+  "catalyst": "2026年Q3決算 / 供給制約緩和 / 18A-P・14A外部顧客",
+  "summary": "Q2売上は前年比25%増と強い一方、現値はBase価値を上回る。今後はQ3ガイダンス達成、供給改善、Foundry外部顧客の具体化が焦点。",
   "tags": [
     "CPU",
     "AIデータセンター",
     "Intel 18A",
     "米国製造"
   ],
-  "risk": "HIGH",
+  "risk": "高",
   "detailPath": "stocks/INTC/index.html",
   "scenarioPath": "stocks/INTC/scenario.html",
-  "sourceRevision": "intc-initial-20260731-r2"
+  "sourceRevision": "intc-q2-20260731-catalyst-v1",
+  "catalystPath": "stocks/INTC/catalysts.html"
 }
