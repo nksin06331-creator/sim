@@ -20,6 +20,7 @@ on:
       - "scripts/auto-publish.mjs"
       - "scripts/health-check.mjs"
       - ".github/workflows/hybrid-pages.yml"
+      - ".github/workflows/report-auto-publish.yml"
   workflow_dispatch:
 
 permissions:
