@@ -7,9 +7,9 @@
   "sector": "オンライン証券・予測市場・暗号資産",
   "method": "2027E正規化EPS × PER",
   "status": "published",
-  "updated": "2026-07-30",
+  "updated": "2026-07-31",
   "price": {
-    "current": 89.84,
+    "current": 86.6,
     "currency": "USD"
   },
   "scenarios": {
@@ -17,11 +17,11 @@
     "base": 108,
     "bull": 175
   },
-  "positionPct": 27.2,
+  "positionPct": 24.4,
   "zone": "Bear〜Base帯",
-  "riskReward": "2.67倍",
-  "catalyst": "2026年Q3決算 / 予測市場収益・純入金・暗号資産取引",
-  "summary": "Q2は過去最高売上。予測市場と株式取引が急伸した一方、暗号資産減速と一時利益を除いた収益力を確認する。",
+  "riskReward": "3.09倍",
+  "catalyst": "2026年Q3決算 / 予測市場収益・純入金・信用損失",
+  "summary": "Q2は過去最高売上と純入金。報告EPSの一時利益を除き、予測市場の継続性と規制を確認する。",
   "tags": [
     "オンライン証券",
     "予測市場",
