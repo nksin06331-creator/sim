@@ -8,6 +8,7 @@ const cardViewButton = document.querySelector("#card-view");
 const listViewButton = document.querySelector("#list-view");
 const loadMoreButton = document.querySelector("#load-more");
 const manifestUrl = document.body.dataset.manifestUrl || "./data/manifest.json";
+const catalystManifestUrl = document.body.dataset.catalystManifestUrl || "./data/catalyst-reports.json";
 const linkPrefix = document.body.dataset.linkPrefix ?? (location.pathname.includes("/lab/") ? "../" : "");
 const PAGE_SIZE = 12;
 let stocks = [];
@@ -69,9 +70,9 @@ const sorters = {
 function scenarioCell(parent, label, value, currency) {
   const cell = document.createElement("div"); addText(cell, "span", label); addText(cell, "strong", formatPrice(value, currency)); parent.append(cell);
 }
-function actionLink(parent, label, href, primary = false) {
+function actionLink(parent, label, href, primary = false, variant = "") {
   if (!href) return;
-  const link = document.createElement("a"); link.className = primary ? "card-button primary" : "card-button"; link.href = `${linkPrefix}${href}`; link.innerHTML = `<span>${label}</span><b aria-hidden="true">↗</b>`; parent.append(link);
+  const link = document.createElement("a"); link.className = ["card-button", primary ? "primary" : "", variant].filter(Boolean).join(" "); link.href = `${linkPrefix}${href}`; link.innerHTML = `<span>${label}</span><b aria-hidden="true">↗</b>`; parent.append(link);
 }
 function createCard(stock) {
   const card = document.createElement("article"); card.className = "stock-card";
@@ -84,7 +85,7 @@ function createCard(stock) {
   const price = document.createElement("div"); addText(price, "span", "現在株価"); addText(price, "strong", formatPrice(stock.price?.current, stock.price?.currency)); addText(price, "small", `${stock.updated} 更新`); snapshot.append(price);
   const risk = document.createElement("div"); addText(risk, "span", "リスク"); const riskValue = addText(risk, "strong", stock.risk || "—"); riskValue.className = /非常|極めて|VERY/i.test(stock.risk || "") ? "risk very-high" : /高|HIGH/i.test(stock.risk || "") ? "risk high" : "risk"; snapshot.append(risk); card.append(snapshot);
   const row = document.createElement("div"); row.className = "scenario-row"; scenarioCell(row, "BEAR", stock.scenarios?.bear, stock.price?.currency); scenarioCell(row, "BASE", stock.scenarios?.base, stock.price?.currency); scenarioCell(row, "BULL", stock.scenarios?.bull, stock.price?.currency); card.append(row);
-  const actions = document.createElement("div"); actions.className = "card-actions"; actionLink(actions, "企業を知る", stock.detailPath); actionLink(actions, "株価を考える", stock.scenarioPath, true); card.append(actions);
+  const actions = document.createElement("div"); actions.className = "card-actions"; actionLink(actions, "企業を知る", stock.detailPath); actionLink(actions, "株価を考える", stock.scenarioPath, true); actionLink(actions, "今後のカタリストをみる", stock.catalystPath, false, "catalyst"); card.append(actions);
   return card;
 }
 function riskClass(risk = "") { return /非常|極めて|VERY/i.test(risk) ? "very-high" : /高|HIGH/i.test(risk) ? "high" : ""; }
@@ -97,7 +98,7 @@ function createList(stocksToRender) {
     const summary = document.createElement("summary");
     summary.innerHTML = `<span class="mobile-stock-id"><strong>${stock.ticker}</strong><small>${stock.name}</small></span><span class="mobile-stock-price"><small>現在株価</small><strong>${formatPrice(stock.price?.current, stock.price?.currency)}</strong></span><span class="mobile-stock-toggle" aria-hidden="true"></span>`;
     const panel = document.createElement("div"); panel.className = "mobile-stock-panel";
-    panel.innerHTML = `<div class="mobile-stock-meta"><span>${stock.market}</span><span>${theme === "その他" ? stock.sector : theme}</span><span>${stock.updated} 更新</span></div><div class="mobile-stock-values"><div><small>BASE</small><strong>${formatPrice(stock.scenarios?.base, stock.price?.currency)}</strong></div><div><small>リスク</small><strong class="stock-list-risk ${riskClass(stock.risk)}">${stock.risk || "—"}</strong></div></div><div class="stock-list-actions">${stock.scenarioPath ? `<a class="stock-list-link stock-list-link-primary" href="${linkPrefix}${stock.scenarioPath}">株価を考える →</a>` : ""}${stock.detailPath ? `<a class="stock-list-link" href="${linkPrefix}${stock.detailPath}">企業を知る →</a>` : ""}</div>`;
+    panel.innerHTML = `<div class="mobile-stock-meta"><span>${stock.market}</span><span>${theme === "その他" ? stock.sector : theme}</span><span>${stock.updated} 更新</span></div><div class="mobile-stock-values"><div><small>BASE</small><strong>${formatPrice(stock.scenarios?.base, stock.price?.currency)}</strong></div><div><small>リスク</small><strong class="stock-list-risk ${riskClass(stock.risk)}">${stock.risk || "—"}</strong></div></div><div class="stock-list-actions">${stock.scenarioPath ? `<a class="stock-list-link stock-list-link-primary" href="${linkPrefix}${stock.scenarioPath}">株価を考える →</a>` : ""}${stock.detailPath ? `<a class="stock-list-link" href="${linkPrefix}${stock.detailPath}">企業を知る →</a>` : ""}${stock.catalystPath ? `<a class="stock-list-link stock-list-link-catalyst" href="${linkPrefix}${stock.catalystPath}">今後のカタリストをみる →</a>` : ""}</div>`;
     item.append(summary, panel); mobileList.append(item);
   });
   const table = document.createElement("table"); table.className = "stock-list";
@@ -108,7 +109,8 @@ function createList(stocksToRender) {
     const theme = detectTheme(stock);
     const detailLink = stock.detailPath ? `<a class="stock-list-link" href="${linkPrefix}${stock.detailPath}">企業を知る →</a>` : "";
     const scenarioLink = stock.scenarioPath ? `<a class="stock-list-link stock-list-link-primary" href="${linkPrefix}${stock.scenarioPath}">株価を考える →</a>` : "";
-    row.innerHTML = `<td class="stock-list-ticker">${stock.ticker}</td><td class="stock-list-company">${stock.name}</td><td>${stock.market}</td><td>${theme === "その他" ? stock.sector : theme}</td><td>${formatPrice(stock.price?.current, stock.price?.currency)}</td><td>${formatPrice(stock.scenarios?.base, stock.price?.currency)}</td><td><span class="stock-list-risk ${riskClass(stock.risk)}">${stock.risk || "—"}</span></td><td>${stock.updated}</td><td><div class="stock-list-actions">${detailLink}${scenarioLink}</div></td>`;
+    const catalystLink = stock.catalystPath ? `<a class="stock-list-link stock-list-link-catalyst" href="${linkPrefix}${stock.catalystPath}">今後のカタリストをみる →</a>` : "";
+    row.innerHTML = `<td class="stock-list-ticker">${stock.ticker}</td><td class="stock-list-company">${stock.name}</td><td>${stock.market}</td><td>${theme === "その他" ? stock.sector : theme}</td><td>${formatPrice(stock.price?.current, stock.price?.currency)}</td><td>${formatPrice(stock.scenarios?.base, stock.price?.currency)}</td><td><span class="stock-list-risk ${riskClass(stock.risk)}">${stock.risk || "—"}</span></td><td>${stock.updated}</td><td><div class="stock-list-actions">${detailLink}${scenarioLink}${catalystLink}</div></td>`;
     body.append(row);
   });
   table.append(body); wrap.append(mobileList, table); return wrap;
@@ -166,10 +168,45 @@ function render(query = "") {
 async function init() {
   try {
     const response = await fetch(manifestUrl, { cache: "no-store" }); if (!response.ok) throw new Error(`一覧データを取得できませんでした（${response.status}）`);
-    stocks = (await response.json()).filter((stock) => stock.status !== "draft").map(applyLatestOverride);
+    const catalystPaths = await loadCatalystPaths();
+    stocks = (await response.json())
+      .filter((stock) => stock.status !== "draft")
+      .map(applyLatestOverride)
+      .map((stock) => ({ ...stock, catalystPath: catalystPaths.get(stock.ticker) }));
     setText("#hero-total", stocks.length); setText("#hero-us", stocks.filter((s) => s.market === "米国株").length); setText("#hero-jp", stocks.filter((s) => s.market === "日本株").length);
     renderThemeFilters(); render();
   } catch (error) { status.className = "error-panel"; status.textContent = `${error.message}。GitHub Pagesの更新状況を確認してください。`; }
+}
+
+function safeCatalystPath(value) {
+  return typeof value === "string"
+    && !value.includes("..")
+    && /^stocks\/[^/?#]+\/catalysts\.html$/.test(value);
+}
+
+async function loadCatalystPaths() {
+  try {
+    const response = await fetch(catalystManifestUrl, { cache: "no-store" });
+    if (!response.ok) return new Map();
+    const payload = await response.json();
+    if (!Array.isArray(payload) && payload?.schemaVersion !== 1) return new Map();
+    const reports = Array.isArray(payload) ? payload : payload?.reports;
+    if (!Array.isArray(reports)) return new Map();
+    const paths = new Map();
+    for (const report of reports) {
+      if (report?.status === "draft") continue;
+      const valid = report?.status === "published"
+        && /^[A-Z0-9.-]+$/.test(report.ticker ?? "")
+        && safeCatalystPath(report.path)
+        && Boolean(report.reviewedBy)
+        && /^\d{4}-\d{2}-\d{2}$/.test(report.reviewedAt ?? "");
+      if (!valid || paths.has(report.ticker)) return new Map();
+      paths.set(report.ticker, report.path);
+    }
+    return paths;
+  } catch {
+    return new Map();
+  }
 }
 search?.addEventListener("input", (event) => { visibleCount = PAGE_SIZE; render(event.target.value); });
 filters?.addEventListener("click", (event) => { const button = event.target.closest(".filter-tab"); if (!button) return; filters.querySelectorAll(".filter-tab").forEach((tab) => tab.classList.remove("active")); button.classList.add("active"); activeMarket = button.dataset.market; visibleCount = PAGE_SIZE; render(search.value); });

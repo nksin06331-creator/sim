@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{TITLE}}</title>
+<style>{{STYLE}}</style>
+</head>
+<body class="sim-report sim-guide" data-stock-ticker="{{TICKER}}" data-price-source="../../data/prices.json">
+<div class="progress-bar" id="progressBar"></div>
+{{HERO}}
+{{HERO_SUMMARY}}
+{{NAV}}
+<div class="container">
+{{SECTIONS}}
+{{EXTRA_SECTIONS}}
+{{SOURCES}}
+{{DISCLAIMER}}
+<footer>{{FOOTER}}</footer>
+</div>
+<script>
+(() => {
+  const b=document.getElementById('progressBar');
+  const u=()=>{const h=document.documentElement.scrollHeight-innerHeight;const s=h>0?scrollY/h:0;b.style.width=Math.min(100,Math.max(0,s*100))+'%'};
+  document.addEventListener('scroll',u,{passive:true});window.addEventListener('resize',u);u();
+})();
+</script>
+<script src="../../lab/assets/js/live-report-price.js" defer></script>
+</body>
+</html>

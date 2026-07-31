@@ -1,0 +1,436 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SiM unified stock report",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "reportId",
+    "revision",
+    "status",
+    "renderMode",
+    "update",
+    "meta"
+  ],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "reportId": { "type": "string", "pattern": "^[A-Z0-9.-]+$" },
+    "revision": { "type": "string", "minLength": 1 },
+    "status": { "enum": ["draft", "review", "published", "archived"] },
+    "renderMode": { "enum": ["legacy-preserve", "structured"] },
+    "templateVersion": { "type": "string", "minLength": 1 },
+    "update": {
+      "type": "object",
+      "required": ["mode", "reason", "changedFields"],
+      "properties": {
+        "mode": {
+          "enum": [
+            "initial",
+            "full-refresh",
+            "patch",
+            "price-only",
+            "correction",
+            "corporate-action"
+          ]
+        },
+        "baseRevision": { "type": ["string", "null"] },
+        "reason": { "type": "string", "minLength": 5 },
+        "changedFields": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "minLength": 1 }
+        }
+      },
+      "additionalProperties": false
+    },
+    "legacy": {
+      "type": "object",
+      "required": ["guidePath", "scenarioPath"],
+      "properties": {
+        "guidePath": { "type": "string" },
+        "scenarioPath": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "meta": {
+      "type": "object",
+      "required": [
+        "companyName",
+        "ticker",
+        "market",
+        "exchange",
+        "currency",
+        "valuationDate",
+        "lastUpdated",
+        "sector",
+        "industry",
+        "fiscalYearLabel",
+        "marketDetails"
+      ],
+      "properties": {
+        "companyName": { "type": "string", "minLength": 1 },
+        "ticker": { "type": "string", "pattern": "^[A-Z0-9.-]+$" },
+        "aliases": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "market": { "enum": ["US", "JP"] },
+        "exchange": { "type": "string", "minLength": 1 },
+        "currency": { "enum": ["USD", "JPY"] },
+        "valuationDate": { "type": "string", "format": "date" },
+        "lastUpdated": { "type": "string", "format": "date" },
+        "sector": { "type": "string", "minLength": 1 },
+        "industry": { "type": "string", "minLength": 1 },
+        "fiscalYearLabel": { "type": "string", "minLength": 1 },
+        "marketDetails": {
+          "type": "object",
+          "properties": {
+            "reportingStandard": { "type": "string" },
+            "secCik": { "type": ["string", "null"] },
+            "adr": { "type": ["boolean", "null"] },
+            "securitiesCode": { "type": ["string", "null"] },
+            "listingSegment": { "type": ["string", "null"] },
+            "fiscalYearEndMonth": { "type": ["integer", "null"], "minimum": 1, "maximum": 12 }
+          },
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": true
+    },
+    "overview": {
+      "type": "object",
+      "required": ["tagline", "heroTags", "heroStats", "businessSummary"],
+      "properties": {
+        "tagline": { "type": "string", "minLength": 1 },
+        "heroTags": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string" }
+        },
+        "heroStats": {
+          "type": "array",
+          "minItems": 3,
+          "items": { "$ref": "#/$defs/stat" }
+        },
+        "businessSummary": { "type": "string", "minLength": 1 }
+      },
+      "additionalProperties": true
+    },
+    "guide": {
+      "type": "object",
+      "required": ["sections"],
+      "properties": {
+        "sections": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/section" }
+        },
+        "extraSections": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/section" }
+        }
+      },
+      "additionalProperties": false
+    },
+    "scenario": {
+      "type": "object",
+      "required": [
+        "decision",
+        "valuation",
+        "scenarios",
+        "positioning",
+        "marketReverse",
+        "entryContext",
+        "risk",
+        "positives",
+        "concerns",
+        "watchItems",
+        "calculation",
+        "assumptions",
+        "deepDive",
+        "disclaimer"
+      ],
+      "properties": {
+        "decision": {
+          "type": "object",
+          "required": ["status", "oneLine", "score", "companyQuality", "valuationView"],
+          "properties": {
+            "status": { "type": "string" },
+            "oneLine": { "type": "string" },
+            "score": { "type": "number", "minimum": 0, "maximum": 100 },
+            "companyQuality": { "type": "string" },
+            "valuationView": { "type": "string" }
+          }
+        },
+        "valuation": {
+          "type": "object",
+          "required": ["currentPrice", "currency", "expectedValue", "expectedReturnPct", "method"],
+          "properties": {
+            "currentPrice": { "type": "number" },
+            "currency": { "enum": ["USD", "JPY"] },
+            "expectedValue": { "type": "number" },
+            "expectedReturnPct": { "type": "number" },
+            "method": { "type": "string" },
+            "currentPriceNote": { "type": "string" }
+          }
+        },
+        "scenarios": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 3,
+          "items": { "$ref": "#/$defs/scenario" }
+        },
+        "positioning": { "type": "object", "additionalProperties": true },
+        "marketReverse": { "type": "object", "additionalProperties": true },
+        "entryContext": {
+          "type": "object",
+          "required": ["recent20dChangePct", "moveTrigger", "catalysts", "pricedInNote"],
+          "properties": {
+            "recent20dChangePct": { "type": "number" },
+            "moveTrigger": { "type": "string" },
+            "catalysts": {
+              "type": "array",
+              "minItems": 1,
+              "items": { "$ref": "#/$defs/catalyst" }
+            },
+            "pricedInNote": { "type": "string" }
+          }
+        },
+        "risk": {
+          "type": "object",
+          "required": ["riskClass", "items"],
+          "properties": {
+            "riskClass": { "enum": ["LOW", "MEDIUM", "HIGH", "VERY HIGH"] },
+            "items": {
+              "type": "array",
+              "minItems": 1,
+              "items": { "$ref": "#/$defs/risk" }
+            }
+          }
+        },
+        "positives": { "type": "array", "items": { "type": "string" } },
+        "concerns": { "type": "array", "items": { "type": "string" } },
+        "watchItems": { "type": "array", "items": { "$ref": "#/$defs/watch" } },
+        "calculation": { "type": "object", "additionalProperties": true },
+        "assumptions": { "type": "array", "items": { "$ref": "#/$defs/assumption" } },
+        "deepDive": { "type": "array", "items": { "$ref": "#/$defs/detail" } },
+        "extraSections": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/section" }
+        },
+        "disclaimer": { "type": "string" }
+      },
+      "additionalProperties": true
+    },
+    "sources": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/source" }
+    },
+    "coverageWaivers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["checkId", "reason", "approvedBy", "approvedAt"],
+        "properties": {
+          "checkId": { "type": "string" },
+          "reason": { "type": "string", "minLength": 10 },
+          "approvedBy": { "type": "string", "minLength": 1 },
+          "approvedAt": { "type": "string", "format": "date" }
+        }
+      }
+    },
+    "validation": {
+      "type": "object",
+      "properties": {
+        "status": { "enum": ["PASS", "WARN", "FAIL"] },
+        "checks": { "type": "array" },
+        "humanReviewed": { "type": "boolean" }
+      },
+      "additionalProperties": true
+    }
+  },
+  "$defs": {
+    "stat": {
+      "type": "object",
+      "required": ["value", "label"],
+      "properties": {
+        "value": { "type": ["string", "number"] },
+        "label": { "type": "string" },
+        "note": { "type": "string" },
+        "tone": { "enum": ["normal", "up", "down"] },
+        "livePrice": { "type": "boolean" }
+      }
+    },
+    "section": {
+      "type": "object",
+      "required": ["id", "topic", "title", "summaryItems", "blocks"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "topic": { "type": "string", "minLength": 1 },
+        "icon": { "type": "string" },
+        "title": { "type": "string", "minLength": 1 },
+        "subtitle": { "type": "string" },
+        "summaryItems": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string" }
+        },
+        "blocks": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/block" }
+        }
+      }
+    },
+    "block": {
+      "type": "object",
+      "required": ["type"],
+      "properties": {
+        "type": {
+          "enum": [
+            "facts",
+            "cards",
+            "keypoints",
+            "terms",
+            "products",
+            "comparison",
+            "timeline",
+            "risk-grid",
+            "highlight",
+            "paragraphs",
+            "table",
+            "custom"
+          ]
+        },
+        "title": { "type": "string" },
+        "items": { "type": "array" },
+        "columns": { "type": "array" },
+        "rows": { "type": "array" },
+        "text": { "type": "string" },
+        "paragraphs": { "type": "array", "items": { "type": "string" } },
+        "payload": { "type": "object" }
+      },
+      "additionalProperties": true
+    },
+    "scenario": {
+      "type": "object",
+      "required": ["name", "price", "probability", "conditions", "details"],
+      "properties": {
+        "name": { "enum": ["Bear", "Base", "Bull"] },
+        "price": { "type": "number" },
+        "probability": { "type": "number", "minimum": 0, "maximum": 100 },
+        "conditions": { "type": "array", "minItems": 1, "items": { "type": "string" } },
+        "details": { "type": "array", "items": { "$ref": "#/$defs/labelValue" } }
+      }
+    },
+    "catalyst": {
+      "type": "object",
+      "required": ["title", "timing", "status", "importance", "successImpact", "failureImpact", "sourceRefs"],
+      "properties": {
+        "title": { "type": "string" },
+        "timing": { "type": "string" },
+        "status": { "enum": ["confirmed", "estimated", "window", "unknown"] },
+        "importance": { "type": "integer", "minimum": 1, "maximum": 5 },
+        "successImpact": { "type": "string" },
+        "failureImpact": { "type": "string" },
+        "sourceRefs": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "risk": {
+      "type": "object",
+      "required": ["category", "title", "description", "severity", "sourceRefs"],
+      "properties": {
+        "category": { "type": "string" },
+        "title": { "type": "string" },
+        "description": { "type": "string" },
+        "severity": { "type": "integer", "minimum": 1, "maximum": 5 },
+        "sourceRefs": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "watch": {
+      "type": "object",
+      "required": ["title", "description", "signal"],
+      "properties": {
+        "title": { "type": "string" },
+        "description": { "type": "string" },
+        "signal": { "enum": ["up", "down", "flat"] }
+      }
+    },
+    "assumption": {
+      "type": "object",
+      "required": ["item", "value", "classification", "note"],
+      "properties": {
+        "item": { "type": "string" },
+        "value": { "type": ["string", "number"] },
+        "classification": { "enum": ["fact", "market-data", "company-guidance", "estimate", "assumption"] },
+        "note": { "type": "string" },
+        "sourceRefs": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "detail": {
+      "type": "object",
+      "required": ["title", "content"],
+      "properties": {
+        "title": { "type": "string" },
+        "content": { "type": "string" },
+        "sourceRefs": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "source": {
+      "type": "object",
+      "required": ["id", "title", "publisher", "url", "sourceType", "primary", "accessedAt"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "title": { "type": "string", "minLength": 1 },
+        "publisher": { "type": "string", "minLength": 1 },
+        "url": { "type": "string", "pattern": "^https://" },
+        "sourceType": {
+          "enum": [
+            "company-ir",
+            "sec",
+            "tdnet",
+            "edinet",
+            "exchange",
+            "government",
+            "earnings",
+            "market-data",
+            "secondary"
+          ]
+        },
+        "primary": { "type": "boolean" },
+        "publishedAt": { "type": ["string", "null"] },
+        "accessedAt": { "type": "string", "format": "date" }
+      }
+    },
+    "labelValue": {
+      "type": "object",
+      "required": ["label", "value"],
+      "properties": {
+        "label": { "type": "string" },
+        "value": { "type": ["string", "number"] }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "renderMode": { "const": "legacy-preserve" }
+        }
+      },
+      "then": {
+        "required": ["legacy"]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "renderMode": { "const": "structured" }
+        }
+      },
+      "then": {
+        "required": ["overview", "guide", "scenario", "sources", "validation"]
+      }
+    }
+  ],
+  "additionalProperties": false
+}

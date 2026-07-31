@@ -1,0 +1,1371 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-07-31T01:28:00.913Z",
+  "reportCount": 62,
+  "reports": {
+    "6857": {
+      "guide": {
+        "sha256": "a7ad9b0662a2715cde49081387140585234e3c7ddaf59a21e7b4d712c686cbf9",
+        "characters": 37484,
+        "textCharacters": 4246,
+        "sections": 7,
+        "details": 21,
+        "tables": 2,
+        "sourceLinks": 4,
+        "livePriceMarkers": 2
+      },
+      "scenario": {
+        "sha256": "ad8b8d6247a93dfde3def4432a42fc01daed703fae9c380a5ef4c4bc4e01b049",
+        "characters": 23252,
+        "textCharacters": 3542,
+        "sections": 11,
+        "details": 12,
+        "tables": 3,
+        "sourceLinks": 4,
+        "livePriceMarkers": 2
+      }
+    },
+    "7203": {
+      "guide": {
+        "sha256": "bfaa92a25121b809f8ce397eb96c1d13a2e2750e8e671bb01f79da3263e211ac",
+        "characters": 37233,
+        "textCharacters": 4009,
+        "sections": 7,
+        "details": 21,
+        "tables": 2,
+        "sourceLinks": 4,
+        "livePriceMarkers": 2
+      },
+      "scenario": {
+        "sha256": "c32e31ddbfd6c7598d22109fb518489b673f72dccdcd15b9702bc3a531f55e76",
+        "characters": 23003,
+        "textCharacters": 3383,
+        "sections": 11,
+        "details": 12,
+        "tables": 3,
+        "sourceLinks": 4,
+        "livePriceMarkers": 2
+      }
+    },
+    "7974": {
+      "guide": {
+        "sha256": "a04d0b9737c48e20b2911e0505122af4c68f8b232e423d663fe5c322d4d5e7ae",
+        "characters": 37497,
+        "textCharacters": 4289,
+        "sections": 7,
+        "details": 21,
+        "tables": 2,
+        "sourceLinks": 4,
+        "livePriceMarkers": 2
+      },
+      "scenario": {
+        "sha256": "e359d5e6fd48ea2749c6064baa53068e2db08449e3def55377c966b9033a75c3",
+        "characters": 23019,
+        "textCharacters": 3433,
+        "sections": 11,
+        "details": 12,
+        "tables": 3,
+        "sourceLinks": 4,
+        "livePriceMarkers": 2
+      }
+    },
+    "8136": {
+      "guide": {
+        "sha256": "6448a58c0c8760d71ccbce7b734fe5a9a5b44bc1ebb8ea34840c28f85aa7dabf",
+        "characters": 37368,
+        "textCharacters": 4164,
+        "sections": 7,
+        "details": 21,
+        "tables": 2,
+        "sourceLinks": 4,
+        "livePriceMarkers": 2
+      },
+      "scenario": {
+        "sha256": "e2ae23ae06f65fa2b2d0a93d67a1011de7f5399f428f061dc6ac32e83eba2b55",
+        "characters": 22847,
+        "textCharacters": 3261,
+        "sections": 11,
+        "details": 12,
+        "tables": 3,
+        "sourceLinks": 4,
+        "livePriceMarkers": 2
+      }
+    },
+    "8306": {
+      "guide": {
+        "sha256": "78be18feee4cae09500b7aa3311563d4fb5bf28c3b89d647f449cc8fabf6a056",
+        "characters": 37381,
+        "textCharacters": 4174,
+        "sections": 7,
+        "details": 21,
+        "tables": 2,
+        "sourceLinks": 4,
+        "livePriceMarkers": 2
+      },
+      "scenario": {
+        "sha256": "02644745ce304b25319f4f09348dbafa3b95c4268d8ae6c2a679e94980150ef3",
+        "characters": 22966,
+        "textCharacters": 3369,
+        "sections": 11,
+        "details": 12,
+        "tables": 3,
+        "sourceLinks": 4,
+        "livePriceMarkers": 2
+      }
+    },
+    "ABCL": {
+      "guide": {
+        "sha256": "2eabd9b18e1295669db3ed6ace39dcac9d479039a05df424d2b6bc0c76d2ecdf",
+        "characters": 39557,
+        "textCharacters": 4451,
+        "sections": 7,
+        "details": 23,
+        "tables": 2,
+        "sourceLinks": 0,
+        "livePriceMarkers": 2
+      },
+      "scenario": {
+        "sha256": "275f736074c67387d52aa7656a92a63db21d9bec715db5863ab42663dfbfd543",
+        "characters": 24251,
+        "textCharacters": 4068,
+        "sections": 11,
+        "details": 13,
+        "tables": 3,
+        "sourceLinks": 5,
+        "livePriceMarkers": 2
+      }
+    },
+    "APLD": {
+      "guide": {
+        "sha256": "aed4adbf5438426bcd43938da8042ef8f11af4c629b4fb7e7872e6c7244be83c",
+        "characters": 36497,
+        "textCharacters": 3590,
+        "sections": 7,
+        "details": 7,
+        "tables": 3,
+        "sourceLinks": 1,
+        "livePriceMarkers": 2
+      },
+      "scenario": {
+        "sha256": "2c257683c27d9957670c24ed5b9d07aaa5158fdfaa664b348276d82640c8bc1a",
+        "characters": 21812,
+        "textCharacters": 3384,
+        "sections": 11,
+        "details": 10,
+        "tables": 3,
+        "sourceLinks": 1,
+        "livePriceMarkers": 2
+      }
+    },
+    "ARQQ": {
+      "guide": {
+        "sha256": "114b9223464032f84aa4f81d5a19aaa2acc312281ac453477e2ed6e0d51d5d48",
+        "characters": 42657,
+        "textCharacters": 4788,
+        "sections": 7,
+        "details": 26,
+        "tables": 2,
+        "sourceLinks": 4,
+        "livePriceMarkers": 2
+      },
+      "scenario": {
+        "sha256": "b4adbf03d99243af15a3289cafc9080c2e4866b0feea3bc954a1f19777efc081",
+        "characters": 23132,
+        "textCharacters": 3348,
+        "sections": 11,
+        "details": 12,
+        "tables": 3,
+        "sourceLinks": 4,
+        "livePriceMarkers": 2
+      }
+    },
+    "ASPI": {
+      "guide": {
+        "sha256": "97ab52a0deefabc696f44b3679b65e9c5a4095383633dea6c1977520273d1793",
+        "characters": 5151,
+        "textCharacters": 1392,
+        "sections": 6,
+        "details": 4,
+        "tables": 0,
+        "sourceLinks": 0,
+        "livePriceMarkers": 2
+      },
+      "scenario": {
+        "sha256": "90b042543cead9d75bcc6791b2ef31a3458200d83c45567a1ee6de2c93b179d0",
+        "characters": 6228,
+        "textCharacters": 1652,
+        "sections": 10,
+        "details": 4,
+        "tables": 2,
+        "sourceLinks": 0,
+        "livePriceMarkers": 2
+      }
+    },
+    "ASTS": {
+      "guide": {
+        "sha256": "bdc7b914a70f5df6235ed8ca21ff6d34a080f8461a6549d27fe61d31af065b6c",
+        "characters": 42712,
+        "textCharacters": 4939,
+        "sections": 7,
+        "details": 26,
+        "tables": 2,
+        "sourceLinks": 4,
+        "livePriceMarkers": 2
+      },
+      "scenario": {
+        "sha256": "7ac09b10de7101bccc7336e4d7c04b11bdfd0351a6173d48645824cebf4b25ca",
+        "characters": 23128,
+        "textCharacters": 3468,
+        "sections": 11,
+        "details": 12,
+        "tables": 3,
+        "sourceLinks": 4,
+        "livePriceMarkers": 2
+      }
+    },
+    "BB": {
+      "guide": {
+        "sha256": "7ac24773cff6616d33a86e459b9f3a2b5035e882ed2594f1558e5875979340c0",
+        "characters": 42076,
+        "textCharacters": 5201,
+        "sections": 7,
+        "details": 24,
+        "tables": 2,
+        "sourceLinks": 2,
+        "livePriceMarkers": 2
+      },
+      "scenario": {
+        "sha256": "3cbb51b24a1e852f9c65b2de212ff4a312fd53f0eef16c0e2feb8802c00edeb2",
+        "characters": 22765,
+        "textCharacters": 3426,
+        "sections": 11,
+        "details": 12,
+        "tables": 3,
+        "sourceLinks": 2,
+        "livePriceMarkers": 2
+      }
+    },
+    "BE": {
+      "guide": {
+        "sha256": "2a24d41f56f450c9021ebd6ba7a5eddd45a2bf5478dd38e7fc94cadac6e7225f",
+        "characters": 45763,
+        "textCharacters": 6468,
+        "sections": 7,
+        "details": 27,
+        "tables": 2,
+        "sourceLinks": 4,
+        "livePriceMarkers": 2
+      },
+      "scenario": {
+        "sha256": "4a41504b6cb12beb4600e197c9913acd2f92b3260e7c957ba38ef458dead3857",
+        "characters": 23672,
+        "textCharacters": 4182,
+        "sections": 11,
+        "details": 16,
+        "tables": 3,
+        "sourceLinks": 4,
+        "livePriceMarkers": 2
+      }
+    },
+    "CIFR": {
+      "guide": {
+        "sha256": "c7c1849a62f281cae637ec2f28d023343e1d14697d42632b221c55e6b72b0fa6",
+        "characters": 42227,
+        "textCharacters": 5043,
+        "sections": 7,
+        "details": 24,
+        "tables": 2,
+        "sourceLinks": 3,
+        "livePriceMarkers": 2
+      },
+      "scenario": {
+        "sha256": "88aa91b324c929fea48189ca5ad99888c92157bfb4172ccdad6a5d054757d28e",
+        "characters": 22991,
+        "textCharacters": 3363,
+        "sections": 11,
+        "details": 12,
+        "tables": 3,
+        "sourceLinks": 3,
+        "livePriceMarkers": 2
+      }
+    },
+    "COST": {
+      "guide": {
+        "sha256": "9f3ec7885159a5825e71d3f0d3bbd564162985c7d4e990e6355639ee3eba9868",
+        "characters": 41260,
+        "textCharacters": 4080,
+        "sections": 7,
+        "details": 25,
+        "tables": 2,
+        "sourceLinks": 4,
+        "livePriceMarkers": 2
+      },
+      "scenario": {
+        "sha256": "9a5cbc6c45cce2c121d8944e67a2fe42bac4a09ad5d96645c5b94c33e338fedc",
+        "characters": 22832,
+        "textCharacters": 3113,
+        "sections": 11,
+        "details": 12,
+        "tables": 3,
+        "sourceLinks": 4,
+        "livePriceMarkers": 2
+      }
+    },
+    "DVLT": {
+      "guide": {
+        "sha256": "8d38877ce3176924c358daef9641b7a6df93d25a284f8ccd6962274889145503",
+        "characters": 42340,
+        "textCharacters": 5038,
+        "sections": 7,
+        "details": 24,
+        "tables": 2,
+        "sourceLinks": 3,
+        "livePriceMarkers": 2
+      },
+      "scenario": {
+        "sha256": "6e1388730f2126f280ce898916d0e0a1272395a15115f3e777284ce314fe6c44",
+        "characters": 23061,
+        "textCharacters": 3370,
+        "sections": 11,
+        "details": 12,
+        "tables": 3,
+        "sourceLinks": 3,
+        "livePriceMarkers": 2
+      }
+    },
+    "GOOG": {
+      "guide": {
+        "sha256": "e52b382a60d18955f715f00150ab4433929bcdd3b6060f862627b80b69979648",
+        "characters": 36463,
+        "textCharacters": 3843,
+        "sections": 7,
+        "details": 23,
+        "tables": 2,
+        "sourceLinks": 0,
+        "livePriceMarkers": 2
+      },
+      "scenario": {
+        "sha256": "7aaa0d11bf76aa37371beabe8ff1694f733e3352cac3440203cd2f9a146ef455",
+        "characters": 22048,
+        "textCharacters": 2882,
+        "sections": 11,
+        "details": 9,
+        "tables": 3,
+        "sourceLinks": 1,
+        "livePriceMarkers": 2
+      }
+    },
+    "GRRR": {
+      "guide": {
+        "sha256": "9adbabf213e081c13208cc67a18b29b384da30ba65bef50a5ee336cd2034d0cf",
+        "characters": 42358,
+        "textCharacters": 5204,
+        "sections": 7,
+        "details": 24,
+        "tables": 2,
+        "sourceLinks": 2,
+        "livePriceMarkers": 2
+      },
+      "scenario": {
+        "sha256": "f72bf34f83f7ed24e999e16b97d5d02472973ede59102f7a92f47a9676d43adb",
+        "characters": 22935,
+        "textCharacters": 3312,
+        "sections": 11,
+        "details": 12,
+        "tables": 3,
+        "sourceLinks": 2,
+        "livePriceMarkers": 2
+      }
+    },
+    "HOOD": {
+      "guide": {
+        "sha256": "65f592c34bc49b57b0a377f89caf2771590f95f1a930ad2752a9ed1df2c1943f",
+        "characters": 45649,
+        "textCharacters": 6426,
+        "sections": 7,
+        "details": 28,
+        "tables": 2,
+        "sourceLinks": 4,
+        "livePriceMarkers": 2
+      },
+      "scenario": {
+        "sha256": "8931dc2da3cc150824563d42b4dc26744671e74aa161d17dbaa84b2ea5cedb67",
+        "characters": 23415,
+        "textCharacters": 4184,
+        "sections": 11,
+        "details": 16,
+        "tables": 3,
+        "sourceLinks": 4,
+        "livePriceMarkers": 2
+      }
+    },
+    "HQ": {
+      "guide": {
+        "sha256": "3cc9a2746ac7a0e4c8f1035779cb9894b1ec7308ccb996b7663adfddf4ca2817",
+        "characters": 42328,
+        "textCharacters": 4558,
+        "sections": 7,
+        "details": 26,
+        "tables": 2,
+        "sourceLinks": 4,
+        "livePriceMarkers": 2
+      },
+      "scenario": {
+        "sha256": "14e888d79d6411078a04ab7e1424aff9807b167a6ae9448b08ea56d1d4d6619d",
+        "characters": 22966,
+        "textCharacters": 3308,
+        "sections": 11,
+        "details": 12,
+        "tables": 3,
+        "sourceLinks": 4,
+        "livePriceMarkers": 2
+      }
+    },
+    "IBM": {
+      "guide": {
+        "sha256": "7eb9d0ef1fa4071012d9243c0174e09e9548862911b4c4cec4b66117b2f28bb8",
+        "characters": 5061,
+        "textCharacters": 1131,
+        "sections": 8,
+        "details": 0,
+        "tables": 1,
+        "sourceLinks": 3,
+        "livePriceMarkers": 2
+      },
+      "scenario": {
+        "sha256": "52a46bbc89a01932af9cf9ab2d9135879397dc2049151da481d29f7dcbc17c51",
+        "characters": 6391,
+        "textCharacters": 1470,
+        "sections": 15,
+        "details": 5,
+        "tables": 5,
+        "sourceLinks": 3,
+        "livePriceMarkers": 2
+      }
+    },
+    "IHI": {
+      "guide": {
+        "sha256": "05ddd0f54b0c4f40d210c809034d82fb827d0e6a6136d8d270d50690c360cc78",
+        "characters": 33257,
+        "textCharacters": 3003,
+        "sections": 7,
+        "details": 17,
+        "tables": 2,
+        "sourceLinks": 3,
+        "livePriceMarkers": 2
+      },
+      "scenario": {
+        "sha256": "9911bb1731d294bc22d0619386a401f5ff21cadb4946c7929e4e713125966256",
+        "characters": 15753,
+        "textCharacters": 2116,
+        "sections": 9,
+        "details": 4,
+        "tables": 2,
+        "sourceLinks": 3,
+        "livePriceMarkers": 2
+      }
+    },
+    "IONQ": {
+      "guide": {
+        "sha256": "e87c4e031333025eef0f94ec761a6f8afc40479a2e4c575306390c16846c4804",
+        "characters": 36326,
+        "textCharacters": 3862,
+        "sections": 7,
+        "details": 23,
+        "tables": 2,
+        "sourceLinks": 0,
+        "livePriceMarkers": 2
+      },
+      "scenario": {
+        "sha256": "158ebdd3e666a7dde2a5934925d9c1c863f2e543c742bfb005136964ad7dc2ab",
+        "characters": 22742,
+        "textCharacters": 3129,
+        "sections": 11,
+        "details": 11,
+        "tables": 3,
+        "sourceLinks": 3,
+        "livePriceMarkers": 2
+      }
+    },
+    "IOT": {
+      "guide": {
+        "sha256": "cfccb0f8e1efd972628b404b8d7859d84acad67fbf55deacdd2edf9017d74179",
+        "characters": 40275,
+        "textCharacters": 4309,
+        "sections": 7,
+        "details": 23,
+        "tables": 2,
+        "sourceLinks": 0,
+        "livePriceMarkers": 2
+      },
+      "scenario": {
+        "sha256": "40bfcc68b32fb94c5ab79465d801e9cf4294980c692ed726fd42983bca39b5f4",
+        "characters": 23697,
+        "textCharacters": 3930,
+        "sections": 11,
+        "details": 13,
+        "tables": 3,
+        "sourceLinks": 4,
+        "livePriceMarkers": 2
+      }
+    },
+    "IREN": {
+      "guide": {
+        "sha256": "580f95be81dc4ef8c9ea0007b4a1ed94bfc00fd5aa856de7069a12542ce6fe7c",
+        "characters": 42100,
+        "textCharacters": 5063,
+        "sections": 7,
+        "details": 24,
+        "tables": 2,
+        "sourceLinks": 2,
+        "livePriceMarkers": 2
+      },
+      "scenario": {
+        "sha256": "a7cba283d26835d169162226886c023f1f4b1801f47eb219b1c3618f755444b6",
+        "characters": 22817,
+        "textCharacters": 3322,
+        "sections": 11,
+        "details": 12,
+        "tables": 3,
+        "sourceLinks": 2,
+        "livePriceMarkers": 2
+      }
+    },
+    "JPM": {
+      "guide": {
+        "sha256": "859f4ed63975e483165e148b54df20aed8ece63e0fa080697de891269fb867f2",
+        "characters": 41576,
+        "textCharacters": 4638,
+        "sections": 7,
+        "details": 25,
+        "tables": 2,
+        "sourceLinks": 3,
+        "livePriceMarkers": 2
+      },
+      "scenario": {
+        "sha256": "8ba4e30142c6eaa6a3077814c448091e147c4fcfc33c95a75ff2c5825304d60d",
+        "characters": 22576,
+        "textCharacters": 3089,
+        "sections": 11,
+        "details": 12,
+        "tables": 3,
+        "sourceLinks": 3,
+        "livePriceMarkers": 2
+      }
+    },
+    "JX金属": {
+      "guide": {
+        "sha256": "37dcebea2ae16d3a835bae0e04248e2d541d9bc2b6ad01a8271e11c04b39a974",
+        "characters": 6047,
+        "textCharacters": 1509,
+        "sections": 8,
+        "details": 0,
+        "tables": 1,
+        "sourceLinks": 3,
+        "livePriceMarkers": 2
+      },
+      "scenario": {
+        "sha256": "5c07b65a40bc8a3ec1e1df60319027756b27631548d7fbc4d7cef17ef7427bac",
+        "characters": 5965,
+        "textCharacters": 1544,
+        "sections": 9,
+        "details": 4,
+        "tables": 2,
+        "sourceLinks": 0,
+        "livePriceMarkers": 2
+      }
+    },
+    "LLY": {
+      "guide": {
+        "sha256": "feeb3bfdf76ad45fd92c9155d480611dfe87feac7dfba7960de39e52a118eb11",
+        "characters": 41394,
+        "textCharacters": 4486,
+        "sections": 7,
+        "details": 25,
+        "tables": 2,
+        "sourceLinks": 3,
+        "livePriceMarkers": 2
+      },
+      "scenario": {
+        "sha256": "315285cfbb4fc94ae6d4359c7785121c80c0000fa24d7fca139063a0ff664a38",
+        "characters": 22699,
+        "textCharacters": 3273,
+        "sections": 11,
+        "details": 12,
+        "tables": 3,
+        "sourceLinks": 3,
+        "livePriceMarkers": 2
+      }
+    },
+    "META": {
+      "guide": {
+        "sha256": "ac221cab5cdbbe0495b8672a70376ff6cb5cdb04c6fb2f2981c3c394b41387a5",
+        "characters": 36582,
+        "textCharacters": 3689,
+        "sections": 7,
+        "details": 7,
+        "tables": 3,
+        "sourceLinks": 1,
+        "livePriceMarkers": 2
+      },
+      "scenario": {
+        "sha256": "b16db445921ab23ef98eafa81a0f6d75aeec9c26138a844705609dc3beaf2854",
+        "characters": 21672,
+        "textCharacters": 3327,
+        "sections": 11,
+        "details": 10,
+        "tables": 3,
+        "sourceLinks": 1,
+        "livePriceMarkers": 2
+      }
+    },
+    "MP": {
+      "guide": {
+        "sha256": "aee0f5c673f59afbcebbeb2c7b6344c44a5931b77769c0894a19f5301a86ed0b",
+        "characters": 42107,
+        "textCharacters": 4974,
+        "sections": 7,
+        "details": 24,
+        "tables": 2,
+        "sourceLinks": 2,
+        "livePriceMarkers": 2
+      },
+      "scenario": {
+        "sha256": "2bae21d38c9cd48d6ecf876fca0c02dc0043095e27fd456fe83b42509f97e144",
+        "characters": 22760,
+        "textCharacters": 3230,
+        "sections": 11,
+        "details": 12,
+        "tables": 3,
+        "sourceLinks": 2,
+        "livePriceMarkers": 2
+      }
+    },
+    "MRVL": {
+      "guide": {
+        "sha256": "640ee10b3732b08793a00cf4fd00bd305dff1e02bbdbc2c965075adbc3860291",
+        "characters": 42674,
+        "textCharacters": 4779,
+        "sections": 7,
+        "details": 26,
+        "tables": 2,
+        "sourceLinks": 4,
+        "livePriceMarkers": 2
+      },
+      "scenario": {
+        "sha256": "df24ff892f0f72ac4acd8a07f5b80a53d366d5effc9597ad8bbe8e3dd098a524",
+        "characters": 23356,
+        "textCharacters": 3548,
+        "sections": 11,
+        "details": 12,
+        "tables": 3,
+        "sourceLinks": 4,
+        "livePriceMarkers": 2
+      }
+    },
+    "MSFT": {
+      "guide": {
+        "sha256": "3cd4deda2d5043000c82b41b9ec0fef76f17d1975194bc8997689b14bc50b129",
+        "characters": 36623,
+        "textCharacters": 3675,
+        "sections": 7,
+        "details": 7,
+        "tables": 3,
+        "sourceLinks": 2,
+        "livePriceMarkers": 2
+      },
+      "scenario": {
+        "sha256": "e8cf8fc625cb97064278b909c402acb888b8919fd144578566f595f315b31a56",
+        "characters": 21649,
+        "textCharacters": 3251,
+        "sections": 11,
+        "details": 10,
+        "tables": 3,
+        "sourceLinks": 2,
+        "livePriceMarkers": 2
+      }
+    },
+    "MU": {
+      "guide": {
+        "sha256": "17024cf5991f1ab34d10dd7a5b19f209a002d8dd4a12b50f1b23dab102984537",
+        "characters": 40363,
+        "textCharacters": 4969,
+        "sections": 7,
+        "details": 23,
+        "tables": 2,
+        "sourceLinks": 0,
+        "livePriceMarkers": 2
+      },
+      "scenario": {
+        "sha256": "05ba66d81fce0a717bd76e7735653856234201fbe677a6eff8f70ddf1374a00b",
+        "characters": 19063,
+        "textCharacters": 2049,
+        "sections": 11,
+        "details": 2,
+        "tables": 3,
+        "sourceLinks": 0,
+        "livePriceMarkers": 2
+      }
+    },
+    "NEE": {
+      "guide": {
+        "sha256": "fc8b16f96f42bbd806de649df313c6150b1f86b7b65bfae40b01f4a0e08c0e5b",
+        "characters": 41150,
+        "textCharacters": 4050,
+        "sections": 7,
+        "details": 25,
+        "tables": 2,
+        "sourceLinks": 4,
+        "livePriceMarkers": 2
+      },
+      "scenario": {
+        "sha256": "1b7fc82ea4a7cf72cae9ab939616e286aeaa999d67cddb426b93004c9454689e",
+        "characters": 22791,
+        "textCharacters": 3169,
+        "sections": 11,
+        "details": 12,
+        "tables": 3,
+        "sourceLinks": 4,
+        "livePriceMarkers": 2
+      }
+    },
+    "NOW": {
+      "guide": {
+        "sha256": "2737a24e5e4b3786c7bf51aba03282a12a4903ee0b2308e14f0da4648a104046",
+        "characters": 36587,
+        "textCharacters": 3589,
+        "sections": 7,
+        "details": 7,
+        "tables": 3,
+        "sourceLinks": 2,
+        "livePriceMarkers": 2
+      },
+      "scenario": {
+        "sha256": "508d67d96b4660bbefb1575c9a82897f535d06981d1d95142376b70a17ab8aec",
+        "characters": 21783,
+        "textCharacters": 3331,
+        "sections": 11,
+        "details": 10,
+        "tables": 3,
+        "sourceLinks": 2,
+        "livePriceMarkers": 2
+      }
+    },
+    "NVDA": {
+      "guide": {
+        "sha256": "4c6b19da8faf55ccfeb86c5c96936e1115a29451266a98051b37bc7c8fa6ce08",
+        "characters": 39418,
+        "textCharacters": 4091,
+        "sections": 7,
+        "details": 23,
+        "tables": 2,
+        "sourceLinks": 0,
+        "livePriceMarkers": 2
+      },
+      "scenario": {
+        "sha256": "ac1dcf6ab2344b03432141541fcaf9bb2fee9996b945c39c0a71a8991d470a14",
+        "characters": 22743,
+        "textCharacters": 3527,
+        "sections": 11,
+        "details": 13,
+        "tables": 3,
+        "sourceLinks": 0,
+        "livePriceMarkers": 2
+      }
+    },
+    "OKLO": {
+      "guide": {
+        "sha256": "218b84327aaaeabe3144da497192fd8ab1e0bf720c0a6727baf7b8ded50d5ced",
+        "characters": 41911,
+        "textCharacters": 4918,
+        "sections": 7,
+        "details": 24,
+        "tables": 2,
+        "sourceLinks": 2,
+        "livePriceMarkers": 2
+      },
+      "scenario": {
+        "sha256": "bd5ef61c48a097fb81d278d5a6c3921eee88e04d8b7e9465df9d0fc24af2e0d8",
+        "characters": 22660,
+        "textCharacters": 3205,
+        "sections": 11,
+        "details": 12,
+        "tables": 3,
+        "sourceLinks": 2,
+        "livePriceMarkers": 2
+      }
+    },
+    "PLD": {
+      "guide": {
+        "sha256": "b4f7fb975f4c06e13c38356597415c22141b935162eac9de0c36eaee5739d784",
+        "characters": 40994,
+        "textCharacters": 4041,
+        "sections": 7,
+        "details": 25,
+        "tables": 2,
+        "sourceLinks": 4,
+        "livePriceMarkers": 2
+      },
+      "scenario": {
+        "sha256": "592fccdcfcd8c1a223df39e242a3559a1b115c439dc243956e438221180afe25",
+        "characters": 22580,
+        "textCharacters": 3099,
+        "sections": 11,
+        "details": 12,
+        "tables": 3,
+        "sourceLinks": 4,
+        "livePriceMarkers": 2
+      }
+    },
+    "QDレーザ": {
+      "guide": {
+        "sha256": "d8c729776920ee9acfef19d2ee879cd9ce5d24740576d1d7cdd377caea3fe273",
+        "characters": 33350,
+        "textCharacters": 3170,
+        "sections": 7,
+        "details": 17,
+        "tables": 2,
+        "sourceLinks": 3,
+        "livePriceMarkers": 2
+      },
+      "scenario": {
+        "sha256": "544675c2c44789389c0ae73eeb425c0980ac3d11fb17215180ab45a4b0cd62d0",
+        "characters": 15520,
+        "textCharacters": 2066,
+        "sections": 9,
+        "details": 4,
+        "tables": 2,
+        "sourceLinks": 3,
+        "livePriceMarkers": 2
+      }
+    },
+    "QNT": {
+      "guide": {
+        "sha256": "fa84e54145f217b54bdbd8cba6cba9043484a159be93625db2801a91393cc052",
+        "characters": 39249,
+        "textCharacters": 3997,
+        "sections": 7,
+        "details": 23,
+        "tables": 2,
+        "sourceLinks": 0,
+        "livePriceMarkers": 2
+      },
+      "scenario": {
+        "sha256": "4db24b7ce701b7bae933841a305882f2d32754beb63250b97ce287d2974a051f",
+        "characters": 22788,
+        "textCharacters": 3723,
+        "sections": 11,
+        "details": 11,
+        "tables": 3,
+        "sourceLinks": 0,
+        "livePriceMarkers": 2
+      }
+    },
+    "QPSホールディングス": {
+      "guide": {
+        "sha256": "b1b2fcbeb3880cade82ba82c4769ca1db75d8a3a400007eb2ea388cb56091582",
+        "characters": 33439,
+        "textCharacters": 3251,
+        "sections": 7,
+        "details": 17,
+        "tables": 2,
+        "sourceLinks": 3,
+        "livePriceMarkers": 2
+      },
+      "scenario": {
+        "sha256": "bf8723608faac2c4e9a53f4a7b319423e15ff90f332e5ab40e8d62eccf83369c",
+        "characters": 15535,
+        "textCharacters": 2073,
+        "sections": 9,
+        "details": 4,
+        "tables": 2,
+        "sourceLinks": 3,
+        "livePriceMarkers": 2
+      }
+    },
+    "RDW": {
+      "guide": {
+        "sha256": "923d523a8adbd065d397937bb86109e6062984552911bd05e6f97bd906ae4d94",
+        "characters": 45072,
+        "textCharacters": 6385,
+        "sections": 7,
+        "details": 26,
+        "tables": 2,
+        "sourceLinks": 8,
+        "livePriceMarkers": 2
+      },
+      "scenario": {
+        "sha256": "c6a047a156fe1702e647efc2b01a357daea8bdead14d81175c212f6ce18975e0",
+        "characters": 24648,
+        "textCharacters": 4854,
+        "sections": 11,
+        "details": 15,
+        "tables": 3,
+        "sourceLinks": 9,
+        "livePriceMarkers": 2
+      }
+    },
+    "RKLB": {
+      "guide": {
+        "sha256": "fe360555530bfd5d85ed9df8daf1f24bf6049ca917eaa6242eeb72d33a7cd92b",
+        "characters": 39743,
+        "textCharacters": 4402,
+        "sections": 7,
+        "details": 23,
+        "tables": 2,
+        "sourceLinks": 0,
+        "livePriceMarkers": 2
+      },
+      "scenario": {
+        "sha256": "60df9f4ffe77b95e9ceee2b4f97ebe601ea03d8a4cb87521d8e8ef3129ccd52a",
+        "characters": 23829,
+        "textCharacters": 3890,
+        "sections": 11,
+        "details": 12,
+        "tables": 3,
+        "sourceLinks": 5,
+        "livePriceMarkers": 2
+      }
+    },
+    "RMBS": {
+      "guide": {
+        "sha256": "ffa92c74fe1b8624840dd287537bdafafa47f565e2525521b534cd7e7611e4d9",
+        "characters": 36335,
+        "textCharacters": 3442,
+        "sections": 7,
+        "details": 7,
+        "tables": 3,
+        "sourceLinks": 1,
+        "livePriceMarkers": 2
+      },
+      "scenario": {
+        "sha256": "0232a09d3308e9f96e0aff28cd4c9b2b72a8dcbb7cf7bc9503a424c7702e05f4",
+        "characters": 21563,
+        "textCharacters": 3213,
+        "sections": 11,
+        "details": 10,
+        "tables": 3,
+        "sourceLinks": 1,
+        "livePriceMarkers": 2
+      }
+    },
+    "SOFI": {
+      "guide": {
+        "sha256": "c1a540d672576b96b09cb97c95a10a9f2bb2ebc37901d8de2c672811cc1c2e30",
+        "characters": 36275,
+        "textCharacters": 3428,
+        "sections": 7,
+        "details": 7,
+        "tables": 3,
+        "sourceLinks": 1,
+        "livePriceMarkers": 2
+      },
+      "scenario": {
+        "sha256": "12462f820511360485597f8a60674ae6a3ba01747b671e978b3009696b0f2be5",
+        "characters": 21617,
+        "textCharacters": 3229,
+        "sections": 11,
+        "details": 10,
+        "tables": 3,
+        "sourceLinks": 1,
+        "livePriceMarkers": 2
+      }
+    },
+    "SPCX": {
+      "guide": {
+        "sha256": "a47bee56daf9e0f8ab7f761912eb78c12b571820ae0c3319f999f95d5b3687a5",
+        "characters": 39921,
+        "textCharacters": 4123,
+        "sections": 7,
+        "details": 22,
+        "tables": 2,
+        "sourceLinks": 0,
+        "livePriceMarkers": 2
+      },
+      "scenario": {
+        "sha256": "5904c017cd53db471ae021110e9000ad518acefc8f76ae641465649da8df0428",
+        "characters": 23769,
+        "textCharacters": 3863,
+        "sections": 11,
+        "details": 12,
+        "tables": 3,
+        "sourceLinks": 5,
+        "livePriceMarkers": 2
+      }
+    },
+    "SYM": {
+      "guide": {
+        "sha256": "aa21c7b471091be7800898a23820200783ebcf3cc61c38bed3e8c932cd46357f",
+        "characters": 41931,
+        "textCharacters": 4991,
+        "sections": 7,
+        "details": 24,
+        "tables": 2,
+        "sourceLinks": 2,
+        "livePriceMarkers": 2
+      },
+      "scenario": {
+        "sha256": "f578dbffcff13e06ad0b206821852ddd9af2d7a04b1e7c01a40ec4e633d8b307",
+        "characters": 22720,
+        "textCharacters": 3319,
+        "sections": 11,
+        "details": 12,
+        "tables": 3,
+        "sourceLinks": 2,
+        "livePriceMarkers": 2
+      }
+    },
+    "TE": {
+      "guide": {
+        "sha256": "e17a3e0f0bd5d79fe174e7cbc50b53b35d74ab3dc953d3e73c317369d426f0ed",
+        "characters": 42083,
+        "textCharacters": 5013,
+        "sections": 7,
+        "details": 24,
+        "tables": 2,
+        "sourceLinks": 2,
+        "livePriceMarkers": 2
+      },
+      "scenario": {
+        "sha256": "e29b57a4f62b6892b45bdd8a81d8e31e19974eabfec9f94f382df8da8d4f9856",
+        "characters": 22657,
+        "textCharacters": 3193,
+        "sections": 11,
+        "details": 12,
+        "tables": 3,
+        "sourceLinks": 2,
+        "livePriceMarkers": 2
+      }
+    },
+    "TSLA": {
+      "guide": {
+        "sha256": "09a96e54ff5d4eb16f59b4f969a7fb5b9eff4dd219f9cf41bac638a6d7befe95",
+        "characters": 41044,
+        "textCharacters": 4615,
+        "sections": 7,
+        "details": 23,
+        "tables": 2,
+        "sourceLinks": 0,
+        "livePriceMarkers": 2
+      },
+      "scenario": {
+        "sha256": "b0843066ad76a865dac1d8c1ebd3ecb1838ee41373371652537e66259d40320c",
+        "characters": 22947,
+        "textCharacters": 3837,
+        "sections": 11,
+        "details": 11,
+        "tables": 3,
+        "sourceLinks": 0,
+        "livePriceMarkers": 2
+      }
+    },
+    "XOM": {
+      "guide": {
+        "sha256": "0edfd45aa6666fed4539359059d486f82a01879f900bf0bcd278c1d26ed769c0",
+        "characters": 41111,
+        "textCharacters": 4126,
+        "sections": 7,
+        "details": 25,
+        "tables": 2,
+        "sourceLinks": 3,
+        "livePriceMarkers": 2
+      },
+      "scenario": {
+        "sha256": "1cb999d62225b450b34577f4b6c28719f6a5ebb56d9c8cae587ef2d297bafc22",
+        "characters": 22594,
+        "textCharacters": 3096,
+        "sections": 11,
+        "details": 12,
+        "tables": 3,
+        "sourceLinks": 3,
+        "livePriceMarkers": 2
+      }
+    },
+    "ZETA": {
+      "guide": {
+        "sha256": "ef5a0582b69c379844d8eb850240084b2c24fcb002b6a296187de383ce5c927a",
+        "characters": 5169,
+        "textCharacters": 1068,
+        "sections": 8,
+        "details": 0,
+        "tables": 1,
+        "sourceLinks": 3,
+        "livePriceMarkers": 2
+      },
+      "scenario": {
+        "sha256": "5062b10186f07a8af6913fe3034c9aeb07892fa948fbc7da4b67f25768c6a58f",
+        "characters": 6504,
+        "textCharacters": 1412,
+        "sections": 15,
+        "details": 5,
+        "tables": 5,
+        "sourceLinks": 3,
+        "livePriceMarkers": 2
+      }
+    },
+    "アスタリスク": {
+      "guide": {
+        "sha256": "8f191ccaecd33f5ec446c06f1263d9d51ff06963282adc887140e31ee76d2f1c",
+        "characters": 38215,
+        "textCharacters": 3701,
+        "sections": 7,
+        "details": 23,
+        "tables": 2,
+        "sourceLinks": 0,
+        "livePriceMarkers": 2
+      },
+      "scenario": {
+        "sha256": "76590539ceecfb675570bc308fc78e12e35de66be6f83be801ac63e832de8441",
+        "characters": 22661,
+        "textCharacters": 3552,
+        "sections": 11,
+        "details": 12,
+        "tables": 3,
+        "sourceLinks": 0,
+        "livePriceMarkers": 2
+      }
+    },
+    "アストロスケールホールディングス": {
+      "guide": {
+        "sha256": "69a5310eb6e28e1c3294c5be54987caecf1a33d1a98de80c66a6dc9f69690618",
+        "characters": 33351,
+        "textCharacters": 3291,
+        "sections": 7,
+        "details": 17,
+        "tables": 2,
+        "sourceLinks": 3,
+        "livePriceMarkers": 2
+      },
+      "scenario": {
+        "sha256": "9485c4869675946ebb16cdaf75069699f18a5df9123ee60ad5c01615568f0540",
+        "characters": 15454,
+        "textCharacters": 1984,
+        "sections": 9,
+        "details": 4,
+        "tables": 2,
+        "sourceLinks": 3,
+        "livePriceMarkers": 2
+      }
+    },
+    "キオクシア": {
+      "guide": {
+        "sha256": "606cf5016786d9851104c8ef90b581982a0e718176df746862343ca8107064a5",
+        "characters": 38106,
+        "textCharacters": 4492,
+        "sections": 7,
+        "details": 26,
+        "tables": 2,
+        "sourceLinks": 0,
+        "livePriceMarkers": 2
+      },
+      "scenario": {
+        "sha256": "8a607135d3a80f26cdc43ef4a3095a33265fd43a6b09f6bbd87e1e31191bbd73",
+        "characters": 24258,
+        "textCharacters": 4230,
+        "sections": 11,
+        "details": 10,
+        "tables": 3,
+        "sourceLinks": 5,
+        "livePriceMarkers": 2
+      }
+    },
+    "ソフトバンクグループ": {
+      "guide": {
+        "sha256": "c04fb8f9e60835cfe32fdd252166a0e8f624acaaa5132e08f31cc49b572cec03",
+        "characters": 34423,
+        "textCharacters": 3360,
+        "sections": 7,
+        "details": 17,
+        "tables": 2,
+        "sourceLinks": 3,
+        "livePriceMarkers": 2
+      },
+      "scenario": {
+        "sha256": "cab83e36b8e6d511fdacb72e85ed7ebe5b101fa282a8ef63591eb7a07a1ab4bd",
+        "characters": 15925,
+        "textCharacters": 2185,
+        "sections": 9,
+        "details": 4,
+        "tables": 2,
+        "sourceLinks": 3,
+        "livePriceMarkers": 2
+      }
+    },
+    "データセクション": {
+      "guide": {
+        "sha256": "abbcebfc43e8bfee2c573348a90a78ba5af1465ebf75742c628a547af486d195",
+        "characters": 33521,
+        "textCharacters": 3293,
+        "sections": 7,
+        "details": 17,
+        "tables": 2,
+        "sourceLinks": 3,
+        "livePriceMarkers": 2
+      },
+      "scenario": {
+        "sha256": "f694e5894d392296eff5346e28013af6f2823fc194b85c8cc3eeaa4be7c370be",
+        "characters": 15611,
+        "textCharacters": 2109,
+        "sections": 9,
+        "details": 4,
+        "tables": 2,
+        "sourceLinks": 3,
+        "livePriceMarkers": 2
+      }
+    },
+    "フジクラ": {
+      "guide": {
+        "sha256": "ea40b73ca5b6606112437b0ffac66bfd37e38e32f184d6e676e265fe32b37553",
+        "characters": 36884,
+        "textCharacters": 4274,
+        "sections": 7,
+        "details": 23,
+        "tables": 2,
+        "sourceLinks": 0,
+        "livePriceMarkers": 2
+      },
+      "scenario": {
+        "sha256": "6d4e525adae7d9bfeee352a9ec306882b5b0ed6f556e471c65f3fd0a40f5ca1a",
+        "characters": 22847,
+        "textCharacters": 3436,
+        "sections": 11,
+        "details": 10,
+        "tables": 3,
+        "sourceLinks": 3,
+        "livePriceMarkers": 2
+      }
+    },
+    "メタプラネット": {
+      "guide": {
+        "sha256": "f5f937d053307569e2ca54fae01f6261efb2868b5fe7a4c89e441b75951d34b3",
+        "characters": 33364,
+        "textCharacters": 3165,
+        "sections": 7,
+        "details": 17,
+        "tables": 2,
+        "sourceLinks": 3,
+        "livePriceMarkers": 2
+      },
+      "scenario": {
+        "sha256": "460045926b6fc2e47673e8c0169d5a24eed91095ec88995769ca7d22f1aa4181",
+        "characters": 15694,
+        "textCharacters": 2112,
+        "sections": 9,
+        "details": 4,
+        "tables": 2,
+        "sourceLinks": 3,
+        "livePriceMarkers": 2
+      }
+    },
+    "リミックスポイント": {
+      "guide": {
+        "sha256": "744473fcb15d9fdd23d7795cc6f250aa99c257459cd9c0495896b90572c9ea34",
+        "characters": 33171,
+        "textCharacters": 3107,
+        "sections": 7,
+        "details": 17,
+        "tables": 2,
+        "sourceLinks": 3,
+        "livePriceMarkers": 2
+      },
+      "scenario": {
+        "sha256": "c28b0863acbc60e51f00859ac4890db64203a16ce8da8fbff57d04ec39ba3f9d",
+        "characters": 15387,
+        "textCharacters": 1913,
+        "sections": 9,
+        "details": 4,
+        "tables": 2,
+        "sourceLinks": 3,
+        "livePriceMarkers": 2
+      }
+    },
+    "古河電気工業": {
+      "guide": {
+        "sha256": "361b977d73317ac1e64e642288cfa6fd0dc94f13781d59d8bf55324f39f39396",
+        "characters": 33195,
+        "textCharacters": 3075,
+        "sections": 7,
+        "details": 17,
+        "tables": 2,
+        "sourceLinks": 3,
+        "livePriceMarkers": 2
+      },
+      "scenario": {
+        "sha256": "5822f1bbcc258a3c11f73a9c536c3128374c2b0b41360dab653e23efef16560b",
+        "characters": 15458,
+        "textCharacters": 1928,
+        "sections": 9,
+        "details": 4,
+        "tables": 2,
+        "sourceLinks": 3,
+        "livePriceMarkers": 2
+      }
+    },
+    "三菱重工業": {
+      "guide": {
+        "sha256": "1fddfd2f70798b711fc46df6e9422d4e54f7c4684708a446915de80259dd702e",
+        "characters": 34088,
+        "textCharacters": 3083,
+        "sections": 7,
+        "details": 17,
+        "tables": 2,
+        "sourceLinks": 3,
+        "livePriceMarkers": 2
+      },
+      "scenario": {
+        "sha256": "76bcd9699f45ba4204515a3d5549c92ee95880e7c31c4067947fb1f1ea3c4795",
+        "characters": 15675,
+        "textCharacters": 2001,
+        "sections": 9,
+        "details": 4,
+        "tables": 2,
+        "sourceLinks": 3,
+        "livePriceMarkers": 2
+      }
+    },
+    "村田製作所": {
+      "guide": {
+        "sha256": "0c8d9356424e59a8ace58ed0cdcf7f66aa33be76125998d45eb060c76d434992",
+        "characters": 34167,
+        "textCharacters": 3159,
+        "sections": 7,
+        "details": 17,
+        "tables": 2,
+        "sourceLinks": 3,
+        "livePriceMarkers": 2
+      },
+      "scenario": {
+        "sha256": "c3b8971b8e56636e9d33a50bb3091ca182f0c14b89ee70ad325ff52376deaa51",
+        "characters": 15733,
+        "textCharacters": 2048,
+        "sections": 9,
+        "details": 4,
+        "tables": 2,
+        "sourceLinks": 3,
+        "livePriceMarkers": 2
+      }
+    },
+    "太陽誘電": {
+      "guide": {
+        "sha256": "9c63f688c3ab9b6564fbbbb8160ced11c83500a80acd842440b109b6168e25e6",
+        "characters": 33164,
+        "textCharacters": 2938,
+        "sections": 7,
+        "details": 17,
+        "tables": 2,
+        "sourceLinks": 3,
+        "livePriceMarkers": 2
+      },
+      "scenario": {
+        "sha256": "030cfc1d673a32100979eb1dbf6de920cdaefc3b3b2270760d7ebaffc0db3e72",
+        "characters": 15745,
+        "textCharacters": 2136,
+        "sections": 9,
+        "details": 4,
+        "tables": 2,
+        "sourceLinks": 3,
+        "livePriceMarkers": 2
+      }
+    }
+  }
+}

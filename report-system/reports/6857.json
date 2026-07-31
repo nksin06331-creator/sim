@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "reportId": "6857",
+  "revision": "legacy-2026-07-29",
+  "status": "review",
+  "renderMode": "legacy-preserve",
+  "templateVersion": "legacy-v4",
+  "update": {
+    "mode": "initial",
+    "baseRevision": null,
+    "reason": "日本株の現行ページを変更せず安全な移行基準を作成",
+    "changedFields": ["legacy", "meta"]
+  },
+  "legacy": {
+    "guidePath": "stocks/6857/index.html",
+    "scenarioPath": "stocks/6857/scenario.html"
+  },
+  "meta": {
+    "companyName": "株式会社アドバンテスト",
+    "ticker": "6857",
+    "aliases": ["アドバンテスト"],
+    "market": "JP",
+    "exchange": "東証プライム",
+    "currency": "JPY",
+    "valuationDate": "2026-07-29",
+    "lastUpdated": "2026-07-29",
+    "sector": "半導体製造装置・テスト",
+    "industry": "半導体テスト装置",
+    "fiscalYearLabel": "FY3/27",
+    "marketDetails": {
+      "reportingStandard": "IFRS",
+      "secCik": null,
+      "adr": false,
+      "securitiesCode": "6857",
+      "listingSegment": "東証プライム",
+      "fiscalYearEndMonth": 3
+    }
+  }
+}

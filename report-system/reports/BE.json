@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "reportId": "BE",
+  "revision": "legacy-2026-07-31-a5e7a87e",
+  "status": "review",
+  "renderMode": "legacy-preserve",
+  "templateVersion": "legacy-v4",
+  "update": {
+    "mode": "initial",
+    "baseRevision": null,
+    "reason": "現行ページを変更せず安全な移行基準を作成",
+    "changedFields": ["legacy", "meta"]
+  },
+  "legacy": {
+    "guidePath": "stocks/BE/index.html",
+    "scenarioPath": "stocks/BE/scenario.html"
+  },
+  "meta": {
+    "companyName": "Bloom Energy Corporation",
+    "ticker": "BE",
+    "aliases": ["Bloom Energy"],
+    "market": "US",
+    "exchange": "NYSE",
+    "currency": "USD",
+    "valuationDate": "2026-07-30",
+    "lastUpdated": "2026-07-31",
+    "sector": "分散型電源・燃料電池・AIデータセンター",
+    "industry": "オンサイト発電・固体酸化物形燃料電池",
+    "fiscalYearLabel": "FY2026",
+    "marketDetails": {
+      "reportingStandard": "US-GAAP",
+      "secCik": "1664703",
+      "adr": false
+    }
+  }
+}

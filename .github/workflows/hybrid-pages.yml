@@ -10,6 +10,11 @@ on:
       - "index.html"
       - "data/**"
       - "scripts/build-pages.mjs"
+      - "scripts/catalyst-ops.mjs"
+      - "report-system/src/catalyst.mjs"
+      - "report-system/templates/catalyst-shell.html"
+      - "report-system/schemas/catalyst-report.schema.json"
+      - "report-system/catalysts/**"
       - ".github/workflows/hybrid-pages.yml"
   workflow_dispatch:
 
@@ -33,7 +38,9 @@ jobs:
         with:
           node-version: 22
       - name: Validate metadata and build site
-        run: node scripts/build-pages.mjs
+        run: |
+          node scripts/catalyst-ops.mjs registry
+          node scripts/build-pages.mjs
       - name: Configure Pages
         uses: actions/configure-pages@v5
       - name: Upload Pages artifact

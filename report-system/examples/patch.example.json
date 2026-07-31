@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "reportId": "BE",
+  "baseRevision": "legacy-2026-07-31-a5e7a87e",
+  "reason": "分析基準日を変更せず最終確認日だけを更新",
+  "changedFields": [
+    "meta.lastUpdated"
+  ],
+  "changes": {
+    "meta": {
+      "lastUpdated": "2026-08-01"
+    }
+  }
+}

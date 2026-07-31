@@ -1,0 +1,524 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SiM Catalyst Intelligence Report v1.0",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "meta",
+    "summary",
+    "catalysts",
+    "dependency_groups",
+    "watch_items",
+    "assumptions",
+    "sources",
+    "validation_summary",
+    "disclaimer"
+  ],
+  "properties": {
+    "meta": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "company_name",
+        "ticker",
+        "exchange",
+        "currency",
+        "valuation_date",
+        "last_updated",
+        "source_cutoff",
+        "framework_version",
+        "current_price_fallback",
+        "current_price_as_of"
+      ],
+      "properties": {
+        "company_name": {"type": "string", "minLength": 1},
+        "ticker": {"type": "string", "minLength": 1},
+        "exchange": {"type": "string", "minLength": 1},
+        "currency": {"type": "string", "minLength": 1},
+        "valuation_date": {"type": "string", "format": "date"},
+        "last_updated": {"type": "string"},
+        "source_cutoff": {"type": "string"},
+        "framework_version": {"const": "1.0"},
+        "current_price_fallback": {"type": "number", "exclusiveMinimum": 0},
+        "current_price_as_of": {"type": "string"},
+        "benchmark": {"type": ["string", "null"]},
+        "diluted_shares": {"type": ["number", "null"], "exclusiveMinimum": 0}
+      }
+    },
+    "summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "one_line",
+        "next_catalyst_id",
+        "next_window",
+        "overall_priced_in",
+        "primary_risk",
+        "surprise_up",
+        "surprise_down"
+      ],
+      "properties": {
+        "status": {
+          "enum": [
+            "CATALYST_RICH",
+            "SELECTIVE",
+            "EXPECTATIONS_HIGH",
+            "BINARY",
+            "NO_CONFIRMED_CATALYST"
+          ]
+        },
+        "one_line": {"type": "string", "minLength": 1},
+        "next_catalyst_id": {"type": ["string", "null"]},
+        "next_window": {"type": "string"},
+        "primary_risk": {"type": "string"},
+        "surprise_up": {"type": "string"},
+        "surprise_down": {"type": "string"},
+        "overall_priced_in": {"$ref": "#/$defs/pricedIn"}
+      }
+    },
+    "catalysts": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/catalyst"}
+    },
+    "dependency_groups": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "name", "catalyst_ids", "relationship", "aggregation_rule"],
+        "properties": {
+          "id": {"type": "string"},
+          "name": {"type": "string"},
+          "catalyst_ids": {
+            "type": "array",
+            "minItems": 2,
+            "items": {"type": "string"}
+          },
+          "relationship": {"type": "string"},
+          "aggregation_rule": {"type": "string"}
+        }
+      }
+    },
+    "watch_items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["item", "why_it_matters", "frequency", "update_trigger", "catalyst_ids"],
+        "properties": {
+          "item": {"type": "string"},
+          "why_it_matters": {"type": "string"},
+          "frequency": {"type": "string"},
+          "update_trigger": {"type": "string"},
+          "catalyst_ids": {
+            "type": "array",
+            "items": {"type": "string"}
+          }
+        }
+      }
+    },
+    "extra_sections": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/extraSection"}
+    },
+    "assumptions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["item", "value", "classification", "as_of", "source_ids", "note"],
+        "properties": {
+          "item": {"type": "string"},
+          "value": {},
+          "classification": {"$ref": "#/$defs/evidenceClass"},
+          "as_of": {"type": "string"},
+          "source_ids": {
+            "type": "array",
+            "items": {"type": "string"}
+          },
+          "note": {"type": "string"}
+        }
+      }
+    },
+    "sources": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/source"}
+    },
+    "validation_summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "fail_count", "warn_count", "messages"],
+      "properties": {
+        "status": {"enum": ["PASS", "WARN", "FAIL"]},
+        "fail_count": {"type": "integer", "minimum": 0},
+        "warn_count": {"type": "integer", "minimum": 0},
+        "messages": {
+          "type": "array",
+          "items": {"type": "string"}
+        }
+      }
+    },
+    "update_history": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["updated_at", "change"],
+        "properties": {
+          "updated_at": {"type": "string"},
+          "change": {"type": "string"}
+        }
+      }
+    },
+    "disclaimer": {"type": "string", "minLength": 1}
+  },
+  "$defs": {
+    "evidenceClass": {
+      "enum": [
+        "CONFIRMED",
+        "COMPANY_GUIDANCE",
+        "CONSENSUS",
+        "MODEL_ESTIMATE",
+        "UNKNOWN"
+      ]
+    },
+    "dateWindow": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "display_text",
+        "start_date",
+        "end_date",
+        "precision",
+        "basis",
+        "confidence",
+        "timezone",
+        "source_ids"
+      ],
+      "properties": {
+        "display_text": {"type": "string"},
+        "start_date": {"type": ["string", "null"], "format": "date"},
+        "end_date": {"type": ["string", "null"], "format": "date"},
+        "precision": {
+          "enum": ["EXACT", "WEEK", "MONTH", "QUARTER", "HALF", "YEAR", "WINDOW", "TBD"]
+        },
+        "basis": {"$ref": "#/$defs/evidenceClass"},
+        "confidence": {"enum": ["LOW", "MEDIUM", "HIGH"]},
+        "timezone": {"type": ["string", "null"]},
+        "source_ids": {
+          "type": "array",
+          "items": {"type": "string"}
+        }
+      }
+    },
+    "numericRange": {
+      "type": "array",
+      "prefixItems": [
+        {"type": "number"},
+        {"type": "number"}
+      ],
+      "items": false,
+      "minItems": 2,
+      "maxItems": 2
+    },
+    "outcome": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "label",
+        "conditions",
+        "quantifiable",
+        "price_change_pct_range",
+        "price_range",
+        "direction",
+        "effect_on_assumptions"
+      ],
+      "properties": {
+        "label": {"enum": ["SUCCESS", "INLINE", "FAILURE"]},
+        "conditions": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"type": "string"}
+        },
+        "quantifiable": {"type": "boolean"},
+        "price_change_pct_range": {
+          "oneOf": [
+            {"$ref": "#/$defs/numericRange"},
+            {"type": "null"}
+          ]
+        },
+        "price_range": {
+          "oneOf": [
+            {"$ref": "#/$defs/numericRange"},
+            {"type": "null"}
+          ]
+        },
+        "direction": {"enum": ["UP", "FLAT", "DOWN", "MIXED", "UNKNOWN"]},
+        "effect_on_assumptions": {
+          "type": "array",
+          "items": {"type": "string"}
+        },
+        "probability": {
+          "type": ["number", "null"],
+          "minimum": 0,
+          "maximum": 1
+        }
+      }
+    },
+    "pricedIn": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "quantifiable",
+        "percent_range",
+        "raw_implied_pct",
+        "label",
+        "confidence",
+        "model",
+        "evidence_for",
+        "evidence_against",
+        "caveats"
+      ],
+      "properties": {
+        "quantifiable": {"type": "boolean"},
+        "percent_range": {
+          "oneOf": [
+            {
+              "type": "array",
+              "prefixItems": [
+                {"type": "number", "minimum": 0, "maximum": 100},
+                {"type": "number", "minimum": 0, "maximum": 100}
+              ],
+              "items": false,
+              "minItems": 2,
+              "maxItems": 2
+            },
+            {"type": "null"}
+          ]
+        },
+        "raw_implied_pct": {"type": ["number", "null"]},
+        "label": {
+          "enum": [
+            "ほぼ未織り込み",
+            "一部織り込み",
+            "半分前後",
+            "かなり織り込み",
+            "大半を織り込み",
+            "定量不能"
+          ]
+        },
+        "confidence": {"enum": ["LOW", "MEDIUM", "HIGH"]},
+        "model": {"type": "string"},
+        "event_excluded_equity_value": {"type": ["number", "null"]},
+        "full_success_incremental_equity_value": {"type": ["number", "null"]},
+        "market_implied_success_probability": {
+          "type": ["number", "null"],
+          "minimum": 0,
+          "maximum": 1
+        },
+        "independent_success_probability": {
+          "type": ["number", "null"],
+          "minimum": 0,
+          "maximum": 1
+        },
+        "evidence_for": {
+          "type": "array",
+          "items": {"type": "string"}
+        },
+        "evidence_against": {
+          "type": "array",
+          "items": {"type": "string"}
+        },
+        "caveats": {
+          "type": "array",
+          "items": {"type": "string"}
+        }
+      }
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "title",
+        "publisher",
+        "url",
+        "published_at",
+        "accessed_at",
+        "source_type",
+        "is_primary",
+        "supports_catalyst_ids"
+      ],
+      "properties": {
+        "id": {"type": "string"},
+        "title": {"type": "string"},
+        "publisher": {"type": "string"},
+        "url": {"type": "string", "format": "uri"},
+        "published_at": {"type": ["string", "null"]},
+        "accessed_at": {"type": "string"},
+        "source_type": {
+          "enum": [
+            "IR",
+            "FILING",
+            "REGULATOR",
+            "GOVERNMENT",
+            "EXCHANGE",
+            "PARTNER",
+            "MARKET_DATA",
+            "INDUSTRY_DATA",
+            "NEWS",
+            "ANALYST",
+            "OTHER"
+          ]
+        },
+        "is_primary": {"type": "boolean"},
+        "supports_catalyst_ids": {
+          "type": "array",
+          "items": {"type": "string"}
+        }
+      }
+    },
+    "extraSection": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "title", "summary", "items", "source_ids"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "title": {"type": "string", "minLength": 1},
+        "summary": {"type": "string"},
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["label", "value"],
+            "properties": {
+              "label": {"type": "string", "minLength": 1},
+              "value": {"type": "string", "minLength": 1}
+            }
+          }
+        },
+        "source_ids": {
+          "type": "array",
+          "items": {"type": "string"}
+        }
+      }
+    },
+    "catalyst": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "title",
+        "category",
+        "status",
+        "importance",
+        "direction",
+        "date",
+        "plain_language",
+        "detail",
+        "mechanism",
+        "outcomes",
+        "impact_method",
+        "impact_horizon",
+        "impact_confidence",
+        "priced_in",
+        "leading_indicators",
+        "dependencies",
+        "dependency_group",
+        "sell_the_news_risk",
+        "financing_risk",
+        "update_triggers",
+        "source_ids"
+      ],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "title": {"type": "string", "minLength": 1},
+        "category": {
+          "enum": [
+            "EARNINGS",
+            "PRODUCT",
+            "CAPACITY",
+            "R_AND_D",
+            "REGULATORY",
+            "CONTRACT",
+            "PARTNERSHIP",
+            "M_AND_A",
+            "FINANCING",
+            "POLICY",
+            "LEGAL",
+            "INDUSTRY",
+            "OTHER"
+          ]
+        },
+        "status": {
+          "enum": [
+            "SCHEDULED",
+            "WINDOWED",
+            "ONGOING",
+            "CONTINGENT",
+            "TBD",
+            "UNCONFIRMED"
+          ]
+        },
+        "importance": {"type": "integer", "minimum": 1, "maximum": 5},
+        "direction": {"enum": ["POSITIVE", "NEGATIVE", "TWO_SIDED", "NEUTRAL"]},
+        "date": {"$ref": "#/$defs/dateWindow"},
+        "plain_language": {"type": "string"},
+        "detail": {"type": "string"},
+        "mechanism": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"type": "string"}
+        },
+        "outcomes": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 3,
+          "items": {"$ref": "#/$defs/outcome"}
+        },
+        "impact_method": {"type": "string"},
+        "impact_horizon": {"type": "string"},
+        "impact_confidence": {"enum": ["LOW", "MEDIUM", "HIGH"]},
+        "priced_in": {"$ref": "#/$defs/pricedIn"},
+        "leading_indicators": {
+          "type": "array",
+          "items": {"type": "string"}
+        },
+        "dependencies": {
+          "type": "array",
+          "items": {"type": "string"}
+        },
+        "dependency_group": {"type": ["string", "null"]},
+        "sell_the_news_risk": {"type": "string"},
+        "financing_risk": {"type": "string"},
+        "update_triggers": {
+          "type": "array",
+          "items": {"type": "string"}
+        },
+        "source_ids": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"type": "string"}
+        },
+        "extra_items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["label", "value", "source_ids"],
+            "properties": {
+              "label": {"type": "string", "minLength": 1},
+              "value": {"type": "string", "minLength": 1},
+              "source_ids": {
+                "type": "array",
+                "items": {"type": "string"}
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

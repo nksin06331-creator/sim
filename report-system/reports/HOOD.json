@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "reportId": "HOOD",
+  "revision": "legacy-2026-07-31-ac5e5468",
+  "status": "review",
+  "renderMode": "legacy-preserve",
+  "templateVersion": "legacy-v4",
+  "update": {
+    "mode": "initial",
+    "baseRevision": null,
+    "reason": "現行ページを変更せず安全な移行基準を作成",
+    "changedFields": ["legacy", "meta"]
+  },
+  "legacy": {
+    "guidePath": "stocks/HOOD/index.html",
+    "scenarioPath": "stocks/HOOD/scenario.html"
+  },
+  "meta": {
+    "companyName": "Robinhood Markets, Inc.",
+    "ticker": "HOOD",
+    "aliases": ["Robinhood"],
+    "market": "US",
+    "exchange": "NASDAQ",
+    "currency": "USD",
+    "valuationDate": "2026-07-30",
+    "lastUpdated": "2026-07-31",
+    "sector": "オンライン証券・予測市場・暗号資産",
+    "industry": "フィンテック・オンライン証券",
+    "fiscalYearLabel": "FY2026",
+    "marketDetails": {
+      "reportingStandard": "US-GAAP",
+      "secCik": "1783879",
+      "adr": false
+    }
+  }
+}

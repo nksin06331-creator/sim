@@ -10,6 +10,7 @@
 stocks/TICKER/
 ├─ index.html
 ├─ scenario.html
+├─ catalysts.html  # 任意
 └─ meta.json
 ```
 
@@ -18,3 +19,5 @@ GitHub Actionsがすべての`meta.json`を検証し、`lab/data/manifest.json`�
 ## 重要
 
 `meta.json`の`detailPath`と`scenarioPath`は、実際のHTMLの場所と一致させてください。不正なJSON、重複ticker、存在しないHTMLがある場合は公開処理を停止します。
+
+専用カタリストは`meta.json`へ直接追加せず、独立した`data/catalyst-reports.json`で公開可否を管理します。`published`かつ人の確認情報がそろった銘柄だけボタンを表示します。

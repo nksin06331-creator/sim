@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "templateVersion": "sim-report-v1",
+  "previewRoot": "_report-preview",
+  "baselinePath": "report-system/baselines/report-metrics.json",
+  "assets": {
+    "guideCss": "report-system/assets/guide-v4.css",
+    "scenarioCss": "report-system/assets/scenario-v4.css"
+  },
+  "coverage": {
+    "existing": {
+      "warnTextRatio": 0.95,
+      "failTextRatio": 0.8,
+      "failSourceRatio": 0.75
+    },
+    "new": {
+      "minimumGuideSections": 7,
+      "minimumGuideTextCharacters": 2500,
+      "minimumScenarioTextCharacters": 2200,
+      "minimumSources": 6,
+      "minimumPrimarySources": 3,
+      "minimumCatalysts": 3,
+      "minimumRisks": 4,
+      "minimumGlossaryTerms": 8
+    }
+  },
+  "staleness": {
+    "warnAfterDays": 45,
+    "failAfterDays": 120,
+    "largePriceMovePct": 20
+  },
+  "preservedUrls": {
+    "guide": "stocks/{TICKER}/index.html",
+    "scenario": "stocks/{TICKER}/scenario.html",
+    "catalyst": "stocks/{TICKER}/catalysts.html"
+  },
+  "catalystRegistryPath": "data/catalyst-reports.json",
+  "portalManifestPath": "data/manifest-20260729-60.json"
+}
