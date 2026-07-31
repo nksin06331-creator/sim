@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Intel Corporation（INTC）の今後のカタリスト、予定時期、株価影響、織り込み度を整理したレポート">
+<title>Intel Corporation（INTC）｜カタリストレポート</title>
+
+<style>
+:root{--accent:#6EE24E;--accent-bright:#8BF56B;--accent-tint:rgba(110,226,78,.12);--accent-line:rgba(110,226,78,.38);--bg:#0a0c0a;--surface:#141815;--surface-2:#1b201c;--ink:#f1f5f1;--muted:#8a948a;--line:rgba(255,255,255,.09);--amber:#fbbf24;--red:#f87171;--blue:#60a5fa;--shadow:0 18px 48px rgba(0,0,0,.28);--radius:16px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(100% 80% at 50% -10%,#12251a 0%,#0b0f0c 45%,var(--bg) 76%);color:var(--ink);font-family:'Noto Sans JP',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;line-height:1.75;overflow-x:hidden;-webkit-text-size-adjust:100%}body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.08;background-image:radial-gradient(var(--accent) 1px,transparent 1.5px);background-size:18px 18px;mask-image:linear-gradient(#000,transparent 72%)}a{color:var(--accent)}.wrap{max-width:1040px;margin:auto;padding:0 20px}
+.hero{position:relative;color:#fff;padding:52px 0 34px;border-bottom:1px solid var(--line);overflow:hidden}.hero:after{content:"SiM";position:absolute;right:-18px;top:-18px;font-size:clamp(96px,22vw,230px);font-weight:900;letter-spacing:-.08em;color:transparent;-webkit-text-stroke:1px rgba(110,226,78,.10);pointer-events:none}.eyebrow{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border:1px solid var(--accent-line);border-radius:999px;font-size:11px;letter-spacing:.14em;color:var(--accent);background:var(--accent-tint);font-weight:800}.eyebrow:before{content:"●";font-size:8px}.hero h1{position:relative;z-index:1;font-size:clamp(38px,7vw,68px);line-height:1.02;letter-spacing:-.05em;margin:20px 0 10px;font-weight:900;max-width:900px}.hero h1 small{display:inline-block;font-size:.29em;padding:6px 11px;border-radius:8px;background:var(--accent);color:#06210a;vertical-align:middle;letter-spacing:0}.sub{color:#b9c1b9;position:relative;z-index:1;font-size:14px}
+.verdict{position:relative;z-index:1;display:grid;grid-template-columns:1.5fr .5fr;gap:14px;margin-top:24px}.verdict-main,.priced-score{border:1px solid var(--line);border-radius:18px;padding:22px;box-shadow:var(--shadow)}.verdict-main{background:linear-gradient(145deg,rgba(110,226,78,.12),rgba(110,226,78,.03)),var(--surface)}.priced-score{background:var(--accent);color:#06210a;display:flex;flex-direction:column;justify-content:center}.status{font-size:clamp(24px,4vw,38px);line-height:1.2;font-weight:900;letter-spacing:-.035em;margin-top:8px}.priced-score b{font-size:clamp(28px,4vw,48px);line-height:1.05;display:block;letter-spacing:-.05em}.priced-score small{color:#173b1e;font-weight:800}
+.kpis{position:relative;z-index:1;display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:14px}.kpi{min-height:120px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px;position:relative;overflow:hidden}.kpi:after{content:"";position:absolute;width:66px;height:66px;border-radius:50%;right:-28px;bottom:-32px;background:var(--accent);opacity:.09}.kpi span{font-size:11px;color:var(--muted);font-weight:700}.kpi b{font-size:clamp(19px,3vw,27px);display:block;margin-top:6px;letter-spacing:-.035em}.kpi small{color:#bfc7bf;font-size:12px}
+.hero-tags{position:relative;z-index:1;margin-top:14px;display:flex;gap:8px;flex-wrap:wrap}.hero-tags span{background:var(--accent-tint);border:1px solid var(--accent-line);color:var(--accent);padding:5px 9px;border-radius:999px;font-size:11px;font-weight:800}
+.report-nav{position:sticky;top:0;z-index:50;background:rgba(10,12,10,.90);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}.report-nav .wrap{display:flex;gap:8px;overflow:auto;padding-top:9px;padding-bottom:9px}.report-nav a{white-space:nowrap;text-decoration:none;background:var(--surface);border:1px solid var(--line);color:#fff;padding:7px 12px;border-radius:999px;font-size:12px;font-weight:700}.report-nav a:hover,.report-nav a.active{border-color:var(--accent);color:var(--accent);background:var(--accent-tint)}
+main{padding:24px 0 72px}section{margin:16px 0}.card{background:linear-gradient(180deg,var(--surface-2),var(--surface));border:1px solid var(--line);box-shadow:var(--shadow);border-radius:18px;padding:22px;position:relative;overflow:hidden}.card:before{content:"";position:absolute;width:120px;height:120px;border-radius:50%;right:-72px;top:-76px;background:var(--accent);filter:blur(12px);opacity:.08}h2{position:relative;z-index:1;font-size:clamp(22px,3vw,30px);line-height:1.25;letter-spacing:-.035em;margin:0 0 9px;font-weight:900;padding-bottom:10px}h2:after{content:"";position:absolute;left:0;bottom:0;width:40px;height:3px;background:var(--accent);border-radius:3px}h3{margin:0 0 8px;font-size:18px}.lead{color:var(--muted);margin-top:0}.small{font-size:12px;color:var(--muted)}.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:14px}.notice{border:1px solid rgba(251,191,36,.35);border-left:4px solid var(--amber);background:rgba(251,191,36,.08);padding:14px 16px;border-radius:12px}.fail{border-color:rgba(248,113,113,.45);border-left-color:var(--red);background:rgba(248,113,113,.08)}
+.pill,.chip{display:inline-flex;align-items:center;padding:5px 10px;border-radius:999px;background:var(--accent-tint);border:1px solid var(--accent-line);color:var(--accent);font-weight:800;font-size:11px}.chip.amber{color:var(--amber);border-color:rgba(251,191,36,.34);background:rgba(251,191,36,.08)}.chip.red{color:var(--red);border-color:rgba(248,113,113,.34);background:rgba(248,113,113,.08)}.chip.blue{color:var(--blue);border-color:rgba(96,165,250,.34);background:rgba(96,165,250,.08)}
+.priced{padding:18px;background:#101410;border:1px solid var(--line);border-radius:14px}.priced-head{display:flex;justify-content:space-between;gap:12px;align-items:end}.priced-head b{font-size:28px;letter-spacing:-.04em}.range-meter{height:12px;background:#0d100d;border:1px solid var(--line);border-radius:999px;overflow:hidden;margin-top:11px;position:relative}.range-band{display:block;height:100%;position:absolute;background:linear-gradient(90deg,var(--amber),var(--accent));border-radius:999px;min-width:4px}.priced.unknown{border-style:dashed;color:var(--muted)}
+.surprise{border-top:1px solid var(--line);padding:14px 0}.surprise:first-child{border-top:0}.surprise b{display:block}.surprise p{margin:4px 0;color:var(--muted)}.up{color:var(--accent)}.down{color:var(--red)}.flat{color:var(--amber)}
+.timeline{position:relative;margin-top:18px}.timeline:before{content:"";position:absolute;left:92px;top:8px;bottom:8px;width:1px;background:var(--accent-line)}.time-row{display:grid;grid-template-columns:78px 24px 1fr;gap:12px;align-items:start;margin:0 0 18px}.time-date{text-align:right;color:var(--muted);font-size:12px;font-weight:800;padding-top:3px}.time-dot{width:13px;height:13px;border-radius:50%;background:var(--accent);border:3px solid #0a0c0a;box-shadow:0 0 0 1px var(--accent-line);margin:5px auto 0;position:relative;z-index:2}.time-body{background:#101410;border:1px solid var(--line);border-radius:13px;padding:13px 15px}.time-body p{margin:4px 0;color:var(--muted);font-size:13px}.time-meta{display:flex;gap:7px;flex-wrap:wrap;margin-top:8px}
+.catalyst-card{background:linear-gradient(180deg,var(--surface-2),var(--surface));border:1px solid var(--line);box-shadow:var(--shadow);border-radius:18px;padding:22px;margin:16px 0;position:relative;overflow:hidden}.catalyst-card:before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--accent)}.catalyst-head{display:flex;justify-content:space-between;gap:16px;align-items:start}.catalyst-head h3{font-size:clamp(20px,3vw,28px);line-height:1.35;margin:8px 0}.chips{display:flex;gap:7px;flex-wrap:wrap}.date-box{min-width:180px;text-align:right}.date-box b{display:block;color:var(--accent);font-size:18px}.date-box span{font-size:11px;color:var(--muted)}
+.mechanism{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:14px 0}.mechanism span{padding:8px 11px;border:1px solid var(--line);border-radius:10px;background:#101410;font-size:12px}.mechanism i{font-style:normal;color:var(--accent)}
+.outcomes{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:16px 0}.outcome{background:#101410;border:1px solid var(--line);border-radius:14px;padding:15px}.outcome.success{border-top:4px solid var(--accent)}.outcome.inline{border-top:4px solid var(--amber)}.outcome.failure{border-top:4px solid var(--red)}.outcome b{font-size:14px}.impact{font-size:24px;font-weight:900;letter-spacing:-.04em;margin:7px 0}.outcome p{font-size:12px;color:var(--muted);margin:6px 0}.outcome ul{padding-left:18px;margin:8px 0;font-size:12px}
+.evidence{display:grid;grid-template-columns:1fr 1fr;gap:10px}.evidence>div{background:#101410;border:1px solid var(--line);border-radius:12px;padding:14px}.evidence h4{margin:0 0 8px}.evidence ul{padding-left:18px;margin:0;color:var(--muted);font-size:13px}
+.facts{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:12px}.fact{border-top:1px solid var(--line);padding:11px 0}.fact span{display:block;color:var(--muted);font-size:11px}.fact b{font-size:13px}
+.signal{border-top:1px solid var(--line);padding:14px 0}.signal:first-child{border-top:0}.signal div{display:flex;justify-content:space-between;gap:12px}.signal p{margin:4px 0;color:var(--muted);font-size:14px}
+.table-wrap{overflow:auto;border:1px solid var(--line);border-radius:14px;background:#101410}table{border-collapse:collapse;width:100%;min-width:760px}th,td{border-bottom:1px solid var(--line);padding:12px;text-align:left;vertical-align:top}th{font-size:11px;color:var(--accent);background:#0f120f;position:sticky;top:0}td{font-size:13px}
+details{border:1px solid var(--line);background:#101410;border-radius:12px;padding:0;margin:10px 0;overflow:hidden}summary{font-weight:800;cursor:pointer;padding:14px 16px;list-style:none}summary::-webkit-details-marker{display:none}summary:after{content:"＋";float:right;color:var(--accent);font-size:20px;line-height:1}details[open] summary:after{content:"−"}details>p,details>ul,details>div{padding:0 16px 16px;margin:0;color:#c4ccc4}footer{color:var(--muted);font-size:12px;margin-top:28px;padding:20px 0 0;border-top:1px solid var(--line)}
+@media(max-width:800px){.verdict,.grid-2,.evidence{grid-template-columns:1fr}.kpis{grid-template-columns:1fr 1fr}.outcomes{grid-template-columns:1fr}.catalyst-head{display:block}.date-box{text-align:left;margin-top:10px}.facts{grid-template-columns:1fr}.timeline:before{left:75px}.time-row{grid-template-columns:62px 18px 1fr;gap:8px}}
+@media(max-width:520px){.wrap{padding:0 14px}.hero{padding:28px 0 24px}.hero h1{font-size:38px;margin-top:14px}.sub{font-size:12px}.verdict{margin-top:16px}.verdict-main,.priced-score{padding:17px;border-radius:14px}.priced-score{display:grid;grid-template-columns:1fr auto;align-items:end;gap:8px}.priced-score b{font-size:30px}.kpis{gap:8px}.kpi{padding:13px;min-height:102px}.kpi b{font-size:18px}.card,.catalyst-card{padding:17px;border-radius:14px}.timeline:before{left:57px}.time-row{grid-template-columns:46px 14px 1fr;gap:6px}.time-date{font-size:9px}.time-body{padding:11px}.outcome{padding:13px}h2{font-size:22px}}
+@media print{body{background:#fff;color:#111}body:before,.hero:after{display:none}.report-nav{position:static}.hero,.card,.catalyst-card,.kpi,.outcome,.time-body,details,.table-wrap{background:#fff!important;color:#111!important;box-shadow:none!important}.hero{border-bottom:2px solid #111}.sub,.lead,.small,.surprise p,.time-body p,.outcome p,.signal p,footer{color:#555!important}.card,.catalyst-card,.kpi,.outcome,details{break-inside:avoid}}
+</style>
+</head>
+
+<body data-stock-ticker="INTC" data-price-source="../../data/prices.json">
+<!--
+  SiM MARKET LAB / CATALYST TEMPLATE v1.0
+  CSSと骨格は変更せず、{{ }} の値と指定された動的ブロックだけを置換する。
+  ライブ更新対象は現在株価のみ。分析値は評価基準日時点で固定する。
+-->
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">S<span style="color:#fff">i</span>M MARKET LAB / CATALYST WATCH</div>
+    <h1>Intel Corporation <small>INTC</small></h1>
+    <div class="sub">NASDAQ｜評価基準日 2026-07-31｜最終更新 2026-07-31 23:10 JST</div>
+
+    <div class="verdict">
+      <div class="verdict-main">
+        <span class="pill">今後の材料を先読み</span>
+        <div class="status">期待は高い。次は「実行」で答え合わせ</div>
+        <p>Q2の売上成長、18A量産、AI需要は強い一方、現値は本試算Baseを上回り、Foundry改善まで相当期待しています。</p>
+        <p class="sub">最も近い主要材料はQ3決算。正確な日は未公表のため、過去周期に基づく10月下旬という当方推定です。</p>
+      </div>
+      <div class="priced-score">
+        <small>全体の織り込み度（推定）</small>
+        <b>60〜80%</b>
+        <small>かなり織り込み｜確度 LOW</small>
+      </div>
+    </div>
+
+    <div class="kpis">
+      <div class="kpi">
+        <span>現在株価 <em style="font-style:normal;color:var(--accent);font-size:10px">LIVE</em></span>
+        <b data-live-price>$93.39</b>
+        <small data-live-price-date>2026-07-31 14:04 UTC（分析基準値）</small>
+      </div>
+      <div class="kpi">
+        <span>次の主要カタリスト</span>
+        <b>Q3決算</b>
+        <small>2026年10月下旬ごろ（当方推定）</small>
+      </div>
+      <div class="kpi">
+        <span>日程の確度</span>
+        <b>LOW〜MEDIUM</b>
+        <small>確定日・会社目標・当方推定を分離</small>
+      </div>
+      <div class="kpi">
+        <span>掲載カタリスト</span>
+        <b>5件</b>
+        <small>今後18か月＋重要な長期材料</small>
+      </div>
+    </div>
+
+    <div class="hero-tags">
+      <span>内容と時期</span>
+      <span>成功・中立・失敗</span>
+      <span>織り込み度は幅で表示</span>
+    </div>
+  </div>
+</header>
+
+<div class="wrap"><div class="notice" style="margin-top:14px"><b>注意：</b>Q3決算日は未公表です。影響レンジと織り込み度は公開情報を使った当方推定で、イベント単体価値を完全には分離できません。現在株価だけが自動更新され、分析値は2026-07-31時点で固定されます。</div></div>
+
+
+<nav class="report-nav">
+  <div class="wrap">
+    <a href="index.html">企業ガイド</a>
+    <a href="scenario.html">株価シナリオ</a>
+    <a class="active" href="catalysts.html">カタリスト</a>
+    <a href="#timeline">時系列</a>
+    <a href="#priced-in">織り込み</a>
+    <a href="#details">詳細</a>
+    <a href="#watch">観測項目</a>
+    <a href="#sources">出典</a>
+  </div>
+</nav>
+
+<main class="wrap">
+
+  <section class="grid-2" id="priced-in">
+    <div class="card">
+      <h2>今の株価、どこまで期待済み？</h2>
+      <div class="priced"><div class="priced-head"><span>強いQ2・18A・AI需要への期待</span><b>60〜80%</b></div><div class="range-meter"><span class="range-band" style="left:60%;width:20%"></span></div><p class="small">表示レンジ：かなり織り込み / 確度LOW。生の単一値は算出していません。</p></div>
+      <p class="small">計算方法：現値のEV/Sales逆算（約7.32倍）、52週・年初来の値動き、Q2会社予想超過、Foundry外部売上と損失を組み合わせた定性レンジ。株価シナリオのBase価格へ機械的には合わせていません。</p>
+      <p class="notice"><b>注意：</b>織り込み度は評価モデルによる推定です。現在株価だけが自動更新され、この分析値は2026-07-31時点で固定されます。</p>
+    </div>
+    <div class="card">
+      <h2>予想との差が株価を動かす</h2>
+      <div class="surprise">
+        <b class="up">上方サプライズの条件</b>
+        <p>Q3売上が$16.8Bを明確に上回り、非GAAP粗利率42%超、Q4見通しも上方。加えて外部Foundry顧客の設計採用または量産契約が具体化。</p>
+      </div>
+      <div class="surprise">
+        <b class="down">下方サプライズの条件</b>
+        <p>Q3売上が$15.8B未満、粗利率低下、供給改善の遅延、設備投資増だけが先行。Foundryの外部売上・損失縮小が進まない。</p>
+      </div>
+      <div class="surprise">
+        <b class="flat">最大リスク</b>
+        <p>株価が高い成長と高い評価倍率の両方を要求する一方、Foundry赤字・巨額設備投資・ネットデット・条件付き株式が残ること。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="card" id="timeline">
+    <h2>これから何が、いつ起きる？</h2>
+    <p class="lead">確定日を優先し、会社目標と当方推定は分けて表示します。</p>
+    <div class="timeline">
+      <div class="time-row"><div class="time-date">2026年後半</div><div class="time-dot"></div><div class="time-body"><b>供給制約の緩和</b><p>PC向け供給の改善を会社が見込む。データセンター制約は翌年まで続く可能性。</p><div class="time-meta"><span class="chip amber">会社目標</span><span class="chip blue">確度 MEDIUM</span></div></div></div><div class="time-row"><div class="time-date">10月下旬ごろ</div><div class="time-dot"></div><div class="time-body"><b>Q3 2026決算</b><p>売上$15.8–16.8B、非GAAP粗利率約42%との答え合わせ。</p><div class="time-meta"><span class="chip red">当方推定</span><span class="chip blue">確度 LOW</span></div></div></div><div class="time-row"><div class="time-date">今後18か月</div><div class="time-dot"></div><div class="time-body"><b>18A-P・外部顧客</b><p>評価・設計採用・契約・量産の段階を観測。</p><div class="time-meta"><span class="chip amber">時期未定</span><span class="chip blue">確度 LOW</span></div></div></div><div class="time-row"><div class="time-date">長期・未定</div><div class="time-dot"></div><div class="time-body"><b>Intel 14A</b><p>技術マイルストーン、顧客需要確約、投資規律を観測。</p><div class="time-meta"><span class="chip amber">会社目標</span><span class="chip blue">確度 LOW</span></div></div></div>
+    </div>
+  </section>
+
+  <section id="details">
+    <div class="card">
+      <h2>カタリストを1件ずつ分解</h2>
+      <p class="lead">結果の良し悪しではなく、市場予想との差と企業価値への伝わり方を見ます。</p>
+    </div>
+    <article class="catalyst-card" id="c1"><div class="catalyst-head"><div><div class="chips"><span class="chip">決算・ガイダンス</span><span class="chip amber">重要度 5/5</span><span class="chip blue">双方向</span></div><h3>Q3 2026決算とQ4ガイダンス</h3><p>Q2の急成長が続くかを、売上・粗利率・次四半期見通しで確認する最初の大きなテスト。</p></div><div class="date-box"><b>2026年10月下旬ごろ</b><span>当方推定 / 確度 LOW / 米国時間</span></div></div><p class="small">IntelはQ3売上$15.8–16.8B、GAAP粗利率41%、非GAAP粗利率42%、非GAAP EPS $0.38を予想。決算日は未公表のため、過去の開催周期から10月下旬と推定し、正確な日付は作っていません。</p><div class="mechanism"><span>売上・数量</span><i>→</i><span>粗利率</span><i>→</i><span>利益・FCF期待</span><i>→</i><span>評価倍率</span></div><div class="outcomes"><div class="outcome success"><b>SUCCESS</b><div class="impact">+8〜+15%</div><ul><li>売上が会社予想上限を明確に超える</li><li>非GAAP粗利率42%超</li><li>Q4見通しも上方</li></ul><p>短期数日〜数週間。過去反応ではなく、予想差を基準にした当方レンジ。</p></div><div class="outcome inline"><b>INLINE</b><div class="impact">-3〜+4%</div><ul><li>売上は予想レンジ内</li><li>粗利率は約42%</li><li>Q4見通しは市場想定内</li></ul><p>好結果でも期待済みなら材料出尽くしに注意。</p></div><div class="outcome failure"><b>FAILURE</b><div class="impact">-10〜-20%</div><ul><li>売上が$15.8B未満</li><li>粗利率が約40%を下回る</li><li>供給・需要・投資見通しが悪化</li></ul><p>短期中心。高い評価倍率が縮む経路。</p></div></div><div class="priced"><div class="priced-head"><span>現在株価への織り込み度</span><b>かなり織り込み（推定60〜80%）</b></div></div><div class="evidence"><div><h4 class="up">織り込みを示す証拠</h4><ul><li>現値逆算EV/Salesは約7.32倍</li><li>年初来+157.7%、1年+392.5%</li><li>Q2は会社予想を大きく上回った</li></ul></div><div><h4 class="down">反証・不確実性</h4><ul><li>株価は52週高値$142.35を下回る</li><li>Q3の市場コンセンサス分布は本調査で未確認</li><li>決算日の正確な公表はまだない</li></ul></div></div><div class="facts"><div class="fact"><span>影響手法</span><b>会社予想差＋倍率変化</b></div><div class="fact"><span>影響確度</span><b>LOW</b></div><div class="fact"><span>基準株価</span><b>$93.39</b></div><div class="fact"><span>更新条件</span><b>決算日公表・コンセンサス更新</b></div></div><div class="signal"><div><b>先行指標</b><span>供給量、サーバー数量、ASP、在庫、Foundry損失</span></div><p>株価反応ではなく、これらの事業KPIで成功・失敗を判定します。</p></div></article><article class="catalyst-card" id="c2"><div class="catalyst-head"><div><div class="chips"><span class="chip">能力増強・業界需給</span><span class="chip amber">重要度 4/5</span><span class="chip blue">双方向</span></div><h3>供給制約の緩和と数量成長</h3><p>需要はあるのに作れない状態がどこまで解消し、出荷数量と利益へ変わるか。</p></div><div class="date-box"><b>2026年後半〜2027年</b><span>会社目標 / 確度 MEDIUM</span></div></div><p class="small">IntelはPC向け供給制約が2026年後半に緩和すると見込む一方、データセンターの業界制約は翌年まで続く可能性を示しています。単一日ではなく期間で評価します。</p><div class="mechanism"><span>生産能力</span><i>→</i><span>出荷数量</span><i>→</i><span>売上</span><i>→</i><span>固定費吸収・粗利</span></div><div class="outcomes"><div class="outcome success"><b>SUCCESS</b><div class="impact">+5〜+10%</div><ul><li>数量成長が再加速</li><li>粗利率も改善</li><li>顧客需要を取りこぼさない</li></ul><p>数四半期で反映。</p></div><div class="outcome inline"><b>INLINE</b><div class="impact">-3〜+3%</div><ul><li>PCは改善</li><li>サーバー制約は継続</li><li>Q3予想内の伸び</li></ul><p>前提変更は限定的。</p></div><div class="outcome failure"><b>FAILURE</b><div class="impact">-10〜-15%</div><ul><li>供給改善が遅延</li><li>高コスト・在庫負担</li><li>需要減速が同時発生</li></ul><p>数週間〜数四半期。</p></div></div><div class="priced"><div class="priced-head"><span>現在株価への織り込み度</span><b>半分超を織り込み（推定50〜70%）</b></div></div><div class="evidence"><div><h4 class="up">織り込みを示す証拠</h4><ul><li>Q2売上25%増、DCAI59%増</li><li>供給制約下でもASP上昇</li><li>会社が投資増加を表明</li></ul></div><div><h4 class="down">反証・不確実性</h4><ul><li>数量はClientで前年比減少</li><li>データセンター制約は翌年までの可能性</li><li>増産は設備投資とコストを伴う</li></ul></div></div><div class="facts"><div class="fact"><span>影響手法</span><b>数量×ASP×粗利の感応度</b></div><div class="fact"><span>影響確度</span><b>LOW</b></div><div class="fact"><span>依存関係</span><b>Q3決算・18A歩留まり</b></div><div class="fact"><span>更新条件</span><b>数量成長・粗利率開示</b></div></div><div class="signal"><div><b>材料出尽くしリスク</b><span>中〜高</span></div><p>供給改善が発表されても、数量と利益が市場期待以下なら下落し得ます。</p></div></article><article class="catalyst-card" id="c3"><div class="catalyst-head"><div><div class="chips"><span class="chip">製品・契約・量産</span><span class="chip amber">重要度 5/5</span><span class="chip blue">双方向</span></div><h3>18A-P・外部Foundry顧客の具体化</h3><p>「評価中」から設計採用・契約・量産へ進む外部顧客が現れるか。</p></div><div class="date-box"><b>時期未定（今後18か月を観測）</b><span>会社目標 / 確度 LOW</span></div></div><p class="small">18A-Pは2026年6月にリスク生産へ移行済み。今後の価値は外部顧客の評価マイルストーン、設計採用、量産契約、Foundry外部売上と損失縮小で判断します。</p><div class="mechanism"><span>歩留まり・性能</span><i>→</i><span>顧客評価</span><i>→</i><span>設計採用</span><i>→</i><span>外部売上・稼働率</span></div><div class="outcomes"><div class="outcome success"><b>SUCCESS</b><div class="impact">+10〜+25%</div><ul><li>重要顧客が設計採用または量産契約</li><li>Foundry外部売上が加速</li><li>損失縮小の道筋が明確</li></ul><p>発表直後〜数年。</p></div><div class="outcome inline"><b>INLINE</b><div class="impact">-3〜+5%</div><ul><li>技術マイルストーンは達成</li><li>顧客名・金額・量産時期は未確定</li><li>損失縮小は緩やか</li></ul><p>期待維持だが価値確定は先。</p></div><div class="outcome failure"><b>FAILURE</b><div class="impact">-15〜-25%</div><ul><li>歩留まり・性能・日程に後退</li><li>主要顧客の評価中止</li><li>損失・投資負担が拡大</li></ul><p>倍率縮小が主経路。</p></div></div><div class="priced"><div class="priced-head"><span>現在株価への織り込み度</span><b>かなり織り込み（推定55〜75%）</b></div></div><div class="evidence"><div><h4 class="up">織り込みを示す証拠</h4><ul><li>現値はBase倍率を上回る</li><li>18A製品の高量産と18A-Pリスク生産が進展</li><li>Foundryを成長オプションとして評価しやすい局面</li></ul></div><div><h4 class="down">反証・不確実性</h4><ul><li>Q2 Foundry外部売上は$293Mにとどまる</li><li>Q2 Foundry営業損失は$2.1B</li><li>外部大口量産契約の時期は未確認</li></ul></div></div><div class="facts"><div class="fact"><span>影響手法</span><b>SOTP/倍率オプション</b></div><div class="fact"><span>影響確度</span><b>LOW</b></div><div class="fact"><span>資金リスク</span><b>高い設備投資</b></div><div class="fact"><span>更新条件</span><b>設計採用・量産契約・外部売上</b></div></div><div class="signal"><div><b>定量上の注意</b><span>単純合算禁止</span></div><p>18A製品量産、18A-P評価、外部契約は同じFoundry価値の段階イベントであり、影響を単純合算しません。</p></div></article><article class="catalyst-card" id="c4"><div class="catalyst-head"><div><div class="chips"><span class="chip">R&D・能力増強</span><span class="chip amber">重要度 5/5</span><span class="chip blue">双方向</span></div><h3>Intel 14Aの顧客マイルストーンと投資規律</h3><p>次世代14Aを完成させ、十分な需要確約を得たうえで投資を回収できるか。</p></div><div class="date-box"><b>長期・時期未定</b><span>会社目標 / 確度 LOW</span></div></div><p class="small">IntelはQ2 2026に14A開発完了へコミットし、将来製品と製造拡張を進めると開示。投資規模と速度は、社内ロードマップおよび重要な外部顧客の設計採用・需要確約に合わせる方針です。</p><div class="mechanism"><span>技術開発</span><i>→</i><span>顧客設計採用</span><i>→</i><span>需要確約</span><i>→</i><span>投資回収</span></div><div class="outcomes"><div class="outcome success"><b>SUCCESS</b><div class="impact">+15〜+30%</div><ul><li>重要顧客の評価マイルストーン達成</li><li>需要確約に沿った設備投資</li><li>次世代製品ロードマップも維持</li></ul><p>1〜3年の長期影響。</p></div><div class="outcome inline"><b>INLINE</b><div class="impact">-5〜+5%</div><ul><li>開発は継続</li><li>顧客・金額・量産時期は未確定</li><li>投資は段階的</li></ul><p>価値はオプションのまま。</p></div><div class="outcome failure"><b>FAILURE</b><div class="impact">-20〜-35%</div><ul><li>技術・顧客評価の後退</li><li>需要確約前の過大投資</li><li>ロードマップ遅延</li></ul><p>長期倍率と資産価値を圧迫。</p></div></div><div class="priced"><div class="priced-head"><span>現在株価への織り込み度</span><b>半分前後（推定40〜60%）</b></div></div><div class="evidence"><div><h4 class="up">織り込みを示す証拠</h4><ul><li>株価は将来Foundry成功を一定程度評価</li><li>会社は14A完成へ明確にコミット</li><li>米国内先端製造の希少性</li></ul></div><div><h4 class="down">反証・不確実性</h4><ul><li>顧客名・契約額・量産時期は未確認</li><li>投資回収には年単位を要する</li><li>外部需要が弱ければ投資規模は縮小し得る</li></ul></div></div><div class="facts"><div class="fact"><span>影響手法</span><b>長期SOTPオプション</b></div><div class="fact"><span>影響確度</span><b>LOW</b></div><div class="fact"><span>依存関係</span><b>18A-P実行・外部顧客</b></div><div class="fact"><span>更新条件</span><b>設計採用・需要確約・設備投資</b></div></div><div class="signal"><div><b>反証条件</b><span>需要確約の欠如</span></div><p>技術発表だけでは成功扱いにせず、顧客採用と資本収益性の両方を確認します。</p></div></article><article class="catalyst-card" id="c5"><div class="catalyst-head"><div><div class="chips"><span class="chip">政策・資金調達・希薄化</span><span class="chip amber">重要度 3/5</span><span class="chip blue">双方向</span></div><h3>Secure Enclave履行・資金受領・エスクロー株</h3><p>政府向け義務の履行で資金を受け取る一方、条件付き株式が株式数へ反映されるイベント。</p></div><div class="date-box"><b>時期未定・継続</b><span>契約条件 / 確度 MEDIUM</span></div></div><p class="small">Q2末時点で未放出エスクロー株143百万株のうち71百万株は条件付き発行扱い。IntelがSecure Enclaveで履行し資金を受けると株式放出が進みます。Foundry持分が51%未満となる場合にのみ行使可能なワラントもあります。</p><div class="mechanism"><span>義務履行</span><i>→</i><span>政府資金</span><i>＋</i><span>株式放出</span><i>→</i><span>流動性・1株価値</span></div><div class="outcomes"><div class="outcome success"><b>SUCCESS</b><div class="impact">-2〜+5%</div><ul><li>履行と資金受領が進む</li><li>製造能力へ有効活用</li><li>希薄化を上回る事業価値</li></ul><p>資金と希薄化の純効果。</p></div><div class="outcome inline"><b>INLINE</b><div class="impact">-3〜+2%</div><ul><li>契約どおり段階進行</li><li>資金と株式放出が概ね相殺</li><li>追加条件変更なし</li></ul><p>単独影響は限定的。</p></div><div class="outcome failure"><b>FAILURE</b><div class="impact">-5〜-10%</div><ul><li>履行・資金受領の遅延</li><li>資金需要が増加</li><li>条件や会計処理の不確実性拡大</li></ul><p>財務・政策リスクが主経路。</p></div></div><div class="priced"><div class="priced-head"><span>現在株価への織り込み度</span><b>定量不能（資金と希薄化が相反）</b></div></div><div class="evidence"><div><h4 class="up">織り込みを示す証拠</h4><ul><li>政府投資・条件は既知</li><li>一部株式はすでに基本株式数へ反映</li><li>米国内製造支援の継続期待</li></ul></div><div><h4 class="down">反証・不確実性</h4><ul><li>将来の履行・資金受領時期は未確認</li><li>残り71百万株の条件達成時期は不明</li><li>事業価値と希薄化の単体分離が困難</li></ul></div></div><div class="facts"><div class="fact"><span>影響手法</span><b>資金流入−希薄化の定性評価</b></div><div class="fact"><span>影響確度</span><b>LOW</b></div><div class="fact"><span>条件付き株式</span><b>71百万株</b></div><div class="fact"><span>更新条件</span><b>DOC支払・株式放出・契約変更</b></div></div><div class="signal"><div><b>ワラント条件</b><span>Foundry持分51%未満の場合のみ</span></div><p>現時点で通常の近未来希薄化としては扱わず、条件変更時に更新します。</p></div></article>
+  </section>
+
+  <section class="card" id="dependencies">
+    <h2>材料のつながりと二重計上</h2>
+    <p class="lead">同じ製品・契約・工場の段階イベントは、単純に足し算しません。</p>
+    <details open><summary>Foundryロードマップ群：C2・C3・C4</summary><p>供給能力、18A-P、14Aは同じ製造基盤の段階イベントです。C2の数量改善、C3の顧客採用、C4の次世代価値を単純合算しません。前段の歩留まり・顧客評価が後段の必要条件です。</p></details><details><summary>決算への反映：C1 ← C2・C3・C5</summary><p>供給改善、Foundry外部売上、政府資金・株式は最終的に売上・粗利・現金・株式数へ表れます。C1と他イベントを企業価値へ二重計上しないよう、決算は確認イベントとして扱います。</p></details>
+  </section>
+
+  <section class="card" id="watch">
+    <h2>次に確認する数字</h2>
+    <p class="lead">結果発表を待つだけでなく、前提が変わる先行指標を追います。</p>
+    <div class="signal"><div><b>Q3売上・非GAAP粗利率</b><span>決算ごと</span></div><p>会社予想レンジと市場期待との差。C1。</p></div><div class="signal"><div><b>Client / Server数量とASP</b><span>決算ごと</span></div><p>供給改善が数量成長へつながったか。C1・C2。</p></div><div class="signal"><div><b>Foundry外部売上・営業損失</b><span>決算ごと</span></div><p>外部採用と稼働率・採算改善の確認。C3・C4。</p></div><div class="signal"><div><b>18A-P / 14Aの設計採用段階</b><span>公式発表ごと</span></div><p>評価中、設計採用、契約、量産を区別。C3・C4。</p></div><div class="signal"><div><b>現金・短期投資、負債、株式数</b><span>四半期ごと</span></div><p>投資余力、資金調達、Secure Enclave株式を確認。C5。</p></div>
+  </section>
+
+  <section class="card" id="assumptions">
+    <h2>使った数字と前提</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>項目</th><th>値</th><th>分類</th><th>基準日</th><th>注記</th></tr>
+        </thead>
+        <tbody><tr><td>現在株価</td><td>$93.39</td><td>CONFIRMED</td><td>2026-07-31 14:04 UTC</td><td>表示のみライブ更新</td></tr><tr><td>52週レンジ</td><td>$18.97–$142.35</td><td>CONFIRMED</td><td>2026-07-31</td><td>市場データ</td></tr><tr><td>1か月騰落率</td><td>-20.98%</td><td>CONFIRMED</td><td>2026-07-31</td><td>20営業日の近似として1か月値を使用</td></tr><tr><td>Q2売上 / 非GAAP EPS</td><td>$16.1B / $0.42</td><td>CONFIRMED</td><td>2026-06-27</td><td>Intel発表</td></tr><tr><td>Q3売上 / 非GAAP粗利率</td><td>$15.8–16.8B / 42%</td><td>COMPANY_GUIDANCE</td><td>2026-07-23</td><td>粗利率は売上中央値前提</td></tr><tr><td>現金＋短期投資</td><td>$29.727B</td><td>CONFIRMED</td><td>2026-06-27</td><td>10-Q</td></tr><tr><td>総負債</td><td>$50.537B</td><td>CONFIRMED</td><td>2026-06-27</td><td>10-Q</td></tr><tr><td>希薄化後株式数</td><td>5.104B株</td><td>CONFIRMED</td><td>Q2 2026</td><td>加重平均。条件付き71M株は別途注意</td></tr><tr><td>Q3決算時期</td><td>2026年10月下旬ごろ</td><td>MODEL_ESTIMATE</td><td>2026-07-31</td><td>過去IR周期。正確な日付は未公表</td></tr></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="card" id="sources">
+    <h2>根拠と更新履歴</h2>
+    <details open>
+      <summary>主要出典</summary>
+      <div><ul><li><a href="https://www.intc.com/news-events/press-releases/detail/1776/intel-reports-second-quarter-2026-financial-results">Intel Reports Second-Quarter 2026 Financial Results</a> — Intel、2026-07-23、一次情報、取得 2026-07-31（C1–C4）</li><li><a href="https://www.sec.gov/Archives/edgar/data/50863/000005086326000157/intc-20260627.htm">Intel Form 10-Q for quarter ended June 27, 2026</a> — SEC / Intel、2026-07-23、一次情報、取得 2026-07-31（C1–C5）</li><li><a href="https://www.intc.com/news-events/press-releases/detail/1748/intel-and-trump-administration-reach-historic-agreement-to">Intel and U.S. Government Investment Agreement</a> — Intel、2025-08-22、一次情報、取得 2026-07-31（C5）</li><li><a href="https://www.intc.com/news-events/ir-calendar/past">Intel IR Calendar / Past Events</a> — Intel、公開日不明、一次情報、取得 2026-07-31（C1の日程推定）</li><li><a href="https://www.marketwatch.com/investing/stock/intc">INTC Quote, Performance and 52-week Range</a> — MarketWatch、公開日不明、市場データ、取得 2026-07-31（全体織り込み補助）</li><li><a href="https://www.sec.gov/Archives/edgar/data/50863/000005086326000011/intc-20251227.htm">Intel 2025 Form 10-K</a> — SEC / Intel、2026年提出、一次情報、取得 2026-07-31（財務・政府取引の背景）</li></ul></div>
+    </details>
+    <details>
+      <summary>Validation結果</summary>
+      <div><p><b>判定：WARN（FAIL 0件 / WARN 4件）</b></p><ul><li>Q3決算日は未公表のため当方推定。</li><li>カタリスト単体の価値分離に限界があり、影響・織り込み度の確度はLOW。</li><li>20営業日騰落率は厳密値ではなく1か月騰落率で近似。</li><li>市場コンセンサス分布とオプションのイベント・ムーブは未使用。</li></ul><p>C01–C33を確認し、対象・基準時点・一次情報・算術・日程粒度・3結果・ライブ価格分離・HTML安全性にFAILなし。</p></div>
+    </details>
+    <details>
+      <summary>更新履歴</summary>
+      <div><p>2026-07-31：Q2 2026決算・10-Q・同日株価を反映して初版作成。</p></div>
+    </details>
+  </section>
+
+  <section class="card notice">
+    <h3>免責</h3>
+    <p>本資料は公開情報に基づく教育目的の分析で、投資助言ではありません。将来日程のうち「当方推定」は確定予定ではありません。影響レンジと織り込み度はモデル推定であり、実際の株価反応を保証しません。</p>
+  </section>
+
+  <footer>SiM MARKET LAB｜Catalyst Intelligence Framework v1.0｜現在株価だけ自動更新・分析は2026-07-31時点で固定</footer>
+</main>
+
+<script src="../../lab/assets/js/live-report-price.js" defer></script>
+</body>
+</html>
