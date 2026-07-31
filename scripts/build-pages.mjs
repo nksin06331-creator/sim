@@ -51,7 +51,7 @@ for (const folder of folders) {
   const meta = JSON.parse(await readFile(metaFile, "utf8"));
   const errors = validate(meta, folder);
   if (seen.has(meta.ticker)) errors.push(`ticker ${meta.ticker}が重複しています`);
-  for (const path of [meta.detailPath, meta.scenarioPath]) {
+  for (const path of [meta.detailPath, meta.scenarioPath, meta.catalystPath].filter(Boolean)) {
     try { await access(join(root, path)); } catch { errors.push(`${path}が存在しません`); }
   }
   if (errors.length) throw new Error(`${folder}/meta.json:\n- ${errors.join("\n- ")}`);
@@ -63,7 +63,7 @@ for (const folder of folders) {
 const entries = [...entriesByTicker.values()];
 for (const meta of entries) {
   const errors = validate(meta, meta.ticker);
-  for (const path of [meta.detailPath, meta.scenarioPath]) {
+  for (const path of [meta.detailPath, meta.scenarioPath, meta.catalystPath].filter(Boolean)) {
     try { await access(join(root, path)); } catch { errors.push(`${path}が存在しません`); }
   }
   if (errors.length) throw new Error(`${meta.ticker}:

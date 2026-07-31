@@ -180,12 +180,11 @@ test("catalyst validator blocks investment advice language", () => {
   assert(validation.checks.some((item) => item.id === "TXT01_NO_ADVICE" && item.status === "FAIL"));
 });
 
-test("portal only accepts published, safe catalyst registry entries", () => {
-  assert.match(portal, /report\?\.status === "published"/);
-  assert.match(portal, /safeCatalystPath\(report\.path\)/);
-  assert.match(portal, /Boolean\(report\.reviewedBy\)/);
+test("portal uses the catalyst HTML path supplied by stock metadata", () => {
+  assert.match(portal, /stock\.catalystPath/);
+  assert.doesNotMatch(portal, /loadCatalystPaths/);
+  assert.doesNotMatch(portal, /catalystManifestUrl/);
   assert.match(portal, /今後のカタリストをみる/);
-  assert.match(portal, /return new Map\(\)/);
 });
 
 test("Japan stock catalyst keeps the existing company-name folder", () => {
