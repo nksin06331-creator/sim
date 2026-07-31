@@ -1,161 +1,569 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="Robinhood（HOOD）の事業、Q2 2026決算、予測市場、成長要因、リスクを初心者向けに整理した企業ガイド。">
-  <title>Robinhood（HOOD）完全入門ガイド｜SiM MARKET LAB</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@600;700&family=Noto+Sans+JP:wght@400;500;700;900&family=Zen+Kaku+Gothic+New:wght@700;900&display=swap" rel="stylesheet">
-  <style>
-    :root{--accent:#6ee24e;--bg:#0a0c0a;--surface:#141815;--surface-2:#1b201c;--ink:#f1f5f1;--muted:#8a948a;--line:rgba(255,255,255,.09);--red:#f87171;--amber:#fbbf24}
-    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Sans JP",sans-serif;line-height:1.8}a{color:var(--accent)}
-    .hero-tags,.nav-inner,.section-header,.keypoints li{display:flex}.hero-tags{flex-wrap:wrap;gap:8px}.hero-tag{border:1px solid var(--line);border-radius:999px;padding:6px 13px;font-size:12px}.brandmark{font-family:"DM Sans",sans-serif;letter-spacing:.18em}.g{color:var(--accent)}
-    .tldr-hero-title,.section-title,.block-label,.card-title,.highlight h3{font-family:"Zen Kaku Gothic New",sans-serif;font-weight:900}.stat-strip,.card-grid,.facts,.info-row{display:grid}.stat-strip{grid-template-columns:repeat(4,1fr);gap:10px}.nav-inner{overflow:auto;margin:auto;max-width:1080px}.nav-item{white-space:nowrap;text-decoration:none}.container{max-width:1080px;margin:auto;padding:0 20px}.section-header{align-items:center}.section-icon,.section-num{display:grid;place-items:center;flex:none}.tldr ul,.keypoints{list-style:none;padding:0}.tldr li{margin:7px 0}.card-grid{grid-template-columns:repeat(4,1fr)}.facts{grid-template-columns:repeat(3,1fr)}.facts dt{color:var(--muted);font-size:11px}.facts dd{margin:2px 0 0;font-weight:700}.keypoints{display:grid;gap:10px}.keypoints li{gap:10px}.card-title,.block-label,.highlight h3{color:#fff}.info-row{grid-template-columns:repeat(2,1fr)}.info-title{font-weight:800}.timeline{border-left:2px solid rgba(110,226,78,.25);padding-left:22px}.tl-row{margin:0 0 20px}.tl-date{color:var(--accent);font-size:12px;font-weight:800}.tl-title{font-weight:800}.compare-table{width:100%;border-collapse:collapse}.compare-table th,.compare-table td{border:1px solid var(--line);padding:12px;text-align:left}.compare-table th{background:var(--surface-2)}.term-list{display:grid;gap:10px}.term-item{border:1px solid var(--line);border-radius:12px;padding:0 16px}.term-header{cursor:pointer;padding:14px 0;font-weight:800}.term-body{color:#c3ccc3}.highlight{border:1px solid rgba(110,226,78,.35);border-radius:18px;padding:20px;margin-top:18px}.notice{padding:14px 16px;margin-top:16px}.source-list{padding-left:20px}.footer{padding:36px 20px;text-align:center}.cta{display:inline-block;border:1px solid rgba(110,226,78,.45);border-radius:999px;padding:10px 18px;text-decoration:none;font-weight:800}
-    @media(max-width:760px){.stat-strip,.card-grid,.facts,.info-row{grid-template-columns:1fr 1fr}.container{padding:0 16px}}
-    @media(max-width:480px){.stat-strip,.card-grid,.facts,.info-row{grid-template-columns:1fr}}
-  </style>
-  <link rel="stylesheet" href="../../lab/assets/css/report-v5.css">
-</head>
-<body data-stock-ticker="HOOD" data-price-source="../../data/prices.json" class="sim-report sim-guide">
-  <header class="hero">
-    <div class="wrap">
-      <div class="brandmark">S<span class="g">i</span>M MARKET LAB</div>
-      <div class="hero-badge">HOOD 完全入門ガイド・2026年7月30日版</div>
-      <h1>Robinhood（HOOD）を<br><span class="g">まるっと</span>解説</h1>
-      <p>スマホ証券から、株・オプション・暗号資産・予測市場・銀行・カードをまとめる金融プラットフォームへ。過去最高売上の中身を分解します。</p>
-      <div class="hero-tags">
-        <span class="hero-tag">📱 オンライン証券</span>
-        <span class="hero-tag">🎯 予測市場</span>
-        <span class="hero-tag">🪙 暗号資産</span>
-      </div>
-    </div>
-  </header>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HOOD 完全入門ガイド</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@700;900&family=Noto+Sans+JP:wght@400;500;700;900&family=DM+Sans:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+/*
+ ================================================================
+  STOCK GUIDE TEMPLATE v4  SiM MARKET LAB ダーク版 / ChatGPT index.html
+  ----------------------------------------------------------------
+  ★★ デザインロック（ぶれ防止）★★
+  ・この <style> ブロックとページ骨格は「改変禁止」。1文字も変えない。逐語コピーする。
+  ・色はSiMグリーンで固定。銘柄・業界でアクセント色を変えない。
+  ・差し替えてよいのは {{ }} プレースホルダーの中身（＝テキスト）だけ。
+  ・セクションの数・順番・各コンポーネントの個数（SEC1のcard-smは4枚 等）は固定。
+    追加・削除・並べ替えをしない。
+  ----------------------------------------------------------------
+  ブランド：黒背景 × ネオングリーン × 白文字（キーワードだけ緑）。Instagram(sim.marketlab)準拠。
+  設計思想：「表層＝3秒で意味が取れる／深層＝読みたい人だけ開く」の2層構造。
+  ・見出しの重要ワードは <span class="g">…</span> で緑ハイライト。
+ ================================================================
+*/
 
-  <div class="tldr-hero">
-    <div class="tldr-hero-inner">
-      <div class="tldr-hero-title">30秒でつかむ最新状況</div>
-      <div class="stat-strip">
-        <div class="stat"><div class="stat-value" data-live-price>$89.84</div><div class="stat-label">現在株価 <span class="g">LIVE</span></div><div class="stat-note" data-live-price-date>2026/7/29終値</div></div>
-        <div class="stat"><div class="stat-value">$1.31B</div><div class="stat-label">Q2純収益</div><div class="stat-note">前年比 +32%</div></div>
-        <div class="stat"><div class="stat-value">$21.7B</div><div class="stat-label">Q2純入金</div><div class="stat-note">年率換算 +28%</div></div>
-        <div class="stat"><div class="stat-value">4.8M</div><div class="stat-label">Gold会員</div><div class="stat-note">前年比 +39%</div></div>
-      </div>
+:root {
+  /* ── ブランド・アクセント：SiMグリーンで固定（銘柄・業界で変えない＝デザインぶれ防止） ── */
+  --accent:        #6EE24E;
+  --accent-bright: #8BF56B;
+  --accent-tint:   rgba(110,226,78,.12);
+  --accent-line:   rgba(110,226,78,.38);
+
+  /* ── ダークシェル（変更不要・全銘柄共通） ── */
+  --bg:        #0a0c0a;
+  --surface:   #141815;   /* カード面 */
+  --surface-2: #1b201c;   /* 少し明るい面 */
+
+  /* レガシー変数マッピング（本文markupが参照。名前は据え置き、意味をダーク用に再定義） */
+  --c-primary-50:  var(--accent-tint);        --c-primary-100: rgba(110,226,78,.18);
+  --c-primary-200: rgba(110,226,78,.55);      --c-primary-400: var(--accent);
+  --c-primary-600: var(--accent);             --c-primary-800: var(--accent-bright);
+  --c-accent-50:   var(--accent-tint);        --c-accent-400:  var(--accent);   --c-accent-600: var(--accent-bright);
+
+  /* システム色（ダーク版：薄背景は半透明の暗色、文字は明るい色に反転） */
+  --amber-50:  rgba(251,191,36,.13); --amber-400: #fbbf24; --amber-600: #fcd34d; --amber-800: #fde68a;
+  --red-50:    rgba(248,113,113,.13); --red-400:  #f87171; --red-600:   #fca5a5;
+  --blue-50:   rgba(96,165,250,.13); --blue-400:  #60a5fa; --blue-600:  #93c5fd; --blue-800: #bfdbfe;
+  --green-50:  rgba(110,226,78,.13); --green-400: #6EE24E; --green-600: #8bf56b;
+  --violet-50: rgba(167,139,250,.13); --violet-400:#a78bfa; --violet-600:#c4b5fd;
+  --gray-50:  #15191b;               --gray-100: rgba(255,255,255,.06);
+  --gray-200: rgba(255,255,255,.09); --gray-300: #3f463f;
+  --gray-500: #8a948a;               --gray-700: #c3ccc3; --gray-900: #f1f5f1;
+
+  --font-display: 'Zen Kaku Gothic New', 'Noto Sans JP', sans-serif;
+  --font-body:    'Noto Sans JP', 'DM Sans', sans-serif;
+  --font-num:     'DM Sans', 'Noto Sans JP', sans-serif;
+  --radius: 16px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-body); background: var(--bg); color: var(--gray-900); line-height: 1.85; font-size: 16px; -webkit-text-size-adjust: 100%; }
+.g { color: var(--accent); }               /* 緑キーワード */
+
+/* 読了プログレスバー */
+.progress-bar { position: fixed; top: 0; left: 0; height: 4px; width: 0%; z-index: 200; background: var(--accent); box-shadow: 0 0 12px var(--accent); transition: width .1s linear; }
+
+/* ── HERO（黒＋緑グロー＋ハーフトーン・ドット） ── */
+.hero {
+  background: radial-gradient(120% 90% at 50% -10%, #12251a 0%, #0b0f0c 45%, var(--bg) 75%);
+  color: #fff; padding: 58px 22px 66px; text-align: center; position: relative; overflow: hidden;
+}
+.hero::before { content:''; position:absolute; inset:0;
+  background-image: radial-gradient(var(--accent) 1px, transparent 1.6px);
+  background-size: 15px 15px; opacity: .10;
+  -webkit-mask-image: radial-gradient(ellipse at 50% 120%, #000 0%, transparent 60%);
+          mask-image: radial-gradient(ellipse at 50% 120%, #000 0%, transparent 60%);
+}
+.hero > * { position: relative; z-index: 1; }
+.brandmark { font-family: var(--font-num); font-weight: 700; letter-spacing: .18em; font-size: 13px; color: var(--gray-500); margin-bottom: 18px; }
+.brandmark b { color: #fff; font-weight: 700; }
+.brandmark .g { color: var(--accent); }
+.hero-badge { display: inline-block; background: rgba(110,226,78,.10); border: 1px solid var(--accent-line); border-radius: 999px; padding: 6px 18px; font-size: 12px; letter-spacing: .06em; font-weight: 700; margin-bottom: 18px; color: var(--accent); }
+.hero h1 { font-family: var(--font-display); font-size: clamp(30px,7.5vw,50px); font-weight: 900; line-height: 1.3; margin-bottom: 14px; letter-spacing: .01em; }
+.hero h1 .g { color: var(--accent); }
+.hero p { font-size: 15.5px; color: #c3ccc3; max-width: 560px; margin: 0 auto 26px; line-height: 1.85; }
+.hero-tags { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+.hero-tag { background: rgba(255,255,255,.04); border: 1px solid var(--gray-200); border-radius: 999px; padding: 6px 14px; font-size: 13px; font-weight: 500; color: #d8ded8; }
+
+/* ── 30秒サマリー（でかい数字カード） ── */
+.tldr-hero { max-width: 820px; margin: -30px auto 0; padding: 0 16px; position: relative; z-index: 5; }
+.tldr-hero-inner { background: var(--surface); border: 1px solid var(--gray-200); border-radius: var(--radius); padding: 20px 20px 8px; box-shadow: 0 16px 40px rgba(0,0,0,.5); }
+.tldr-hero-title { font-family: var(--font-display); font-weight: 900; font-size: 17px; color: #fff; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+.stat-strip { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px,1fr)); gap: 10px; margin-bottom: 14px; }
+.stat { background: var(--gray-50); border: 1px solid var(--gray-200); border-radius: 12px; padding: 14px 12px; text-align: center; }
+.stat-value { font-family: var(--font-num); font-weight: 700; font-size: clamp(24px,6vw,32px); line-height: 1.1; color: #fff; }
+.stat-value.up   { color: var(--accent); }
+.stat-value.down { color: var(--red-400); }
+.stat-label { font-size: 12px; color: var(--gray-500); margin-top: 4px; font-weight: 500; }
+.stat-note  { font-size: 11px; color: var(--gray-500); margin-top: 2px; }
+
+/* ── NAV ── */
+.nav-index { background: rgba(10,12,10,.82); backdrop-filter: blur(10px); border-bottom: 1px solid var(--gray-200); position: sticky; top: 0; z-index: 100; }
+.nav-inner { max-width: 820px; margin: 0 auto; padding: 0 16px; display: flex; overflow-x: auto; scrollbar-width: none; }
+.nav-inner::-webkit-scrollbar { display: none; }
+.nav-item { flex-shrink: 0; padding: 14px 14px; font-size: 13px; font-weight: 700; color: var(--gray-500); text-decoration: none; border-bottom: 3px solid transparent; transition: color .2s, border-color .2s; white-space: nowrap; }
+.nav-item:hover { color: var(--accent); border-bottom-color: var(--accent); }
+
+.container { max-width: 820px; margin: 0 auto; padding: 0 16px; }
+
+/* ── SECTION ── */
+.section { padding: 46px 0 34px; border-bottom: 1px solid var(--gray-200); opacity: 0; transform: translateY(16px); animation: fadeUp .5s ease forwards; }
+@keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+.section-header { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
+.section-icon { width: 46px; height: 46px; border-radius: 50%; background: var(--surface-2); border: 1px solid var(--gray-200); display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0; }
+.section-num { width: 30px; height: 30px; border-radius: 50%; background: var(--accent); color: #06210a; font-family: var(--font-num); font-weight: 700; font-size: 15px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.section-title { font-family: var(--font-display); font-size: clamp(21px,5.4vw,27px); font-weight: 900; color: #fff; line-height: 1.32; position: relative; display: inline-block; padding-bottom: 9px; }
+.section-title::after { content: ''; position: absolute; left: 0; bottom: 0; width: 40px; height: 3px; background: var(--accent); border-radius: 3px; }
+.section-title .g { color: var(--accent); }
+.section-sub { font-size: 13px; color: var(--gray-500); margin-top: 6px; font-weight: 500; }
+
+/* ── ⚡3秒まとめ ── */
+.tldr { background: var(--accent-tint); border: 1px solid var(--accent-line); border-radius: var(--radius); padding: 18px 20px; margin-bottom: 22px; }
+.tldr-label { display: inline-flex; align-items: center; gap: 6px; font-family: var(--font-display); font-weight: 900; font-size: 14px; color: var(--accent); margin-bottom: 10px; }
+.tldr ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.tldr li { font-size: 15.5px; font-weight: 500; color: #eef2ee; line-height: 1.7; padding-left: 30px; position: relative; }
+.tldr li::before { content: attr(data-emoji); position: absolute; left: 0; top: 0; font-size: 18px; }
+
+/* ── 👉つまり ── */
+.sowhat { background: var(--surface); border: 1.5px dashed var(--accent); border-radius: 14px; padding: 12px 16px 12px 46px; margin: 14px 0; position: relative; }
+.sowhat::before { content: '👉'; position: absolute; left: 14px; top: 11px; font-size: 20px; }
+.sowhat b { color: var(--accent); }
+.sowhat p { font-size: 14.5px; color: var(--gray-700); line-height: 1.8; }
+
+/* ── シグナル判定ピル ── */
+.signal { display: inline-flex; align-items: center; gap: 5px; font-weight: 700; font-size: 12.5px; padding: 4px 12px; border-radius: 999px; white-space: nowrap; }
+.signal.bull    { background: var(--green-50); color: var(--accent); }
+.signal.neutral { background: var(--amber-50); color: var(--amber-600); }
+.signal.bear    { background: var(--red-50);   color: var(--red-600); }
+
+/* ── ★重要度 ── */
+.rating { font-family: var(--font-num); letter-spacing: 1px; color: var(--accent); font-size: 14px; }
+.rating .off { color: var(--gray-300); }
+
+/* ── 絵文字箇条書き ── */
+.keypoints { list-style: none; display: flex; flex-direction: column; gap: 12px; margin: 8px 0; }
+.keypoints li { display: flex; gap: 12px; align-items: flex-start; font-size: 15px; line-height: 1.7; color: #e4e9e4; }
+.keypoints .kp-emoji { font-size: 22px; flex-shrink: 0; line-height: 1.4; }
+.keypoints .kp-text b { color: var(--accent); }
+
+/* ── CARDS ── */
+.card { background: var(--surface); border: 1px solid var(--gray-200); border-radius: 14px; padding: 18px 20px; margin-bottom: 12px; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 12px; margin-bottom: 12px; }
+.card-sm { background: var(--surface); border: 1px solid var(--gray-200); border-radius: 14px; padding: 16px 18px; }
+.card-sm .card-emoji { font-size: 22px; display: inline-flex; width: 40px; height: 40px; border-radius: 50%; background: var(--surface-2); border: 1px solid var(--gray-200); align-items: center; justify-content: center; margin-bottom: 8px; }
+.card-sm .card-title { font-family: var(--font-display); font-weight: 700; font-size: 15px; margin-bottom: 4px; color: var(--accent); }
+.card-sm .card-desc { font-size: 13.5px; color: var(--gray-700); line-height: 1.75; }
+
+/* ── 会社クイックデータ（企業詳細を厚くする一覧） ── */
+.facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(148px,1fr)); gap: 1px; background: var(--gray-200); border: 1px solid var(--gray-200); border-radius: 14px; overflow: hidden; margin: 4px 0 14px; }
+.facts > div { background: var(--surface); padding: 12px 14px; }
+.facts dt { font-size: 11px; color: var(--gray-500); font-weight: 700; margin-bottom: 3px; }
+.facts dd { margin: 0; font-size: 14.5px; color: #fff; font-weight: 700; line-height: 1.5; }
+.block-label { font-family: var(--font-display); font-weight: 900; font-size: 15px; color: #fff; margin: 18px 0 8px; display: flex; align-items: center; gap: 7px; }
+.block-label .g { color: var(--accent); }
+
+/* ── TERM ACCORDION ── */
+.term-list { display: flex; flex-direction: column; gap: 10px; }
+.term-item { background: var(--surface); border: 1px solid var(--gray-200); border-radius: 14px; overflow: hidden; transition: border-color .2s; }
+.term-item:hover { border-color: var(--accent); }
+.term-header { display: flex; align-items: center; justify-content: space-between; padding: 16px 18px; cursor: pointer; gap: 12px; user-select: none; min-height: 56px; }
+.term-header::-webkit-details-marker { display: none; }
+.term-name { font-family: var(--font-display); font-weight: 700; font-size: 15.5px; color: #fff; }
+.term-en { font-size: 11px; color: var(--gray-500); margin-left: 8px; font-weight: 400; }
+.term-arrow { font-size: 20px; color: var(--accent); transition: transform .25s; flex-shrink: 0; }
+.term-item[open] .term-arrow { transform: rotate(180deg); }
+.term-item[open] { border-color: var(--accent); }
+.term-body { padding: 2px 18px 18px; border-top: 1px solid var(--gray-100); }
+.term-body p { font-size: 14.5px; color: var(--gray-700); line-height: 1.85; margin: 10px 0 0; }
+.term-body b { color: var(--accent); }
+
+/* ── CALL-OUT ── */
+.ex-box, .ex-box-accent, .ex-box-amber, .ex-box-red { border-radius: 0 8px 8px 0; padding: 12px 16px; margin-top: 12px; }
+.ex-box        { background: var(--accent-tint); border-left: 4px solid var(--accent); }
+.ex-box-accent { background: var(--accent-tint); border-left: 4px solid var(--accent); }
+.ex-box-amber  { background: var(--amber-50);  border-left: 4px solid var(--amber-400); }
+.ex-box-red    { background: var(--red-50);    border-left: 4px solid var(--red-400); }
+.ex-label { font-size: 11px; font-weight: 700; letter-spacing: .04em; margin-bottom: 4px; }
+.ex-label-primary, .ex-label-accent { color: var(--accent); }
+.ex-label-amber { color: var(--amber-600); }
+.ex-label-red { color: var(--red-600); }
+.ex-text { font-size: 13.5px; color: var(--gray-700); line-height: 1.75; }
+
+/* ── INFO BOXES（リスク4分類） ── */
+.info-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap: 12px; margin-top: 16px; }
+.info-box { border-radius: 14px; padding: 16px 18px; border: 1px solid var(--gray-200); }
+.info-box-primary { background: var(--accent-tint); }
+.info-box-accent  { background: var(--accent-tint); }
+.info-box-amber   { background: var(--amber-50); }
+.info-box-red     { background: var(--red-50); }
+.info-box-blue    { background: var(--blue-50); }
+.info-box-green   { background: var(--green-50); }
+.info-box-gray    { background: var(--surface-2); }
+.info-title { font-family: var(--font-display); font-weight: 700; font-size: 14px; margin-bottom: 6px; display: flex; align-items: center; gap: 6px; }
+.info-title-primary, .info-title-accent, .info-title-green { color: var(--accent); }
+.info-title-amber { color: var(--amber-600); }
+.info-title-red { color: var(--red-600); }
+.info-title-blue { color: var(--blue-600); }
+.info-title-gray { color: #d8ded8; }
+.info-text { font-size: 13.5px; color: var(--gray-700); line-height: 1.75; }
+
+/* ── TIMELINE ── */
+.timeline { position: relative; padding-left: 30px; }
+.timeline::before { content: ''; position: absolute; left: 9px; top: 8px; bottom: 6px; width: 3px; background: rgba(110,226,78,.25); border-radius: 3px; }
+.tl-row { position: relative; margin-bottom: 22px; }
+.tl-row::before { content: ''; position: absolute; left: -25px; top: 5px; width: 14px; height: 14px; border-radius: 50%; background: var(--accent); border: 3px solid var(--bg); box-shadow: 0 0 0 2px var(--accent); }
+.tl-date { font-family: var(--font-num); font-size: 12px; font-weight: 700; color: var(--accent); letter-spacing: .04em; margin-bottom: 3px; }
+.tl-title { font-family: var(--font-display); font-weight: 700; font-size: 15.5px; color: #fff; margin-bottom: 3px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.tl-desc { font-size: 13.5px; color: var(--gray-500); line-height: 1.75; }
+
+/* ── BADGES ── */
+.badge { display: inline-block; font-size: 11px; padding: 3px 9px; border-radius: 6px; font-weight: 700; }
+.badge-primary { background: var(--accent-tint); color: var(--accent); }
+.badge-accent  { background: var(--accent-tint); color: var(--accent); }
+.badge-amber   { background: var(--amber-50);  color: var(--amber-600); }
+.badge-red     { background: var(--red-50);    color: var(--red-600); }
+.badge-blue    { background: var(--blue-50);   color: var(--blue-600); }
+.badge-green   { background: var(--green-50);  color: var(--accent); }
+.badge-violet  { background: var(--violet-50); color: var(--violet-600); }
+
+/* ── COMPARE TABLE ── */
+.table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; border: 1px solid var(--gray-200); border-radius: 14px; margin: 12px 0; }
+.compare-table { width: 100%; border-collapse: collapse; font-size: 13.5px; min-width: 480px; }
+.compare-table th { background: var(--gray-50); padding: 12px 14px; text-align: left; font-weight: 700; font-size: 12px; color: var(--gray-500); letter-spacing: .03em; border-bottom: 1px solid var(--gray-200); white-space: nowrap; }
+.compare-table td { padding: 12px 14px; border-bottom: 1px solid var(--gray-100); color: var(--gray-700); vertical-align: top; }
+.compare-table tr:last-child td { border-bottom: none; }
+.compare-table tr:hover td { background: rgba(255,255,255,.02); }
+.compare-table .me { background: var(--accent-tint); font-weight: 700; color: var(--accent); }
+
+/* ── HIGHLIGHT（インスタの“まとめ”枠：ダーク＋緑ボーダー） ── */
+.highlight { background: var(--surface); border: 1.5px solid var(--accent-line); border-radius: var(--radius); padding: 22px 24px; margin: 22px 0; position: relative; overflow: hidden; }
+.highlight::before { content:''; position:absolute; right:-30px; bottom:-30px; width:160px; height:160px;
+  background-image: radial-gradient(var(--accent) 1px, transparent 1.5px); background-size: 13px 13px; opacity:.12; }
+.highlight h3 { font-family: var(--font-display); font-size: 19px; font-weight: 900; margin-bottom: 10px; color: var(--accent); display: flex; align-items: center; gap: 8px; position: relative; }
+.highlight p { font-size: 14.5px; color: #d8ded8; line-height: 1.85; position: relative; }
+.highlight b { color: var(--accent); }
+
+/* ── PRODUCT GRID ── */
+.product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px,1fr)); gap: 12px; margin: 16px 0; }
+.product-box { border-radius: 14px; padding: 18px 14px; text-align: center; border: 1px solid var(--gray-200); background: var(--surface); }
+.product-symbol { font-family: var(--font-num); font-size: 30px; font-weight: 700; margin-bottom: 4px; color: var(--accent); }
+.product-name { font-size: 11px; font-weight: 700; letter-spacing: .04em; margin-bottom: 6px; color: #fff; }
+.product-use { font-size: 12px; line-height: 1.55; color: var(--gray-700); }
+
+/* ── MISC ── */
+.lead { font-size: 16.5px; color: #dbe1db; line-height: 1.9; margin-bottom: 20px; font-weight: 500; }
+.lead .g { color: var(--accent); }
+strong { font-weight: 700; color: #fff; }
+strong.g { color: var(--accent); }
+.grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap: 12px; }
+
+/* ── FOOTER ── */
+.footer { padding: 40px 22px; text-align: center; color: var(--gray-500); font-size: 13px; border-top: 1px solid var(--gray-200); margin-top: 32px; }
+.footer .brandmark { margin-bottom: 14px; }
+
+@media (max-width: 480px){
+  .section-icon { width: 40px; height: 40px; font-size: 20px; }
+  .stat-strip { grid-template-columns: repeat(2,1fr); }
+}
+@media (prefers-reduced-motion: reduce){
+  .section { animation: none; opacity: 1; transform: none; }
+  html { scroll-behavior: auto; }
+}
+</style>
+</head>
+<body data-stock-ticker="HOOD" data-price-source="../../data/prices.json">
+
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- ========================================================
+  HERO
+  HOOD Robinhood Markets オンライン証券・金融プラットフォーム スマホ証券から、株・オプション・暗号資産・予測市場・銀行・カード・助言をまとめる金融プラットフォームへ。過去最高売上の中身を分解します。 <span class="hero-tag">📱 オンライン証券</span><span class="hero-tag">🎯 予測市場</span><span class="hero-tag">🪙 暗号資産</span> 2026年7月31日
+  ※見出しの重要ワードは <span class="g">…</span> で緑ハイライト
+======================================================== -->
+<div class="hero">
+  <div class="brandmark">S<span class="g">i</span>M &nbsp;MARKET LAB</div>
+  <div class="hero-badge">HOOD 完全入門ガイド ・ 2026年7月31日版</div>
+  <h1>Robinhood Markets（HOOD）を<br><span class="g">まるっと</span>解説</h1>
+  <p>スマホ証券から、株・オプション・暗号資産・予測市場・銀行・カード・助言をまとめる金融プラットフォームへ。過去最高売上の中身を分解します。</p>
+  <div class="hero-tags">
+    <!-- 例: <span class="hero-tag">⚛️ 同位体って何？</span> -->
+    <span class="hero-tag">📱 オンライン証券</span><span class="hero-tag">🎯 予測市場</span><span class="hero-tag">🪙 暗号資産</span>
+  </div>
+</div>
+
+<!-- 30秒サマリー：でかい数字カード3〜4枚（上昇は .up / 下落は .down） -->
+<div class="tldr-hero">
+  <div class="tldr-hero-inner">
+    <div class="tldr-hero-title">📊 まずは数字でざっくり</div>
+    <div class="stat-strip">
+      <!-- 例:
+      <div class="stat"><div class="stat-value">$12.34</div><div class="stat-label">現在の株価</div><div class="stat-note">52週 $4〜$18</div></div>
+      <div class="stat"><div class="stat-value up">+180%</div><div class="stat-label">直近1年</div></div>
+      <div class="stat"><div class="stat-value">$1.2B</div><div class="stat-label">時価総額</div></div>
+      <div class="stat"><div class="stat-value">2027</div><div class="stat-label">黒字化目標</div></div>
+      -->
+      <div class="stat"><div class="stat-value" data-live-price>$86.60</div><div class="stat-label">現在株価 <span class="g">LIVE</span></div><div class="stat-note" data-live-price-date>2026/7/30終値・分析基準値</div></div>
+<div class="stat"><div class="stat-value up">$1.308B</div><div class="stat-label">Q2純収益</div><div class="stat-note">前年比 +32%</div></div>
+<div class="stat"><div class="stat-value up">$21.7B</div><div class="stat-label">Q2純入金</div><div class="stat-note">年率換算 +28%</div></div>
+<div class="stat"><div class="stat-value up">4.8M</div><div class="stat-label">Gold会員</div><div class="stat-note">前年比 +39%</div></div>
     </div>
   </div>
+</div>
 
-  <nav class="nav-index" aria-label="ページ内メニュー">
-    <div class="nav-inner">
-      <a class="nav-item" href="#sec1">① どんな会社</a>
-      <a class="nav-item" href="#sec2">② 最新決算</a>
-      <a class="nav-item" href="#sec3">③ 成長要因</a>
-      <a class="nav-item" href="#sec4">④ リスク</a>
-      <a class="nav-item" href="#sec5">⑤ 競争</a>
-      <a class="nav-item" href="#sec6">⑥ 用語</a>
-      <a class="nav-item" href="#sec7">⑦ 株価の見方</a>
+<!-- STICKY NAV -->
+<nav class="nav-index">
+  <div class="nav-inner">
+    <a class="nav-item" href="#sec1">① どんな会社</a>
+    <a class="nav-item" href="#sec2">② 証券ビジネス</a>
+    <a class="nav-item" href="#sec3">③ 商品</a>
+    <a class="nav-item" href="#sec4">④ 規制・リスク</a>
+    <a class="nav-item" href="#sec5">⑤ 競合</a>
+    <a class="nav-item" href="#sec6">⑥ 用語辞典</a>
+    <a class="nav-item" href="#sec7">⑦ 株価の見方</a>
+  </div>
+</nav>
+
+<div class="container">
+
+  <!-- SEC1: 会社概要　⚡3秒まとめ → 会社データ → card-sm 4枚 → どう稼ぐ → highlight「基本ルール」 -->
+  <section class="section" id="sec1">
+    <div class="section-header">
+      <div class="section-icon">🏢</div><div class="section-num">1</div>
+      <div>
+        <div class="section-title">Robinhood Marketsって<span class="g">どんな会社</span>？</div>
+        <div class="section-sub">まず全体像を3秒で</div>
+      </div>
     </div>
-  </nav>
-
-  <main class="container">
-    <section class="section" id="sec1">
-      <div class="section-header"><div class="section-icon">🏦</div><div class="section-num">1</div><div><div class="section-title">何をしている<span class="g">会社</span>？</div><div class="section-sub">取引のたびに稼ぐだけではない「金融スーパーアプリ」</div></div></div>
-      <div class="tldr"><div class="tldr-label">⚡ 3秒まとめ</div><ul><li>株式・オプション・暗号資産・先物・予測市場の取引を提供。</li><li>顧客資産から得る金利、Gold会費、カード、銀行、助言も収益源。</li><li>取引量と相場環境の影響が大きい一方、収益の多角化が進んでいる。</li></ul></div>
-      <div class="facts">
-        <div><dt>本社</dt><dd>米国カリフォルニア州</dd></div><div><dt>上場</dt><dd>NASDAQ（HOOD）</dd></div><div><dt>CEO</dt><dd>Vlad Tenev</dd></div>
-        <div><dt>資金提供済顧客</dt><dd>28.4M</dd></div><div><dt>プラットフォーム資産</dt><dd>$369B</dd></div><div><dt>収益年率$100M超の事業</dt><dd>13本</dd></div>
-      </div>
-      <div class="card-grid">
-        <div class="card-sm"><div class="card-title">取引収益</div><p>オプション、株式、予測市場、暗号資産などの注文フローから得る。</p></div>
-        <div class="card-sm"><div class="card-title">金利収益</div><p>顧客現金、証券貸借、証拠金貸付などから得る。</p></div>
-        <div class="card-sm"><div class="card-title">サブスク</div><p>Robinhood Goldの月額収入。会員増で安定収益が厚くなる。</p></div>
-        <div class="card-sm"><div class="card-title">新規金融</div><p>カード、銀行、助言、海外、プライベート市場を拡張中。</p></div>
-      </div>
-      <div class="highlight"><h3>📏 HOOD株の基本ルール</h3><p>売上だけでなく「純入金・顧客資産・ARPU・収益構成」を見ます。相場が荒いほど取引収益は増えやすい一方、同じ成長率が毎年続くとは限りません。</p></div>
-    </section>
-
-    <section class="section" id="sec2">
-      <div class="section-header"><div class="section-icon">📊</div><div class="section-num">2</div><div><div class="section-title">最新決算で<span class="g">何が変わった</span>？</div><div class="section-sub">2026年Q2は過去最高売上。ただしEPSに一時利益を含む</div></div></div>
-      <div class="card-grid">
-        <div class="card-sm"><div class="card-title">純収益</div><p>$1.308B、前年比+32%。四半期の過去最高。</p></div>
-        <div class="card-sm"><div class="card-title">取引収益</div><p>$776M、+44%。予測市場$156M、オプション$342M、株式$129M。</p></div>
-        <div class="card-sm"><div class="card-title">利益</div><p>希薄化EPS $0.62。ただしファンド非連結化の一時利益$0.14を含む。</p></div>
-        <div class="card-sm"><div class="card-title">費用</div><p>営業費用は+33%。一方、通期調整後費用見通しを$2.675–2.775Bへ引き下げ。</p></div>
-      </div>
-      <ul class="keypoints">
-        <li><span>🟢</span><span><b>良い変化：</b>株式、オプション、予測市場が伸び、暗号資産だけに頼らない構造へ進んだ。</span></li>
-        <li><span>🟡</span><span><b>調整が必要：</b>Q2 EPS $0.62のうち$0.14は一時利益。評価には正規化EPS $0.48前後を使う。</span></li>
-        <li><span>🔴</span><span><b>弱い部分：</b>暗号資産収益は前年比38%減。費用・信用損失・規制対応も増加要因。</span></li>
+    <div class="tldr">
+      <div class="tldr-label">⚡ このセクションの3秒まとめ</div>
+      <ul>
+        <!-- 例: <li data-emoji="🏭">◯◯を作ってる△△業界の会社</li> -->
+        <li data-emoji="📱">株・オプション・暗号資産などを一つのアプリで提供。</li>
+<li data-emoji="💰">取引収益だけでなく、金利・会費・カードも稼ぐ。</li>
+<li data-emoji="⚖️">相場、規制、信用損失で利益が大きく変わる金融会社。</li>
       </ul>
-      <div class="notice">「決算予想を上回った」ことと「株価が割安」なことは別です。現在株価は今後の多角化と利益成長をかなり織り込んでいます。</div>
-    </section>
+    </div>
 
-    <section class="section" id="sec3">
-      <div class="section-header"><div class="section-icon">🚀</div><div class="section-num">3</div><div><div class="section-title">成長を動かす<span class="g">4本柱</span></div><div class="section-sub">取引、預かり資産、サブスク、海外</div></div></div>
-      <div class="timeline">
-        <div class="tl-row"><div class="tl-date">Q2 2026</div><div class="tl-title">予測市場が新しい収益柱へ</div><p>イベント契約収益は$156M、取引枚数は前年比10倍超の13.6B。継続性と規制が最大論点です。</p></div>
-        <div class="tl-row"><div class="tl-date">Q2 2026</div><div class="tl-title">Gold会員4.8M</div><p>前年比39%増。サブスク、カード、金利商品への入口になり、顧客当たり収益を押し上げます。</p></div>
-        <div class="tl-row"><div class="tl-date">2026年6月</div><div class="tl-title">$2.2Bの転換社債</div><p>買収・投資余力を確保。コールスプレッドと自己株買いで希薄化を抑える設計ですが、負債は増えます。</p></div>
-        <div class="tl-row"><div class="tl-date">今後</div><div class="tl-title">海外・銀行・助言の収益化</div><p>国際顧客は1Mを突破。Stock Tokens、Robinhood Chain、銀行、カード、助言のクロスセルが焦点です。</p></div>
-      </div>
-    </section>
+    <!-- 会社データ（クイックファクト）：設立/本社/従業員/CEO/上場/売上規模 等。不明は「非開示」 -->
+    <div class="facts">
+      <div><dt>設立</dt><dd>2013年</dd></div>
+<div><dt>本社</dt><dd>米国メンロパーク</dd></div>
+<div><dt>従業員</dt><dd>約2,900人（2025年末）</dd></div>
+<div><dt>CEO</dt><dd>Vlad Tenev</dd></div>
+<div><dt>上場</dt><dd>NASDAQ（HOOD）</dd></div>
+<div><dt>資金提供済顧客</dt><dd>28.4M</dd></div>
+      <!-- 例:
+      <div><dt>設立</dt><dd>2019年</dd></div>
+      <div><dt>本社</dt><dd>東京</dd></div>
+      <div><dt>従業員数</dt><dd>約12,000人</dd></div>
+      <div><dt>CEO</dt><dd>◯◯ ◯◯</dd></div>
+      <div><dt>上場</dt><dd>東証プライム（285A）</dd></div>
+      <div><dt>売上規模</dt><dd>約2.3兆円</dd></div>
+      -->
+    </div>
 
-    <section class="section" id="sec4">
-      <div class="section-header"><div class="section-icon">⚠️</div><div class="section-num">4</div><div><div class="section-title">見落とせない<span class="g">リスク</span></div><div class="section-sub">金融会社は成長だけでなく規制と信用も見る</div></div></div>
-      <div class="info-row">
-        <div class="info-box"><div class="info-title">⚖️ 規制</div><p>予測市場、暗号資産、トークン化株式、海外商品は規制変更で提供条件や収益性が変わります。</p></div>
-        <div class="info-box"><div class="info-title">📉 相場依存</div><p>取引意欲が落ちると、オプション・株式・暗号資産の収益が同時に減り得ます。</p></div>
-        <div class="info-box"><div class="info-title">💳 信用損失</div><p>証拠金、カード、銀行を広げるほど貸倒れ・不正・資本管理が重要になります。</p></div>
-        <div class="info-box"><div class="info-title">📈 高い期待</div><p>現値は直近年率換算の正規化EPSに対して高倍率。成長鈍化時は倍率縮小が大きくなり得ます。</p></div>
-      </div>
-    </section>
+    <!-- 4枚カード：何をしてる/主力事業/直近の業績/なぜ注目 -->
+    <div class="card-grid">
+      <div class="card-sm"><span class="card-emoji">📈</span><div class="card-title">取引収益</div><div class="card-desc">Q2は$776M。オプション、株式、予測市場、暗号資産などです。</div></div>
+<div class="card-sm"><span class="card-emoji">💵</span><div class="card-title">金利収益</div><div class="card-desc">Q2は$389M。顧客現金、証拠金、証券貸借などから得ます。</div></div>
+<div class="card-sm"><span class="card-emoji">⭐</span><div class="card-title">会費・サービス</div><div class="card-desc">Gold、カード、Trump Accountsなど。Q2その他収益は$143Mです。</div></div>
+<div class="card-sm"><span class="card-emoji">🌍</span><div class="card-title">新しい事業</div><div class="card-desc">助言、銀行、海外、Stock Tokens、Robinhood Chainへ拡張中です。</div></div>
+      <!-- 例: <div class="card-sm"><span class="card-emoji">🏭</span><div class="card-title">何をしてる</div><div class="card-desc">…</div></div> を4枚 -->
+    </div>
 
-    <section class="section" id="sec5">
-      <div class="section-header"><div class="section-icon">🥊</div><div class="section-num">5</div><div><div class="section-title">誰と<span class="g">競争</span>する？</div><div class="section-sub">証券だけでなく暗号資産・銀行・予測市場まで競合が広い</div></div></div>
-      <div class="table-wrap"><table class="compare-table">
-        <thead><tr><th>競合群</th><th>強み</th><th>HOODの差別化</th></tr></thead>
-        <tbody>
-          <tr><td>大手証券</td><td>資産規模、助言、信頼</td><td>若年層UX、商品投入速度</td></tr>
-          <tr><td>暗号資産取引所</td><td>コイン種類、暗号資産機能</td><td>株・オプションとの一体利用</td></tr>
-          <tr><td>ネオバンク</td><td>預金、決済、カード</td><td>投資口座を起点にクロスセル</td></tr>
-          <tr><td>予測市場</td><td>イベント流動性、専門性</td><td>既存顧客基盤とRothera</td></tr>
-        </tbody>
-      </table></div>
-    </section>
+    <!-- どうやって稼ぐ？：ビジネスモデルと売上の内訳を平易に -->
+    <div class="block-label">💰 どうやって<span class="g">稼いでる</span>？</div>
+    <ul class="keypoints">
+      <li><span class="kp-emoji">📊</span><span class="kp-text"><b>取引</b>：Q2純収益の59.3%。相場活況と商品追加が追い風です。</span></li>
+<li><span class="kp-emoji">💵</span><span class="kp-text"><b>金利</b>：Q2純収益の29.7%。預かり資産と金利水準で動きます。</span></li>
+<li><span class="kp-emoji">⭐</span><span class="kp-text"><b>その他</b>：Q2純収益の10.9%。Gold会費や新サービスが含まれます。</span></li>
+<li><span class="kp-emoji">🔁</span><span class="kp-text"><b>クロスセル</b>：28.4M顧客へ複数商品を使ってもらい、ARPUを伸ばします。</span></li>
+      <!-- 例: <li><span class="kp-emoji">🧩</span><span class="kp-text"><b>主力</b>：◯◯を作って△△に売る。売上の約7割。</span></li> を2〜4件（売上構成・主要顧客・課金の仕組み等） -->
+    </ul>
 
-    <section class="section" id="sec6">
-      <div class="section-header"><div class="section-icon">📚</div><div class="section-num">6</div><div><div class="section-title">最低限の<span class="g">用語</span></div><div class="section-sub">開くと説明が表示されます</div></div></div>
-      <div class="term-list">
-        <details class="term-item"><summary class="term-header">純入金（Net Deposits）</summary><div class="term-body"><p>顧客が入れた資金から引き出した資金を差し引いた額。将来の取引・金利・会費収益の土台になります。</p></div></details>
-        <details class="term-item"><summary class="term-header">ARPU</summary><div class="term-body"><p>顧客1人当たりの平均収益。Q2は前年比24%増の$187でした。</p></div></details>
-        <details class="term-item"><summary class="term-header">予測市場</summary><div class="term-body"><p>選挙、スポーツ、経済指標など、将来の出来事の結果に連動するイベント契約を売買する市場です。</p></div></details>
-        <details class="term-item"><summary class="term-header">正規化EPS</summary><div class="term-body"><p>一時的な利益・損失を除き、継続的な収益力を見るために調整した1株利益。本資料ではQ2の一時利益$0.14を除いて考えます。</p></div></details>
-      </div>
-    </section>
+    <!-- 会社の“基本ルール”（この銘柄を見るうえで最初に押さえる勘所） -->
+    <div class="highlight"><h3>📏 HOOD株の基本ルール</h3><p>売上だけでなく、<b>純入金・プラットフォーム資産・ARPU・収益構成・信用損失</b>を見ます。取引量が増えた四半期を、そのまま毎年続く利益と考えません。</p></div>
+    <!-- 例: <div class="highlight"><h3>📏 ◯◯株の基本ルール</h3><p>…</p></div> -->
+  </section>
 
-    <section class="section" id="sec7">
-      <div class="section-header"><div class="section-icon">💹</div><div class="section-num">7</div><div><div class="section-title">株価をどう<span class="g">見る</span>？</div><div class="section-sub">多角化の成功確率を倍率へ落とす</div></div></div>
-      <div class="tldr"><div class="tldr-label">現在の整理</div><ul><li>顧客・資産流入：強い</li><li>収益の多角化：前進</li><li>一時利益を除く必要：あり</li><li>判定：Bear〜Base帯。規制と相場依存を含む高リスク</li></ul></div>
-      <div class="card-grid">
-        <div class="card-sm"><div class="card-title">Bear $58</div><p>取引鈍化と倍率縮小。2027E正規化EPS $2.3 × 25倍。</p></div>
-        <div class="card-sm"><div class="card-title">Base $108</div><p>純入金と多角化が継続。2027E EPS $3.6 × 30倍。</p></div>
-        <div class="card-sm"><div class="card-title">Bull $175</div><p>予測市場と新事業が定着。2027E EPS $4.6 × 38倍。</p></div>
-        <div class="card-sm"><div class="card-title">現値 $89.84</div><p>Bear〜Base帯の27.2%。Bullまでの上値とBearまでの下値の比は2.67倍。</p></div>
-      </div>
-      <p><a class="cta" href="./scenario.html">Bear / Base / Bullの計算を見る →</a></p>
-      <div class="notice">本ページは公開情報を整理した学習用資料で、特定銘柄の売買を勧めるものではありません。株価は自動更新されますが、分析前提は2026年7月30日時点です。</div>
-      <div class="card">
-        <div class="block-label">一次情報・参照資料</div>
-        <ul class="source-list">
-          <li><a href="https://investors.robinhood.com/node/16381/pdf">Robinhood Q2 2026決算（2026/7/29、PDF）</a></li>
-          <li><a href="https://investors.robinhood.com/node/16091/pdf">Robinhood $2.2B転換社債の完了（2026/6/25、PDF）</a></li>
-          <li><a href="https://investors.robinhood.com/investor-relations/">Robinhood Investor Relations</a></li>
-        </ul>
-      </div>
-    </section>
-  </main>
+  <!-- SEC2: 業界の基本　⚡まとめ → lead(比喩) → sowhat → term-list 4〜6 -->
+  <section class="section" id="sec2">
+    <div class="section-header">
+      <div class="section-icon">🏦</div><div class="section-num">2</div>
+      <div><div class="section-title">無料アプリは<span class="g">どこで稼ぐ</span>？</div><div class="section-sub">注文、金利、会費の三層構造</div></div>
+    </div>
+    <div class="tldr"><div class="tldr-label">⚡ このセクションの3秒まとめ</div><ul><li data-emoji="📈">取引注文を市場へ流すことで受け取る収益がある。</li>
+<li data-emoji="💵">顧客資産が増えるほど、金利・貸借収益の土台が厚くなる。</li>
+<li data-emoji="⭐">Goldやカードで毎月・毎年の継続収益を増やす。</li></ul></div>
+    <p class="lead">無料の入口で顧客を集め、<span class="g">取引・預かり資産・会費</span>へ広げる「金融のスーパーアプリ」です。</p>
+<div class="sowhat"><div class="sowhat-label">👉 つまり</div><div class="sowhat-text">株式売買が静かな時でも、金利や会費が利益を支えられるかが重要です。</div></div>
+<div class="term-list"><details class="term-item"><summary class="term-header"><span class="term-name">PFOF<span class="term-en">Payment for Order Flow</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>注文を執行業者へ回して受け取る対価。<br><b>重要：</b>無料取引の収益源です。<br><b>HOODでは：</b>規制変更が収益モデルへ影響します。</p></div></details>
+<details class="term-item"><summary class="term-header"><span class="term-name">取引収益<span class="term-en">Transaction-based Revenue</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>取引量に連動する収益。<br><b>重要：</b>相場活況で増えやすいです。<br><b>HOODでは：</b>Q2に$776Mでした。</p></div></details>
+<details class="term-item"><summary class="term-header"><span class="term-name">純金利収益<span class="term-en">Net Interest Revenue</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>利息収入から関連費用を引いた収益。<br><b>重要：</b>資産残高と金利で動きます。<br><b>HOODでは：</b>Q2に$389Mでした。</p></div></details>
+<details class="term-item"><summary class="term-header"><span class="term-name">プラットフォーム資産<span class="term-en">Total Platform Assets</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>顧客がRobinhood上に持つ資産。<br><b>重要：</b>取引・金利・会費の土台です。<br><b>HOODでは：</b>Q2末に$369Bでした。</p></div></details>
+<details class="term-item"><summary class="term-header"><span class="term-name">清算<span class="term-en">Clearing</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>取引後に現金と証券を受け渡す工程。<br><b>重要：</b>資本とリスク管理が必要です。<br><b>HOODでは：</b>自社・提携先の運用安定性が重要です。</p></div></details>
+<details class="term-item"><summary class="term-header"><span class="term-name">相場循環<span class="term-en">Market Cycle</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>強気・弱気で取引意欲が変わる波。<br><b>重要：</b>取引収益を大きく動かします。<br><b>HOODでは：</b>好調四半期の年率化に注意します。</p></div></details></div>
+  </section>
 
-  <footer class="footer"><p><a href="../../index.html">SiM MARKET LABへ戻る</a></p><p>数字を煽らず、前提を読む。</p></footer>
-  <script src="../../lab/assets/js/live-report-price.js" defer></script>
+  <!-- SEC3: 主要製品・技術　⚡まとめ → product-grid → term-list 3〜5 -->
+  <section class="section" id="sec3">
+    <div class="section-header">
+      <div class="section-icon">🔬</div><div class="section-num">3</div>
+      <div><div class="section-title">Robinhoodの<span class="g">商品群</span></div><div class="section-sub">投資、予測、貯蓄、助言を一つへ</div></div>
+    </div>
+    <div class="tldr"><div class="tldr-label">⚡ このセクションの3秒まとめ</div><ul><li data-emoji="📈">株・オプション・先物が中心。</li>
+<li data-emoji="🎯">予測市場がQ2の新しい大型収益源。</li>
+<li data-emoji="⭐">Goldを入口にカード、銀行、助言へ広げる。</li></ul></div>
+    <div class="product-grid">
+<div class="product-box"><div class="product-symbol">TRADE</div><div class="product-name">BROKERAGE</div><div class="product-use">株式・ETF・オプション・先物</div></div>
+<div class="product-box"><div class="product-symbol">PM</div><div class="product-name">PREDICTION</div><div class="product-use">イベント契約・Rothera</div></div>
+<div class="product-box"><div class="product-symbol">₿</div><div class="product-name">CRYPTO</div><div class="product-use">暗号資産・Bitstamp・WonderFi</div></div>
+<div class="product-box"><div class="product-symbol">GOLD</div><div class="product-name">SUBSCRIPTION</div><div class="product-use">会費、カード、銀行、助言</div></div>
+</div>
+<div class="term-list"><details class="term-item"><summary class="term-header"><span class="term-name">Robinhood Legend<span class="term-en">Desktop Trading</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>アクティブ向けのデスクトップ取引。<br><b>重要：</b>高頻度利用者を深掘りします。<br><b>HOODでは：</b>年率収益$100M超へ成長しました。</p></div></details>
+<details class="term-item"><summary class="term-header"><span class="term-name">イベント契約<span class="term-en">Event Contract</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>将来の出来事の結果に連動する契約。<br><b>重要：</b>新しい取引需要を作ります。<br><b>HOODでは：</b>Q2収益$156Mでした。</p></div></details>
+<details class="term-item"><summary class="term-header"><span class="term-name">Rothera<span class="term-en">Prediction Exchange JV</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>予測市場の取引所・清算組織。<br><b>重要：</b>自社の市場基盤を持てます。<br><b>HOODでは：</b>Susquehannaとの独立運営JVです。</p></div></details>
+<details class="term-item"><summary class="term-header"><span class="term-name">Robinhood Gold<span class="term-en">Subscription</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>有料会員サービス。<br><b>重要：</b>継続収益と商品利用を増やします。<br><b>HOODでは：</b>Q2末4.8M会員です。</p></div></details>
+<details class="term-item"><summary class="term-header"><span class="term-name">Robinhood Chain<span class="term-en">Layer 2</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>金融資産向けのブロックチェーン構想。<br><b>重要：</b>トークン化資産を海外展開できます。<br><b>HOODでは：</b>規制と技術の実行が焦点です。</p></div></details></div>
+  </section>
+
+  <!-- SEC4: 技術詳細・規制　⚡まとめ → keypoints → term-list 4〜6 -->
+  <section class="section" id="sec4">
+    <div class="section-header">
+      <div class="section-icon">🏛️</div><div class="section-num">4</div>
+      <div><div class="section-title">金融アプリが<span class="g">止まる原因</span></div><div class="section-sub">規制、清算、信用、セキュリティ</div></div>
+    </div>
+    <div class="tldr"><div class="tldr-label">⚡ このセクションの3秒まとめ</div><ul><li data-emoji="⚖️">予測市場・暗号資産・トークン化商品は規制変更が大きい。</li>
+<li data-emoji="💳">カードや証拠金を広げるほど信用損失が増える。</li>
+<li data-emoji="🔐">障害や情報漏えいは顧客信頼と規制対応へ直結。</li></ul></div>
+    <ul class="keypoints"><li><span class="kp-emoji">⚖️</span><span class="kp-text"><b>規制</b>：SEC、FINRA、CFTC、州・海外当局の複数ルールへ対応します。</span></li>
+<li><span class="kp-emoji">🧾</span><span class="kp-text"><b>清算</b>：取引量急増時も資本・担保・決済を安定させる必要があります。</span></li>
+<li><span class="kp-emoji">💳</span><span class="kp-text"><b>信用</b>：Q2信用損失引当は$56M。前年の2倍です。</span></li>
+<li><span class="kp-emoji">🔐</span><span class="kp-text"><b>システム</b>：障害、サイバー攻撃、不正取引を抑える必要があります。</span></li></ul>
+<div class="term-list"><details class="term-item"><summary class="term-header"><span class="term-name">SEC / FINRA<span class="term-en">証券規制</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>米国の証券市場を監督する機関・自主規制団体。<br><b>重要：</b>証券商品の提供方法を決めます。<br><b>HOODでは：</b>PFOFや顧客保護の規制が重要です。</p></div></details>
+<details class="term-item"><summary class="term-header"><span class="term-name">CFTC<span class="term-en">Commodity Futures Trading Commission</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>先物・デリバティブを監督する米国当局。<br><b>重要：</b>イベント契約の提供可否に関わります。<br><b>HOODでは：</b>予測市場の最大規制論点です。</p></div></details>
+<details class="term-item"><summary class="term-header"><span class="term-name">SIPC<span class="term-en">Investor Protection</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>証券会社破綻時の顧客資産保護制度。<br><b>重要：</b>銀行預金保険とは別です。<br><b>HOODでは：</b>商品ごとの保護範囲説明が必要です。</p></div></details>
+<details class="term-item"><summary class="term-header"><span class="term-name">KYC / AML<span class="term-en">本人確認・資金洗浄対策</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>顧客確認と不正資金対策。<br><b>重要：</b>金融会社の基本義務です。<br><b>HOODでは：</b>海外・暗号資産拡大で負担が増えます。</p></div></details>
+<details class="term-item"><summary class="term-header"><span class="term-name">信用損失<span class="term-en">Credit Loss</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>貸付や未収金が回収できない損失。<br><b>重要：</b>カード・証拠金の拡大で増えます。<br><b>HOODでは：</b>Q2引当が$56Mへ増えました。</p></div></details></div>
+  </section>
+
+  <!-- SEC5: 競合比較　⚡まとめ → table-wrap>compare-table(自社=me) → highlight「差別化」 -->
+  <section class="section" id="sec5">
+    <div class="section-header">
+      <div class="section-icon">⚔️</div><div class="section-num">5</div>
+      <div><div class="section-title">誰と<span class="g">競争</span>する？</div><div class="section-sub">証券、暗号資産、銀行、予測市場を横断</div></div>
+    </div>
+    <div class="tldr"><div class="tldr-label">⚡ このセクションの3秒まとめ</div><ul><li data-emoji="📱">HOODの強みは若年層UXと商品投入の速さ。</li>
+<li data-emoji="🏦">大手証券は信頼、助言、資産規模で強い。</li>
+<li data-emoji="🪙">暗号資産・予測市場では専門業者と競争。</li></ul></div>
+    <div class="table-wrap"><table class="compare-table"><thead><tr><th>企業・群</th><th>強み</th><th>HOODとの違い</th></tr></thead><tbody>
+<tr class="me"><td>Robinhood</td><td>若年層UX、商品投入、クロスセル</td><td>規制・相場依存・信用拡大が課題</td></tr>
+<tr><td>Charles Schwab</td><td>巨大な顧客資産、助言、信頼</td><td>HOODはモバイル体験と商品速度</td></tr>
+<tr><td>Interactive Brokers</td><td>プロ向け機能、海外市場</td><td>HOODは初心者からの一体体験</td></tr>
+<tr><td>Coinbase</td><td>暗号資産の商品深度</td><td>HOODは株・オプションとの統合</td></tr>
+<tr><td>SoFi</td><td>銀行、融資、会員モデル</td><td>HOODは取引・投資が入口</td></tr>
+<tr><td>予測市場専業</td><td>流動性、イベント専門性</td><td>HOODは既存顧客とRotheraを活用</td></tr>
+</tbody></table></div>
+<div class="highlight"><h3>🏁 最大の差別化</h3><p>単一商品ではなく、<b>28.4M顧客へ複数の金融商品を一つのアプリで提供</b>できることです。強みが利益になるかは、ARPUと継続率で確認します。</p></div>
+  </section>
+
+  <!-- SEC6: 用語辞典　⚡まとめ(特にこの3つ) → term-list 10〜12（①定義→②なぜ重要→③この銘柄では） -->
+  <section class="section" id="sec6">
+    <div class="section-header">
+      <div class="section-icon">📖</div><div class="section-num">6</div>
+      <div><div class="section-title">HOODのニュースで出る<span class="g">言葉</span> 全辞典</div><div class="section-sub">分からん単語はここで潰す</div></div>
+    </div>
+    <div class="tldr"><div class="tldr-label">⚡ 特にこの3つだけは覚えて</div><ul><li data-emoji="💰">純入金＝顧客が入れた資産から引き出しを引いた額。</li>
+<li data-emoji="📊">ARPU＝顧客1人あたりの年率換算収益。</li>
+<li data-emoji="🎯">イベント契約＝出来事の結果に連動する取引。</li></ul></div>
+    <div class="term-list"><details class="term-item"><summary class="term-header"><span class="term-name">Funded Customers<span class="term-en">資金提供済顧客</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>残高か直近取引があるユニーク顧客。<br><b>重要：</b>稼働顧客の規模です。<br><b>HOODでは：</b>Q2末28.4Mでした。</p></div></details>
+<details class="term-item"><summary class="term-header"><span class="term-name">Investment Accounts<span class="term-en">投資口座</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>顧客が持つ投資口座数。<br><b>重要：</b>1人が複数口座を持てます。<br><b>HOODでは：</b>Q2末29.9Mでした。</p></div></details>
+<details class="term-item"><summary class="term-header"><span class="term-name">Total Platform Assets<span class="term-en">プラットフォーム資産</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>顧客資産の時価合計。<br><b>重要：</b>収益の土台です。<br><b>HOODでは：</b>Q2末$369Bでした。</p></div></details>
+<details class="term-item"><summary class="term-header"><span class="term-name">Net Deposits<span class="term-en">純入金</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>入金・移管から出金等を引いた額。<br><b>重要：</b>自力の資産成長を示します。<br><b>HOODでは：</b>Q2に$21.7Bでした。</p></div></details>
+<details class="term-item"><summary class="term-header"><span class="term-name">ARPU<span class="term-en">Average Revenue Per User</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>顧客1人あたり年率換算収益。<br><b>重要：</b>クロスセルの成果を測ります。<br><b>HOODでは：</b>Q2に$187でした。</p></div></details>
+<details class="term-item"><summary class="term-header"><span class="term-name">Robinhood Gold<span class="term-en">有料会員</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>会費型の上位サービス。<br><b>重要：</b>継続収益と商品利用を増やします。<br><b>HOODでは：</b>4.8M会員、採用率17%です。</p></div></details>
+<details class="term-item"><summary class="term-header"><span class="term-name">PFOF<span class="term-en">注文フロー対価</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>注文執行業者から受け取る対価。<br><b>重要：</b>無料取引を支えます。<br><b>HOODでは：</b>規制変更が収益へ直結します。</p></div></details>
+<details class="term-item"><summary class="term-header"><span class="term-name">Event Contracts<span class="term-en">イベント契約</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>出来事の結果に連動する契約。<br><b>重要：</b>新しい取引市場です。<br><b>HOODでは：</b>Q2取引13.6B枚、収益$156Mです。</p></div></details>
+<details class="term-item"><summary class="term-header"><span class="term-name">純金利収益<span class="term-en">Net Interest Revenue</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>顧客資産や貸付から得る正味利息。<br><b>重要：</b>相場以外の収益源です。<br><b>HOODでは：</b>Q2に$389Mでした。</p></div></details>
+<details class="term-item"><summary class="term-header"><span class="term-name">Adjusted EBITDA<span class="term-en">調整後EBITDA</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>一部項目を除いた利益指標。<br><b>重要：</b>営業力の比較に使います。<br><b>HOODでは：</b>Q2に$741Mでした。</p></div></details>
+<details class="term-item"><summary class="term-header"><span class="term-name">SBC<span class="term-en">株式報酬</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>従業員へ株式で払う報酬。<br><b>重要：</b>現金を使わなくても株数が増えます。<br><b>HOODでは：</b>Q2に$105Mでした。</p></div></details>
+<details class="term-item"><summary class="term-header"><span class="term-name">転換社債とCapped Call<span class="term-en">Dilution Hedge</span></span><span class="term-arrow">⌄</span></summary><div class="term-body"><p><b>定義：</b>株へ変わる社債と希薄化を抑えるオプション。<br><b>重要：</b>負債と株数を分けて見ます。<br><b>HOODでは：</b>転換価格$174.42、上限$237.85です。</p></div></details></div>
+  </section>
+
+  <!-- SEC7: 株価の見方　⚡まとめ → timeline(signal+rating) → リスク4分類 info-row → highlight → 数字まとめ table -->
+  <section class="section" id="sec7">
+    <div class="section-header">
+      <div class="section-icon">💹</div><div class="section-num">7</div>
+      <div><div class="section-title">何がHOOD株を<span class="g">動かす</span>？</div><div class="section-sub">上がる理由・下がる理由を一目で</div></div>
+    </div>
+    <div class="tldr"><div class="tldr-label">⚡ 株価のツボ 3秒まとめ</div><ul><li data-emoji="🔥">Q2は純収益$1.308Bで過去最高。</li>
+<li data-emoji="⚠️">報告EPS $0.62には一時利益$0.14を含む。</li>
+<li data-emoji="🎯">次は予測市場の継続性、純入金、信用損失を確認。</li></ul></div>
+    <div class="timeline"><div class="tl-row"><div class="tl-date">2026/7/29</div><div class="tl-title">Q2決算 <span class="signal bull">追い風</span> <span class="rating">★★★★★</span></div><div class="tl-desc">純収益$1.308B、純入金$21.7B、Gold会員4.8Mでした。</div></div>
+<div class="tl-row"><div class="tl-date">2026年下期</div><div class="tl-title">予測市場の継続性 <span class="signal neutral">要確認</span> <span class="rating">★★★★★</span></div><div class="tl-desc">Q2イベント契約収益$156Mが続くかを見ます。</div></div>
+<div class="tl-row"><div class="tl-date">2026年下期</div><div class="tl-title">暗号資産収益の底打ち <span class="signal neutral">要確認</span> <span class="rating">★★★★<span class="off">★</span></span></div><div class="tl-desc">Q2暗号資産収益は前年比38%減の$100Mでした。</div></div>
+<div class="tl-row"><div class="tl-date">2026年下期</div><div class="tl-title">Gold・銀行・カードのクロスセル <span class="signal bull">追い風</span> <span class="rating">★★★★<span class="off">★</span></span></div><div class="tl-desc">会員数だけでなくARPUと信用損失を確認します。</div></div>
+<div class="tl-row"><div class="tl-date">2026年10月頃</div><div class="tl-title">Q3決算（日時未発表） <span class="signal neutral">次の材料</span> <span class="rating">★★★★★</span></div><div class="tl-desc">取引収益、純入金、ARPU、費用を確認します。</div></div>
+<div class="tl-row"><div class="tl-date">2026–2027年</div><div class="tl-title">海外・Robinhood Chain <span class="signal neutral">要確認</span> <span class="rating">★★★<span class="off">★★</span></span></div><div class="tl-desc">1M超の海外顧客を継続収益へ変えられるかが焦点です。</div></div>
+<div class="tl-row"><div class="tl-date">継続</div><div class="tl-title">$2.2B転換社債と買戻し <span class="signal neutral">要確認</span> <span class="rating">★★★★<span class="off">★</span></span></div><div class="tl-desc">転換価格$174.42、Capped Call上限$237.85を追います。</div></div></div>
+<div class="info-row">
+<div class="info-box info-box-red"><div class="info-title info-title-red">🔐 技術</div><div class="info-text">障害、サイバー攻撃、清算処理の失敗。</div></div>
+<div class="info-box info-box-red"><div class="info-title info-title-red">⚖️ 規制</div><div class="info-text">予測市場、暗号資産、PFOF、海外商品の変更。</div></div>
+<div class="info-box info-box-amber"><div class="info-title info-title-amber">💳 財務</div><div class="info-text">信用損失、転換社債、SBC、買収費用。</div></div>
+<div class="info-box info-box-amber"><div class="info-title info-title-amber">📉 市場</div><div class="info-text">取引量、暗号資産価格、金利の変化。</div></div>
+</div>
+<div class="highlight"><h3>⚠️ 投資家向け注意点</h3><p>Q2報告EPS $0.62のうち<b>$0.14はRVI非連結化などの一時利益</b>です。シナリオは継続利益へ正規化して考えます。</p><p style="margin-top:12px"><a href="./scenario.html">株価シナリオの計算を見る →</a></p></div>
+<div class="table-wrap"><table class="compare-table"><thead><tr><th>数字</th><th>値</th><th>意味</th></tr></thead><tbody>
+<tr><td>基準株価</td><td>$86.60</td><td>2026/7/30終値。表示だけ自動更新</td></tr>
+<tr><td>52週レンジ</td><td>$63.52–$153.86</td><td>高値から大きく調整</td></tr>
+<tr><td>概算時価総額</td><td>約$77.8B</td><td>899M株×基準株価</td></tr>
+<tr><td>Q2純収益</td><td>$1.308B</td><td>前年比+32%</td></tr>
+<tr><td>純入金 / 資産</td><td>$21.7B / $369B</td><td>顧客基盤の成長</td></tr>
+<tr><td>現金 / 長期借入</td><td>$5.36B / $2.17B</td><td>2026/6/30</td></tr>
+<tr><td>アナリスト中央値</td><td>$126</td><td>本試算Base $108より16.7%高い</td></tr>
+</tbody></table></div>
+<div class="card"><div class="block-label">🔗 主な<span class="g">出典</span></div><ul class="keypoints"><li><span class="kp-emoji">↗</span><span class="kp-text"><a href="https://investors.robinhood.com/static-files/2f42ce10-59b7-4880-8371-7d52ede7c22e" target="_blank" rel="noopener">Robinhood Q2 2026決算</a></span></li>
+<li><span class="kp-emoji">↗</span><span class="kp-text"><a href="https://www.sec.gov/Archives/edgar/data/1783879/000178387926000114/hood-20260630.htm" target="_blank" rel="noopener">Robinhood Q2 2026 Form 10-Q</a></span></li>
+<li><span class="kp-emoji">↗</span><span class="kp-text"><a href="https://www.sec.gov/Archives/edgar/data/1783879/000178387926000023/hood-20251231.htm" target="_blank" rel="noopener">Robinhood 2025 Form 10-K</a></span></li>
+<li><span class="kp-emoji">↗</span><span class="kp-text"><a href="https://investors.robinhood.com/news-releases/news-release-details/robinhood-announces-pricing-private-offering-20-billion" target="_blank" rel="noopener">$2.0B転換社債の条件</a></span></li></ul></div>
+  </section>
+
+</div><!-- /container -->
+
+<div class="footer">
+  <div class="brandmark">S<span class="g">i</span>M &nbsp;MARKET LAB</div>
+  <p style="margin-bottom:8px;font-weight:700;color:#d8ded8">⚠️ 免責事項</p>
+  <p>本資料は情報提供・教育目的のみです。投資助言ではありません。オンライン証券・金融プラットフォーム株は値動きが激しく、元本を失うリスクがあります。<br>投資判断はご自身の責任で。データは2026年7月31日時点の公開情報に基づきます。</p>
+</div>
+
+<script>
+document.querySelectorAll('details.term-item').forEach(d => {
+  d.addEventListener('toggle', () => {
+    if (d.open) document.querySelectorAll('details.term-item').forEach(o => { if (o !== d && o.open) o.removeAttribute('open'); });
+  });
+});
+(function(){
+  var bar = document.getElementById('progressBar');
+  function u(){ var h=document.documentElement; var s=h.scrollTop/(h.scrollHeight-h.clientHeight); bar.style.width=Math.min(100,Math.max(0,s*100))+'%'; }
+  document.addEventListener('scroll', u, {passive:true}); window.addEventListener('resize', u); u();
+})();
+</script>
+
+<script src="../../lab/assets/js/live-report-price.js" defer></script>
 </body>
 </html>
+
+<!--
+================================================================
+  デザインロック（重要）
+  ・アクセント色はSiMグリーンで固定。銘柄・業界で変えない。
+  ・以前あった「業界別カラー早見表」は廃止（色を変えると銘柄ごとに見た目がぶれるため）。
+  ・この <style> と骨格は改変禁止。{{ }} の中身だけ差し替える。
+================================================================
+  ChatGPT用ルール: 完成HTMLは必ず index.html というファイル名で保存・出力する。
+================================================================
+-->
