@@ -15,6 +15,7 @@ async function exists(path) { try { await access(path); return true; } catch { r
 const publishedSnapshot = join(repoRoot, "report-system", "published", `${report.reportId}.report.json`);
 const baseline = await exists(publishedSnapshot) ? await readJson(publishedSnapshot) : null;
 const independent = independentArg && await exists(resolve(independentArg)) ? await readJson(resolve(independentArg)) : null;
+const candidateSha = process.env.CANDIDATE_COMMIT_SHA ?? null;
 const reportSchema = await readJson(join(repoRoot, "report-system", "schemas", "report.schema.json"));
 const schemaErrors = validateJsonSchema(report, reportSchema);
 const catalystPath = join(dirname(reportPath), `${report.reportId}.catalyst.json`);
@@ -27,13 +28,13 @@ if (await exists(catalystPath)) {
   if (catalystValidation.status !== "PASS" || catalystValidation.failCount || catalystValidation.warnCount) schemaErrors.push("catalyst validation must be PASS with zero warnings");
   if (catalyst.meta?.ticker !== report.reportId || catalyst.meta?.currency !== report.meta.currency || catalyst.meta?.company_name !== report.meta.companyName) schemaErrors.push("catalyst identity/currency mismatch");
 }
-const result = validateCandidate(report, { baseline, independent, schemaErrors });
+const result = validateCandidate(report, { baseline, independent, expectedCommitSha: candidateSha, schemaErrors });
 const auditPath = join(repoRoot, "report-system", "audit", report.reportId, `${report.revision}.json`);
 await mkdir(dirname(auditPath), { recursive: true });
 const previousAudit = await exists(auditPath) ? await readJson(auditPath) : null;
 if (previousAudit?.decision === "AUTO_PUBLISH" && command === "promote") throw new Error("同一revisionは公開済みです");
 if (command === "validate") {
-  await writeJson(auditPath, makeAudit({ report, result, commitSha: process.env.GITHUB_SHA ?? "local", rollbackRevision: baseline?.revision ?? null }));
+  await writeJson(auditPath, makeAudit({ report, result, commitSha: candidateSha ?? "local", rollbackRevision: baseline?.revision ?? null }));
   console.log(JSON.stringify(result, null, 2));
   if (process.env.GITHUB_OUTPUT) await writeFile(process.env.GITHUB_OUTPUT, `decision=${result.decision}\nticker=${report.reportId}\nrevision=${report.revision}\n`, { flag: "a" });
   if (result.decision !== "AUTO_PUBLISH") process.exitCode = 2;
@@ -93,6 +94,6 @@ if (command === "validate") {
   const tempSnapshot = `${publishedSnapshot}.tmp`;
   await writeJson(tempSnapshot, promoted); await rename(tempSnapshot, publishedSnapshot);
   await writeJson(reportPath, promoted);
-  await writeJson(auditPath, makeAudit({ report: promoted, result, commitSha: process.env.GITHUB_SHA ?? "local", publishedRevision: report.revision, rollbackRevision: baseline?.revision ?? null }));
+  await writeJson(auditPath, makeAudit({ report: promoted, result, commitSha: candidateSha ?? "local", publishedRevision: report.revision, rollbackRevision: baseline?.revision ?? null }));
   console.log(`AUTO_PUBLISH ${report.reportId} ${report.revision}`);
 } else throw new Error(`unknown command: ${command}`);

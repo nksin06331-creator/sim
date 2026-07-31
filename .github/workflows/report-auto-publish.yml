@@ -1,16 +1,12 @@
 name: Validate and auto-publish report candidate
 
 on:
-  pull_request:
-    types: [opened, synchronize, reopened]
-    paths:
-      - "report-system/reports/*.report.json"
-      - "report-system/reports/*.catalyst.json"
+  pull_request_review:
+    types: [submitted]
 
 permissions:
   contents: write
   pull-requests: write
-  models: read
   pages: write
   id-token: write
 
@@ -20,7 +16,9 @@ concurrency:
 
 jobs:
   gate:
-    if: github.event.pull_request.head.repo.full_name == github.repository
+    if: >-
+      github.event.pull_request.head.repo.full_name == github.repository &&
+      (github.event.review.state == 'commented' || github.event.review.state == 'approved')
     runs-on: ubuntu-latest
     timeout-minutes: 45
     outputs:
@@ -28,8 +26,7 @@ jobs:
       merge_sha: ${{ steps.merge.outputs.merge_sha }}
       ticker: ${{ steps.candidate.outputs.ticker }}
     env:
-      GITHUB_TOKEN: ${{ github.token }}
-      GITHUB_VALIDATION_MODEL: ${{ vars.GITHUB_VALIDATION_MODEL || 'openai/gpt-4.1' }}
+      CANDIDATE_COMMIT_SHA: ${{ github.event.pull_request.head.sha }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -51,7 +48,7 @@ jobs:
           fi
           echo "path=${reports[0]}" >> "$GITHUB_OUTPUT"
           echo "ticker=$(basename "${reports[0]}" .report.json)" >> "$GITHUB_OUTPUT"
-      - name: Independent validation with GitHub Models
+      - name: Read independent validation attestation from PR review
         id: independent
         continue-on-error: true
         run: node scripts/independent-validate.mjs "${{ steps.candidate.outputs.path }}" independent-validation.json
