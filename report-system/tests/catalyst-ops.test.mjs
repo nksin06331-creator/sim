@@ -158,7 +158,7 @@ test("valid catalyst JSON renders the optional third page", () => {
   assert.equal(validation.failCount, 0);
   const html = renderCatalyst(report, template, validation);
   assert.match(html, /今後のカタリスト/);
-  assert.match(html, /href="scenario\.html"/);
+  assert.match(html, /href="DEMO\.html"/);
   assert.match(html, /この銘柄固有の重要情報/);
   assert.match(html, /data-stock-ticker="DEMO"/);
   assert.doesNotMatch(html, /\{\{[A-Z0-9_]+\}\}/);

@@ -1,0 +1,1076 @@
+{
+  "schemaVersion": 1,
+  "reportId": "4015",
+  "revision": "2026-08-01T00:00:00+09:00",
+  "status": "published",
+  "renderMode": "structured",
+  "templateVersion": "sim-report-v1",
+  "update": {
+    "mode": "initial",
+    "baseRevision": null,
+    "reason": "ペイクラウドホールディングスを新規銘柄として追加し、2026年7月末までの一次情報で企業ガイドと株価シナリオを作成",
+    "changedFields": [
+      "meta",
+      "overview",
+      "guide",
+      "scenario",
+      "sources",
+      "validation"
+    ]
+  },
+  "meta": {
+    "companyName": "ペイクラウドホールディングス株式会社",
+    "ticker": "4015",
+    "aliases": [
+      "ペイクラウド",
+      "Paycloud Holdings Inc.",
+      "旧アララ株式会社"
+    ],
+    "market": "JP",
+    "exchange": "東京証券取引所",
+    "currency": "JPY",
+    "valuationDate": "2026-07-31",
+    "lastUpdated": "2026-08-01",
+    "sector": "情報・通信",
+    "industry": "キャッシュレス決済・デジタルサイネージ・販促SaaS",
+    "fiscalYearLabel": "2026年8月期",
+    "marketDetails": {
+      "reportingStandard": "日本基準",
+      "secCik": null,
+      "adr": false,
+      "securitiesCode": "4015",
+      "listingSegment": "東証グロース",
+      "fiscalYearEndMonth": 8,
+      "lotSize": 100
+    }
+  },
+  "overview": {
+    "tagline": "店舗の独自Pay、デジタルサイネージ、メール配信を束ねる小型リテールDX企業。利益進捗は堅調だが、月次MRRの鈍化とスポット案件の振れを同時に見る。",
+    "heroTags": [
+      "独自Pay",
+      "デジタルサイネージ",
+      "リカーリング収益",
+      "東証グロース"
+    ],
+    "heroStats": [
+      {
+        "value": "541円",
+        "label": "株価",
+        "note": "2026-07-31東証終値",
+        "tone": "normal",
+        "livePrice": true
+      },
+      {
+        "value": "115.0億円",
+        "label": "FY2026売上予想",
+        "note": "会社予想・変更なし",
+        "tone": "up",
+        "livePrice": false
+      },
+      {
+        "value": "8.0億円",
+        "label": "FY2026営業利益予想",
+        "note": "3Q進捗率82.7%",
+        "tone": "up",
+        "livePrice": false
+      },
+      {
+        "value": "103%",
+        "label": "2026年6月MRR前年比",
+        "note": "キャッシュレスのみ102%",
+        "tone": "normal",
+        "livePrice": false
+      }
+    ],
+    "businessSummary": "ペイクラウドホールディングスは、バリューデザインの独自Pay・デジタルギフト、クラウドポイントのデジタルサイネージ、アララのメール配信やデータセキュリティを傘下に持つ持株会社である。2026年8月期第3四半期累計は売上高80.57億円、営業利益6.61億円。売上構成はデジタルサイネージが最大だが、利益成長では高収益なキャッシュレスのリカーリング売上が重要になる。"
+  },
+  "guide": {
+    "sections": [
+      {
+        "id": "company",
+        "topic": "company",
+        "icon": "🏢",
+        "title": "会社は何で稼ぐのか",
+        "subtitle": "3事業を持つリテールDXグループ",
+        "summaryItems": [
+          "独自Payの決済手数料と利用料は継続収益になりやすい",
+          "デジタルサイネージは売上規模が大きい一方、機器販売と設置案件で四半期の振れが出やすい",
+          "メール配信などのソリューションは安定収益だが、足元ではサーバ費用と外注費が重い"
+        ],
+        "blocks": [
+          {
+            "type": "facts",
+            "title": "2026年8月期3Q累計の全体像",
+            "items": [
+              {
+                "label": "売上高",
+                "value": "80.57億円（前年同期比+5.4%）",
+                "sourceRefs": [
+                  "S1",
+                  "S2"
+                ]
+              },
+              {
+                "label": "調整後EBITDA",
+                "value": "10.56億円（同+2.0%）",
+                "sourceRefs": [
+                  "S1",
+                  "S2"
+                ]
+              },
+              {
+                "label": "営業利益",
+                "value": "6.61億円（同+6.2%）",
+                "sourceRefs": [
+                  "S1",
+                  "S2"
+                ]
+              },
+              {
+                "label": "純利益",
+                "value": "3.24億円（同-3.0%）",
+                "sourceRefs": [
+                  "S1"
+                ]
+              }
+            ]
+          },
+          {
+            "type": "paragraphs",
+            "title": "初心者向けに一言",
+            "paragraphs": [
+              "この会社は決済会社だけではない。店舗が自社ブランドで発行する電子マネーやポイントの仕組み、店頭の電子看板、企業のメール配信をまとめて提供している。顧客の店舗運営と販促に深く入り込むため、継続利用が増えるほど収益が積み上がりやすい。",
+              "一方、預り金を含む現預金をすべて自由な余剰資金とみなすのは危険である。また、デジタルサイネージには機器販売と工事が含まれ、案件の納品時期によって売上と利益が前後する。"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "industry",
+        "topic": "industry",
+        "icon": "🧭",
+        "title": "業界の基本原理",
+        "subtitle": "決済額、継続利用、設置案件の3つで見る",
+        "summaryItems": [
+          "独自Payは導入社数だけでなく既存顧客の利用額が重要",
+          "オンラインチャージの拡大は決済手数料と継続収益を押し上げる",
+          "サイネージは設置面数だけでなく大型モニター比率と案件単価も見る"
+        ],
+        "blocks": [
+          {
+            "type": "keypoints",
+            "title": "業績へつながる順番",
+            "items": [
+              {
+                "icon": "1",
+                "title": "利用拡大",
+                "text": "独自Payの加盟店と利用者が増え、既存顧客1社あたりのオンラインチャージ利用が伸びる。",
+                "sourceRefs": [
+                  "S5"
+                ]
+              },
+              {
+                "icon": "2",
+                "title": "リカーリング売上",
+                "text": "決済手数料やシステム利用料が毎月積み上がり、売上の質と利益率が改善する。",
+                "sourceRefs": [
+                  "S2",
+                  "S5"
+                ]
+              },
+              {
+                "icon": "3",
+                "title": "営業レバレッジ",
+                "text": "固定費を上回る継続収益が増えれば、売上成長率以上に利益が伸びる余地がある。"
+              },
+              {
+                "icon": "4",
+                "title": "案件変動",
+                "text": "サイネージは大型案件、納品時期、機器構成で四半期ごとの利益率が変わる。",
+                "sourceRefs": [
+                  "S2"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "products",
+        "topic": "products",
+        "icon": "🧩",
+        "title": "主要製品とサービス",
+        "subtitle": "店舗の決済・表示・顧客接点をつなぐ",
+        "summaryItems": [
+          "Value Cardなどの独自Payはキャッシュレス事業の中心",
+          "CloudExaとLED WORLDがデジタルサイネージの主力",
+          "アララ メッセージなどが企業の情報配信とセキュリティを支える"
+        ],
+        "blocks": [
+          {
+            "type": "products",
+            "title": "3つの柱",
+            "items": [
+              {
+                "symbol": "PAY",
+                "name": "独自Pay・デジタルギフト",
+                "use": "小売・飲食・自治体などが自社ブランドの電子マネー、ポイント、ギフトを運営する。決済手数料と利用料が主な収益源。"
+              },
+              {
+                "symbol": "DS",
+                "name": "デジタルサイネージ",
+                "use": "映像配信システム、モニター、LEDビジョン、設置工事、保守を提供する。大型案件は単価が高い。"
+              },
+              {
+                "symbol": "SaaS",
+                "name": "メール配信・データセキュリティ",
+                "use": "大量メール配信、マーケティング支援、個人情報ファイルの管理などを提供する。"
+              }
+            ],
+            "sourceRefs": [
+              "S2",
+              "S3"
+            ]
+          },
+          {
+            "type": "highlight",
+            "title": "新規サービスの見方",
+            "text": "おまいりPayなどの新規事業は話題性があるが、会社は来期売上への貢献を見込む一方、利益寄与は全体へ影響しない程度としている。短期の企業価値を過大評価しない。",
+            "sourceRefs": [
+              "S2",
+              "S5"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "operations",
+        "topic": "operations",
+        "icon": "⚙️",
+        "title": "運営・財務で見る場所",
+        "subtitle": "現金、預り金、のれん、移転費用を分ける",
+        "summaryItems": [
+          "3Q末の現預金45.06億円に対し、預り金16.37億円と借入金約17.21億円がある",
+          "クラウドポイント本社は2026年12月に移転予定で、一時費用が見込まれる",
+          "自己株式600,000株の取得は完了し、総額2.93億円を投じた"
+        ],
+        "blocks": [
+          {
+            "type": "comparison",
+            "title": "3Q末財政状態",
+            "columns": [
+              "項目",
+              "金額",
+              "読み方"
+            ],
+            "rows": [
+              [
+                "現預金",
+                "45.06億円",
+                "預り金を含むため全額を余剰現金としない"
+              ],
+              [
+                "預り金",
+                "16.37億円",
+                "オンラインチャージ拡大と月末要因で増加"
+              ],
+              [
+                "短期・長期借入金",
+                "約17.21億円",
+                "企業価値計算では現金と相殺して確認"
+              ],
+              [
+                "のれん",
+                "18.06億円",
+                "過去の経営統合価値が計画未達なら減損リスク"
+              ],
+              [
+                "純資産",
+                "47.93億円",
+                "自己資本比率45.9%"
+              ]
+            ],
+            "sourceRefs": [
+              "S1",
+              "S2"
+            ]
+          },
+          {
+            "type": "paragraphs",
+            "title": "資本政策",
+            "paragraphs": [
+              "2026年4月の取締役会決議に基づく自己株式取得は、2026年7月27日までに600,000株、総額292,682,300円で終了した。発行済株式数16,018,148株と3Q末までの自己株式293,771株を踏まえると、取得終了後の自己株式は概算600,771株、自己株式控除後株式数は概算15,417,377株となる。",
+              "この株式数は評価用の概算であり、ストックオプション行使、新株発行、自己株式処分などで変わり得る。"
+            ],
+            "sourceRefs": [
+              "S1",
+              "S6"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "competition",
+        "topic": "competition",
+        "icon": "🥊",
+        "title": "競争優位と競合リスク",
+        "subtitle": "単品の強さより顧客接点の広さが武器",
+        "summaryItems": [
+          "決済、販促、サイネージを横断して同じ小売顧客へ提案できる",
+          "独自Payは汎用QR決済と違い、顧客データと囲い込み施策を店舗側が設計しやすい",
+          "大手決済、POS、広告、SaaS各社との競争は強く、価格と開発投資が必要"
+        ],
+        "blocks": [
+          {
+            "type": "risk-grid",
+            "title": "強みと弱み",
+            "items": [
+              {
+                "title": "強み：業務への組み込み",
+                "text": "決済や店頭表示は店舗の日常運営に組み込まれるため、切り替えにはシステム移行と現場教育が必要になる。"
+              },
+              {
+                "title": "強み：クロスセル",
+                "text": "共通顧客へ独自Pay、デジタルギフト、サイネージ、メール配信を横断提案できる。"
+              },
+              {
+                "title": "弱み：規模",
+                "text": "時価総額と開発資源は大手決済・大手IT企業より小さく、大型投資や価格競争への耐性は限定的。"
+              },
+              {
+                "title": "弱み：複合事業",
+                "text": "リカーリングSaaSと機器・工事型ビジネスが混在し、単一倍率では評価しにくい。"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "glossary",
+        "topic": "glossary",
+        "icon": "📚",
+        "title": "先に覚える用語",
+        "subtitle": "数字を見るための8語",
+        "summaryItems": [
+          "MRRとリカーリング売上は成長の質を見る指標",
+          "取扱高は売上高ではなく、決済された総額",
+          "EV/EBITDAは現金・負債と利益創出力を一緒に比べる"
+        ],
+        "blocks": [
+          {
+            "type": "terms",
+            "title": "重要用語",
+            "items": [
+              {
+                "term": "独自Pay",
+                "english": "Private-label Pay",
+                "definition": "企業や店舗が自社ブランドで運営する電子マネー・ポイント基盤。",
+                "whyImportant": "顧客の囲い込みと購買データ活用につながる。",
+                "companyContext": "バリューデザインがValue Cardなどを提供する。"
+              },
+              {
+                "term": "MRR",
+                "english": "Monthly Recurring Revenue",
+                "definition": "毎月繰り返し発生する経常収益。",
+                "whyImportant": "単発売上より将来の収益を見通しやすい。",
+                "companyContext": "2026年6月の前年同月比は103%、キャッシュレスのみ102%。"
+              },
+              {
+                "term": "リカーリング売上",
+                "english": "Recurring Revenue",
+                "definition": "決済手数料やシステム利用料など継続的に発生する売上。",
+                "whyImportant": "利益率と業績安定性を左右する。",
+                "companyContext": "キャッシュレス3Qのリカーリング売上は7.93億円、前年同期比+7.8%。"
+              },
+              {
+                "term": "取扱高",
+                "english": "Gross Transaction Value",
+                "definition": "サービス上で処理された決済総額。会社の売上高とは異なる。",
+                "whyImportant": "決済手数料収入の母数になる。",
+                "companyContext": "2026年6月は1,295億円、うちオンラインチャージ約37億円。"
+              },
+              {
+                "term": "調整後EBITDA",
+                "english": "Adjusted EBITDA",
+                "definition": "営業利益に減価償却費と株式報酬費用などを足し戻した利益指標。",
+                "whyImportant": "事業の現金創出力を比較しやすい。",
+                "companyContext": "FY2026会社予想は13.0億円、3Q進捗率81.2%。"
+              },
+              {
+                "term": "デジタルサイネージ",
+                "english": "Digital Signage",
+                "definition": "店頭や施設に設置するネットワーク接続型の電子看板。",
+                "whyImportant": "機器販売、設置、利用料、保守が売上になる。",
+                "companyContext": "2026年6月末の累計設置面数は73,730面。"
+              },
+              {
+                "term": "預り金",
+                "english": "Customer Deposits",
+                "definition": "顧客や利用者の資金など、会社が一時的に預かる負債。",
+                "whyImportant": "現預金から企業価値を計算するときに差し引いて見る必要がある。",
+                "companyContext": "3Q末は16.37億円。月末が休日だった影響も含む。"
+              },
+              {
+                "term": "EV/EBITDA",
+                "english": "Enterprise Value / EBITDA",
+                "definition": "企業価値をEBITDAで割る評価倍率。",
+                "whyImportant": "資本構成や減価償却の違いを調整して比較できる。",
+                "companyContext": "本レポートでは預り金を除いた余剰現金を使い、3シナリオを試算する。"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "catalysts",
+        "topic": "catalysts",
+        "icon": "📅",
+        "title": "カタリストとリスクの見方",
+        "subtitle": "確定日と推定期間を混ぜない",
+        "summaryItems": [
+          "次の最重要確認は2026年8月期通期決算だが、発表日は未確認",
+          "月次MRRの再加速とデジタルサイネージ案件の継続が利益成長の鍵",
+          "2027年8月期2Qの移転補償金は特別利益であり、継続利益とは分ける"
+        ],
+        "blocks": [
+          {
+            "type": "timeline",
+            "title": "確認イベント",
+            "items": [
+              {
+                "title": "2026年8月期通期決算",
+                "timing": "2026年10月ごろ・確定日未発表",
+                "status": "要確認",
+                "signal": "neutral",
+                "description": "営業利益8.0億円の達成度、FY2027の利益成長、サイネージ移転費用を確認する。",
+                "sourceRefs": [
+                  "S1",
+                  "S2"
+                ]
+              },
+              {
+                "title": "月次業績報告",
+                "timing": "月次・次回公表日未確認",
+                "status": "継続監視",
+                "signal": "neutral",
+                "description": "MRR前年比、取扱高、ID数、店舗数、サイネージ設置面数を追う。",
+                "sourceRefs": [
+                  "S5"
+                ]
+              },
+              {
+                "title": "本社移転と補償金計上",
+                "timing": "移転は2026年12月予定、特別利益は2027年8月期2Q予定",
+                "status": "会社開示",
+                "signal": "neutral",
+                "description": "補償金346,781,000円は一時利益。移転費用と通常利益を分けて評価する。",
+                "sourceRefs": [
+                  "S5",
+                  "S7"
+                ]
+              }
+            ]
+          },
+          {
+            "type": "highlight",
+            "title": "専用カタリストページを作らない理由",
+            "text": "現時点の主要材料は定期決算、月次KPI、既知の移転補償であり、独立ページで追うべき大型の二値イベントや確定マイルストーンは確認できない。通常レポート内で管理し、新規大型契約、M&A、業績修正などが出た時点で再判定する。"
+          }
+        ]
+      }
+    ],
+    "extraSections": []
+  },
+  "scenario": {
+    "decision": {
+      "status": "利益進捗は堅調、評価はやや割安寄り",
+      "oneLine": "キャッシュレスの高収益化は確認できる一方、MRR成長は鈍化しており、通期決算でFY2027の伸びを確認する局面。",
+      "score": 68,
+      "companyQuality": "キャッシュレスのリカーリング収益とサイネージの顧客基盤は強み。複合事業、のれん、案件変動を割り引く必要がある。",
+      "valuationView": "541円はBase価値630円を約14%下回る。ただしBaseはFY2027調整後EBITDA14.5億円とEV/EBITDA6.0倍を置くモデル値であり、会社予想ではない。"
+    },
+    "valuation": {
+      "currentPrice": 541,
+      "currency": "JPY",
+      "expectedValue": 635,
+      "expectedReturnPct": 17.38,
+      "method": "FY2027調整後EBITDAを用いたEV/EBITDA法",
+      "currentPriceNote": "2026-07-31東証終値。分析値はこの日付で固定し、ライブ株価とは分ける。"
+    },
+    "scenarios": [
+      {
+        "name": "Bear",
+        "price": 400,
+        "probability": 25,
+        "conditions": [
+          "FY2027調整後EBITDAが12.0億円程度へ減少または伸び悩む",
+          "MRR前年比が100%近辺まで低下し、キャッシュレスの高収益化が止まる",
+          "サイネージの案件遅延と本社移転費用が重なり、評価倍率が4.5倍へ低下する"
+        ],
+        "details": [
+          {
+            "label": "FY2027調整後EBITDA",
+            "value": "12.0億円"
+          },
+          {
+            "label": "EV/EBITDA",
+            "value": "4.5倍"
+          },
+          {
+            "label": "余剰ネットキャッシュ",
+            "value": "8.0億円"
+          },
+          {
+            "label": "現値比",
+            "value": "-26.1%"
+          }
+        ]
+      },
+      {
+        "name": "Base",
+        "price": 630,
+        "probability": 50,
+        "conditions": [
+          "FY2026会社予想を概ね達成し、FY2027調整後EBITDAが14.5億円へ増える",
+          "キャッシュレスのリカーリング売上は緩やかに伸び、サイネージ需要も堅調を維持する",
+          "移転費用を吸収しつつ、複合リテールDX企業としてEV/EBITDA6.0倍が維持される"
+        ],
+        "details": [
+          {
+            "label": "FY2027調整後EBITDA",
+            "value": "14.5億円"
+          },
+          {
+            "label": "EV/EBITDA",
+            "value": "6.0倍"
+          },
+          {
+            "label": "余剰ネットキャッシュ",
+            "value": "10.0億円"
+          },
+          {
+            "label": "現値比",
+            "value": "+16.5%"
+          }
+        ]
+      },
+      {
+        "name": "Bull",
+        "price": 880,
+        "probability": 25,
+        "conditions": [
+          "オンラインチャージと新規加盟店の両方が伸び、FY2027調整後EBITDAが16.5億円へ拡大する",
+          "大型サイネージ案件と高採算リカーリング売上が同時に伸びる",
+          "成長再加速が評価され、EV/EBITDA7.5倍まで上昇する"
+        ],
+        "details": [
+          {
+            "label": "FY2027調整後EBITDA",
+            "value": "16.5億円"
+          },
+          {
+            "label": "EV/EBITDA",
+            "value": "7.5倍"
+          },
+          {
+            "label": "余剰ネットキャッシュ",
+            "value": "12.0億円"
+          },
+          {
+            "label": "現値比",
+            "value": "+62.7%"
+          }
+        ]
+      }
+    ],
+    "positioning": {
+      "bandPositionPct": 29.38,
+      "interpretation": "541円はBear400円からBull880円のレンジ下側29%地点で、Base630円より下にある。市場はFY2026の利益進捗を評価しつつ、MRR成長の鈍化、サイネージの案件変動、FY2027移転費用を割り引いていると推定する。",
+      "priceZones": [
+        {
+          "range": "400円未満",
+          "note": "Bear以下。MRR失速や利益前提の崩れを確認する水準。"
+        },
+        {
+          "range": "400〜630円",
+          "note": "Bear〜Base帯。通期達成とFY2027ガイダンスで妥当性を確認。"
+        },
+        {
+          "range": "630〜880円",
+          "note": "Base〜Bull帯。再加速と倍率上昇の根拠が必要。"
+        },
+        {
+          "range": "880円超",
+          "note": "Bull超。16.5億円以上のEBITDAまたは7.5倍超の評価が必要。"
+        }
+      ]
+    },
+    "marketReverse": {
+      "equityValueBillionYen": 8.34,
+      "estimatedExcessNetCashBillionYen": 1,
+      "impliedEnterpriseValueBillionYen": 7.34,
+      "fy2026CompanyAdjustedEbitdaBillionYen": 1.3,
+      "impliedEvEbitda": 5.65,
+      "conclusion": "自己株式取得後の概算株式数15.42百万株に541円を掛けると株主価値は約83.4億円。現預金から預り金、借入金、3Q後の追加自社株買い支出を控除した余剰ネットキャッシュを約10億円と置くと、企業価値は約73.4億円でFY2026調整後EBITDA予想13.0億円の約5.65倍となる。市場は高成長SaaSというより、案件変動を持つ複合リテールDX企業として評価している。",
+      "caution": "余剰ネットキャッシュ10億円は2026年5月末残高を基礎にしたモデル推定。6〜7月の通常運転資本変動は未反映。"
+    },
+    "entryContext": {
+      "recent20dChangePct": 5.46,
+      "moveTrigger": "2026年7月3日週終値513円から7月31日終値541円。3Q増収増益、自社株買い、移転補償金が材料になった一方、590円の年初来高値後は調整。",
+      "catalysts": [
+        {
+          "title": "2026年8月期通期決算とFY2027計画",
+          "timing": "2026年10月ごろ。確定日は未発表",
+          "status": "window",
+          "importance": 5,
+          "successImpact": "営業利益8.0億円を上回り、FY2027の継続利益成長が示されればBase以上の前提が強まる",
+          "failureImpact": "MRR鈍化や移転費用でFY2027減益となればBear側へ寄る",
+          "sourceRefs": [
+            "S1",
+            "S2"
+          ]
+        },
+        {
+          "title": "月次MRR・取扱高・設置面数",
+          "timing": "月次。次回公表日は未確認",
+          "status": "unknown",
+          "importance": 3,
+          "successImpact": "MRR前年比が再加速し、取扱高と設置面数も伸びればFY2027 EBITDA上振れ余地",
+          "failureImpact": "MRRが100%近辺まで低下し、設置面数も停滞すれば成長倍率が低下",
+          "sourceRefs": [
+            "S5"
+          ]
+        },
+        {
+          "title": "クラウドポイント本社移転と補償金計上",
+          "timing": "移転は2026年12月予定、補償金の特別利益計上は2027年8月期2Q予定",
+          "status": "confirmed",
+          "importance": 3,
+          "successImpact": "移転が計画内の費用で完了すれば一時利益346,781,000円が財務余力を補う",
+          "failureImpact": "移転費用超過や業務停滞があれば通常利益を圧迫。補償金は継続利益ではない",
+          "sourceRefs": [
+            "S5",
+            "S7"
+          ]
+        }
+      ],
+      "pricedInNote": "現在値はFY2026会社予想ベースのPER約23.9倍、モデル上のEV/EBITDA約5.65倍。自社株買いと3Q利益進捗は相応に織り込む一方、FY2027成長の確信までは織り込んでいないと推定する。"
+    },
+    "risk": {
+      "riskClass": "HIGH",
+      "items": [
+        {
+          "category": "成長",
+          "title": "MRR成長の鈍化",
+          "description": "2026年6月のMRR前年比は103%、キャッシュレスのみ102%。3月の高い伸びから鈍化しており、既存顧客の利用拡大が止まると利益率改善が遅れる。",
+          "severity": 4,
+          "sourceRefs": [
+            "S5"
+          ]
+        },
+        {
+          "category": "案件",
+          "title": "サイネージ納品の期ずれ",
+          "description": "大型モニターや設置案件は顧客都合、工事、納品時期で四半期業績が振れやすい。受注残高は非開示で先行きを外部から精密に把握しにくい。",
+          "severity": 4,
+          "sourceRefs": [
+            "S2",
+            "S5"
+          ]
+        },
+        {
+          "category": "財務",
+          "title": "預り金と余剰現金の混同",
+          "description": "現預金45.06億円の一部はオンラインチャージ等に伴う預り金16.37億円と対応する。全額を株主価値へ足すと過大評価になる。",
+          "severity": 4,
+          "sourceRefs": [
+            "S1",
+            "S2"
+          ]
+        },
+        {
+          "category": "会計",
+          "title": "のれん減損",
+          "description": "3Q末ののれんは18.06億円。統合した事業が計画未達となれば減損損失で純利益と純資産が下振れる可能性がある。",
+          "severity": 3,
+          "sourceRefs": [
+            "S2"
+          ]
+        },
+        {
+          "category": "実行",
+          "title": "本社移転費用と一時利益",
+          "description": "クラウドポイント移転で一時費用が発生する。補償金3.47億円は特別利益であり、通常の収益力と混同すると割高・割安判断を誤る。",
+          "severity": 3,
+          "sourceRefs": [
+            "S2",
+            "S5",
+            "S7"
+          ]
+        }
+      ]
+    },
+    "positives": [
+      "2026年8月期3Q累計は売上高+5.4%、営業利益+6.2%で増収増益",
+      "営業利益の通期進捗率82.7%で、会社は期初計画をやや上回る可能性を示唆",
+      "キャッシュレス事業は売上+5.3%に対しセグメント利益+19.9%と収益性が改善",
+      "自社株買い600,000株を完了し、自己株式控除後の1株価値を下支え",
+      "累計ID241百万、店舗135,200、サイネージ73,730面まで基盤が拡大"
+    ],
+    "concerns": [
+      "2026年6月MRR前年比103%は高成長とは言いにくく、再加速の確認が必要",
+      "デジタルサイネージは利益率が低めで、案件単価と納品時期による振れが大きい",
+      "ソリューション事業はサーバ費用と外部委託費の増加で3Qセグメント利益が前年同期比-4.8%",
+      "FY2027は本社移転の一時費用が見込まれ、補償金による特別利益で実力値が見えにくくなる",
+      "小型グロース株で流動性が低く、短期の株価変動が業績変化より大きくなり得る"
+    ],
+    "watchItems": [
+      {
+        "title": "MRR前年比",
+        "description": "103%から再加速するか。キャッシュレスのみの伸びも同時に確認する。",
+        "signal": "flat"
+      },
+      {
+        "title": "キャッシュレスのリカーリング売上",
+        "description": "3Qの7.93億円、前年同期比+7.8%を維持・加速できるか。",
+        "signal": "up"
+      },
+      {
+        "title": "サイネージ案件単価",
+        "description": "設置面数だけでなくLED WORLDなど大型モニターの構成比と利益率を見る。",
+        "signal": "up"
+      },
+      {
+        "title": "ソリューション費用",
+        "description": "サーバ費用と外部委託費の増加が止まり、セグメント利益が回復するか。",
+        "signal": "down"
+      },
+      {
+        "title": "FY2027通常利益",
+        "description": "移転補償の特別利益を除いた営業利益・経常利益の成長率を確認する。",
+        "signal": "flat"
+      }
+    ],
+    "calculation": {
+      "summary": "自己株式取得後の概算株式数15.417百万株を使用。FY2027調整後EBITDAにシナリオ別EV/EBITDA倍率を掛け、余剰ネットキャッシュを加えて1株価値へ変換した。数値は会社予想ではなく、2026年7月末情報に基づくモデル仮定。",
+      "columns": [
+        "ケース",
+        "FY2027 EBITDA",
+        "倍率",
+        "企業価値",
+        "余剰ネット現金",
+        "株主価値",
+        "1株価値"
+      ],
+      "rows": [
+        [
+          "Bear",
+          "12.0億円",
+          "4.5倍",
+          "54.0億円",
+          "8.0億円",
+          "62.0億円",
+          "約402円→400円"
+        ],
+        [
+          "Base",
+          "14.5億円",
+          "6.0倍",
+          "87.0億円",
+          "10.0億円",
+          "97.0億円",
+          "約629円→630円"
+        ],
+        [
+          "Bull",
+          "16.5億円",
+          "7.5倍",
+          "123.75億円",
+          "12.0億円",
+          "135.75億円",
+          "約881円→880円"
+        ]
+      ],
+      "expectedValueFormula": "400円×25% + 630円×50% + 880円×25% = 635円",
+      "notice": "補償金346,781,000円は一時的な特別利益のため、FY2027 EBITDAへ加えていない。余剰ネットキャッシュは預り金を控除した概算であり、実際の6〜7月運転資本は未反映。",
+      "sensitivity": {
+        "columns": [
+          "FY2027 EBITDA",
+          "5.0倍",
+          "6.0倍",
+          "7.0倍"
+        ],
+        "rows": [
+          [
+            "12.0億円",
+            "454円",
+            "532円",
+            "610円"
+          ],
+          [
+            "14.5億円",
+            "535円",
+            "629円",
+            "723円"
+          ],
+          [
+            "16.5億円",
+            "600円",
+            "707円",
+            "814円"
+          ]
+        ],
+        "note": "各セルは余剰ネットキャッシュ10億円、株式数15.417百万株で計算。倍率1倍の変化が1株価値へ大きく影響する。"
+      }
+    },
+    "assumptions": [
+      {
+        "item": "現在株価",
+        "value": 541,
+        "classification": "market-data",
+        "note": "2026-07-31東証終値",
+        "sourceRefs": [
+          "S8"
+        ]
+      },
+      {
+        "item": "FY2026売上高予想",
+        "value": "115.0億円",
+        "classification": "company-guidance",
+        "note": "2026年7月14日時点で変更なし",
+        "sourceRefs": [
+          "S1"
+        ]
+      },
+      {
+        "item": "FY2026調整後EBITDA予想",
+        "value": "13.0億円",
+        "classification": "company-guidance",
+        "note": "3Q進捗率81.2%",
+        "sourceRefs": [
+          "S2"
+        ]
+      },
+      {
+        "item": "FY2027調整後EBITDA",
+        "value": "12.0〜16.5億円",
+        "classification": "estimate",
+        "note": "会社のFY2027予想は未発表。シナリオ分析用の当方推定。"
+      },
+      {
+        "item": "EV/EBITDA倍率",
+        "value": "4.5〜7.5倍",
+        "classification": "assumption",
+        "note": "案件型とリカーリング型が混在する小型リテールDX企業として設定。"
+      },
+      {
+        "item": "自己株式控除後株式数",
+        "value": "15.417百万株",
+        "classification": "estimate",
+        "note": "発行済16,018,148株から自社株買い終了後の概算自己株式600,771株を控除。",
+        "sourceRefs": [
+          "S1",
+          "S6"
+        ]
+      },
+      {
+        "item": "余剰ネットキャッシュ",
+        "value": "8〜12億円",
+        "classification": "estimate",
+        "note": "3Q末現預金から預り金、借入金、3Q後の追加自社株買い支出を控除した概算。",
+        "sourceRefs": [
+          "S1",
+          "S2",
+          "S6"
+        ]
+      },
+      {
+        "item": "補償金",
+        "value": "346,781,000円",
+        "classification": "company-guidance",
+        "note": "2027年8月期2Qに特別利益計上予定。通常利益の評価には含めない。",
+        "sourceRefs": [
+          "S5",
+          "S7"
+        ]
+      }
+    ],
+    "deepDive": [
+      {
+        "title": "なぜPERではなくEV/EBITDAを主軸にしたか",
+        "content": "2026年8月期の純利益予想3.60億円には税負担や一時項目の影響が出やすく、FY2027には移転補償金の特別利益が入る予定である。加えて、同社は買収で生じたのれんと減価償却を持つ。通常の事業収益力を比較するため、調整後EBITDAと企業価値を主軸にした。ただし調整後EBITDAは株式報酬費用を足し戻すため、株主にとって完全な現金利益ではない。",
+        "sourceRefs": [
+          "S1",
+          "S2",
+          "S7"
+        ]
+      },
+      {
+        "title": "キャッシュレスの質",
+        "content": "3Qのキャッシュレス売上は前年同期比+5.3%だが、セグメント利益は+19.9%。リカーリング売上拡大、利益率の低いスポット売上の構成比低下、コスト抑制が効いた。成長率だけでなく、売上構成が高収益側へ移るかが企業価値の中心になる。",
+        "sourceRefs": [
+          "S2"
+        ]
+      },
+      {
+        "title": "月次KPIの注意点",
+        "content": "取扱高1,295億円は会社売上ではなく、システム上で処理した決済総額である。累計ID数と店舗数も、そのまま課金ユーザー数や売上高を示さない。MRR前年比、リカーリング売上、セグメント利益率と組み合わせて判断する。",
+        "sourceRefs": [
+          "S5"
+        ]
+      },
+      {
+        "title": "株主優待の扱い",
+        "content": "300株以上で5,000円、500株以上で10,000円のデジタルギフトが予定されている。個人投資家には利回り効果がある一方、会社側には費用が発生するため、企業価値モデルでは優待価値を株価へ直接加算していない。",
+        "sourceRefs": [
+          "S2"
+        ]
+      }
+    ],
+    "extraSections": [],
+    "disclaimer": "本資料は公開情報に基づくシナリオ分析で、投資助言や売買推奨ではありません。Bear・Base・Bull、確率、FY2027 EBITDA、評価倍率、余剰ネットキャッシュは仮定であり、将来の株価や業績を保証しません。投資判断は一次情報を再確認したうえで利用者自身の責任で行ってください。"
+  },
+  "sources": [
+    {
+      "id": "S1",
+      "title": "2026年8月期 第3四半期決算短信〔日本基準〕（連結）",
+      "publisher": "ペイクラウドホールディングス株式会社／TDnet",
+      "url": "https://global-assets.irdirect.jp/pdf/tdnet/batch/140120260714593073.pdf",
+      "sourceType": "tdnet",
+      "primary": true,
+      "publishedAt": "2026-07-14",
+      "accessedAt": "2026-08-01"
+    },
+    {
+      "id": "S2",
+      "title": "2026年8月期 第3四半期決算説明資料",
+      "publisher": "ペイクラウドホールディングス株式会社／TDnet",
+      "url": "https://global-assets.irdirect.jp/pdf/tdnet/batch/140120260714593090.pdf",
+      "sourceType": "company-ir",
+      "primary": true,
+      "publishedAt": "2026-07-14",
+      "accessedAt": "2026-08-01"
+    },
+    {
+      "id": "S3",
+      "title": "グループ事業・会社概要",
+      "publisher": "ペイクラウドホールディングス株式会社",
+      "url": "https://www.paycloud.inc/",
+      "sourceType": "company-ir",
+      "primary": true,
+      "publishedAt": null,
+      "accessedAt": "2026-08-01"
+    },
+    {
+      "id": "S4",
+      "title": "上場会社検索 4015 Paycloud Holdings Inc.",
+      "publisher": "東京証券取引所",
+      "url": "https://www2.jpx.co.jp/tseHpFront/StockSearch.do?callJorEFlg=1&method=topsearch&topSearchStr=4015",
+      "sourceType": "exchange",
+      "primary": true,
+      "publishedAt": null,
+      "accessedAt": "2026-08-01"
+    },
+    {
+      "id": "S5",
+      "title": "2026年6月 月次業績報告",
+      "publisher": "ペイクラウドホールディングス株式会社／東京証券取引所",
+      "url": "https://www2.jpx.co.jp/disc/40150/140120260728500827.pdf",
+      "sourceType": "tdnet",
+      "primary": true,
+      "publishedAt": "2026-07-28",
+      "accessedAt": "2026-08-01"
+    },
+    {
+      "id": "S6",
+      "title": "自己株式の取得状況及び取得終了に関するお知らせ",
+      "publisher": "ペイクラウドホールディングス株式会社／TDnet",
+      "url": "https://finance.biggo.jp/news/jpx_tdnet_140120260728500613",
+      "sourceType": "secondary",
+      "primary": false,
+      "publishedAt": "2026-07-28",
+      "accessedAt": "2026-08-01"
+    },
+    {
+      "id": "S7",
+      "title": "当社連結子会社の本社移転に伴う受取補償金（概算額）の合意に関するお知らせ",
+      "publisher": "ペイクラウドホールディングス株式会社／TDnet",
+      "url": "https://global-assets.irdirect.jp/pdf/tdnet/batch/140120260717595561.pdf",
+      "sourceType": "tdnet",
+      "primary": true,
+      "publishedAt": "2026-07-17",
+      "accessedAt": "2026-08-01"
+    },
+    {
+      "id": "S8",
+      "title": "ペイクラウドホールディングス（4015）株価・時系列",
+      "publisher": "Yahoo!ファイナンス",
+      "url": "https://finance.yahoo.co.jp/quote/4015.T/history",
+      "sourceType": "market-data",
+      "primary": false,
+      "publishedAt": "2026-07-31",
+      "accessedAt": "2026-08-01"
+    }
+  ],
+  "coverageWaivers": [],
+  "validation": {
+    "status": "PASS",
+    "humanReviewed": false,
+    "failCount": 0,
+    "warnCount": 0,
+    "summary": "内部の構造・計算・出典参照・安全表現チェックを通過。独立検証と公開後確認はGitHub側ゲートへ委ねる。",
+    "checks": [
+      {
+        "id": "TARGET_IDENTITY",
+        "status": "PASS",
+        "message": "4015・東証グロース・JPY・ペイクラウドホールディングスを一次情報で確認"
+      },
+      {
+        "id": "LATEST_PRIMARY",
+        "status": "PASS",
+        "message": "2026-07-28月次までの一次情報を反映"
+      },
+      {
+        "id": "PROBABILITY",
+        "status": "PASS",
+        "message": "25%+50%+25%=100%"
+      },
+      {
+        "id": "SCENARIO_ORDER",
+        "status": "PASS",
+        "message": "400円<630円<880円"
+      },
+      {
+        "id": "EXPECTED_VALUE",
+        "status": "PASS",
+        "message": "400×0.25+630×0.50+880×0.25=635円"
+      },
+      {
+        "id": "EXPECTED_RETURN",
+        "status": "PASS",
+        "message": "635÷541-1=17.38%"
+      },
+      {
+        "id": "SOURCE_REFS",
+        "status": "PASS",
+        "message": "すべてのsourceRefsが定義済み出典へ解決"
+      },
+      {
+        "id": "NO_FALSE_PRECISION",
+        "status": "PASS",
+        "message": "未発表の通期決算日と次回月次日を創作していない"
+      },
+      {
+        "id": "NO_ADVICE",
+        "status": "PASS",
+        "message": "売買断定なし"
+      },
+      {
+        "id": "CATALYST_SCOPE",
+        "status": "PASS",
+        "message": "専用カタリストJSONは不要と判定し、通常レポート内で監視"
+      }
+    ],
+    "machinePublished": true
+  }
+}

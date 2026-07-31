@@ -1,6 +1,42 @@
 [
   {
     "schemaVersion": 1,
+    "ticker": "4015",
+    "slug": "4015",
+    "name": "ペイクラウドホールディングス株式会社",
+    "market": "日本株",
+    "sector": "情報・通信",
+    "method": "FY2027調整後EBITDAを用いたEV/EBITDA法",
+    "status": "published",
+    "updated": "2026-08-01",
+    "price": {
+      "current": 541,
+      "currency": "JPY"
+    },
+    "scenarios": {
+      "bear": 400,
+      "base": 630,
+      "bull": 880
+    },
+    "positionPct": 29.38,
+    "zone": "541円はBase価値630円を約14%下回る。ただしBaseはFY2027調整後EBITDA14.5億円とEV/EBITDA6.0倍を置くモデル値であり、会社予想ではない。",
+    "riskReward": "—",
+    "catalyst": "通期決算とFY2027計画、月次MRR、移転実行を順に確認する。確定日未発表の項目は推定日を置かない。",
+    "summary": "キャッシュレスの高収益化は確認できる一方、MRR成長は鈍化しており、通期決算でFY2027の伸びを確認する局面。",
+    "tags": [
+      "独自Pay",
+      "デジタルサイネージ",
+      "リカーリング収益",
+      "東証グロース"
+    ],
+    "risk": "HIGH",
+    "detailPath": "stocks/4015/index.html",
+    "scenarioPath": "stocks/4015/4015.html",
+    "catalystPath": "stocks/4015/catalysts.html",
+    "sourceRevision": "2026-08-01T00:00:00+09:00"
+  },
+  {
+    "schemaVersion": 1,
     "ticker": "BE",
     "slug": "be",
     "name": "Bloom Energy Corporation",
@@ -72,33 +108,34 @@
     "name": "Intel Corporation",
     "market": "米国株",
     "sector": "半導体・AIコンピューティング",
-    "method": "2027年売上×フォワードEV/Sales（Foundryオプション込み）を主軸に、正規化EPSでクロスチェック",
+    "method": "2027年売上 × EV/Sales − ネットデット",
     "status": "published",
     "updated": "2026-07-31",
     "price": {
-      "current": 91.13,
+      "current": 93.39,
       "currency": "USD"
     },
     "scenarios": {
-      "bear": 60,
-      "base": 95,
-      "bull": 135
+      "bear": 54.7,
+      "base": 89.19,
+      "bull": 137.37
     },
-    "positionPct": 41.5,
-    "zone": "Q2売上成長だけでは現在価値を説明し切れず、18Aの量産経済性と外部顧客価値を含むオプション評価が大きい",
-    "riskReward": "期待回復を相当織り込む高変動局面",
-    "catalyst": "Q3 2026決算と会社予想の達成度",
-    "summary": "IntelはCPUやカスタム半導体を設計するIntel Productsと、先端プロセス・製造・先端パッケージを担うIntel Foundryを同じ企業内に持つIDMです。Q2 2026はPC向けのCCPGが88.77億ドル、データセンター・AIのDCAIが62.62億ドルと製品部門が伸び、連結売上は161.28億ドルでした。評価の焦点は、製品利益の回復を維持しながら、Intel 18Aの歩留まり・供給量・外部顧客を増やし、Foundryの巨額赤字と資本負担を縮小できるかです。",
+    "positionPct": 46.8,
+    "zone": "Baseやや上",
+    "riskReward": "1.14倍",
+    "catalyst": "2026年Q3決算 / 供給制約緩和 / 18A-P・14A外部顧客",
+    "summary": "Q2売上は前年比25%増と強い一方、現値はBase価値を上回る。今後はQ3ガイダンス達成、供給改善、Foundry外部顧客の具体化が焦点。",
     "tags": [
       "CPU",
       "AIデータセンター",
       "Intel 18A",
       "米国製造"
     ],
-    "risk": "HIGH",
+    "risk": "高",
     "detailPath": "stocks/INTC/index.html",
     "scenarioPath": "stocks/INTC/scenario.html",
-    "sourceRevision": "intc-initial-20260731-r2"
+    "sourceRevision": "intc-q2-20260731-catalyst-v1",
+    "catalystPath": "stocks/INTC/catalysts.html"
   },
   {
     "schemaVersion": 1,
