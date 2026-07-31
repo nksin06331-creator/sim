@@ -28,9 +28,7 @@ export function contentMetrics(report) {
   const text = strings({ overview: report.overview, guide: report.guide, scenario: report.scenario }).join(" ");
   return { textCharacters: text.replace(/\s+/g, "").length, sources: report.sources?.length ?? 0 };
 }
-export function revisionDigest(report) {
-  return createHash("sha256").update(JSON.stringify(report)).digest("hex");
-}
+export function revisionDigest(report) { return createHash("sha256").update(JSON.stringify(report)).digest("hex"); }
 export function validateJsonSchema(value, schema, root = schema, path = "$") {
   const errors = [];
   if (!schema || typeof schema !== "object") return errors;
@@ -70,9 +68,7 @@ export function validateJsonSchema(value, schema, root = schema, path = "$") {
   }
   for (const rule of schema.allOf ?? []) {
     let applies = true;
-    for (const [key, condition] of Object.entries(rule.if?.properties ?? {})) {
-      if (condition.const !== undefined && value?.[key] !== condition.const) applies = false;
-    }
+    for (const [key, condition] of Object.entries(rule.if?.properties ?? {})) if (condition.const !== undefined && value?.[key] !== condition.const) applies = false;
     if (applies && rule.then) errors.push(...validateJsonSchema(value, rule.then, root, path));
   }
   return errors;
@@ -92,17 +88,13 @@ function summarize(checks) {
   const warn_count = checks.filter((item) => item.status === "WARN").length;
   return { status: fail_count ? "FAIL" : warn_count ? "WARN" : "PASS", fail_count, warn_count, checks };
 }
-export function validateCandidate(report, { baseline = null, independent = null, schemaErrors = [], now = new Date() } = {}) {
-  const gate1 = [];
-  const gate2 = [];
-  const gate3 = [];
-  const gate4 = [];
+export function validateCandidate(report, { baseline = null, independent = null, expectedCommitSha = null, schemaErrors = [], now = new Date() } = {}) {
+  const gate1 = [], gate2 = [], gate3 = [], gate4 = [];
   const meta = report.meta ?? {};
   const scenarios = report.scenario?.scenarios ?? [];
   const byName = Object.fromEntries(scenarios.map((item) => [item.name, item]));
   const sourceIds = new Set((report.sources ?? []).map((source) => source.id));
   const allText = strings(report);
-
   gate1.push(check("G1_STATUS", ["draft", "review"].includes(report.status) ? "PASS" : "FAIL", "候補はdraft/review、published昇格は機械処理だけ"));
   gate1.push(check("G1_IDENTITY", report.reportId === meta.ticker && /^[A-Z0-9.-]+$/.test(report.reportId ?? "") ? "PASS" : "FAIL", "銘柄を一意に特定"));
   gate1.push(check("G1_MARKET", (meta.market === "US" && meta.currency === "USD") || (meta.market === "JP" && meta.currency === "JPY") ? "PASS" : "FAIL", "市場と通貨が一致"));
@@ -111,7 +103,6 @@ export function validateCandidate(report, { baseline = null, independent = null,
   gate1.push(check("G1_INFORMATION", contentMetrics(report).textCharacters >= 1000 ? "PASS" : "WARN", "新規レポートの情報量"));
   gate1.push(check("G1_WAIVERS", (report.coverageWaivers?.length ?? 0) === 0 ? "PASS" : "WARN", "自動公開はcoverageWaivers 0件"));
   gate1.push(check("G1_UNCONFIRMED", allText.some((text) => /重要.{0,6}(未確認|UNKNOWN)/i.test(text)) ? "WARN" : "PASS", "重要な未確認事項なし"));
-
   gate2.push(check("G2_SCHEMA", schemaErrors.length === 0 ? "PASS" : "FAIL", schemaErrors.length ? `Schema: ${schemaErrors.slice(0, 8).join(", ")}` : "添付V6 JSON Schema PASS"));
   gate2.push(check("G2_SCHEMA_CORE", report.schemaVersion === 1 && report.update?.changedFields?.length && report.meta && report.revision ? "PASS" : "FAIL", "V6必須コア項目"));
   gate2.push(check("G2_SCENARIOS", scenarios.length === 3 && byName.Bear && byName.Base && byName.Bull ? "PASS" : "FAIL", "Bear/Base/Bullの3ケース"));
@@ -129,43 +120,25 @@ export function validateCandidate(report, { baseline = null, independent = null,
   gate2.push(check("G2_SECURITY", allText.some((text) => unsafeText.test(text) || advice.test(text)) ? "FAIL" : "PASS", "危険HTML・URL・売買断定なし"));
   gate2.push(check("G2_REVISION", report.revision && (report.update?.mode === "initial" ? report.update?.baseRevision == null : Boolean(report.update?.baseRevision)) ? "PASS" : "FAIL", "revisionとbaseRevision整合"));
   if (baseline) {
-    const before = contentMetrics(baseline); const after = contentMetrics(report);
+    const before = contentMetrics(baseline), after = contentMetrics(report);
     gate2.push(check("G2_TEXT_REGRESSION", before.textCharacters === 0 || after.textCharacters >= before.textCharacters * 0.8 ? "PASS" : "FAIL", "本文量を20%以上説明なく削減しない"));
     gate2.push(check("G2_SOURCE_REGRESSION", before.sources === 0 || after.sources >= before.sources * 0.75 ? "PASS" : "FAIL", "出典を25%以上説明なく削減しない"));
     gate2.push(check("G2_BASE_REVISION", report.update?.baseRevision === baseline.revision ? "PASS" : "FAIL", "古いbaseRevisionを拒否"));
   }
-
-  if (!independent) gate3.push(check("G3_INDEPENDENT", "FAIL", "独立検証Secretまたは結果がないためAUTO_HOLD"));
+  if (!independent) gate3.push(check("G3_INDEPENDENT", "FAIL", "独立検証証明がないためAUTO_HOLD"));
   else {
     gate3.push(check("G3_INDEPENDENT", independent.status === "PASS" && independent.fail_count === 0 && independent.warn_count === 0 ? "PASS" : "FAIL", independent.summary ?? "独立検証結果"));
     gate3.push(check("G3_REVISION", independent.revision === report.revision ? "PASS" : "FAIL", "独立検証revision一致"));
+    gate3.push(check("G3_PROVENANCE", independent.source === "github_pr_review" && independent.verifier === "chatgpt-independent" ? "PASS" : "FAIL", "独立ChatGPT検証のPR証明"));
+    gate3.push(check("G3_COMMIT", /^[0-9a-f]{40}$/i.test(expectedCommitSha ?? "") && independent.commit_sha === expectedCommitSha ? "PASS" : "FAIL", "検証対象コミットSHA一致"));
   }
   gate4.push(check("G4_RENDERABLE", report.renderMode === "structured" && report.guide?.sections?.length && report.scenario ? "PASS" : "FAIL", "正本JSONからHTML生成可能"));
   gate4.push(check("G4_PREVIEW", "PASS", "プレビュー生成は実行工程で再確認"));
-
   const gates = { gate1: summarize(gate1), gate2: summarize(gate2), gate3: summarize(gate3), gate4: summarize(gate4) };
-  const checks = Object.values(gates).flatMap((gate) => gate.checks);
-  const summary = summarize(checks);
+  const summary = summarize(Object.values(gates).flatMap((gate) => gate.checks));
   return { decision: summary.status === "PASS" ? "AUTO_PUBLISH" : "AUTO_HOLD", candidate_revision: report.revision, validated_revision: summary.status === "PASS" ? report.revision : null, ...summary, gates };
 }
-
 export function makeAudit({ report, result, commitSha = "local", publishedRevision = null, rollbackRevision = null }) {
-  return {
-    schemaVersion: 1,
-    ticker: report.reportId,
-    candidate_revision: report.revision,
-    validated_revision: result.validated_revision,
-    published_revision: publishedRevision,
-    rollback_revision: rollbackRevision,
-    decision: result.decision,
-    fail_count: result.fail_count,
-    warn_count: result.warn_count,
-    gates: result.gates,
-    commit_sha: commitSha,
-    generated_at: new Date().toISOString(),
-  };
+  return { schemaVersion: 1, ticker: report.reportId, candidate_revision: report.revision, validated_revision: result.validated_revision, published_revision: publishedRevision, rollback_revision: rollbackRevision, decision: result.decision, fail_count: result.fail_count, warn_count: result.warn_count, gates: result.gates, commit_sha: commitSha, generated_at: new Date().toISOString() };
 }
-
-export function shouldRollback({ healthPassed, deployedSha, currentSha }) {
-  return healthPassed === false && Boolean(deployedSha) && deployedSha === currentSha;
-}
+export function shouldRollback({ healthPassed, deployedSha, currentSha }) { return healthPassed === false && Boolean(deployedSha) && deployedSha === currentSha; }
