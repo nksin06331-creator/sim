@@ -1,10 +1,12 @@
 <!doctype html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>INTC 株価シナリオ</title>
-<style>:root{--accent:#6EE24E;--accent-bright:#8BF56B;--accent-tint:rgba(110,226,78,.12);--accent-line:rgba(110,226,78,.38);--bg:#0a0c0a;--surface:#141815;--surface-2:#1b201c;--ink:#f1f5f1;--muted:#8a948a;--line:rgba(255,255,255,.09);--amber:#fbbf24;--red:#f87171;--blue:#60a5fa;--shadow:0 18px 48px rgba(0,0,0,.28);--radius:16px}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Intel Corporation（INTC）｜ドパガキ株価シナリオ</title>
+
+<style>
+:root{--accent:#6EE24E;--accent-bright:#8BF56B;--accent-tint:rgba(110,226,78,.12);--accent-line:rgba(110,226,78,.38);--bg:#0a0c0a;--surface:#141815;--surface-2:#1b201c;--ink:#f1f5f1;--muted:#8a948a;--line:rgba(255,255,255,.09);--amber:#fbbf24;--red:#f87171;--blue:#60a5fa;--shadow:0 18px 48px rgba(0,0,0,.28);--radius:16px}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(100% 80% at 50% -10%,#12251a 0%,#0b0f0c 45%,var(--bg) 76%);color:var(--ink);font-family:'Noto Sans JP',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;line-height:1.75;overflow-x:hidden;-webkit-text-size-adjust:100%}body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.08;background-image:radial-gradient(var(--accent) 1px,transparent 1.5px);background-size:18px 18px;mask-image:linear-gradient(#000,transparent 72%)}a{color:var(--accent)}.wrap{max-width:1040px;margin:auto;padding:0 20px}
 .hero{position:relative;color:#fff;padding:52px 0 34px;border-bottom:1px solid var(--line);overflow:hidden}.hero:after{content:"SiM";position:absolute;right:-18px;top:-18px;font-size:clamp(96px,22vw,230px);font-weight:900;letter-spacing:-.08em;color:transparent;-webkit-text-stroke:1px rgba(110,226,78,.10);pointer-events:none}.eyebrow{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border:1px solid var(--accent-line);border-radius:999px;font-size:11px;letter-spacing:.14em;color:var(--accent);background:var(--accent-tint);font-weight:800}.eyebrow:before{content:"●";font-size:8px}.hero h1{position:relative;z-index:1;font-size:clamp(38px,7vw,68px);line-height:1.02;letter-spacing:-.05em;margin:20px 0 10px;font-weight:900;max-width:900px}.hero h1 small{display:inline-block;font-size:.29em;padding:6px 11px;border-radius:8px;background:var(--accent);color:#06210a;vertical-align:middle;letter-spacing:0}.sub{color:#b9c1b9;position:relative;z-index:1;font-size:14px}
 .verdict{position:relative;z-index:1;display:grid;grid-template-columns:1.5fr .5fr;gap:14px;margin-top:24px}.verdict-main,.score{border:1px solid var(--line);border-radius:18px;padding:22px;box-shadow:var(--shadow)}.verdict-main{background:linear-gradient(145deg,rgba(110,226,78,.12),rgba(110,226,78,.03)),var(--surface)}.score{background:var(--accent);color:#06210a;display:flex;flex-direction:column;justify-content:center}.status{font-size:clamp(24px,4vw,38px);line-height:1.2;font-weight:900;letter-spacing:-.035em;margin-top:8px}.score b{font-size:54px;line-height:1;display:block}.score small{color:#173b1e;font-weight:800}
@@ -20,28 +22,213 @@ details{border:1px solid var(--line);background:#101410;border-radius:12px;paddi
 @media(max-width:520px){.wrap{padding:0 14px}.hero{padding:28px 0 24px}.hero h1{font-size:38px;margin-top:14px}.sub{font-size:12px}.verdict{margin-top:16px}.verdict-main,.score{padding:17px;border-radius:14px}.score{display:grid;grid-template-columns:1fr auto;align-items:end;gap:8px}.score b{font-size:40px}.kpis{gap:8px}.kpi{padding:13px;min-height:102px}.kpi b{font-size:20px}.card{padding:17px;border-radius:14px}.dist-row{grid-template-columns:88px 1fr 44px;font-size:12px}.position-labels{font-size:9px}h2{font-size:22px}}
 @media print{body{background:#fff;color:#111}body:before,.hero:after{display:none}.hero,.card,.kpi,.scenario,details,.table-wrap{background:#fff!important;color:#111!important;box-shadow:none!important}.hero{border-bottom:2px solid #111}.sub,.lead,.small,.zone p,.signal p,footer{color:#555!important}.card,.kpi,.scenario,details{break-inside:avoid}}
 </style>
-</head>
-<body class="sim-report sim-scenario" data-stock-ticker="INTC" data-price-source="../../data/prices.json">
-<header class="hero"><div class="wrap"><div class="eyebrow">S<span style="color:#fff">i</span>M MARKET LAB / PRICE SCENARIO</div><h1>Intel Corporation <small>INTC</small></h1><div class="sub">NASDAQ｜評価基準日 2026-07-30｜使用手法 2027年売上×フォワードEV/Sales（Foundryオプション込み）を主軸に、正規化EPSでクロスチェック</div><div class="verdict"><div class="verdict-main"><span class="pill">まず結論だけ</span><div class="status">期待回復を相当織り込む高変動局面</div><p>製品部門の成長は強い一方、91.13ドルはFoundry改善と2027年の追加成長をかなり要求する水準です。</p><p class="sub">Q2売上成長だけでは現在価値を説明し切れず、18Aの量産経済性と外部顧客価値を含むオプション評価が大きい</p></div><div class="score"><small>総合スコア（補助指標）</small><b>55</b><small>/ 100　売買判断そのものではありません</small></div></div><div class="kpis"><div class="kpi"><span>現在株価 <em style="font-style:normal;color:var(--accent);font-size:10px">LIVE</em></span><b data-live-price>$91.1</b><small data-live-price-date>2026-07-30米国市場終値91.13ドル（2026-07-31取得）。シナリオ値はこの基準日時点で固定</small></div><div class="kpi"><span>Base価値</span><b>$95</b><small>+4.2%</small></div><div class="kpi"><span>確率加重期待値</span><b>$94.5</b><small>+3.7%</small></div><div class="kpi"><span>リスク区分</span><b>HIGH</b><small>Intel 18Aの歩留まり・量産リスク・設備投資と債務負担</small></div></div></div></header>
 
-<nav class="report-nav"><div class="wrap"><a href="#snapshot">結論</a><a href="#scenarios">3シナリオ</a><a href="#logic">計算</a><a href="#assumptions">前提</a><a href="#sources">出典</a></div></nav>
+</head>
+<body data-stock-ticker="INTC" data-price-source="../../data/prices.json">
+<!-- ================================================================
+  SiM MARKET LAB / UNIFIED SCENARIO TEMPLATE
+  ・CSSと各セクション構成はキオクシア版と同一（サイト掲載の見た目を維持）。
+  ・{{ }} を report_data の値で置換して使う。数値・確率・結論は改変しない。
+  ・ファイル名は銘柄名（例: 285A.html / IONQ.html）。
+================================================================ -->
+<header class="hero">
+<div class="wrap">
+  <div class="eyebrow">S<span style="color:#fff">i</span>M MARKET LAB / PRICE SCENARIO</div>
+  <h1>Intel Corporation <small>INTC</small></h1>
+  <div class="sub">NASDAQ｜評価基準日 2026-07-31｜使用手法 2027年売上 × EV/Sales − ネットデット</div>
+  <div class="verdict">
+    <div class="verdict-main">
+      <span class="pill">まず結論だけ</span>
+      <!-- decision.status＋一言結論（絵文字は先頭1個まで、45文字目安） -->
+      <div class="status">⚖️ 期待先行、実行確認が必要</div>
+      <!-- 現値ポジショニングと市場逆算を1〜2文で -->
+      <p>現値$93.39はBase価値$89.19を約4.7%上回り、Q2の急成長と18A・Foundry改善をかなり織り込んでいます。</p>
+      <p class="sub">現値逆算では2027年売上$68Bに対して約7.32倍のEV/Salesが必要。成長継続と高い評価倍率の両方が前提です。</p>
+    </div>
+    <!-- 総合スコアは“補助指標”。売買判断そのものではない旨を必ず添える -->
+    <div class="score"><small>総合スコア（補助指標）</small><b>54</b><small>/ 100　売買判断そのものではありません</small></div>
+  </div>
+  <div class="kpis">
+    <div class="kpi"><span>現在株価 <em style="font-style:normal;color:var(--accent);font-size:10px">LIVE</em></span><b data-live-price>$93.39</b><small data-live-price-date>2026-07-31 14:04 UTC（分析基準値）</small></div>
+    <div class="kpi"><span>Base価値（標準ケース）</span><b>$89.19</b><small>現値比 -4.5%</small></div>
+    <div class="kpi"><span>確率加重期待値</span><b>$92.61</b><small>現値比 -0.8%</small></div>
+    <div class="kpi"><span>リスク区分</span><b>高</b><small>倍率・設備投資・Foundry実行</small></div>
+  </div>
+
+<div class="hero-tags">
+<span>初心者でも読める</span>
+<span>数字はガチ</span>
+<span>煽りだけはしない</span>
+</div>
+
+</div>
+</header>
+
+<!-- Validation：WARNがあれば下の注意帯を残す（なければ丸ごと削除）。FAIL時は完成版にしない。 -->
+<div class="wrap"><div class="notice" style="margin-top:14px"><b>注意：</b>2027年売上とEV/Salesは当方推定です。Q3決算日は未公表のため、過去の開催周期から「10月下旬」と推定しています。現在株価だけが自動更新され、シナリオは評価基準日時点で固定されます。</div></div>
+<!-- 例（WARN時）:
+<div class="wrap"><div class="notice" style="margin-top:14px"><b>注意：</b></div></div>
+-->
+
+<nav class="report-nav"><div class="wrap">
+<a href="index.html">企業ガイド</a>
+<a href="catalysts.html">カタリスト</a>
+<a href="#snapshot">結論</a>
+<a href="#scenarios">3シナリオ</a>
+<a href="#logic">計算</a>
+<a href="#sensitivity">感応度</a>
+<a href="#assumptions">前提</a>
+</div></nav>
+
 <main class="wrap">
-<section class="card" id="snapshot"><h2>いまの株価、どこにいる？</h2><p class="lead">直近約20営業日で約24%下落したため6月末の高値圏より期待は低下しました。ただし現値でもBaseモデルに近く、Q2の25%増収だけでなく、2027年の成長継続、18Aの量産経済性、Foundry赤字縮小を複合的に織り込む水準です。イベント単体価値を分離できないため、織り込み度は定量不能とします。</p><div class="grid-2"><div><h3>現値ポジショニング</h3><p>現値91.13ドルはBear 60ドルからBull 135ドルのレンジ下側から約42%の位置で、Base 95ドルに近い水準です。Q2後に下落しても、売上成長・18A・Foundry改善の複数前提をなお必要とします。</p><div class="position"><div class="position-line"><i class="pin" style="left:41.5%"></i></div><div class="position-labels"><span>Bear $60</span><span>Base $95</span><span>Bull $135</span></div></div></div><div><h3>市場は何を織り込む？</h3><p>現値は、Base売上モデルに対して約6.5倍のフォワードEV/Salesを示唆します。これは成熟CPU企業だけの評価より高く、AI計算需要、18A製品競争力、米国Foundryの戦略価値を相当含むと推定します。</p><p class="small">直近20営業日 -24.3%｜起点：2026-07-02終値120.35ドルから2026-07-30終値91.13ドルまでの約20営業日。起点はIntel公式履歴データ</p></div></div></section>
-<section class="card" id="scenarios"><h2>未来はこの3パターン</h2><p class="lead">連結GAAP利益は政府向けエスクロー株の時価評価で大きく歪むため、2027年売上モデルにFoundryの戦略オプションを含むEV/Salesを掛け、概算ネット債務を控除し、希薄化後株式数で割りました。確率は予測の断定ではなく、不確実な3ケースへ置くモデル上の重みです。</p><div class="scenarios"><article class="scenario bear"><div class="scenario-head"><span>Bear</span><b>30%</b></div><div class="scenario-price">$60</div><div class="small">現値比 -34.2%</div><dl><div><dt>2027年売上モデル</dt><dd>約660億ドル（当方仮定）</dd></div><div><dt>EV/Sales</dt><dd>約5.0倍（当方仮定）</dd></div><div><dt>純有利子負債等</dt><dd>約250億ドルを控除</dd></div><div><dt>希薄化後株式数</dt><dd>約52億株</dd></div></dl></article><article class="scenario base"><div class="scenario-head"><span>Base</span><b>45%</b></div><div class="scenario-price">$95</div><div class="small">現値比 +4.2%</div><dl><div><dt>2027年売上モデル</dt><dd>約750億ドル（当方仮定）</dd></div><div><dt>EV/Sales</dt><dd>約6.8倍（当方仮定）</dd></div><div><dt>純有利子負債等</dt><dd>約200億ドルを控除</dd></div><div><dt>希薄化後株式数</dt><dd>約52億株</dd></div></dl></article><article class="scenario bull"><div class="scenario-head"><span>Bull</span><b>25%</b></div><div class="scenario-price">$135</div><div class="small">現値比 +48.1%</div><dl><div><dt>2027年売上モデル</dt><dd>約860億ドル（当方仮定）</dd></div><div><dt>EV/Sales</dt><dd>約8.4倍（当方仮定）</dd></div><div><dt>純有利子負債等</dt><dd>約200億ドルを控除</dd></div><div><dt>希薄化後株式数</dt><dd>約52億株</dd></div></dl></article></div></section>
-<section class="grid-2"><div class="card"><h2>この値段ならどう見る？</h2><div class="zone"><div><b>60ドル未満</b></div><p>Bear以下。需要鈍化、18A遅延、資本負担のどれが強まったかを確認。</p></div><div class="zone"><div><b>60〜95ドル</b></div><p>再建を部分的に織り込む帯。Q3売上・粗利率とFoundry損失を優先確認。</p></div><div class="zone"><div><b>95〜135ドル</b></div><p>Base超。2027年成長とFoundry改善の証拠が必要。</p></div><div class="zone"><div><b>135ドル超</b></div><p>Bull超。外部Foundryの大型量産採用など追加の上振れ前提が必要。</p></div></div><div class="card"><h2>次の主要カタリスト</h2><div class="signal"><div><b>Q3 2026決算と会社予想の達成度</b><span class="flat">★5</span></div><p>2026年Q3決算期。2026-07-31時点で正式発表日はIRカレンダー未掲載｜成功時：売上上限寄り、粗利率41%以上、Foundry損失縮小なら2027年成長前提を支える｜失敗時：売上下限割れ、粗利率未達、設備投資増だけが先行すると倍率圧縮につながり得る</p></div><div class="signal"><div><b>Intel 18A/18A-Pの量産経済性</b><span class="flat">★5</span></div><p>2026年下期以降。個別の次回開示日は未確定｜成功時：歩留まり・供給量・製品粗利率の改善と外部量産採用が確認されればFoundry価値が上がる｜失敗時：高コストウェハと供給不足が続けば製品原価とFoundry赤字の両方を圧迫する</p></div><div class="signal"><div><b>供給制約の緩和とサーバー需要</b><span class="flat">★4</span></div><p>2026年下期〜2027年｜成功時：PC供給改善とサーバー容量増加が数量成長へつながれば売上と固定費吸収が改善する｜失敗時：基板・メモリ・社内能力の制約が続けば強い需要を売上へ変換できない</p></div><div class="signal"><div><b>Foundry外部顧客と損失縮小</b><span class="flat">★5</span></div><p>四半期ごと。大型外部量産契約の確定日は未発表｜成功時：外部売上比率、前払い、量産契約、営業損失の改善が確認されれば戦略オプションが現金価値へ近づく｜失敗時：社内売上依存と巨額赤字が続けば高い売上倍率を維持しにくい</p></div></div></section>
-<section class="card"><h2>次に見る数字</h2><div class="signal"><div><b>Q3売上と粗利率</b><span class="flat">要確認</span></div><p>会社予想158〜168億ドル、GAAP粗利率41%に対する実績と、上振れ・下振れの内訳を確認。</p></div><div class="signal"><div><b>DCAI数量とASP</b><span class="up">追い風</span></div><p>サーバー数量成長が継続するか、ASP上昇が製品ミックスと需給のどちらで生じたかを分ける。</p></div><div class="signal"><div><b>Intel 18A単位コスト</b><span class="flat">要確認</span></div><p>Foundry損失、製品粗利率、期間費用の説明から歩留まり改善を間接確認する。</p></div><div class="signal"><div><b>Foundry外部売上</b><span class="flat">要確認</span></div><p>社内売上ではなく外部売上、前払い、量産採用、先端パッケージ受注の増加を見る。</p></div><div class="signal"><div><b>株式数とネット債務</b><span class="down">注意</span></div><p>発行済株式、エスクロー株、株式報酬、現金・短期投資、債務、設備投資を同時に更新する。</p></div></section>
-<section class="grid-2"><div class="card"><h2>ここは普通に強い</h2><ul class="clean"><li>Q2 2026売上は前年比25%増で、会社ガイダンスを上回る強い需要と実行改善が確認された。</li><li>DCAI売上は前年比59%増、サーバー数量も増加し、AI時代のCPU需要が数字へ表れた。</li><li>GAAP粗利率40.4%、非GAAP粗利率41.8%まで回復し、前年同期から大きく改善した。</li><li>Intel 18A製品の量産と18A-Pのリスク生産が進み、技術ロードマップは実物製品段階へ移った。</li><li>Q2単独の営業キャッシュフローは70億ドルで、会計上の巨額純損失とキャッシュ創出が異なることを示した。</li></ul></div><div class="card"><h2>ここで事故るかも</h2><ul class="clean"><li>FoundryはQ2も20.89億ドルの営業損失で、外部売上は2.93億ドルにとどまる。</li><li>現金・短期投資297.27億ドルに対し短期・長期債務は505.37億ドルで、追加設備投資の負担が大きい。</li><li>PCクライアント数量は前年比8%減で、売上成長の一部は高価格帯ミックスとASP上昇による。</li><li>政府向けエスクロー株の時価評価と潜在希薄化がGAAP利益・1株価値の読解を複雑にする。</li><li>直近約20営業日で約24%下落するなど、期待倍率の変化で株価が大きく動く。</li></ul></div></section>
-<section class="card" id="logic"><h2>数字の作り方</h2><p class="lead">連結GAAP利益は政府向けエスクロー株の時価評価で大きく歪むため、2027年売上モデルにFoundryの戦略オプションを含むEV/Salesを掛け、概算ネット債務を控除し、希薄化後株式数で割りました。確率は予測の断定ではなく、不確実な3ケースへ置くモデル上の重みです。</p><div class="table-wrap"><table><thead><tr><th>ケース</th><th>2027年売上</th><th>EV/Sales</th><th>控除する純債務等</th><th>希薄化後株式数</th><th>1株価値</th></tr></thead><tbody><tr><td>Bear</td><td>660億ドル</td><td>5.0倍</td><td>250億ドル</td><td>52億株</td><td>約60ドル</td></tr><tr><td>Base</td><td>750億ドル</td><td>6.8倍</td><td>200億ドル</td><td>52億株</td><td>約95ドル</td></tr><tr><td>Bull</td><td>860億ドル</td><td>8.4倍</td><td>200億ドル</td><td>52億株</td><td>約135ドル</td></tr></tbody></table></div><p class="notice"><b>重要：</b>2027年売上、倍率、純債務、希薄化後株式数は当方仮定です。Q3会社予想やQ2実績と同じ事実欄へ混ぜていません。</p></section>
-<section class="card"><h2>この未来になる条件</h2><details><summary>Bear：$60 / 確率30%</summary><p>2027年モデル売上が約660億ドルにとどまり、Q3以降の成長が鈍化する。 Intel 18Aの歩留まり・供給・外部顧客が想定より進まず、Foundry営業損失の縮小が遅れる。 資本支出とネット債務への懸念からフォワードEV/Salesが約5倍まで低下する。</p></details><details open><summary>Base：$95 / 確率45%</summary><p>Q3 2026会社予想の中間付近を達成し、2027年モデル売上が約750億ドルへ伸びる。 製品部門の利益成長と18Aのコスト改善が続き、Foundry赤字が段階的に縮小する。 外部Foundryの大型価値はまだ限定的だが、戦略オプションを含むEV/Sales約6.8倍が維持される。</p></details><details><summary>Bull：$135 / 確率25%</summary><p>サーバー・PC・ASIC需要が強く、2027年モデル売上が約860億ドルへ上振れる。 18A/18A-Pの歩留まりと供給が改善し、外部Foundry顧客の量産採用または前払いを伴う契約が確認される。 Foundryを含む成長オプションへの評価が高まり、EV/Sales約8.4倍が許容される。</p></details></section>
-<section class="grid-2"><div class="card"><h2>数字がズレるとどうなる？</h2><div class="table-wrap"><table><thead><tr><th>2027年売上 / EV-Sales</th><th>5.0倍</th><th>6.5倍</th><th>8.0倍</th></tr></thead><tbody><tr><td>680億ドル</td><td>61ドル</td><td>81ドル</td><td>101ドル</td></tr><tr><td>750億ドル</td><td>68ドル</td><td>90ドル</td><td>111ドル</td></tr><tr><td>820億ドル</td><td>75ドル</td><td>99ドル</td><td>122ドル</td></tr></tbody></table></div><p class="small">概算ネット債務208億ドル、希薄化後株式数52億株で機械計算。丸め後の参考値。</p></div><div class="card"><h2>どの価格に行きやすい？</h2><div class="dist-row"><span>Bear $60</span><div class="track"><i style="width:30%"></i></div><b>30%</b></div><div class="dist-row"><span>Base $95</span><div class="track"><i style="width:45%"></i></div><b>45%</b></div><div class="dist-row"><span>Bull $135</span><div class="track"><i style="width:25%"></i></div><b>25%</b></div><p>確率は予言ではなく、仮定の重みです。</p></div></section>
-<section class="card"><h2>次の決算で見る場所</h2><div class="signal"><div><b>Q3売上と粗利率</b><span class="flat">要確認</span></div><p>会社予想158〜168億ドル、GAAP粗利率41%に対する実績と、上振れ・下振れの内訳を確認。</p></div><div class="signal"><div><b>DCAI数量とASP</b><span class="up">追い風</span></div><p>サーバー数量成長が継続するか、ASP上昇が製品ミックスと需給のどちらで生じたかを分ける。</p></div><div class="signal"><div><b>Intel 18A単位コスト</b><span class="flat">要確認</span></div><p>Foundry損失、製品粗利率、期間費用の説明から歩留まり改善を間接確認する。</p></div><div class="signal"><div><b>Foundry外部売上</b><span class="flat">要確認</span></div><p>社内売上ではなく外部売上、前払い、量産採用、先端パッケージ受注の増加を見る。</p></div><div class="signal"><div><b>株式数とネット債務</b><span class="down">注意</span></div><p>発行済株式、エスクロー株、株式報酬、現金・短期投資、債務、設備投資を同時に更新する。</p></div></section>
-<section class="card" id="assumptions"><h2>使った数字と前提</h2><div class="table-wrap"><table><thead><tr><th>項目</th><th>値</th><th>分類</th><th>注記</th></tr></thead><tbody><tr><td>評価基準株価</td><td>91.13ドル</td><td>market-data</td><td>2026-07-30米国市場終値。ライブ価格とシナリオ基準値は分離する。</td></tr><tr><td>Q2 2026売上</td><td>161.28億ドル</td><td>fact</td><td>2026-06-27終了四半期・US-GAAP。</td></tr><tr><td>Q3 2026売上会社予想</td><td>158〜168億ドル</td><td>company-guidance</td><td>2026-07-23発表。予想中間値は163億ドル。</td></tr><tr><td>現金・短期投資</td><td>297.27億ドル</td><td>fact</td><td>2026-06-27時点。現金128.74億ドル＋短期投資168.53億ドル。</td></tr><tr><td>短期・長期債務</td><td>505.37億ドル</td><td>fact</td><td>2026-06-27時点。短期19.88億ドル＋長期485.49億ドル。</td></tr><tr><td>概算ネット債務</td><td>208.10億ドル</td><td>estimate</td><td>短期・長期債務から現金・短期投資を控除した単純計算。リース・非支配持分等は別扱い。</td></tr><tr><td>Q2加重平均基本株式数</td><td>51.04億株</td><td>fact</td><td>Q2 2026 EPS計算上の加重平均。期末発行済株式は50.43億株。</td></tr><tr><td>シナリオ希薄化後株式数</td><td>52億株</td><td>assumption</td><td>期末株式数、株式報酬、政府向けエスクロー株の可能性を踏まえた丸め仮定。Foundry支配率51%未満を条件とする政府向け最大2.41億株のワラントは、現時点で行使可能でも行使見込みでもないため含めない。条件成立時は全面再計算する。</td></tr><tr><td>Base 2027年売上</td><td>750億ドル</td><td>assumption</td><td>Q2 2026実績とQ3会社予想を起点にした当方モデル。市場コンセンサスではない。</td></tr><tr><td>シナリオ確率</td><td>Bear 30% / Base 45% / Bull 25%</td><td>assumption</td><td>モデル上の重みであり、会社予想や統計的成功確率ではない。合計100%。</td></tr></tbody></table></div></section>
-<section class="card"><h2>ガチ勢向けの深掘り</h2><details><summary>Q2のGAAP純損失と本業の関係</summary><p>Q2 2026は営業利益17.96億ドルを計上した一方、利息・その他で125.76億ドルの損失があり、Intel帰属純損失は110.33億ドルとなりました。10-Qは、政府向けエスクロー株の株価上昇に伴い125億ドルの時価評価損を認識したと説明しています。このためGAAP EPSマイナス2.16ドルだけで営業状態を判断せず、営業利益、キャッシュフロー、株式数の変化を併読します。</p></details><details><summary>Foundry売上の二重計上を避ける</summary><p>Q2 Foundry売上57.65億ドルのうち外部売上は2.93億ドルで、残りの多くはIntel Products向けの社内取引です。連結売上では54.77億ドルの社内取引が消去されます。製品売上とFoundry売上を単純合算して企業規模を大きく見せないことが重要です。</p></details><details><summary>Fab 34持分買い戻しと資本構成</summary><p>Intelは2026年4月、Apollo関連主体が保有していたアイルランドFab 34共同事業の49%持分を142億ドルで買い戻し、65億ドルのブリッジローンを含む資金で賄いました。Q2末の債務と現金を評価する際は、この取引後の資本構成で見る必要があります。</p></details><details><summary>専用カタリストJSONを作成しない理由</summary><p>18A、外部Foundry顧客、供給制約は重要ですが、2026-07-31時点では次の結果発表日や外部量産契約の確定日が公式に示されていません。通常レポートでは確認可能な期間と更新条件だけを記載し、日付・成功確率・イベント単体の株価影響を創作しないため、今回は専用カタリストレポートを追加しません。</p></details></section>
-<section class="card" id="data-quality"><h2>数値の読み分け</h2><p class="lead">事実、会社予想、当方仮定を分離 / イベント単体の株価影響と織り込み度は定量不能 / 正式日未発表の決算日を推定日として固定しない</p><div class="block-label">このレポートの限界</div><p class="lead">Bear・Base・Bullは2027年売上と倍率の仮定に強く依存します。特にFoundryは外部顧客売上が小さく、事業単体の公正価値を観測できないため、織り込み度を0〜100%の精密な数値へ変換していません。</p><p class="lead">現在株価だけは後日ライブ更新され得ますが、期待値、騰落率、直近20営業日変化、シナリオ価格は2026-07-30の評価基準に固定します。</p></section>
-<section class="card" id="sources"><h2>主要出典</h2><details><summary>出典一覧</summary><ul><li><a href="https://www.intc.com/news-events/press-releases/detail/1776/intel-reports-second-quarter-2026-financial-results">Intel Corporation｜Intel Reports Second-Quarter 2026 Financial Results</a></li><li><a href="https://www.sec.gov/Archives/edgar/data/50863/000005086326000157/intc-20260627.htm">U.S. Securities and Exchange Commission｜Quarterly Report on Form 10-Q for the quarter ended June 27, 2026</a></li><li><a href="https://www.sec.gov/Archives/edgar/data/50863/000005086326000011/intc-20251227.htm">U.S. Securities and Exchange Commission｜Annual Report on Form 10-K for the fiscal year ended December 27, 2025</a></li><li><a href="https://www.sec.gov/Archives/edgar/data/50863/000005086326000072/intc-20260408.htm">U.S. Securities and Exchange Commission｜Form 8-K: Repurchase of Fab 34 joint venture interest</a></li><li><a href="https://www.intc.com/stock-info/historical-data">Intel Corporation｜Intel Historical Stock Data</a></li><li><a href="https://www.intc.com/news-events/ir-calendar">Intel Corporation｜Intel Investor Relations Calendar</a></li><li><a href="https://www.intc.com/news-events/press-releases/detail/1752/intel-unveils-panther-lake-architecture-first-ai-pc">Intel Corporation｜Intel Unveils Panther Lake Architecture: First AI PC Platform Built on 18A</a></li><li><a href="https://finance.yahoo.com/quote/INTC/">Yahoo Finance｜Intel Corporation (INTC) market quote</a></li></ul></details></section>
-<section class="card notice"><h3>免責</h3><p>本レポートは公開情報を基にした情報提供であり、特定の金融商品の取得・売却を勧誘するものではありません。シナリオ価格と確率は仮定に基づくモデル値で、将来の株価を保証しません。投資判断は一次資料と最新情報を確認のうえ、ご自身の責任で行ってください。</p></section>
-<footer>SiM MARKET LAB｜評価基準日 2026-07-30｜最終更新 2026-07-31｜Validation: PASS</footer>
+
+<!-- Layer2-1：いまどこ？（現値ポジショニング＋市場逆算） -->
+<section class="card" id="snapshot">
+  <h2>いまの株価、どこにいる？</h2>
+  <p class="lead">Q2 2026の強い数字を受けても、株価は52週高値を下回りつつBase価値を少し上回る位置です。業績回復だけでなく、18A量産と外部Foundry価値まで織り込む局面です。</p>
+  <div class="grid-2">
+    <div>
+      <h3>現値ポジショニング</h3>
+      <p>Bear〜Bull帯の <b>46.8%</b> 地点。判定は <b>Baseやや上</b>。Base達成だけでは上値余地が小さく、Bullに近づくには外部顧客採用と利益率改善が必要です。</p>
+      <!-- pin の left:% を band_position_pct に合わせる -->
+      <div class="position"><div class="position-line"><i class="pin" style="left:46.8%"></i></div><div class="position-labels"><span>Bear $54.70</span><span>Base $89.19</span><span>Bull $137.37</span></div></div>
+      <p>上値下値比：<b>1.14倍</b>　確率加重期待値：<b>$92.61</b></p>
+    </div>
+    <div>
+      <h3>市場期待と独自見解</h3>
+      <div class="compare">
+        <div><b>市場期待 70/100</b><div class="meter"><i style="width:70%"></i></div></div>
+        <div><b>本試算 55/100</b><div class="meter"><i style="width:55%"></i></div></div>
+      </div>
+      <!-- market_reverse.conclusion：現値が自分のどの前提に相当するか -->
+      <p>現値の企業価値は約$497.5B。Base売上$68Bで割るとEV/Sales約7.32倍で、当方Baseの7.0倍を上回ります。市場はQ2成長の持続か、Foundryオプション価値の一部を追加で評価していると推定します。</p>
+    </div>
+  </div>
+</section>
+
+<!-- Layer1/2：3シナリオ。dl の項目は使用手法に合わせて変える（rNPV/SOTP/EV-Sales/PER等） -->
+<section class="card" id="scenarios">
+  <h2>未来はこの3パターン</h2>
+  <p class="lead">12〜18か月先の2027年売上と評価倍率を変え、Q2末のネットデット$20.81Bと希薄化後株式数5.104B株を共通前提にしました。</p>
+  <div class="scenarios">
+    <article class="scenario bear">
+      <div class="scenario-head"><span>Bear（悲観ケース）</span><b>25%</b></div>
+      <div class="scenario-price">$54.70</div>
+      <div class="small">現値比 -41.4%</div>
+      <dl><div><dt>2027年売上</dt><dd>$60B</dd></div><div><dt>EV/Sales</dt><dd>5.0倍</dd></div><div><dt>企業価値</dt><dd>$300B</dd></div><div><dt>主な状態</dt><dd>成長鈍化・倍率低下</dd></div></dl>
+      <!-- 例: <div><dt>事業価値</dt><dd>25.9兆円</dd></div> を手法に応じて数行 -->
+    </article>
+    <article class="scenario base">
+      <div class="scenario-head"><span>Base（標準ケース）</span><b>50%</b></div>
+      <div class="scenario-price">$89.19</div>
+      <div class="small">現値比 現値比 -4.5%</div>
+      <dl><div><dt>2027年売上</dt><dd>$68B</dd></div><div><dt>EV/Sales</dt><dd>7.0倍</dd></div><div><dt>企業価値</dt><dd>$476B</dd></div><div><dt>主な状態</dt><dd>成長継続・改善進行</dd></div></dl>
+    </article>
+    <article class="scenario bull">
+      <div class="scenario-head"><span>Bull（強気ケース）</span><b>25%</b></div>
+      <div class="scenario-price">$137.37</div>
+      <div class="small">現値比 +47.1%</div>
+      <dl><div><dt>2027年売上</dt><dd>$76B</dd></div><div><dt>EV/Sales</dt><dd>9.5倍</dd></div><div><dt>企業価値</dt><dd>$722B</dd></div><div><dt>主な状態</dt><dd>外部Foundry価値顕在化</dd></div></dl>
+    </article></div>
+</section>
+
+<!-- Layer2：価格別アクションマップ ＋ 株価を動かす材料 -->
+<section class="grid-2">
+  <div class="card">
+    <h2>この値段ならどう見る？</h2>
+    <!-- 4〜5帯。「買い/売り」は断定しない。星は割安度の目安 -->
+    <div class="zone"><div><b>$60未満</b><span>★★★★★</span></div><p>Bear近辺。成長鈍化や製造失敗を強く織り込む帯。</p></div><div class="zone"><div><b>$60–85</b><span>★★★★☆</span></div><p>Base未満。業績改善は認めつつ評価倍率を抑えた帯。</p></div><div class="zone"><div><b>$85–105</b><span>★★★☆☆</span></div><p>Base近辺。Q2成長の継続と18A改善を相当期待。</p></div><div class="zone"><div><b>$105–140</b><span>★★☆☆☆</span></div><p>Bull寄り。外部顧客や高い利益率の具体化が必要。</p></div><div class="zone"><div><b>$140超</b><span>★☆☆☆☆</span></div><p>本試算Bull以上。複数の上方材料が同時に必要。</p></div>
+    <!-- 例: <div class="zone"><div><b>48,000円未満</b><span>★★★★★</span></div><p>悲観ケース以下。下方リスクを相当織り込む</p></div> -->
+  </div>
+  <div class="card">
+    <h2>株価を動かす4つ</h2>
+    <!-- 各材料に up=追い風 / down=注意 / flat を付ける -->
+    <div class="signal"><div><b>Q3売上・粗利率</b><span class="up">最重要</span></div><p>売上$15.8–16.8B、非GAAP粗利率約42%との比較。</p></div><div class="signal"><div><b>供給制約の緩和</b><span class="up">追い風</span></div><p>供給量増加が数量成長と利益率へつながるか。</p></div><div class="signal"><div><b>18A-P・14A外部顧客</b><span class="flat">確認待ち</span></div><p>評価ではなく設計採用・契約・量産の進展が必要。</p></div><div class="signal"><div><b>設備投資・資金調達</b><span class="down">注意</span></div><p>高成長を支える一方、FCF・負債・希薄化を圧迫。</p></div>
+    <!-- 例: <div class="signal"><div><b>AI向けSSD需要</b><span class="up">追い風</span></div><p>…</p></div> -->
+  </div>
+</section>
+
+<!-- Layer2：良い点 / 気になる点（対比） -->
+<section class="grid-2">
+  <div class="card">
+    <h2>ここは普通に強い</h2>
+    <ul class="clean"><li>Q2売上は$16.1Bで前年比25%増、会社の従来予想を上回った。</li><li>DCAI売上は前年比59%増で、AI関連計算需要の強さが見える。</li><li>非GAAP粗利率41.8%、非GAAP EPS $0.42まで回復。</li><li>18A製品の高量産、18A-Pのリスク生産が進展。</li></ul>
+    <!-- 例: <li>FY2025売上2.34兆円で過去最高。</li> を3〜5件 -->
+  </div>
+  <div class="card">
+    <h2>ここで事故るかも</h2>
+    <ul class="clean"><li>現値は2027年売上$68Bに対してEV/Sales約7.32倍を要求。</li><li>FoundryのQ2営業損失は$2.1Bで、採算改善は未完了。</li><li>総負債$50.537Bが現金＋短期投資$29.727Bを上回る。</li><li>条件付きエスクロー株71百万株など、株式数増加リスクが残る。</li></ul>
+    <!-- 2つ目のカードのliは自動で赤「!」になる -->
+  </div>
+</section>
+
+<!-- Layer3：計算ロジック -->
+<section class="card" id="logic">
+  <h2>数字の作り方</h2>
+  <p class="lead">推定株価 ＝（2027年売上 × EV/Sales倍率 − ネットデット）÷ 希薄化後株式数。利益が会計上一時項目で大きく振れるため、今回は売上倍率を主手法にしました。</p>
+  <div class="table-wrap"><table>
+  <thead><tr><th>ケース</th><th>売上</th><th>EV/Sales</th><th>企業価値</th><th>株主価値</th><th>1株価値</th></tr></thead>
+  <tbody><tr><td>Bear</td><td>$60B</td><td>5.0x</td><td>$300B</td><td>$279.19B</td><td>$54.70</td></tr><tr><td>Base</td><td>$68B</td><td>7.0x</td><td>$476B</td><td>$455.19B</td><td>$89.19</td></tr><tr><td>Bull</td><td>$76B</td><td>9.5x</td><td>$722B</td><td>$701.19B</td><td>$137.37</td></tr><tr><td>確率加重</td><td>—</td><td>—</td><td>—</td><td>—</td><td>$92.61</td></tr></tbody>
+  </table></div>
+  <!-- 現値に合わせた逆算ではない旨、未開示前提の注意など -->
+  <p class="notice"><b>重要：</b>現値にBaseを合わせていません。売上・倍率・ネットデットを独立に設定した結果、Baseは現値を下回りました。EV/Salesは利益率と設備投資を直接表さないため、Foundry赤字が続けば倍率は縮小し得ます。</p>
+</section>
+
+<!-- Layer3：成立条件 -->
+<section class="card" id="conditions">
+  <h2>この未来になる条件</h2>
+  <details open><summary>Base：$89.19 / 確率50%</summary><p>2027年売上が約$68Bへ伸び、Q3会社予想を概ね達成。18A歩留まりと供給量が改善し、Foundry損失は縮小するが、外部大口顧客の価値は一部にとどまる。</p></details><details><summary>Bear：$54.70 / 確率25%</summary><p>供給改善が遅れ、PC・サーバー成長が鈍化。Foundry赤字と設備投資負担が続き、EV/Salesは5倍へ低下。</p></details><details><summary>Bull：$137.37 / 確率25%</summary><p>DCAI・ASIC成長が継続し、18A-Pまたは14Aで重要な外部顧客マイルストーンが具体化。Foundryの採算改善が見え、9.5倍の高い倍率を維持。</p></details>
+  <!-- 例: <details open><summary>Base：$89.19 / 確率50%</summary><p>…</p></details> を3つ -->
+</section>
+
+<!-- Layer3：感応度 ＋ 分布（モンテカルロは実施時のみ） -->
+<section class="grid-2" id="sensitivity">
+  <div class="card">
+    <h2>数字がズレるとどうなる？</h2>
+    <div class="table-wrap"><table>
+      <thead><tr><th>2027年売上</th><th>5.0x</th><th>7.0x</th><th>9.0x</th></tr></thead>
+      <tbody><tr><td>$60B</td><td>$54.70</td><td>$78.21</td><td>$101.72</td></tr><tr><td>$68B</td><td>$62.54</td><td>$89.19</td><td>$115.83</td></tr><tr><td>$76B</td><td>$70.37</td><td>$100.15</td><td>$129.93</td></tr></tbody>
+    </table></div>
+    <p class="small">ネットデット$20.81B、希薄化後株式数5.104B株を固定。Bull本体のみ9.5倍を使用。</p>
+  </div>
+  <div class="card">
+    <h2>どの価格に行きやすい？</h2>
+    <p class="lead">モンテカルロではなく、3ケースの離散確率を価格帯へ配置しています。</p>
+    <div class="dist-row"><span>$60未満</span><div class="track"><i style="width:25%"></i></div><b>25%</b></div><div class="dist-row"><span>$60–100</span><div class="track"><i style="width:50%"></i></div><b>50%</b></div><div class="dist-row"><span>$100以上</span><div class="track"><i style="width:25%"></i></div><b>25%</b></div>
+    <!-- 例: <div class="dist-row"><span>5万円未満</span><div class="track"><i style="width:7.6%"></i></div><b>7.6%</b></div> -->
+    <p>確率加重期待値は$92.61で現値とほぼ同水準。ただし左右の裾が広く、Q3決算やFoundry材料で分布は大きく動きます。</p>
+  </div>
+</section>
+
+<!-- 次の決算/イベントで見る場所（watch_items） -->
+<section class="card">
+  <h2>次の決算で見る場所</h2>
+  <div class="signal"><div><b>Q3 2026決算（2026年10月下旬ごろ・当方推定）</b></div><p>売上、非GAAP粗利率、Q4ガイダンス、供給制約、設備投資計画。</p></div><div class="signal"><div><b>Intel Products</b></div><p>DCAIの数量成長とASP、CCPGの供給回復が持続するか。</p></div><div class="signal"><div><b>Intel Foundry</b></div><p>外部売上、営業損失、18A歩留まり、外部顧客の設計採用段階。</p></div>
+  <!-- 例: <div class="signal"><div><b>2026年7月31日の1Q決算</b></div><p>…</p></div> -->
+</section>
+
+<!-- 前提表（事実/市場データ/推定/仮定を分類明記） -->
+<section class="card" id="assumptions">
+  <h2>使った数字と前提</h2>
+  <div class="table-wrap"><table>
+  <thead><tr><th>項目</th><th>値</th><th>分類</th><th>注記</th></tr></thead>
+  <tbody><tr><td>現在株価</td><td>$93.39</td><td>市場データ</td><td>2026-07-31 14:04 UTC。表示のみライブ更新。</td></tr><tr><td>Q2売上 / 非GAAP EPS</td><td>$16.1B / $0.42</td><td>確定</td><td>Intel Q2 2026発表。</td></tr><tr><td>Q3会社予想</td><td>売上$15.8–16.8B、非GAAP粗利率42%</td><td>会社目標</td><td>中央値で粗利率・EPSを算定。</td></tr><tr><td>希薄化後株式数</td><td>5.104B株</td><td>確定</td><td>Q2加重平均。将来の条件付き株式は別途注意。</td></tr><tr><td>ネットデット</td><td>$20.810B</td><td>計算</td><td>総負債$50.537B−現金・短期投資$29.727B。</td></tr><tr><td>2027年売上</td><td>$60B / $68B / $76B</td><td>当方推定</td><td>Bear / Base / Bull。</td></tr><tr><td>EV/Sales</td><td>5.0x / 7.0x / 9.5x</td><td>当方仮定</td><td>成長、利益率、Foundryオプションに応じて変更。</td></tr></tbody>
+  </table></div>
+</section>
+
+<!-- Layer3：ガチ勢向け深掘り（details折りたたみ） -->
+<section class="card">
+  <h2>ガチ勢向けの深掘り</h2>
+  <details><summary>手法選定理由</summary><p>Q2 GAAP利益は政府向けエスクロー株の時価評価損などで大きく振れたため、PERより売上倍率が比較しやすいと判断しました。ただし売上倍率は設備投資・利益率を直接反映しない弱点があります。</p></details><details><summary>補助スコアの作り方</summary><p>総合54点は、成長・事業勢い68、バリュエーション35、製造実行45、財務48を丸めて合成した補助表示です。市場期待70は、現値がBase倍率を上回ることと年初来上昇を段階評価した期待温度で、成功確率ではありません。1点刻みの精密な予測としては使用しません。</p></details><details><summary>市場逆算</summary><p>現値$93.39×5.104B株＋ネットデット$20.81B＝企業価値約$497.5B。Base売上$68Bで割ると7.32倍です。Baseの7.0倍より高く、追加の成長・Foundry価値を要求しています。</p></details><details><summary>希薄化・政府取引</summary><p>Q2末時点で未放出エスクロー株143百万株のうち71百万株は条件付き発行扱い。Foundry持分が51%未満になった場合にのみ行使可能な政府ワラントもあります。本試算の5.104B株にはQ2の加重平均を使い、条件付き71百万株は価格へ直接加算していません。</p></details><details><summary>主要出典</summary><ul><li><a href="https://www.intc.com/news-events/press-releases/detail/1776/intel-reports-second-quarter-2026-financial-results">Intel Q2 2026 earnings release</a>（Intel、2026-07-23）</li><li><a href="https://www.sec.gov/Archives/edgar/data/50863/000005086326000157/intc-20260627.htm">Form 10-Q for quarter ended 2026-06-27</a>（SEC / Intel、2026-07-23）</li><li><a href="https://www.marketwatch.com/investing/stock/intc">INTC market quote and 52-week range</a>（MarketWatch、取得 2026-07-31）</li><li><a href="https://www.intc.com/news-events/ir-calendar/past">Intel IR calendar</a>（Intel、取得 2026-07-31）</li><li><a href="https://www.intc.com/news-events/press-releases/detail/1748/intel-and-trump-administration-reach-historic-agreement-to">U.S. government investment agreement</a>（Intel、2025-08-22）</li></ul></details><details><summary>更新履歴</summary><p>2026-07-31：Q2 2026決算、10-Q、同日市場価格を反映して初版作成。</p></details>
+  <!-- 手法選定理由 / 市場逆算 / 倍率トラジェクトリ / 同業比較 / キャッシュバーン・希薄化 /
+       転換社債 / M&A / モンテカルロ・ベイズ（実施時）/ 前提と未確認事項 / 更新履歴 / 主要出典 を
+       それぞれ <details><summary>…</summary><p>…</p></details> で。出典はリンクの箇条書き -->
+</section>
+
+<section class="card notice">
+  <h3>免責</h3><p>本資料は公開情報に基づく教育目的の試算であり、投資助言ではありません。将来売上、倍率、確率、株価は当方推定で、実際の結果を保証しません。投資判断はご自身の責任で行ってください。</p>
+</section>
+<footer>SiM MARKET LAB｜分析基準日 2026-07-31｜現在株価だけ自動更新・分析値は固定</footer>
 </main>
 <script src="../../lab/assets/js/live-report-price.js" defer></script>
-</body>
-</html>
+</body></html>
