@@ -92,7 +92,26 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add report-system/reports report-system/published report-system/history report-system/audit report-system/catalysts stocks data/manifest.json lab/data/manifest.json data/catalyst-reports.json
+          publication_paths=(
+            report-system/reports
+            report-system/published
+            report-system/history
+            report-system/audit
+            report-system/catalysts
+            stocks
+            data/manifest.json
+            lab/data/manifest.json
+            data/catalyst-reports.json
+          )
+          for publication_path in "${publication_paths[@]}"; do
+            if [ -e "$publication_path" ]; then
+              git add -A -- "$publication_path"
+            fi
+          done
+          if git diff --cached --quiet; then
+            echo "No publication changes to commit."
+            exit 1
+          fi
           git commit -m "chore: generate ${{ steps.candidate.outputs.ticker }} publication"
           git push origin "HEAD:${{ github.event.pull_request.head.ref }}"
       - name: Merge validated candidate
