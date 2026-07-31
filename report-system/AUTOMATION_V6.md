@@ -17,7 +17,7 @@ report-system/reports/TICKER.catalyst.json  # 必要な場合だけ
 
 全条件がPASSの場合だけGitHub Actionsが候補を`published`へ昇格し、HTML・meta・manifest・カタリスト台帳・監査記録を同じPRへコミットしてマージします。`main`への候補JSON直書きは使用しません。
 
-公開後は`post-publish-health.yml`が公開中の企業ガイド、シナリオ、revisionを確認します。失敗時は、mainが同じ公開コミットのままの場合だけそのコミットをrevertします。別の変更が進んでいる場合は無関係なコミットを戻さず停止します。
+公開後は同じ`report-auto-publish.yml`内のヘルスチェックが、公開中の企業ガイド、シナリオ、revisionを確認します。失敗時は、mainが同じ公開コミットのままの場合だけそのコミットをrevertします。別の変更が進んでいる場合は無関係なコミットを戻さず停止します。
 
 ## 鍵なし構成
 
