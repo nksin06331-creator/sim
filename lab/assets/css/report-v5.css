@@ -29,6 +29,7 @@
   --sim-radius-lg: 24px;
   --sim-radius-md: 18px;
   --sim-radius-sm: 13px;
+  --sim-content-max: 1320px;
 
   /* Map the historical report variables to the same brand shell. */
   --accent: var(--sim-green);
@@ -140,8 +141,8 @@ body.sim-report .price {
 
 body.sim-report .wrap,
 body.sim-report .container {
-  width: min(100% - 40px, 1080px);
-  max-width: 1080px;
+  width: min(100% - 40px, var(--sim-content-max));
+  max-width: var(--sim-content-max);
   margin-inline: auto;
   padding-inline: 0;
 }
@@ -241,7 +242,7 @@ body.sim-guide > header.hero {
 
 body.sim-guide > div.hero > *,
 body.sim-guide > header.hero > .wrap {
-  width: min(100%, 1080px);
+  width: min(100%, var(--sim-content-max));
   margin-inline: auto;
 }
 
@@ -286,8 +287,8 @@ body.sim-guide .hero-tag {
 }
 
 body.sim-guide .tldr-hero {
-  width: min(100% - 40px, 1080px);
-  max-width: 1080px;
+  width: min(100% - 40px, var(--sim-content-max));
+  max-width: var(--sim-content-max);
   margin: -53px auto 0;
   padding: 0;
 }
@@ -378,8 +379,8 @@ body.sim-guide .nav {
 }
 
 body.sim-guide .nav-inner {
-  width: min(100% - 24px, 1080px);
-  max-width: 1080px;
+  width: min(100% - 24px, var(--sim-content-max));
+  max-width: var(--sim-content-max);
   padding: 0;
 }
 
@@ -1000,7 +1001,7 @@ body.sim-scenario footer {
 @media (max-width: 800px) {
   body.sim-report .wrap,
   body.sim-report .container {
-    width: min(100% - 28px, 1080px);
+    width: min(100% - 28px, var(--sim-content-max));
   }
 
   body.sim-guide > div.hero,
