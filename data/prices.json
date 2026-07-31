@@ -1,340 +1,40 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-07-31T12:58:43.985905+00:00",
+  "generatedAt": "2026-07-31T13:57:34.489777+00:00",
   "source": "Yahoo Finance chart endpoint",
-  "manifest": "data/manifest-20260729-60.json",
-  "quoteCount": 62,
+  "manifest": "data/manifest.json",
+  "quoteCount": 34,
   "errorCount": 0,
   "errors": {},
   "prices": {
     "BE": {
       "symbol": "BE",
-      "price": 207.12,
-      "previousClose": 217.3,
-      "change": -10.18,
-      "changePct": -4.6848,
+      "price": 212.22,
+      "previousClose": 184.89,
+      "change": 27.33,
+      "changePct": 14.7818,
       "currency": "USD",
-      "marketTime": "2026-07-30T20:00:02+00:00",
+      "marketTime": "2026-07-31T13:57:25+00:00",
       "status": "ok"
     },
     "HOOD": {
       "symbol": "HOOD",
-      "price": 86.6,
-      "previousClose": 101.58,
-      "change": -14.98,
-      "changePct": -14.747,
+      "price": 86.19,
+      "previousClose": 94.91,
+      "change": -8.72,
+      "changePct": -9.1877,
       "currency": "USD",
-      "marketTime": "2026-07-30T20:00:01+00:00",
+      "marketTime": "2026-07-31T13:57:25+00:00",
       "status": "ok"
     },
-    "6857": {
-      "symbol": "6857.T",
-      "price": 32500.0,
-      "previousClose": 28380.0,
-      "change": 4120.0,
-      "changePct": 14.5173,
-      "currency": "JPY",
-      "marketTime": "2026-07-31T06:30:00+00:00",
-      "status": "ok"
-    },
-    "8306": {
-      "symbol": "8306.T",
-      "price": 3571.0,
-      "previousClose": 3799.0,
-      "change": -228.0,
-      "changePct": -6.0016,
-      "currency": "JPY",
-      "marketTime": "2026-07-31T06:30:00+00:00",
-      "status": "ok"
-    },
-    "7974": {
-      "symbol": "7974.T",
-      "price": 7679.0,
-      "previousClose": 7431.0,
-      "change": 248.0,
-      "changePct": 3.3374,
-      "currency": "JPY",
-      "marketTime": "2026-07-31T06:30:00+00:00",
-      "status": "ok"
-    },
-    "7203": {
-      "symbol": "7203.T",
-      "price": 3067.0,
-      "previousClose": 2965.5,
-      "change": 101.5,
-      "changePct": 3.4227,
-      "currency": "JPY",
-      "marketTime": "2026-07-31T06:30:00+00:00",
-      "status": "ok"
-    },
-    "8136": {
-      "symbol": "8136.T",
-      "price": 1272.5,
-      "previousClose": 1245.5,
-      "change": 27.0,
-      "changePct": 2.1678,
-      "currency": "JPY",
-      "marketTime": "2026-07-31T06:30:00+00:00",
-      "status": "ok"
-    },
-    "JPM": {
-      "symbol": "JPM",
-      "price": 350.85,
-      "previousClose": 349.9,
-      "change": 0.95,
-      "changePct": 0.2715,
+    "INTC": {
+      "symbol": "INTC",
+      "price": 93.77,
+      "previousClose": 92.32,
+      "change": 1.45,
+      "changePct": 1.5706,
       "currency": "USD",
-      "marketTime": "2026-07-30T20:00:02+00:00",
-      "status": "ok"
-    },
-    "LLY": {
-      "symbol": "LLY",
-      "price": 1154.97,
-      "previousClose": 1185.87,
-      "change": -30.9,
-      "changePct": -2.6057,
-      "currency": "USD",
-      "marketTime": "2026-07-30T20:04:49+00:00",
-      "status": "ok"
-    },
-    "XOM": {
-      "symbol": "XOM",
-      "price": 156.97,
-      "previousClose": 156.89,
-      "change": 0.08,
-      "changePct": 0.051,
-      "currency": "USD",
-      "marketTime": "2026-07-30T20:04:32+00:00",
-      "status": "ok"
-    },
-    "COST": {
-      "symbol": "COST",
-      "price": 954.17,
-      "previousClose": 926.06,
-      "change": 28.11,
-      "changePct": 3.0354,
-      "currency": "USD",
-      "marketTime": "2026-07-30T20:00:01+00:00",
-      "status": "ok"
-    },
-    "PLD": {
-      "symbol": "PLD",
-      "price": 146.19,
-      "previousClose": 145.12,
-      "change": 1.07,
-      "changePct": 0.7373,
-      "currency": "USD",
-      "marketTime": "2026-07-30T20:00:03+00:00",
-      "status": "ok"
-    },
-    "NEE": {
-      "symbol": "NEE",
-      "price": 87.93,
-      "previousClose": 89.79,
-      "change": -1.86,
-      "changePct": -2.0715,
-      "currency": "USD",
-      "marketTime": "2026-07-30T20:00:03+00:00",
-      "status": "ok"
-    },
-    "ZETA": {
-      "symbol": "ZETA",
-      "price": 21.37,
-      "previousClose": 19.38,
-      "change": 1.99,
-      "changePct": 10.2683,
-      "currency": "USD",
-      "marketTime": "2026-07-30T20:00:02+00:00",
-      "status": "ok"
-    },
-    "RMBS": {
-      "symbol": "RMBS",
-      "price": 89.58,
-      "previousClose": 103.19,
-      "change": -13.61,
-      "changePct": -13.1893,
-      "currency": "USD",
-      "marketTime": "2026-07-30T20:00:00+00:00",
-      "status": "ok"
-    },
-    "SOFI": {
-      "symbol": "SOFI",
-      "price": 16.47,
-      "previousClose": 16.65,
-      "change": -0.18,
-      "changePct": -1.0811,
-      "currency": "USD",
-      "marketTime": "2026-07-30T20:00:00+00:00",
-      "status": "ok"
-    },
-    "IBM": {
-      "symbol": "IBM",
-      "price": 221.74,
-      "previousClose": 206.65,
-      "change": 15.09,
-      "changePct": 7.3022,
-      "currency": "USD",
-      "marketTime": "2026-07-30T20:00:03+00:00",
-      "status": "ok"
-    },
-    "ASTS": {
-      "symbol": "ASTS",
-      "price": 58.44,
-      "previousClose": 59.18,
-      "change": -0.74,
-      "changePct": -1.2504,
-      "currency": "USD",
-      "marketTime": "2026-07-30T20:00:00+00:00",
-      "status": "ok"
-    },
-    "ARQQ": {
-      "symbol": "ARQQ",
-      "price": 17.71,
-      "previousClose": 18.35,
-      "change": -0.64,
-      "changePct": -3.4877,
-      "currency": "USD",
-      "marketTime": "2026-07-30T20:00:01+00:00",
-      "status": "ok"
-    },
-    "HQ": {
-      "symbol": "HQ",
-      "price": 12.56,
-      "previousClose": 13.74,
-      "change": -1.18,
-      "changePct": -8.5881,
-      "currency": "USD",
-      "marketTime": "2026-07-30T20:00:01+00:00",
-      "status": "ok"
-    },
-    "MRVL": {
-      "symbol": "MRVL",
-      "price": 183.3,
-      "previousClose": 209.32,
-      "change": -26.02,
-      "changePct": -12.4307,
-      "currency": "USD",
-      "marketTime": "2026-07-30T20:00:01+00:00",
-      "status": "ok"
-    },
-    "TE": {
-      "symbol": "TE",
-      "price": 4.27,
-      "previousClose": 5.68,
-      "change": -1.41,
-      "changePct": -24.8239,
-      "currency": "USD",
-      "marketTime": "2026-07-30T20:00:02+00:00",
-      "status": "ok"
-    },
-    "MP": {
-      "symbol": "MP",
-      "price": 41.66,
-      "previousClose": 44.65,
-      "change": -2.99,
-      "changePct": -6.6965,
-      "currency": "USD",
-      "marketTime": "2026-07-30T20:00:02+00:00",
-      "status": "ok"
-    },
-    "NOW": {
-      "symbol": "NOW",
-      "price": 110.07,
-      "previousClose": 91.94,
-      "change": 18.13,
-      "changePct": 19.7194,
-      "currency": "USD",
-      "marketTime": "2026-07-30T20:00:03+00:00",
-      "status": "ok"
-    },
-    "CIFR": {
-      "symbol": "CIFR",
-      "price": 22.655,
-      "previousClose": 25.82,
-      "change": -3.165,
-      "changePct": -12.2579,
-      "currency": "USD",
-      "marketTime": "2026-07-30T20:00:01+00:00",
-      "status": "ok"
-    },
-    "IREN": {
-      "symbol": "IREN",
-      "price": 38.26,
-      "previousClose": 40.58,
-      "change": -2.32,
-      "changePct": -5.7171,
-      "currency": "USD",
-      "marketTime": "2026-07-30T20:00:01+00:00",
-      "status": "ok"
-    },
-    "OKLO": {
-      "symbol": "OKLO",
-      "price": 41.09,
-      "previousClose": 44.0,
-      "change": -2.91,
-      "changePct": -6.6136,
-      "currency": "USD",
-      "marketTime": "2026-07-30T20:00:02+00:00",
-      "status": "ok"
-    },
-    "BB": {
-      "symbol": "BB",
-      "price": 8.44,
-      "previousClose": 8.63,
-      "change": -0.19,
-      "changePct": -2.2016,
-      "currency": "USD",
-      "marketTime": "2026-07-30T20:00:02+00:00",
-      "status": "ok"
-    },
-    "SYM": {
-      "symbol": "SYM",
-      "price": 42.94,
-      "previousClose": 40.57,
-      "change": 2.37,
-      "changePct": 5.8418,
-      "currency": "USD",
-      "marketTime": "2026-07-30T20:00:00+00:00",
-      "status": "ok"
-    },
-    "APLD": {
-      "symbol": "APLD",
-      "price": 27.97,
-      "previousClose": 29.89,
-      "change": -1.92,
-      "changePct": -6.4236,
-      "currency": "USD",
-      "marketTime": "2026-07-30T20:00:01+00:00",
-      "status": "ok"
-    },
-    "DVLT": {
-      "symbol": "DVLT",
-      "price": 0.3481,
-      "previousClose": 0.37,
-      "change": -0.0219,
-      "changePct": -5.9189,
-      "currency": "USD",
-      "marketTime": "2026-07-30T20:00:01+00:00",
-      "status": "ok"
-    },
-    "GRRR": {
-      "symbol": "GRRR",
-      "price": 11.47,
-      "previousClose": 12.57,
-      "change": -1.1,
-      "changePct": -8.751,
-      "currency": "USD",
-      "marketTime": "2026-07-30T20:00:01+00:00",
-      "status": "ok"
-    },
-    "5016": {
-      "symbol": "5016.T",
-      "price": 3797.0,
-      "previousClose": 3788.0,
-      "change": 9.0,
-      "changePct": 0.2376,
-      "currency": "JPY",
-      "marketTime": "2026-07-31T06:30:00+00:00",
+      "marketTime": "2026-07-31T13:57:26+00:00",
       "status": "ok"
     },
     "285A": {
@@ -343,6 +43,166 @@
       "previousClose": 54550.0,
       "change": -8050.0,
       "changePct": -14.7571,
+      "currency": "JPY",
+      "marketTime": "2026-07-31T06:30:00+00:00",
+      "status": "ok"
+    },
+    "5803": {
+      "symbol": "5803.T",
+      "price": 4172.0,
+      "previousClose": 4325.0,
+      "change": -153.0,
+      "changePct": -3.5376,
+      "currency": "JPY",
+      "marketTime": "2026-07-31T06:30:00+00:00",
+      "status": "ok"
+    },
+    "6522": {
+      "symbol": "6522.T",
+      "price": 1591.0,
+      "previousClose": 1627.0,
+      "change": -36.0,
+      "changePct": -2.2127,
+      "currency": "JPY",
+      "marketTime": "2026-07-31T06:30:00+00:00",
+      "status": "ok"
+    },
+    "ABCL": {
+      "symbol": "ABCL",
+      "price": 5.74,
+      "previousClose": 5.31,
+      "change": 0.43,
+      "changePct": 8.0979,
+      "currency": "USD",
+      "marketTime": "2026-07-31T13:57:25+00:00",
+      "status": "ok"
+    },
+    "ASPI": {
+      "symbol": "ASPI",
+      "price": 4.0,
+      "previousClose": 3.87,
+      "change": 0.13,
+      "changePct": 3.3592,
+      "currency": "USD",
+      "marketTime": "2026-07-31T13:57:05+00:00",
+      "status": "ok"
+    },
+    "GOOG": {
+      "symbol": "GOOG",
+      "price": 343.69,
+      "previousClose": 319.09,
+      "change": 24.6,
+      "changePct": 7.7094,
+      "currency": "USD",
+      "marketTime": "2026-07-31T13:57:27+00:00",
+      "status": "ok"
+    },
+    "IBM": {
+      "symbol": "IBM",
+      "price": 220.32,
+      "previousClose": 214.19,
+      "change": 6.13,
+      "changePct": 2.8619,
+      "currency": "USD",
+      "marketTime": "2026-07-31T13:57:26+00:00",
+      "status": "ok"
+    },
+    "IONQ": {
+      "symbol": "IONQ",
+      "price": 36.54,
+      "previousClose": 32.84,
+      "change": 3.7,
+      "changePct": 11.2667,
+      "currency": "USD",
+      "marketTime": "2026-07-31T13:57:28+00:00",
+      "status": "ok"
+    },
+    "IOT": {
+      "symbol": "IOT",
+      "price": 37.135,
+      "previousClose": 33.11,
+      "change": 4.025,
+      "changePct": 12.1564,
+      "currency": "USD",
+      "marketTime": "2026-07-31T13:57:28+00:00",
+      "status": "ok"
+    },
+    "META": {
+      "symbol": "META",
+      "price": 547.92,
+      "previousClose": 595.19,
+      "change": -47.27,
+      "changePct": -7.942,
+      "currency": "USD",
+      "marketTime": "2026-07-31T13:57:19+00:00",
+      "status": "ok"
+    },
+    "MSFT": {
+      "symbol": "MSFT",
+      "price": 461.996,
+      "previousClose": 381.7,
+      "change": 80.296,
+      "changePct": 21.0364,
+      "currency": "USD",
+      "marketTime": "2026-07-31T13:57:28+00:00",
+      "status": "ok"
+    },
+    "MU": {
+      "symbol": "MU",
+      "price": 865.41,
+      "previousClose": 920.95,
+      "change": -55.54,
+      "changePct": -6.0307,
+      "currency": "USD",
+      "marketTime": "2026-07-31T13:57:28+00:00",
+      "status": "ok"
+    },
+    "NVDA": {
+      "symbol": "NVDA",
+      "price": 198.24,
+      "previousClose": 206.84,
+      "change": -8.6,
+      "changePct": -4.1578,
+      "currency": "USD",
+      "marketTime": "2026-07-31T13:57:29+00:00",
+      "status": "ok"
+    },
+    "RDW": {
+      "symbol": "RDW",
+      "price": 8.49,
+      "previousClose": 8.69,
+      "change": -0.2,
+      "changePct": -2.3015,
+      "currency": "USD",
+      "marketTime": "2026-07-31T13:57:29+00:00",
+      "status": "ok"
+    },
+    "RKLB": {
+      "symbol": "RKLB",
+      "price": 64.28,
+      "previousClose": 63.91,
+      "change": 0.37,
+      "changePct": 0.5789,
+      "currency": "USD",
+      "marketTime": "2026-07-31T13:57:29+00:00",
+      "status": "ok"
+    },
+    "TSLA": {
+      "symbol": "TSLA",
+      "price": 306.5,
+      "previousClose": 313.03,
+      "change": -6.53,
+      "changePct": -2.0861,
+      "currency": "USD",
+      "marketTime": "2026-07-31T13:57:30+00:00",
+      "status": "ok"
+    },
+    "5016": {
+      "symbol": "5016.T",
+      "price": 3797.0,
+      "previousClose": 3788.0,
+      "change": 9.0,
+      "changePct": 0.2376,
       "currency": "JPY",
       "marketTime": "2026-07-31T06:30:00+00:00",
       "status": "ok"
@@ -407,16 +267,6 @@
       "marketTime": "2026-07-31T06:30:00+00:00",
       "status": "ok"
     },
-    "6522": {
-      "symbol": "6522.T",
-      "price": 1591.0,
-      "previousClose": 1627.0,
-      "change": -36.0,
-      "changePct": -2.2127,
-      "currency": "JPY",
-      "marketTime": "2026-07-31T06:30:00+00:00",
-      "status": "ok"
-    },
     "6613": {
       "symbol": "6613.T",
       "price": 1537.0,
@@ -477,154 +327,24 @@
       "marketTime": "2026-07-31T06:30:00+00:00",
       "status": "ok"
     },
-    "5803": {
-      "symbol": "5803.T",
-      "price": 4172.0,
-      "previousClose": 4325.0,
-      "change": -153.0,
-      "changePct": -3.5376,
-      "currency": "JPY",
-      "marketTime": "2026-07-31T06:30:00+00:00",
-      "status": "ok"
-    },
-    "GOOG": {
-      "symbol": "GOOG",
-      "price": 333.68,
-      "previousClose": 318.34,
-      "change": 15.34,
-      "changePct": 4.8187,
-      "currency": "USD",
-      "marketTime": "2026-07-30T20:00:01+00:00",
-      "status": "ok"
-    },
-    "META": {
-      "symbol": "META",
-      "price": 539.03,
-      "previousClose": 606.1,
-      "change": -67.07,
-      "changePct": -11.0658,
-      "currency": "USD",
-      "marketTime": "2026-07-30T20:00:01+00:00",
-      "status": "ok"
-    },
-    "MSFT": {
-      "symbol": "MSFT",
-      "price": 451.1,
-      "previousClose": 381.58,
-      "change": 69.52,
-      "changePct": 18.219,
-      "currency": "USD",
-      "marketTime": "2026-07-30T20:00:01+00:00",
-      "status": "ok"
-    },
-    "ABCL": {
-      "symbol": "ABCL",
-      "price": 5.69,
-      "previousClose": 5.67,
-      "change": 0.02,
-      "changePct": 0.3527,
-      "currency": "USD",
-      "marketTime": "2026-07-30T20:00:01+00:00",
-      "status": "ok"
-    },
-    "ASPI": {
-      "symbol": "ASPI",
-      "price": 3.98,
-      "previousClose": 4.04,
-      "change": -0.06,
-      "changePct": -1.4851,
-      "currency": "USD",
-      "marketTime": "2026-07-30T20:00:01+00:00",
-      "status": "ok"
-    },
-    "IONQ": {
-      "symbol": "IONQ",
-      "price": 35.77,
-      "previousClose": 34.07,
-      "change": 1.7,
-      "changePct": 4.9897,
-      "currency": "USD",
-      "marketTime": "2026-07-30T20:00:02+00:00",
-      "status": "ok"
-    },
-    "IOT": {
-      "symbol": "IOT",
-      "price": 35.8,
-      "previousClose": 31.49,
-      "change": 4.31,
-      "changePct": 13.6869,
-      "currency": "USD",
-      "marketTime": "2026-07-30T20:00:02+00:00",
-      "status": "ok"
-    },
-    "MU": {
-      "symbol": "MU",
-      "price": 874.66,
-      "previousClose": 990.21,
-      "change": -115.55,
-      "changePct": -11.6692,
-      "currency": "USD",
-      "marketTime": "2026-07-30T20:00:01+00:00",
-      "status": "ok"
-    },
-    "NVDA": {
-      "symbol": "NVDA",
-      "price": 195.04,
-      "previousClose": 208.76,
-      "change": -13.72,
-      "changePct": -6.5721,
-      "currency": "USD",
-      "marketTime": "2026-07-30T20:00:00+00:00",
-      "status": "ok"
-    },
     "QNT": {
       "symbol": "QNT",
-      "price": 51.55,
-      "previousClose": 56.46,
-      "change": -4.91,
-      "changePct": -8.6964,
+      "price": 52.84,
+      "previousClose": 52.29,
+      "change": 0.55,
+      "changePct": 1.0518,
       "currency": "USD",
-      "marketTime": "2026-07-30T20:00:00+00:00",
-      "status": "ok"
-    },
-    "RDW": {
-      "symbol": "RDW",
-      "price": 8.47,
-      "previousClose": 9.28,
-      "change": -0.81,
-      "changePct": -8.7284,
-      "currency": "USD",
-      "marketTime": "2026-07-30T20:00:02+00:00",
-      "status": "ok"
-    },
-    "RKLB": {
-      "symbol": "RKLB",
-      "price": 64.68,
-      "previousClose": 69.99,
-      "change": -5.31,
-      "changePct": -7.5868,
-      "currency": "USD",
-      "marketTime": "2026-07-30T20:00:00+00:00",
-      "status": "ok"
-    },
-    "TSLA": {
-      "symbol": "TSLA",
-      "price": 308.85,
-      "previousClose": 319.69,
-      "change": -10.84,
-      "changePct": -3.3908,
-      "currency": "USD",
-      "marketTime": "2026-07-30T20:00:00+00:00",
+      "marketTime": "2026-07-31T13:57:28+00:00",
       "status": "ok"
     },
     "SPCX": {
       "symbol": "SPCX",
-      "price": 112.2,
-      "previousClose": 118.24,
-      "change": -6.04,
-      "changePct": -5.1083,
+      "price": 110.305,
+      "previousClose": 115.07,
+      "change": -4.765,
+      "changePct": -4.141,
       "currency": "USD",
-      "marketTime": "2026-07-30T20:00:00+00:00",
+      "marketTime": "2026-07-31T13:57:34+00:00",
       "status": "ok"
     }
   }
