@@ -3,7 +3,8 @@ import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import { makeAudit, revisionDigest, shouldRollback, validateCandidate, validateJsonSchema, validatePatch } from "../src/auto-publish.mjs";
 
-const independent = (revision = "r1") => ({ status: "PASS", fail_count: 0, warn_count: 0, revision, summary: "independent PASS" });
+const candidateSha = "a".repeat(40);
+const independent = (revision = "r1", commitSha = candidateSha) => ({ source: "github_pr_review", verifier: "chatgpt-independent", status: "PASS", fail_count: 0, warn_count: 0, revision, commit_sha: commitSha, summary: "independent PASS" });
 function report(overrides = {}) {
   const long = "企業、事業、競争、財務、製品、運用、用語、カタリストを出典に基づいて説明します。".repeat(40);
   const sources = Array.from({ length: 6 }, (_, i) => ({ id: `S${i + 1}`, title: `Source ${i + 1}`, publisher: "Issuer", url: `https://example.com/${i + 1}`, primary: i < 3, accessedAt: "2026-07-31" }));
@@ -28,7 +29,7 @@ function report(overrides = {}) {
   };
   return structuredClone(Object.assign(base, overrides));
 }
-function result(r, options = {}) { return validateCandidate(r, { independent: independent(r.revision), now: new Date("2026-07-31T12:00:00Z"), ...options }); }
+function result(r, options = {}) { return validateCandidate(r, { independent: independent(r.revision), expectedCommitSha: candidateSha, now: new Date("2026-07-31T12:00:00Z"), ...options }); }
 
 test("正常な米国株は全ゲートPASS", () => { const actual = result(report()); assert.equal(actual.decision, "AUTO_PUBLISH", JSON.stringify(actual, null, 2)); });
 test("正常な日本株", () => { const r = report(); Object.assign(r.meta, { market: "JP", currency: "JPY", exchange: "TSE" }); r.scenario.valuation.currency = "JPY"; assert.equal(result(r).decision, "AUTO_PUBLISH"); });
@@ -50,6 +51,8 @@ test("coverageWaiversあり", () => { const r = report(); r.coverageWaivers = [{
 test("既存情報20%以上減少", () => { const old = report({ revision: "old", status: "published" }); old.validation.machinePublished = true; const r = report({ revision: "new", update: { mode: "full-refresh", baseRevision: "old", reason: "refresh", changedFields: ["overview"] } }); r.overview.tagline = "short"; r.overview.businessSummary = "short"; r.guide.sections[0].summaryItems = ["short"]; r.guide.sections[0].blocks = [{ type: "paragraphs", paragraphs: ["short"] }]; assert.equal(result(r, { baseline: old, independent: independent("new") }).decision, "AUTO_HOLD"); });
 test("同一revisionのdigestは冪等", () => { const r = report(); assert.equal(revisionDigest(r), revisionDigest(structuredClone(r))); });
 test("独立検証なしはAUTO_HOLD", () => assert.equal(validateCandidate(report(), { now: new Date("2026-07-31") }).decision, "AUTO_HOLD"));
+test("独立検証のコミットSHA不一致はAUTO_HOLD", () => assert.equal(result(report(), { expectedCommitSha: "b".repeat(40) }).decision, "AUTO_HOLD"));
+test("旧形式の独立検証結果はAUTO_HOLD", () => assert.equal(result(report(), { independent: { status: "PASS", fail_count: 0, warn_count: 0, revision: "r1", commit_sha: candidateSha } }).decision, "AUTO_HOLD"));
 test("公開後ヘルス失敗時だけ同一SHAをロールバック", () => { assert.equal(shouldRollback({ healthPassed: false, deployedSha: "a", currentSha: "a" }), true); assert.equal(shouldRollback({ healthPassed: false, deployedSha: "a", currentSha: "b" }), false); });
 test("監査に直前正常revisionを保持", () => { const r = report(); const v = result(r); assert.equal(makeAudit({ report: r, result: v, rollbackRevision: "old" }).rollback_revision, "old"); });
 test("report-patch schemaでchangedFields必須", async () => { const schema = JSON.parse(await readFile(new URL("../schemas/report-patch.schema.json", import.meta.url))); assert.ok(schema.required.includes("changedFields")); });
