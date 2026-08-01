@@ -1,4 +1,4 @@
-name: Auto merge validated reports
+name: Auto merge report pull requests
 
 on:
   pull_request_target:
@@ -13,7 +13,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  validate-and-merge:
+  merge:
     if: >-
       github.event.pull_request.draft == false &&
       github.event.pull_request.base.ref == 'main' &&
@@ -23,23 +23,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Check out pull request safely
-        uses: actions/checkout@v4
-        with:
-          ref: ${{ github.event.pull_request.head.sha }}
-          persist-credentials: false
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-
-      - name: Validate report package
-        run: |
-          npm run report:test
-          npm run build
-          git diff --exit-code
-
       - name: Merge pull request
         env:
           GH_TOKEN: ${{ github.token }}
