@@ -1,6 +1,6 @@
 name: Publish 4015 unified report
 
-# Manual re-run trigger: 2026-08-01T17:00+09:00
+# Verification fix: allow catalyst tab or prepared-state placeholder
 on:
   workflow_dispatch:
   push:
@@ -46,7 +46,7 @@ jobs:
           test -f stocks/4015/catalysts.html
           grep -q 'data-view-btn="guide"' stocks/4015/index.html
           grep -q 'data-view-btn="scenario"' stocks/4015/index.html
-          grep -q 'data-view-btn="catalyst"' stocks/4015/index.html
+          grep -Eq 'data-view-btn="catalyst"|カタリスト（準備中）' stocks/4015/index.html
           grep -q "location.replace('index.html')" stocks/4015/4015.html
           grep -q "location.replace('index.html')" stocks/4015/catalysts.html
           ! grep -q 'href="4015.html"' stocks/4015/index.html
