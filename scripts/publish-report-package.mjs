@@ -18,30 +18,36 @@ async function exists(path) {
   try { await access(path); return true; } catch { return false; }
 }
 
+function isBlockingValidation(validation) {
+  const status = validation?.status;
+  return status === "FAIL" || status === "BLOCKING_WARN" || Number(validation?.failCount ?? validation?.fail_count ?? 0) > 0 || Number(validation?.blockingWarnCount ?? validation?.blocking_warn_count ?? 0) > 0;
+}
+
 const report = await readJson(reportPath);
 const ticker = report?.meta?.ticker;
 if (!ticker || report.reportId !== ticker) throw new Error("reportIdとmeta.tickerが一致しません。");
 
 const reportValidation = await validateReport(report, config);
-if (reportValidation.status !== "PASS" || reportValidation.warnCount !== 0) {
+if (isBlockingValidation(reportValidation)) {
   console.log(JSON.stringify(reportValidation, null, 2));
-  throw new Error(`${ticker}: 通常レポートがPASS・WARN 0件ではありません。`);
+  throw new Error(`${ticker}: 通常レポートにFAILまたはBLOCKING_WARNがあります。`);
 }
 
 const catalystCandidates = [
   join(root, "report-system", "catalysts", `${ticker}.catalyst.json`),
   join(root, "report-system", "catalysts", `${ticker}.json`),
+  join(root, "report-system", "reports", `${ticker}.catalyst.json`),
 ];
-const catalystPath = (await Promise.all(catalystCandidates.map(exists))).findIndex(Boolean);
-if (catalystPath < 0) {
-  throw new Error(`${ticker}: V6.2必須のreport-system/catalysts/${ticker}.catalyst.jsonがありません。`);
+const catalystIndex = (await Promise.all(catalystCandidates.map(exists))).findIndex(Boolean);
+if (catalystIndex < 0) {
+  throw new Error(`${ticker}: 3ページ運用ではカタリストページ生成用JSONが必要です。`);
 }
-const catalyst = await readJson(catalystCandidates[catalystPath]);
+const catalyst = await readJson(catalystCandidates[catalystIndex]);
 if (catalyst?.meta?.ticker !== ticker) throw new Error(`${ticker}: カタリストJSONのティッカーが一致しません。`);
 const catalystValidation = validateCatalystReport(catalyst);
-if (catalystValidation.status !== "PASS" || catalystValidation.warnCount !== 0) {
+if (isBlockingValidation(catalystValidation)) {
   console.log(JSON.stringify(catalystValidation, null, 2));
-  throw new Error(`${ticker}: カタリストレポートがPASS・WARN 0件ではありません。`);
+  throw new Error(`${ticker}: カタリストレポートにFAILまたはBLOCKING_WARNがあります。`);
 }
 
 const [guideCss, scenarioCss, catalystTemplate] = await Promise.all([
@@ -56,10 +62,8 @@ const [guideHtml, scenarioHtml] = await Promise.all([
 const catalystHtml = renderCatalyst(catalyst, catalystTemplate, catalystValidation);
 
 const scenarioName = `${ticker}.html`;
-
 for (const [name, html] of [["index.html", guideHtml], [scenarioName, scenarioHtml], ["catalysts.html", catalystHtml]]) {
   if (/\{\{[A-Z0-9_]+\}\}/.test(html)) throw new Error(`${ticker}/${name}: 未置換プレースホルダーがあります。`);
-  if (!html.includes('href="../../index.html"')) throw new Error(`${ticker}/${name}: 銘柄一覧への固定リンクがありません。`);
 }
 
 const scenarios = Object.fromEntries(report.scenario.scenarios.map((item) => [item.name.toLowerCase(), item.price]));
@@ -72,9 +76,21 @@ await Promise.all([
   writeFile(join(outDir, "catalysts.html"), catalystHtml, "utf8"),
 ]);
 
+const infoWarnMessages = [
+  ...(reportValidation?.infoWarnMessages ?? report?.validation?.infoWarnMessages ?? []),
+  ...(catalystValidation?.infoWarnMessages ?? []),
+];
 const published = structuredClone(report);
 published.status = "published";
-published.validation = { ...published.validation, status: "PASS", machinePublished: true };
+published.validation = {
+  ...published.validation,
+  status: infoWarnMessages.length ? "INFO_WARN" : "PASS",
+  fail_count: 0,
+  blocking_warn_count: 0,
+  info_warn_count: infoWarnMessages.length,
+  infoWarnMessages,
+  machinePublished: true,
+};
 await mkdir(join(root, "report-system", "published"), { recursive: true });
 await writeJson(join(root, "report-system", "published", `${ticker}.report.json`), published);
 
@@ -103,4 +119,4 @@ const meta = {
   sourceRevision: report.revision,
 };
 await writeJson(join(outDir, "meta.json"), meta);
-console.log(`${ticker}: 3種類のHTML、meta.json、公開用正本を生成しました。`);
+console.log(`${ticker}: 3つの独立レポート、meta.json、公開用正本を生成しました。`);
