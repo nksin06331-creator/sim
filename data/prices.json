@@ -7,12 +7,182 @@
   "errorCount": 0,
   "errors": {},
   "prices": {
-    "4015": {
-      "symbol": "4015.T",
-      "price": 541.0,
-      "previousClose": 540.0,
-      "change": 1.0,
-      "changePct": 0.1852,
+    "3350": {
+      "symbol": "3350.T",
+      "price": 245,
+      "previousClose": 225,
+      "change": 20,
+      "changePct": 8.8889,
+      "currency": "JPY",
+      "marketTime": "2026-07-31T06:30:00+00:00",
+      "status": "ok"
+    },
+    "3825": {
+      "symbol": "3825.T",
+      "price": 196,
+      "previousClose": 200,
+      "change": -4,
+      "changePct": -2,
+      "currency": "JPY",
+      "marketTime": "2026-07-31T06:30:00+00:00",
+      "status": "ok"
+    },
+    "3905": {
+      "symbol": "3905.T",
+      "price": 2134,
+      "previousClose": 2323,
+      "change": -189,
+      "changePct": -8.136,
+      "currency": "JPY",
+      "marketTime": "2026-07-31T06:30:00+00:00",
+      "status": "ok"
+    },
+    "5016": {
+      "symbol": "5016.T",
+      "price": 3797,
+      "previousClose": 3788,
+      "change": 9,
+      "changePct": 0.2376,
+      "currency": "JPY",
+      "marketTime": "2026-07-31T06:30:00+00:00",
+      "status": "ok"
+    },
+    "5801": {
+      "symbol": "5801.T",
+      "price": 3145,
+      "previousClose": 3277,
+      "change": -132,
+      "changePct": -4.0281,
+      "currency": "JPY",
+      "marketTime": "2026-07-31T06:30:00+00:00",
+      "status": "ok"
+    },
+    "5803": {
+      "symbol": "5803.T",
+      "price": 4172,
+      "previousClose": 4325,
+      "change": -153,
+      "changePct": -3.5376,
+      "currency": "JPY",
+      "marketTime": "2026-07-31T06:30:00+00:00",
+      "status": "ok"
+    },
+    "6522": {
+      "symbol": "6522.T",
+      "price": 1591,
+      "previousClose": 1627,
+      "change": -36,
+      "changePct": -2.2127,
+      "currency": "JPY",
+      "marketTime": "2026-07-31T06:30:00+00:00",
+      "status": "ok"
+    },
+    "6613": {
+      "symbol": "6613.T",
+      "price": 1537,
+      "previousClose": 1550,
+      "change": -13,
+      "changePct": -0.8387,
+      "currency": "JPY",
+      "marketTime": "2026-07-31T06:30:00+00:00",
+      "status": "ok"
+    },
+    "6857": {
+      "symbol": "6857.T",
+      "price": 32500,
+      "previousClose": 28380,
+      "change": 4120,
+      "changePct": 14.5173,
+      "currency": "JPY",
+      "marketTime": "2026-07-31T06:30:00+00:00",
+      "status": "ok"
+    },
+    "6976": {
+      "symbol": "6976.T",
+      "price": 10225,
+      "previousClose": 11545,
+      "change": -1320,
+      "changePct": -11.4335,
+      "currency": "JPY",
+      "marketTime": "2026-07-31T06:30:00+00:00",
+      "status": "ok"
+    },
+    "6981": {
+      "symbol": "6981.T",
+      "price": 7416,
+      "previousClose": 8102,
+      "change": -686,
+      "changePct": -8.467,
+      "currency": "JPY",
+      "marketTime": "2026-07-31T06:30:00+00:00",
+      "status": "ok"
+    },
+    "7011": {
+      "symbol": "7011.T",
+      "price": 3764,
+      "previousClose": 3891,
+      "change": -127,
+      "changePct": -3.2639,
+      "currency": "JPY",
+      "marketTime": "2026-07-31T06:30:00+00:00",
+      "status": "ok"
+    },
+    "7013": {
+      "symbol": "7013.T",
+      "price": 2827.5,
+      "previousClose": 2836,
+      "change": -8.5,
+      "changePct": -0.2997,
+      "currency": "JPY",
+      "marketTime": "2026-07-31T06:30:00+00:00",
+      "status": "ok"
+    },
+    "7203": {
+      "symbol": "7203.T",
+      "price": 3067,
+      "previousClose": 2965.5,
+      "change": 101.5,
+      "changePct": 3.4227,
+      "currency": "JPY",
+      "marketTime": "2026-07-31T06:30:00+00:00",
+      "status": "ok"
+    },
+    "7974": {
+      "symbol": "7974.T",
+      "price": 7679,
+      "previousClose": 7431,
+      "change": 248,
+      "changePct": 3.3374,
+      "currency": "JPY",
+      "marketTime": "2026-07-31T06:30:00+00:00",
+      "status": "ok"
+    },
+    "8136": {
+      "symbol": "8136.T",
+      "price": 1272.5,
+      "previousClose": 1245.5,
+      "change": 27,
+      "changePct": 2.1678,
+      "currency": "JPY",
+      "marketTime": "2026-07-31T06:30:00+00:00",
+      "status": "ok"
+    },
+    "8306": {
+      "symbol": "8306.T",
+      "price": 3571,
+      "previousClose": 3799,
+      "change": -228,
+      "changePct": -6.0016,
+      "currency": "JPY",
+      "marketTime": "2026-07-31T06:30:00+00:00",
+      "status": "ok"
+    },
+    "9984": {
+      "symbol": "9984.T",
+      "price": 5260,
+      "previousClose": 5331,
+      "change": -71,
+      "changePct": -1.3318,
       "currency": "JPY",
       "marketTime": "2026-07-31T06:30:00+00:00",
       "status": "ok"
@@ -97,56 +267,6 @@
       "marketTime": "2026-07-31T20:00:00+00:00",
       "status": "ok"
     },
-    "6857": {
-      "symbol": "6857.T",
-      "price": 32500.0,
-      "previousClose": 28380.0,
-      "change": 4120.0,
-      "changePct": 14.5173,
-      "currency": "JPY",
-      "marketTime": "2026-07-31T06:30:00+00:00",
-      "status": "ok"
-    },
-    "7203": {
-      "symbol": "7203.T",
-      "price": 3067.0,
-      "previousClose": 2965.5,
-      "change": 101.5,
-      "changePct": 3.4227,
-      "currency": "JPY",
-      "marketTime": "2026-07-31T06:30:00+00:00",
-      "status": "ok"
-    },
-    "7974": {
-      "symbol": "7974.T",
-      "price": 7679.0,
-      "previousClose": 7431.0,
-      "change": 248.0,
-      "changePct": 3.3374,
-      "currency": "JPY",
-      "marketTime": "2026-07-31T06:30:00+00:00",
-      "status": "ok"
-    },
-    "8136": {
-      "symbol": "8136.T",
-      "price": 1272.5,
-      "previousClose": 1245.5,
-      "change": 27.0,
-      "changePct": 2.1678,
-      "currency": "JPY",
-      "marketTime": "2026-07-31T06:30:00+00:00",
-      "status": "ok"
-    },
-    "8306": {
-      "symbol": "8306.T",
-      "price": 3571.0,
-      "previousClose": 3799.0,
-      "change": -228.0,
-      "changePct": -6.0016,
-      "currency": "JPY",
-      "marketTime": "2026-07-31T06:30:00+00:00",
-      "status": "ok"
-    },
     "COST": {
       "symbol": "COST",
       "price": 951.89,
@@ -209,30 +329,10 @@
     },
     "285A": {
       "symbol": "285A.T",
-      "price": 46500.0,
-      "previousClose": 54550.0,
-      "change": -8050.0,
+      "price": 46500,
+      "previousClose": 54550,
+      "change": -8050,
       "changePct": -14.7571,
-      "currency": "JPY",
-      "marketTime": "2026-07-31T06:30:00+00:00",
-      "status": "ok"
-    },
-    "5803": {
-      "symbol": "5803.T",
-      "price": 4172.0,
-      "previousClose": 4325.0,
-      "change": -153.0,
-      "changePct": -3.5376,
-      "currency": "JPY",
-      "marketTime": "2026-07-31T06:30:00+00:00",
-      "status": "ok"
-    },
-    "6522": {
-      "symbol": "6522.T",
-      "price": 1591.0,
-      "previousClose": 1627.0,
-      "change": -36.0,
-      "changePct": -2.2127,
       "currency": "JPY",
       "marketTime": "2026-07-31T06:30:00+00:00",
       "status": "ok"
@@ -249,7 +349,7 @@
     },
     "ASPI": {
       "symbol": "ASPI",
-      "price": 4.0,
+      "price": 4,
       "previousClose": 3.87,
       "change": 0.13,
       "changePct": 3.3592,
@@ -490,7 +590,7 @@
     "TE": {
       "symbol": "TE",
       "price": 4.17,
-      "previousClose": 5.0,
+      "previousClose": 5,
       "change": -0.83,
       "changePct": -16.6,
       "currency": "USD",
@@ -507,132 +607,22 @@
       "marketTime": "2026-07-31T20:00:02+00:00",
       "status": "ok"
     },
-    "5016": {
-      "symbol": "5016.T",
-      "price": 3797.0,
-      "previousClose": 3788.0,
-      "change": 9.0,
-      "changePct": 0.2376,
-      "currency": "JPY",
-      "marketTime": "2026-07-31T06:30:00+00:00",
-      "status": "ok"
-    },
     "186A": {
       "symbol": "186A.T",
-      "price": 1012.0,
-      "previousClose": 1025.0,
-      "change": -13.0,
+      "price": 1012,
+      "previousClose": 1025,
+      "change": -13,
       "changePct": -1.2683,
-      "currency": "JPY",
-      "marketTime": "2026-07-31T06:30:00+00:00",
-      "status": "ok"
-    },
-    "3350": {
-      "symbol": "3350.T",
-      "price": 245.0,
-      "previousClose": 225.0,
-      "change": 20.0,
-      "changePct": 8.8889,
-      "currency": "JPY",
-      "marketTime": "2026-07-31T06:30:00+00:00",
-      "status": "ok"
-    },
-    "3825": {
-      "symbol": "3825.T",
-      "price": 196.0,
-      "previousClose": 200.0,
-      "change": -4.0,
-      "changePct": -2.0,
-      "currency": "JPY",
-      "marketTime": "2026-07-31T06:30:00+00:00",
-      "status": "ok"
-    },
-    "3905": {
-      "symbol": "3905.T",
-      "price": 2134.0,
-      "previousClose": 2323.0,
-      "change": -189.0,
-      "changePct": -8.136,
       "currency": "JPY",
       "marketTime": "2026-07-31T06:30:00+00:00",
       "status": "ok"
     },
     "464A": {
       "symbol": "464A.T",
-      "price": 1537.0,
-      "previousClose": 1443.0,
-      "change": 94.0,
+      "price": 1537,
+      "previousClose": 1443,
+      "change": 94,
       "changePct": 6.5142,
-      "currency": "JPY",
-      "marketTime": "2026-07-31T06:30:00+00:00",
-      "status": "ok"
-    },
-    "5801": {
-      "symbol": "5801.T",
-      "price": 3145.0,
-      "previousClose": 3277.0,
-      "change": -132.0,
-      "changePct": -4.0281,
-      "currency": "JPY",
-      "marketTime": "2026-07-31T06:30:00+00:00",
-      "status": "ok"
-    },
-    "6613": {
-      "symbol": "6613.T",
-      "price": 1537.0,
-      "previousClose": 1550.0,
-      "change": -13.0,
-      "changePct": -0.8387,
-      "currency": "JPY",
-      "marketTime": "2026-07-31T06:30:00+00:00",
-      "status": "ok"
-    },
-    "6976": {
-      "symbol": "6976.T",
-      "price": 10225.0,
-      "previousClose": 11545.0,
-      "change": -1320.0,
-      "changePct": -11.4335,
-      "currency": "JPY",
-      "marketTime": "2026-07-31T06:30:00+00:00",
-      "status": "ok"
-    },
-    "6981": {
-      "symbol": "6981.T",
-      "price": 7416.0,
-      "previousClose": 8102.0,
-      "change": -686.0,
-      "changePct": -8.467,
-      "currency": "JPY",
-      "marketTime": "2026-07-31T06:30:00+00:00",
-      "status": "ok"
-    },
-    "7011": {
-      "symbol": "7011.T",
-      "price": 3764.0,
-      "previousClose": 3891.0,
-      "change": -127.0,
-      "changePct": -3.2639,
-      "currency": "JPY",
-      "marketTime": "2026-07-31T06:30:00+00:00",
-      "status": "ok"
-    },
-    "7013": {
-      "symbol": "7013.T",
-      "price": 2827.5,
-      "previousClose": 2836.0,
-      "change": -8.5,
-      "changePct": -0.2997,
-      "currency": "JPY",
-      "marketTime": "2026-07-31T06:30:00+00:00",
-      "status": "ok"
-    },
-    "9984": {
-      "symbol": "9984.T",
-      "price": 5260.0,
-      "previousClose": 5331.0,
-      "change": -71.0,
-      "changePct": -1.3318,
       "currency": "JPY",
       "marketTime": "2026-07-31T06:30:00+00:00",
       "status": "ok"
