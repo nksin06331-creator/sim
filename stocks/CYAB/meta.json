@@ -6,7 +6,7 @@
   "market": "米国株",
   "sector": "Information Technology",
   "method": "12か月先EV/売上高シナリオ。Bear/Baseは株主承認後・普通ワラント行使前の88.563M株、Bullは会社開示の完全希薄化後166.387M株と最大$36.410Mのワラント現金行使収入を使用。",
-  "status": "published",
+  "status": "draft",
   "updated": "2026-08-01",
   "price": {
     "current": 0.31,
