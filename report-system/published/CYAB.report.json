@@ -1,0 +1,1023 @@
+{
+  "schemaVersion": 1,
+  "reportId": "CYAB",
+  "revision": "1.0.0",
+  "status": "published",
+  "renderMode": "structured",
+  "templateVersion": "sim-report-v5",
+  "update": {
+    "mode": "initial",
+    "reason": "CYABの初回企業ガイド・シナリオ分析を、2026年7月31日までのSEC提出書類と市場データに基づいて作成",
+    "changedFields": [
+      "overview",
+      "guide",
+      "scenario",
+      "sources",
+      "validation"
+    ]
+  },
+  "meta": {
+    "companyName": "Cyabra, Inc.",
+    "ticker": "CYAB",
+    "aliases": [
+      "Cyabra"
+    ],
+    "market": "US",
+    "exchange": "Nasdaq Global Market",
+    "currency": "USD",
+    "valuationDate": "2026-07-31",
+    "lastUpdated": "2026-08-01",
+    "sector": "Information Technology",
+    "industry": "AI-powered narrative intelligence / cybersecurity software",
+    "fiscalYearLabel": "FY2026",
+    "marketDetails": {
+      "reportingStandard": "US GAAP",
+      "secCik": "0002032341",
+      "adr": false,
+      "securitiesCode": null,
+      "listingSegment": "Nasdaq Global Market",
+      "fiscalYearEndMonth": 12,
+      "headquarters": "Tel Aviv, Israel",
+      "incorporation": "Delaware"
+    }
+  },
+  "overview": {
+    "tagline": "高成長・高粗利のAI解析SaaSだが、継続損失と最大1.66億株規模の希薄化余地が投資判断を支配する超小型株",
+    "heroTags": [
+      "AI / narrative intelligence",
+      "Micro-cap",
+      "Very high dilution risk",
+      "Nasdaq compliance risk"
+    ],
+    "heroStats": [
+      {
+        "value": "$0.31",
+        "label": "株価",
+        "note": "2026-07-31終値",
+        "tone": "normal",
+        "livePrice": true
+      },
+      {
+        "value": "$5.71M",
+        "label": "FY2025売上高",
+        "note": "前年比+37%",
+        "tone": "up"
+      },
+      {
+        "value": "$7.0M",
+        "label": "ARR",
+        "note": "2026-03-31時点、前年比+19%",
+        "tone": "up"
+      },
+      {
+        "value": "166.4M",
+        "label": "会社開示の完全希薄化後株式数",
+        "note": "2026-07-30提出S-1記載。現発行済み15.8M株の約10.6倍",
+        "tone": "down"
+      }
+    ],
+    "businessSummary": "Cyabraは、SNSやニュース上の公開データをAI・機械学習で分析し、偽アカウント、生成AIコンテンツ、協調的な情報操作、有害なナラティブを検知するソフトウェア企業である。SaaS、API、オンプレミス・ライセンス、マネージドサービスを政府・安全保障機関と企業へ提供する。売上成長と高い粗利率は魅力だが、営業規模は小さく、赤字・資金流出・上場基準未達・大規模な転換／ワラント／再販登録が同時に存在する。"
+  },
+  "guide": {
+    "sections": [
+      {
+        "id": "company",
+        "topic": "company",
+        "icon": "building",
+        "title": "会社の全体像",
+        "subtitle": "オンライン空間の真正性を判定するAIソフトウェア企業",
+        "summaryItems": [
+          "公開SNS・ニュースデータから偽アカウントや協調行動を検出",
+          "国家安全保障、選挙、ブランド保護、消費者分析が主用途",
+          "2026年3月にNasdaq上場企業との企業結合を完了"
+        ],
+        "blocks": [
+          {
+            "type": "facts",
+            "title": "基本情報",
+            "items": [
+              {
+                "label": "本社",
+                "value": "イスラエル・テルアビブ",
+                "sourceRefs": [
+                  "sec-s1-20260730"
+                ]
+              },
+              {
+                "label": "設立",
+                "value": "2017年",
+                "sourceRefs": [
+                  "sec-s1-20260730"
+                ]
+              },
+              {
+                "label": "事業モデル",
+                "value": "SaaS、API、オンプレミス、マネージドサービス",
+                "sourceRefs": [
+                  "sec-s1-20260730",
+                  "sec-investor-presentation-20260622"
+                ]
+              }
+            ]
+          },
+          {
+            "type": "paragraphs",
+            "title": "初心者向け理解",
+            "paragraphs": [
+              "Cyabraは、ネット上の投稿内容だけでなく、誰が・どのように拡散しているかを分析する。単なるソーシャルリスニングではなく、ボットや偽プロフィール、組織的な拡散網の検知を価値提案にしている。",
+              "顧客は、偽情報が安全保障・選挙・企業評判・消費者行動へ及ぼす損失を減らすために利用する。"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "industry",
+        "topic": "industry",
+        "icon": "network",
+        "title": "業界構造と需要",
+        "subtitle": "生成AIの普及で情報の真正性確認が経営・安全保障課題へ",
+        "summaryItems": [
+          "生成AIによる偽コンテンツ作成コストの低下が追い風",
+          "政府・大企業の導入には長い調達サイクルがある",
+          "ソーシャルプラットフォームのデータ利用規約が供給制約になり得る"
+        ],
+        "blocks": [
+          {
+            "type": "keypoints",
+            "title": "需要ドライバー",
+            "items": [
+              "選挙干渉、国家安全保障、ブランド毀損、金融詐欺への対策",
+              "生成AIコンテンツと偽アカウントの増加",
+              "広報・リスク管理・調査部門による継続監視ニーズ"
+            ]
+          },
+          {
+            "type": "highlight",
+            "title": "市場規模の扱い",
+            "text": "会社資料は第三者調査を引用して大きな市場機会を示すが、Cyabraの売上規模と直接対応する市場占有率は未検証である。TAMは投資価値ではなく、顧客獲得率・契約更新・粗利・資金効率で確認する必要がある。"
+          }
+        ]
+      },
+      {
+        "id": "products",
+        "topic": "products",
+        "icon": "sparkles",
+        "title": "製品・サービス",
+        "subtitle": "偽アカウント、ナラティブ、生成AIコンテンツを一体分析",
+        "summaryItems": [
+          "Narrative Intelligence：話題と拡散経路の把握",
+          "Authenticity分析：偽アカウントや協調行動の特定",
+          "SaaS、API、オンプレミス、調査レポートで提供"
+        ],
+        "blocks": [
+          {
+            "type": "products",
+            "title": "提供形態",
+            "items": [
+              {
+                "name": "SaaS platform",
+                "description": "複数月から3年のサブスクリプション。通常は前受けし、契約期間にわたり売上認識。"
+              },
+              {
+                "name": "On-premises license",
+                "description": "政府・安全保障顧客向け。一般に2〜3年契約。"
+              },
+              {
+                "name": "API",
+                "description": "顧客システムやパートナー製品へ分析機能を組み込む。"
+              },
+              {
+                "name": "Managed services",
+                "description": "個別調査・分析レポート。成果物の提供時点で売上計上される案件がある。"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "operations",
+        "topic": "operations",
+        "icon": "gear",
+        "title": "収益モデルとオペレーション",
+        "subtitle": "高粗利だが、小規模な販売組織と外部データ依存がボトルネック",
+        "summaryItems": [
+          "FY2025粗利率は約85%",
+          "2026年3月末RPOは$4.79M、うち$3.82Mを1年以内に認識予定",
+          "AWSと第三者SNSプラットフォームのAPI・データ利用に依存"
+        ],
+        "blocks": [
+          {
+            "type": "table",
+            "title": "主要KPI",
+            "columns": [
+              "指標",
+              "値",
+              "評価"
+            ],
+            "rows": [
+              [
+                "FY2025売上高",
+                "$5.707M（+37%）",
+                "成長"
+              ],
+              [
+                "Q1 2026売上高",
+                "$1.415M（+12%）",
+                "成長率は鈍化"
+              ],
+              [
+                "ARR",
+                "$7.0M（+19%）",
+                "先行指標は改善"
+              ],
+              [
+                "Q1 2026営業CF",
+                "-$2.598M",
+                "資金消費が大きい"
+              ]
+            ]
+          },
+          {
+            "type": "risk-grid",
+            "title": "運営上の依存",
+            "items": [
+              "AWSなどクラウド基盤",
+              "SNSプラットフォームのAPIと利用規約",
+              "少数の大型案件と政府調達",
+              "イスラエル拠点の人材・地政学リスク"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "competition",
+        "topic": "competition",
+        "icon": "target",
+        "title": "競争環境",
+        "subtitle": "サイバー、ソーシャルリスニング、リスクインテリジェンスの境界市場",
+        "summaryItems": [
+          "会社が挙げる競合はLogically、Blackbird.AI、Alethea Group、VineSight、Pyrra Technologies",
+          "差別化の主張は、ナラティブの把握だけでなく発信源・偽アカウントを特定する点",
+          "大手分析・サイバー企業による機能内製化も競争圧力"
+        ],
+        "blocks": [
+          {
+            "type": "comparison",
+            "title": "競争軸",
+            "columns": [
+              "軸",
+              "Cyabraの訴求",
+              "投資家が確認すべき点"
+            ],
+            "rows": [
+              [
+                "検知対象",
+                "偽プロフィール、協調行動、生成AI、ナラティブ",
+                "誤検知率と再現性"
+              ],
+              [
+                "提供形態",
+                "SaaS/API/オンプレミス/サービス",
+                "粗利と導入期間"
+              ],
+              [
+                "顧客",
+                "政府・企業",
+                "更新率、顧客集中、販売効率"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "id": "financials",
+        "topic": "financials",
+        "icon": "chart",
+        "title": "財務と資本構成",
+        "subtitle": "売上成長よりも、資金調達と希薄化の読み違いが大きな損失要因",
+        "summaryItems": [
+          "Q1 2026営業損失は$11.82M、うち株式報酬$5.22Mと企業結合関連費用$3.4Mを含む",
+          "2026年3月末現金は$3.12M、継続企業の前提に重要な疑義",
+          "7月のPIPE総額は約$6Mだが、転換・交換・ワラントで完全希薄化後166.4M株の可能性"
+        ],
+        "blocks": [
+          {
+            "type": "table",
+            "title": "株式数の4つの見方",
+            "columns": [
+              "基準",
+              "株式数",
+              "$0.31での時価総額",
+              "意味"
+            ],
+            "rows": [
+              [
+                "発行済み",
+                "15.765M",
+                "$4.89M",
+                "S-1記載の2026-07-29時点"
+              ],
+              [
+                "プレファンド込み",
+                "28.409M",
+                "$8.81M",
+                "現金支払がほぼ完了した経済的株式"
+              ],
+              [
+                "株主承認後の転換・交換込み",
+                "88.563M",
+                "$27.47M",
+                "普通ワラント行使前"
+              ],
+              [
+                "会社開示の完全希薄化後",
+                "166.387M",
+                "$51.58M",
+                "全ワラント・転換を仮定"
+              ]
+            ]
+          },
+          {
+            "type": "highlight",
+            "title": "最重要ポイント",
+            "text": "データサイトに表示される約$4〜5Mの時価総額だけで割安と判断してはいけない。株主承認後の転換・交換と普通ワラントを含めると、同じ株価でも経済的な株式価値は約$27M〜$52Mに拡大する。"
+          }
+        ]
+      },
+      {
+        "id": "glossary",
+        "topic": "glossary",
+        "icon": "book",
+        "title": "用語集",
+        "subtitle": "CYABの評価に必要な資本市場用語",
+        "summaryItems": [
+          "プレファンド・ワラントは実質的に普通株に近い",
+          "再販登録は会社の新規資金ではなく、保有者の売却可能性を高める",
+          "完全希薄化後株式数で1株価値を評価する"
+        ],
+        "blocks": [
+          {
+            "type": "terms",
+            "title": "主要用語",
+            "items": [
+              {
+                "term": "ARR",
+                "definition": "年換算経常収益。契約型ソフトウェアの先行指標だが、GAAP売上高ではない。"
+              },
+              {
+                "term": "RPO",
+                "definition": "契約済みだが未認識の履行義務。将来売上の一部を示す。"
+              },
+              {
+                "term": "Pre-funded warrant",
+                "definition": "購入時に行使代金の大部分を支払うワラント。経済的には普通株に近い。"
+              },
+              {
+                "term": "Resale registration",
+                "definition": "投資家が受け取った株式を市場で再販できるよう登録する手続き。会社は通常、再販代金を受け取らない。"
+              },
+              {
+                "term": "Going concern",
+                "definition": "今後12か月程度、事業を継続できるだけの資金があるかという会計上の評価。"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "catalysts",
+        "topic": "catalysts",
+        "icon": "calendar",
+        "title": "主要カタリスト",
+        "subtitle": "確定日と未確定日を分離して管理",
+        "summaryItems": [
+          "2026-09-02：特別株主総会（暫定委任状記載）",
+          "時期未定：S-1の効力発生と再販売可能化",
+          "2026-12-07：Nasdaq上場基準の初回適合期限"
+        ],
+        "blocks": [
+          {
+            "type": "timeline",
+            "title": "今後のイベント",
+            "items": [
+              {
+                "date": "TBD",
+                "event": "Q2 2026 10-Q／決算",
+                "status": "会社発表日未確認"
+              },
+              {
+                "date": "2026-09-02",
+                "event": "特別株主総会",
+                "status": "PRE 14Aに記載"
+              },
+              {
+                "date": "2026-12-07",
+                "event": "Nasdaq適合期限",
+                "status": "SEC提出書類で確認"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "scenario": {
+    "decision": {
+      "status": "慎重・様子見",
+      "oneLine": "事業KPIは改善しているが、株主承認後の希薄化と上場維持リスクを考えると、現値は十分な安全余地を示していない。",
+      "score": 31,
+      "companyQuality": "高粗利・成長市場という質的強みはあるが、売上規模、損失、資金調達依存、顧客・外部データ依存からVERY HIGHリスク。",
+      "valuationView": "発行済み株式だけなら割安に見えるが、承認後株式数88.6M株を基準にすると現値時価総額は約$27.5M。完全希薄化後では約$51.6Mで、見かけの割安感は大幅に縮小する。"
+    },
+    "valuation": {
+      "currentPrice": 0.31,
+      "currency": "USD",
+      "expectedValue": 0.2635,
+      "expectedReturnPct": -15,
+      "method": "12か月先EV/売上高シナリオ。Bear/Baseは株主承認後・普通ワラント行使前の88.563M株、Bullは会社開示の完全希薄化後166.387M株と最大$36.410Mのワラント現金行使収入を使用。",
+      "currentPriceNote": "2026-07-31終値。低価格・低流動性のため、単一時点の価格は大きく変動し得る。"
+    },
+    "scenarios": [
+      {
+        "name": "Bear",
+        "price": 0.05,
+        "probability": 35,
+        "conditions": [
+          "2027年売上高が約$6.0Mにとどまり、ARR成長が止まる",
+          "追加資金調達が必要となり、既存株主の希薄化が進む",
+          "Nasdaq適合が未達または不透明なまま推移する"
+        ],
+        "details": [
+          {
+            "label": "2027年売上高",
+            "value": "$6.0M"
+          },
+          {
+            "label": "EV/売上高",
+            "value": "0.75x"
+          },
+          {
+            "label": "純現金加算",
+            "value": "$0M"
+          },
+          {
+            "label": "評価株式数",
+            "value": "88.563M"
+          },
+          {
+            "label": "現値比",
+            "value": "-83.9%"
+          }
+        ]
+      },
+      {
+        "name": "Base",
+        "price": 0.28,
+        "probability": 45,
+        "conditions": [
+          "2027年売上高が約$8.5Mへ成長する",
+          "粗利率80%台を維持し、営業CF赤字が縮小する",
+          "株主承認後の転換・交換は進むが、普通ワラントの大半は未行使"
+        ],
+        "details": [
+          {
+            "label": "2027年売上高",
+            "value": "$8.5M"
+          },
+          {
+            "label": "EV/売上高",
+            "value": "2.5x"
+          },
+          {
+            "label": "純現金加算",
+            "value": "$3.5M"
+          },
+          {
+            "label": "評価株式数",
+            "value": "88.563M"
+          },
+          {
+            "label": "現値比",
+            "value": "-9.7%"
+          }
+        ]
+      },
+      {
+        "name": "Bull",
+        "price": 0.6,
+        "probability": 20,
+        "conditions": [
+          "2027年売上高が約$12.0Mへ拡大し、大型政府・企業契約が複数実現する",
+          "Nasdaqの株価・公開株時価総額基準を回復する",
+          "普通ワラントが現金行使され、最大約$36.4Mの資金が流入する"
+        ],
+        "details": [
+          {
+            "label": "2027年売上高",
+            "value": "$12.0M"
+          },
+          {
+            "label": "EV/売上高",
+            "value": "5.0x"
+          },
+          {
+            "label": "純現金加算",
+            "value": "約$39.8M（ワラント行使収入を含むモデル値）"
+          },
+          {
+            "label": "評価株式数",
+            "value": "166.387M"
+          },
+          {
+            "label": "現値比",
+            "value": "+93.5%"
+          }
+        ]
+      }
+    ],
+    "positioning": {
+      "style": "イベント駆動型・超小型グロース",
+      "suitableFor": "資本構成、SEC提出書類、低流動性を継続監視でき、元本の大幅損失を許容できる投資家",
+      "notSuitableFor": "安定配当、予測可能な利益、低ボラティリティを求める投資家",
+      "sizingView": "コア保有には不向き。検討する場合でも、株主総会・S-1効力発生・Q2資金消費を確認した後の小さなイベント枠に限定する。"
+    },
+    "marketReverse": {
+      "issuedShareMarketCap": "$4.89M",
+      "prefundedAdjustedMarketCap": "$8.81M",
+      "postApprovalPreCommonWarrantMarketCap": "$27.47M",
+      "companyDisclosedFullyDilutedMarketCap": "$51.58M",
+      "interpretation": "市場データサイトの時価総額は主に発行済み普通株ベースであり、ほぼ全額払込済みのプレファンド・ワラント、優先株転換、Series C交換、普通ワラントを十分に反映しない。現値は、事業価値だけでなく株主総会承認、ワラント行使価格$0.45〜$0.50、再販圧力、上場維持確率を同時に織り込んでいる。",
+      "impliedRequirement": "Base価値を上回るには、ARR成長を再加速し、追加希薄化を抑えつつ、2027年売上高約$8.5M以上とNasdaq適合への経路を示す必要がある。"
+    },
+    "entryContext": {
+      "recent20dChangePct": -23.3,
+      "moveTrigger": "2026-07-01終値$0.404から2026-07-31終値$0.31までの約20営業日比較。7月PIPEと大量の転換・ワラント・再販登録による希薄化懸念が主な材料。",
+      "catalysts": [
+        {
+          "title": "特別株主総会：PIPE関連発行・優先株転換／交換の承認",
+          "timing": "2026-09-02 10:00 ET（暫定委任状記載）",
+          "status": "confirmed",
+          "importance": 5,
+          "direction": "TWO_SIDED",
+          "successImpact": "資本構成の不確実性を減らし、ワラント現金行使による将来資金流入余地が生じる。",
+          "failureImpact": "転換・交換が予定どおり進まず、優先株と資金調達条件の不確実性が残る。",
+          "whyItMatters": "承認後は60.154M株相当の転換・交換と76.649M株相当の普通ワラントが関係し、別議案では株式報酬枠を20M株増やす。",
+          "sourceRefs": [
+            "sec-pre14a-20260731",
+            "sec-s1-20260730"
+          ]
+        },
+        {
+          "title": "Q2 2026決算・10-Q",
+          "timing": "会社発表日未確認",
+          "status": "unknown",
+          "importance": 4,
+          "direction": "TWO_SIDED",
+          "successImpact": "ARR成長、契約獲得、資金消費改善が確認できればBase/Bull確率が上がる。",
+          "failureImpact": "成長鈍化と高い資金消費が続けば追加資金調達リスクが上がる。",
+          "whyItMatters": "7月PIPE後の実質的な流動性と、Q1のARR成長が売上へ転換しているかを確認する最初の主要開示。",
+          "sourceRefs": [
+            "sec-10q-2026q1",
+            "sec-8k-financing-20260710"
+          ]
+        },
+        {
+          "title": "S-1効力発生と登録株式の再販可能化",
+          "timing": "SEC効力発生日は未確認",
+          "status": "unknown",
+          "importance": 5,
+          "direction": "NEGATIVE",
+          "successImpact": "会社にとって登録義務を履行し、投資家との契約上の不確実性が低下する。",
+          "failureImpact": "登録の遅延は契約・資金調達関係を悪化させ得る。",
+          "whyItMatters": "最大150.622M株の再販登録であり、効力発生後の実際の売却量が需給を圧迫し得る。会社は再販代金を受け取らない。",
+          "sourceRefs": [
+            "sec-s1-20260730"
+          ]
+        },
+        {
+          "title": "Nasdaq上場基準の適合期限",
+          "timing": "2026-12-07",
+          "status": "confirmed",
+          "importance": 5,
+          "direction": "TWO_SIDED",
+          "successImpact": "終値$1以上と公開株時価総額$15M以上を原則10営業日維持すれば、上場維持不確実性が低下する。",
+          "failureImpact": "追加猶予、Capital Marketへの移行、株式併合、上場廃止手続きなどの不確実性が高まる。",
+          "whyItMatters": "2026-06-09に最低買付価格と公開株時価総額の両方について欠陥通知を受領した。",
+          "sourceRefs": [
+            "sec-8k-nasdaq-20260612"
+          ]
+        }
+      ],
+      "pricedInNote": "7月の株価下落と現値$0.31は希薄化・上場維持リスクを一部反映している可能性が高い。ただし、登録株式の実売却量、株主総会結果、Q2現金残高が未確定で、織り込み率の数値化はできない。"
+    },
+    "risk": {
+      "riskClass": "VERY HIGH",
+      "items": [
+        {
+          "category": "capital-structure",
+          "title": "極端な希薄化と再販オーバーハング",
+          "description": "S-1は最大150.622M株の再販を登録し、会社は完全希薄化後166.387M株を開示した。現発行済み15.765M株との乖離が非常に大きい。",
+          "severity": 5,
+          "sourceRefs": [
+            "sec-s1-20260730",
+            "sec-pre14a-20260731"
+          ]
+        },
+        {
+          "category": "liquidity",
+          "title": "継続損失と追加資金調達依存",
+          "description": "Q1営業CFは-$2.598M、3月末現金は$3.122Mで、10-Qは継続企業の前提に重要な疑義を開示した。7月PIPEは資金を補うが、黒字化まで十分かは未確認。",
+          "severity": 5,
+          "sourceRefs": [
+            "sec-10q-2026q1",
+            "sec-8k-financing-20260710"
+          ]
+        },
+        {
+          "category": "listing",
+          "title": "Nasdaq上場維持基準未達",
+          "description": "最低買付価格$1と公開株時価総額$15Mの両基準で欠陥通知を受け、初回期限は2026-12-07。",
+          "severity": 5,
+          "sourceRefs": [
+            "sec-8k-nasdaq-20260612"
+          ]
+        },
+        {
+          "category": "execution",
+          "title": "小さい売上基盤と成長率変動",
+          "description": "FY2025売上は$5.707M、Q1 2026は+12%で、1件の大型契約や更新失敗が成長率を大きく左右する。",
+          "severity": 4,
+          "sourceRefs": [
+            "sec-10q-2026q1",
+            "sec-s1-20260730"
+          ]
+        },
+        {
+          "category": "platform-dependency",
+          "title": "SNS API・第三者データ依存",
+          "description": "プラットフォームがAPI、利用規約、データアクセスを変更すると、分析品質・コスト・提供範囲が悪化し得る。",
+          "severity": 4,
+          "sourceRefs": [
+            "sec-s1-20260730"
+          ]
+        },
+        {
+          "category": "market",
+          "title": "低流動性・高ボラティリティ",
+          "description": "株価は$1未満で、取引量も限定的。注文執行、スプレッド、材料時の急変に注意が必要。",
+          "severity": 5,
+          "sourceRefs": [
+            "market-data-20260731"
+          ]
+        }
+      ]
+    },
+    "positives": [
+      "FY2025売上高は前年比37%増、粗利率は約85%まで改善した。",
+      "2026年3月末ARRは$7.0Mで前年比19%増、RPOは$4.794M。",
+      "国家安全保障、選挙、企業評判という損失回避型のユースケースは支払い意欲につながり得る。",
+      "SaaS、API、オンプレミス、マネージドサービスを組み合わせ、政府と企業の両方へ販売できる。",
+      "7月PIPEにより約$6Mの総資金を調達し、短期流動性を補強した。"
+    ],
+    "concerns": [
+      "完全希薄化後株式数は現発行済み株式数の約10.6倍に達し得る。",
+      "Q1 2026営業損失$11.824M、営業CF-$2.598Mで、事業単体の資金創出は未達。",
+      "株価と公開株時価総額の両方でNasdaq基準未達。",
+      "S-1再販登録は現発行済み株式数の約955%に相当し、実売却時の需給圧力が読めない。",
+      "Q2決算日、S-1効力発生日、7月末時点の現金残高は未確認。"
+    ],
+    "watchItems": [
+      {
+        "title": "特別株主総会",
+        "description": "Nasdaq Proposal、優先株転換／交換、株式報酬枠20M株増額の投票結果を確認。",
+        "signal": "down"
+      },
+      {
+        "title": "Q2売上・ARR・RPO",
+        "description": "ARRが売上へ転換し、成長率がQ1の12%から再加速するかを確認。",
+        "signal": "up"
+      },
+      {
+        "title": "現金と営業CF",
+        "description": "PIPE後の現金残高と四半期資金消費から次回調達時期を再計算。",
+        "signal": "down"
+      },
+      {
+        "title": "S-1効力発生・保有者売却",
+        "description": "EFFECT提出、売却株主の13D/13G/4、出来高増加を監視。",
+        "signal": "down"
+      },
+      {
+        "title": "Nasdaq適合",
+        "description": "終値$1と公開株時価総額$15Mを10営業日維持できるか、株式併合・市場移行の方針を確認。",
+        "signal": "up"
+      }
+    ],
+    "calculation": {
+      "probabilitySumPct": 100,
+      "expectedValueFormula": "0.05×35% + 0.28×45% + 0.60×20% = 0.2635",
+      "expectedReturnFormula": "0.2635 / 0.31 - 1 = -15.0%",
+      "issuedShares": 15765372,
+      "prefundedWarrantShares": 12643680,
+      "postApprovalPreCommonWarrantShares": 88562755,
+      "companyDisclosedFullyDilutedShares": 166387199,
+      "maxGrossCashExerciseProceeds": 36409556,
+      "marketCapsAtCurrentPrice": {
+        "issued": 4887265.32,
+        "prefundedAdjusted": 8806806.12,
+        "postApprovalPreCommonWarrant": 27454454.05,
+        "companyDisclosedFullyDiluted": 51580031.69
+      },
+      "modelNote": "株式数はS-1記載を優先。市場反応の確率ではなく、投資判断用のモデル確率であり、一次資料で確認された事実ではない。"
+    },
+    "assumptions": [
+      {
+        "item": "現在株価",
+        "value": 0.31,
+        "classification": "market-data",
+        "note": "2026-07-31終値",
+        "sourceRefs": [
+          "market-data-20260731"
+        ]
+      },
+      {
+        "item": "発行済み普通株式数",
+        "value": 15765372,
+        "classification": "fact",
+        "note": "2026-07-29時点",
+        "sourceRefs": [
+          "sec-s1-20260730"
+        ]
+      },
+      {
+        "item": "株主承認後・普通ワラント行使前株式数",
+        "value": 88562755,
+        "classification": "model-estimate",
+        "note": "発行済み15.765M + プレファンド12.644M + 優先株転換35.648M + Series C交換24.506M。承認と取引完了を仮定。",
+        "sourceRefs": [
+          "sec-s1-20260730",
+          "sec-pre14a-20260731"
+        ]
+      },
+      {
+        "item": "完全希薄化後株式数",
+        "value": 166387199,
+        "classification": "fact",
+        "note": "会社がS-1で開示した全ワラント・転換仮定値。構成要素との再計算に小差があるため会社開示値を採用。",
+        "sourceRefs": [
+          "sec-s1-20260730"
+        ]
+      },
+      {
+        "item": "2027年売上高シナリオ",
+        "value": "$6.0M / $8.5M / $12.0M",
+        "classification": "model-estimate",
+        "note": "FY2025売上$5.707M、Q1 2026売上+12%、ARR$7.0M、RPO$4.794Mを起点に設定。会社ガイダンスではない。",
+        "sourceRefs": [
+          "sec-10q-2026q1",
+          "sec-s1-20260730"
+        ]
+      },
+      {
+        "item": "EV/売上高倍率",
+        "value": "0.75x / 2.5x / 5.0x",
+        "classification": "model-estimate",
+        "note": "赤字・超小型・上場維持リスクと、高粗利・成長オプションを両方反映した幅。コンセンサスではない。"
+      },
+      {
+        "item": "シナリオ確率",
+        "value": "35% / 45% / 20%",
+        "classification": "assumption",
+        "note": "一次情報で確認された確率ではなく、完全希薄化、資金消費、Nasdaq期限を反映したモデル配分。"
+      },
+      {
+        "item": "Base純現金加算",
+        "value": "$3.5M",
+        "classification": "model-estimate",
+        "note": "3月末現金、7月PIPEの推定手取り、Q2以降の資金消費を概算。最新残高の開示後に更新が必要。",
+        "sourceRefs": [
+          "sec-10q-2026q1",
+          "sec-8k-financing-20260710"
+        ]
+      }
+    ],
+    "deepDive": [
+      {
+        "title": "なぜ見かけの時価総額を使わないか",
+        "content": "$0.31×15.765M株なら約$4.89Mだが、プレファンド・ワラントは行使価格がごく小さく経済的に普通株に近い。さらに株主承認後に優先株転換・Series C交換が予定される。Base評価では普通ワラント行使前でも88.563M株を使い、1株価値の過大評価を避けた。",
+        "sourceRefs": [
+          "sec-s1-20260730",
+          "sec-pre14a-20260731"
+        ]
+      },
+      {
+        "title": "ワラントの二面性",
+        "content": "普通ワラントは希薄化要因だが、$0.45〜$0.50を上回って現金行使されれば会社に最大約$36.41Mが入る。したがってBear/Baseでは未行使、Bullでは完全希薄化と現金流入を同時に反映する必要がある。",
+        "sourceRefs": [
+          "sec-s1-20260730",
+          "sec-8k-financing-20260710"
+        ]
+      },
+      {
+        "title": "Q1損失の質",
+        "content": "Q1営業損失$11.824Mには株式報酬$5.217Mと企業結合関連費用$3.4Mが含まれ、全額が反復的な現金損失ではない。一方、営業CF-$2.598Mは実際の資金消費を示し、小さな売上基盤に対してなお大きい。",
+        "sourceRefs": [
+          "sec-10q-2026q1"
+        ]
+      },
+      {
+        "title": "上場維持と株価$1の関係",
+        "content": "Nasdaqの最低買付価格基準を回復するには原則10営業日連続で終値$1以上が必要。現在値からは大きな上昇または株式併合が必要で、株式併合そのものは企業価値を増やさない。公開株時価総額$15M基準も別途満たす必要がある。",
+        "sourceRefs": [
+          "sec-8k-nasdaq-20260612"
+        ]
+      }
+    ],
+    "disclaimer": "本レポートは公開情報に基づく教育・調査目的の分析であり、投資助言、売買推奨、将来成果の保証ではありません。超小型・低価格株は流動性、希薄化、上場廃止、全損を含む高いリスクがあります。モデル価格と確率は確認済み事実ではなく、前提変更により大きく変わります。"
+  },
+  "sources": [
+    {
+      "id": "sec-s1-20260730",
+      "title": "Form S-1 Registration Statement",
+      "publisher": "U.S. Securities and Exchange Commission / Cyabra, Inc.",
+      "url": "https://www.sec.gov/Archives/edgar/data/2032341/000121390026083475/ea0299303-s1_cyabra.htm",
+      "sourceType": "sec",
+      "primary": true,
+      "publishedAt": "2026-07-30",
+      "accessedAt": "2026-08-01"
+    },
+    {
+      "id": "sec-pre14a-20260731",
+      "title": "Preliminary Proxy Statement (PRE 14A)",
+      "publisher": "U.S. Securities and Exchange Commission / Cyabra, Inc.",
+      "url": "https://www.sec.gov/Archives/edgar/data/2032341/000121390026084116/ea0299913-pre14a_cyabra.htm",
+      "sourceType": "sec",
+      "primary": true,
+      "publishedAt": "2026-07-31",
+      "accessedAt": "2026-08-01"
+    },
+    {
+      "id": "sec-8k-financing-20260710",
+      "title": "Form 8-K — July 2026 Private Placement",
+      "publisher": "U.S. Securities and Exchange Commission / Cyabra, Inc.",
+      "url": "https://www.sec.gov/Archives/edgar/data/2032341/000121390026077124/ea0297600-8k_cyabra.htm",
+      "sourceType": "sec",
+      "primary": true,
+      "publishedAt": "2026-07-10",
+      "accessedAt": "2026-08-01"
+    },
+    {
+      "id": "sec-10q-2026q1",
+      "title": "Form 10-Q for the quarter ended March 31, 2026",
+      "publisher": "U.S. Securities and Exchange Commission / Cyabra, Inc.",
+      "url": "https://www.sec.gov/Archives/edgar/data/2032341/000121390026057819/ea0290479-10q_cyabra.htm",
+      "sourceType": "sec",
+      "primary": true,
+      "publishedAt": "2026-05-13",
+      "accessedAt": "2026-08-01"
+    },
+    {
+      "id": "sec-8k-nasdaq-20260612",
+      "title": "Form 8-K — Nasdaq Listing Deficiency Notices",
+      "publisher": "U.S. Securities and Exchange Commission / Cyabra, Inc.",
+      "url": "https://www.sec.gov/Archives/edgar/data/2032341/000121390026068252/ea0294589-8k_cyabra.htm",
+      "sourceType": "sec",
+      "primary": true,
+      "publishedAt": "2026-06-12",
+      "accessedAt": "2026-08-01"
+    },
+    {
+      "id": "sec-investor-presentation-20260622",
+      "title": "Investor Presentation",
+      "publisher": "U.S. Securities and Exchange Commission / Cyabra, Inc.",
+      "url": "https://www.sec.gov/Archives/edgar/data/2032341/000121390026070606/ea029544501ex99-1.htm",
+      "sourceType": "sec",
+      "primary": true,
+      "publishedAt": "2026-06-22",
+      "accessedAt": "2026-08-01"
+    },
+    {
+      "id": "sec-8k-bylaws-20260731",
+      "title": "Form 8-K — Bylaw Amendment",
+      "publisher": "U.S. Securities and Exchange Commission / Cyabra, Inc.",
+      "url": "https://www.sec.gov/Archives/edgar/data/2032341/000121390026083952/ea0300044-8k_cyabra.htm",
+      "sourceType": "sec",
+      "primary": true,
+      "publishedAt": "2026-07-31",
+      "accessedAt": "2026-08-01"
+    },
+    {
+      "id": "market-data-20260731",
+      "title": "CYAB historical prices and quote",
+      "publisher": "Yahoo Finance",
+      "url": "https://finance.yahoo.com/quote/CYAB/history/",
+      "sourceType": "market-data",
+      "primary": false,
+      "publishedAt": null,
+      "accessedAt": "2026-08-01"
+    },
+    {
+      "id": "company-website",
+      "title": "Cyabra corporate website",
+      "publisher": "Cyabra, Inc.",
+      "url": "https://cyabra.com/",
+      "sourceType": "company-ir",
+      "primary": true,
+      "publishedAt": null,
+      "accessedAt": "2026-08-01"
+    }
+  ],
+  "coverageWaivers": [
+    {
+      "checkId": "valuation-pe",
+      "waiver_type": "acceptable",
+      "reason": "継続赤字でPERが経済的に意味を持たないため、EV/売上高シナリオを使用",
+      "approvedBy": "SiM automated analysis",
+      "approvedAt": "2026-08-01"
+    },
+    {
+      "checkId": "dividend-analysis",
+      "waiver_type": "acceptable",
+      "reason": "成長初期の赤字企業で配当実績・方針がなく、配当評価は銘柄特性上不適用",
+      "approvedBy": "SiM automated analysis",
+      "approvedAt": "2026-08-01"
+    },
+    {
+      "checkId": "analyst-consensus",
+      "waiver_type": "acceptable",
+      "reason": "信頼できる複数社コンセンサスを確認できず、単独目標株価は採用しない",
+      "approvedBy": "SiM automated analysis",
+      "approvedAt": "2026-08-01"
+    }
+  ],
+  "validation": {
+    "status": "INFO_WARN",
+    "fail_count": 0,
+    "blocking_warn_count": 0,
+    "info_warn_count": 5,
+    "checks": [
+      {
+        "checkId": "schema",
+        "status": "PASS",
+        "message": "report schema v1.1に適合"
+      },
+      {
+        "checkId": "scenario-order",
+        "status": "PASS",
+        "message": "Bear $0.05 < Base $0.28 < Bull $0.60"
+      },
+      {
+        "checkId": "probability-sum",
+        "status": "PASS",
+        "message": "35% + 45% + 20% = 100%"
+      },
+      {
+        "checkId": "expected-value",
+        "status": "PASS",
+        "message": "加重期待値$0.2635、現値比-15.0%を再計算済み"
+      },
+      {
+        "checkId": "capital-structure",
+        "status": "INFO_WARN",
+        "message": "S-1記載の完全希薄化後166.387M株を採用したが、個別構成要素の単純合計とは約1.175M株の差がある"
+      },
+      {
+        "checkId": "cash-balance",
+        "status": "INFO_WARN",
+        "message": "7月PIPE後・7月末時点の現金残高は未開示のためBase純現金はモデル推定"
+      },
+      {
+        "checkId": "q2-date",
+        "status": "INFO_WARN",
+        "message": "Q2 2026決算の会社確定日は確認できずTBDとした"
+      },
+      {
+        "checkId": "resale-effectiveness",
+        "status": "INFO_WARN",
+        "message": "7月30日S-1の効力発生日と実売却量は未確認"
+      },
+      {
+        "checkId": "market-data-window",
+        "status": "INFO_WARN",
+        "message": "20営業日騰落率は7月1日から7月31日の近似比較"
+      }
+    ],
+    "infoWarnMessages": [
+      "S-1の会社開示完全希薄化後株式数と個別構成要素の再計算に小差がある。",
+      "PIPE後の最新現金残高が未開示で、純現金はモデル推定。",
+      "Q2 2026決算の会社確定日は未確認。",
+      "S-1効力発生日と実際の再販量は未確認。",
+      "20営業日騰落率は近似値。"
+    ],
+    "humanReviewed": false,
+    "machinePublished": true
+  },
+  "updateHistory": [
+    {
+      "revision": "1.0.0",
+      "updatedAt": "2026-08-01",
+      "mode": "initial",
+      "summary": "CYAB初回レポートを作成"
+    }
+  ]
+}
