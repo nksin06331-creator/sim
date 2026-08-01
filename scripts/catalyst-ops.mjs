@@ -45,7 +45,7 @@ async function portalStockForTicker(ticker) {
 async function buildPreview(reportPath) {
   const report = await readJson(reportPath);
   const validation = validateCatalystReport(report);
-  if (validation.status === "FAIL") {
+  if (["FAIL", "BLOCKING_WARN"].includes(validation.status)) {
     console.log(JSON.stringify(validation, null, 2));
     throw new Error("Catalyst Validation FAILのためプレビューを生成しません。");
   }
@@ -211,7 +211,7 @@ if (!command || ["help", "--help", "-h"].includes(command)) {
   if (!args[1]) throw new Error("TICKER.catalyst.jsonを指定してください。");
   const validation = validateCatalystReport(await readJson(resolve(args[1])));
   console.log(JSON.stringify(validation, null, 2));
-  if (validation.status === "FAIL") process.exitCode = 1;
+  if (["FAIL", "BLOCKING_WARN"].includes(validation.status)) process.exitCode = 1;
 } else if (command === "preview") {
   if (!args[1]) throw new Error("TICKER.catalyst.jsonを指定してください。");
   const built = await buildPreview(resolve(args[1]));

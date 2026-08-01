@@ -1,24 +1,51 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$comment": "SiM unified stock report schema v1.1 — V6.3 three-page compatible operations. review and price-only removed; coverage waivers and validation warnings split by publishability.",
+  "$comment": "SiM unified stock report schema v1.1 — v6.3対応。reviewを削除、price-onlyを削除、coverageWaiversにwaiver_typeを追加、validationにblocking_warn_count/info_warn_countを追加",
   "title": "SiM unified stock report",
   "type": "object",
-  "required": ["schemaVersion", "reportId", "revision", "status", "renderMode", "update", "meta"],
+  "required": [
+    "schemaVersion",
+    "reportId",
+    "revision",
+    "status",
+    "renderMode",
+    "update",
+    "meta"
+  ],
   "properties": {
     "schemaVersion": { "const": 1 },
     "reportId": { "type": "string", "pattern": "^[A-Z0-9.-]+$" },
     "revision": { "type": "string", "minLength": 1 },
-    "status": { "enum": ["draft", "published", "archived"] },
+    "status": {
+      "$comment": "review を削除。draft → published（GitHub機械処理のみ） → archived",
+      "enum": ["draft", "published", "archived"]
+    },
     "renderMode": { "enum": ["legacy-preserve", "structured"] },
     "templateVersion": { "type": "string", "minLength": 1 },
     "update": {
       "type": "object",
       "required": ["mode", "reason", "changedFields"],
       "properties": {
-        "mode": { "enum": ["initial", "full-refresh", "patch", "correction", "corporate-action"] },
-        "baseRevision": { "type": ["string", "null"] },
+        "mode": {
+          "$comment": "price-only を削除。現在株価はprices.jsonで管理。initial/full-refresh/patch/correction/corporate-action のみ",
+          "enum": [
+            "initial",
+            "full-refresh",
+            "patch",
+            "correction",
+            "corporate-action"
+          ]
+        },
+        "baseRevision": {
+          "$comment": "patch・correction・corporate-actionでは必須。同時更新競合防止に使用",
+          "type": ["string", "null"]
+        },
         "reason": { "type": "string", "minLength": 5 },
-        "changedFields": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 } }
+        "changedFields": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "minLength": 1 }
+        }
       },
       "additionalProperties": false
     },
@@ -31,19 +58,195 @@
       },
       "additionalProperties": false
     },
-    "meta": { "type": "object", "additionalProperties": true },
-    "overview": { "type": "object", "additionalProperties": true },
-    "guide": { "type": "object", "additionalProperties": true },
-    "scenario": { "type": "object", "additionalProperties": true },
-    "sources": { "type": "array" },
+    "meta": {
+      "type": "object",
+      "required": [
+        "companyName",
+        "ticker",
+        "market",
+        "exchange",
+        "currency",
+        "valuationDate",
+        "lastUpdated",
+        "sector",
+        "industry",
+        "fiscalYearLabel",
+        "marketDetails"
+      ],
+      "properties": {
+        "companyName": { "type": "string", "minLength": 1 },
+        "ticker": { "type": "string", "pattern": "^[A-Z0-9.-]+$" },
+        "aliases": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "market": { "enum": ["US", "JP"] },
+        "exchange": { "type": "string", "minLength": 1 },
+        "currency": { "enum": ["USD", "JPY"] },
+        "valuationDate": { "type": "string", "format": "date" },
+        "lastUpdated": { "type": "string", "format": "date" },
+        "sector": { "type": "string", "minLength": 1 },
+        "industry": { "type": "string", "minLength": 1 },
+        "fiscalYearLabel": { "type": "string", "minLength": 1 },
+        "marketDetails": {
+          "type": "object",
+          "properties": {
+            "reportingStandard": { "type": "string" },
+            "secCik": {
+              "$comment": "US株では原則必須。日本企業・ADR等はcoverageWaiversでacceptableとして記録",
+              "type": ["string", "null"]
+            },
+            "adr": { "type": ["boolean", "null"] },
+            "securitiesCode": { "type": ["string", "null"] },
+            "listingSegment": { "type": ["string", "null"] },
+            "fiscalYearEndMonth": { "type": ["integer", "null"], "minimum": 1, "maximum": 12 }
+          },
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": true
+    },
+    "overview": {
+      "type": "object",
+      "required": ["tagline", "heroTags", "heroStats", "businessSummary"],
+      "properties": {
+        "tagline": { "type": "string", "minLength": 1 },
+        "heroTags": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string" }
+        },
+        "heroStats": {
+          "type": "array",
+          "minItems": 3,
+          "items": { "$ref": "#/$defs/stat" }
+        },
+        "businessSummary": { "type": "string", "minLength": 1 }
+      },
+      "additionalProperties": true
+    },
+    "guide": {
+      "type": "object",
+      "required": ["sections"],
+      "properties": {
+        "sections": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/section" }
+        },
+        "extraSections": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/section" }
+        }
+      },
+      "additionalProperties": false
+    },
+    "scenario": {
+      "type": "object",
+      "required": [
+        "decision",
+        "valuation",
+        "scenarios",
+        "positioning",
+        "marketReverse",
+        "entryContext",
+        "risk",
+        "positives",
+        "concerns",
+        "watchItems",
+        "calculation",
+        "assumptions",
+        "deepDive",
+        "disclaimer"
+      ],
+      "properties": {
+        "decision": {
+          "type": "object",
+          "required": ["status", "oneLine", "score", "companyQuality", "valuationView"],
+          "properties": {
+            "status": { "type": "string" },
+            "oneLine": { "type": "string" },
+            "score": { "type": "number", "minimum": 0, "maximum": 100 },
+            "companyQuality": { "type": "string" },
+            "valuationView": { "type": "string" }
+          }
+        },
+        "valuation": {
+          "type": "object",
+          "required": ["currentPrice", "currency", "expectedValue", "expectedReturnPct", "method"],
+          "properties": {
+            "currentPrice": { "type": "number" },
+            "currency": { "enum": ["USD", "JPY"] },
+            "expectedValue": { "type": "number" },
+            "expectedReturnPct": { "type": "number" },
+            "method": { "type": "string" },
+            "currentPriceNote": { "type": "string" }
+          }
+        },
+        "scenarios": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 3,
+          "items": { "$ref": "#/$defs/scenario" }
+        },
+        "positioning": { "type": "object", "additionalProperties": true },
+        "marketReverse": { "type": "object", "additionalProperties": true },
+        "entryContext": {
+          "type": "object",
+          "required": ["recent20dChangePct", "moveTrigger", "catalysts", "pricedInNote"],
+          "properties": {
+            "recent20dChangePct": { "type": "number" },
+            "moveTrigger": { "type": "string" },
+            "catalysts": {
+              "type": "array",
+              "minItems": 0,
+              "items": { "$ref": "#/$defs/catalyst" }
+            },
+            "pricedInNote": { "type": "string" }
+          }
+        },
+        "risk": {
+          "type": "object",
+          "required": ["riskClass", "items"],
+          "properties": {
+            "riskClass": { "enum": ["LOW", "MEDIUM", "HIGH", "VERY HIGH"] },
+            "items": {
+              "type": "array",
+              "minItems": 1,
+              "items": { "$ref": "#/$defs/risk" }
+            }
+          }
+        },
+        "positives": { "type": "array", "items": { "type": "string" } },
+        "concerns": { "type": "array", "items": { "type": "string" } },
+        "watchItems": { "type": "array", "items": { "$ref": "#/$defs/watch" } },
+        "calculation": { "type": "object", "additionalProperties": true },
+        "assumptions": { "type": "array", "items": { "$ref": "#/$defs/assumption" } },
+        "deepDive": { "type": "array", "items": { "$ref": "#/$defs/detail" } },
+        "extraSections": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/section" }
+        },
+        "disclaimer": { "type": "string" }
+      },
+      "additionalProperties": true
+    },
+    "sources": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/source" }
+    },
     "coverageWaivers": {
+      "$comment": "acceptable（銘柄特性上存在しない・INFO_WARN）とblocking（調査不足・公開禁止）の2種別",
       "type": "array",
       "items": {
         "type": "object",
         "required": ["checkId", "waiver_type", "reason", "approvedBy", "approvedAt"],
         "properties": {
           "checkId": { "type": "string" },
-          "waiver_type": { "enum": ["acceptable", "blocking"] },
+          "waiver_type": {
+            "$comment": "acceptable: 銘柄特性上存在しない（公開可能・INFO_WARN）。blocking: 調査不足（公開禁止）",
+            "enum": ["acceptable", "blocking"]
+          },
           "reason": { "type": "string", "minLength": 10 },
           "approvedBy": { "type": "string", "minLength": 1 },
           "approvedAt": { "type": "string", "format": "date" }
@@ -53,17 +256,254 @@
     "validation": {
       "type": "object",
       "properties": {
-        "status": { "enum": ["PASS", "INFO_WARN", "BLOCKING_WARN", "FAIL"] },
+        "status": {
+          "$comment": "PASS: FAIL/BLOCKING_WARN 0件。INFO_WARN: 公開可能だが注意事項あり。BLOCKING_WARN: 公開停止が必要。FAIL: 公開禁止",
+          "enum": ["PASS", "INFO_WARN", "BLOCKING_WARN", "FAIL"]
+        },
         "fail_count": { "type": "integer", "minimum": 0 },
         "blocking_warn_count": { "type": "integer", "minimum": 0 },
         "info_warn_count": { "type": "integer", "minimum": 0 },
         "checks": { "type": "array" },
-        "infoWarnMessages": { "type": "array", "items": { "type": "string" } },
+        "infoWarnMessages": {
+          "$comment": "INFO_WARN項目の要約。公開時にHTMLの注意欄へ表示する",
+          "type": "array",
+          "items": { "type": "string" }
+        },
         "humanReviewed": { "type": "boolean" }
       },
       "additionalProperties": true
     },
-    "updateHistory": { "type": "array" }
+    "updateHistory": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["updatedAt", "mode", "summary"],
+        "properties": {
+          "updatedAt": { "type": "string", "format": "date" },
+          "mode": { "type": "string" },
+          "summary": { "type": "string" },
+          "deletedInfo": {
+            "$comment": "情報を削除した場合は理由を記録する",
+            "type": "string"
+          }
+        }
+      }
+    }
   },
-  "additionalProperties": true
+  "$defs": {
+    "stat": {
+      "type": "object",
+      "required": ["value", "label"],
+      "properties": {
+        "value": { "type": ["string", "number"] },
+        "label": { "type": "string" },
+        "note": { "type": "string" },
+        "tone": { "enum": ["normal", "up", "down"] },
+        "livePrice": { "type": "boolean" }
+      }
+    },
+    "section": {
+      "type": "object",
+      "required": ["id", "topic", "title", "summaryItems", "blocks"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "topic": { "type": "string", "minLength": 1 },
+        "icon": { "type": "string" },
+        "title": { "type": "string", "minLength": 1 },
+        "subtitle": { "type": "string" },
+        "summaryItems": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string" }
+        },
+        "blocks": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/block" }
+        }
+      }
+    },
+    "block": {
+      "type": "object",
+      "required": ["type"],
+      "properties": {
+        "type": {
+          "enum": [
+            "facts",
+            "cards",
+            "keypoints",
+            "terms",
+            "products",
+            "comparison",
+            "timeline",
+            "risk-grid",
+            "highlight",
+            "paragraphs",
+            "table",
+            "custom"
+          ]
+        },
+        "title": { "type": "string" },
+        "items": { "type": "array" },
+        "columns": { "type": "array" },
+        "rows": { "type": "array" },
+        "text": { "type": "string" },
+        "paragraphs": { "type": "array", "items": { "type": "string" } },
+        "payload": { "type": "object" }
+      },
+      "additionalProperties": true
+    },
+    "scenario": {
+      "type": "object",
+      "required": ["name", "price", "probability", "conditions", "details"],
+      "properties": {
+        "name": { "enum": ["Bear", "Base", "Bull"] },
+        "price": { "type": "number" },
+        "probability": { "type": "number", "minimum": 0, "maximum": 100 },
+        "conditions": { "type": "array", "minItems": 1, "items": { "type": "string" } },
+        "details": { "type": "array", "items": { "$ref": "#/$defs/labelValue" } }
+      }
+    },
+    "catalyst": {
+      "type": "object",
+      "required": ["title", "timing", "status", "importance", "direction", "sourceRefs"],
+      "properties": {
+        "title": { "type": "string" },
+        "timing": { "type": "string" },
+        "status": { "enum": ["confirmed", "estimated", "window", "unknown"] },
+        "importance": { "type": "integer", "minimum": 1, "maximum": 5 },
+        "direction": {
+          "$comment": "株価への方向性",
+          "enum": ["POSITIVE", "NEGATIVE", "TWO_SIDED", "NEUTRAL"]
+        },
+        "successImpact": { "type": "string" },
+        "failureImpact": { "type": "string" },
+        "whyItMatters": { "type": "string" },
+        "sourceRefs": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "risk": {
+      "type": "object",
+      "required": ["category", "title", "description", "severity", "sourceRefs"],
+      "properties": {
+        "category": { "type": "string" },
+        "title": { "type": "string" },
+        "description": { "type": "string" },
+        "severity": { "type": "integer", "minimum": 1, "maximum": 5 },
+        "sourceRefs": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "watch": {
+      "type": "object",
+      "required": ["title", "description", "signal"],
+      "properties": {
+        "title": { "type": "string" },
+        "description": { "type": "string" },
+        "signal": { "enum": ["up", "down", "flat"] }
+      }
+    },
+    "assumption": {
+      "type": "object",
+      "required": ["item", "value", "classification", "note"],
+      "properties": {
+        "item": { "type": "string" },
+        "value": { "type": ["string", "number"] },
+        "classification": {
+          "$comment": "v6.3: HISTORICAL_RANGE を追加",
+          "enum": [
+            "fact",
+            "market-data",
+            "company-guidance",
+            "consensus",
+            "historical-range",
+            "model-estimate",
+            "estimate",
+            "assumption"
+          ]
+        },
+        "note": { "type": "string" },
+        "sourceRefs": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "detail": {
+      "type": "object",
+      "required": ["title", "content"],
+      "properties": {
+        "title": { "type": "string" },
+        "content": { "type": "string" },
+        "sourceRefs": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "source": {
+      "type": "object",
+      "required": ["id", "title", "publisher", "url", "sourceType", "primary", "accessedAt"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "title": { "type": "string", "minLength": 1 },
+        "publisher": { "type": "string", "minLength": 1 },
+        "url": { "type": "string", "pattern": "^https://" },
+        "sourceType": {
+          "enum": [
+            "company-ir",
+            "sec",
+            "tdnet",
+            "edinet",
+            "exchange",
+            "government",
+            "regulator",
+            "earnings",
+            "market-data",
+            "secondary"
+          ]
+        },
+        "primary": { "type": "boolean" },
+        "publishedAt": { "type": ["string", "null"] },
+        "accessedAt": { "type": "string", "format": "date" }
+      }
+    },
+    "labelValue": {
+      "type": "object",
+      "required": ["label", "value"],
+      "properties": {
+        "label": { "type": "string" },
+        "value": { "type": ["string", "number"] }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": { "renderMode": { "const": "legacy-preserve" } }
+      },
+      "then": { "required": ["legacy"] }
+    },
+    {
+      "if": {
+        "properties": { "renderMode": { "const": "structured" } }
+      },
+      "then": {
+        "required": ["overview", "guide", "scenario", "sources", "validation"]
+      }
+    },
+    {
+      "$comment": "patch・correction・corporate-actionではbaseRevisionを必須にする",
+      "if": {
+        "properties": {
+          "update": {
+            "properties": {
+              "mode": { "enum": ["patch", "correction", "corporate-action"] }
+            }
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "update": {
+            "required": ["baseRevision"]
+          }
+        }
+      }
+    }
+  ],
+  "additionalProperties": false
 }

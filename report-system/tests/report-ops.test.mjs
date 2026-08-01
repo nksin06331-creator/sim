@@ -169,6 +169,7 @@ function reportFixture() {
           timing: "2026年Q3",
           status: "window",
           importance: 5 - index,
+          direction: "TWO_SIDED",
           successImpact: "売上前提が上がります。",
           failureImpact: "成長前提が下がります。",
           sourceRefs: refs
