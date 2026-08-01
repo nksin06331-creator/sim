@@ -1,0 +1,855 @@
+{
+  "meta": {
+    "company_name": "Cyabra, Inc.",
+    "ticker": "CYAB",
+    "exchange": "Nasdaq Global Market",
+    "currency": "USD",
+    "valuation_date": "2026-07-31",
+    "last_updated": "2026-08-01T17:30:00+09:00",
+    "source_cutoff": "2026-07-31T23:59:59-04:00",
+    "framework_version": "1.1",
+    "current_price_fallback": 0.31,
+    "current_price_as_of": "2026-07-31 market close",
+    "benchmark": "Nasdaq Composite",
+    "diluted_shares": 166387199,
+    "market": "US"
+  },
+  "summary": {
+    "status": "CATALYST_RICH",
+    "one_line": "Q2開示、9月2日株主総会、S-1効力発生、12月7日Nasdaq期限が連続し、業績より資本構成と上場維持が短期株価を左右しやすい。",
+    "next_catalyst_id": "capital-vote-20260902",
+    "next_window": "次の確定日：2026-09-02。Q2 2026決算はそれ以前の可能性があるが会社発表日未確認。",
+    "primary_risk": "最大150.622M株の再販登録と、会社開示166.387M株の完全希薄化後株式数による需給・1株価値の低下。",
+    "surprise_up": "Q2でARR成長と低い資金消費を示し、Nasdaq適合へ株式併合以外の経路が見えること。",
+    "surprise_down": "S-1効力発生後の大量売却、Q2現金消費の悪化、または株主総会後の追加株式供給。",
+    "overall_priced_in": {
+      "quantifiable": false,
+      "percent_range": null,
+      "raw_implied_pct": null,
+      "label": "MEDIUM_TO_HIGH",
+      "confidence": "LOW",
+      "event_excluded_equity_value": null,
+      "full_success_incremental_equity_value": null,
+      "market_implied_success_probability": null,
+      "independent_success_probability": null,
+      "evidence_for": [
+        "2026-07-01の$0.404から2026-07-31の$0.31まで約23%下落した。",
+        "現値は優先株転換・交換価格$0.435と普通ワラント行使価格$0.45〜$0.50を下回る。",
+        "Nasdaq最低買付価格$1を大幅に下回る。"
+      ],
+      "evidence_against": [
+        "S-1は提出されたばかりで効力発生日と実際の売却量が未確認。",
+        "株主総会の投票結果、Q2現金残高、追加契約が未開示。",
+        "低流動性銘柄のため、短期価格変動を単一材料へ帰属できない。"
+      ],
+      "caveats": [
+        "事業価値を除いたイベント単独価値と成功時増分価値を分離できない。",
+        "オプション市場または信頼できる複数アナリスト予想を確認できない。"
+      ],
+      "unquantifiable_reason": "登録株式の実売却量、株主総会結果、Q2財務、ワラント行使行動が未確定で、イベント除外時企業価値を独立に推定できない。",
+      "qualitative_assessment": "大きな希薄化・上場維持リスクは相応に認識されている可能性があるが、実際の株式供給が始まる局面の下方リスクは残る。",
+      "revaluation_trigger": "Q2 10-Q、S-1のEFFECT提出、9月2日投票結果、売却株主の保有変化が開示された時点。"
+    }
+  },
+  "catalysts": [
+    {
+      "id": "capital-vote-20260902",
+      "title": "特別株主総会：PIPE関連発行、優先株転換／交換、株式報酬枠の承認",
+      "event_type": "QUANTITATIVE",
+      "category": "FINANCING",
+      "status": "SCHEDULED",
+      "importance": 5,
+      "direction": "TWO_SIDED",
+      "date": {
+        "display_text": "2026年9月2日 10:00 ET（暫定委任状記載）",
+        "start_date": "2026-09-02",
+        "end_date": "2026-09-02",
+        "precision": "EXACT",
+        "basis": "CONFIRMED",
+        "confidence": "HIGH",
+        "timezone": "America/New_York",
+        "source_ids": [
+          "src-pre14a-20260731"
+        ]
+      },
+      "plain_language": "株主が、7月資金調達に伴う大量の株式発行と、株式報酬枠20M株の追加を認めるか決める。",
+      "why_it_matters": "承認は資本構成の確定に必要だが、60.154M株相当の優先株転換・交換、76.649M株相当の普通ワラント、20M株の報酬枠増額に関係し、既存1株価値へ大きく影響する。",
+      "detail": "PRE 14Aは2026-09-02のバーチャル特別総会と2026-08-07の基準日を記載。Nasdaq Proposal、Plan Amendment Proposal、Adjournment Proposalを付議し、取締役会は各議案に賛成を推奨。7月30日には定足数を33 1/3%へ引き下げる定款細則変更を採択した。",
+      "mechanism": [
+        "承認 → 優先株転換・Series C交換が契約どおり実行可能 → 普通株供給増",
+        "承認 → Series A/B普通ワラントが行使可能 → 株価が行使価格を上回れば資金流入と追加希薄化",
+        "報酬枠承認 → 2026年枠が2.072M株から22.072M株へ増加 → 将来SBC余地拡大"
+      ],
+      "quantification_priority": 1,
+      "outcomes": [
+        {
+          "label": "APPROVED",
+          "conditions": [
+            "Nasdaq Proposalが承認される",
+            "優先株転換・交換取引が契約どおり進む",
+            "Plan Amendment Proposalの可否を個別確認する"
+          ],
+          "quantifiable": false,
+          "quantification_basis": "CONFIRMED",
+          "price_change_pct_range": null,
+          "price_range": null,
+          "direction": "MIXED",
+          "effect_on_assumptions": [
+            "Base評価株式数88.563M株の実現可能性が高まる",
+            "Bull完全希薄化166.387M株と最大$36.410M現金流入の経路が開く"
+          ],
+          "probability": null,
+          "unquantifiable_reason": "承認自体は数量化できるが、転換・交換・ワラント行使後の実売却量と市場需給が未確定。",
+          "qualitative_assessment": "資本構成の不確実性低下はプラスだが、普通株供給増はマイナスで、短期株価方向は二面性がある。",
+          "revaluation_trigger": "議決結果、取引完了8-K、転換・交換後の発行済み株式数、ワラント行使開示。"
+        },
+        {
+          "label": "NOT_APPROVED_OR_ADJOURNED",
+          "conditions": [
+            "Nasdaq Proposalが否決される、または定足数・票不足で延期される",
+            "優先株転換・交換が予定どおり完了しない"
+          ],
+          "quantifiable": false,
+          "quantification_basis": "CONFIRMED",
+          "price_change_pct_range": null,
+          "price_range": null,
+          "direction": "MIXED",
+          "effect_on_assumptions": [
+            "短期の普通株供給は抑制される",
+            "優先株オーバーハングと資金調達契約の不確実性が残る"
+          ],
+          "probability": null,
+          "unquantifiable_reason": "否決後の契約修正、再投票、優先株条件、追加調達の対応が不明。",
+          "qualitative_assessment": "短期希薄化の抑制と、資本構成不確実性・流動性悪化が相殺し得る。",
+          "revaluation_trigger": "会社の代替取引条件、再招集日、投資家との契約修正開示。"
+        }
+      ],
+      "impact_method": "一次提出書類の発行可能株式数と現行株式数を比較し、価格反応は定量不能として方向性のみ評価。",
+      "impact_horizon": "総会当日から12か月",
+      "impact_confidence": "MEDIUM",
+      "price_impact_direction": "MIXED",
+      "price_impact_magnitude": "LARGE",
+      "price_impact_unquantifiable_reason": "承認後の売却量、株価がワラント行使価格を超える期間、PIPE投資家の保有意図が不明。",
+      "price_impact_revaluation_trigger": "投票結果、発行済み株式数、ワラント行使、登録株式売却量の開示。",
+      "priced_in": {
+        "quantifiable": false,
+        "percent_range": null,
+        "raw_implied_pct": null,
+        "label": "MEDIUM_TO_HIGH",
+        "confidence": "LOW",
+        "event_excluded_equity_value": null,
+        "full_success_incremental_equity_value": null,
+        "market_implied_success_probability": null,
+        "independent_success_probability": null,
+        "evidence_for": [
+          "PIPE価格・転換価格・ワラント条件はすでにSEC提出書類で公開済み。",
+          "株価は転換価格$0.435とワラント行使価格を下回る。"
+        ],
+        "evidence_against": [
+          "PRE 14Aは7月31日提出で、市場が総会議案を消化した期間が短い。",
+          "議案別の投票確度を示す検証可能なデータがない。"
+        ],
+        "caveats": [
+          "低流動性のため価格だけから成功確率を逆算できない。"
+        ],
+        "unquantifiable_reason": "事業価値と資本構成イベント価値を分離できず、投票確率の市場指標もない。",
+        "qualitative_assessment": "数量条件は知られているため相応に織り込まれ得るが、承認後の実際の売却圧力は未織り込みの可能性がある。",
+        "revaluation_trigger": "最終委任状、委任状勧誘状況、議決結果、出来高・保有報告。"
+      },
+      "leading_indicators": [
+        "最終DEF 14Aの提出",
+        "委任状補足資料と投票勧誘",
+        "2026-08-07基準日時点の議決権構成",
+        "出来高と大株主・役員の保有変化"
+      ],
+      "dependencies": [
+        "resale-registration-effectiveness"
+      ],
+      "dependency_group": "capital-structure-2026",
+      "sell_the_news_risk": "承認は会社が推奨し契約履行に必要なため、承認自体が予想どおりでも、その後の株式供給が材料出尽くし売りを誘う可能性がある。",
+      "financing_risk": "承認後のワラント行使は資金流入源だが、株価が$0.45〜$0.50を下回る間は現金行使が期待しにくく、追加調達が必要になる可能性がある。",
+      "dilution_impact": "現発行済み15.765M株に対し、会社開示の完全希薄化後166.387M株は約10.6倍。別途、報酬枠20M株増額議案がある。",
+      "update_triggers": [
+        "DEF 14Aまたは委任状補足資料の提出",
+        "2026-09-02の議決結果8-K",
+        "優先株転換・Series C交換の完了",
+        "普通ワラント行使または条件変更"
+      ],
+      "source_ids": [
+        "src-pre14a-20260731",
+        "src-s1-20260730",
+        "src-8k-financing-20260710",
+        "src-8k-bylaws-20260731"
+      ],
+      "extra_items": [
+        {
+          "label": "総会基準日",
+          "value": "2026-08-07",
+          "source_ids": [
+            "src-pre14a-20260731"
+          ]
+        },
+        {
+          "label": "株式報酬枠",
+          "value": "2,072,125株から22,072,125株へ20,000,000株増額する議案",
+          "source_ids": [
+            "src-pre14a-20260731"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "q2-2026-results",
+      "title": "Q2 2026決算・Form 10-Q",
+      "event_type": "QUANTITATIVE",
+      "category": "EARNINGS",
+      "status": "TBD",
+      "importance": 4,
+      "direction": "TWO_SIDED",
+      "date": {
+        "display_text": "会社発表日未確認",
+        "start_date": null,
+        "end_date": null,
+        "precision": "TBD",
+        "basis": "UNKNOWN",
+        "confidence": "LOW",
+        "timezone": null,
+        "source_ids": [
+          "src-10q-2026q1"
+        ]
+      },
+      "plain_language": "売上・ARR・契約残高が伸び、7月資金調達後の現金で事業をどれだけ継続できるか確認する。",
+      "why_it_matters": "Q1のARR$7.0MがGAAP売上へ転換しているか、Q1営業CF-$2.598Mの資金消費が改善したかが、次回調達とBaseシナリオを左右する。",
+      "detail": "Q1 2026は売上$1.415M（前年比+12%）、粗利$1.223M、営業損失$11.824M、現金$3.122M、ARR$7.0M、RPO$4.794M。7月PIPE総額約$6M後の流動性をQ2開示で更新する必要がある。",
+      "mechanism": [
+        "売上・ARR成長 → 将来売上期待とEV/売上高倍率",
+        "営業CF改善 → 次回資金調達までの期間延長 → 希薄化リスク低下",
+        "現金減少加速 → 追加調達確率上昇 → 1株価値低下"
+      ],
+      "quantification_priority": 6,
+      "outcomes": [
+        {
+          "label": "OUTPERFORM",
+          "conditions": [
+            "売上成長率がQ1の12%を明確に上回る",
+            "ARRが$7.0Mから増加し、RPOの売上転換が進む",
+            "四半期営業CF赤字がQ1の$2.598Mから縮小する"
+          ],
+          "quantifiable": false,
+          "quantification_basis": "MODEL_ESTIMATE",
+          "price_change_pct_range": null,
+          "price_range": null,
+          "direction": "UP",
+          "effect_on_assumptions": [
+            "2027年Base/Bull売上高の上方修正",
+            "Base純現金の上方修正"
+          ],
+          "probability": null,
+          "unquantifiable_reason": "会社ガイダンスと信頼できる複数社コンセンサスがない。",
+          "qualitative_assessment": "成長と資金効率の同時改善なら強いポジティブ。",
+          "revaluation_trigger": "実績売上、ARR、RPO、営業CF、現金残高の開示。"
+        },
+        {
+          "label": "INLINE",
+          "conditions": [
+            "売上・ARRがQ1に近いペースで成長する",
+            "粗利率80%台を維持する",
+            "営業CF赤字が大きく悪化しない"
+          ],
+          "quantifiable": false,
+          "quantification_basis": "MODEL_ESTIMATE",
+          "price_change_pct_range": null,
+          "price_range": null,
+          "direction": "FLAT",
+          "effect_on_assumptions": [
+            "Baseシナリオを維持"
+          ],
+          "probability": null,
+          "unquantifiable_reason": "市場コンセンサスがなく、期待値の基準を厳密に定義できない。",
+          "qualitative_assessment": "資本構成イベントが株価の主因であり、業績のみでは方向が限定的。",
+          "revaluation_trigger": "会社の通期見通しまたは契約KPI開示。"
+        },
+        {
+          "label": "UNDERPERFORM",
+          "conditions": [
+            "売上が横ばいまたは減少する",
+            "ARRが$7.0Mを下回る、またはRPOが縮小する",
+            "四半期営業CF赤字がQ1の$2.598Mを上回る"
+          ],
+          "quantifiable": false,
+          "quantification_basis": "MODEL_ESTIMATE",
+          "price_change_pct_range": null,
+          "price_range": null,
+          "direction": "DOWN",
+          "effect_on_assumptions": [
+            "Bear確率の上方修正",
+            "次回調達時期の前倒し"
+          ],
+          "probability": null,
+          "unquantifiable_reason": "追加調達条件と経営陣のコスト対応が未確定。",
+          "qualitative_assessment": "高い固定費と希薄化余地を考えると大きなネガティブ。",
+          "revaluation_trigger": "実績開示と資金調達方針。"
+        }
+      ],
+      "impact_method": "Q1実績とFY2025売上を基準にした条件分岐。コンセンサス不在のため価格レンジは付与しない。",
+      "impact_horizon": "発表当日から次四半期",
+      "impact_confidence": "LOW",
+      "price_impact_direction": "MIXED",
+      "price_impact_magnitude": "LARGE",
+      "price_impact_unquantifiable_reason": "決算日、会社ガイダンス、複数社コンセンサス、最新完全希薄化後株式数が未確定。",
+      "price_impact_revaluation_trigger": "10-Qと決算リリースの公開。",
+      "priced_in": {
+        "quantifiable": false,
+        "percent_range": null,
+        "raw_implied_pct": null,
+        "label": "UNKNOWN",
+        "confidence": "LOW",
+        "event_excluded_equity_value": null,
+        "full_success_incremental_equity_value": null,
+        "market_implied_success_probability": null,
+        "independent_success_probability": null,
+        "evidence_for": [
+          "Q1実績、ARR、RPOは公開済み。"
+        ],
+        "evidence_against": [
+          "Q2発表日、実績、ガイダンス、最新現金が未開示。"
+        ],
+        "caveats": [
+          "7月株価変動は資金調達イベントの影響が大きく、Q2期待を分離できない。"
+        ],
+        "unquantifiable_reason": "決算期待を価格から分離するデータがない。",
+        "qualitative_assessment": "現状の株価は資本構成リスク主導で、業績サプライズの織り込み度は不明。",
+        "revaluation_trigger": "会社による決算日発表、事前KPI開示、10-Q提出。"
+      },
+      "leading_indicators": [
+        "大型契約の8-K・プレスリリース",
+        "顧客提携・販売パートナーの拡大",
+        "採用・人員削減の変化",
+        "追加資金調達提出書類"
+      ],
+      "dependency_group": null,
+      "financing_risk": "成長が続いても営業CF赤字が大きければ、PIPE資金の消費後に追加希薄化が必要。",
+      "update_triggers": [
+        "会社によるQ2決算日の発表",
+        "Q2 10-Qまたは決算リリースの提出",
+        "通期ガイダンスまたはARR/RPO更新"
+      ],
+      "source_ids": [
+        "src-10q-2026q1",
+        "src-s1-20260730",
+        "src-8k-financing-20260710"
+      ]
+    },
+    {
+      "id": "resale-registration-effectiveness",
+      "title": "S-1効力発生と登録株式の再販可能化",
+      "event_type": "QUANTITATIVE",
+      "category": "FINANCING",
+      "status": "CONTINGENT",
+      "importance": 5,
+      "direction": "NEGATIVE",
+      "date": {
+        "display_text": "SEC効力発生日は未確認",
+        "start_date": null,
+        "end_date": null,
+        "precision": "TBD",
+        "basis": "UNKNOWN",
+        "confidence": "LOW",
+        "timezone": null,
+        "source_ids": [
+          "src-s1-20260730"
+        ]
+      },
+      "plain_language": "登録届出書が有効になると、売却株主は登録対象株式を市場で売りやすくなる。",
+      "why_it_matters": "登録対象150.622M株は2026-07-29時点の発行済み15.765M株の約955%に相当し、実際に売却されれば需給へ大きな圧力となり得る。会社は再販代金を受け取らない。",
+      "detail": "S-1は既発行株1.175M株、プレファンド・ワラント12.644M株、普通ワラント、優先株転換、Series C交換関連株式を登録する。転換・交換・一部ワラント行使は株主承認などの条件に依存する。",
+      "mechanism": [
+        "効力発生 → 登録保有者の売却可能性上昇 → 流通供給増",
+        "株価がワラント行使価格を上回る → 現金行使と追加株式発行 → 会社資金増加と希薄化",
+        "株価が行使価格を下回る → 現金行使されにくい → 資金流入なしでも既発行・プレファンド分の売却圧力は残る"
+      ],
+      "quantification_priority": 1,
+      "outcomes": [
+        {
+          "label": "EFFECTIVE_AND_MATERIAL_SELLING",
+          "conditions": [
+            "SECが登録届出書の効力発生を認める",
+            "売却株主による登録株式の市場売却が出来高に対して大きい"
+          ],
+          "quantifiable": false,
+          "quantification_basis": "CONFIRMED",
+          "price_change_pct_range": null,
+          "price_range": null,
+          "direction": "DOWN",
+          "effect_on_assumptions": [
+            "短期需給ディスカウントの拡大",
+            "低流動性リスクの上昇"
+          ],
+          "probability": null,
+          "unquantifiable_reason": "売却株主ごとの売却時期・数量・価格が不明。",
+          "qualitative_assessment": "出来高に対して大量なら大きなネガティブ。",
+          "revaluation_trigger": "EFFECT提出、目論見書補足、保有報告、出来高急増。"
+        },
+        {
+          "label": "EFFECTIVE_BUT_LIMITED_SELLING_OR_DELAYED",
+          "conditions": [
+            "効力発生が遅れる、または効力発生後も実売却が限定的",
+            "主要保有者が保有を継続する"
+          ],
+          "quantifiable": false,
+          "quantification_basis": "UNKNOWN",
+          "price_change_pct_range": null,
+          "price_range": null,
+          "direction": "FLAT",
+          "effect_on_assumptions": [
+            "短期需給圧力を下方修正"
+          ],
+          "probability": null,
+          "unquantifiable_reason": "保有者の売却意図を確認できない。",
+          "qualitative_assessment": "登録総数が大きくても、実売却が少なければ短期影響は限定的。",
+          "revaluation_trigger": "売却株主の保有報告と日次出来高。"
+        }
+      ],
+      "impact_method": "登録株式数を現発行済み株式数・平均出来高と比較。ただし売却速度不明のため価格幅は算定しない。",
+      "impact_horizon": "効力発生日から12か月",
+      "impact_confidence": "MEDIUM",
+      "price_impact_direction": "DOWN",
+      "price_impact_magnitude": "LARGE",
+      "price_impact_unquantifiable_reason": "登録は売却義務ではなく、実売却量と市場吸収力が未確認。",
+      "price_impact_revaluation_trigger": "EFFECT提出後の出来高、目論見書補足、13D/13G/4。",
+      "priced_in": {
+        "quantifiable": false,
+        "percent_range": null,
+        "raw_implied_pct": null,
+        "label": "MEDIUM_TO_HIGH",
+        "confidence": "LOW",
+        "event_excluded_equity_value": null,
+        "full_success_incremental_equity_value": null,
+        "market_implied_success_probability": null,
+        "independent_success_probability": null,
+        "evidence_for": [
+          "PIPE契約と登録義務は7月10日の8-Kで開示済み。",
+          "S-1は7月30日に提出され、登録株数は公開済み。"
+        ],
+        "evidence_against": [
+          "効力発生日と実売却は未確認。",
+          "7月31日終値は7月29日S-1基準価格$0.26を上回った。"
+        ],
+        "caveats": [
+          "会社は再販代金を受け取らず、ワラント現金行使収入とは区別が必要。"
+        ],
+        "unquantifiable_reason": "登録可能数量と実際の売却数量は異なり、売却時期の情報がない。",
+        "qualitative_assessment": "登録規模は既知のため一部織り込みが合理的だが、実売却開始時の需給ショックは残る。",
+        "revaluation_trigger": "SECのEFFECT、424B3、売却株主の保有変化、出来高。"
+      },
+      "leading_indicators": [
+        "SECのEFFECT提出",
+        "424B3または目論見書補足",
+        "日次出来高とVWAP",
+        "売却株主の13D/13G/4"
+      ],
+      "dependencies": [
+        "capital-vote-20260902"
+      ],
+      "dependency_group": "capital-structure-2026",
+      "sell_the_news_risk": "効力発生は手続き上予想され得るが、実売却開始が別の下落材料になり得る。",
+      "financing_risk": "再販自体は会社資金にならない。普通ワラントの現金行使がなければ、営業CF赤字を補う別の調達が必要。",
+      "dilution_impact": "最大150.622M株の再販登録。登録対象には既発行株と将来発行可能株が混在するため、登録総数を即時発行済み株式数と同一視しない。",
+      "update_triggers": [
+        "SECのEFFECTまたは424B3提出",
+        "株主総会結果と転換・交換完了",
+        "売却株主の保有報告または出来高急増"
+      ],
+      "source_ids": [
+        "src-s1-20260730",
+        "src-8k-financing-20260710"
+      ]
+    },
+    {
+      "id": "nasdaq-compliance-20261207",
+      "title": "Nasdaq最低買付価格・公開株時価総額基準の初回適合期限",
+      "event_type": "QUANTITATIVE",
+      "category": "REGULATORY",
+      "status": "SCHEDULED",
+      "importance": 5,
+      "direction": "TWO_SIDED",
+      "date": {
+        "display_text": "2026年12月7日",
+        "start_date": "2026-12-07",
+        "end_date": "2026-12-07",
+        "precision": "EXACT",
+        "basis": "CONFIRMED",
+        "confidence": "HIGH",
+        "timezone": "America/New_York",
+        "source_ids": [
+          "src-8k-nasdaq-20260612"
+        ]
+      },
+      "plain_language": "終値$1以上と公開株時価総額$15M以上を必要期間維持し、Nasdaqの上場基準を回復できるかの期限。",
+      "why_it_matters": "未適合でも直ちに上場廃止とは限らないが、追加猶予、Capital Marketへの移行、株式併合、異議申立て、上場廃止手続きの不確実性が大きい。",
+      "detail": "会社は2026-06-09、2026-06-08までの30営業日について、Market Value of Publicly Held Sharesが$15M未満、終値が$1未満として通知を受領。2026-12-07までに両基準を原則10営業日連続で満たす必要がある。",
+      "mechanism": [
+        "適合回復 → 上場維持リスクプレミアム低下",
+        "未適合 → 市場移行・株式併合・上場廃止手続きの可能性",
+        "株式併合 → 名目株価は上がるが企業価値は直接増えず、流動性と需給が変化"
+      ],
+      "quantification_priority": 1,
+      "outcomes": [
+        {
+          "label": "COMPLIANT",
+          "conditions": [
+            "終値$1以上をNasdaqが求める連続営業日維持する",
+            "公開株時価総額$15M以上を同様に維持する",
+            "Nasdaqが適合回復を確認する"
+          ],
+          "quantifiable": false,
+          "quantification_basis": "CONFIRMED",
+          "price_change_pct_range": null,
+          "price_range": null,
+          "direction": "UP",
+          "effect_on_assumptions": [
+            "上場維持リスクディスカウントを縮小",
+            "Base/Bull倍率の上方余地"
+          ],
+          "probability": null,
+          "unquantifiable_reason": "適合回復方法が自然上昇か株式併合かで経済効果が異なる。",
+          "qualitative_assessment": "上場維持不確実性の低下はプラスだが、株式併合のみでは本源価値は増えない。",
+          "revaluation_trigger": "Nasdaqの適合回復通知と、その達成方法。"
+        },
+        {
+          "label": "NOT_COMPLIANT_BY_INITIAL_DEADLINE",
+          "conditions": [
+            "2026-12-07までに一方または両方の基準を回復できない",
+            "追加猶予または市場移行の条件が不明、または認められない"
+          ],
+          "quantifiable": false,
+          "quantification_basis": "CONFIRMED",
+          "price_change_pct_range": null,
+          "price_range": null,
+          "direction": "DOWN",
+          "effect_on_assumptions": [
+            "Bear確率の上方修正",
+            "流動性・資金調達コストの悪化"
+          ],
+          "probability": null,
+          "unquantifiable_reason": "追加180日猶予の適格性、Capital Market移行、異議申立て、株式併合方針が未確定。",
+          "qualitative_assessment": "期限接近時に対応策がなければ大きなネガティブ。",
+          "revaluation_trigger": "Nasdaq通知、会社の市場移行・株式併合・異議申立て方針。"
+        }
+      ],
+      "impact_method": "Nasdaq提出書類に記載された定量基準を使用。達成手段と追加猶予が未確定のため価格影響は方向性のみ。",
+      "impact_horizon": "現在から2026年12月以降",
+      "impact_confidence": "MEDIUM",
+      "price_impact_direction": "MIXED",
+      "price_impact_magnitude": "LARGE",
+      "price_impact_unquantifiable_reason": "自然な株価回復、株式併合、追加猶予、市場移行のどれになるか不明。",
+      "price_impact_revaluation_trigger": "株価$1到達、公開株時価総額$15M回復、株式併合議案、Nasdaq通知。",
+      "priced_in": {
+        "quantifiable": false,
+        "percent_range": null,
+        "raw_implied_pct": null,
+        "label": "MEDIUM_TO_HIGH",
+        "confidence": "MEDIUM",
+        "event_excluded_equity_value": null,
+        "full_success_incremental_equity_value": null,
+        "market_implied_success_probability": null,
+        "independent_success_probability": null,
+        "evidence_for": [
+          "欠陥通知は6月12日の8-Kで公開済み。",
+          "現値$0.31は最低買付価格$1を大幅に下回る。"
+        ],
+        "evidence_against": [
+          "期限まで4か月超あり、株主承認後の資本構成・株式併合方針は未確定。",
+          "公開株時価総額は発行・転換後の流通構成によって変わる。"
+        ],
+        "caveats": [
+          "最低買付価格基準と公開株時価総額基準は別々に満たす必要がある。"
+        ],
+        "unquantifiable_reason": "適合達成方法と追加猶予の可否が不明。",
+        "qualitative_assessment": "上場維持リスクは明確に知られているが、対応策の希薄化・需給効果は未確定。",
+        "revaluation_trigger": "株式併合提案、Nasdaq Capital Market移行申請、適合回復通知。"
+      },
+      "leading_indicators": [
+        "日次終値$1以上の連続日数",
+        "公開株時価総額$15M以上の連続日数",
+        "株式併合の取締役会・株主承認提案",
+        "Nasdaq Capital Marketへの移行開示"
+      ],
+      "dependency_group": null,
+      "financing_risk": "上場維持不確実性は資金調達条件を悪化させ、より大きなディスカウントやワラント付与を招き得る。",
+      "update_triggers": [
+        "終値$1または公開株時価総額$15Mの連続適合開始",
+        "株式併合または市場移行の提案",
+        "Nasdaqからの追加通知",
+        "2026-12-07期限到来"
+      ],
+      "source_ids": [
+        "src-8k-nasdaq-20260612",
+        "src-market-data-20260731"
+      ]
+    }
+  ],
+  "dependency_groups": [
+    {
+      "id": "capital-structure-2026",
+      "name": "2026年資本再編・再販登録",
+      "catalyst_ids": [
+        "capital-vote-20260902",
+        "resale-registration-effectiveness"
+      ],
+      "relationship": "株主承認は優先株転換・Series C交換・普通ワラント行使の一部をゲートし、S-1効力発生は登録保有者の再販をゲートする。両方がそろうと株式供給が最大化し得る。",
+      "aggregation_rule": "株主総会の希薄化影響とS-1の需給影響を単純加算しない。同じ株式が発行と再販の両イベントに含まれるため、発行済み株式数と実売却量を更新して一度だけ評価する。"
+    }
+  ],
+  "watch_items": [
+    {
+      "item": "最終委任状と9月2日議決結果",
+      "why_it_matters": "大量発行、優先株転換・交換、株式報酬枠の実行条件を確定する。",
+      "frequency": "SEC提出ごと、総会当日",
+      "update_trigger": "DEF 14A、DEFA14A、8-K、総会延期・結果の提出",
+      "catalyst_ids": [
+        "capital-vote-20260902"
+      ]
+    },
+    {
+      "item": "Q2売上、ARR、RPO、現金、営業CF",
+      "why_it_matters": "事業成長と次回資金調達までの期間を同時に測る。",
+      "frequency": "決算・10-Q提出ごと",
+      "update_trigger": "Q2決算リリース、10-Q、通期ガイダンス",
+      "catalyst_ids": [
+        "q2-2026-results"
+      ]
+    },
+    {
+      "item": "S-1の効力発生と登録株式売却",
+      "why_it_matters": "登録総数ではなく、実際の市場供給量が株価需給を決める。",
+      "frequency": "SEC提出・日次出来高",
+      "update_trigger": "EFFECT、424B3、13D/13G/4、出来高急増",
+      "catalyst_ids": [
+        "resale-registration-effectiveness",
+        "capital-vote-20260902"
+      ]
+    },
+    {
+      "item": "Nasdaq適合指標",
+      "why_it_matters": "上場維持、株式併合、市場移行の必要性を判断する。",
+      "frequency": "日次価格、会社・Nasdaq開示ごと",
+      "update_trigger": "終値$1、公開株時価総額$15M、株式併合提案、Nasdaq通知",
+      "catalyst_ids": [
+        "nasdaq-compliance-20261207"
+      ]
+    }
+  ],
+  "assumptions": [
+    {
+      "item": "現在株価",
+      "value": 0.31,
+      "classification": "CONFIRMED",
+      "as_of": "2026-07-31",
+      "source_ids": [
+        "src-market-data-20260731"
+      ],
+      "note": "2026-07-31終値。低流動性のため日中・時間外で大きく変動し得る。"
+    },
+    {
+      "item": "発行済み普通株式数",
+      "value": 15765372,
+      "classification": "CONFIRMED",
+      "as_of": "2026-07-29",
+      "source_ids": [
+        "src-s1-20260730"
+      ],
+      "note": "S-1表紙記載。"
+    },
+    {
+      "item": "登録対象株式数",
+      "value": 150621827,
+      "classification": "CONFIRMED",
+      "as_of": "2026-07-30",
+      "source_ids": [
+        "src-s1-20260730"
+      ],
+      "note": "既発行株と将来発行可能株を含み、全数が即時発行・売却される意味ではない。"
+    },
+    {
+      "item": "会社開示の完全希薄化後株式数",
+      "value": 166387199,
+      "classification": "CONFIRMED",
+      "as_of": "2026-07-30",
+      "source_ids": [
+        "src-s1-20260730"
+      ],
+      "note": "全ワラント、優先株転換、Series C交換を仮定した会社開示値。個別構成要素の単純合計と小差がある。"
+    },
+    {
+      "item": "イベント成功確率",
+      "value": null,
+      "classification": "UNKNOWN",
+      "as_of": "2026-08-01",
+      "source_ids": [],
+      "note": "投票、決算、効力発生、上場適合の確率は、検証可能な根拠が不足するため付与しない。"
+    },
+    {
+      "item": "価格影響レンジ",
+      "value": null,
+      "classification": "UNKNOWN",
+      "as_of": "2026-08-01",
+      "source_ids": [],
+      "note": "低流動性、複数イベント重複、売却量不明のため数値レンジを付与せず、方向性と大きさのみ評価。"
+    }
+  ],
+  "sources": [
+    {
+      "id": "src-pre14a-20260731",
+      "title": "Preliminary Proxy Statement (PRE 14A)",
+      "publisher": "U.S. Securities and Exchange Commission / Cyabra, Inc.",
+      "url": "https://www.sec.gov/Archives/edgar/data/2032341/000121390026084116/ea0299913-pre14a_cyabra.htm",
+      "published_at": "2026-07-31",
+      "accessed_at": "2026-08-01",
+      "source_type": "FILING",
+      "is_primary": true,
+      "supports_catalyst_ids": [
+        "capital-vote-20260902"
+      ]
+    },
+    {
+      "id": "src-s1-20260730",
+      "title": "Form S-1 Registration Statement",
+      "publisher": "U.S. Securities and Exchange Commission / Cyabra, Inc.",
+      "url": "https://www.sec.gov/Archives/edgar/data/2032341/000121390026083475/ea0299303-s1_cyabra.htm",
+      "published_at": "2026-07-30",
+      "accessed_at": "2026-08-01",
+      "source_type": "FILING",
+      "is_primary": true,
+      "supports_catalyst_ids": [
+        "capital-vote-20260902",
+        "q2-2026-results",
+        "resale-registration-effectiveness"
+      ]
+    },
+    {
+      "id": "src-8k-financing-20260710",
+      "title": "Form 8-K — July 2026 Private Placement",
+      "publisher": "U.S. Securities and Exchange Commission / Cyabra, Inc.",
+      "url": "https://www.sec.gov/Archives/edgar/data/2032341/000121390026077124/ea0297600-8k_cyabra.htm",
+      "published_at": "2026-07-10",
+      "accessed_at": "2026-08-01",
+      "source_type": "FILING",
+      "is_primary": true,
+      "supports_catalyst_ids": [
+        "capital-vote-20260902",
+        "q2-2026-results",
+        "resale-registration-effectiveness"
+      ]
+    },
+    {
+      "id": "src-8k-bylaws-20260731",
+      "title": "Form 8-K — Bylaw Amendment",
+      "publisher": "U.S. Securities and Exchange Commission / Cyabra, Inc.",
+      "url": "https://www.sec.gov/Archives/edgar/data/2032341/000121390026083952/ea0300044-8k_cyabra.htm",
+      "published_at": "2026-07-31",
+      "accessed_at": "2026-08-01",
+      "source_type": "FILING",
+      "is_primary": true,
+      "supports_catalyst_ids": [
+        "capital-vote-20260902"
+      ]
+    },
+    {
+      "id": "src-10q-2026q1",
+      "title": "Form 10-Q for the quarter ended March 31, 2026",
+      "publisher": "U.S. Securities and Exchange Commission / Cyabra, Inc.",
+      "url": "https://www.sec.gov/Archives/edgar/data/2032341/000121390026057819/ea0290479-10q_cyabra.htm",
+      "published_at": "2026-05-13",
+      "accessed_at": "2026-08-01",
+      "source_type": "FILING",
+      "is_primary": true,
+      "supports_catalyst_ids": [
+        "q2-2026-results"
+      ]
+    },
+    {
+      "id": "src-8k-nasdaq-20260612",
+      "title": "Form 8-K — Nasdaq Listing Deficiency Notices",
+      "publisher": "U.S. Securities and Exchange Commission / Cyabra, Inc.",
+      "url": "https://www.sec.gov/Archives/edgar/data/2032341/000121390026068252/ea0294589-8k_cyabra.htm",
+      "published_at": "2026-06-12",
+      "accessed_at": "2026-08-01",
+      "source_type": "FILING",
+      "is_primary": true,
+      "supports_catalyst_ids": [
+        "nasdaq-compliance-20261207"
+      ]
+    },
+    {
+      "id": "src-market-data-20260731",
+      "title": "CYAB historical prices and quote",
+      "publisher": "Yahoo Finance",
+      "url": "https://finance.yahoo.com/quote/CYAB/history/",
+      "published_at": null,
+      "accessed_at": "2026-08-01",
+      "source_type": "MARKET_DATA",
+      "is_primary": false,
+      "supports_catalyst_ids": [
+        "capital-vote-20260902",
+        "resale-registration-effectiveness",
+        "nasdaq-compliance-20261207"
+      ]
+    }
+  ],
+  "validation_summary": {
+    "status": "INFO_WARN",
+    "fail_count": 0,
+    "blocking_warn_count": 0,
+    "info_warn_count": 5,
+    "messages": [
+      {
+        "level": "PASS",
+        "check_id": "schema",
+        "message": "catalyst schema v1.1に適合"
+      },
+      {
+        "level": "PASS",
+        "check_id": "date-evidence",
+        "message": "9月2日と12月7日の確定日は一次提出書類に基づく。未確定日はTBDとした。"
+      },
+      {
+        "level": "PASS",
+        "check_id": "probability-safety",
+        "message": "根拠不足のイベント成功確率を付与していない。"
+      },
+      {
+        "level": "INFO_WARN",
+        "check_id": "q2-date",
+        "message": "Q2 2026決算の会社確定日を確認できない。"
+      },
+      {
+        "level": "INFO_WARN",
+        "check_id": "s1-effectiveness",
+        "message": "S-1の効力発生日と実売却量は未確認。"
+      },
+      {
+        "level": "INFO_WARN",
+        "check_id": "price-impact",
+        "message": "低流動性とイベント重複のため価格影響レンジは定量化していない。"
+      },
+      {
+        "level": "INFO_WARN",
+        "check_id": "diluted-share-reconciliation",
+        "message": "会社開示の完全希薄化後166.387M株と個別構成要素の単純合計に約1.175M株の差がある。"
+      },
+      {
+        "level": "INFO_WARN",
+        "check_id": "preliminary-proxy",
+        "message": "9月2日総会日程はPRE 14A記載であり、最終委任状・変更提出を継続監視する。"
+      }
+    ]
+  },
+  "update_history": [
+    {
+      "updated_at": "2026-08-01T17:30:00+09:00",
+      "change": "CYAB初回カタリスト・インテリジェンスを作成。資本構成、Q2、再販登録、Nasdaq期限を登録。"
+    }
+  ],
+  "disclaimer": "本資料は公開情報に基づく教育・調査目的の分析であり、投資助言、売買推奨、イベント結果や株価影響の保証ではありません。日付は一次資料で確認できたものだけを確定扱いとし、未確認日はTBDです。低価格・低流動性・大幅希薄化銘柄では、元本の大部分または全部を失う可能性があります。"
+}
