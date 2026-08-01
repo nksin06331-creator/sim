@@ -1,0 +1,108 @@
+name: Cleanup 4015 once
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/cleanup-4015-once.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  cleanup:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: true
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Remove all 4015 data and references
+        shell: bash
+        run: |
+          set -euo pipefail
+          git rm -rf --ignore-unmatch \
+            stocks/4015 \
+            report-system/reports/4015.report.json \
+            report-system/reports/4015.catalyst.json \
+            report-system/catalysts/4015.catalyst.json \
+            report-system/catalysts/4015.json \
+            report-system/published/4015.report.json
+
+          node <<'NODE'
+          const fs = require('fs');
+          const path = require('path');
+
+          const targetStrings = new Set(['4015', 'ペイクラウドホールディングス株式会社', 'ペイクラウド', 'Paycloud Holdings Inc.']);
+          const dataDir = path.join(process.cwd(), 'data');
+
+          function isTargetObject(value) {
+            if (!value || typeof value !== 'object' || Array.isArray(value)) return false;
+            const fields = [value.ticker, value.symbol, value.slug, value.reportId, value.code, value.name, value.companyName, value.company_name];
+            return fields.some((v) => targetStrings.has(String(v ?? '')));
+          }
+
+          function clean(value) {
+            if (Array.isArray(value)) {
+              return value.filter((item) => !isTargetObject(item)).map(clean);
+            }
+            if (value && typeof value === 'object') {
+              const out = {};
+              for (const [key, item] of Object.entries(value)) {
+                if (key === '4015') continue;
+                if (isTargetObject(item)) continue;
+                out[key] = clean(item);
+              }
+              return out;
+            }
+            return value;
+          }
+
+          function walk(dir) {
+            if (!fs.existsSync(dir)) return;
+            for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+              const full = path.join(dir, entry.name);
+              if (entry.isDirectory()) walk(full);
+              else if (entry.isFile() && entry.name.endsWith('.json')) {
+                try {
+                  const raw = fs.readFileSync(full, 'utf8');
+                  if (!raw.includes('4015') && !raw.includes('ペイクラウド') && !raw.includes('Paycloud')) continue;
+                  const parsed = JSON.parse(raw);
+                  const cleaned = clean(parsed);
+                  fs.writeFileSync(full, JSON.stringify(cleaned, null, 2) + '\n');
+                  console.log(`cleaned ${path.relative(process.cwd(), full)}`);
+                } catch (error) {
+                  console.error(`skip ${full}: ${error.message}`);
+                }
+              }
+            }
+          }
+
+          walk(dataDir);
+          NODE
+
+          # Remove one-time workflow itself so no 4015-specific automation remains.
+          git rm .github/workflows/cleanup-4015-once.yml
+
+          # Fail if live site/data paths still contain references.
+          if grep -RIn --exclude-dir=.git -E '4015|ペイクラウド|Paycloud' data stocks report-system 2>/dev/null; then
+            echo "4015 references still remain in site data" >&2
+            exit 1
+          fi
+
+      - name: Commit cleanup
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Remove all 4015 site data and references"
+          git push origin HEAD:main
