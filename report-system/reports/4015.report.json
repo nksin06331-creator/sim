@@ -1,21 +1,23 @@
 {
   "schemaVersion": 1,
   "reportId": "4015",
-  "revision": "2026-08-01T00:00:00+09:00",
-  "status": "review",
+  "revision": "2026-08-01T16:02:42+09:00",
+  "status": "draft",
   "renderMode": "structured",
-  "templateVersion": "sim-report-v1",
+  "templateVersion": "sim-report-v5",
   "update": {
-    "mode": "initial",
-    "baseRevision": null,
-    "reason": "ペイクラウドホールディングスを新規銘柄として追加し、2026年7月末までの一次情報で企業ガイドと株価シナリオを作成",
+    "mode": "full-refresh",
+    "baseRevision": "2026-08-01T00:00:00+09:00",
+    "reason": "公開済み初版の内容を保持したままV6.3へ更新し、最新一次情報、カタリスト対象判定、Validation区分を再検証",
     "changedFields": [
       "meta",
       "overview",
       "guide",
       "scenario",
       "sources",
-      "validation"
+      "validation",
+      "coverageWaivers",
+      "updateHistory"
     ]
   },
   "meta": {
@@ -513,8 +515,10 @@
           "timing": "2026年10月ごろ。確定日は未発表",
           "status": "window",
           "importance": 5,
+          "direction": "TWO_SIDED",
           "successImpact": "営業利益8.0億円を上回り、FY2027の継続利益成長が示されればBase以上の前提が強まる",
           "failureImpact": "MRR鈍化や移転費用でFY2027減益となればBear側へ寄る",
+          "whyItMatters": "通期着地と次年度の通常利益成長が、現在の評価倍率と3シナリオの中心前提を同時に更新するため。",
           "sourceRefs": ["S1", "S2"]
         },
         {
@@ -522,8 +526,10 @@
           "timing": "月次。次回公表日は未確認",
           "status": "unknown",
           "importance": 3,
+          "direction": "TWO_SIDED",
           "successImpact": "MRR前年比が再加速し、取扱高と設置面数も伸びればFY2027 EBITDA上振れ余地",
           "failureImpact": "MRRが100%近辺まで低下し、設置面数も停滞すれば成長倍率が低下",
+          "whyItMatters": "四半期決算までの間に、継続収益とサイネージ需要の方向を確認できる先行指標だから。",
           "sourceRefs": ["S5"]
         },
         {
@@ -531,8 +537,10 @@
           "timing": "移転は2026年12月予定、補償金の特別利益計上は2027年8月期2Q予定",
           "status": "confirmed",
           "importance": 3,
+          "direction": "TWO_SIDED",
           "successImpact": "移転が計画内の費用で完了すれば一時利益346,781,000円が財務余力を補う",
           "failureImpact": "移転費用超過や業務停滞があれば通常利益を圧迫。補償金は継続利益ではない",
+          "whyItMatters": "金額が開示された補償金と未確定の移転費用を分けないと、FY2027の実力利益を誤認しやすいため。",
           "sourceRefs": ["S5", "S7"]
         }
       ],
@@ -664,7 +672,7 @@
       {
         "item": "FY2027調整後EBITDA",
         "value": "12.0〜16.5億円",
-        "classification": "estimate",
+        "classification": "model-estimate",
         "note": "会社のFY2027予想は未発表。シナリオ分析用の当方推定。"
       },
       {
@@ -676,16 +684,22 @@
       {
         "item": "自己株式控除後株式数",
         "value": "15.417百万株",
-        "classification": "estimate",
+        "classification": "model-estimate",
         "note": "発行済16,018,148株から自社株買い終了後の概算自己株式600,771株を控除。",
         "sourceRefs": ["S1", "S6"]
       },
       {
         "item": "余剰ネットキャッシュ",
         "value": "8〜12億円",
-        "classification": "estimate",
+        "classification": "model-estimate",
         "note": "3Q末現預金から預り金、借入金、3Q後の追加自社株買い支出を控除した概算。",
         "sourceRefs": ["S1", "S2", "S6"]
+      },
+      {
+        "item": "シナリオ確率",
+        "value": "Bear 25% / Base 50% / Bull 25%",
+        "classification": "model-estimate",
+        "note": "市場が暗示する確率ではなく、評価基準日時点のモデル配分。合計100%。"
       },
       {
         "item": "補償金",
@@ -775,9 +789,9 @@
       "id": "S6",
       "title": "自己株式の取得状況及び取得終了に関するお知らせ",
       "publisher": "ペイクラウドホールディングス株式会社／TDnet",
-      "url": "https://finance.biggo.jp/news/jpx_tdnet_140120260728500613",
-      "sourceType": "secondary",
-      "primary": false,
+      "url": "https://www.release.tdnet.info/inbs/140120260728500613.pdf",
+      "sourceType": "tdnet",
+      "primary": true,
       "publishedAt": "2026-07-28",
       "accessedAt": "2026-08-01"
     },
@@ -802,13 +816,26 @@
       "accessedAt": "2026-08-01"
     }
   ],
-  "coverageWaivers": [],
+  "coverageWaivers": [
+    {
+      "checkId": "US_SEC_FIELDS_NOT_APPLICABLE",
+      "waiver_type": "acceptable",
+      "reason": "日本株のためSEC CIKと米国提出書類は対象外。国内一次情報は企業IR・TDnet・東京証券取引所で確認した。",
+      "approvedBy": "ChatGPT-analysis",
+      "approvedAt": "2026-08-01"
+    }
+  ],
   "validation": {
-    "status": "PASS",
+    "status": "INFO_WARN",
     "humanReviewed": false,
-    "failCount": 0,
-    "warnCount": 0,
-    "summary": "内部の構造・計算・出典参照・安全表現チェックを通過。独立検証と公開後確認はGitHub側ゲートへ委ねる。",
+    "fail_count": 0,
+    "blocking_warn_count": 0,
+    "info_warn_count": 2,
+    "infoWarnMessages": [
+      "2026年8月期通期決算の正式発表日は未確認で、10月は過去の開示サイクルに基づく推定期間。",
+      "FY2027 EBITDA・評価倍率・シナリオ確率は会社予想や市場暗示確率ではなくモデル推定。"
+    ],
+    "summary": "V6.3の構造・算術・出典参照・市場区分・安全表現を検証。FAIL 0件、BLOCKING_WARN 0件、INFO_WARN 2件。",
     "checks": [
       {"id": "TARGET_IDENTITY", "status": "PASS", "message": "4015・東証グロース・JPY・ペイクラウドホールディングスを一次情報で確認"},
       {"id": "LATEST_PRIMARY", "status": "PASS", "message": "2026-07-28月次までの一次情報を反映"},
@@ -819,7 +846,16 @@
       {"id": "SOURCE_REFS", "status": "PASS", "message": "すべてのsourceRefsが定義済み出典へ解決"},
       {"id": "NO_FALSE_PRECISION", "status": "PASS", "message": "未発表の通期決算日と次回月次日を創作していない"},
       {"id": "NO_ADVICE", "status": "PASS", "message": "売買断定なし"},
-      {"id": "CATALYST_SCOPE", "status": "PASS", "message": "専用カタリストJSONは不要と判定し、通常レポート内で監視"}
+      {"id": "CATALYST_SCOPE", "status": "PASS", "message": "2026年12月の本社移転と2027年8月期2Qの補償金計上があるため専用カタリスト対象と判定"},
+      {"id": "DATE_CERTAINTY", "status": "INFO_WARN", "message": "通期決算の正式日は未発表。10月はMODEL_ESTIMATEとして扱う"},
+      {"id": "MODEL_DISCLOSURE", "status": "INFO_WARN", "message": "FY2027 EBITDA・倍率・確率をモデル推定として明示"}
     ]
-  }
+  },
+  "updateHistory": [
+    {
+      "updatedAt": "2026-08-01",
+      "mode": "full-refresh",
+      "summary": "初版の情報量を維持し、V6.3のstatus・templateVersion・Validation区分・カタリスト方向性・一次情報URLへ更新。"
+    }
+  ]
 }
