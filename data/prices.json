@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-01T07:37:41.031316+00:00",
+  "generatedAt": "2026-08-01T08:44:39.874589+00:00",
   "source": "Yahoo Finance chart endpoint",
   "manifest": "data/manifest.json",
-  "quoteCount": 64,
+  "quoteCount": 65,
   "errorCount": 0,
   "errors": {},
   "prices": {
@@ -15,6 +15,16 @@
       "changePct": 0.1852,
       "currency": "JPY",
       "marketTime": "2026-07-31T06:30:00+00:00",
+      "status": "ok"
+    },
+    "CYAB": {
+      "symbol": "CYAB",
+      "price": 0.31,
+      "previousClose": 0.26,
+      "change": 0.05,
+      "changePct": 19.2308,
+      "currency": "USD",
+      "marketTime": "2026-07-31T20:00:01+00:00",
       "status": "ok"
     },
     "BE": {
