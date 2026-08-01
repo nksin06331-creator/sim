@@ -1,22 +1,12 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-01T08:58:07.908236+00:00",
+  "generatedAt": "2026-08-01T09:10:46.781346+00:00",
   "source": "Yahoo Finance chart endpoint",
   "manifest": "data/manifest.json",
-  "quoteCount": 64,
+  "quoteCount": 63,
   "errorCount": 0,
   "errors": {},
   "prices": {
-    "CYAB": {
-      "symbol": "CYAB",
-      "price": 0.31,
-      "previousClose": 0.26,
-      "change": 0.05,
-      "changePct": 19.2308,
-      "currency": "USD",
-      "marketTime": "2026-07-31T20:00:01+00:00",
-      "status": "ok"
-    },
     "BE": {
       "symbol": "BE",
       "price": 205.81,
