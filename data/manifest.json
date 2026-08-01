@@ -31,9 +31,45 @@
     ],
     "risk": "HIGH",
     "detailPath": "stocks/4015/index.html",
-    "scenarioPath": "stocks/4015/4015.html",
-    "catalystPath": "stocks/4015/catalysts.html",
-    "sourceRevision": "2026-08-01T00:00:00+09:00"
+    "scenarioPath": "stocks/4015/index.html",
+    "catalystPath": "stocks/4015/index.html",
+    "sourceRevision": "2026-08-01T16:02:42+09:00"
+  },
+  {
+    "schemaVersion": 1,
+    "ticker": "CYAB",
+    "slug": "cyab",
+    "name": "Cyabra, Inc.",
+    "market": "米国株",
+    "sector": "Information Technology",
+    "method": "12か月先EV/売上高シナリオ。Bear/Baseは株主承認後・普通ワラント行使前の88.563M株、Bullは会社開示の完全希薄化後166.387M株と最大$36.410Mのワラント現金行使収入を使用。",
+    "status": "published",
+    "updated": "2026-08-01",
+    "price": {
+      "current": 0.31,
+      "currency": "USD"
+    },
+    "scenarios": {
+      "bear": 0.05,
+      "base": 0.28,
+      "bull": 0.6
+    },
+    "positionPct": 0,
+    "zone": "発行済み株式だけなら割安に見えるが、承認後株式数88.6M株を基準にすると現値時価総額は約$27.5M。完全希薄化後では約$51.6Mで、見かけの割安感は大幅に縮小する。",
+    "riskReward": "—",
+    "catalyst": "Q2開示、9月2日株主総会、S-1効力発生、12月7日Nasdaq期限が連続し、業績より資本構成と上場維持が短期株価を左右しやすい。",
+    "summary": "事業KPIは改善しているが、株主承認後の希薄化と上場維持リスクを考えると、現値は十分な安全余地を示していない。",
+    "tags": [
+      "AI / narrative intelligence",
+      "Micro-cap",
+      "Very high dilution risk",
+      "Nasdaq compliance risk"
+    ],
+    "risk": "VERY HIGH",
+    "detailPath": "stocks/CYAB/index.html",
+    "scenarioPath": "stocks/CYAB/index.html",
+    "catalystPath": "stocks/CYAB/index.html",
+    "sourceRevision": "1.0.0"
   },
   {
     "schemaVersion": 1,
