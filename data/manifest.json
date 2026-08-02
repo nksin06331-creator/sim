@@ -1,6 +1,39 @@
 [
   {
     "schemaVersion": 1,
+    "ticker": "4015",
+    "slug": "4015",
+    "name": "ペイクラウドホールディングス",
+    "market": "日本株",
+    "sector": "キャッシュレス決済・デジタルサイネージ",
+    "method": "2026年8月期会社予想EPS × PER",
+    "status": "published",
+    "updated": "2026-08-02",
+    "price": {
+      "current": 540,
+      "currency": "JPY"
+    },
+    "scenarios": {
+      "bear": 407,
+      "base": 543,
+      "bull": 679
+    },
+    "positionPct": 50,
+    "zone": "Base圏",
+    "riskReward": "1.05倍",
+    "catalyst": "月次KPI / 2026年8月期通期決算 / 移転補償金",
+    "summary": "増収増益を継続。現値は会社予想EPSに対するBase試算とほぼ同水準で、次期成長率とMRR再加速が焦点。",
+    "tags": [
+      "キャッシュレス",
+      "デジタルサイネージ",
+      "フィンテック"
+    ],
+    "risk": "中〜高",
+    "detailPath": "stocks/4015/index.html",
+    "scenarioPath": "stocks/4015/index.html"
+  },
+  {
+    "schemaVersion": 1,
     "ticker": "BE",
     "slug": "be",
     "name": "Bloom Energy Corporation",
