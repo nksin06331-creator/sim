@@ -1,0 +1,1083 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="ペイクラウドホールディングス（4015）の企業ガイド・株価シナリオ・カタリストレポート">
+<title>4015 ペイクラウドホールディングス ｜ SiM MARKET LAB</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@700;900&family=Noto+Sans+JP:wght@400;500;700;900&family=DM+Sans:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+
+
+:root {
+  --accent:        #6EE24E;
+  --accent-bright: #8BF56B;
+  --accent-tint:   rgba(110,226,78,.12);
+  --accent-line:   rgba(110,226,78,.38);
+  --bg:        #0a0c0a;
+  --surface:   #141815;
+  --surface-2: #1b201c;
+  --ink:       #f1f5f1;
+  --muted:     #8a948a;
+  --line:      rgba(255,255,255,.09);
+  --amber:     #fbbf24;
+  --red:       #f87171;
+  --blue:      #60a5fa;
+  --shadow:    0 18px 48px rgba(0,0,0,.28);
+  --radius:    16px;
+  
+  --c-primary-50: var(--accent-tint); --c-primary-400: var(--accent); --c-primary-600: var(--accent);
+  --gray-50: #15191b; --gray-100: rgba(255,255,255,.06); --gray-200: rgba(255,255,255,.09);
+  --gray-300: #3f463f; --gray-500: #8a948a; --gray-700: #c3ccc3; --gray-900: #f1f5f1;
+  --font-display: 'Zen Kaku Gothic New', 'Noto Sans JP', sans-serif;
+  --font-body:    'Noto Sans JP', 'DM Sans', sans-serif;
+  --font-num:     'DM Sans', 'Noto Sans JP', sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: auto;  }
+body {
+  font-family: var(--font-body);
+  background: radial-gradient(100% 80% at 50% -10%, #12251a 0%, #0b0f0c 45%, var(--bg) 76%);
+  color: var(--ink); line-height: 1.72; font-size: 16px; overflow-x: hidden; -webkit-text-size-adjust: 100%;
+}
+body::before {
+  content: ''; position: fixed; inset: 0; pointer-events: none; opacity: .08;
+  background-image: radial-gradient(var(--accent) 1px, transparent 1.5px);
+  background-size: 18px 18px;
+  -webkit-mask-image: linear-gradient(#000, transparent 72%);
+  mask-image: linear-gradient(#000, transparent 72%);
+}
+a { color: var(--accent); }
+.g { color: var(--accent); }
+strong { font-weight: 700; color: #fff; }
+
+
+.progress-bar { position: fixed; top: 0; left: 0; height: 4px; width: 0%; z-index: 300; background: var(--accent); box-shadow: 0 0 12px var(--accent); transition: width .1s linear; }
+
+
+.hero {
+  position: relative; color: #fff;
+  padding: 52px 0 34px; border-bottom: 1px solid var(--line); overflow: hidden;
+}
+.hero::after {
+  content: "SiM"; position: absolute; right: -18px; top: -18px;
+  font-size: clamp(96px,22vw,230px); font-weight: 900; letter-spacing: -.08em;
+  color: transparent; -webkit-text-stroke: 1px rgba(110,226,78,.10); pointer-events: none;
+}
+.hero::before {
+  content: ''; position: absolute; inset: 0;
+  background-image: radial-gradient(var(--accent) 1px, transparent 1.6px);
+  background-size: 15px 15px; opacity: .07;
+  -webkit-mask-image: radial-gradient(ellipse at 50% 120%, #000 0%, transparent 60%);
+  mask-image: radial-gradient(ellipse at 50% 120%, #000 0%, transparent 60%);
+}
+.wrap { max-width: 1040px; margin: auto; padding: 0 20px; }
+.hero > .wrap { position: relative; z-index: 1; }
+.brandmark { font-family: var(--font-num); font-weight: 700; letter-spacing: .18em; font-size: 13px; color: var(--muted); margin-bottom: 18px; }
+.brandmark b { color: #fff; }
+.eyebrow { display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px; border: 1px solid var(--accent-line); border-radius: 999px; font-size: 11px; letter-spacing: .14em; color: var(--accent); background: var(--accent-tint); font-weight: 800; margin-bottom: 16px; }
+.eyebrow::before { content: "●"; font-size: 8px; }
+.hero h1 { position: relative; z-index: 1; font-family: var(--font-display); font-size: clamp(32px,7vw,60px); line-height: 1.1; letter-spacing: -.03em; margin: 12px 0 10px; font-weight: 900; max-width: 900px; }
+.hero h1 small { display: inline-block; font-size: .32em; padding: 5px 11px; border-radius: 8px; background: var(--accent); color: #06210a; vertical-align: middle; letter-spacing: 0; font-family: var(--font-num); }
+.hero h1 .g { color: var(--accent); }
+.hero .sub { color: #b9c1b9; font-size: 14px; position: relative; z-index: 1; }
+
+
+.hero-kpis { position: relative; z-index: 1; display: grid; grid-template-columns: repeat(4,1fr); gap: 10px; margin-top: 14px; }
+.kpi { min-height: 110px; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 16px; position: relative; overflow: hidden; }
+.kpi::after { content: ""; position: absolute; width: 66px; height: 66px; border-radius: 50%; right: -28px; bottom: -32px; background: var(--accent); opacity: .09; }
+.kpi span { font-size: 11px; color: var(--muted); font-weight: 700; }
+.kpi b { font-size: clamp(18px,3vw,26px); display: block; margin-top: 6px; letter-spacing: -.035em; font-family: var(--font-num); }
+.kpi small { color: #bfc7bf; font-size: 12px; }
+
+
+.hero-tags { position: relative; z-index: 1; margin-top: 14px; display: flex; gap: 8px; flex-wrap: wrap; }
+.hero-tag { background: var(--accent-tint); border: 1px solid var(--accent-line); color: var(--accent); padding: 5px 9px; border-radius: 999px; font-size: 11px; font-weight: 800; }
+
+
+
+.report-nav {
+  position: sticky; top: 0; z-index: 200;
+  background: rgba(10,12,10,.90); backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--line);
+}
+.report-nav .wrap { display: flex; gap: 6px; overflow-x: auto; padding: 9px 20px; scrollbar-width: none; }
+.report-nav .wrap::-webkit-scrollbar { display: none; }
+
+.tab-btn {
+  white-space: nowrap; background: var(--surface); border: 1px solid var(--line);
+  color: #fff; padding: 7px 14px; border-radius: 999px; font-size: 12px; font-weight: 700;
+  cursor: pointer; flex-shrink: 0; transition: border-color .2s, color .2s, background .2s;
+}
+.tab-btn:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-tint); }
+.tab-btn.active { border-color: var(--accent); color: var(--accent); background: var(--accent-tint); }
+.tab-btn[disabled] { opacity: .4; cursor: not-allowed; }
+
+.nav-sep { width: 1px; background: var(--line); flex-shrink: 0; margin: 6px 2px; }
+
+.scroll-btn {
+  white-space: nowrap; background: transparent; border: 1px solid transparent;
+  color: var(--muted); padding: 7px 10px; border-radius: 999px; font-size: 11px; font-weight: 700;
+  cursor: pointer; flex-shrink: 0; transition: color .2s, border-color .2s;
+}
+.scroll-btn:hover { color: var(--accent); border-color: var(--accent-line); }
+
+
+[data-view] { display: block; }
+[data-view][hidden] { display: none !important; }
+
+
+.info-warn-band {
+  border: 1px solid rgba(251,191,36,.35); border-left: 4px solid var(--amber);
+  background: rgba(251,191,36,.08); padding: 12px 16px; border-radius: 10px;
+  margin: 14px 0; font-size: 13px; color: var(--ink);
+}
+.info-warn-band b { color: var(--amber); }
+
+
+.catalyst-placeholder {
+  text-align: center; padding: 60px 20px; color: var(--muted);
+}
+.catalyst-placeholder h2 { color: var(--muted); font-size: 22px; margin-bottom: 12px; }
+.catalyst-placeholder p { font-size: 14px; line-height: 1.7; }
+
+
+main { padding: 24px 0 72px; }
+section { margin: 16px 0; scroll-margin-top: 56px; }
+.card {
+  background: linear-gradient(180deg, var(--surface-2), var(--surface));
+  border: 1px solid var(--line); box-shadow: var(--shadow);
+  border-radius: 18px; padding: 22px; position: relative; overflow: hidden;
+}
+.card::before {
+  content: ""; position: absolute; width: 120px; height: 120px; border-radius: 50%;
+  right: -72px; top: -76px; background: var(--accent); filter: blur(12px); opacity: .08;
+}
+h2 {
+  position: relative; z-index: 1; font-size: clamp(20px,3vw,28px); line-height: 1.25;
+  letter-spacing: -.03em; margin: 0 0 9px; font-weight: 900; padding-bottom: 10px;
+  font-family: var(--font-display);
+}
+h2::after { content: ""; position: absolute; left: 0; bottom: 0; width: 40px; height: 3px; background: var(--accent); border-radius: 3px; }
+h3 { margin: 0 0 8px; font-size: 18px; font-weight: 700; font-family: var(--font-display); }
+.lead { color: var(--muted); margin-top: 0; line-height: 1.8; }
+.small { font-size: 12px; color: var(--muted); }
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.notice { border: 1px solid rgba(251,191,36,.35); border-left: 4px solid var(--amber); background: rgba(251,191,36,.08); padding: 14px 16px; border-radius: 12px; }
+
+
+.guide-hero-inner { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 20px; box-shadow: 0 16px 40px rgba(0,0,0,.5); margin-top: 14px; }
+.guide-hero-title { font-family: var(--font-display); font-weight: 900; font-size: 17px; color: #fff; margin-bottom: 14px; }
+.stat-strip { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px,1fr)); gap: 10px; margin-bottom: 14px; }
+.stat { background: var(--gray-50); border: 1px solid var(--gray-200); border-radius: 12px; padding: 14px 12px; text-align: center; }
+.stat-value { font-family: var(--font-num); font-weight: 700; font-size: clamp(22px,5vw,30px); line-height: 1.1; color: #fff; }
+.stat-value.up { color: var(--accent); }
+.stat-value.down { color: var(--red); }
+.stat-label { font-size: 12px; color: var(--muted); margin-top: 4px; font-weight: 500; }
+.stat-note { font-size: 11px; color: var(--muted); margin-top: 2px; }
+
+.guide-section { padding: 36px 0 28px; border-bottom: 1px solid var(--line); opacity: 0; transform: translateY(16px); animation: fadeUp .45s ease forwards; }
+@keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+.section-header { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
+.section-icon { width: 44px; height: 44px; border-radius: 50%; background: var(--surface-2); border: 1px solid var(--line); display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0; }
+.section-num { width: 28px; height: 28px; border-radius: 50%; background: var(--accent); color: #06210a; font-family: var(--font-num); font-weight: 700; font-size: 14px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.section-title { font-family: var(--font-display); font-size: clamp(20px,5vw,26px); font-weight: 900; color: #fff; line-height: 1.3; position: relative; display: inline-block; padding-bottom: 9px; }
+.section-title::after { content: ''; position: absolute; left: 0; bottom: 0; width: 40px; height: 3px; background: var(--accent); border-radius: 3px; }
+.section-sub { font-size: 13px; color: var(--muted); margin-top: 6px; }
+
+.tldr { background: var(--accent-tint); border: 1px solid var(--accent-line); border-radius: var(--radius); padding: 18px 20px; margin-bottom: 22px; }
+.tldr-label { display: inline-flex; align-items: center; gap: 6px; font-family: var(--font-display); font-weight: 900; font-size: 14px; color: var(--accent); margin-bottom: 10px; }
+.tldr ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.tldr li { font-size: 15px; font-weight: 500; color: #eef2ee; line-height: 1.7; padding-left: 28px; position: relative; }
+.tldr li::before { content: attr(data-emoji); position: absolute; left: 0; top: 0; font-size: 17px; }
+
+.facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(148px,1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; margin: 4px 0 14px; }
+.facts > div { background: var(--surface); padding: 12px 14px; }
+.facts dt { font-size: 11px; color: var(--muted); font-weight: 700; margin-bottom: 3px; }
+.facts dd { margin: 0; font-size: 14px; color: #fff; font-weight: 700; line-height: 1.5; }
+
+.card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 12px; margin-bottom: 12px; }
+.card-sm { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 16px 18px; }
+.card-sm .card-emoji { font-size: 22px; display: inline-flex; width: 38px; height: 38px; border-radius: 50%; background: var(--surface-2); border: 1px solid var(--line); align-items: center; justify-content: center; margin-bottom: 8px; }
+.card-sm .card-title { font-family: var(--font-display); font-weight: 700; font-size: 14px; margin-bottom: 4px; color: var(--accent); }
+.card-sm .card-desc { font-size: 13px; color: var(--gray-700); line-height: 1.75; }
+
+.keypoints { list-style: none; display: flex; flex-direction: column; gap: 12px; margin: 8px 0; }
+.keypoints li { display: flex; gap: 12px; align-items: flex-start; font-size: 14.5px; line-height: 1.7; color: #e4e9e4; }
+.keypoints .kp-emoji { font-size: 20px; flex-shrink: 0; line-height: 1.4; }
+.keypoints .kp-text b { color: var(--accent); }
+
+.highlight { background: var(--surface); border: 1.5px solid var(--accent-line); border-radius: var(--radius); padding: 20px 22px; margin: 20px 0; position: relative; overflow: hidden; }
+.highlight::before { content: ''; position: absolute; right: -30px; bottom: -30px; width: 150px; height: 150px; background-image: radial-gradient(var(--accent) 1px, transparent 1.5px); background-size: 13px 13px; opacity: .12; }
+.highlight h3 { font-family: var(--font-display); font-size: 18px; font-weight: 900; margin-bottom: 10px; color: var(--accent); position: relative; }
+.highlight p { font-size: 14px; color: #d8ded8; line-height: 1.85; position: relative; }
+.highlight b { color: var(--accent); }
+
+.term-list { display: flex; flex-direction: column; gap: 10px; }
+.term-item { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; transition: border-color .2s; }
+.term-item:hover { border-color: var(--accent); }
+.term-header { display: flex; align-items: center; justify-content: space-between; padding: 15px 18px; cursor: pointer; gap: 12px; user-select: none; min-height: 52px; }
+.term-header::-webkit-details-marker { display: none; }
+.term-name { font-family: var(--font-display); font-weight: 700; font-size: 15px; color: #fff; }
+.term-en { font-size: 11px; color: var(--muted); margin-left: 8px; font-weight: 400; }
+.term-arrow { font-size: 20px; color: var(--accent); transition: transform .25s; flex-shrink: 0; }
+.term-item[open] .term-arrow { transform: rotate(180deg); }
+.term-item[open] { border-color: var(--accent); }
+.term-body { padding: 2px 18px 16px; border-top: 1px solid var(--gray-100); }
+.term-body p { font-size: 14px; color: var(--gray-700); line-height: 1.85; margin: 10px 0 0; }
+.term-body b { color: var(--accent); }
+
+.timeline { position: relative; padding-left: 28px; margin-top: 16px; }
+.timeline::before { content: ''; position: absolute; left: 8px; top: 6px; bottom: 6px; width: 3px; background: rgba(110,226,78,.25); border-radius: 3px; }
+.tl-row { position: relative; margin-bottom: 20px; }
+.tl-row::before { content: ''; position: absolute; left: -23px; top: 5px; width: 13px; height: 13px; border-radius: 50%; background: var(--accent); border: 3px solid var(--bg); box-shadow: 0 0 0 2px var(--accent); }
+.tl-date { font-family: var(--font-num); font-size: 12px; font-weight: 700; color: var(--accent); letter-spacing: .04em; margin-bottom: 3px; }
+.tl-title { font-family: var(--font-display); font-weight: 700; font-size: 15px; color: #fff; margin-bottom: 3px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.tl-desc { font-size: 13px; color: var(--muted); line-height: 1.7; }
+
+.sowhat { background: var(--surface); border: 1.5px dashed var(--accent); border-radius: 14px; padding: 12px 16px 12px 46px; margin: 14px 0; position: relative; }
+.sowhat::before { content: '👉'; position: absolute; left: 14px; top: 11px; font-size: 20px; }
+.sowhat b { color: var(--accent); }
+.sowhat p { font-size: 14px; color: var(--gray-700); line-height: 1.8; }
+
+.badge { display: inline-block; font-size: 11px; padding: 3px 9px; border-radius: 6px; font-weight: 700; }
+.badge-green { background: var(--accent-tint); color: var(--accent); }
+.badge-amber { background: rgba(251,191,36,.13); color: var(--amber); }
+.badge-red { background: rgba(248,113,113,.13); color: var(--red); }
+.badge-blue { background: rgba(96,165,250,.13); color: var(--blue); }
+.signal { display: inline-flex; align-items: center; gap: 5px; font-weight: 700; font-size: 12px; padding: 4px 12px; border-radius: 999px; white-space: nowrap; }
+.signal.bull { background: var(--accent-tint); color: var(--accent); }
+.signal.neutral { background: rgba(251,191,36,.13); color: var(--amber); }
+.signal.bear { background: rgba(248,113,113,.13); color: var(--red); }
+.table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; border: 1px solid var(--line); border-radius: 14px; margin: 12px 0; }
+.compare-table { width: 100%; border-collapse: collapse; font-size: 13px; min-width: 480px; }
+.compare-table th { background: var(--gray-50); padding: 12px 14px; text-align: left; font-weight: 700; font-size: 11px; color: var(--muted); letter-spacing: .03em; border-bottom: 1px solid var(--line); white-space: nowrap; }
+.compare-table td { padding: 12px 14px; border-bottom: 1px solid var(--gray-100); color: var(--gray-700); vertical-align: top; }
+.compare-table tr:last-child td { border-bottom: none; }
+.compare-table .me { background: var(--accent-tint); font-weight: 700; color: var(--accent); }
+.block-label { font-family: var(--font-display); font-weight: 900; font-size: 15px; color: #fff; margin: 18px 0 8px; }
+.product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px,1fr)); gap: 12px; margin: 14px 0; }
+.product-box { border-radius: 14px; padding: 16px 14px; text-align: center; border: 1px solid var(--line); background: var(--surface); }
+.product-symbol { font-family: var(--font-num); font-size: 28px; font-weight: 700; margin-bottom: 4px; color: var(--accent); }
+.product-name { font-size: 11px; font-weight: 700; letter-spacing: .04em; margin-bottom: 6px; color: #fff; }
+.product-use { font-size: 12px; line-height: 1.55; color: var(--gray-700); }
+
+
+.verdict { display: grid; grid-template-columns: 1.5fr .5fr; gap: 14px; margin-top: 24px; }
+.verdict-main { border: 1px solid var(--line); border-radius: 18px; padding: 22px; box-shadow: var(--shadow); background: linear-gradient(145deg,rgba(110,226,78,.12),rgba(110,226,78,.03)),var(--surface); }
+.score-box { border: 1px solid var(--line); border-radius: 18px; padding: 22px; box-shadow: var(--shadow); background: var(--accent); color: #06210a; display: flex; flex-direction: column; justify-content: center; }
+.pill { display: inline-block; padding: 5px 10px; border-radius: 999px; background: var(--accent-tint); border: 1px solid var(--accent-line); color: var(--accent); font-weight: 800; font-size: 11px; }
+.verdict-status { font-size: clamp(22px,3.5vw,36px); line-height: 1.2; font-weight: 900; letter-spacing: -.03em; margin-top: 8px; font-family: var(--font-display); }
+.score-box b { font-size: 52px; line-height: 1; display: block; font-family: var(--font-num); }
+.score-box small { color: #173b1e; font-weight: 800; }
+
+.scenarios { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; }
+.scenario { border-radius: 16px; padding: 18px; border: 1px solid var(--line); background: #101410; position: relative; overflow: hidden; min-height: 280px; }
+.scenario::after { position: absolute; right: 4px; top: -12px; font-weight: 900; font-size: 66px; opacity: .05; line-height: 1; }
+.scenario.bear::after { content: "B"; }
+.scenario.base::after { content: "A"; }
+.scenario.bull::after { content: "↑"; }
+.scenario-head { display: flex; justify-content: space-between; gap: 10px; font-weight: 800; }
+.scenario-head b { padding: 4px 9px; border-radius: 999px; color: #06210a; background: var(--accent); font-family: var(--font-num); }
+.scenario-price { font-size: clamp(28px,4vw,40px); font-weight: 900; letter-spacing: -.05em; margin: 14px 0 0; font-family: var(--font-num); }
+.scenario.bear { border-top: 4px solid var(--red); }
+.scenario.base { border-top: 4px solid var(--accent); box-shadow: 0 0 0 1px rgba(110,226,78,.12); }
+.scenario.bull { border-top: 4px solid var(--accent-bright); }
+dl { margin: 16px 0 0; }
+dl div { display: flex; justify-content: space-between; border-top: 1px dashed var(--line); padding: 8px 0; gap: 12px; }
+dt { color: var(--muted); }
+dd { margin: 0; font-weight: 800; }
+
+.position { margin-top: 20px; }
+.position-line { height: 14px; border-radius: 999px; background: linear-gradient(90deg,var(--red),var(--amber),var(--accent)); position: relative; box-shadow: inset 0 0 0 1px rgba(255,255,255,.12); }
+.pin { position: absolute; top: -8px; width: 7px; height: 30px; background: #fff; border: 2px solid #050805; border-radius: 6px; box-shadow: 0 4px 14px rgba(0,0,0,.55); }
+.position-labels { display: flex; justify-content: space-between; font-size: 11px; color: var(--muted); margin-top: 7px; }
+.compare-meter { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.meter { background: #0d100d; border: 1px solid var(--line); border-radius: 999px; overflow: hidden; height: 12px; }
+.meter i { display: block; height: 100%; background: var(--accent); border-radius: 999px; }
+
+.zone { border-top: 1px solid var(--line); padding: 14px 0; }
+.zone div { display: flex; justify-content: space-between; gap: 12px; }
+.zone span { color: var(--accent); letter-spacing: .08em; }
+.zone p { margin: 4px 0; color: var(--muted); font-size: 14px; }
+.signal-row { border-top: 1px solid var(--line); padding: 14px 0; }
+.signal-row div { display: flex; justify-content: space-between; gap: 12px; }
+.signal-row p { margin: 4px 0; color: var(--muted); font-size: 14px; }
+.up { color: var(--accent); font-weight: 800; }
+.down { color: var(--red); font-weight: 800; }
+.flat { color: var(--amber); font-weight: 800; }
+
+ul.clean { padding: 0; margin: 12px 0; list-style: none; }
+ul.clean li { margin: 9px 0; padding: 12px 14px 12px 38px; background: #101410; border: 1px solid var(--line); border-radius: 12px; position: relative; font-size: 14px; }
+ul.clean li::before { content: "✓"; position: absolute; left: 13px; top: 11px; color: var(--accent); font-weight: 900; }
+.concerns ul.clean li::before { content: "!"; color: var(--red); }
+
+.dist-row { display: grid; grid-template-columns: 120px 1fr 52px; gap: 10px; align-items: center; margin: 12px 0; }
+.track { background: #0d100d; border: 1px solid var(--line); border-radius: 999px; height: 11px; overflow: hidden; }
+.track i { display: block; height: 100%; background: var(--accent); border-radius: 999px; }
+details { border: 1px solid var(--line); background: #101410; border-radius: 12px; padding: 0; margin: 10px 0; overflow: hidden; }
+summary { font-weight: 800; cursor: pointer; padding: 14px 16px; list-style: none; }
+summary::-webkit-details-marker { display: none; }
+summary::after { content: "＋"; float: right; color: var(--accent); font-size: 20px; line-height: 1; }
+details[open] summary::after { content: "−"; }
+details > p, details > ul, details > div { padding: 0 16px 16px; margin: 0; color: #c4ccc4; }
+
+
+.catalyst-verdict { display: grid; grid-template-columns: 1.5fr .5fr; gap: 14px; margin-top: 24px; }
+.priced-score { border: 1px solid var(--line); border-radius: 18px; padding: 22px; box-shadow: var(--shadow); background: var(--accent); color: #06210a; display: flex; flex-direction: column; justify-content: center; }
+.priced-score b { font-size: clamp(26px,4vw,46px); line-height: 1.05; display: block; letter-spacing: -.05em; font-family: var(--font-num); }
+.priced-score small { color: #173b1e; font-weight: 800; }
+
+.cat-timeline { position: relative; margin-top: 18px; }
+.cat-timeline::before { content: ""; position: absolute; left: 92px; top: 8px; bottom: 8px; width: 1px; background: var(--accent-line); }
+.time-row { display: grid; grid-template-columns: 78px 24px 1fr; gap: 12px; align-items: start; margin: 0 0 18px; }
+.time-date { text-align: right; color: var(--muted); font-size: 12px; font-weight: 800; padding-top: 3px; }
+.time-dot { width: 13px; height: 13px; border-radius: 50%; background: var(--accent); border: 3px solid #0a0c0a; box-shadow: 0 0 0 1px var(--accent-line); margin: 5px auto 0; position: relative; z-index: 2; }
+.time-body { background: #101410; border: 1px solid var(--line); border-radius: 13px; padding: 13px 15px; }
+.time-body p { margin: 4px 0; color: var(--muted); font-size: 13px; }
+.time-meta { display: flex; gap: 7px; flex-wrap: wrap; margin-top: 8px; }
+
+.chip { display: inline-flex; align-items: center; padding: 4px 9px; border-radius: 999px; background: var(--accent-tint); border: 1px solid var(--accent-line); color: var(--accent); font-weight: 800; font-size: 11px; }
+.chip.amber { color: var(--amber); border-color: rgba(251,191,36,.34); background: rgba(251,191,36,.08); }
+.chip.red { color: var(--red); border-color: rgba(248,113,113,.34); background: rgba(248,113,113,.08); }
+.chip.blue { color: var(--blue); border-color: rgba(96,165,250,.34); background: rgba(96,165,250,.08); }
+
+.catalyst-card { background: linear-gradient(180deg,var(--surface-2),var(--surface)); border: 1px solid var(--line); box-shadow: var(--shadow); border-radius: 18px; padding: 22px; margin: 16px 0; position: relative; overflow: hidden; }
+.catalyst-card::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: var(--accent); }
+.catalyst-head { display: flex; justify-content: space-between; gap: 16px; align-items: start; }
+.catalyst-head h3 { font-size: clamp(18px,3vw,26px); line-height: 1.35; margin: 8px 0; }
+.chips { display: flex; gap: 7px; flex-wrap: wrap; }
+.date-box { min-width: 180px; text-align: right; }
+.date-box b { display: block; color: var(--accent); font-size: 17px; }
+.date-box span { font-size: 11px; color: var(--muted); }
+
+.mechanism { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin: 14px 0; }
+.mechanism span { padding: 8px 11px; border: 1px solid var(--line); border-radius: 10px; background: #101410; font-size: 12px; }
+.mechanism i { font-style: normal; color: var(--accent); }
+
+.outcomes { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px,1fr)); gap: 10px; margin: 16px 0; }
+.outcome { background: #101410; border: 1px solid var(--line); border-radius: 14px; padding: 15px; }
+.outcome.success { border-top: 4px solid var(--accent); }
+.outcome.inline { border-top: 4px solid var(--amber); }
+.outcome.failure { border-top: 4px solid var(--red); }
+.outcome.positive { border-top: 4px solid var(--accent); }
+.outcome.neutral { border-top: 4px solid var(--amber); }
+.outcome.negative { border-top: 4px solid var(--red); }
+.outcome b { font-size: 14px; }
+.impact { font-size: 22px; font-weight: 900; letter-spacing: -.04em; margin: 7px 0; font-family: var(--font-num); }
+.outcome p { font-size: 12px; color: var(--muted); margin: 6px 0; }
+.outcome ul { padding-left: 18px; margin: 8px 0; font-size: 12px; }
+
+.priced { padding: 18px; background: #101410; border: 1px solid var(--line); border-radius: 14px; }
+.priced-head { display: flex; justify-content: space-between; gap: 12px; align-items: end; }
+.priced-head b { font-size: 26px; letter-spacing: -.04em; font-family: var(--font-num); }
+.range-meter { height: 12px; background: #0d100d; border: 1px solid var(--line); border-radius: 999px; overflow: hidden; margin-top: 11px; position: relative; }
+.range-band { display: block; height: 100%; position: absolute; background: linear-gradient(90deg,var(--amber),var(--accent)); border-radius: 999px; min-width: 4px; }
+.priced.unknown { border-style: dashed; color: var(--muted); }
+
+.evidence { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.evidence > div { background: #101410; border: 1px solid var(--line); border-radius: 12px; padding: 14px; }
+.evidence h4 { margin: 0 0 8px; font-size: 14px; }
+.evidence ul { padding-left: 18px; margin: 0; color: var(--muted); font-size: 13px; }
+
+.cat-facts { display: grid; grid-template-columns: repeat(2,1fr); gap: 10px; margin-top: 12px; }
+.cat-fact { border-top: 1px solid var(--line); padding: 11px 0; }
+.cat-fact span { display: block; color: var(--muted); font-size: 11px; }
+.cat-fact b { font-size: 13px; }
+
+
+.footer { padding: 40px 22px; text-align: center; color: var(--muted); font-size: 13px; border-top: 1px solid var(--line); margin-top: 32px; }
+
+
+@media (max-width: 800px) {
+  .hero-kpis { grid-template-columns: 1fr 1fr; }
+  .verdict, .catalyst-verdict, .grid-2, .evidence { grid-template-columns: 1fr; }
+  .scenarios { grid-template-columns: 1fr; }
+  .scenario { min-height: auto; }
+  .hero { padding: 34px 0 24px; }
+  .catalyst-head { display: block; }
+  .date-box { text-align: left; margin-top: 10px; min-width: 0; }
+  .cat-timeline::before { left: 75px; }
+  .time-row { grid-template-columns: 62px 18px 1fr; gap: 8px; }
+}
+@media (max-width: 520px) {
+  body { font-size: 14px; line-height: 1.64; }
+  .wrap { padding: 0 12px; }
+  .hero { padding: 22px 0 16px; }
+  .hero h1 { font-size: 28px; line-height: 1.12; margin: 10px 0 8px; }
+  .sub { font-size: 11px; }
+  .verdict { margin-top: 12px; gap: 9px; }
+  .verdict-main, .score-box, .priced-score { padding: 14px; border-radius: 13px; }
+  .verdict-status { font-size: 20px; margin-top: 6px; }
+  .score-box { display: grid; grid-template-columns: 1fr auto; align-items: end; gap: 7px; }
+  .score-box b { font-size: 34px; }
+  .hero-kpis { gap: 7px; margin-top: 9px; }
+  .kpi { padding: 11px; min-height: 80px; border-radius: 12px; }
+  .kpi b { font-size: 17px; margin-top: 3px; }
+  .kpi small { font-size: 10px; }
+  .report-nav .wrap { gap: 5px; padding: 7px 12px; }
+  .tab-btn { padding: 6px 10px; font-size: 10.5px; }
+  .scroll-btn { padding: 6px 8px; font-size: 10px; }
+  main { padding: 12px 0 44px; }
+  section, .guide-section { margin: 10px 0; scroll-margin-top: 50px; }
+  .card, .catalyst-card { padding: 14px; border-radius: 13px; }
+  .catalyst-card { margin: 10px 0; }
+  .grid-2, .scenarios, .outcomes { gap: 9px; }
+  .scenario-price { font-size: 27px; margin-top: 9px; }
+  h2 { font-size: 18px; padding-bottom: 8px; }
+  h3 { font-size: 15px; }
+  .stat-strip { grid-template-columns: repeat(2, minmax(0,1fr)); gap: 7px; }
+  .stat { padding: 10px 7px; }
+  .stat-value { font-size: 20px; }
+  .guide-section { padding: 22px 0 16px; }
+  .section-icon { width: 38px; height: 38px; font-size: 18px; }
+  .section-title { font-size: 18px; }
+  .tldr { padding: 13px 14px; margin-bottom: 14px; }
+  .tldr li { font-size: 13.5px; }
+  .dist-row { grid-template-columns: 76px 1fr 38px; gap: 7px; font-size: 11px; }
+  .position-labels { font-size: 9px; }
+  .cat-timeline::before { left: 6px; }
+  .time-row { grid-template-columns: 14px 1fr; gap: 0 8px; margin-bottom: 12px; }
+  .time-dot { grid-column: 1; grid-row: 1 / span 2; margin: 5px 0 0; width: 11px; height: 11px; }
+  .time-date { grid-column: 2; text-align: left; font-size: 10px; padding: 0 0 4px; }
+  .time-body { grid-column: 2; padding: 9px 10px; }
+  .facts { grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .facts > div { padding: 10px; }
+  .table-wrap { border-radius: 11px; }
+  .compare-table th, .compare-table td { padding: 9px; font-size: 11px; }
+  details summary { padding: 11px 13px; font-size: 13px; }
+  .footer { padding: 26px 14px; font-size: 11.5px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .guide-section { animation: none; opacity: 1; transform: none; }
+}
+@media print {
+  body { background: #fff; color: #111; }
+  body::before, .hero::after { display: none; }
+  .report-nav { position: static; }
+  [data-view][hidden] { display: block !important; }
+  .hero, .card, .catalyst-card, .kpi, .outcome, .time-body, details, .table-wrap { background: #fff !important; color: #111 !important; box-shadow: none !important; }
+  .hero { border-bottom: 2px solid #111; }
+  .lead, .small, .muted, footer { color: #555 !important; }
+}
+</style>
+</head>
+
+<body data-stock-ticker="4015" data-price-source="../../data/prices.json">
+
+<!--
+SiM report metadata
+ticker: 4015
+company: ペイクラウドホールディングス
+valuation-date: 2026-07-29
+last-updated: 2026-08-02
+update-mode: initial
+source-cutoff: 2026-08-02T16:00:00+09:00
+template-version: sim-report-v6-html-direct
+change-summary: 4015の企業ガイド、株価シナリオ、カタリストを新規作成
+deleted-information: none
+-->
+
+
+
+<div class="progress-bar" id="progressBar"></div>
+
+
+<header class="hero">
+  <div class="wrap">
+    <div class="brandmark">S<b>i</b>M &nbsp;MARKET LAB</div>
+    <div class="eyebrow">S<span style="color:#fff">i</span>M MARKET LAB / STOCK REPORT</div>
+    <h1>ペイクラウドホールディングス <small>4015</small></h1>
+    <div class="sub">東証グロース｜円建て｜評価基準日 2026-07-29｜最終更新 2026-08-02</div>
+
+    
+    <div class="hero-kpis">
+      
+      <div class="card"><h3>会社予想EPS</h3><p>22.63円（2026年8月期）</p></div><div class="card"><h3>3Q売上高</h3><p>80.57億円／前年同期比+5.4%</p></div><div class="card"><h3>3Q営業利益</h3><p>6.61億円／前年同期比+6.2%</p></div>
+    </div>
+
+    
+    <div class="hero-tags">
+      <span>独自Pay</span><span>デジタルサイネージ</span><span>法人向けSaaS</span>
+    </div>
+  </div>
+</header>
+
+
+<div class="wrap notice"><b>INFO_WARN：</b>小型グロース株でアナリスト予想が乏しく、評価倍率とカタリストの株価影響はモデル推定または定量不能です。</div>
+
+
+<nav class="report-nav" id="reportNav" aria-label="レポートナビゲーション">
+  <div class="wrap">
+    
+    <button type="button" class="tab-btn active" data-view-btn="guide" aria-pressed="true">企業ガイド</button>
+    <button type="button" class="tab-btn" data-view-btn="scenario" aria-pressed="false">結論・シナリオ</button>
+    <button type="button" class="tab-btn" data-view-btn="catalyst" aria-pressed="false" id="catalystTab">カタリスト</button>
+
+    <div class="nav-sep" aria-hidden="true"></div>
+
+    
+    <button type="button" class="scroll-btn guide-scroll" data-scroll-target="sec1">① どんな会社</button>
+    <button type="button" class="scroll-btn guide-scroll" data-scroll-target="sec2">② 稼ぎ方</button>
+    <button type="button" class="scroll-btn guide-scroll" data-scroll-target="sec3">③ 数字</button>
+    <button type="button" class="scroll-btn guide-scroll" data-scroll-target="sec4">④ 強み</button>
+    <button type="button" class="scroll-btn guide-scroll" data-scroll-target="sec5">⑤ リスク</button>
+    <button type="button" class="scroll-btn guide-scroll" data-scroll-target="sec6">⑥ 用語辞典</button>
+    <button type="button" class="scroll-btn guide-scroll" data-scroll-target="sec7">⑦ 株価の見方</button>
+
+    
+    <button type="button" class="scroll-btn scenario-scroll" data-scroll-target="snapshot" style="display:none">概要</button>
+    <button type="button" class="scroll-btn scenario-scroll" data-scroll-target="s-scenarios" style="display:none">3シナリオ</button>
+    <button type="button" class="scroll-btn scenario-scroll" data-scroll-target="s-logic" style="display:none">計算</button>
+    <button type="button" class="scroll-btn scenario-scroll" data-scroll-target="s-sensitivity" style="display:none">感応度</button>
+    <button type="button" class="scroll-btn scenario-scroll" data-scroll-target="s-assumptions" style="display:none">前提</button>
+
+    
+    <button type="button" class="scroll-btn catalyst-scroll" data-scroll-target="c-priced-in" style="display:none">織り込み</button>
+    <button type="button" class="scroll-btn catalyst-scroll" data-scroll-target="c-timeline" style="display:none">時系列</button>
+    <button type="button" class="scroll-btn catalyst-scroll" data-scroll-target="c-details" style="display:none">詳細</button>
+    <button type="button" class="scroll-btn catalyst-scroll" data-scroll-target="c-watch" style="display:none">観測項目</button>
+    <button type="button" class="scroll-btn catalyst-scroll" data-scroll-target="c-sources" style="display:none">出典</button>
+  </div>
+</nav>
+
+
+<section data-view="guide">
+  <div class="wrap">
+
+    
+    <div class="guide-hero-inner" style="margin-top:20px">
+      <div class="guide-hero-title">📊 まずは数字でざっくり</div>
+      <div class="stat-strip">
+        <div class="card"><h3>主力</h3><p>独自Pay基盤とデジタルサイネージ</p></div><div class="card"><h3>収益の柱</h3><p>利用料・決済手数料＋機器・施工売上</p></div>
+        
+      </div>
+    </div>
+
+    
+    <div class="guide-section" id="sec1">
+      <div class="section-header">
+        <div class="section-icon">🏢</div>
+        <div class="section-num">1</div>
+        <div>
+          <div class="section-title">ペイクラウドホールディングスって<span class="g">どんな会社</span>？</div>
+          <div class="section-sub">まず全体像を3秒で</div>
+        </div>
+      </div>
+      <div class="tldr">
+        <div class="tldr-label">⚡ このセクションの3秒まとめ</div>
+        <ul><li>店舗向け独自Payと販促基盤を提供</li><li>デジタルサイネージの導入・運用も大きな売上源</li><li>メッセージ配信等の法人向けサービスも保有</li></ul>
+      </div>
+      <div class="facts"><div class="card"><h3>上場市場</h3><p>東証グロース（4015）</p></div><div class="card"><h3>決算期</h3><p>8月</p></div><div class="card"><h3>主要3事業</h3><p>キャッシュレス／サイネージ／ソリューション</p></div></div>
+      <div class="card-grid"><div class="card"><h3>キャッシュレス</h3><p>バリューデザインが店舗独自Pay、プリペイド、オンラインチャージを支援。</p></div><div class="card"><h3>サイネージ</h3><p>クラウドポイントが機器、施工、配信、運用まで提供。</p></div><div class="card"><h3>ソリューション</h3><p>アララがメッセージ配信、データセキュリティ、WebAR等を提供。</p></div></div>
+      <div class="block-label">💰 どうやって<span class="g">稼いでる</span>？</div>
+      <ul class="keypoints"><li>継続課金のリカーリング売上と導入時の一時売上が混在する。</li><li>取扱高の増加が決済手数料・利用料の伸びにつながる。</li><li>サイネージは案件時期により四半期変動が出やすい。</li></ul>
+      <p class="notice">2026年8月期3Q累計は売上80.57億円、営業利益6.61億円。会社の通期予想は売上115億円、営業利益8億円で据え置きです。</p>
+    </div>
+
+    
+    <div class="guide-section" id="sec2">
+      <div class="section-header">
+        <div class="section-icon">￥</div>
+        <div class="section-num">2</div>
+        <div>
+          <div class="section-title">どうやって稼ぐ？</div>
+          <div class="section-sub">継続収益と案件収益を分けて見る</div>
+        </div>
+      </div>
+      <div class="tldr"><div class="tldr-label">⚡ このセクションの3秒まとめ</div><ul><li>独自Payは利用拡大が継続収益に効く</li><li>サイネージは大型案件の獲得・検収が重要</li><li>ソリューションは解約率と顧客数を確認</li></ul></div>
+      <div class="card-grid"><div class="card"><h3>決済</h3><p>システム利用料、決済手数料、導入関連売上。</p></div><div class="card"><h3>サイネージ</h3><p>端末・施工・コンテンツ配信・保守運用。</p></div><div class="card"><h3>法人SaaS</h3><p>メッセージ配信などの月額利用料。</p></div></div>
+    </div>
+
+    
+    <div class="guide-section" id="sec3">
+      <div class="section-header">
+        <div class="section-icon">🔬</div>
+        <div class="section-num">3</div>
+        <div>
+          <div class="section-title">今の業績は？</div>
+          <div class="section-sub">最新3Qと月次KPI</div>
+        </div>
+      </div>
+      <div class="tldr"><div class="tldr-label">⚡ このセクションの3秒まとめ</div><ul><li>3Q累計は増収増益</li><li>純利益は前年同期比3.0%減</li><li>6月MRR成長率は103%</li></ul></div>
+      <div class="table-wrap"><table><thead><tr><th>指標</th><th>2026年8月期3Q累計</th><th>前年比</th></tr></thead><tbody><tr><td>売上高</td><td>8,057百万円</td><td>+5.4%</td></tr><tr><td>調整後EBITDA</td><td>1,056百万円</td><td>+2.0%</td></tr><tr><td>営業利益</td><td>661百万円</td><td>+6.2%</td></tr><tr><td>親会社株主利益</td><td>324百万円</td><td>-3.0%</td></tr></tbody></table></div>
+    </div>
+
+    
+    <div class="guide-section" id="sec4">
+      <div class="section-header">
+        <div class="section-icon">🏛️</div>
+        <div class="section-num">4</div>
+        <div>
+          <div class="section-title">強みと競争軸</div>
+          <div class="section-sub">顧客基盤と複数サービスの組み合わせ</div>
+        </div>
+      </div>
+      <div class="tldr"><div class="tldr-label">⚡ このセクションの3秒まとめ</div><ul><li>独自Payの導入実績と多数のID</li><li>サイネージを設計から運用まで支援</li><li>同一顧客へ複数サービスを提案できる</li></ul></div>
+      <div class="card-grid"><div class="card"><h3>顧客基盤</h3><p>3Q時点でキャッシュレス累計顧客1,155社、累計エンドユーザー約2.407億人。</p></div><div class="card"><h3>運用ノウハウ</h3><p>決済・販促・表示を継続運用する現場知見。</p></div><div class="card"><h3>注意点</h3><p>大手決済会社、サイネージ専業、SaaS各社との競争は強い。</p></div></div>
+    </div>
+
+    
+    <div class="guide-section" id="sec5">
+      <div class="section-header">
+        <div class="section-icon">⚔️</div>
+        <div class="section-num">5</div>
+        <div>
+          <div class="section-title">何に注意？</div>
+          <div class="section-sub">成長率、案件変動、のれんを確認</div>
+        </div>
+      </div>
+      <div class="tldr"><div class="tldr-label">⚡ このセクションの3秒まとめ</div><ul><li>MRR成長率の鈍化</li><li>サイネージ案件の時期ずれ</li><li>無形資産・のれんとM&A統合リスク</li></ul></div>
+      <ul class="clean"><li>2026年6月のMRR成長率は103%で、前年同月比の伸びは一桁前半。</li><li>3Q末ののれんは18.07億円。減損が生じれば利益・純資産に影響。</li><li>無配であり、株主還元は優待・自己株取得の継続性も含めて確認が必要。</li></ul>
+    </div>
+
+    
+    <div class="guide-section" id="sec6">
+      <div class="section-header">
+        <div class="section-icon">📖</div>
+        <div class="section-num">6</div>
+        <div>
+          <div class="section-title">4015のニュースで出る<span class="g">言葉</span> 全辞典</div>
+          <div class="section-sub">分からん単語はここで潰す</div>
+        </div>
+      </div>
+      <div class="tldr"><div class="tldr-label">⚡ 特にこの3つだけは覚えて</div><ul><li>MRR＝毎月繰り返す売上</li><li>取扱高＝独自Payで処理した金額</li><li>調整後EBITDA＝本業の現金創出力を見る補助指標</li></ul></div>
+      <div class="card-grid"><div class="card"><h3>MRR</h3><p>決済手数料・システム利用料など月次経常収益。</p></div><div class="card"><h3>取扱高</h3><p>決済額とオンラインチャージを含む会社KPI。</p></div><div class="card"><h3>のれん</h3><p>買収価格と取得純資産の差。将来収益が悪化すると減損リスク。</p></div></div>
+    </div>
+
+    
+    <div class="guide-section" id="sec7">
+      <div class="section-header">
+        <div class="section-icon">💹</div>
+        <div class="section-num">7</div>
+        <div>
+          <div class="section-title">何が4015株を<span class="g">動かす</span>？</div>
+          <div class="section-sub">上がる理由・下がる理由を一目で</div>
+        </div>
+      </div>
+      <div class="tldr"><div class="tldr-label">⚡ 株価のツボ 3秒まとめ</div><ul><li>通期利益の達成と次期ガイダンス</li><li>MRR・取扱高・設置面数の伸び</li><li>サイネージの受注と利益率</li></ul></div>
+      <ul class="clean"><li>決算では売上よりも営業利益率と来期見通しの変化が重要。</li><li>月次KPIは方向確認に有用だが、単月だけで判断しない。</li><li>補償金は特別利益で、本業の反復収益とは分けて評価する。</li></ul>
+    </div>
+
+    
+    
+
+  </div>
+</section>
+
+
+<section data-view="scenario" hidden>
+  <header class="hero" style="padding:32px 0 24px;border-bottom:1px solid var(--line)">
+    <div class="wrap">
+      <div class="eyebrow">PRICE SCENARIO</div>
+      <div class="sub">東証グロース｜円建て｜評価基準日 2026-07-29｜使用手法 会社予想EPS×想定PER（比較可能な市場コンセンサス不在のため感応度モデル）</div>
+      <div class="verdict">
+        <div class="verdict-main">
+          <span class="pill">まず結論だけ</span>
+          <div class="verdict-status">現値はBase付近</div>
+          <p>540円は、会社予想EPS22.63円に約24倍を置くBase価値543円とほぼ同水準です。</p>
+          <p class="sub">倍率は当方仮定であり、企業価値の確定値ではありません。</p>
+        </div>
+        <div class="score-box">
+          <small>総合スコア（補助指標）</small>
+          <b>50/100</b>
+          <small>/ 100　売買判断そのものではありません</small>
+        </div>
+      </div>
+      <div class="hero-kpis" style="margin-top:14px">
+        <div class="kpi">
+          <span>現在株価 <em style="font-style:normal;color:var(--accent);font-size:10px">LIVE</em></span>
+          <b data-live-price>540円</b>
+          <small data-live-price-date>2026-07-29終値（分析基準値）</small>
+        </div>
+        <div class="kpi"><span>Base価値（標準ケース）</span><b>543円</b><small>+0.6%</small></div>
+        <div class="kpi"><span>確率加重期待値</span><b>543円</b><small>+0.6%</small></div>
+        <div class="kpi"><span>リスク区分</span><b>中〜高</b><small>小型グロース・倍率感応度が高い</small></div>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+
+    
+    <section class="card" id="snapshot">
+      <h2>いまの株価、どこにいる？</h2>
+      <p class="lead">業績は増収増益ですが、現値は会社予想EPSに対して約23.9倍。次期成長率が倍率維持の焦点です。</p>
+      <div class="grid-2">
+        <div>
+          <h3>現値ポジショニング</h3>
+          <p>Bear〜Bull帯の <b>50%</b> 地点。判定は <b>Base圏</b>。18〜30倍の感応度帯の中央付近です。</p>
+          <div class="position">
+            <div class="position-line"><i class="pin" style="left:50%"></i></div>
+            <div class="position-labels">
+              <span>Bear 407円</span><span>Base 543円</span><span>Bull 679円</span>
+            </div>
+          </div>
+          <p>上値下値比：<b>ほぼ1:1</b>　確率加重期待値：<b>543円</b></p>
+        </div>
+        <div>
+          <h3>市場期待と独自見解</h3>
+          <div class="compare-meter">
+            <div><b>市場期待 50/100</b><div class="meter"><i style="width:50%"></i></div></div>
+            <div><b>本試算 50/100</b><div class="meter"><i style="width:50%"></i></div></div>
+          </div>
+          <p>現値540円÷会社予想EPS22.63円＝約23.9倍。市場は概ねBaseの24倍を織り込む位置です。</p>
+        </div>
+      </div>
+    </section>
+
+    
+    <section class="card" id="s-scenarios">
+      <h2>未来はこの3パターン</h2>
+      <p class="lead">12か月の目安。会社予想EPSは事実、PERと確率は当方仮定です。</p>
+      <div class="scenarios">
+        <article class="scenario bear">
+          <div class="scenario-head"><span>Bear（悲観ケース）</span><b>25%</b></div>
+          <div class="scenario-price">407円</div>
+          <div class="small">現値比 -24.6%</div>
+          <dl><dt>前提</dt><dd>EPS22.63円×18倍</dd><dt>成立条件</dt><dd>成長鈍化、利益率悪化、倍率低下</dd></dl>
+        </article>
+        <article class="scenario base">
+          <div class="scenario-head"><span>Base（標準ケース）</span><b>50%</b></div>
+          <div class="scenario-price">543円</div>
+          <div class="small">現値比 +0.6%</div>
+          <dl><dt>前提</dt><dd>EPS22.63円×24倍</dd><dt>成立条件</dt><dd>会社予想達成、緩やかな成長継続</dd></dl>
+        </article>
+        <article class="scenario bull">
+          <div class="scenario-head"><span>Bull（強気ケース）</span><b>25%</b></div>
+          <div class="scenario-price">679円</div>
+          <div class="small">現値比 +25.7%</div>
+          <dl><dt>前提</dt><dd>EPS22.63円×30倍</dd><dt>成立条件</dt><dd>次期増益期待、MRR再加速、サイネージ好調</dd></dl>
+        </article>
+      </div>
+    </section>
+
+    
+    <section class="grid-2">
+      <div class="card">
+        <h2>この値段ならどう見る？</h2>
+        <tr><td>407円前後</td><td>Bear</td><td>成長鈍化を強く織り込む</td></tr><tr><td>543円前後</td><td>Base</td><td>現状維持を織り込む</td></tr><tr><td>679円前後</td><td>Bull</td><td>成長再加速を織り込む</td></tr>
+      </div>
+      <div class="card">
+        <h2>株価を動かす材料</h2>
+        <tr><td>MRR成長率</td><td>再加速なら上向き</td></tr><tr><td>営業利益率</td><td>改善なら上向き</td></tr><tr><td>次期会社予想</td><td>増益率が最大の判断材料</td></tr>
+      </div>
+    </section>
+
+    
+    <section class="grid-2">
+      <div class="card">
+        <h2>ここは普通に強い</h2>
+        <ul class="clean"><li>3Q累計で売上・営業利益とも前年同期比プラス</li><li>キャッシュレス事業のセグメント利益が19.9%増</li><li>自己株式293,000株を取得済み</li></ul>
+      </div>
+      <div class="card concerns">
+        <h2>ここで事故るかも</h2>
+        <ul class="clean"><li>月次MRR成長率は2026年6月103%</li><li>純利益は3Q累計で前年同期比3.0%減</li><li>のれん18.07億円と無形資産が大きい</li></ul>
+      </div>
+    </section>
+
+    
+    <section class="card" id="s-logic">
+      <h2>数字の作り方</h2>
+      <p class="lead">株価＝2026年8月期会社予想EPS22.63円×想定PER。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>ケース</th><th>EPS</th><th>PER</th><th>価値</th><th>確率</th></tr></thead>
+          <tbody><tr><td>Bear</td><td>22.63円</td><td>18倍</td><td>407円</td><td>25%</td></tr><tr><td>Base</td><td>22.63円</td><td>24倍</td><td>543円</td><td>50%</td></tr><tr><td>Bull</td><td>22.63円</td><td>30倍</td><td>679円</td><td>25%</td></tr></tbody>
+        </table>
+      </div>
+      <p class="notice"><b>重要：</b>確率加重期待値＝407×25%＋543×50%＋679×25%＝543円（端数調整）。</p>
+    </section>
+
+    
+    <section class="card">
+      <h2>この未来になる条件</h2>
+      <div class="card-grid"><div class="card"><h3>Bear</h3><p>次期成長鈍化、MRR伸び悩み、案件採算悪化。</p></div><div class="card"><h3>Base</h3><p>通期予想達成、来期も一桁〜低二桁成長。</p></div><div class="card"><h3>Bull</h3><p>MRR再加速、サイネージ利益率上昇、強い来期予想。</p></div></div>
+    </section>
+
+    
+    <section class="grid-2" id="s-sensitivity">
+      <div class="card">
+        <h2>数字がズレるとどうなる？</h2>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>EPSPER</th><th>18倍</th><th>24倍</th><th>30倍</th></tr></thead>
+            <tbody><tr><td>18円</td><td>324円</td><td>432円</td><td>540円</td></tr><tr><td>22.63円</td><td>407円</td><td>543円</td><td>679円</td></tr><tr><td>27円</td><td>486円</td><td>648円</td><td>810円</td></tr></tbody>
+          </table>
+        </div>
+        <p class="small">EPS・倍率はいずれも変動し、表は売買目標ではありません。</p>
+      </div>
+      <div class="card">
+        <h2>どの価格に行きやすい？</h2>
+        <p class="lead">現値はBaseとほぼ一致。</p>
+        <div class="facts"><div class="card"><h3>Bearまで</h3><p>-133円</p></div><div class="card"><h3>Baseまで</h3><p>+3円</p></div><div class="card"><h3>Bullまで</h3><p>+139円</p></div></div>
+        <p>上値余地と下値余地はほぼ対称です。</p>
+      </div>
+    </section>
+
+    
+    <section class="card">
+      <h2>次の決算で見る場所</h2>
+      <ul class="clean"><li>2026年8月期通期実績と2027年8月期会社予想</li><li>月次MRR成長率・取扱高・店舗数</li><li>サイネージ設置面数と利益率</li></ul>
+    </section>
+
+    
+    <section class="card" id="s-assumptions">
+      <h2>使った数字と前提</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>項目</th><th>値</th><th>分類</th><th>注記</th></tr></thead>
+          <tbody><tr><td>会社予想EPS</td><td>22.63円</td><td>会社予想</td><td>2026-07-14</td><td>通期予想据え置き</td></tr><tr><td>現在株価</td><td>540円</td><td>市場データ</td><td>2026-07-29</td><td>終値</td></tr><tr><td>PER</td><td>18/24/30倍</td><td>当方仮定</td><td>2026-08-02</td><td>感応度用</td></tr></tbody>
+        </table>
+      </div>
+    </section>
+
+    
+    <section class="card">
+      <h2>ガチ勢向けの深掘り</h2>
+      <details><summary>計算上の注意</summary><p>アナリストコンセンサスを確認できないため、PERは比較会社の確定倍率ではなく幅を持たせた仮定です。</p></details>
+    </section>
+
+    
+    
+
+    <section class="card notice">
+      <h3>免責</h3>
+      <p>本資料は情報提供を目的とし、投資勧誘ではありません。将来の株価・業績を保証しません。</p>
+    </section>
+
+    <footer>SiM MARKET LAB｜出典確認日 2026-08-02</footer>
+  </main>
+</section>
+
+
+<section data-view="catalyst" hidden>
+
+  
+  <div class="wrap notice"><b>INFO_WARN：</b>決算発表日は未確定、株価影響と織り込み度の厳密な定量化は不能です。</div>
+
+  
+  
+
+  
+  
+  
+
+  
+
+  <header class="hero" style="padding:32px 0 24px;border-bottom:1px solid var(--line)">
+    <div class="wrap">
+      <div class="eyebrow">CATALYST WATCH</div>
+      <div class="sub">東証グロース｜円建て｜評価基準日 2026-07-29｜最終更新 2026-08-02</div>
+
+      <div class="catalyst-verdict">
+        <div class="verdict-main">
+          <span class="pill">今後の材料を先読み</span>
+          <div class="verdict-status">確認済み材料あり</div>
+          <p>通期決算・月次KPI・補償金計上が主要な監視材料です。</p>
+          <p class="sub">確定日と推定時期を分離し、株価影響は根拠不足のため数値化していません。</p>
+        </div>
+        <div class="priced-score">
+          <small>全体の織り込み度（推定）</small>
+          <b>中立</b>
+          <small>Base価値付近｜確度 低</small>
+        </div>
+      </div>
+
+      <div class="hero-kpis" style="margin-top:14px">
+        <div class="kpi">
+          <span>現在株価 <em style="font-style:normal;color:var(--accent);font-size:10px">LIVE</em></span>
+          <b data-live-price>540円</b>
+          <small data-live-price-date>2026-07-29終値（分析基準値）</small>
+        </div>
+        <div class="kpi"><span>次の主要カタリスト</span><b>月次KPI</b><small>毎月開示（次回日は未公表）</small></div>
+        <div class="kpi"><span>日程の確度</span><b>混在</b><small>確定日・会社目標・当方推定を分離</small></div>
+        <div class="kpi"><span>掲載カタリスト</span><b>3件</b><small>今後18か月＋重要な長期材料</small></div>
+      </div>
+
+      <div class="hero-tags">
+        <span>内容と時期</span>
+        <span>影響レンジまたは方向性</span>
+        <span>織り込み度は幅で表示</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+
+    
+    <section class="grid-2" id="c-priced-in">
+      <div class="card">
+        <h2>今の株価、どこまで期待済み？</h2>
+        <p>現値540円はBase試算543円とほぼ同じです。ただしPER仮定への依存が大きく、個別材料の織り込み割合は定量不能です。</p>
+        <p class="small">計算方法：現値とEPS×PER感応度の位置比較。イベント別寄与は分離不能。</p>
+        <p class="notice"><b>注意：</b>織り込み度は評価モデルによる推定です。現在株価のみ自動更新され、この分析値は2026-07-29時点で固定されます。</p>
+      </div>
+      <div class="card">
+        <h2>予想との差が株価を動かす</h2>
+        <div style="border-top:1px solid var(--line);padding:14px 0">
+          <b class="up">上方サプライズの条件</b>
+          <p>通期利益の上振れ、次期会社予想の高成長、MRR成長率の再加速。</p>
+        </div>
+        <div style="border-top:1px solid var(--line);padding:14px 0">
+          <b class="down">下方サプライズの条件</b>
+          <p>通期未達、次期成長鈍化、サイネージ案件の採算悪化。</p>
+        </div>
+        <div style="border-top:1px solid var(--line);padding:14px 0">
+          <b class="flat">最大リスク</b>
+          <p>継続収益の成長鈍化と、無形資産・のれんの減損。</p>
+        </div>
+      </div>
+    </section>
+
+    
+    <section class="card" id="c-timeline">
+      <h2>これから何が、いつ起きる？</h2>
+      <p class="lead">確定日を優先し、会社目標と当方推定は分けて表示します。</p>
+      <div class="cat-timeline">
+        <div><b>毎月</b> 月次KPI（開示日は未確定）</div><div><b>2026年10月頃</b> 通期決算（例年傾向による推定、会社未公表）</div><div><b>2026年12月予定</b> 子会社移転補償金の支払い予定</div><div><b>2027年8月期2Q</b> 補償金3.47億円を特別利益計上予定</div>
+      </div>
+    </section>
+
+    
+    <section id="c-details">
+      <div class="card">
+        <h2>カタリストを1件ずつ分解</h2>
+        <p class="lead">結果の良し悪しではなく、市場予想との差と企業価値への伝わり方を見ます。</p>
+      </div>
+      <div class="card"><h3>1. 2026年8月期通期決算</h3><p>会社予想は売上115億円、営業利益8億円、純利益3.6億円。発表日は未公表。株価影響は次期予想との組合せで決まるため定量不能。</p></div><div class="card"><h3>2. 月次KPI</h3><p>MRR、取扱高、ID、店舗数、サイネージ設置面数を監視。単月数値だけで企業価値への影響を分離できないため定量不能。</p></div><div class="card"><h3>3. 移転補償金</h3><p>概算346,781,000円を2027年8月期2Qに特別利益計上予定。本業の反復利益ではなく一時要因。</p></div>
+    </section>
+
+    
+    <section class="card">
+      <h2>材料のつながりと二重計上</h2>
+      <p class="lead">同じ製品・契約・工場の段階イベントは、単純に足し算しません。</p>
+      <p>月次KPI→通期実績→次期ガイダンスは同じ成長経路なので二重加算しません。補償金は本業価値と分離します。</p>
+    </section>
+
+    
+    <section class="card" id="c-watch">
+      <h2>定期的に確認する観測項目</h2>
+      <ul class="clean"><li>MRR成長率とオンラインチャージ</li><li>キャッシュレス取扱高・店舗数</li><li>サイネージ設置面数とセグメント利益</li><li>2027年8月期会社予想</li></ul>
+    </section>
+
+    
+    <section class="card">
+      <h2>分析前提</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>項目</th><th>値</th><th>分類</th><th>基準日</th><th>注記</th></tr></thead>
+          <tbody><tr><td>株価</td><td>540円</td><td>市場データ</td><td>2026-07-29</td><td>終値</td></tr><tr><td>補償金</td><td>346,781,000円</td><td>会社開示</td><td>2026-07-17</td><td>概算、条件付き</td></tr><tr><td>決算日</td><td>2026年10月頃</td><td>当方推定</td><td>2026-08-02</td><td>会社未公表</td></tr></tbody>
+        </table>
+      </div>
+    </section>
+
+    
+    <section class="card" id="c-sources">
+      <h2>出典</h2>
+      <ul class="clean"><li><a href="https://global-assets.irdirect.jp/pdf/tdnet/batch/140120260714593073.pdf" target="_blank" rel="noopener noreferrer">2026年8月期 第3四半期決算短信（2026-07-14）</a></li><li><a href="https://www2.jpx.co.jp/disc/40150/140120260728500827.pdf" target="_blank" rel="noopener noreferrer">2026年6月 月次業績報告（2026-07-28）</a></li><li><a href="https://global-assets.irdirect.jp/pdf/tdnet/batch/140120260717595561.pdf" target="_blank" rel="noopener noreferrer">子会社移転に伴う受取補償金の合意（2026-07-17）</a></li><li><a href="https://www.paycloud.inc/ir/library/" target="_blank" rel="noopener noreferrer">会社IRライブラリ</a></li></ul>
+    </section>
+
+    <footer>SiM MARKET LAB｜出典確認日 2026-08-02</footer>
+  </main>
+</section>
+
+
+<script src="../../lab/assets/js/live-report-price.js" defer></script>
+<script>
+(function () {
+  'use strict';
+
+
+  var views = document.querySelectorAll('[data-view]');
+  var tabBtns = document.querySelectorAll('[data-view-btn]');
+
+  var guideScrollBtns = document.querySelectorAll('.guide-scroll');
+  var scenarioScrollBtns = document.querySelectorAll('.scenario-scroll');
+  var catalystScrollBtns = document.querySelectorAll('.catalyst-scroll');
+
+  function showView(name) {
+
+    views.forEach(function (v) {
+      v.hidden = (v.dataset.view !== name);
+    });
+
+    tabBtns.forEach(function (b) {
+      var isActive = (b.dataset.viewBtn === name);
+      b.classList.toggle('active', isActive);
+      b.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+    });
+
+    guideScrollBtns.forEach(function (b) { b.style.display = name === 'guide' ? '' : 'none'; });
+    scenarioScrollBtns.forEach(function (b) { b.style.display = name === 'scenario' ? '' : 'none'; });
+    catalystScrollBtns.forEach(function (b) { b.style.display = name === 'catalyst' ? '' : 'none'; });
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  tabBtns.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      showView(btn.dataset.viewBtn);
+    });
+  });
+
+  showView('guide');
+
+
+  document.querySelectorAll('[data-scroll-target]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var targetId = btn.dataset.scrollTarget;
+      var target = document.getElementById(targetId);
+      if (!target) return;
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+    });
+  });
+
+
+  document.querySelectorAll('a[href^="#"]').forEach(function (link) {
+    link.addEventListener('click', function (e) {
+      var targetId = link.getAttribute('href').slice(1);
+      if (!targetId) return;
+      var target = document.getElementById(targetId);
+      if (!target) return;
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+    });
+  });
+
+  var bar = document.getElementById('progressBar');
+  if (bar) {
+    function updateBar() {
+      var h = document.documentElement;
+      var scrollable = h.scrollHeight - h.clientHeight;
+      var pct = scrollable > 0 ? Math.min(100, Math.max(0, h.scrollTop / scrollable * 100)) : 0;
+      bar.style.width = pct + '%';
+    }
+    document.addEventListener('scroll', updateBar, { passive: true });
+    window.addEventListener('resize', updateBar);
+    updateBar();
+  }
+
+  document.querySelectorAll('details.term-item').forEach(function (d) {
+    d.addEventListener('toggle', function () {
+      if (d.open) {
+        document.querySelectorAll('details.term-item').forEach(function (o) {
+          if (o !== d && o.open) o.removeAttribute('open');
+        });
+      }
+    });
+  });
+
+
+
+})();
+</script>
+
+</body>
+</html>
