@@ -1,12 +1,22 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-01T09:22:10.874148+00:00",
+  "generatedAt": "2026-08-02T08:23:01.352417+00:00",
   "source": "Yahoo Finance chart endpoint",
   "manifest": "data/manifest.json",
-  "quoteCount": 63,
+  "quoteCount": 64,
   "errorCount": 0,
   "errors": {},
   "prices": {
+    "4015": {
+      "symbol": "4015.T",
+      "price": 541.0,
+      "previousClose": 540.0,
+      "change": 1.0,
+      "changePct": 0.1852,
+      "currency": "JPY",
+      "marketTime": "2026-07-31T06:30:00+00:00",
+      "status": "ok"
+    },
     "BE": {
       "symbol": "BE",
       "price": 205.81,
@@ -74,7 +84,7 @@
       "change": -0.15,
       "changePct": -0.9113,
       "currency": "USD",
-      "marketTime": "2026-07-31T20:00:00+00:00",
+      "marketTime": "2026-07-31T20:00:01+00:00",
       "status": "ok"
     },
     "6857": {
