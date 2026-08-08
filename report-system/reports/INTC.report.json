@@ -1,14 +1,14 @@
 {
   "schemaVersion": 1,
   "reportId": "INTC",
-  "revision": "intc-initial-20260731-r2",
-  "status": "published",
+  "revision": "intc-full-refresh-20260801-r3",
+  "status": "review",
   "renderMode": "structured",
   "templateVersion": "sim-report-v1",
   "update": {
-    "mode": "initial",
-    "baseRevision": null,
-    "reason": "Intel Corporationの新規企業ガイドと株価シナリオを、Q2 2026決算・最新SEC提出・市場データに基づいて作成",
+    "mode": "full-refresh",
+    "baseRevision": "intc-initial-20260731-r2",
+    "reason": "V6.2仕様に合わせ、Q2 2026決算・最新SEC提出・市場データを再検証し、専用カタリスト正本と整合するよう全面更新",
     "changedFields": [
       "overview",
       "guide",
@@ -28,7 +28,7 @@
     "exchange": "NASDAQ",
     "currency": "USD",
     "valuationDate": "2026-07-30",
-    "lastUpdated": "2026-07-31",
+    "lastUpdated": "2026-08-01",
     "sector": "半導体・AIコンピューティング",
     "industry": "CPU・データセンター半導体・半導体ファウンドリー",
     "fiscalYearLabel": "FY2026",
@@ -704,7 +704,7 @@
       "catalysts": [
         {
           "title": "Q3 2026決算と会社予想の達成度",
-          "timing": "2026年Q3決算期。2026-07-31時点で正式発表日はIRカレンダー未掲載",
+          "timing": "2026年Q3決算期。2026-08-01時点で正式発表日はIRカレンダー未掲載",
           "status": "unknown",
           "importance": 5,
           "successImpact": "売上上限寄り、粗利率41%以上、Foundry損失縮小なら2027年成長前提を支える",
@@ -1045,8 +1045,8 @@
         ]
       },
       {
-        "title": "専用カタリストJSONを作成しない理由",
-        "content": "18A、外部Foundry顧客、供給制約は重要ですが、2026-07-31時点では次の結果発表日や外部量産契約の確定日が公式に示されていません。通常レポートでは確認可能な期間と更新条件だけを記載し、日付・成功確率・イベント単体の株価影響を創作しないため、今回は専用カタリストレポートを追加しません。",
+        "title": "専用カタリストとの役割分担",
+        "content": "Q3決算、18A/18A-P、供給制約、外部Foundry顧客の4論点は専用カタリスト正本でも追跡します。正式日が未発表の項目はTBD、イベント単体価値を分離できない項目は定量不能として扱い、通常レポートと専用カタリストで日程・影響を創作しません。",
         "sourceRefs": [
           "intc-q2-2026-ir",
           "intc-ir-calendar",
@@ -1087,7 +1087,7 @@
       "sourceType": "earnings",
       "primary": true,
       "publishedAt": "2026-07-23",
-      "accessedAt": "2026-07-31"
+      "accessedAt": "2026-08-01"
     },
     {
       "id": "intc-q2-2026-10q",
@@ -1097,7 +1097,7 @@
       "sourceType": "sec",
       "primary": true,
       "publishedAt": "2026-07-23",
-      "accessedAt": "2026-07-31"
+      "accessedAt": "2026-08-01"
     },
     {
       "id": "intc-2025-10k",
@@ -1107,7 +1107,7 @@
       "sourceType": "sec",
       "primary": true,
       "publishedAt": "2026-01-22",
-      "accessedAt": "2026-07-31"
+      "accessedAt": "2026-08-01"
     },
     {
       "id": "intc-apollo-2026-8k",
@@ -1117,7 +1117,7 @@
       "sourceType": "sec",
       "primary": true,
       "publishedAt": "2026-04-08",
-      "accessedAt": "2026-07-31"
+      "accessedAt": "2026-08-01"
     },
     {
       "id": "intc-historical-price",
@@ -1127,7 +1127,7 @@
       "sourceType": "market-data",
       "primary": false,
       "publishedAt": null,
-      "accessedAt": "2026-07-31"
+      "accessedAt": "2026-08-01"
     },
     {
       "id": "intc-ir-calendar",
@@ -1137,7 +1137,7 @@
       "sourceType": "company-ir",
       "primary": true,
       "publishedAt": null,
-      "accessedAt": "2026-07-31"
+      "accessedAt": "2026-08-01"
     },
     {
       "id": "intc-panther-lake-2025",
@@ -1147,7 +1147,7 @@
       "sourceType": "company-ir",
       "primary": true,
       "publishedAt": "2025-10-09",
-      "accessedAt": "2026-07-31"
+      "accessedAt": "2026-08-01"
     },
     {
       "id": "intc-market-price-20260730",
@@ -1157,14 +1157,15 @@
       "sourceType": "market-data",
       "primary": false,
       "publishedAt": null,
-      "accessedAt": "2026-07-31"
+      "accessedAt": "2026-08-01"
     }
   ],
   "coverageWaivers": [],
   "validation": {
     "status": "PASS",
     "humanReviewed": false,
-    "machinePublished": true,
-    "revision": "intc-initial-20260731-r2"
+    "machinePublished": false,
+    "revision": "intc-full-refresh-20260801-r3",
+    "checks": []
   }
 }
