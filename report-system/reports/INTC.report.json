@@ -1,20 +1,20 @@
 {
   "schemaVersion": 1,
   "reportId": "INTC",
-  "revision": "intc-initial-20260731-r2",
-  "status": "published",
+  "revision": "intc-catalyst-20260731-r4",
+  "status": "review",
   "renderMode": "structured",
   "templateVersion": "sim-report-v1",
   "update": {
-    "mode": "initial",
-    "baseRevision": null,
-    "reason": "Intel Corporationの新規企業ガイドと株価シナリオを、Q2 2026決算・最新SEC提出・市場データに基づいて作成",
+    "mode": "patch",
+    "baseRevision": "intc-initial-20260731-r2",
+    "reason": "公開済みINTCへ専用カタリストレポートを追加し、2026年7月24日付S-8を含む最新希薄化開示を反映。企業ガイドと株価シナリオの本文・数値は維持",
     "changedFields": [
-      "overview",
-      "guide",
-      "scenario",
-      "sources",
-      "validation"
+      "revision",
+      "status",
+      "update",
+      "validation",
+      "report-system/reports/INTC.catalyst.json"
     ]
   },
   "meta": {
@@ -1164,7 +1164,7 @@
   "validation": {
     "status": "PASS",
     "humanReviewed": false,
-    "machinePublished": true,
-    "revision": "intc-initial-20260731-r2"
+    "machinePublished": false,
+    "revision": "intc-catalyst-20260731-r4"
   }
 }
