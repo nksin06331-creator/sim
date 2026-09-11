@@ -1,0 +1,776 @@
+{
+  "meta": {
+    "company_name": "Intel Corporation",
+    "ticker": "INTC",
+    "exchange": "NASDAQ",
+    "currency": "USD",
+    "valuation_date": "2026-07-30",
+    "last_updated": "2026-08-01",
+    "source_cutoff": "2026-08-01 00:00 JST",
+    "framework_version": "1.0",
+    "current_price_fallback": 91.13,
+    "current_price_as_of": "2026-07-30 US market close",
+    "benchmark": "SOXX",
+    "diluted_shares": 5200000000
+  },
+  "summary": {
+    "status": "SELECTIVE",
+    "one_line": "次の焦点はQ3業績の達成度と、Intel 18Aの量産コスト改善がFoundry赤字縮小へつながるかです。",
+    "next_catalyst_id": "intc-q3-2026-results",
+    "next_window": "正式日未発表（Q3 2026決算期）",
+    "overall_priced_in": {
+      "quantifiable": false,
+      "percent_range": null,
+      "raw_implied_pct": null,
+      "label": "定量不能",
+      "confidence": "LOW",
+      "model": "Q2実績、Q3会社予想、18A量産状況、Foundry損失、直近株価帯を組み合わせた定性評価。複数材料が同時に株価へ反映されるため単一イベント価値を分離しない。",
+      "event_excluded_equity_value": null,
+      "full_success_incremental_equity_value": null,
+      "market_implied_success_probability": null,
+      "independent_success_probability": null,
+      "evidence_for": [
+        "Q2 2026売上は前年同期比25%増となり、DCAI売上は59%増だった。",
+        "Intel 18A製品の高量産と18A-Pのリスク生産開始は一次情報で確認できる。",
+        "評価基準株価は既存Baseシナリオ95ドルに近く、改善継続を一定程度前提にしている。"
+      ],
+      "evidence_against": [
+        "直近約20営業日では株価が下落し、6月末の高い期待は一部後退した。",
+        "Foundry外部売上はQ2 2026で2.93億ドルにとどまり、大部分は社内取引だった。",
+        "Foundry損失、供給制約、資本負担の影響が重なり、各材料の独立価値を観測できない。"
+      ],
+      "caveats": [
+        "織り込み度は事実ではなくモデル評価。",
+        "現在株価だけがライブ更新され、この判断は評価基準日時点で固定。",
+        "Q3決算の正式日は2026-08-01時点でIRカレンダーに掲載されていない。"
+      ]
+    },
+    "primary_risk": "Foundryの高コスト18Aウェハ、外部顧客不足、供給制約、設備投資・債務負担が同時に続くこと。",
+    "surprise_up": "Q3売上が会社予想上限寄りで、粗利率が予想以上に改善し、18AコストとFoundry損失の縮小が同時に確認されること。",
+    "surprise_down": "Q3売上下限割れ、粗利率未達、供給制約の長期化、外部Foundry進展不足が重なること。"
+  },
+  "catalysts": [
+    {
+      "id": "intc-q3-2026-results",
+      "title": "Q3 2026決算と会社予想の達成度",
+      "category": "EARNINGS",
+      "status": "TBD",
+      "importance": 5,
+      "direction": "TWO_SIDED",
+      "date": {
+        "display_text": "正式日未発表（Q3 2026決算期）",
+        "start_date": null,
+        "end_date": null,
+        "precision": "TBD",
+        "basis": "UNKNOWN",
+        "confidence": "LOW",
+        "timezone": "America/Los_Angeles",
+        "source_ids": [
+          "intc-ir-calendar",
+          "intc-q2-2026-ir"
+        ]
+      },
+      "plain_language": "会社が示した売上158〜168億ドルとGAAP粗利率41%を達成できるかを確認する決算です。",
+      "detail": "Q2は増収と粗利率回復が進みましたが、次の評価では数量、ASP、供給制約、18Aコスト、Foundry損失を分けて見る必要があります。正式発表日はIRカレンダーに未掲載です。",
+      "mechanism": [
+        "売上と製品ミックス",
+        "粗利率と18A単位コスト",
+        "Foundry営業損失",
+        "2027年売上・倍率前提"
+      ],
+      "outcomes": [
+        {
+          "label": "SUCCESS",
+          "conditions": [
+            "売上が会社予想上限寄りまたは上回る。",
+            "GAAP粗利率が41%を上回り、改善理由が一時要因だけではない。",
+            "Foundry損失縮小と供給改善が同時に確認される。"
+          ],
+          "quantifiable": false,
+          "price_change_pct_range": null,
+          "price_range": null,
+          "direction": "UP",
+          "effect_on_assumptions": [
+            "2027年売上と粗利率のBase前提を上方再検証。",
+            "BaseまたはBullで用いる倍率の持続可能性を再検証。"
+          ]
+        },
+        {
+          "label": "INLINE",
+          "conditions": [
+            "売上が158〜168億ドルの範囲内。",
+            "GAAP粗利率が41%前後。",
+            "18AとFoundryの進展がQ2説明から大きく変わらない。"
+          ],
+          "quantifiable": false,
+          "price_change_pct_range": null,
+          "price_range": null,
+          "direction": "FLAT",
+          "effect_on_assumptions": [
+            "Baseシナリオの売上・倍率前提を据え置き中心で再確認。"
+          ]
+        },
+        {
+          "label": "FAILURE",
+          "conditions": [
+            "売上が会社予想下限を下回る。",
+            "GAAP粗利率が41%を下回り、18Aコストや供給制約が主要因となる。",
+            "Foundry損失または資本負担の改善が遅れる。"
+          ],
+          "quantifiable": false,
+          "price_change_pct_range": null,
+          "price_range": null,
+          "direction": "DOWN",
+          "effect_on_assumptions": [
+            "Bearシナリオの売上・倍率前提を優先して再計算。",
+            "資金余力と希薄化後株式数を再確認。"
+          ]
+        }
+      ],
+      "impact_method": "イベント単体の株価影響を分離できないため定量化せず、売上・粗利率・Foundry損失によるシナリオ前提の変化で評価。",
+      "impact_horizon": "発表直後から数四半期",
+      "impact_confidence": "LOW",
+      "priced_in": {
+        "quantifiable": false,
+        "percent_range": null,
+        "raw_implied_pct": null,
+        "label": "定量不能",
+        "confidence": "LOW",
+        "model": "評価基準株価とBear/Base/Bull帯、Q2決算後の値動き、Q3会社予想を組み合わせた定性評価。",
+        "event_excluded_equity_value": null,
+        "full_success_incremental_equity_value": null,
+        "market_implied_success_probability": null,
+        "independent_success_probability": null,
+        "evidence_for": [
+          "評価基準株価91.13ドルはBase95ドルに近い。",
+          "Q2の強い増収と粗利率改善は既に公開済み。"
+        ],
+        "evidence_against": [
+          "決算日が未発表で、オプション市場のイベント期待を同一満期で比較できない。",
+          "18A、供給、外部Foundryの期待が同時に株価へ反映される。"
+        ],
+        "caveats": [
+          "Q3単独の価値を独立に計算していない。"
+        ]
+      },
+      "leading_indicators": [
+        "PCとサーバーの数量・ASP",
+        "Q3売上レンジとGAAP・非GAAP粗利率",
+        "Foundry外部売上と営業損失",
+        "営業キャッシュフローと設備投資"
+      ],
+      "dependencies": [],
+      "dependency_group": null,
+      "sell_the_news_risk": "強いQ2実績が事前期待に含まれているため、Q3が会社予想内でも18AやFoundryの説明が弱ければ評価倍率が低下する可能性があります。",
+      "financing_risk": "現金・短期投資より債務が大きく、設備投資やFab 34持分買い戻し後の資本効率が悪化すると好決算の効果を相殺し得ます。",
+      "update_triggers": [
+        "IntelがQ3 2026決算日を正式発表した時点。",
+        "Q3実績、Q4会社予想、株式数、現金、債務が開示された時点。"
+      ],
+      "source_ids": [
+        "intc-q2-2026-ir",
+        "intc-q2-2026-10q",
+        "intc-ir-calendar"
+      ]
+    },
+    {
+      "id": "intc-18a-economics",
+      "title": "Intel 18A/18A-Pの量産経済性",
+      "category": "CAPACITY",
+      "status": "ONGOING",
+      "importance": 5,
+      "direction": "TWO_SIDED",
+      "date": {
+        "display_text": "継続中。次回の定量開示日は未発表",
+        "start_date": null,
+        "end_date": null,
+        "precision": "TBD",
+        "basis": "UNKNOWN",
+        "confidence": "LOW",
+        "timezone": null,
+        "source_ids": [
+          "intc-q2-2026-ir",
+          "intc-q2-2026-10q",
+          "intc-18ap-vlsi-2026"
+        ]
+      },
+      "plain_language": "18Aの歩留まりと生産量が改善し、高コストの先端ウェハを利益へ変えられるかを見る材料です。",
+      "detail": "Q2時点でPanther Lakeの一部は18Aで高量産に入り、18A-Pはリスク生産へ進みました。一方、Q2 Foundryでは高コストの18Aウェハ構成が製品利益を圧迫したと10-Qが説明しています。",
+      "mechanism": [
+        "歩留まり改善",
+        "ウェハ単位コスト低下",
+        "製品粗利率改善",
+        "外部顧客の設計採用"
+      ],
+      "outcomes": [
+        {
+          "label": "SUCCESS",
+          "conditions": [
+            "18A製品の供給量が増え、製品粗利率が改善する。",
+            "Foundry損失説明で18A単位コスト低下が確認される。",
+            "18A-Pの顧客評価が量産準備へ進む。"
+          ],
+          "quantifiable": false,
+          "price_change_pct_range": null,
+          "price_range": null,
+          "direction": "UP",
+          "effect_on_assumptions": [
+            "Foundry損失縮小と製品粗利率の前提を改善。",
+            "外部Foundryオプションの評価を再検証。"
+          ]
+        },
+        {
+          "label": "INLINE",
+          "conditions": [
+            "18A量産は継続するが、コスト改善の定量値は未開示。",
+            "18A-Pはリスク生産段階から大きく前進も後退もしない。"
+          ],
+          "quantifiable": false,
+          "price_change_pct_range": null,
+          "price_range": null,
+          "direction": "FLAT",
+          "effect_on_assumptions": [
+            "Baseシナリオの段階的改善前提を維持。"
+          ]
+        },
+        {
+          "label": "FAILURE",
+          "conditions": [
+            "供給不足または歩留まり問題で製品出荷が遅れる。",
+            "高コスト18Aウェハが粗利率とFoundry損失を継続的に圧迫する。",
+            "18A-Pの顧客評価または量産準備が遅れる。"
+          ],
+          "quantifiable": false,
+          "price_change_pct_range": null,
+          "price_range": null,
+          "direction": "DOWN",
+          "effect_on_assumptions": [
+            "Foundry赤字縮小時期を後ろ倒し。",
+            "Base・Bull倍率と2027年利益前提を引き下げて再計算。"
+          ]
+        }
+      ],
+      "impact_method": "歩留まり・単位コストの公式定量値が不足し、18Aと製品需要の影響を分離できないため定量不能。",
+      "impact_horizon": "数四半期から複数年",
+      "impact_confidence": "LOW",
+      "priced_in": {
+        "quantifiable": false,
+        "percent_range": null,
+        "raw_implied_pct": null,
+        "label": "定量不能",
+        "confidence": "LOW",
+        "model": "18A量産進捗、Foundry損失、製品粗利率、外部顧客開示を組み合わせた定性評価。",
+        "event_excluded_equity_value": null,
+        "full_success_incremental_equity_value": null,
+        "market_implied_success_probability": null,
+        "independent_success_probability": null,
+        "evidence_for": [
+          "Panther Lakeの一部は18Aで高量産に入り、18A-Pはリスク生産を開始した。",
+          "Baseシナリオは18Aの段階的コスト改善を含む。"
+        ],
+        "evidence_against": [
+          "Q2 Foundry損失は20.89億ドルで、高コスト18Aウェハが利益を圧迫した。",
+          "歩留まりと外部顧客量産売上の定量開示が不足している。"
+        ],
+        "caveats": [
+          "製品需要とプロセス技術の価値を分離していない。"
+        ]
+      },
+      "leading_indicators": [
+        "製品粗利率",
+        "Foundry営業損失",
+        "18A製品の出荷・供給説明",
+        "18A-Pのリスク生産から量産準備への進展"
+      ],
+      "dependencies": [],
+      "dependency_group": "intc-foundry-ramp",
+      "sell_the_news_risk": "技術マイルストーンの発表だけでは採算改善を保証しないため、量産開始後も単位コストが高ければ材料出尽くしとなり得ます。",
+      "financing_risk": "歩留まり改善が遅い場合、追加設備投資と低稼働率コストが長引き、ネット債務と資本効率を圧迫します。",
+      "update_triggers": [
+        "Intelが18A歩留まり、単位コスト、供給量を定量開示した時点。",
+        "18A-P外部顧客の量産採用または遅延が一次情報で確認された時点。"
+      ],
+      "source_ids": [
+        "intc-q2-2026-ir",
+        "intc-q2-2026-10q",
+        "intc-18ap-vlsi-2026"
+      ]
+    },
+    {
+      "id": "intc-supply-demand",
+      "title": "供給制約の緩和とサーバー需要",
+      "category": "INDUSTRY",
+      "status": "WINDOWED",
+      "importance": 4,
+      "direction": "TWO_SIDED",
+      "date": {
+        "display_text": "PC関連は2026年下期に緩和見込み、業界全体の制約は2027年まで継続見込み",
+        "start_date": null,
+        "end_date": null,
+        "precision": "WINDOW",
+        "basis": "COMPANY_GUIDANCE",
+        "confidence": "MEDIUM",
+        "timezone": null,
+        "source_ids": [
+          "intc-q2-2026-10q"
+        ]
+      },
+      "plain_language": "需要が強くても足りない部材や工場能力がボトルネックになっているため、供給改善が数量成長へ変わるかを見ます。",
+      "detail": "10-QはPC関連の供給制約が2026年下期に緩和すると見込む一方、サーバーを含む業界全体の制約は2027年まで続く可能性を示しています。Q2のサーバー数量は前年同期比9%増でした。",
+      "mechanism": [
+        "基板・メモリ・工場能力",
+        "出荷数量",
+        "ASPと製品ミックス",
+        "固定費吸収"
+      ],
+      "outcomes": [
+        {
+          "label": "SUCCESS",
+          "conditions": [
+            "PC供給制約が2026年下期に緩和し、数量減少が改善する。",
+            "サーバー数量成長が継続し、顧客需要を売上へ転換できる。",
+            "供給改善が過剰在庫や大幅値下げを伴わない。"
+          ],
+          "quantifiable": false,
+          "price_change_pct_range": null,
+          "price_range": null,
+          "direction": "UP",
+          "effect_on_assumptions": [
+            "2027年売上と固定費吸収の前提を上方再検証。"
+          ]
+        },
+        {
+          "label": "INLINE",
+          "conditions": [
+            "PC供給は段階的に改善するが、サーバー側の制約は残る。",
+            "ASP上昇と数量成長の構成がQ2から大きく変わらない。"
+          ],
+          "quantifiable": false,
+          "price_change_pct_range": null,
+          "price_range": null,
+          "direction": "FLAT",
+          "effect_on_assumptions": [
+            "Base売上前提を据え置き中心で確認。"
+          ]
+        },
+        {
+          "label": "FAILURE",
+          "conditions": [
+            "PCまたはサーバーの供給制約が会社想定より長引く。",
+            "顧客が代替製品へ移り、数量またはASPが悪化する。",
+            "供給増加後に在庫調整が発生する。"
+          ],
+          "quantifiable": false,
+          "price_change_pct_range": null,
+          "price_range": null,
+          "direction": "DOWN",
+          "effect_on_assumptions": [
+            "2027年売上成長率と倍率を引き下げて再計算。"
+          ]
+        }
+      ],
+      "impact_method": "需要、価格、製品ミックス、供給能力が同時に変動するためイベント単体の株価影響は定量不能。",
+      "impact_horizon": "2026年下期から2027年",
+      "impact_confidence": "LOW",
+      "priced_in": {
+        "quantifiable": false,
+        "percent_range": null,
+        "raw_implied_pct": null,
+        "label": "定量不能",
+        "confidence": "LOW",
+        "model": "会社の供給見通し、Q2数量・ASP、直近株価帯を組み合わせた定性評価。",
+        "event_excluded_equity_value": null,
+        "full_success_incremental_equity_value": null,
+        "market_implied_success_probability": null,
+        "independent_success_probability": null,
+        "evidence_for": [
+          "会社はPC関連制約が2026年下期に緩和すると見込む。",
+          "Q2サーバー数量は前年同期比9%増だった。"
+        ],
+        "evidence_against": [
+          "業界全体の供給制約は2027年まで続く見込み。",
+          "PC数量はQ2に前年同期比8%減で、売上増の一部はASP上昇による。"
+        ],
+        "caveats": [
+          "部材別の不足量と売上機会損失は開示されていない。"
+        ]
+      },
+      "leading_indicators": [
+        "PCとサーバーの数量",
+        "ASPと製品ミックス",
+        "在庫と前受金",
+        "基板・メモリ・社内能力に関する会社説明"
+      ],
+      "dependencies": [],
+      "dependency_group": null,
+      "sell_the_news_risk": "供給改善が発表されても、需要鈍化や在庫積み上がりが同時に起きれば利益改善につながらない可能性があります。",
+      "financing_risk": "供給能力増強が需要を上回る場合、設備投資回収と固定費吸収が悪化します。",
+      "update_triggers": [
+        "四半期ごとの数量・ASP・在庫・供給制約の更新。",
+        "会社が2027年までの供給見通しを変更した時点。"
+      ],
+      "source_ids": [
+        "intc-q2-2026-10q"
+      ]
+    },
+    {
+      "id": "intc-external-foundry",
+      "title": "Foundry外部顧客と損失縮小",
+      "category": "CONTRACT",
+      "status": "CONTINGENT",
+      "importance": 5,
+      "direction": "TWO_SIDED",
+      "date": {
+        "display_text": "大型外部量産契約の確定日は未発表",
+        "start_date": null,
+        "end_date": null,
+        "precision": "TBD",
+        "basis": "UNKNOWN",
+        "confidence": "LOW",
+        "timezone": null,
+        "source_ids": [
+          "intc-q2-2026-10q",
+          "intc-2025-10k"
+        ]
+      },
+      "plain_language": "社内向け中心の工場が、外部顧客の量産売上を増やして巨額赤字を縮められるかを見る材料です。",
+      "detail": "Q2 Foundry売上57.65億ドルのうち外部売上は2.93億ドルで、外部売上増の主因にはAlteraの非連結化も含まれます。大型外部顧客の量産採用、前払い、営業損失の改善を分けて確認します。",
+      "mechanism": [
+        "外部設計採用",
+        "前払い・量産契約",
+        "工場稼働率",
+        "Foundry損失と資本効率"
+      ],
+      "outcomes": [
+        {
+          "label": "SUCCESS",
+          "conditions": [
+            "外部顧客の量産採用または需要コミットメントが一次情報で確認される。",
+            "外部売上がAltera要因以外でも増加する。",
+            "Foundry営業損失が単位コスト改善と稼働率上昇で縮小する。"
+          ],
+          "quantifiable": false,
+          "price_change_pct_range": null,
+          "price_range": null,
+          "direction": "UP",
+          "effect_on_assumptions": [
+            "Foundry戦略オプションの倍率と損失縮小時期を上方再検証。"
+          ]
+        },
+        {
+          "label": "INLINE",
+          "conditions": [
+            "顧客評価や提携は進むが、量産売上の定量開示は限定的。",
+            "Foundry損失は段階的に縮小するが、外部売上比率は低いまま。"
+          ],
+          "quantifiable": false,
+          "price_change_pct_range": null,
+          "price_range": null,
+          "direction": "FLAT",
+          "effect_on_assumptions": [
+            "BaseシナリオのFoundryオプションを据え置き。"
+          ]
+        },
+        {
+          "label": "FAILURE",
+          "conditions": [
+            "大型外部量産顧客の獲得が遅れる。",
+            "外部売上増が非連結化や小規模取引に限られる。",
+            "Foundry損失または設備投資負担が高止まりする。"
+          ],
+          "quantifiable": false,
+          "price_change_pct_range": null,
+          "price_range": null,
+          "direction": "DOWN",
+          "effect_on_assumptions": [
+            "Foundryオプション価値を縮小し、Bear倍率を優先して再計算。"
+          ]
+        }
+      ],
+      "impact_method": "外部Foundry単体の公正価値、顧客別数量、契約条件が未開示のため定量不能。",
+      "impact_horizon": "数四半期から複数年",
+      "impact_confidence": "LOW",
+      "priced_in": {
+        "quantifiable": false,
+        "percent_range": null,
+        "raw_implied_pct": null,
+        "label": "定量不能",
+        "confidence": "LOW",
+        "model": "Foundry外部売上、損失、18A量産進捗、シナリオ倍率を組み合わせた定性評価。",
+        "event_excluded_equity_value": null,
+        "full_success_incremental_equity_value": null,
+        "market_implied_success_probability": null,
+        "independent_success_probability": null,
+        "evidence_for": [
+          "Intelは外部Foundry事業の拡大を明示し、18A-Pを外部顧客向けにも開発している。",
+          "Q2外部売上は前年同期から増加した。"
+        ],
+        "evidence_against": [
+          "Q2外部売上は2.93億ドルで、Foundry全体売上の大半は社内取引。",
+          "外部売上増にはAlteraの外部顧客化が含まれ、純粋な新規量産顧客の価値を分離できない。"
+        ],
+        "caveats": [
+          "顧客名、契約額、量産時期が非開示の案件を成功価値へ加えていない。"
+        ]
+      },
+      "leading_indicators": [
+        "Foundry外部売上",
+        "顧客前受金と需要コミットメント",
+        "Foundry営業損失",
+        "18A-P・14Aの外部顧客設計マイルストーン"
+      ],
+      "dependencies": [
+        "intc-18a-economics"
+      ],
+      "dependency_group": "intc-foundry-ramp",
+      "sell_the_news_risk": "顧客名や提携発表だけで量産売上・利益が伴わない場合、発表後に期待が後退する可能性があります。",
+      "financing_risk": "外部売上の立ち上がりが遅い間も先端工場投資と固定費が続き、債務・希薄化リスクを高め得ます。",
+      "update_triggers": [
+        "外部顧客の量産採用、前払い、契約額、量産時期が一次情報で開示された時点。",
+        "Foundry外部売上と営業損失が四半期開示された時点。"
+      ],
+      "source_ids": [
+        "intc-q2-2026-10q",
+        "intc-2025-10k",
+        "intc-18ap-vlsi-2026"
+      ]
+    }
+  ],
+  "dependency_groups": [
+    {
+      "id": "intc-foundry-ramp",
+      "name": "18A量産から外部Foundry収益化まで",
+      "catalyst_ids": [
+        "intc-18a-economics",
+        "intc-external-foundry"
+      ],
+      "relationship": "18A/18A-Pの量産経済性は外部顧客の量産採用とFoundry損失縮小の前提条件。",
+      "aggregation_rule": "18Aの技術進展と外部顧客契約の影響を単純合算せず、Foundry全体の売上・損失・資本効率で一度だけ評価する。"
+    }
+  ],
+  "watch_items": [
+    {
+      "item": "Q3売上とGAAP・非GAAP粗利率",
+      "why_it_matters": "需要、製品ミックス、18Aコスト、供給制約の合成結果が表れる。",
+      "frequency": "四半期",
+      "update_trigger": "Q3決算と次四半期会社予想の公表",
+      "catalyst_ids": [
+        "intc-q3-2026-results",
+        "intc-18a-economics"
+      ]
+    },
+    {
+      "item": "Foundry外部売上と営業損失",
+      "why_it_matters": "外部顧客獲得と18Aコスト改善を同時に確認できる。",
+      "frequency": "四半期",
+      "update_trigger": "外部売上、損失、顧客前受金の新規開示",
+      "catalyst_ids": [
+        "intc-18a-economics",
+        "intc-external-foundry"
+      ]
+    },
+    {
+      "item": "PC・サーバー数量とASP",
+      "why_it_matters": "売上成長が数量、価格、製品ミックスのどれで生じたかを分ける。",
+      "frequency": "四半期",
+      "update_trigger": "数量またはASPの前年比傾向が反転",
+      "catalyst_ids": [
+        "intc-q3-2026-results",
+        "intc-supply-demand"
+      ]
+    },
+    {
+      "item": "現金・短期投資、債務、設備投資、株式数",
+      "why_it_matters": "Foundry投資の資金負担と1株価値への希薄化を確認する。",
+      "frequency": "四半期と重要な資金調達時",
+      "update_trigger": "大型資金調達、追加ワラント、設備投資計画変更",
+      "catalyst_ids": [
+        "intc-q3-2026-results",
+        "intc-external-foundry"
+      ]
+    }
+  ],
+  "extra_sections": [
+    {
+      "id": "government-equity",
+      "title": "政府向け株式と条件付きワラント",
+      "summary": "Q2末には未解放のエスクロー株1.43億株があり、Foundry支配率51%未満を条件とする最大2.41億株・20ドルのワラントも存在します。",
+      "items": [
+        {
+          "label": "通常シナリオでの扱い",
+          "value": "現時点で行使可能でも行使見込みでもない条件付きワラント2.41億株は、52億株の通常シナリオ株式数に加えない。"
+        },
+        {
+          "label": "更新条件",
+          "value": "Foundry支配率、政府契約、ワラント行使可能性が変化した場合は株式数と全シナリオを全面再計算する。"
+        }
+      ],
+      "source_ids": [
+        "intc-q2-2026-10q"
+      ]
+    }
+  ],
+  "assumptions": [
+    {
+      "item": "評価基準株価",
+      "value": 91.13,
+      "classification": "CONFIRMED",
+      "as_of": "2026-07-30",
+      "source_ids": [
+        "intc-historical-price"
+      ],
+      "note": "米国市場終値。ライブ株価と分析基準値を分離する。"
+    },
+    {
+      "item": "Q3 2026売上会社予想",
+      "value": "158〜168億ドル",
+      "classification": "COMPANY_GUIDANCE",
+      "as_of": "2026-07-23",
+      "source_ids": [
+        "intc-q2-2026-ir"
+      ],
+      "note": "GAAP・非GAAP共通の売上レンジ。"
+    },
+    {
+      "item": "Q3 2026 GAAP粗利率会社予想",
+      "value": "41.0%",
+      "classification": "COMPANY_GUIDANCE",
+      "as_of": "2026-07-23",
+      "source_ids": [
+        "intc-q2-2026-ir"
+      ],
+      "note": "売上レンジ中間値を基にした会社予想。"
+    },
+    {
+      "item": "Q2 2026 Foundry外部売上",
+      "value": "2.93億ドル",
+      "classification": "CONFIRMED",
+      "as_of": "2026-06-27",
+      "source_ids": [
+        "intc-q2-2026-10q"
+      ],
+      "note": "Alteraの非連結化による外部顧客化を含む。"
+    },
+    {
+      "item": "期末発行済株式数",
+      "value": "50.43億株",
+      "classification": "CONFIRMED",
+      "as_of": "2026-06-27",
+      "source_ids": [
+        "intc-q2-2026-ir",
+        "intc-q2-2026-10q"
+      ],
+      "note": "シナリオでは株式報酬等を考慮し52億株を仮定。"
+    },
+    {
+      "item": "シナリオ希薄化後株式数",
+      "value": "52億株",
+      "classification": "MODEL_ESTIMATE",
+      "as_of": "2026-07-30",
+      "source_ids": [
+        "intc-q2-2026-10q"
+      ],
+      "note": "条件付き政府ワラント2.41億株は通常ケースに含めず、条件成立時に再計算。"
+    }
+  ],
+  "sources": [
+    {
+      "id": "intc-q2-2026-ir",
+      "title": "Intel Reports Second-Quarter 2026 Financial Results",
+      "publisher": "Intel Corporation",
+      "url": "https://www.intc.com/news-events/press-releases/detail/1776/intel-reports-second-quarter-2026-financial-results",
+      "published_at": "2026-07-23",
+      "accessed_at": "2026-08-01",
+      "source_type": "IR",
+      "is_primary": true,
+      "supports_catalyst_ids": [
+        "intc-q3-2026-results",
+        "intc-18a-economics"
+      ]
+    },
+    {
+      "id": "intc-q2-2026-10q",
+      "title": "Quarterly Report on Form 10-Q for the quarter ended June 27, 2026",
+      "publisher": "U.S. Securities and Exchange Commission",
+      "url": "https://www.sec.gov/Archives/edgar/data/50863/000005086326000157/intc-20260627.htm",
+      "published_at": "2026-07-23",
+      "accessed_at": "2026-08-01",
+      "source_type": "FILING",
+      "is_primary": true,
+      "supports_catalyst_ids": [
+        "intc-q3-2026-results",
+        "intc-18a-economics",
+        "intc-supply-demand",
+        "intc-external-foundry"
+      ]
+    },
+    {
+      "id": "intc-2025-10k",
+      "title": "Annual Report on Form 10-K for the fiscal year ended December 27, 2025",
+      "publisher": "U.S. Securities and Exchange Commission",
+      "url": "https://www.sec.gov/Archives/edgar/data/50863/000005086326000011/intc-20251227.htm",
+      "published_at": "2026-01-22",
+      "accessed_at": "2026-08-01",
+      "source_type": "FILING",
+      "is_primary": true,
+      "supports_catalyst_ids": [
+        "intc-external-foundry"
+      ]
+    },
+    {
+      "id": "intc-ir-calendar",
+      "title": "Intel Investor Relations Calendar",
+      "publisher": "Intel Corporation",
+      "url": "https://www.intc.com/news-events/ir-calendar",
+      "published_at": null,
+      "accessed_at": "2026-08-01",
+      "source_type": "IR",
+      "is_primary": true,
+      "supports_catalyst_ids": [
+        "intc-q3-2026-results"
+      ]
+    },
+    {
+      "id": "intc-18ap-vlsi-2026",
+      "title": "Intel Foundry Details Process Milestones and Future Innovations at 2026 VLSI Symposium",
+      "publisher": "Intel Corporation",
+      "url": "https://www.intc.com/news-events/press-releases/detail/1772/intel-foundry-details-process-milestones-and-future",
+      "published_at": "2026-06-16",
+      "accessed_at": "2026-08-01",
+      "source_type": "IR",
+      "is_primary": true,
+      "supports_catalyst_ids": [
+        "intc-18a-economics",
+        "intc-external-foundry"
+      ]
+    },
+    {
+      "id": "intc-historical-price",
+      "title": "Intel Historical Stock Data",
+      "publisher": "Intel Corporation",
+      "url": "https://www.intc.com/stock-info/historical-data",
+      "published_at": null,
+      "accessed_at": "2026-08-01",
+      "source_type": "MARKET_DATA",
+      "is_primary": false,
+      "supports_catalyst_ids": []
+    }
+  ],
+  "validation_summary": {
+    "status": "PASS",
+    "fail_count": 0,
+    "warn_count": 0,
+    "messages": [
+      "C01〜C33を確認し、確認できない日程・確率・株価影響はTBDまたは定量不能として処理。",
+      "重要度4〜5の全カタリストをIntel IRまたはSEC一次情報へ接続。",
+      "18A量産と外部Foundry顧客を同一依存グループにまとめ、影響の二重計上を防止。"
+    ]
+  },
+  "update_history": [
+    {
+      "updated_at": "2026-08-01",
+      "change": "V6.2に基づきINTC専用カタリスト正本を新規作成。Q3決算、18A量産経済性、供給制約、外部Foundry顧客を追跡対象とした。"
+    }
+  ],
+  "disclaimer": "本レポートは公開情報を基にした情報提供であり、特定の金融商品の取得・売却を勧誘するものではありません。日程未発表の項目はTBD、イベント単体の影響を分離できない項目は定量不能としています。投資判断は最新の一次情報を確認のうえ、ご自身の責任で行ってください。"
+}
