@@ -4,8 +4,19 @@ on:
   pull_request:
     paths:
       - "report-system/reports/*.report.json"
+      - "report-system/reports/*.catalyst.json"
       - "report-system/catalysts/*.catalyst.json"
-      - "scripts/publish-report-package.mjs"
+      - "scripts/publish-report-package-unified-v5.mjs"
+      - "report-system/src/unified-render.mjs"
+      - "report-system/src/validate.mjs"
+      - "report-system/src/catalyst.mjs"
+      - "report-system/src/schema.mjs"
+      - "report-system/schemas/*.schema.json"
+      - "report-system/template-bindings.json"
+      - "report-system/templates/template_report_unified_v5.html"
+      - "report-system/templates/redirect_*.html"
+      - "package.json"
+      - "package-lock.json"
       - ".github/workflows/report-package.yml"
 
 permissions:
@@ -23,12 +34,17 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
+          cache: npm
+      - name: Install validation dependencies
+        run: npm ci
       - name: Find changed report JSON files
         id: reports
         shell: bash
         run: |
           {
             git diff --name-only "${{ github.event.pull_request.base.sha }}" HEAD -- 'report-system/reports/*.report.json'
+            git diff --name-only "${{ github.event.pull_request.base.sha }}" HEAD -- 'report-system/reports/*.catalyst.json' \
+              | sed -E 's#report-system/reports/(.+)\.catalyst\.json#report-system/reports/\1.report.json#'
             git diff --name-only "${{ github.event.pull_request.base.sha }}" HEAD -- 'report-system/catalysts/*.catalyst.json' \
               | sed -E 's#report-system/catalysts/(.+)\.catalyst\.json#report-system/reports/\1.report.json#'
           } | sort -u > /tmp/reports.txt
@@ -40,7 +56,7 @@ jobs:
         run: |
           while IFS= read -r report; do
             [ -z "$report" ] && continue
-            node scripts/publish-report-package.mjs "$report"
+            node scripts/publish-report-package-unified-v5.mjs "$report"
           done < /tmp/reports.txt
       - name: Verify all reports and build the complete site
         run: |
@@ -49,6 +65,10 @@ jobs:
       - name: Commit generated publication files to the PR
         shell: bash
         run: |
+          if [ ! -s /tmp/reports.txt ]; then
+            echo "No report JSON changed; publication files are not committed."
+            exit 0
+          fi
           if [ -z "$(git status --porcelain)" ]; then
             echo "Generated files are already current."
             exit 0

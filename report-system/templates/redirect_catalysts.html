@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex,nofollow">
+<title>リダイレクト中...</title>
+<script>
+// ★ 旧URL互換用リダイレクトファイル
+// このファイルは stocks/{{TICKER}}/catalysts.html に配置される。
+// サイト内では絶対にリンクしない。旧ブックマークや旧URLへの互換性確保のみが目的。
+// ブラウザ履歴は増やさない（location.replace）。
+// index.html側はview=catalystを初期表示にだけ使用し、以後のタブ操作ではURLを変更しない。
+(function () {
+  location.replace('index.html?view=catalyst');
+})();
+</script>
+</head>
+<body>
+<p>移動中... <a href="index.html?view=catalyst">こちらをクリックして移動してください</a></p>
+</body>
+</html>
