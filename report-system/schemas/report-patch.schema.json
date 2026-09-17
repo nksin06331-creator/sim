@@ -1,21 +1,65 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$comment": "SiM report safe patch schema v1.1 — baseRevision is the authoritative concurrency guard; gitCommitSha is optional.",
+  "$comment": "SiM report safe patch schema v1.1 — v6.3対応。baseContentSha256を廃止してbaseRevisionに統一。gitCommitShaをオプションで追加。同時更新競合防止はbaseRevisionとGitHub側で管理する",
   "title": "SiM report safe patch",
   "type": "object",
-  "required": ["schemaVersion", "reportId", "baseRevision", "reason", "changedFields", "changes"],
+  "required": [
+    "schemaVersion",
+    "reportId",
+    "baseRevision",
+    "reason",
+    "changedFields",
+    "changes"
+  ],
   "properties": {
     "schemaVersion": { "const": 1 },
-    "reportId": { "type": "string", "minLength": 1 },
-    "baseRevision": { "type": "string", "minLength": 1 },
-    "gitCommitSha": { "type": ["string", "null"] },
-    "patchMode": { "enum": ["patch", "correction", "corporate-action"], "default": "patch" },
-    "reason": { "type": "string", "minLength": 5 },
-    "changedFields": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 } },
-    "changes": { "type": "object", "minProperties": 1 },
-    "deletedInfo": { "type": "string" },
-    "appliedAt": { "type": ["string", "null"] },
-    "appliedRevision": { "type": ["string", "null"] }
+    "reportId": {
+      "$comment": "ティッカー等、report.jsonのreportIdと一致させる",
+      "type": "string",
+      "minLength": 1
+    },
+    "baseRevision": {
+      "$comment": "GitHub上の現在正本JSONのrevision値。これが一致しない場合はpatchを適用しない（同時更新競合防止）",
+      "type": "string",
+      "minLength": 1
+    },
+    "gitCommitSha": {
+      "$comment": "オプション：競合検出の補助として使用可能。GitHub側でblob SHAまたはcommit SHAを記録する場合はここへ入れる",
+      "type": ["string", "null"]
+    },
+    "patchMode": {
+      "$comment": "どの種別の部分更新かを明示する",
+      "enum": ["patch", "correction", "corporate-action"],
+      "default": "patch"
+    },
+    "reason": {
+      "$comment": "更新理由。5文字以上の説明文",
+      "type": "string",
+      "minLength": 5
+    },
+    "changedFields": {
+      "$comment": "変更するフィールドのJSONパス一覧。これ以外のフィールドをchangesで変更してはいけない",
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "changes": {
+      "$comment": "変更内容のみ。正本JSON全体を再出力しない。changedFieldsで指定したパスのみ変更すること",
+      "type": "object",
+      "minProperties": 1
+    },
+    "deletedInfo": {
+      "$comment": "情報を削除する場合はその理由を記録する（情報量が減る場合のFAIL防止）",
+      "type": "string"
+    },
+    "appliedAt": {
+      "$comment": "GitHub側でpatchを正本へ適用した日時（ISO 8601）。AIが出力する段階では不要",
+      "type": ["string", "null"]
+    },
+    "appliedRevision": {
+      "$comment": "GitHub側でpatch適用後に付与した新しいrevision値",
+      "type": ["string", "null"]
+    }
   },
   "additionalProperties": false
 }

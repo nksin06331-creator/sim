@@ -16,6 +16,7 @@ import {
 } from "../report-system/src/metrics.mjs";
 import { renderGuide, renderScenario } from "../report-system/src/render.mjs";
 import { validateReport } from "../report-system/src/validate.mjs";
+import { validateSchema } from "../report-system/src/schema.mjs";
 
 const scriptRoot = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 if (scriptRoot !== repoRoot) throw new Error("リポジトリルートを解決できませんでした。");
@@ -62,7 +63,7 @@ function styleFrom(html) {
 async function buildPreview(reportPath) {
   const report = await readJson(reportPath);
   const validation = await validateReport(report, config);
-  if (validation.status === "FAIL") {
+  if (["FAIL", "BLOCKING_WARN"].includes(validation.status)) {
     console.log(JSON.stringify(validation, null, 2));
     throw new Error("Validation FAILのためプレビューを生成しません。");
   }
@@ -167,7 +168,7 @@ if (!command || ["help", "--help", "-h"].includes(command)) {
   if (!args[1]) throw new Error("REPORT_JSONを指定してください。");
   const validation = await validateReport(await readJson(resolve(args[1])), config);
   console.log(JSON.stringify(validation, null, 2));
-  if (validation.status === "FAIL") process.exitCode = 1;
+  if (["FAIL", "BLOCKING_WARN"].includes(validation.status)) process.exitCode = 1;
 } else if (command === "preview") {
   if (!args[1]) throw new Error("REPORT_JSONを指定してください。");
   const built = await buildPreview(resolve(args[1]));
@@ -181,6 +182,8 @@ if (!command || ["help", "--help", "-h"].includes(command)) {
   if (!output) throw new Error("--outputを指定してください。正本を直接上書きしません。");
   const base = await readJson(resolve(args[1]));
   const patch = await readJson(resolve(args[2]));
+  const patchSchema = validateSchema("patch", patch);
+  if (!patchSchema.valid) throw new Error(`patch schema v1.1違反: ${patchSchema.errors.join(" / ")}`);
   if (patch.schemaVersion !== 1 || patch.reportId !== base.reportId) throw new Error("patchのreportIdまたはschemaVersionが一致しません。");
   if (patch.baseRevision !== base.revision) throw new Error("baseRevisionが一致しません。最新版の正本からやり直してください。");
   const actualPaths = leafPaths(patch.changes).sort();
@@ -192,14 +195,22 @@ if (!command || ["help", "--help", "-h"].includes(command)) {
   merged.revision = new Date().toISOString();
   merged.status = "draft";
   merged.update = {
-    mode: "patch",
+    mode: patch.patchMode ?? "patch",
     baseRevision: base.revision,
     reason: patch.reason,
     changedFields: patch.changedFields,
   };
-  merged.validation = { status: "WARN", humanReviewed: false, checks: [] };
+  if (patch.deletedInfo) {
+    merged.updateHistory = [...(merged.updateHistory ?? []), {
+      updatedAt: new Date().toISOString().slice(0, 10),
+      mode: patch.patchMode ?? "patch",
+      summary: patch.reason,
+      deletedInfo: patch.deletedInfo,
+    }];
+  }
+  merged.validation = { status: "INFO_WARN", fail_count: 0, blocking_warn_count: 0, info_warn_count: 1, infoWarnMessages: ["patch適用後の再検証が必要"], humanReviewed: false, checks: [] };
   const validation = await validateReport(merged, config);
-  if (validation.status === "FAIL") {
+  if (["FAIL", "BLOCKING_WARN"].includes(validation.status)) {
     console.log(JSON.stringify(validation, null, 2));
     throw new Error("patch適用後にValidation FAILが発生しました。出力しません。");
   }
